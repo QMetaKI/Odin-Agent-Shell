@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Odin Local Runtime Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Odin Local Runtime Hub</h1>
+    <p class="api-base-url">API base: <code id="api-base-url">http://127.0.0.1:8877</code></p>
+  </header>
+
+  <!-- Boundary Banner — required per claim boundary -->
+  <div class="boundary-banner" id="boundary-banner" aria-label="Boundary Banner">
+    <strong>Boundary Notice</strong>
+    <ul>
+      <li>Localhost only — this shell does not connect to remote networks by default</li>
+      <li>Candidate-only — all outputs are candidates, not applied truth</li>
+      <li>No app apply — this shell has no apply controls</li>
+      <li>No external send — this shell does not send data externally</li>
+      <li>No provider execution — this shell does not execute model providers</li>
+      <li>Not a hosted cloud UI — local static assets only</li>
+      <li>Not a public network API — localhost contract only</li>
+    </ul>
+  </div>
+
+  <nav id="nav-shell" aria-label="Navigation Shell">
+    <ul>
+      <li><a href="#health-panel">Health</a></li>
+      <li><a href="#status-panel">Status</a></li>
+      <li><a href="#providers-panel">Providers (read-only)</a></li>
+      <li><a href="#candidates-panel">Candidates</a></li>
+      <li><a href="#proof-gaps-panel">Proof Gaps</a></li>
+      <li><a href="#events-panel">Events</a></li>
+      <li><a href="#universal-work-placeholder">Universal Work Playground</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="health-panel" class="panel">
+      <h2>Health Panel</h2>
+      <div id="health-content" class="panel-content">
+        <p class="loading">Loading health status…</p>
+      </div>
+    </section>
+
+    <section id="status-panel" class="panel">
+      <h2>Status Panel</h2>
+      <div id="status-content" class="panel-content">
+        <p class="loading">Loading status…</p>
+      </div>
+    </section>
+
+    <section id="providers-panel" class="panel">
+      <h2>Providers <span class="badge">read-only</span></h2>
+      <div id="providers-content" class="panel-content">
+        <p class="loading">Loading providers…</p>
+      </div>
+    </section>
+
+    <section id="candidates-panel" class="panel placeholder-panel">
+      <h2>Candidates</h2>
+      <p class="placeholder-note">
+        Candidate viewer — navigation placeholder.
+        Full candidate artifact viewer is in LRH-PR-08.
+        All outputs remain candidate-only.
+      </p>
+    </section>
+
+    <section id="proof-gaps-panel" class="panel">
+      <h2>Proof Gaps</h2>
+      <div id="proof-gaps-content" class="panel-content">
+        <p class="loading">Loading proof gaps…</p>
+      </div>
+    </section>
+
+    <section id="events-panel" class="panel placeholder-panel">
+      <h2>Events</h2>
+      <p class="placeholder-note">
+        Event viewer — navigation placeholder.
+        Full trace viewer is in LRH-PR-09.
+      </p>
+    </section>
+
+    <section id="universal-work-placeholder" class="panel placeholder-panel">
+      <h2>Universal Work Playground <span class="badge badge-placeholder">placeholder</span></h2>
+      <p class="placeholder-note">
+        Universal Work Playground entry placeholder only.
+        This is not an active playground — full implementation is in LRH-PR-11.
+        No app apply. No external send. No provider execution.
+        Candidate-only when implemented.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Odin Local Runtime Hub — local static shell.
+      Not a hosted cloud UI. Not a public network API.
+      Does not grant app apply authority. Does not send externally.
+      Does not execute providers. Does not prove production readiness.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
