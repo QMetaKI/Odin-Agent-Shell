@@ -1,0 +1,26 @@
+{
+  "registry_id": "odin_pre_llm_route_registry",
+  "version": "7.1",
+  "artifact_kind": "odin_registry",
+  "claim_boundary": "pre_llm_route_registry_records_route_discipline_not_model_quality_or_benchmark_claim",
+  "routes": [
+    {
+      "route": "deterministic_no_model",
+      "requires_model": false,
+      "selected_worker_class": "deterministic_candidate_worker",
+      "proof_gap": "model_not_executed_deterministic_route"
+    },
+    {
+      "route": "3b_7b_8b_hybrid",
+      "requires_model": true,
+      "selected_worker_class": "smallest_sufficient_model_projection_worker",
+      "proof_gap": "live_model_inference_not_verified"
+    },
+    {
+      "route": "cannot_safely_complete",
+      "requires_model": false,
+      "selected_worker_class": "blocked_candidate_rejection",
+      "proof_gap": "provider_not_dispatched_due_to_pre_llm_authority_block"
+    }
+  ]
+}

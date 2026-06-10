@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_pre_llm_route.schema.json",
+  "title": "Odin Pre-LLM Route",
+  "type": "object",
+  "required": ["artifact_kind", "protocol_version", "route_id", "requires_model", "selected_worker_class", "route", "reason", "cost_profile", "risk_profile", "blocked_reasons", "proof_gap", "candidate_only", "claim_boundary"],
+  "properties": {
+    "artifact_kind": {"const": "odin_pre_llm_route"},
+    "protocol_version": {"const": "7.1"},
+    "route_id": {"type": "string"},
+    "requires_model": {"type": "boolean"},
+    "selected_worker_class": {"type": "string"},
+    "selected_provider_id": {"type": ["string", "null"]},
+    "route": {"type": "string"},
+    "reason": {"type": "string"},
+    "cost_profile": {"type": "string"},
+    "risk_profile": {"type": "string"},
+    "blocked_reasons": {"type": "array", "items": {"type": "string"}},
+    "proof_gap": {"type": "array", "items": {"type": "string"}},
+    "candidate_only": {"const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

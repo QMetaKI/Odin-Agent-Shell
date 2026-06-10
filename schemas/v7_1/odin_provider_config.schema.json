@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_provider_config.schema.json",
+  "title": "Odin Provider Config",
+  "type": "object",
+  "required": ["artifact_kind", "protocol_version", "providers", "claim_boundary"],
+  "properties": {
+    "artifact_kind": {"const": "odin_provider_config"},
+    "protocol_version": {"const": "7.1"},
+    "providers": {"type": "array", "items": {"type": "object"}},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,17 @@
+{
+  "registry_id": "odin_model_worker_permission_registry",
+  "version": "7.1",
+  "artifact_kind": "odin_registry",
+  "claim_boundary": "permission_registry_declares_candidate_worker_limits_not_runtime_security_certification",
+  "default_permission_card": {
+    "may_apply": false,
+    "may_send_external": false,
+    "may_mutate_app_state": false,
+    "may_issue_receipt": false,
+    "may_accept_claim": false,
+    "may_call_tools": false,
+    "allowed_outputs": ["candidate_artifact", "provider_result", "review_note", "route_note"],
+    "forbidden_outputs": ["applied_patch", "external_send", "app_state_write", "production_receipt"],
+    "forbidden_roles": ["app_authority", "apply_executor", "claim_acceptor", "receipt_issuer", "external_sender", "state_mutator"]
+  }
+}

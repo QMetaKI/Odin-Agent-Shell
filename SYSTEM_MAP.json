@@ -295,6 +295,31 @@
   },
   "non_claim": "This is repo-prep and architecture/spec canon, not completed runtime proof.",
   "python_package": "odin",
+  "real_gh_pr_03_provider_worker_boundary": {
+    "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
+    "modules": [
+      "odin/models/permissions.py",
+      "odin/models/config.py",
+      "odin/models/redaction.py",
+      "odin/precompute/admissibility.py",
+      "odin/precompute/model_work_avoidance.py",
+      "odin/precompute/route_score.py",
+      "odin/output/composer.py"
+    ],
+    "registries": [
+      "registries/model_worker_permission_registry.json",
+      "registries/pre_llm_route_registry.json"
+    ],
+    "report": "docs/codex/reports/REAL-GH-PR-03_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/v7_1/odin_model_worker_permission_card.schema.json",
+      "schemas/v7_1/odin_pre_llm_route.schema.json",
+      "schemas/v7_1/odin_provider_config.schema.json"
+    ],
+    "tests": [
+      "tests/test_real_gh_pr_03_provider_worker_boundary.py"
+    ]
+  },
   "registries": {
     "pre_llm_intelligence": "registries/pre_llm_intelligence_registry.json",
     "qirc_gold_spine": [

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repo_contents_not_host_runtime_proof",
-  "file_count_excluding_manifest": 990,
+  "file_count_excluding_manifest": 1012,
   "files": [
     {
       "path": ".editorconfig",
@@ -80,8 +80,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "caf063190f012168283ad80477807250d9829e777cdba7eb34c5f9c5bbfc264f",
-      "size": 25404
+      "sha256": "6fc8ba14d696d57444d624aee0296032b07f2d75a9ea5df00b364d8567eff448",
+      "size": 26320
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1369,6 +1369,11 @@
       "size": 7574
     },
     {
+      "path": "docs/codex/reports/REAL-GH-PR-03_RETURN_REPORT.md",
+      "sha256": "92e449926796ace9c77a63ff410885fb9ae1c521a9e10c99b5598ef29bcffe3d",
+      "size": 1592
+    },
+    {
       "path": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
       "sha256": "0e960e31cdbaf4b8a3c4d71ca32ce14fa412accd5e3e63dabe58e33f29eec975",
       "size": 3533
@@ -2149,6 +2154,16 @@
       "size": 1273
     },
     {
+      "path": "examples/runtime/provider_config.redacted.valid.json",
+      "sha256": "990c0a83a954cedd0e4e648370e4cf43e7e919aa7066c7b3b37089b1d13b96b1",
+      "size": 825
+    },
+    {
+      "path": "examples/runtime/provider_config.secret.invalid.json",
+      "sha256": "8fdd94ab589210dc15da4d942d449021b4cffd29d0a94ff9e073872547cf7611",
+      "size": 657
+    },
+    {
       "path": "examples/runtime/universal_work_apply_block.invalid.json",
       "sha256": "85b27c4298df0248d5a0d50ace77bc5d7b1e8e5f714f15dbdf054e43008144d6",
       "size": 680
@@ -2470,8 +2485,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "00f5b8e6f924fc86430f8dd2d821da31f5b0d6ae1f268b134beba5218086a8dd",
-      "size": 98150
+      "sha256": "c2ff805f4623b2b156a7c9cfd8157f443ab8d4691903426e61d5fa138fa8e078",
+      "size": 102926
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -2584,9 +2599,19 @@
       "size": 0
     },
     {
+      "path": "odin/models/config.py",
+      "sha256": "c4f2637d56660fe73ee48334f7df37b6d556585aebd562dc5ecab8d1808c9e02",
+      "size": 1602
+    },
+    {
       "path": "odin/models/model_router.py",
       "sha256": "cb8ca4ca1ed181c433486330a1b7936a794365f1a656bc2c1ec7377498f0d01a",
       "size": 1197
+    },
+    {
+      "path": "odin/models/permissions.py",
+      "sha256": "7a798a02ebde63e1b7106692208573e5e2decd239c793440edafc102dce17784",
+      "size": 3822
     },
     {
       "path": "odin/models/providers/__init__.py",
@@ -2595,13 +2620,13 @@
     },
     {
       "path": "odin/models/providers/base.py",
-      "sha256": "ffa93fbe9fc0d0b4f9ee2ff0897400c9b4badc2d1da1c0f4349ac73b81fe142b",
-      "size": 1522
+      "sha256": "c2c02885109c1a95e006eb2d1302684d6cb319a385ccc88b41b9852c5400cdaf",
+      "size": 3459
     },
     {
       "path": "odin/models/providers/mock.py",
-      "sha256": "7746d7adeee40359b1333b918996851aef03e3d7699904c867d2fca47d8442e5",
-      "size": 992
+      "sha256": "43fba6a23720755c0cde3a8dc5c9ae5465c9bd502e58fb73f1ad4403d2cb942b",
+      "size": 1748
     },
     {
       "path": "odin/models/providers/registry.py",
@@ -2610,13 +2635,28 @@
     },
     {
       "path": "odin/models/providers/stubs.py",
-      "sha256": "7bf6142090cdc6d3c0ddd6c6fcf4653773fcc3c455547a80ad5152abcbf5cb97",
-      "size": 999
+      "sha256": "2aede2b657dee11d05994b94865ecec4fe8b0e80aa6af5f3f058ce4279f84cb2",
+      "size": 1579
+    },
+    {
+      "path": "odin/models/redaction.py",
+      "sha256": "373c659c6d8cbb0f0e267b14427715444e37f0a196aec2a639d7148f79f9cfb2",
+      "size": 894
     },
     {
       "path": "odin/models/workers.py",
-      "sha256": "f4106aa20408d8e16f4833cec449a8370d0b2b05031b150eac50d8511682afd6",
-      "size": 1305
+      "sha256": "03fa252e8ed04edca2cccadbcd372163c7a28fe42fb6c0989ffaa56f7b22b646",
+      "size": 1934
+    },
+    {
+      "path": "odin/output/__init__.py",
+      "sha256": "bb4f18830cf48a952f13370a0b8a0604bbeb02670dfd7f8f7377fde25b23d8de",
+      "size": 89
+    },
+    {
+      "path": "odin/output/composer.py",
+      "sha256": "5961b65438d265f6c28d375ab594da5dcb5910bafed969caa75d455c940020a5",
+      "size": 1307
     },
     {
       "path": "odin/packets/__init__.py",
@@ -2645,8 +2685,23 @@
     },
     {
       "path": "odin/precompute/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "4d74b4b01d78a2b9d0ed3ccd2f1245cbc3e6f2332b2a39acbb25e85796f9dedb",
+      "size": 253
+    },
+    {
+      "path": "odin/precompute/admissibility.py",
+      "sha256": "b9204ed14c9ec59d4d08d07a956e067e23425fd036ae5faa54baa8b73d17b4d8",
+      "size": 1596
+    },
+    {
+      "path": "odin/precompute/model_work_avoidance.py",
+      "sha256": "82029d71622539470fa2147b9c8e0fce3752f7f3b24089e7de8d20dd80cdbcfe",
+      "size": 1161
+    },
+    {
+      "path": "odin/precompute/route_score.py",
+      "sha256": "150c625a783ee90365ed0b2aff1e21d9862a8ad6b0be5596bd8d3161d42d5975",
+      "size": 2137
     },
     {
       "path": "odin/protocol/__init__.py",
@@ -2700,8 +2755,8 @@
     },
     {
       "path": "odin/runtime/engine.py",
-      "sha256": "39e1cd4a0c6813b4a7d20efaed141aa831b8243ca1a006af9477c89db3281fd5",
-      "size": 11823
+      "sha256": "94031cc91793434e280cd21de7997bbdc4f1e7cc5c829bc90adb38b6583cf683",
+      "size": 13380
     },
     {
       "path": "odin/runtime/errors.py",
@@ -3469,6 +3524,31 @@
       "size": 2920
     },
     {
+      "path": "odin_agent_shell.egg-info/PKG-INFO",
+      "sha256": "ad055827aca4ba07364bf5af6f3053e70d79ad74cfc38ce3c3744ebd226aabf3",
+      "size": 254
+    },
+    {
+      "path": "odin_agent_shell.egg-info/SOURCES.txt",
+      "sha256": "56ea9eb72c7d70630bec29023954fb5b3d33d88b969eb30a98c865d06898e53e",
+      "size": 10398
+    },
+    {
+      "path": "odin_agent_shell.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
+    },
+    {
+      "path": "odin_agent_shell.egg-info/entry_points.txt",
+      "sha256": "04daf22cafb1c6eb8718286b7df4519bc94277b766b5b67f50617b8519feebe5",
+      "size": 39
+    },
+    {
+      "path": "odin_agent_shell.egg-info/top_level.txt",
+      "sha256": "0ef15f37bd598a73e844e3f3c3681b23d26afcd3a69db97b277e36d65f9e2450",
+      "size": 18
+    },
+    {
       "path": "odin_app_sdk/__init__.py",
       "sha256": "84151567cfaf9a441f479171ca9683c783506ff851e2f5d536df4f68cbeeaf26",
       "size": 201
@@ -3669,6 +3749,11 @@
       "size": 356
     },
     {
+      "path": "registries/model_worker_permission_registry.json",
+      "sha256": "9fe52966308fc4cb49bf823660e3e831fcecc317c6c814e73e354169c314aa89",
+      "size": 775
+    },
+    {
       "path": "registries/mvp_v1_power_mode_registry.json",
       "sha256": "83131b5d43c4316c6d0249e9eb56cacf3a80131c615681d69a036aa4b102ad1c",
       "size": 528
@@ -3732,6 +3817,11 @@
       "path": "registries/pre_llm_intelligence_registry.json",
       "sha256": "3a894ba5eff2149dfc6c0d94ab8eebb419a97bb2074df3a6513d365c248fe7e9",
       "size": 479
+    },
+    {
+      "path": "registries/pre_llm_route_registry.json",
+      "sha256": "80f2d7815f8d3835c9b0054e062337202aeec7e638c7f72b9debb9e2489db677",
+      "size": 876
     },
     {
       "path": "registries/public_build_readiness_registry.json",
@@ -4259,6 +4349,11 @@
       "size": 1410
     },
     {
+      "path": "schemas/v7_1/odin_model_worker_permission_card.schema.json",
+      "sha256": "0abc52d9641f117534b4326f286701240cce79b2a5989a0c2f4bf02895f1322d",
+      "size": 1402
+    },
+    {
       "path": "schemas/v7_1/odin_mvp_v1_power_mode_profile.schema.json",
       "sha256": "538dc081bdaddc4db9b488afebc511ac3823fc5043802f37dfe222dbb9de6b2b",
       "size": 679
@@ -4329,9 +4424,19 @@
       "size": 966
     },
     {
+      "path": "schemas/v7_1/odin_pre_llm_route.schema.json",
+      "sha256": "f97eeea027919b0b38fb206ae4a4bc4c2a1505198ee9603278151f239f21f8f1",
+      "size": 1119
+    },
+    {
       "path": "schemas/v7_1/odin_pre_model_cognition_trace.schema.json",
       "sha256": "8af4c688d4e7ad6699366286e618c244e38483d85116cbfe108492f19bb1870b",
       "size": 894
+    },
+    {
+      "path": "schemas/v7_1/odin_provider_config.schema.json",
+      "sha256": "7773c16192d179e73b0aee06654e8e1cc46b66d52ce70331f893070dab28ea69",
+      "size": 539
     },
     {
       "path": "schemas/v7_1/odin_public_repo_canon_lock.schema.json",
@@ -4842,6 +4947,11 @@
       "path": "tests/test_real_gh_pr_02_runtime_bus_worklets.py",
       "sha256": "2b4e0f55b3f8213bab933b722dcb72c8f6689238311859b816cb32bf027e22a7",
       "size": 6268
+    },
+    {
+      "path": "tests/test_real_gh_pr_03_provider_worker_boundary.py",
+      "sha256": "c8693c4d6143d2b9b5cae4a224928f715098959e31ab0e1a3e30d1222b89e63f",
+      "size": 7315
     },
     {
       "path": "tests/test_real_pr_execution_consolidation.py",

@@ -1,0 +1,27 @@
+{
+  "artifact_kind": "odin_provider_config",
+  "protocol_version": "7.1",
+  "providers": [
+    {
+      "provider_id": "openai_compatible_provider_stub",
+      "provider_kind": "remote_disabled_adapter_stub",
+      "enabled_by_default": false,
+      "configured": false,
+      "external_network": true,
+      "live_inference_supported": false,
+      "live_inference_verified": false,
+      "credentials": {}
+    },
+    {
+      "provider_id": "ollama_provider_stub",
+      "provider_kind": "local_disabled_adapter_stub",
+      "enabled_by_default": false,
+      "configured": false,
+      "external_network": false,
+      "live_inference_supported": false,
+      "live_inference_verified": false,
+      "credentials": {}
+    }
+  ],
+  "claim_boundary": "example_provider_config_has_no_credentials_and_no_live_inference_proof"
+}

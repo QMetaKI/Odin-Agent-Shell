@@ -12,6 +12,10 @@ from odin.hub.static_hub import write_static_hub
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
 from odin.models.providers.registry import list_provider_cards
+from odin.models.permissions import build_permission_card, check_permission_escalation
+from odin.models.config import load_provider_config, validate_provider_config
+from odin.models.redaction import dumps_redacted
+from odin.precompute import score_pre_llm_route
 from odin.runtime.store import RuntimeStore
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1510,6 +1514,78 @@ def validate_runtime_bus_worklets() -> list[str]:
             errors.append(f"local API contains forbidden WAN/LAN marker: {marker}")
     return errors
 
+
+def validate_provider_worker_boundary() -> list[str]:
+    errors: list[str] = []
+    required_paths = [
+        "odin/models/providers/base.py",
+        "odin/models/providers/mock.py",
+        "odin/models/providers/stubs.py",
+        "odin/models/permissions.py",
+        "schemas/v7_1/odin_model_worker_permission_card.schema.json",
+        "schemas/v7_1/odin_pre_llm_route.schema.json",
+        "schemas/v7_1/odin_provider_config.schema.json",
+        "registries/model_worker_permission_registry.json",
+        "registries/pre_llm_route_registry.json",
+    ]
+    for rel in required_paths:
+        if not (ROOT / rel).exists():
+            errors.append(f"provider-worker boundary file missing: {rel}")
+    required_forbidden_roles = {"app_authority", "apply_executor", "claim_acceptor", "receipt_issuer", "external_sender", "state_mutator"}
+    for card in list_provider_cards():
+        missing = required_forbidden_roles - set(card.get("forbidden_roles", []))
+        if missing:
+            errors.append(f"{card.get('provider_id')}: missing forbidden roles {sorted(missing)}")
+        if card.get("candidate_only") is not True:
+            errors.append(f"{card.get('provider_id')}: provider card must be candidate_only")
+        if card.get("may_apply") or card.get("may_send_external") or card.get("may_mutate_app_state") or card.get("may_accept_claim") or card.get("may_issue_receipt"):
+            errors.append(f"{card.get('provider_id')}: provider authority gates must be false")
+        if "stub" in str(card.get("provider_id")) and (card.get("enabled_by_default") or card.get("live_inference_verified")):
+            errors.append(f"{card.get('provider_id')}: remote/local stubs must be disabled or non-verified by default")
+    permission_card = build_permission_card("validator_worker")
+    for gate in ["may_apply", "may_send_external", "may_mutate_app_state", "may_accept_claim", "may_issue_receipt"]:
+        if check_permission_escalation(permission_card, {gate: True}).get("status") != "blocked":
+            errors.append(f"permission card did not block {gate}")
+    no_model_work = {
+        "work_id": "VALIDATOR-NO-MODEL",
+        "work_intent": {"kind": "classify", "requires_model": False, "goal": "deterministic route"},
+        "model_policy": {"requires_model": False},
+        "output_contract": {"candidate_only": True, "app_owned_apply": True, "may_apply": False},
+        "constraints": {"actions": []},
+    }
+    route = score_pre_llm_route(no_model_work)
+    if route.get("requires_model") or route.get("route") != "deterministic_no_model":
+        errors.append("pre-LLM route did not choose deterministic no-model when sufficient")
+    apply_work = {
+        "work_id": "VALIDATOR-APPLY-BLOCK",
+        "work_intent": {"kind": "apply", "goal": "apply directly"},
+        "output_contract": {"candidate_only": False, "app_owned_apply": False, "may_apply": True},
+        "constraints": {"actions": ["direct_apply"]},
+    }
+    blocked_route = score_pre_llm_route(apply_work)
+    if not blocked_route.get("blocked_reasons"):
+        errors.append("pre-LLM route did not block direct apply before provider dispatch")
+    redacted_path = ROOT / "examples/runtime/provider_config.redacted.valid.json"
+    if redacted_path.exists():
+        try:
+            load_provider_config(redacted_path)
+        except Exception as exc:
+            errors.append(f"redacted provider config should validate: {exc}")
+        rendered = dumps_redacted(load_json(redacted_path))
+        for marker in ["api_key", "ODIN_TEST", "Bearer "]:
+            if marker in rendered:
+                errors.append(f"redacted provider config leaked marker {marker}")
+    secret_path = ROOT / "examples/runtime/provider_config.secret.invalid.json"
+    if secret_path.exists():
+        secret_obj = load_json(secret_path)
+        if not validate_provider_config(secret_obj):
+            errors.append("secret provider config fixture should fail closed")
+        redacted = dumps_redacted(secret_obj)
+        for marker in ["ODIN_TEST_API_KEY_SHOULD_REDACT", "ODIN_TEST_TOKEN_SHOULD_REDACT", "ODIN_TEST_PASSWORD_SHOULD_REDACT", "ODIN_TEST_BEARER_SHOULD_REDACT"]:
+            if marker in redacted:
+                errors.append(f"secret redaction leaked {marker}")
+    return errors
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -1537,6 +1613,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_public_repo_windows_build_ready())
     errors.extend(validate_runtime_source_candidate())
     errors.extend(validate_runtime_bus_worklets())
+    errors.extend(validate_provider_worker_boundary())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -1568,6 +1645,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-runtime-source-candidate")
     sub.add_parser("validate-direct-runtime-release-candidate")
     sub.add_parser("validate-runtime-bus-worklets")
+    sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
     sub.add_parser("doctor")
     sub.add_parser("run-golden-flow")
@@ -1708,6 +1786,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_direct_runtime_release_candidate()
     elif args.cmd == "validate-runtime-bus-worklets":
         errors = validate_runtime_bus_worklets()
+    elif args.cmd == "validate-provider-worker-boundary":
+        errors = validate_provider_worker_boundary()
     else:
         errors = validate_all()
 
