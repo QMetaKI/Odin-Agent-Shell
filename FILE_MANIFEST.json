@@ -3435,8 +3435,8 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "763dfdeda163590325519862d190d82d2437697cb06d0a6e944d9fc9b6ab4102",
-      "size": 396
+      "sha256": "b9371747137562f27d60780aff28b9b4f725fb7752d2bd9a8a7baeeb52cbe9bc",
+      "size": 603
     },
     {
       "path": "registries/acceptance_gates.json",

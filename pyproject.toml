@@ -15,3 +15,17 @@ odin = "odin.cli:main"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["odin*", "odin_app_sdk*"]
+exclude = [
+  "docs*",
+  "examples*",
+  "registries*",
+  "runtime*",
+  "schemas*",
+  "sdk*",
+  "templates*",
+  "tests*",
+  "windows*",
+]
