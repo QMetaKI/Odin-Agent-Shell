@@ -1723,6 +1723,97 @@ def validate_agent_operator_mode() -> list[str]:
     return errors
 
 
+def validate_local_runtime_starter() -> list[str]:
+    """Validate portable local runtime starter files, configs, and boundaries."""
+    errors = []
+
+    required_scripts = [
+        "scripts/start_odin.sh",
+        "scripts/stop_odin.sh",
+        "scripts/check_odin.sh",
+        "scripts/start_odin.bat",
+        "scripts/stop_odin.bat",
+        "scripts/check_odin.bat",
+    ]
+    for rel in required_scripts:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"runtime starter script missing: {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if "python -m odin.cli" not in text:
+            errors.append(f"{rel}: script must call 'python -m odin.cli'")
+
+    doc = ROOT / "docs/LOCAL_RUNTIME_STARTER_V1.md"
+    if not doc.exists():
+        errors.append("docs/LOCAL_RUNTIME_STARTER_V1.md missing")
+    else:
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore")
+        for required_phrase in [
+            "not a Windows service",
+            "not a tray",
+            "not a signed installer",
+            "not production readiness",
+            "public network",
+            "127.0.0.1",
+        ]:
+            if required_phrase.lower() not in doc_text.lower():
+                errors.append(f"docs/LOCAL_RUNTIME_STARTER_V1.md: missing required phrase: {required_phrase!r}")
+
+    valid_cfg = ROOT / "examples/local_runtime/portable_runtime_config.valid.json"
+    if not valid_cfg.exists():
+        errors.append("examples/local_runtime/portable_runtime_config.valid.json missing")
+    else:
+        try:
+            from odin.local_runtime.config import validate_config
+            data = load_json(valid_cfg)
+            errs = validate_config(data)
+            if errs:
+                errors.append(f"valid config fixture should have no errors, got: {errs}")
+        except Exception as exc:
+            errors.append(f"valid config fixture check failed: {exc}")
+
+    invalid_cfg = ROOT / "examples/local_runtime/portable_runtime_config.invalid.public_bind.json"
+    if not invalid_cfg.exists():
+        errors.append("examples/local_runtime/portable_runtime_config.invalid.public_bind.json missing")
+    else:
+        try:
+            from odin.local_runtime.config import validate_config
+            data = load_json(invalid_cfg)
+            errs = validate_config(data)
+            if not errs:
+                errors.append("invalid public_bind config fixture should fail validation but passed")
+        except Exception as exc:
+            errors.append(f"invalid config fixture check failed: {exc}")
+
+    try:
+        from odin.local_runtime.config import DEFAULT_HOST, ALLOWED_HOSTS, BLOCKED_HOSTS
+        if DEFAULT_HOST != "127.0.0.1":
+            errors.append(f"default host must be 127.0.0.1, got {DEFAULT_HOST!r}")
+        for blocked in ("0.0.0.0", "::", ""):
+            if blocked not in BLOCKED_HOSTS:
+                errors.append(f"host {blocked!r} must be in BLOCKED_HOSTS")
+        for allowed in ("127.0.0.1", "localhost", "::1"):
+            if allowed not in ALLOWED_HOSTS:
+                errors.append(f"host {allowed!r} must be in ALLOWED_HOSTS")
+    except Exception as exc:
+        errors.append(f"local_runtime config module check failed: {exc}")
+
+    try:
+        from odin.local_runtime.lockfile import LOCKFILE_PATH
+        lockfile_dir = str(LOCKFILE_PATH.parent.relative_to(ROOT))
+        if not lockfile_dir.startswith(".odin_runtime"):
+            errors.append(f"lockfile must be under .odin_runtime/, got {lockfile_dir}")
+    except Exception as exc:
+        errors.append(f"local_runtime lockfile module check failed: {exc}")
+
+    test_file = ROOT / "tests/test_lrh_pr_03_portable_local_runtime_starter.py"
+    if not test_file.exists():
+        errors.append("tests/test_lrh_pr_03_portable_local_runtime_starter.py missing")
+
+    return errors
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -1751,6 +1842,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_runtime_source_candidate())
     errors.extend(validate_runtime_bus_worklets())
     errors.extend(validate_provider_worker_boundary())
+    errors.extend(validate_local_runtime_starter())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -1785,9 +1877,28 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
     sub.add_parser("validate-agent-operator-mode")
+    sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("doctor")
     sub.add_parser("run-golden-flow")
     sub.add_parser("list-providers")
+
+    start_p = sub.add_parser("start")
+    start_p.add_argument("--portable", action="store_true", default=False)
+    start_p.add_argument("--host", default="127.0.0.1")
+    start_p.add_argument("--port", type=int, default=8877)
+
+    stop_p = sub.add_parser("stop")
+    stop_p.add_argument("--portable", action="store_true", default=False)
+
+    check_p = sub.add_parser("check")
+    check_p.add_argument("--portable", action="store_true", default=False)
+    check_p.add_argument("--host", default="127.0.0.1")
+    check_p.add_argument("--port", type=int, default=8877)
+
+    prove_p = sub.add_parser("prove-local-runtime")
+    prove_p.add_argument("--once-smoke", action="store_true", default=False)
+    prove_p.add_argument("--host", default="127.0.0.1")
+    prove_p.add_argument("--port", type=int, default=8877)
     # Agent Operator Mode CLI commands (LRH-PR-02)
     agent_handoff = sub.add_parser("agent-handoff")
     agent_handoff.add_argument("--agent", required=True)
@@ -1885,6 +1996,43 @@ def main(argv: list[str] | None = None) -> int:
         if args.once_smoke:
             print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
+
+    # Portable Local Runtime Starter commands (LRH-PR-03)
+    if args.cmd == "start":
+        if not args.portable:
+            print(json.dumps({"status": "blocked", "error": "use --portable flag for portable local runtime", "claim_boundary": "local_runtime_starter_candidate_only"}, indent=2))
+            return 1
+        from odin.local_runtime.starter import start_portable_runtime
+        result = start_portable_runtime(host=args.host, port=args.port, _blocking=True)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ready", "stopped"} else 1
+
+    if args.cmd == "stop":
+        if not args.portable:
+            print(json.dumps({"status": "blocked", "error": "use --portable flag for portable local runtime", "claim_boundary": "local_runtime_starter_candidate_only"}, indent=2))
+            return 1
+        from odin.local_runtime.starter import stop_portable_runtime
+        result = stop_portable_runtime()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "check":
+        if not args.portable:
+            print(json.dumps({"status": "blocked", "error": "use --portable flag for portable local runtime", "claim_boundary": "local_runtime_starter_candidate_only"}, indent=2))
+            return 1
+        from odin.local_runtime.starter import check_portable_runtime
+        result = check_portable_runtime(host=args.host, port=args.port)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-local-runtime":
+        if not args.once_smoke:
+            print(json.dumps({"status": "blocked", "error": "use --once-smoke flag; unbounded proof is not supported", "claim_boundary": "local_runtime_proof_candidate_only"}, indent=2))
+            return 1
+        from odin.local_runtime.proof import run_once_smoke_proof
+        result = run_once_smoke_proof(host=args.host, port=args.port)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "partial"} else 1
 
     # Agent Operator Mode commands (LRH-PR-02)
     if args.cmd == "agent-handoff":
@@ -2016,6 +2164,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_provider_worker_boundary()
     elif args.cmd == "validate-agent-operator-mode":
         errors = validate_agent_operator_mode()
+    elif args.cmd == "validate-local-runtime-starter":
+        errors = validate_local_runtime_starter()
     else:
         errors = validate_all()
 

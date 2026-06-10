@@ -1,0 +1,10 @@
+{
+  "_comment": "INVALID: public bind is blocked by default. This fixture tests rejection.",
+  "host": "0.0.0.0",
+  "port": 8877,
+  "runtime_mode": "portable_local",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "claim_boundary": "local_runtime_candidate_only_localhost_no_app_apply_no_external_send"
+}
