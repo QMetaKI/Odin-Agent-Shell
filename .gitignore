@@ -6,3 +6,4 @@ __pycache__/
 .cache/
 dist/
 build/
+odin_agent_shell.egg-info/
