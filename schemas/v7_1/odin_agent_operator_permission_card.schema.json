@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_agent_operator_permission_card.schema.json",
+  "title": "odin_agent_operator_permission_card",
+  "description": "Permission Card governing what a coding agent may and may not do under Odin Agent Operator Mode. Hard defaults: may_apply_app_state=false, may_send_external=false, may_call_provider_api=false, may_use_hidden_tools=false, may_mutate_domain_state=false.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "schema_version",
+    "permission_card_id",
+    "agent_profile_id",
+    "may_read_files",
+    "may_edit_files",
+    "may_run_commands",
+    "may_create_pr",
+    "may_apply_app_state",
+    "may_send_external",
+    "may_call_provider_api",
+    "may_use_hidden_tools",
+    "may_mutate_domain_state",
+    "allowed_file_patterns",
+    "forbidden_file_patterns",
+    "allowed_command_patterns",
+    "forbidden_command_patterns",
+    "required_approval_for",
+    "proof_boundary",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_agent_operator_permission_card"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "permission_card_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "may_read_files": {
+      "type": "boolean"
+    },
+    "may_edit_files": {
+      "type": "boolean"
+    },
+    "may_run_commands": {
+      "type": "boolean"
+    },
+    "may_create_pr": {
+      "type": "boolean"
+    },
+    "may_apply_app_state": {
+      "const": false
+    },
+    "may_send_external": {
+      "const": false
+    },
+    "may_call_provider_api": {
+      "const": false
+    },
+    "may_use_hidden_tools": {
+      "const": false
+    },
+    "may_mutate_domain_state": {
+      "const": false
+    },
+    "allowed_file_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_file_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "allowed_command_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_command_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_approval_for": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "proof_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

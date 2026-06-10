@@ -1,0 +1,105 @@
+{
+  "artifact_kind": "odin_agent_work_packet",
+  "schema_version": "1.0",
+  "packet_id": "AWP-CODEX-LRH-PR-02",
+  "agent_profile_id": "codex",
+  "task_source": "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md",
+  "objective": "Implement LRH-PR-02 Odin Agent Operator Mode: schemas, registries, examples, guards, proofs, returns, CLI surfaces, and tests.",
+  "repo_scope": {
+    "root": ".",
+    "branch": "claude/lrh-pr-02-agent-operator-engitx",
+    "max_file_edits": 30
+  },
+  "allowed_files": [
+    "odin/agent_operator/",
+    "odin/cli.py",
+    "docs/AGENT_OPERATOR_MODE_V1.md",
+    "schemas/v7_1/odin_agent_work_packet.schema.json",
+    "schemas/v7_1/odin_agent_return_report.schema.json",
+    "schemas/v7_1/odin_agent_operator_permission_card.schema.json",
+    "registries/agent_operator_profile_registry.json",
+    "registries/thor_compatibility_registry.json",
+    "examples/agent_operator/",
+    "tests/test_lrh_pr_02_agent_operator_mode.py",
+    "docs/codex/reports/LRH-PR-02_RETURN_REPORT.md",
+    "FILE_MANIFEST.json",
+    "SYSTEM_MAP.json",
+    "CLAUDE.md",
+    ".claude/"
+  ],
+  "forbidden_files": [
+    ".env",
+    ".git/",
+    "secrets/",
+    ".thor/",
+    "odin/runtime/",
+    "odin/daemon/",
+    "odin/models/providers/"
+  ],
+  "forbidden_actions": [
+    "app_state_apply",
+    "claiming_proof_without_receipt",
+    "domain_state_mutation",
+    "external_send",
+    "hidden_tool_execution",
+    "network_transport_by_default",
+    "provider_api_call_without_receipt",
+    "secret_exfiltration",
+    "unbounded_file_edit"
+  ],
+  "required_context": [
+    "README.md",
+    "AGENTS.md",
+    "CODEX_START_HERE.md",
+    "CLAIM_BOUNDARY.md",
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
+    "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md"
+  ],
+  "required_commands": [
+    "python -m pip install -e .",
+    "python -m odin.cli validate-current-public-canon",
+    "python -m odin.cli validate-all",
+    "python -m odin.cli validate-agent-operator-mode",
+    "python -m pytest -q -p no:cacheprovider",
+    "python -m pytest -q tests/test_lrh_pr_02_agent_operator_mode.py -p no:cacheprovider"
+  ],
+  "acceptance_gates": [
+    "validate-all passes",
+    "pytest passes",
+    "validate-agent-operator-mode passes",
+    "no forbidden claims introduced",
+    "candidate_only invariant preserved",
+    "app_owned_apply invariant preserved"
+  ],
+  "proof_boundaries": [
+    "no_app_apply_by_agent",
+    "no_external_send_by_agent",
+    "no_hidden_tool_execution",
+    "candidate_only_output",
+    "no_runtime_proof_claimed"
+  ],
+  "claim_boundaries": [
+    "candidate_patch_only",
+    "no_runtime_proof_claimed",
+    "no_host_validation_claimed",
+    "schemas_specified_not_host_validated",
+    "thor_handoff_advisory_not_authority"
+  ],
+  "senior_reviewer_required": true,
+  "senior_code_reviewer_required": true,
+  "thor_compatibility": {
+    "status": "partial",
+    "mapped_concepts": ["thor handoff", "thor pack --agent codex", "thor guard", "thor expected"],
+    "gaps": ["thor y handoff conceptual only", "thor repo cognition not wired"],
+    "claim_boundary": "thor_output_advisory_odin_repo_files_are_authority"
+  },
+  "future_target_flags": [],
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "network_transport_default": false,
+  "hidden_tool_execution_allowed": false,
+  "created_by": "odin.agent_operator.packets (profile=codex)",
+  "created_at_policy": "deterministic_fixture"
+}

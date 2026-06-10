@@ -718,5 +718,19 @@
     "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "registry": "registries/codex_real_pr_handoff_registry.json"
   },
+  "lrh_pr_02_agent_operator_mode": {
+    "claim_boundary": "agent_operator_mode_schemas_and_protocol_not_runtime_proof",
+    "doc": "docs/AGENT_OPERATOR_MODE_V1.md",
+    "module": "odin/agent_operator/",
+    "profiles_registry": "registries/agent_operator_profile_registry.json",
+    "thor_compatibility_registry": "registries/thor_compatibility_registry.json",
+    "schemas": [
+      "schemas/v7_1/odin_agent_work_packet.schema.json",
+      "schemas/v7_1/odin_agent_return_report.schema.json",
+      "schemas/v7_1/odin_agent_operator_permission_card.schema.json"
+    ],
+    "tests": "tests/test_lrh_pr_02_agent_operator_mode.py",
+    "status": "candidate_specification_not_runtime_verified"
+  },
   "version": "0.8.7"
 }

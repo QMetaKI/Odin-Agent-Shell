@@ -1,0 +1,23 @@
+{
+  "_comment": "INVALID: may_call_provider_api is true — violates Agent Operator Mode hard permission default. This card must be rejected.",
+  "artifact_kind": "odin_agent_operator_permission_card",
+  "schema_version": "1.0",
+  "permission_card_id": "PC-INVALID-PROVIDER-API",
+  "agent_profile_id": "codex",
+  "may_read_files": true,
+  "may_edit_files": true,
+  "may_run_commands": true,
+  "may_create_pr": true,
+  "may_apply_app_state": false,
+  "may_send_external": false,
+  "may_call_provider_api": true,
+  "may_use_hidden_tools": false,
+  "may_mutate_domain_state": false,
+  "allowed_file_patterns": [],
+  "forbidden_file_patterns": [],
+  "allowed_command_patterns": [],
+  "forbidden_command_patterns": [],
+  "required_approval_for": [],
+  "proof_boundary": "invalid_card_proof_boundary",
+  "claim_boundary": "invalid_example_not_valid_card"
+}

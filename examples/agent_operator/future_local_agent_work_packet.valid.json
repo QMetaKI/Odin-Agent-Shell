@@ -1,0 +1,72 @@
+{
+  "artifact_kind": "odin_agent_work_packet",
+  "schema_version": "1.0",
+  "packet_id": "AWP-FUTURE-LOCAL-EXAMPLE-001",
+  "agent_profile_id": "future-local-agent",
+  "task_source": "local_task_brief.txt",
+  "objective": "Example packet for a future local agent. Profile is candidate-only, permission-card-bound, no external send, no provider API by default.",
+  "repo_scope": {
+    "root": ".",
+    "branch": "main"
+  },
+  "allowed_files": [],
+  "forbidden_files": [
+    ".env",
+    ".git/",
+    "secrets/"
+  ],
+  "forbidden_actions": [
+    "app_state_apply",
+    "claiming_proof_without_receipt",
+    "domain_state_mutation",
+    "external_send",
+    "hidden_tool_execution",
+    "network_transport_by_default",
+    "provider_api_call_without_receipt",
+    "secret_exfiltration",
+    "unbounded_file_edit"
+  ],
+  "required_context": [
+    "AGENTS.md",
+    "CLAIM_BOUNDARY.md"
+  ],
+  "required_commands": [],
+  "acceptance_gates": [
+    "permission_card_respected",
+    "candidate_only_output",
+    "no_external_send"
+  ],
+  "proof_boundaries": [
+    "no_app_apply_by_agent",
+    "no_external_send_by_agent",
+    "no_hidden_tool_execution",
+    "candidate_only_output",
+    "no_provider_api_by_default"
+  ],
+  "claim_boundaries": [
+    "candidate_patch_only",
+    "future_local_agent_profile_not_implemented_yet",
+    "no_runtime_proof_claimed"
+  ],
+  "senior_reviewer_required": true,
+  "senior_code_reviewer_required": true,
+  "thor_compatibility": {
+    "status": "conceptual",
+    "mapped_concepts": ["thor handoff", "thor guard"],
+    "gaps": ["future local agent not yet implemented", "no thor pack profile"],
+    "claim_boundary": "future_local_agent_thor_conceptual_only"
+  },
+  "future_target_flags": [
+    "implementation_future_target",
+    "local_model_integration_future_target",
+    "permission_card_runtime_enforcement_future_target"
+  ],
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "network_transport_default": false,
+  "hidden_tool_execution_allowed": false,
+  "created_by": "odin.agent_operator.packets (profile=future-local-agent)",
+  "created_at_policy": "deterministic_fixture",
+  "notes": "Future local agent profile. Implementation is a future target. This packet is a schema fixture only."
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_agent_work_packet.schema.json",
+  "title": "odin_agent_work_packet",
+  "description": "Agent Work Packet — the structured handoff unit for coding agents under Odin Agent Operator Mode. Candidate-only, permission-gated, proof-bound.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "schema_version",
+    "packet_id",
+    "agent_profile_id",
+    "task_source",
+    "objective",
+    "repo_scope",
+    "allowed_files",
+    "forbidden_files",
+    "forbidden_actions",
+    "required_context",
+    "required_commands",
+    "acceptance_gates",
+    "proof_boundaries",
+    "claim_boundaries",
+    "senior_reviewer_required",
+    "senior_code_reviewer_required",
+    "thor_compatibility",
+    "future_target_flags",
+    "candidate_only",
+    "app_owned_apply",
+    "external_send_default",
+    "network_transport_default",
+    "hidden_tool_execution_allowed",
+    "created_by",
+    "created_at_policy"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_agent_work_packet"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "packet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_profile_id": {
+      "type": "string",
+      "enum": ["codex", "claude-code", "generic-cli-agent", "thor-compatible", "future-local-agent"]
+    },
+    "task_source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repo_scope": {
+      "type": "object",
+      "required": ["root", "branch"],
+      "properties": {
+        "root": {"type": "string"},
+        "branch": {"type": "string"},
+        "max_file_edits": {"type": "integer", "minimum": 1}
+      }
+    },
+    "allowed_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "contains": {
+        "const": "app_state_apply"
+      }
+    },
+    "required_context": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_commands": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "acceptance_gates": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "proof_boundaries": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "claim_boundaries": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "senior_reviewer_required": {
+      "const": true
+    },
+    "senior_code_reviewer_required": {
+      "const": true
+    },
+    "thor_compatibility": {
+      "type": "object",
+      "required": ["status", "claim_boundary"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["verified", "partial", "conceptual", "gap", "unsupported", "not_applicable"]
+        },
+        "mapped_concepts": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "gaps": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "claim_boundary": {"type": "string"}
+      }
+    },
+    "future_target_flags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "app_owned_apply": {
+      "const": true
+    },
+    "external_send_default": {
+      "const": false
+    },
+    "network_transport_default": {
+      "const": false
+    },
+    "hidden_tool_execution_allowed": {
+      "const": false
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at_policy": {
+      "type": "string",
+      "enum": ["deterministic_fixture", "runtime_stamp"]
+    },
+    "permission_card": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

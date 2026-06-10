@@ -1586,6 +1586,143 @@ def validate_provider_worker_boundary() -> list[str]:
                 errors.append(f"secret redaction leaked {marker}")
     return errors
 
+def validate_agent_operator_mode() -> list[str]:
+    """Validate Agent Operator Mode schemas, registries, examples, and boundaries."""
+    errors = []
+    required_schemas = [
+        "schemas/v7_1/odin_agent_work_packet.schema.json",
+        "schemas/v7_1/odin_agent_return_report.schema.json",
+        "schemas/v7_1/odin_agent_operator_permission_card.schema.json",
+    ]
+    for rel in required_schemas:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"agent operator mode schema missing: {rel}")
+            continue
+        try:
+            load_json(p)
+        except Exception as exc:
+            errors.append(f"agent operator mode schema invalid JSON {rel}: {exc}")
+
+    required_registries = [
+        "registries/agent_operator_profile_registry.json",
+        "registries/thor_compatibility_registry.json",
+    ]
+    for rel in required_registries:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"agent operator mode registry missing: {rel}")
+            continue
+        try:
+            data = load_json(p)
+        except Exception as exc:
+            errors.append(f"agent operator mode registry invalid JSON {rel}: {exc}")
+            continue
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"agent operator mode registry missing registry_id/version: {rel}")
+
+    # Validate profile registry
+    profile_path = ROOT / "registries" / "agent_operator_profile_registry.json"
+    if profile_path.exists():
+        try:
+            data = load_json(profile_path)
+            required_profiles = {"codex", "claude-code", "generic-cli-agent", "thor-compatible", "future-local-agent"}
+            found = {p.get("profile_id") for p in data.get("profiles", [])}
+            missing = required_profiles - found
+            if missing:
+                errors.append(f"agent operator profile registry missing profiles: {sorted(missing)}")
+            hard_false_fields = ["may_apply_app_state", "may_send_external", "may_call_provider_api",
+                                 "may_use_hidden_tools", "may_mutate_domain_state"]
+            for profile in data.get("profiles", []):
+                perm = profile.get("default_permission_card", {})
+                for field in hard_false_fields:
+                    if perm.get(field) is not False:
+                        errors.append(f"profile {profile.get('profile_id')!r} must have {field}=false")
+        except Exception as exc:
+            errors.append(f"agent operator profile registry load failed: {exc}")
+
+    # Validate Thor compatibility registry
+    thor_path = ROOT / "registries" / "thor_compatibility_registry.json"
+    if thor_path.exists():
+        try:
+            data = load_json(thor_path)
+            for m in data.get("mappings", []):
+                for key in ["thor_concept", "odin_concept", "status", "evidence_label", "gap", "claim_boundary"]:
+                    if key not in m:
+                        errors.append(f"thor compatibility mapping missing {key}: {m.get('thor_concept')}")
+        except Exception as exc:
+            errors.append(f"thor compatibility registry load failed: {exc}")
+
+    # Validate valid examples
+    valid_examples = [
+        "examples/agent_operator/codex_work_packet.valid.json",
+        "examples/agent_operator/claude_code_work_packet.valid.json",
+        "examples/agent_operator/generic_cli_agent_work_packet.valid.json",
+        "examples/agent_operator/future_local_agent_work_packet.valid.json",
+        "examples/agent_operator/thor_compatible_packet.valid.json",
+    ]
+    for rel in valid_examples:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"agent operator valid example missing: {rel}")
+            continue
+        try:
+            packet = load_json(p)
+        except Exception as exc:
+            errors.append(f"agent operator valid example invalid JSON {rel}: {exc}")
+            continue
+        if packet.get("candidate_only") is not True:
+            errors.append(f"{rel}: candidate_only must be true")
+        if packet.get("app_owned_apply") is not True:
+            errors.append(f"{rel}: app_owned_apply must be true")
+        if packet.get("external_send_default") is not False:
+            errors.append(f"{rel}: external_send_default must be false")
+        if packet.get("hidden_tool_execution_allowed") is not False:
+            errors.append(f"{rel}: hidden_tool_execution_allowed must be false")
+
+    # Validate invalid examples fail for correct reasons
+    invalid_checks = [
+        ("examples/agent_operator/agent_work_packet.invalid.hidden_apply.json", "hidden_tool_execution_allowed", True),
+        ("examples/agent_operator/agent_work_packet.invalid.external_send.json", "external_send_default", True),
+    ]
+    for rel, field, expected_val in invalid_checks:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"agent operator invalid example missing: {rel}")
+            continue
+        try:
+            packet = load_json(p)
+            if packet.get(field) != expected_val:
+                errors.append(f"{rel}: expected {field}={expected_val!r} to trigger invalidity")
+        except Exception as exc:
+            errors.append(f"agent operator invalid example load failed {rel}: {exc}")
+
+    provider_api_path = ROOT / "examples/agent_operator/agent_permission_card.invalid.provider_api.json"
+    if provider_api_path.exists():
+        try:
+            card = load_json(provider_api_path)
+            if card.get("may_call_provider_api") is not True:
+                errors.append("provider_api invalid example must have may_call_provider_api=true to be invalid")
+        except Exception as exc:
+            errors.append(f"provider_api invalid example load failed: {exc}")
+    else:
+        errors.append("agent operator invalid example missing: examples/agent_operator/agent_permission_card.invalid.provider_api.json")
+
+    # Check boundary invariants via module
+    try:
+        from odin.agent_operator.guards import check_forbidden_actions
+        from odin.agent_operator.packets import validate_agent_work_packet
+        from odin.agent_operator.returns import build_return_report_skeleton, validate_return_report
+        skeleton = build_return_report_skeleton("TEST", "codex")
+        result = validate_return_report(skeleton)
+        if result["status"] != "ok":
+            errors.append(f"return report skeleton failed validation: {result}")
+    except Exception as exc:
+        errors.append(f"agent operator mode module import/check failed: {exc}")
+
+    return errors
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -1647,9 +1784,24 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-runtime-bus-worklets")
     sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
+    sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("doctor")
     sub.add_parser("run-golden-flow")
     sub.add_parser("list-providers")
+    # Agent Operator Mode CLI commands (LRH-PR-02)
+    agent_handoff = sub.add_parser("agent-handoff")
+    agent_handoff.add_argument("--agent", required=True)
+    agent_handoff.add_argument("--task", required=True)
+    agent_plan = sub.add_parser("agent-plan")
+    agent_plan.add_argument("--packet", required=True)
+    agent_guard = sub.add_parser("agent-guard")
+    agent_guard.add_argument("--packet", required=True)
+    agent_check = sub.add_parser("agent-check")
+    agent_check.add_argument("--packet", required=True)
+    agent_proof = sub.add_parser("agent-proof")
+    agent_proof.add_argument("--packet", required=True)
+    agent_return = sub.add_parser("agent-return")
+    agent_return.add_argument("--packet", required=True)
     run_work = sub.add_parser("run-work")
     run_work.add_argument("work")
     run_work.add_argument("--seed-pack")
@@ -1734,6 +1886,80 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # Agent Operator Mode commands (LRH-PR-02)
+    if args.cmd == "agent-handoff":
+        from odin.agent_operator.packets import build_agent_work_packet
+        try:
+            packet = build_agent_work_packet(
+                agent_profile_id=args.agent,
+                task_source=args.task,
+                objective=f"Agent handoff for task: {args.task}",
+            )
+            print(json.dumps(packet, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+        except Exception as exc:
+            print(json.dumps({"status": "blocked", "error": str(exc), "claim_boundary": "agent_handoff_error_no_apply"}, indent=2))
+            return 1
+
+    if args.cmd == "agent-plan":
+        packet = load_json(Path(args.packet))
+        result = {
+            "status": "ok",
+            "packet_id": packet.get("packet_id"),
+            "agent_profile_id": packet.get("agent_profile_id"),
+            "plan_envelope": {
+                "objective": packet.get("objective"),
+                "required_context": packet.get("required_context", []),
+                "acceptance_gates": packet.get("acceptance_gates", []),
+                "required_commands": packet.get("required_commands", []),
+            },
+            "claim_boundary": "plan_envelope_candidate_not_execution_proof",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "agent-guard":
+        from odin.agent_operator.guards import check_forbidden_actions
+        packet = load_json(Path(args.packet))
+        result = check_forbidden_actions(packet)
+        result["claim_boundary"] = "guard_check_candidate_not_runtime_proof"
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result["status"] == "ok" else 1
+
+    if args.cmd == "agent-check":
+        from odin.agent_operator.packets import validate_agent_work_packet
+        packet = load_json(Path(args.packet))
+        result = validate_agent_work_packet(packet)
+        result["claim_boundary"] = "packet_check_candidate_not_runtime_proof"
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result["status"] == "ok" else 1
+
+    if args.cmd == "agent-proof":
+        from odin.agent_operator.proofs import emit_proof_boundary_summary
+        packet = load_json(Path(args.packet))
+        result = emit_proof_boundary_summary(packet)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "agent-return":
+        from odin.agent_operator.returns import build_return_report_skeleton
+        packet = load_json(Path(args.packet))
+        report = build_return_report_skeleton(
+            packet_id=packet.get("packet_id", "UNKNOWN"),
+            agent_profile_id=packet.get("agent_profile_id", "unknown"),
+        )
+        print(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-agent-operator-mode":
+        errors = validate_agent_operator_mode()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-agent-operator-mode: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -1788,6 +2014,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_runtime_bus_worklets()
     elif args.cmd == "validate-provider-worker-boundary":
         errors = validate_provider_worker_boundary()
+    elif args.cmd == "validate-agent-operator-mode":
+        errors = validate_agent_operator_mode()
     else:
         errors = validate_all()
 
