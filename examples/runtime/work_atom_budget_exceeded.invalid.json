@@ -1,0 +1,307 @@
+{
+  "artifact_kind": "odin_work_atom_plan",
+  "atoms": [
+    {
+      "atom_id": "ATOM-00",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-01",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-02",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-03",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-04",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-05",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-06",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-07",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-08",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-09",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-10",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-11",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-12",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-13",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-14",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-15",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-16",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-17",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-18",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-19",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-20",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-21",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-22",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-23",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-24",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-25",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-26",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-27",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-28",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-29",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-30",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-31",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    },
+    {
+      "atom_id": "ATOM-32",
+      "atom_type": "context_compress_atom",
+      "budget": {
+        "max_ms_shadow": 25,
+        "model_required": false
+      },
+      "worklet_id": "WORKLET-00-main"
+    }
+  ],
+  "candidate_only": true,
+  "claim_boundary": "invalid_fixture_should_fail_closed",
+  "plan_id": "ATOMPLAN-budget-exceeded",
+  "protocol_version": "7.1",
+  "work_id": "WORK-BUDGET"
+}

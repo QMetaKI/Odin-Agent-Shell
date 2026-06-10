@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_runtime_bus_event_registry",
+  "protocol_version": "7.1",
+  "events": [
+    {"event_type": "runtime.work.received", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.binding.allowed", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.binding.blocked", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.worklets.compiled", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.work_atoms.executed", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.candidate.emitted", "local_only": true, "candidate_only": true},
+    {"event_type": "runtime.boundary_rejected", "local_only": true, "candidate_only": true}
+  ],
+  "forbidden_authority": ["app_apply", "external_send", "mutate_app_state", "network_transport"],
+  "claim_boundary": "runtime_bus_registry_is_local_candidate_coordination_not_apply_authority"
+}

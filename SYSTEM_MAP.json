@@ -165,7 +165,8 @@
     "docs/CODEX_REAL_PR_HANDOFF_LADDER_LOCK_V0_8_7.md",
     "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md",
-    "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md"
+    "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md",
+    "docs/codex/reports/REAL-GH-PR-02_RETURN_REPORT.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -307,6 +308,29 @@
   },
   "registries_dir": "registries",
   "repo": "Odin-Agent-Shell",
+  "runtime_substrate": {
+    "bus_modules": [
+      "odin/bus/events.py",
+      "odin/bus/bus.py"
+    ],
+    "claim_boundary": "candidate_only_local_runtime_substrate_no_app_apply_no_external_send_no_wan_lan_transport",
+    "local_api": "odin/daemon/local_api.py",
+    "real_gh_pr_02": "runtime_bus_persistence_local_api_worklets_work_atoms",
+    "registries": [
+      "registries/runtime_bus_event_registry.json",
+      "registries/worklet_registry.json"
+    ],
+    "runtime_store": "odin/runtime/store.py",
+    "schemas": [
+      "schemas/v7_1/odin_semantic_bus_event.schema.json",
+      "schemas/v7_1/odin_worklet_graph.schema.json",
+      "schemas/v7_1/odin_runtime_store_record.schema.json"
+    ],
+    "worklet_modules": [
+      "odin/worklets/graph.py",
+      "odin/worklets/compiler.py"
+    ]
+  },
   "schemas_dir": "schemas/v7_1",
   "shadow_runtime_lock": {
     "bundle": "REAL-PR-09",
