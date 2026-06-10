@@ -1,0 +1,29 @@
+{
+  "artifact_kind": "odin_localhost_api_proof_gaps",
+  "protocol_version": "7.1",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_windows_service_tray_installer_proof",
+    "not_signed_installer_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_provider_credential_proof"
+  ],
+  "known_gaps": [
+    "no_live_model_inference_proof",
+    "no_production_readiness_proof",
+    "no_public_network_api_proof",
+    "no_app_state_mutation_proof",
+    "no_external_send_authority_proof",
+    "no_provider_credential_proof",
+    "no_windows_host_proof",
+    "no_security_certification"
+  ],
+  "candidate_only": true,
+  "note": "This endpoint exposes known proof gaps. It does not claim production readiness, live model inference, public network access, or app-state mutation authority.",
+  "claim_boundary": "local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim"
+}

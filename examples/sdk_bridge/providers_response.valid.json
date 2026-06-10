@@ -1,0 +1,14 @@
+{
+  "artifact_kind": "odin_localhost_api_providers",
+  "protocol_version": "7.1",
+  "providers": [
+    {
+      "provider_id": "mock_local_3b",
+      "candidate_only": true,
+      "enabled_by_default": true,
+      "forbidden_roles": ["app_authority", "apply_executor", "external_sender"]
+    }
+  ],
+  "candidate_only": true,
+  "claim_boundary": "provider_cards_not_live_provider_proof"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Proof Gaps Response",
+  "description": "Response for GET /v1/proof-gaps. Lists known proof gaps. Does not prove production readiness.",
+  "type": "object",
+  "required": ["artifact_kind", "proof_boundaries", "known_gaps", "candidate_only"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_proof_gaps"},
+    "protocol_version": {"type": "string"},
+    "proof_boundaries": {"type": "array", "items": {"type": "string"}},
+    "known_gaps": {"type": "array", "items": {"type": "string"}},
+    "candidate_only": {"type": "boolean", "const": true},
+    "note": {"type": "string"},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

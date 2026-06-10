@@ -1,0 +1,9 @@
+{
+  "artifact_kind": "odin_localhost_api_candidate",
+  "candidate_id": "CAND-SDK-001",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "candidate_text": "Example candidate output",
+  "stored_at": "2026-06-10T00:00:00Z",
+  "claim_boundary": "stored_candidate_has_no_app_apply_authority"
+}

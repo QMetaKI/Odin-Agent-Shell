@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Status Response",
+  "description": "Response for GET /v1/status. candidate_only. No app apply authority.",
+  "type": "object",
+  "required": ["artifact_kind", "candidate_only", "app_owned_apply"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_status"},
+    "protocol_version": {"type": "string"},
+    "candidate_count": {"type": "integer", "minimum": 0},
+    "session_count": {"type": "integer", "minimum": 0},
+    "bus_event_count": {"type": "integer", "minimum": 0},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "external_send_default": {"type": "boolean", "const": false},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,23 @@
+{
+  "runtime_status": "ok",
+  "session_id": "SESSION-SDK-TEST-001",
+  "selected_candidate_id": "CAND-SDK-001",
+  "candidates": [
+    {
+      "candidate_id": "CAND-SDK-001",
+      "candidate_only": true,
+      "app_owned_apply": true,
+      "artifact_kind": "odin_candidate_artifact"
+    }
+  ],
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_live_model_inference_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof"
+  ],
+  "claim_boundary": "local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim"
+}

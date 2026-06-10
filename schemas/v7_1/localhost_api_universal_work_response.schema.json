@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Universal Work Response",
+  "description": "Response for POST /v1/universal-work. candidate_only. App owns apply/state/external-send.",
+  "type": "object",
+  "required": ["candidate_only", "app_owned_apply"],
+  "properties": {
+    "runtime_status": {"type": "string"},
+    "session_id": {"type": "string"},
+    "selected_candidate_id": {"type": "string"},
+    "candidates": {"type": "array", "items": {"type": "object"}},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "external_send_default": {"type": "boolean", "const": false},
+    "proof_boundaries": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

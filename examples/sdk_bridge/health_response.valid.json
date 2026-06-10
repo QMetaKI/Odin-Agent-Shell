@@ -1,0 +1,12 @@
+{
+  "artifact_kind": "odin_localhost_api_health",
+  "protocol_version": "7.1",
+  "status": "ok",
+  "runtime": "candidate",
+  "network_scope": "localhost_only",
+  "version": "0.8.7",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "claim_boundary": "local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim"
+}

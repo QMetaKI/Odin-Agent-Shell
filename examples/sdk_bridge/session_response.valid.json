@@ -1,0 +1,9 @@
+{
+  "artifact_kind": "odin_localhost_api_session",
+  "session_id": "SESSION-SDK-TEST-001",
+  "runtime_status": "ok",
+  "candidate_count": 1,
+  "candidate_only": true,
+  "stored_at": "2026-06-10T00:00:00Z",
+  "claim_boundary": "stored_session_is_local_candidate_record_not_receipt"
+}

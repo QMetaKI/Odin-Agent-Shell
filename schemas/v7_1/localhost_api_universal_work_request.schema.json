@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Universal Work Request",
+  "description": "Request body for POST /v1/universal-work. candidate_only: true is implied.",
+  "type": "object",
+  "required": ["work"],
+  "properties": {
+    "work": {"type": "object", "description": "Universal work specification"},
+    "caller_manifest": {"type": "object", "description": "Optional caller identity manifest"},
+    "seed_pack": {"type": "object", "description": "Optional seed pack for work context"},
+    "pattern_mine": {"type": "object", "description": "Optional pattern mine for context"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Candidate Response",
+  "description": "Response for GET /v1/candidates/{id}. Candidate artifact is candidate-only, app owns apply.",
+  "type": "object",
+  "required": ["candidate_only", "app_owned_apply"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_candidate"},
+    "candidate_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

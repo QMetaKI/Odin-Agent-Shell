@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Events Response",
+  "description": "Response for GET /v1/events. Local bus events, candidate-only, local-only.",
+  "type": "object",
+  "required": ["artifact_kind", "events", "candidate_only", "local_only"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_events"},
+    "protocol_version": {"type": "string"},
+    "events": {"type": "array", "items": {"type": "object"}},
+    "candidate_only": {"type": "boolean", "const": true},
+    "local_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}
