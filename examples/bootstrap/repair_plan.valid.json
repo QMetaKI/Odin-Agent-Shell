@@ -1,0 +1,40 @@
+{
+  "artifact_kind": "odin_repair_plan",
+  "applied": false,
+  "apply_gate_required": true,
+  "candidate_only": true,
+  "claim_boundary": "repair_plan_only_no_apply_no_state_mutation_no_external_send_explicit_apply_gate_required_for_any_real_repair",
+  "failure_count": 1,
+  "known_non_proofs": [
+    "not_applied",
+    "not_production_readiness_proof",
+    "not_automatic_repair",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_windows_service_tray_installer_proof",
+    "not_provider_live_model_proof"
+  ],
+  "plan_item_count": 2,
+  "plan_items": [
+    {
+      "apply_gate_required": true,
+      "check": "config_file",
+      "failure_reason": "config absent — run first-run-bootstrap to create safe default",
+      "plan_only": true,
+      "severity": "fail",
+      "suggested_fix": "Run: python -m odin.cli first-run-bootstrap to create a safe localhost-only default config."
+    },
+    {
+      "apply_gate_required": true,
+      "check": "lockfile",
+      "failure_reason": "stale lockfile — process not alive",
+      "plan_only": true,
+      "severity": "warn",
+      "suggested_fix": "Remove the stale lockfile at .odin_runtime/local_runtime.lock after confirming no runtime is running."
+    }
+  ],
+  "plan_only": true,
+  "state_mutated": false,
+  "status": "repairs_suggested",
+  "warning_count": 1
+}

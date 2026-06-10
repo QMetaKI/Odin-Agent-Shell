@@ -732,5 +732,27 @@
     "tests": "tests/test_lrh_pr_02_agent_operator_mode.py",
     "status": "candidate_specification_not_runtime_verified"
   },
+  "lrh_pr_03_portable_local_runtime_starter": {
+    "claim_boundary": "local_runtime_starter_candidate_only_localhost_no_app_apply_no_external_send",
+    "doc": "docs/LOCAL_RUNTIME_STARTER_V1.md",
+    "module": "odin/local_runtime/",
+    "tests": "tests/test_lrh_pr_03_portable_local_runtime_starter.py",
+    "status": "candidate_specification_not_runtime_verified"
+  },
+  "lrh_pr_04_runtime_doctor_bootstrap": {
+    "claim_boundary": "doctor_bootstrap_repair_bundle_candidate_only_no_app_apply_no_external_send_not_production_proof",
+    "doc": "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md",
+    "modules": ["odin/doctor/", "odin/bootstrap/"],
+    "examples": [
+      "examples/doctor/doctor_success.valid.json",
+      "examples/doctor/doctor_failure.valid.json",
+      "examples/doctor/support_bundle_redacted.valid.json",
+      "examples/bootstrap/first_run_config.valid.json",
+      "examples/bootstrap/repair_plan.valid.json"
+    ],
+    "tests": "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py",
+    "return_report": "docs/codex/reports/LRH-PR-04_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified"
+  },
   "version": "0.8.7"
 }
