@@ -11,7 +11,10 @@ from odin.qirc.ledger import QircLedger
 from odin.seeds.compiler import compile_seed_pack
 from odin.patterns.intake import compile_pattern_mine
 from odin.flow_packs.compiler import compile_flow_packs
-from odin.work_atoms.runtime import plan_work_atoms, execute_work_atoms
+from odin.work_atoms.runtime import execute_work_atoms
+from odin.worklets.graph import build_worklet_graph
+from odin.worklets.compiler import compile_worklet_graph_to_atom_plan
+from odin.bus.bus import LocalSemanticBus
 from odin.models.model_router import choose_route
 from odin.models.workers import build_worker_card, mock_generate
 from odin.candidates.artifact import build_candidate_artifact
@@ -37,6 +40,8 @@ class OdinRuntime:
         trace = WhyTraceBuilder(work.get("work_id", "UNKNOWN"))
         ledger = QircLedger(trace.trace_id)
         session = WorkSession(work.get("work_id", "UNKNOWN"), work.get("caller_id", caller_manifest.get("caller_id", "unknown")))
+        bus = LocalSemanticBus(store=self.store)
+        bus.publish("runtime.work.received", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"work_id": work.get("work_id"), "caller_id": work.get("caller_id")}, source="odin.runtime.engine")
         trace.add("ingest", "received_universal_work", data={"work_id": work.get("work_id"), "caller_id": work.get("caller_id")})
         ledger.append("#work.ingest", "work_received", "odin.runtime.engine", {"work_id": work.get("work_id"), "caller_id": work.get("caller_id")})
 
@@ -46,6 +51,7 @@ class OdinRuntime:
         if errors:
             trace.add("binding", "blocked", errors)
             ledger.append("#binding.validate", "binding_blocked", "odin.runtime.engine", {"errors": errors})
+            bus.publish("runtime.binding.blocked", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"errors": errors}, source="odin.runtime.engine")
             response_errors = "; ".join(errors)
             trace.add("repair", "suggestions_generated", data={"suggestions": build_repair_suggestions(errors)})
             session.mark("blocked", "binding_validation_failed", {"errors": errors})
@@ -53,6 +59,7 @@ class OdinRuntime:
         session.mark("bound", "caller manifest and universal work contract accepted")
         trace.add("binding", "allowed_candidate_work", ["caller manifest and universal work contract accepted"])
         ledger.append("#binding.validate", "binding_allowed", "odin.runtime.engine", {"caller_id": caller_manifest.get("caller_id")})
+        bus.publish("runtime.binding.allowed", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"caller_id": caller_manifest.get("caller_id")}, source="odin.runtime.engine")
 
         seed_pack = seed_pack or work.get("seed_pack") or {"artifact_kind": "odin_app_seed_pack", "pack_id": "empty", "seeds": []}
         compiled_seed = compile_seed_pack(seed_pack, work)
@@ -66,8 +73,12 @@ class OdinRuntime:
         trace.add("pattern_mine", compiled_pattern["status"], compiled_pattern.get("errors", []), {"patterns": len(compiled_pattern.get("patterns", [])), "flows": len(compiled_flows)})
         ledger.append("#pattern.match", "pattern_mine_compiled", "odin.patterns.intake", {"mine_id": compiled_pattern.get("mine_id"), "status": compiled_pattern.get("status")})
 
-        plan = plan_work_atoms(work, compiled_seed, compiled_pattern)
-        session.mark("planned", "work_atom_plan_created", {"atom_count": len(plan.get("atoms", []))})
+        worklet_graph = build_worklet_graph(work)
+        plan = compile_worklet_graph_to_atom_plan(worklet_graph)
+        plan["compiled_seed_pack_ref"] = compiled_seed.get("pack_id")
+        plan["compiled_pattern_mine_ref"] = compiled_pattern.get("mine_id")
+        session.mark("planned", "worklet_graph_compiled_to_work_atom_plan", {"worklet_count": len(worklet_graph.get("worklets", [])), "atom_count": len(plan.get("atoms", [])), "status": plan.get("status")})
+        bus.publish("runtime.worklets.compiled", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"graph_id": worklet_graph.get("graph_id"), "plan_id": plan.get("plan_id"), "status": plan.get("status")}, source="odin.worklets.compiler")
         atom_payload = {
             "context": {"work": work, "seed_pack": compiled_seed, "pattern_mine": compiled_pattern},
             "claims": work.get("claim_boundary", {}).get("claims", []),
@@ -78,8 +89,9 @@ class OdinRuntime:
             "base": work.get("work_intent", {}).get("goal", work.get("work_id", "candidate")),
         }
         atom_execution = execute_work_atoms(plan, atom_payload)
-        trace.add("work_atoms", "executed", data={"atom_count": len(atom_execution.get("results", []))})
-        ledger.append("#work.atom", "work_atoms_executed", "odin.work_atoms.runtime", {"plan_id": plan.get("plan_id"), "atom_count": len(atom_execution.get("results", []))})
+        trace.add("work_atoms", atom_execution.get("status", "executed"), atom_execution.get("errors", []), {"atom_count": len(atom_execution.get("results", []))})
+        ledger.append("#work.atom", "work_atoms_executed", "odin.work_atoms.runtime", {"plan_id": plan.get("plan_id"), "atom_count": len(atom_execution.get("results", [])), "status": atom_execution.get("status")})
+        bus.publish("runtime.work_atoms.executed", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"plan_id": plan.get("plan_id"), "status": atom_execution.get("status"), "errors": atom_execution.get("errors", [])}, source="odin.work_atoms.runtime")
 
         model_policy = work.get("model_policy", {})
         route = choose_route(
@@ -95,6 +107,7 @@ class OdinRuntime:
         ledger.append("#model.route", "route_selected", "odin.models.model_router", {"route": route, "worker_id": worker["worker_id"]})
 
         content = {
+            "worklet_graph": worklet_graph,
             "work_atom_execution": atom_execution,
             "compiled_seed_pack": compiled_seed,
             "compiled_pattern_mine": compiled_pattern,
@@ -114,12 +127,14 @@ class OdinRuntime:
         selected = select_candidate([candidate])
         trace_doc = trace.build()
         ledger.append("#candidate.emit", "candidate_emitted", "odin.candidates.artifact", {"candidate_id": candidate.get("candidate_id")})
+        bus.publish("runtime.candidate.emitted", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"candidate_id": candidate.get("candidate_id")}, source="odin.candidates.artifact")
         ledger.append("#why.trace", "why_trace_ready", "odin.why_trace.builder", {"trace_id": trace.trace_id, "step_count": len(trace_doc.get("steps", []))})
         qirc_digest = ledger.digest()
         response = build_response_packet(work.get("work_id"), work.get("caller_id"), [candidate], trace.trace_id)
         response["selected_candidate_id"] = selected["selected"].get("candidate_id") if selected.get("selected") else None
         response["why_trace"] = trace_doc
         response["qirc_digest"] = qirc_digest
+        response["bus_digest"] = {"artifact_kind": "odin_local_semantic_bus_digest", "event_count": len(bus.events), "events": bus.list_events(), "candidate_only": True, "claim_boundary": "local_bus_digest_no_network_no_apply"}
         session.mark("emitted", "candidate_response_ready", {"candidate_id": selected["selected"].get("candidate_id") if selected.get("selected") else None})
         response["runtime_status"] = "candidate_generated"
         response["work_session"] = session.to_dict()

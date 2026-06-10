@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repo_contents_not_host_runtime_proof",
-  "file_count_excluding_manifest": 976,
+  "file_count_excluding_manifest": 990,
   "files": [
     {
       "path": ".editorconfig",
@@ -80,8 +80,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "1040e45b786f4473add307ed1988e9cfb84a0b69d5fe635cec18c746979cb76e",
-      "size": 24542
+      "sha256": "caf063190f012168283ad80477807250d9829e777cdba7eb34c5f9c5bbfc264f",
+      "size": 25404
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1364,6 +1364,11 @@
       "size": 2940
     },
     {
+      "path": "docs/codex/reports/REAL-GH-PR-02_RETURN_REPORT.md",
+      "sha256": "d5e4134c1cc3edd8128bf8b239b8a5d15e6e318a8c875f7ced5edf6d427f0928",
+      "size": 7574
+    },
+    {
       "path": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
       "sha256": "0e960e31cdbaf4b8a3c4d71ca32ce14fa412accd5e3e63dabe58e33f29eec975",
       "size": 3533
@@ -2154,6 +2159,16 @@
       "size": 1015
     },
     {
+      "path": "examples/runtime/work_atom_budget_exceeded.invalid.json",
+      "sha256": "c488e866ec16d3fa21c195a3b882b402e00e73cb33c773e3214941af85f750b7",
+      "size": 7207
+    },
+    {
+      "path": "examples/runtime/worklet_graph.valid.json",
+      "sha256": "ef348d0d7be93fe86f7ef76ac43ad9f5ed63f3c8969d6efeecdabf761b2ef3d9",
+      "size": 466
+    },
+    {
       "path": "examples/seed_packs/app_seed_pack_executable_block.invalid.json",
       "sha256": "8e03ead32349c19d4ae45a2a31e6300203bac44a16cf7bf555b9b6d8caf18cda",
       "size": 362
@@ -2424,6 +2439,21 @@
       "size": 1575
     },
     {
+      "path": "odin/bus/__init__.py",
+      "sha256": "46959be2ec087578c80dedd3bebe37d3554ab80116ffef3aea853e623e83809b",
+      "size": 173
+    },
+    {
+      "path": "odin/bus/bus.py",
+      "sha256": "252c510aa9082ef59032d59b99c20d3980ea4f570d6dc16802a44d19b9d1a4b5",
+      "size": 1674
+    },
+    {
+      "path": "odin/bus/events.py",
+      "sha256": "79d3ad310672d573b948e2cce3d5dbccb051751bbab8a508baa77560625a450a",
+      "size": 2407
+    },
+    {
       "path": "odin/candidates/__init__.py",
       "sha256": "aeb6e1861cd38d20c97c64fcb2ffb526cc54bb48b0eeb5c162e7e23a05e98958",
       "size": 147
@@ -2440,8 +2470,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "70d8be20885023ba7d6c8b242103cbf5902e331799d4ef951d1a15901246392b",
-      "size": 95134
+      "sha256": "00f5b8e6f924fc86430f8dd2d821da31f5b0d6ae1f268b134beba5218086a8dd",
+      "size": 98150
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -2515,8 +2545,8 @@
     },
     {
       "path": "odin/daemon/local_api.py",
-      "sha256": "f33886d73bbbe88b76af2fda7eb051810979c8a9e58c2c5fda8e54d761274ac5",
-      "size": 3452
+      "sha256": "fecc2b99f35d230bdf62ab3c56b19d5f29b7aed8e893bdb7de91b925d9a3ac51",
+      "size": 6059
     },
     {
       "path": "odin/diagnostics/__init__.py",
@@ -2660,8 +2690,8 @@
     },
     {
       "path": "odin/runtime/__init__.py",
-      "sha256": "ae018a4ce69258d01af7b345991e373a855ae72d65869323a9a6cf3746cec0c0",
-      "size": 391
+      "sha256": "879e19ef2d2d5a5baae7c5f5b682895dbbed43f8a8931cc8535b9b94732d2afb",
+      "size": 586
     },
     {
       "path": "odin/runtime/config.py",
@@ -2670,8 +2700,8 @@
     },
     {
       "path": "odin/runtime/engine.py",
-      "sha256": "c68f1776a6e17c48007943ad83aeee032319796376cde3d20d3ac0d461ad6460",
-      "size": 9529
+      "sha256": "39e1cd4a0c6813b4a7d20efaed141aa831b8243ca1a006af9477c89db3281fd5",
+      "size": 11823
     },
     {
       "path": "odin/runtime/errors.py",
@@ -2695,8 +2725,8 @@
     },
     {
       "path": "odin/runtime/store.py",
-      "sha256": "4fcb24493336bee7d2b7a512a5c77d58be3e65ceeaa5c5b7c4328b0f75cd8d3a",
-      "size": 2125
+      "sha256": "b80616f41e992c7ad0745685fda65b40d2fec09137f58ba5467b49040977d226",
+      "size": 5584
     },
     {
       "path": "odin/seeds/__init__.py",
@@ -3420,8 +3450,23 @@
     },
     {
       "path": "odin/work_atoms/runtime.py",
-      "sha256": "988a7bb14455e9328f4e01bd4c9d98d41b104cb7ad5f16bf11ff1e9be70a3664",
-      "size": 2548
+      "sha256": "0715e681d0e9bdc5da296e8361a068a00c4fca4d61d156cb581b4429de1ba5bf",
+      "size": 5500
+    },
+    {
+      "path": "odin/worklets/__init__.py",
+      "sha256": "09c703d703fbad52641f03961b6366c37dd806a5c39ad4f5dd5bfdd7151a4627",
+      "size": 219
+    },
+    {
+      "path": "odin/worklets/compiler.py",
+      "sha256": "4ce22e5a7e1bde940aa2a8cd5a2b95a6c157fae820495cc7e1a51226d28d7f37",
+      "size": 1832
+    },
+    {
+      "path": "odin/worklets/graph.py",
+      "sha256": "2af9678e836429fc81e28f3a401566483c5ad835cb432022d4ba25902802b21e",
+      "size": 2920
     },
     {
       "path": "odin_app_sdk/__init__.py",
@@ -3440,8 +3485,8 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "763dfdeda163590325519862d190d82d2437697cb06d0a6e944d9fc9b6ab4102",
-      "size": 396
+      "sha256": "b44786b0f00c14203229f343581e1a9d285da22f1643b120ade78dea3f33fa14",
+      "size": 635
     },
     {
       "path": "registries/acceptance_gates.json",
@@ -3759,6 +3804,11 @@
       "size": 219
     },
     {
+      "path": "registries/runtime_bus_event_registry.json",
+      "sha256": "2b4289ebc722d2480df134b2c1e17a7dbae9ba18e6ef64ae2328e5b00cb0a9f0",
+      "size": 943
+    },
+    {
       "path": "registries/runtime_pack_registry.json",
       "sha256": "badb0219bc1afd82e26badad44c98221ed8ac41d4991afa0f42131d321e313d5",
       "size": 473
@@ -3897,6 +3947,11 @@
       "path": "registries/work_atom_type_registry.json",
       "sha256": "3e1939e1533aaf1b7c824c50a2ce955f40a4529e60c7ecbcb4c0830063a5e9cf",
       "size": 799
+    },
+    {
+      "path": "registries/worklet_registry.json",
+      "sha256": "c86bb57e8451c633919ff9737718ad04658bd55e3d6748aac042cd9a84d2b028",
+      "size": 497
     },
     {
       "path": "registries/y_core_posture_registry.json",
@@ -4374,6 +4429,11 @@
       "size": 934
     },
     {
+      "path": "schemas/v7_1/odin_runtime_store_record.schema.json",
+      "sha256": "ec49f074160508b4035eac799fa6b07721686989306d582f6e69f42213a3bdf9",
+      "size": 776
+    },
+    {
       "path": "schemas/v7_1/odin_safety_superposition_packet.schema.json",
       "sha256": "6e9e4ff63f7c817a192710b062d628b593106bf397a0272bc2091fc890dcb5b8",
       "size": 969
@@ -4427,6 +4487,11 @@
       "path": "schemas/v7_1/odin_seed_pattern_pack_certification.schema.json",
       "sha256": "38eb887362f0ad5dcd7034e8efbe9d05d19aa6b843c167153ed2fe42899f3279",
       "size": 694
+    },
+    {
+      "path": "schemas/v7_1/odin_semantic_bus_event.schema.json",
+      "sha256": "05a324158925b2415c48b57e3fd72cce1c67485f6e0c00585acb9052562f1fdb",
+      "size": 1054
     },
     {
       "path": "schemas/v7_1/odin_semantic_diff_packet.schema.json",
@@ -4555,8 +4620,8 @@
     },
     {
       "path": "schemas/v7_1/odin_worklet_graph.schema.json",
-      "sha256": "4c630bdbbbc9cc50db7b31505ba7474714c116fdb2b51a577f150f3a959e736b",
-      "size": 1202
+      "sha256": "ac842fa689558e24764cd5c913e9b5f0a8e67a60265afed68ac384dcb872890d",
+      "size": 1081
     },
     {
       "path": "schemas/v7_1/odin_y_core_posture.schema.json",
@@ -4772,6 +4837,11 @@
       "path": "tests/test_real_gh_pr_01_foundation_canon.py",
       "sha256": "f34c0136ad825439ed05df90450b87be569035002549711d271d234f0b855e31",
       "size": 3023
+    },
+    {
+      "path": "tests/test_real_gh_pr_02_runtime_bus_worklets.py",
+      "sha256": "2b4e0f55b3f8213bab933b722dcb72c8f6689238311859b816cb32bf027e22a7",
+      "size": 6268
     },
     {
       "path": "tests/test_real_pr_execution_consolidation.py",

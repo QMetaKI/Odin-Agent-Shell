@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_runtime_store_record.schema.json",
+  "title": "odin_runtime_store_record",
+  "type": "object",
+  "required": ["artifact_kind", "claim_boundary"],
+  "properties": {
+    "artifact_kind": {
+      "enum": [
+        "odin_runtime_candidate_record",
+        "odin_runtime_session_record",
+        "odin_runtime_bus_event_record",
+        "odin_runtime_trace_record",
+        "odin_runtime_store_status"
+      ]
+    },
+    "protocol_version": {"type": "string"},
+    "candidate_only": {"type": "boolean"},
+    "local_only": {"type": "boolean"},
+    "stored_at": {"type": "string"},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1462,6 +1462,54 @@ def validate_current_public_canon() -> list[str]:
                 errors.append(f"{rel}:{line_no}: production-ready wording must be negated or proof-gap scoped")
     return errors
 
+
+def validate_runtime_bus_worklets() -> list[str]:
+    errors: list[str] = []
+    required_paths = [
+        "odin/bus/events.py",
+        "odin/bus/bus.py",
+        "odin/worklets/graph.py",
+        "odin/worklets/compiler.py",
+        "schemas/v7_1/odin_semantic_bus_event.schema.json",
+        "schemas/v7_1/odin_worklet_graph.schema.json",
+        "schemas/v7_1/odin_runtime_store_record.schema.json",
+        "registries/runtime_bus_event_registry.json",
+        "registries/worklet_registry.json",
+        "examples/runtime/worklet_graph.valid.json",
+        "examples/runtime/work_atom_budget_exceeded.invalid.json",
+    ]
+    for rel in required_paths:
+        if not (ROOT / rel).exists():
+            errors.append(f"runtime bus/worklets required path missing: {rel}")
+    try:
+        from odin.bus.bus import LocalSemanticBus
+        from odin.worklets.graph import build_worklet_graph
+        from odin.worklets.compiler import compile_worklet_graph_to_atom_plan
+        from odin.work_atoms.runtime import execute_work_atoms
+
+        event = LocalSemanticBus().publish("app.apply", work_id="W", session_id="S", trace_id="T", payload={"secret": "redacted"})
+        if event.get("event_type") != "runtime.boundary_rejected":
+            errors.append("forbidden bus event was not downgraded")
+        graph = build_worklet_graph({"work_id": "VALIDATE", "work_intent": {"work_atoms": ["context_compress_atom"]}})
+        plan = compile_worklet_graph_to_atom_plan(graph)
+        if plan.get("status") != "ok" or len(plan.get("atoms", [])) != 1:
+            errors.append("worklet graph did not compile to a bounded atom plan")
+        budget_fixture = load_json(ROOT / "examples" / "runtime" / "work_atom_budget_exceeded.invalid.json")
+        result = execute_work_atoms(budget_fixture, {})
+        if result.get("status") != "blocked":
+            errors.append("work atom budget fixture did not fail closed")
+    except Exception as exc:
+        errors.append(f"runtime bus/worklets import or fixture check failed: {exc}")
+    local_api = (ROOT / "odin" / "daemon" / "local_api.py").read_text(encoding="utf-8", errors="ignore")
+    for marker in ["/v7/apply'", '"/v7/apply"']:
+        if marker in local_api and "FORBIDDEN_ROUTES" not in local_api:
+            errors.append("local API appears to expose app apply route")
+    forbidden_network_markers = ["0.0.0.0", "serve_forever_external", "wan_enabled"]
+    for marker in forbidden_network_markers:
+        if marker in local_api:
+            errors.append(f"local API contains forbidden WAN/LAN marker: {marker}")
+    return errors
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -1488,6 +1536,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_product_pattern_atom_hub())
     errors.extend(validate_public_repo_windows_build_ready())
     errors.extend(validate_runtime_source_candidate())
+    errors.extend(validate_runtime_bus_worklets())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -1518,6 +1567,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-public-repo-windows-build-ready")
     sub.add_parser("validate-runtime-source-candidate")
     sub.add_parser("validate-direct-runtime-release-candidate")
+    sub.add_parser("validate-runtime-bus-worklets")
     sub.add_parser("validate-all")
     sub.add_parser("doctor")
     sub.add_parser("run-golden-flow")
@@ -1538,6 +1588,7 @@ def main(argv: list[str] | None = None) -> int:
     serve = sub.add_parser("serve")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
+    serve.add_argument("--once-smoke", action="store_true")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -1600,7 +1651,9 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"status": "ok", "support_bundle": str(path), "claim_boundary": "diagnostic_candidate"}, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
     if args.cmd == "serve":
-        run_local_api(args.host, args.port)
+        result = run_local_api(args.host, args.port, once_smoke=args.once_smoke)
+        if args.once_smoke:
+            print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
     if args.cmd == "validate-json":
@@ -1653,6 +1706,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_runtime_source_candidate()
     elif args.cmd == "validate-direct-runtime-release-candidate":
         errors = validate_direct_runtime_release_candidate()
+    elif args.cmd == "validate-runtime-bus-worklets":
+        errors = validate_runtime_bus_worklets()
     else:
         errors = validate_all()
 

@@ -1,0 +1,19 @@
+{
+  "artifact_kind": "odin_worklet_registry",
+  "protocol_version": "7.1",
+  "max_worklets": 8,
+  "max_atoms_per_worklet": 12,
+  "max_total_atoms": 32,
+  "known_atom_types": [
+    "context_compress_atom",
+    "boundary_scan_atom",
+    "seed_activation_atom",
+    "pattern_match_atom",
+    "slot_forge_atom",
+    "candidate_variant_atom",
+    "why_trace_atom",
+    "json_repair_atom",
+    "claim_check_atom"
+  ],
+  "claim_boundary": "worklets_are_bounded_plan_segments_not_agents_or_apply_units"
+}

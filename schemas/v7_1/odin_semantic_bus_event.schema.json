@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_semantic_bus_event.schema.json",
+  "title": "odin_semantic_bus_event",
+  "type": "object",
+  "required": ["artifact_kind", "protocol_version", "event_id", "event_type", "work_id", "session_id", "trace_id", "payload_digest", "created_at", "candidate_only", "claim_boundary"],
+  "properties": {
+    "artifact_kind": {"const": "odin_runtime_bus_event_record"},
+    "protocol_version": {"const": "7.1"},
+    "event_id": {"type": "string"},
+    "event_type": {"type": "string"},
+    "work_id": {"type": "string"},
+    "session_id": {"type": "string"},
+    "trace_id": {"type": "string"},
+    "source": {"type": "string"},
+    "payload_digest": {"type": "string"},
+    "payload_ref": {"type": "string"},
+    "created_at": {"type": "string"},
+    "candidate_only": {"const": true},
+    "local_only": {"const": true},
+    "boundary_status": {"type": "string"},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_worklet_graph",
+  "protocol_version": "7.1",
+  "graph_id": "WORKLETGRAPH-example-valid",
+  "work_id": "WORK-FULL-001",
+  "worklets": [
+    {
+      "worklet_id": "WORKLET-00-main",
+      "depends_on": [],
+      "atoms": ["context_compress_atom", "boundary_scan_atom", "candidate_variant_atom", "why_trace_atom"]
+    }
+  ],
+  "candidate_only": true,
+  "claim_boundary": "worklets_are_bounded_local_plan_segments_not_agents_or_apply_units"
+}
