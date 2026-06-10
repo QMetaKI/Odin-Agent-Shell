@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
-  "claim_boundary": "manifest_records_repo_contents_not_host_runtime_proof",
-  "file_count_excluding_manifest": 1012,
+  "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
+  "file_count_excluding_manifest": 1026,
   "files": [
     {
       "path": ".editorconfig",
@@ -60,8 +60,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "5c697376296fb39743911e8cf3de427dcaf02a150f32f491ee2eb8e83d6f2fe6",
-      "size": 4043
+      "sha256": "6173f118ea41e48aee8f454c72f093a6e7b9581993a7bf16bea6c27b15ce063e",
+      "size": 4430
     },
     {
       "path": "SECURITY.md",
@@ -75,13 +75,13 @@
     },
     {
       "path": "START_HERE.md",
-      "sha256": "a2696b090b35b3d4cea6b1bce4baf56b79a0c8f05a46d02755f6ed4822a304f3",
-      "size": 2263
+      "sha256": "39dab4bfd4a01c15f0a38f44391606941241094bdcc5e9dc88bad2f7acc53607",
+      "size": 2633
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "6fc8ba14d696d57444d624aee0296032b07f2d75a9ea5df00b364d8567eff448",
-      "size": 26320
+      "sha256": "019cea222476ed7439d1e668df3a795d6851dc1a9a2e5d540ab924ab511f771e",
+      "size": 27875
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1994,6 +1994,71 @@
       "size": 2792
     },
     {
+      "path": "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
+      "sha256": "2428da4f8449ae121057a66887fced9a773eb7deaf77233a35aba00519627abb",
+      "size": 3754
+    },
+    {
+      "path": "docs/rebaseline/LEGACY_QUARANTINE_PLAN_LOCAL_RUNTIME_HUB.md",
+      "sha256": "e9235bb57d17f6192ee696661346026445b117714c0f163f3a3ab24b84b1dd0f",
+      "size": 1680
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
+      "sha256": "b217f6dd7770ee5dc8cf45e406fc4c2ce487413bdd2da7afb7af53beb15f0d5b",
+      "size": 1666
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
+      "sha256": "0ccf61f5d517dbf989a4ea7919a7a8d24f0fc0bbc774bc4d9c5ad9714fa38585",
+      "size": 14766
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "sha256": "82e56dd80e95a6e31c8e95dad797629fef3a0254738cd55db745d14ec65f1773",
+      "size": 2026
+    },
+    {
+      "path": "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
+      "sha256": "50ab57451f216e968372773d2dc2173365b5bbfad0a72fe60b084cd246f33a7d",
+      "size": 1449
+    },
+    {
+      "path": "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md",
+      "sha256": "9484f1942ab47fe77b5ccdd67ef46a8d526b11261bbc7c23c12972a5d3271d12",
+      "size": 2362
+    },
+    {
+      "path": "docs/rebaseline/SLICE_PR_COVERAGE_MATRIX_LOCAL_RUNTIME_HUB.md",
+      "sha256": "c5bc9bec9562e4d21cb24b88b8750c0ee137d8ee7289cae82d665cbe302c8c6d",
+      "size": 1805
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-01_REBASELINE.md",
+      "sha256": "d0ff1b86d7e647492653fce7f00bc3281658eb02e44c486ae9c9715c1c11baf1",
+      "size": 2060
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-02_PORTABLE_LOCAL_RUNTIME_STARTER.md",
+      "sha256": "f1ec2acba24247c7fdc8a3d04e157e8482b511718aca1c1856124b8db92b43b0",
+      "size": 1911
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-03_RUNTIME_DOCTOR_BOOTSTRAP.md",
+      "sha256": "cc5c8315e27fafacdf3e98fb955f1b3916d6ce5b470105a0b5702666bb3b9a41",
+      "size": 1999
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-04_LOCALHOST_API_SDK_BRIDGE.md",
+      "sha256": "f6018bd063dc0344130b01ed78bb53db0b3c620e32cdeb6e29d6e039d6928a63",
+      "size": 1991
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-05_BROWSER_ODIN_HUB_SHELL.md",
+      "sha256": "6b35e8926f5574d5567a2f056b1754bc5d6be5dbea7d07e8cd441189c2743069",
+      "size": 1879
+    },
+    {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
       "sha256": "bfd7ec190a4ccf828e56e35711206a2c1e5784186da3aa0caf3e97ef99ee549e",
       "size": 6050
@@ -2432,6 +2497,16 @@
       "path": "examples/work_atoms/work_atom_graph.valid.json",
       "sha256": "0f2439ed1e020c2382227b38bb34de41d0d490b97b301d1bac02e73ea1ba051a",
       "size": 204
+    },
+    {
+      "path": "legacy/LEGACY_INDEX.md",
+      "sha256": "e82b85b4534ec7c86e5d85ee942a1d79b6353849da2b84d92427eb1fcdea7afd",
+      "size": 174
+    },
+    {
+      "path": "legacy/LEGACY_MAP.json",
+      "sha256": "a90906a73eb0e2204603c9ba2fd80c8d745f56d6e0d925e4cc5d1069d0185c9f",
+      "size": 113
     },
     {
       "path": "odin/__init__.py",
@@ -3524,31 +3599,6 @@
       "size": 2920
     },
     {
-      "path": "odin_agent_shell.egg-info/PKG-INFO",
-      "sha256": "ad055827aca4ba07364bf5af6f3053e70d79ad74cfc38ce3c3744ebd226aabf3",
-      "size": 254
-    },
-    {
-      "path": "odin_agent_shell.egg-info/SOURCES.txt",
-      "sha256": "56ea9eb72c7d70630bec29023954fb5b3d33d88b969eb30a98c865d06898e53e",
-      "size": 10398
-    },
-    {
-      "path": "odin_agent_shell.egg-info/dependency_links.txt",
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
-    },
-    {
-      "path": "odin_agent_shell.egg-info/entry_points.txt",
-      "sha256": "04daf22cafb1c6eb8718286b7df4519bc94277b766b5b67f50617b8519feebe5",
-      "size": 39
-    },
-    {
-      "path": "odin_agent_shell.egg-info/top_level.txt",
-      "sha256": "0ef15f37bd598a73e844e3f3c3681b23d26afcd3a69db97b277e36d65f9e2450",
-      "size": 18
-    },
-    {
       "path": "odin_app_sdk/__init__.py",
       "sha256": "84151567cfaf9a441f479171ca9683c783506ff851e2f5d536df4f68cbeeaf26",
       "size": 201
@@ -3702,6 +3752,11 @@
       "path": "registries/human_review_gate_registry.json",
       "sha256": "7b405e0fa9dcd9bc6a5679296473c32dcc88a0ca515558946d992cf5cfe8651d",
       "size": 173
+    },
+    {
+      "path": "registries/local_runtime_hub_build_ladder_v1.json",
+      "sha256": "6e4299840127393e8c42c794b3ab3dd731ec21479f1ee919427f6f7ad14c2f63",
+      "size": 39657
     },
     {
       "path": "registries/loki_mediation_registry.json",
@@ -3877,6 +3932,16 @@
       "path": "registries/real_pr_execution_registry.json",
       "sha256": "395104fa00fe0026f89bd14f7bfc7d56259d8f56e6942786b566c45e0dbc6932",
       "size": 64267
+    },
+    {
+      "path": "registries/rebaseline_coverage_matrix_v1.json",
+      "sha256": "10bcab8aa77d927bd55dd11dd65b50594beebeebd812951c4caa937a31349ee7",
+      "size": 267639
+    },
+    {
+      "path": "registries/rebaseline_manifest_v1.json",
+      "sha256": "b0edc59687d5c0af2f380cba5cb180ddf328efd07df0f2979283ed67069cd000",
+      "size": 821
     },
     {
       "path": "registries/remote_worker_boundary_registry.json",
@@ -4902,6 +4967,11 @@
       "path": "tests/test_full_shadow_runtime_coverage.py",
       "sha256": "771175c1a1fa2d569bf6ff4fd4fc547abd126d4c0a31233fc05af35408e49c64",
       "size": 3765
+    },
+    {
+      "path": "tests/test_local_runtime_hub_rebaseline.py",
+      "sha256": "3d02bf8c304662a54a018f91323110d9c5e07a89572d915c134bf32caef2e974",
+      "size": 3176
     },
     {
       "path": "tests/test_model_router.py",

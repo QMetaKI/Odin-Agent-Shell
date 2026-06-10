@@ -1,0 +1,27 @@
+{
+  "artifact_kind": "odin_rebaseline_manifest",
+  "version": "1.0",
+  "target": "Odin Local Runtime Hub",
+  "baseline_architecture": "Master Architecture v7.1",
+  "current_handoff": "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+  "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+  "previous_ladder": "REAL-GH-PR-01..08",
+  "new_ladder": "LRH-PR-01..16",
+  "repo_head": "75aa45b",
+  "branch": "codex/rebaseline-local-runtime-hub-build-ladder",
+  "merged_prs": [
+    "REAL-GH-PR-01",
+    "REAL-GH-PR-02",
+    "REAL-GH-PR-03"
+  ],
+  "open_prs": [],
+  "pending_dependencies": [
+    "REAL-GH-PR-04",
+    "REAL-GH-PR-05",
+    "REAL-GH-PR-06",
+    "REAL-GH-PR-07",
+    "REAL-GH-PR-08"
+  ],
+  "legacy_policy": "quarantine_not_delete",
+  "claim_boundary": "rebaseline_is_planning_and_governance_not_runtime_proof"
+}

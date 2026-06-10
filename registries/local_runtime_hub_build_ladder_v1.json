@@ -1,0 +1,1092 @@
+{
+  "artifact_kind": "odin_local_runtime_hub_build_ladder",
+  "version": "1.0",
+  "target": "Odin Local Runtime Hub",
+  "baseline_architecture": "Master Architecture v7.1",
+  "ladder": [
+    {
+      "id": "LRH-PR-01",
+      "title": "Rebaseline, Legacy Quarantine, Local Runtime Hub Target",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Rebaseline, Legacy Quarantine, Local Runtime Hub Target.",
+      "depends_on": [],
+      "current_coverage": "Repo-grounded baseline from current v0.8.7 repo; no new runtime implemented by LRH-PR-01.",
+      "missing_work": "none for planning deliverable after audit artifacts exist",
+      "target_files": [
+        "docs/rebaseline/",
+        "registries/local_runtime_hub_build_ladder_v1.json",
+        "registries/rebaseline_manifest_v1.json"
+      ],
+      "allowed_new_files": [
+        "docs/rebaseline/**",
+        "registries/rebaseline_*.json",
+        "tests/test_local_runtime_hub_rebaseline.py"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "REBASELINE: Local Runtime Hub Target, Legacy Quarantine and 100% Build Ladder",
+      "expected_branch_name": "codex/rebaseline-local-runtime-hub-build-ladder",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-02",
+      "title": "Portable Local Runtime Starter",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Portable Local Runtime Starter.",
+      "depends_on": [
+        "LRH-PR-01"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-02: Portable Local Runtime Starter",
+      "expected_branch_name": "codex/lrh_pr_02_portable-local-runtime-starter",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-03",
+      "title": "Runtime Doctor, First-Run Bootstrap and Self-Healing",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Runtime Doctor, First-Run Bootstrap and Self-Healing.",
+      "depends_on": [
+        "LRH-PR-01",
+        "LRH-PR-02"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-03: Runtime Doctor, First-Run Bootstrap and Self-Healing",
+      "expected_branch_name": "codex/lrh_pr_03_runtime-doctor,-first-run-bootstrap-and-self-healing",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-04",
+      "title": "Localhost API Contract Hardening and SDK Bridge v1",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Localhost API Contract Hardening and SDK Bridge v1.",
+      "depends_on": [
+        "LRH-PR-02",
+        "LRH-PR-03"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-04: Localhost API Contract Hardening and SDK Bridge v1",
+      "expected_branch_name": "codex/lrh_pr_04_localhost-api-contract-hardening-and-sdk-bridge-v1",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-05",
+      "title": "Browser Odin Hub Shell",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Browser Odin Hub Shell.",
+      "depends_on": [
+        "LRH-PR-03",
+        "LRH-PR-04"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-05: Browser Odin Hub Shell",
+      "expected_branch_name": "codex/lrh_pr_05_browser-odin-hub-shell",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-06",
+      "title": "Hub Runtime Dashboard and Health Surfaces",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Hub Runtime Dashboard and Health Surfaces.",
+      "depends_on": [
+        "LRH-PR-04",
+        "LRH-PR-05"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-06: Hub Runtime Dashboard and Health Surfaces",
+      "expected_branch_name": "codex/lrh_pr_06_hub-runtime-dashboard-and-health-surfaces",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-07",
+      "title": "Sessions, Candidates, Store and Proof Gap Viewer",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Sessions, Candidates, Store and Proof Gap Viewer.",
+      "depends_on": [
+        "LRH-PR-05",
+        "LRH-PR-06"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-07: Sessions, Candidates, Store and Proof Gap Viewer",
+      "expected_branch_name": "codex/lrh_pr_07_sessions,-candidates,-store-and-proof-gap-viewer",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-08",
+      "title": "Bus / Worklet / Atom Trace Viewer",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Bus / Worklet / Atom Trace Viewer.",
+      "depends_on": [
+        "LRH-PR-06",
+        "LRH-PR-07"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-08: Bus / Worklet / Atom Trace Viewer",
+      "expected_branch_name": "codex/lrh_pr_08_bus---worklet---atom-trace-viewer",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-09",
+      "title": "Provider / Worker / Pre-LLM Inspector",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Provider / Worker / Pre-LLM Inspector.",
+      "depends_on": [
+        "LRH-PR-07",
+        "LRH-PR-08"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-09: Provider / Worker / Pre-LLM Inspector",
+      "expected_branch_name": "codex/lrh_pr_09_provider---worker---pre-llm-inspector",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-10",
+      "title": "Universal Work Playground",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Universal Work Playground.",
+      "depends_on": [
+        "LRH-PR-08",
+        "LRH-PR-09"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-10: Universal Work Playground",
+      "expected_branch_name": "codex/lrh_pr_10_universal-work-playground",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-11",
+      "title": "YNode Bridge Pack",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: YNode Bridge Pack.",
+      "depends_on": [
+        "LRH-PR-09",
+        "LRH-PR-10"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-11: YNode Bridge Pack",
+      "expected_branch_name": "codex/lrh_pr_11_ynode-bridge-pack",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-12",
+      "title": "App Bridge Examples and Golden App Harness",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: App Bridge Examples and Golden App Harness.",
+      "depends_on": [
+        "LRH-PR-10",
+        "LRH-PR-11"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-12: App Bridge Examples and Golden App Harness",
+      "expected_branch_name": "codex/lrh_pr_12_app-bridge-examples-and-golden-app-harness",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-13",
+      "title": "Local Config, Redaction and Safe Settings UI",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Local Config, Redaction and Safe Settings UI.",
+      "depends_on": [
+        "LRH-PR-11",
+        "LRH-PR-12"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-13: Local Config, Redaction and Safe Settings UI",
+      "expected_branch_name": "codex/lrh_pr_13_local-config,-redaction-and-safe-settings-ui",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-14",
+      "title": "Portable Packaging and Release ZIP",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Portable Packaging and Release ZIP.",
+      "depends_on": [
+        "LRH-PR-12",
+        "LRH-PR-13"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-14: Portable Packaging and Release ZIP",
+      "expected_branch_name": "codex/lrh_pr_14_portable-packaging-and-release-zip",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-15",
+      "title": "Windows Convenience Layer without Full Windows App",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Windows Convenience Layer without Full Windows App.",
+      "depends_on": [
+        "LRH-PR-13",
+        "LRH-PR-14"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-15: Windows Convenience Layer without Full Windows App",
+      "expected_branch_name": "codex/lrh_pr_15_windows-convenience-layer-without-full-windows-app",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-16",
+      "title": "Full Acceptance, E2E Golden Flows and User Start Proof",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Full Acceptance, E2E Golden Flows and User Start Proof.",
+      "depends_on": [
+        "LRH-PR-14",
+        "LRH-PR-15"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-16: Full Acceptance, E2E Golden Flows and User Start Proof",
+      "expected_branch_name": "codex/lrh_pr_16_full-acceptance,-e2e-golden-flows-and-user-start-proof",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    }
+  ]
+}

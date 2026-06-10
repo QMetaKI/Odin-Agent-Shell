@@ -49,3 +49,8 @@ python -m odin.cli validate-direct-runtime-release-candidate
 ```
 
 Do not cite prior source-chat command output as current proof. Rerun commands in this workspace.
+
+## Local Runtime Hub rebaseline
+
+The immediate practical target is now documented as Odin Local Runtime Hub in `docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md`, with the build ladder in `docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md`. This pointer does not replace Master Architecture v7.1 or the v0.8.7 handoff; it directs the next planning/governance ladder.
+
