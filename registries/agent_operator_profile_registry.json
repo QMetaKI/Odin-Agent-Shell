@@ -1,0 +1,351 @@
+{
+  "registry_id": "agent_operator_profile_registry",
+  "version": "1.0",
+  "description": "Registry of coding agent profiles for Odin Agent Operator Mode. Each profile defines how a specific agent type operates within Odin's handoff, guard, proof, and return discipline.",
+  "claim_boundary": "profiles_are_protocol_specs_not_live_agent_integrations",
+  "profiles": [
+    {
+      "profile_id": "codex",
+      "display_name": "Codex",
+      "agent_kind": "coding_agent",
+      "primary_surface": "github_pr_workflow",
+      "allowed_inputs": ["task_file", "agent_work_packet", "repo_context"],
+      "allowed_outputs": ["candidate_patch", "pr_body", "return_report"],
+      "allowed_tools_policy": "deterministic_cli_and_file_edit_only",
+      "forbidden_actions": [
+        "app_state_apply",
+        "external_send",
+        "hidden_tool_execution",
+        "unbounded_file_edit",
+        "provider_api_call_without_receipt",
+        "claiming_proof_without_receipt",
+        "secret_exfiltration",
+        "network_transport_by_default",
+        "domain_state_mutation"
+      ],
+      "default_permission_card": {
+        "may_read_files": true,
+        "may_edit_files": true,
+        "may_run_commands": true,
+        "may_create_pr": true,
+        "may_apply_app_state": false,
+        "may_send_external": false,
+        "may_call_provider_api": false,
+        "may_use_hidden_tools": false,
+        "may_mutate_domain_state": false
+      },
+      "recommended_workflow": [
+        "read_baseline_files",
+        "read_required_context",
+        "plan_before_editing",
+        "edit_allowed_files_only",
+        "run_required_commands",
+        "validate_all",
+        "run_pytest",
+        "emit_return_report"
+      ],
+      "context_strategy": "repo_scoped_diff_and_deterministic_tests",
+      "verification_strategy": "validate_all_and_pytest_receipts",
+      "proof_boundary": "candidate_patch_only_no_runtime_proof",
+      "claim_boundary": "codex_pr_candidate_not_host_validated",
+      "default_allowed_files": [],
+      "default_forbidden_files": [".env", ".git/", "secrets/"],
+      "default_required_context": [
+        "README.md",
+        "AGENTS.md",
+        "CODEX_START_HERE.md",
+        "CLAIM_BOUNDARY.md"
+      ],
+      "default_required_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "default_acceptance_gates": [
+        "validate-all passes",
+        "pytest passes",
+        "no forbidden claims introduced"
+      ],
+      "thor_compatibility": {
+        "status": "partial",
+        "mapped_concepts": ["thor handoff", "thor pack --agent codex", "thor guard", "thor expected"],
+        "gaps": ["thor y handoff not fully verified", "thor repo cognition not wired to packet"],
+        "claim_boundary": "thor_codex_profile_partial_not_full_thor_protocol"
+      }
+    },
+    {
+      "profile_id": "claude-code",
+      "display_name": "Claude Code",
+      "agent_kind": "coding_agent",
+      "primary_surface": "cli_and_ide_with_hooks",
+      "allowed_inputs": ["task_description", "agent_work_packet", "CLAUDE_md_context"],
+      "allowed_outputs": ["candidate_patch", "return_report", "claude_md_update"],
+      "allowed_tools_policy": "deterministic_cli_file_edit_and_hooks_only",
+      "forbidden_actions": [
+        "app_state_apply",
+        "external_send",
+        "hidden_tool_execution",
+        "unbounded_file_edit",
+        "provider_api_call_without_receipt",
+        "claiming_proof_without_receipt",
+        "secret_exfiltration",
+        "network_transport_by_default",
+        "domain_state_mutation"
+      ],
+      "default_permission_card": {
+        "may_read_files": true,
+        "may_edit_files": true,
+        "may_run_commands": true,
+        "may_create_pr": true,
+        "may_apply_app_state": false,
+        "may_send_external": false,
+        "may_call_provider_api": false,
+        "may_use_hidden_tools": false,
+        "may_mutate_domain_state": false
+      },
+      "recommended_workflow": [
+        "explore_first",
+        "plan_before_editing",
+        "use_concrete_file_context",
+        "run_deterministic_checks",
+        "use_concise_persistent_instructions",
+        "prefer_hooks_for_nonnegotiable_checks",
+        "support_reusable_workflow_skills",
+        "support_subagent_style_review_boundaries",
+        "keep_context_lean",
+        "show_command_evidence_not_assertions",
+        "emit_return_report"
+      ],
+      "context_strategy": "claude_md_plus_hooks_plus_skills_subagent_boundaries",
+      "verification_strategy": "hooks_and_deterministic_checks_with_command_evidence",
+      "proof_boundary": "candidate_patch_only_no_runtime_proof",
+      "claim_boundary": "claude_code_candidate_not_live_provider_integration",
+      "default_allowed_files": [],
+      "default_forbidden_files": [".env", ".git/", "secrets/"],
+      "default_required_context": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "CODEX_START_HERE.md",
+        "CLAIM_BOUNDARY.md"
+      ],
+      "default_required_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "default_acceptance_gates": [
+        "validate-all passes",
+        "pytest passes",
+        "no forbidden claims introduced",
+        "hooks pass"
+      ],
+      "claude_code_specific": {
+        "claude_md_support": true,
+        "hooks_support": true,
+        "skills_support": true,
+        "subagent_review_boundaries": true,
+        "requires_claude_code_installed": false,
+        "requires_provider_api": false
+      },
+      "thor_compatibility": {
+        "status": "partial",
+        "mapped_concepts": ["thor handoff", "thor guard", "thor expected", "thor return-plan"],
+        "gaps": ["claude_code_hooks have no direct thor equivalent", "thor y claude_handoff is conceptual"],
+        "claim_boundary": "thor_claude_code_profile_partial_not_full_thor_protocol"
+      }
+    },
+    {
+      "profile_id": "generic-cli-agent",
+      "display_name": "Generic CLI Agent",
+      "agent_kind": "coding_agent",
+      "primary_surface": "cli_tool",
+      "allowed_inputs": ["task_file", "agent_work_packet", "context_files"],
+      "allowed_outputs": ["candidate_patch", "return_report"],
+      "allowed_tools_policy": "deterministic_cli_and_file_edit_only",
+      "forbidden_actions": [
+        "app_state_apply",
+        "external_send",
+        "hidden_tool_execution",
+        "unbounded_file_edit",
+        "provider_api_call_without_receipt",
+        "claiming_proof_without_receipt",
+        "secret_exfiltration",
+        "network_transport_by_default",
+        "domain_state_mutation"
+      ],
+      "default_permission_card": {
+        "may_read_files": true,
+        "may_edit_files": true,
+        "may_run_commands": true,
+        "may_create_pr": false,
+        "may_apply_app_state": false,
+        "may_send_external": false,
+        "may_call_provider_api": false,
+        "may_use_hidden_tools": false,
+        "may_mutate_domain_state": false
+      },
+      "recommended_workflow": [
+        "read_task_file",
+        "read_allowed_context",
+        "plan_and_execute_within_scope",
+        "run_required_commands",
+        "emit_return_report"
+      ],
+      "context_strategy": "minimal_tool_neutral",
+      "verification_strategy": "deterministic_cli_checks",
+      "proof_boundary": "candidate_patch_only_no_runtime_proof",
+      "claim_boundary": "generic_cli_agent_candidate_not_host_validated",
+      "default_allowed_files": [],
+      "default_forbidden_files": [".env", ".git/", "secrets/"],
+      "default_required_context": ["AGENTS.md", "CLAIM_BOUNDARY.md"],
+      "default_required_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "default_acceptance_gates": [
+        "validate-all passes",
+        "pytest passes"
+      ],
+      "thor_compatibility": {
+        "status": "conceptual",
+        "mapped_concepts": ["thor handoff", "thor guard"],
+        "gaps": ["generic profile has no specific thor agent pack", "tool-neutral by design"],
+        "claim_boundary": "thor_generic_profile_conceptual_not_verified"
+      }
+    },
+    {
+      "profile_id": "thor-compatible",
+      "display_name": "Thor-Compatible Agent",
+      "agent_kind": "coding_agent",
+      "primary_surface": "thor_handoff_protocol",
+      "allowed_inputs": ["thor_handoff_pack", "agent_work_packet", "thor_guard_model"],
+      "allowed_outputs": ["candidate_patch", "return_report", "thor_return_manifest"],
+      "allowed_tools_policy": "deterministic_cli_and_file_edit_only",
+      "forbidden_actions": [
+        "app_state_apply",
+        "external_send",
+        "hidden_tool_execution",
+        "unbounded_file_edit",
+        "provider_api_call_without_receipt",
+        "claiming_proof_without_receipt",
+        "secret_exfiltration",
+        "network_transport_by_default",
+        "domain_state_mutation"
+      ],
+      "default_permission_card": {
+        "may_read_files": true,
+        "may_edit_files": true,
+        "may_run_commands": true,
+        "may_create_pr": true,
+        "may_apply_app_state": false,
+        "may_send_external": false,
+        "may_call_provider_api": false,
+        "may_use_hidden_tools": false,
+        "may_mutate_domain_state": false
+      },
+      "recommended_workflow": [
+        "read_thor_handoff_pack",
+        "read_guard_model",
+        "read_expected_output_contract",
+        "implement_within_scope",
+        "run_required_commands",
+        "emit_thor_compatible_return_manifest"
+      ],
+      "context_strategy": "thor_handoff_pack_and_guard_model",
+      "verification_strategy": "thor_guard_and_deterministic_checks",
+      "proof_boundary": "candidate_patch_only_thor_compatibility_where_verified",
+      "claim_boundary": "thor_compatible_where_verified_gap_labeled_where_not",
+      "thor_specific": {
+        "thor_handoff_supported": true,
+        "thor_guard_supported": true,
+        "thor_expected_supported": true,
+        "thor_pack_agent_supported": true,
+        "thor_repo_cognition_supported": "gap",
+        "thor_y_handoff_supported": "gap",
+        "claim_boundary": "thor_compatibility_verified_for_core_commands_gap_for_y_and_cognition"
+      },
+      "default_allowed_files": [],
+      "default_forbidden_files": [".env", ".git/", ".thor/", "secrets/"],
+      "default_required_context": ["AGENTS.md", "CLAIM_BOUNDARY.md"],
+      "default_required_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "default_acceptance_gates": [
+        "validate-all passes",
+        "pytest passes",
+        "thor guard model respected"
+      ],
+      "thor_compatibility": {
+        "status": "partial",
+        "mapped_concepts": [
+          "thor handoff", "thor guard", "thor expected", "thor pack --agent",
+          "thor plan", "thor return-plan"
+        ],
+        "gaps": [
+          "thor repo cognition not directly mapped",
+          "thor y commands are conceptual only",
+          "not a full thor protocol implementation"
+        ],
+        "claim_boundary": "thor_profile_partial_gap_labeled_not_full_thor_support"
+      }
+    },
+    {
+      "profile_id": "future-local-agent",
+      "display_name": "Future Local Agent",
+      "agent_kind": "local_coding_agent",
+      "primary_surface": "local_cli_future",
+      "allowed_inputs": ["agent_work_packet", "local_context"],
+      "allowed_outputs": ["candidate_patch", "return_report"],
+      "allowed_tools_policy": "permission_card_bound_deterministic_only",
+      "forbidden_actions": [
+        "app_state_apply",
+        "external_send",
+        "hidden_tool_execution",
+        "unbounded_file_edit",
+        "provider_api_call_without_receipt",
+        "claiming_proof_without_receipt",
+        "secret_exfiltration",
+        "network_transport_by_default",
+        "domain_state_mutation"
+      ],
+      "default_permission_card": {
+        "may_read_files": true,
+        "may_edit_files": true,
+        "may_run_commands": false,
+        "may_create_pr": false,
+        "may_apply_app_state": false,
+        "may_send_external": false,
+        "may_call_provider_api": false,
+        "may_use_hidden_tools": false,
+        "may_mutate_domain_state": false
+      },
+      "recommended_workflow": [
+        "receive_agent_work_packet",
+        "read_permission_card",
+        "implement_within_card_bounds",
+        "emit_candidate_patch",
+        "emit_return_report"
+      ],
+      "context_strategy": "permission_card_bound_local_first",
+      "verification_strategy": "deterministic_checks_no_network",
+      "proof_boundary": "candidate_patch_only_no_provider_api_no_external_send",
+      "claim_boundary": "future_local_agent_candidate_not_deployed_not_integrated",
+      "future_only": true,
+      "implementation_status": "profile_defined_implementation_future_target",
+      "default_allowed_files": [],
+      "default_forbidden_files": [".env", ".git/", "secrets/"],
+      "default_required_context": ["AGENTS.md", "CLAIM_BOUNDARY.md"],
+      "default_required_commands": [],
+      "default_acceptance_gates": [
+        "permission_card_respected",
+        "candidate_only_output",
+        "no_external_send"
+      ],
+      "thor_compatibility": {
+        "status": "conceptual",
+        "mapped_concepts": ["thor handoff", "thor guard"],
+        "gaps": ["future local agent not yet implemented", "no thor pack profile exists"],
+        "claim_boundary": "future_local_agent_thor_conceptual_not_verified"
+      }
+    }
+  ]
+}

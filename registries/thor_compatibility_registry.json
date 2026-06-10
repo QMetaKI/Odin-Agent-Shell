@@ -1,0 +1,122 @@
+{
+  "registry_id": "thor_compatibility_registry",
+  "version": "1.0",
+  "description": "Mapping of Thor-Agent-Kit concepts to Odin Agent Operator Mode equivalents. Status labels: verified=confirmed by repo files, partial=some mapping confirmed, conceptual=structural analogue only, gap=known gap, unsupported=not applicable.",
+  "claim_boundary": "thor_compatibility_mapping_not_full_thor_protocol_support",
+  "thor_handoff_attempted": true,
+  "thor_core_commands_run": [
+    "thor doctor",
+    "thor validate",
+    "thor start",
+    "thor map",
+    "thor plan",
+    "thor guard",
+    "thor expected",
+    "thor handoff --depth full",
+    "thor pack --agent codex"
+  ],
+  "thor_y_commands_run": [
+    "thor repo cognition --profile max",
+    "thor repo intent --agent codex",
+    "thor repo semantic-inputs --agent codex",
+    "thor repo handoff-compile --agent codex",
+    "thor repo handoff-quality --agent codex",
+    "thor repo return-plan --agent codex",
+    "thor y analyze",
+    "thor y compose --dry-run",
+    "thor y handoff --dry-run",
+    "thor y handoff-spine"
+  ],
+  "mappings": [
+    {
+      "thor_concept": "thor handoff",
+      "odin_concept": "Odin Agent Work Packet",
+      "status": "partial",
+      "evidence_label": "structural_analogue",
+      "verified_now": false,
+      "gap": "Odin packet format is Odin-native; not a direct Thor handoff format import",
+      "future_action": "define formal bidirectional mapping in LRH-PR-03+",
+      "claim_boundary": "odin_packet_inspired_by_thor_handoff_not_identical"
+    },
+    {
+      "thor_concept": "thor plan",
+      "odin_concept": "Odin Agent Plan Envelope",
+      "status": "conceptual",
+      "evidence_label": "structural_analogue",
+      "verified_now": false,
+      "gap": "Odin does not yet implement a dedicated plan envelope type; captured in packet",
+      "future_action": "add plan envelope as separate artifact in LRH-PR-03+",
+      "claim_boundary": "plan_envelope_conceptual_not_implemented"
+    },
+    {
+      "thor_concept": "thor guard",
+      "odin_concept": "Odin Agent Guard Check",
+      "status": "partial",
+      "evidence_label": "implemented_in_odin_guards_module",
+      "verified_now": true,
+      "gap": "Odin guard is a Python function; not a separate guard model file as in Thor",
+      "future_action": "surface guard model as JSON artifact",
+      "claim_boundary": "odin_guard_partial_match_to_thor_guard"
+    },
+    {
+      "thor_concept": "thor expected",
+      "odin_concept": "Odin Acceptance Gates",
+      "status": "partial",
+      "evidence_label": "acceptance_gates_field_in_packet",
+      "verified_now": true,
+      "gap": "Odin uses acceptance_gates array in packet; Thor has a separate expected output contract",
+      "future_action": "formalize expected output contract as separate artifact",
+      "claim_boundary": "odin_acceptance_gates_partial_match_to_thor_expected"
+    },
+    {
+      "thor_concept": "thor return-plan",
+      "odin_concept": "Odin Agent Return Report",
+      "status": "partial",
+      "evidence_label": "implemented_in_odin_returns_module",
+      "verified_now": true,
+      "gap": "Odin return report has senior reviewer simulation; Thor return-plan does not",
+      "future_action": "align return manifest fields with Thor return contract",
+      "claim_boundary": "odin_return_report_partial_match_to_thor_return_plan"
+    },
+    {
+      "thor_concept": "thor pack --agent codex",
+      "odin_concept": "Odin agent profile packet (codex profile)",
+      "status": "partial",
+      "evidence_label": "codex_profile_in_registry",
+      "verified_now": true,
+      "gap": "Odin codex profile is a registry entry; Thor pack produces a file bundle",
+      "future_action": "add pack export command in LRH-PR-03+",
+      "claim_boundary": "odin_codex_profile_partial_match_to_thor_pack"
+    },
+    {
+      "thor_concept": "thor repo cognition",
+      "odin_concept": "Odin context packet candidate",
+      "status": "conceptual",
+      "evidence_label": "no_direct_odin_cognition_artifact_yet",
+      "verified_now": false,
+      "gap": "Odin does not yet have a repo cognition artifact type",
+      "future_action": "add repo cognition artifact in LRH-PR-04+",
+      "claim_boundary": "thor_repo_cognition_conceptual_only"
+    },
+    {
+      "thor_concept": "thor repo intent",
+      "odin_concept": "Odin context packet candidate",
+      "status": "conceptual",
+      "evidence_label": "task_source_field_in_packet_is_closest_analogue",
+      "verified_now": false,
+      "gap": "task_source in packet captures intent at a summary level only",
+      "future_action": "formalize intent artifact in LRH-PR-04+",
+      "claim_boundary": "thor_repo_intent_conceptual_not_implemented"
+    },
+    {
+      "thor_concept": "thor repo semantic-inputs",
+      "odin_concept": "Odin context packet candidate",
+      "status": "conceptual",
+      "evidence_label": "required_context_field_in_packet_is_closest_analogue",
+      "verified_now": false,
+      "gap": "required_context field lists files; no semantic input classification yet",
+      "future_action": "add semantic context classification in LRH-PR-04+",
+      "claim_boundary": "thor_semantic_inputs_conceptual_not_implemented"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_agent_return_report.schema.json",
+  "title": "odin_agent_return_report",
+  "description": "Agent Return Report — structured return artifact from a coding agent after completing an Agent Work Packet. Candidate-only, proof-bound.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "schema_version",
+    "packet_id",
+    "agent_profile_id",
+    "implemented",
+    "changed_files",
+    "commands_run",
+    "results",
+    "skipped",
+    "blocked",
+    "proof_boundaries",
+    "senior_reviewer_simulation",
+    "senior_code_reviewer_simulation",
+    "ready_for_review",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_agent_return_report"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "packet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "implemented": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "commands_run": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "status"],
+        "properties": {
+          "command": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["ok", "failed", "skipped", "blocked", "not_implemented"]
+          },
+          "output_summary": {"type": "string"}
+        }
+      }
+    },
+    "results": {
+      "type": "object"
+    },
+    "skipped": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "blocked": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "proof_boundaries": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "senior_reviewer_simulation": {
+      "type": "object",
+      "required": ["architecture", "scope", "risks", "verdict"],
+      "properties": {
+        "architecture": {"type": "string"},
+        "scope": {"type": "string"},
+        "risks": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["ready", "not_ready", "conditional"]
+        },
+        "verdict_reason": {"type": "string"}
+      }
+    },
+    "senior_code_reviewer_simulation": {
+      "type": "object",
+      "required": ["code_repo", "tests", "fixes_applied", "verdict"],
+      "properties": {
+        "code_repo": {"type": "string"},
+        "tests": {"type": "string"},
+        "fixes_applied": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["ready", "not_ready", "conditional"]
+        }
+      }
+    },
+    "ready_for_review": {
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "next_recommended_pr": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

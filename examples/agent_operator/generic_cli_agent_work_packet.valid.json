@@ -1,0 +1,75 @@
+{
+  "artifact_kind": "odin_agent_work_packet",
+  "schema_version": "1.0",
+  "packet_id": "AWP-GENERIC-EXAMPLE-001",
+  "agent_profile_id": "generic-cli-agent",
+  "task_source": "task_description.txt",
+  "objective": "Example task for a generic CLI agent operating within Odin Agent Operator Mode.",
+  "repo_scope": {
+    "root": ".",
+    "branch": "main"
+  },
+  "allowed_files": [
+    "odin/",
+    "tests/",
+    "docs/",
+    "schemas/",
+    "registries/",
+    "examples/"
+  ],
+  "forbidden_files": [
+    ".env",
+    ".git/",
+    "secrets/"
+  ],
+  "forbidden_actions": [
+    "app_state_apply",
+    "claiming_proof_without_receipt",
+    "domain_state_mutation",
+    "external_send",
+    "hidden_tool_execution",
+    "network_transport_by_default",
+    "provider_api_call_without_receipt",
+    "secret_exfiltration",
+    "unbounded_file_edit"
+  ],
+  "required_context": [
+    "AGENTS.md",
+    "CLAIM_BOUNDARY.md"
+  ],
+  "required_commands": [
+    "python -m odin.cli validate-all",
+    "python -m pytest -q -p no:cacheprovider"
+  ],
+  "acceptance_gates": [
+    "validate-all passes",
+    "pytest passes"
+  ],
+  "proof_boundaries": [
+    "no_app_apply_by_agent",
+    "no_external_send_by_agent",
+    "no_hidden_tool_execution",
+    "candidate_only_output"
+  ],
+  "claim_boundaries": [
+    "candidate_patch_only",
+    "no_runtime_proof_claimed",
+    "tool_neutral_generic_agent"
+  ],
+  "senior_reviewer_required": true,
+  "senior_code_reviewer_required": true,
+  "thor_compatibility": {
+    "status": "conceptual",
+    "mapped_concepts": ["thor handoff", "thor guard"],
+    "gaps": ["generic profile tool-neutral by design"],
+    "claim_boundary": "thor_generic_conceptual_not_verified"
+  },
+  "future_target_flags": [],
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "external_send_default": false,
+  "network_transport_default": false,
+  "hidden_tool_execution_allowed": false,
+  "created_by": "odin.agent_operator.packets (profile=generic-cli-agent)",
+  "created_at_policy": "deterministic_fixture"
+}
