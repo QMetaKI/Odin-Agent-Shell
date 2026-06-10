@@ -1,0 +1,16 @@
+{
+  "registry_id": "odin.model_work_avoidance_registry.v7_1",
+  "version": "0.6.5",
+  "decisions": [
+    "no_model_static_candidate",
+    "no_model_template_candidate",
+    "no_model_cached_candidate",
+    "model_required_micro",
+    "model_required_quality",
+    "model_required_hybrid",
+    "ask_context",
+    "split_work",
+    "hold",
+    "block"
+  ]
+}

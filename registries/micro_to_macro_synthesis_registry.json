@@ -1,0 +1,11 @@
+{
+  "registry_id": "odin.micro_to_macro_synthesis_registry.v7_1",
+  "version": "0.6.5",
+  "rules": [
+    "preserve_source_refs",
+    "do_not_merge_contradictions",
+    "prefer_verified_specifics",
+    "include_uncertainty",
+    "candidate_only"
+  ]
+}

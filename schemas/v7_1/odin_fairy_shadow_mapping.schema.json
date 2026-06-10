@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin Fairy Shadow Mapping",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_fairy_shadow_mapping"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "mapping_id": {
+      "type": "string"
+    },
+    "fairy_node": {
+      "type": "string"
+    },
+    "ystar_node": {
+      "type": "string"
+    },
+    "runtime_contract": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "forbidden": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "shadow_module": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "mapping_id",
+    "fairy_node",
+    "ystar_node",
+    "runtime_contract",
+    "authority",
+    "forbidden",
+    "shadow_module"
+  ]
+}

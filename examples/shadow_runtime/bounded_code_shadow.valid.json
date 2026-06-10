@@ -1,0 +1,11 @@
+{
+  "work_id": "WORK-CODE-001",
+  "input_artifacts": [
+    {
+      "artifact_type": "repo_context"
+    }
+  ],
+  "work_intent": {
+    "verb": "plan"
+  }
+}

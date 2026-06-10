@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_caller_manifest.schema.json",
+  "title": "odin_caller_manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "caller_id",
+    "caller_type",
+    "display_name",
+    "allowed_input_artifact_types",
+    "allowed_transformation_verbs",
+    "allowed_output_artifact_types",
+    "privacy_default",
+    "model_policy",
+    "claim_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "odin.caller_manifest.v7_1"
+    },
+    "caller_id": {
+      "type": "string"
+    },
+    "caller_type": {
+      "enum": [
+        "app",
+        "chat_surface",
+        "plugin",
+        "builder",
+        "tool",
+        "game",
+        "workflow"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "allowed_input_artifact_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_transformation_verbs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_output_artifact_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_output_artifact_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_response_kinds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_task_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy_default": {
+      "enum": [
+        "local_only",
+        "local_with_cache",
+        "local_redacted_trace",
+        "remote_allowed_explicit",
+        "blocked_sensitive"
+      ]
+    },
+    "model_policy": {
+      "type": "object"
+    },
+    "state_policy": {
+      "type": "object"
+    },
+    "event_digest_policy": {
+      "type": "object"
+    },
+    "semantic_bus_policy": {
+      "type": "object"
+    },
+    "remote_policy": {
+      "type": "object"
+    },
+    "claim_policy": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

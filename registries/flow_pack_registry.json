@@ -1,0 +1,33 @@
+{
+  "registry_id": "flow_pack_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "boundary_return_flow",
+      "status": "candidate"
+    },
+    {
+      "id": "governance_review_flow",
+      "status": "candidate"
+    },
+    {
+      "id": "codex_handoff_flow",
+      "status": "candidate"
+    },
+    {
+      "id": "wedding_studio_flow",
+      "status": "candidate"
+    },
+    {
+      "id": "support_triage_flow",
+      "status": "candidate"
+    },
+    {
+      "id": "game_quest_flow",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

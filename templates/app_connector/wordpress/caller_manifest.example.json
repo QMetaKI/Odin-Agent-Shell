@@ -1,0 +1,65 @@
+{
+  "schema": "odin.caller_manifest.v7_1",
+  "caller_id": "example_wordpress",
+  "caller_type": "app",
+  "display_name": "Example wordpress",
+  "allowed_input_artifact_types": [
+    "markdown",
+    "event_digest"
+  ],
+  "allowed_transformation_verbs": [
+    "summarize",
+    "rewrite",
+    "review"
+  ],
+  "allowed_output_artifact_types": [
+    "markdown_candidate",
+    "action_card_candidate"
+  ],
+  "blocked_output_artifact_types": [],
+  "allowed_response_kinds": [
+    "candidate_artifact_bundle"
+  ],
+  "blocked_task_classes": [
+    "apply_changes",
+    "send_external",
+    "mutate_project"
+  ],
+  "privacy_default": "local_only",
+  "model_policy": {
+    "default_route": "smallest_sufficient",
+    "allow_3b": true,
+    "allow_7b_8b": true,
+    "allow_hybrid": true,
+    "allow_remote": false
+  },
+  "state_policy": {
+    "app_owns_state": true,
+    "odin_may_persist_raw_state": false,
+    "odin_may_cache_derived_context": true
+  },
+  "event_digest_policy": {
+    "app_owns_event_system": true,
+    "odin_may_request_digest": true,
+    "max_digest_tokens": 1600
+  },
+  "semantic_bus_policy": {
+    "allow_internal_bus": true,
+    "allow_app_qirc_bridge_digest": true,
+    "allow_full_event_mirror": false
+  },
+  "remote_policy": {
+    "default": "blocked",
+    "requires_user_confirmation": true
+  },
+  "claim_policy": {
+    "candidate_only": true,
+    "forbidden_claims": [
+      "runtime_verified",
+      "tests_passed",
+      "production_ready",
+      "security_verified",
+      "apply_performed"
+    ]
+  }
+}

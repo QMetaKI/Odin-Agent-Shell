@@ -1,0 +1,10 @@
+{
+  "artifact_kind": "odin_windows_product_runtime_manifest",
+  "protocol_version": "7.1",
+  "id": "win-runtime-valid",
+  "claim_boundary": "candidate_only",
+  "processes": [
+    "odin_host",
+    "odin_daemon"
+  ]
+}

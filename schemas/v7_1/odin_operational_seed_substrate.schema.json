@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "substrate_id",
+    "hard_seeds",
+    "seed_families",
+    "budget_profile",
+    "decay_policy",
+    "conflict_policy"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_operational_seed_substrate"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "substrate_id": {
+      "type": "string"
+    },
+    "hard_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seed_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget_profile": {
+      "type": "string"
+    },
+    "decay_policy": {
+      "type": "string"
+    },
+    "conflict_policy": {
+      "type": "string"
+    }
+  }
+}

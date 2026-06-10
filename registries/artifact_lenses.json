@@ -1,0 +1,19 @@
+{
+  "registry_id": "odin.artifact_lenses.v7_1",
+  "version": "7.1",
+  "lenses": [
+    "text",
+    "document",
+    "code",
+    "log",
+    "event",
+    "state",
+    "dialogue",
+    "schema",
+    "trace",
+    "game_state",
+    "workflow",
+    "media_digest",
+    "wedding_speech"
+  ]
+}

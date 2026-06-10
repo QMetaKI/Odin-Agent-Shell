@@ -1,0 +1,1088 @@
+{
+  "registry_id": "odin.shadow_runtime_contract_registry.v0_5_1",
+  "version": "0.7.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.7.5",
+  "contracts": [
+    {
+      "id": "binding_gate",
+      "shadow_file": "odin/shadow_runtime/boundary.py",
+      "real_target": "odin/protocol/binding.py",
+      "fixture": "examples/shadow_runtime/direct_apply_blocked.invalid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "universal_work_compile",
+      "shadow_file": "odin/shadow_runtime/universal_work_shadow.py",
+      "real_target": "odin/universal_work/universal_work_compiler.py",
+      "fixture": "examples/shadow_runtime/markdown_rewrite_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "semantic_bus_batch",
+      "shadow_file": "odin/shadow_runtime/semantic_bus_shadow.py",
+      "real_target": "odin/semantic_bus/bus.py",
+      "fixture": "examples/shadow_runtime/semantic_bus_shadow_batch.valid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "model_route_plan",
+      "shadow_file": "odin/shadow_runtime/model_route_shadow.py",
+      "real_target": "odin/models/model_router.py",
+      "fixture": "examples/shadow_runtime/model_route_standard.valid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "candidate_response_packet",
+      "shadow_file": "odin/shadow_runtime/candidate_shadow.py",
+      "real_target": "odin/packets/response_packet.py",
+      "fixture": "examples/shadow_runtime/markdown_rewrite_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "shadow_final_gate",
+      "shadow_file": "odin/shadow_runtime/boundary.py",
+      "real_target": "odin/core/final_gate.py",
+      "fixture": "examples/shadow_runtime/direct_apply_blocked.invalid.json",
+      "test": "tests/test_shadow_runtime_lock.py",
+      "task": "PR-23",
+      "bundle": "REAL-PR-09"
+    },
+    {
+      "id": "artifact_lens_context_distillery",
+      "shadow_file": "odin/shadow_runtime/artifact_lens_context_shadow.py",
+      "real_target": "odin/small_model_power/context_distillery.py",
+      "fixture": "examples/shadow_runtime/artifact_lens_context_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "worklet_slot_gaptext",
+      "shadow_file": "odin/shadow_runtime/worklet_slot_shadow.py",
+      "real_target": "odin/small_model_power/worklet_graph.py",
+      "fixture": "examples/shadow_runtime/worklet_slot_gaptext_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "candidate_tournament",
+      "shadow_file": "odin/shadow_runtime/candidate_tournament_shadow.py",
+      "real_target": "odin/small_model_power/candidate_tournament.py",
+      "fixture": "examples/shadow_runtime/candidate_tournament_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "low_memory_strict",
+      "shadow_file": "odin/shadow_runtime/low_memory_shadow.py",
+      "real_target": "odin/models/fallback_ladder.py",
+      "fixture": "examples/shadow_runtime/low_memory_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "thor_bridge",
+      "shadow_file": "odin/shadow_runtime/thor_bridge_shadow.py",
+      "real_target": "odin/thor_bridge/thor_adapter.py",
+      "fixture": "examples/shadow_runtime/thor_bridge_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "bounded_code_work",
+      "shadow_file": "odin/shadow_runtime/bounded_code_shadow.py",
+      "real_target": "odin/thor_bridge/bounded_code_work.py",
+      "fixture": "examples/shadow_runtime/bounded_code_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "storage_trace_receipt",
+      "shadow_file": "odin/shadow_runtime/storage_trace_shadow.py",
+      "real_target": "odin/storage/sqlite_store.py",
+      "fixture": "examples/shadow_runtime/storage_trace_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "api_endpoint_plan",
+      "shadow_file": "odin/shadow_runtime/api_shadow.py",
+      "real_target": "odin/api/http_server.py",
+      "fixture": "examples/shadow_runtime/api_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "app_qirc_digest_bridge",
+      "shadow_file": "odin/shadow_runtime/app_qirc_bridge_shadow.py",
+      "real_target": "odin/apps/app_qirc_bridge.py",
+      "fixture": "examples/shadow_runtime/app_qirc_bridge_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "model_dojo_scoreboard",
+      "shadow_file": "odin/shadow_runtime/model_dojo_shadow.py",
+      "real_target": "odin/small_model_power/model_dojo.py",
+      "fixture": "examples/shadow_runtime/model_dojo_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "security_redaction",
+      "shadow_file": "odin/shadow_runtime/security_redaction_shadow.py",
+      "real_target": "odin/core/claim_boundary.py",
+      "fixture": "examples/shadow_runtime/security_redaction_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "support_bundle",
+      "shadow_file": "odin/shadow_runtime/support_bundle_shadow.py",
+      "real_target": "odin/storage/object_store.py",
+      "fixture": "examples/shadow_runtime/support_bundle_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "windows_runtime_plan",
+      "shadow_file": "odin/shadow_runtime/windows_runtime_shadow.py",
+      "real_target": "odin/daemon.py",
+      "fixture": "examples/shadow_runtime/windows_runtime_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "sdk_template_validation",
+      "shadow_file": "odin/shadow_runtime/sdk_template_shadow.py",
+      "real_target": "templates/app_connector/",
+      "fixture": "examples/shadow_runtime/sdk_template_shadow.valid.json",
+      "test": "tests/test_full_shadow_runtime_coverage.py",
+      "task": "PR-24",
+      "bundle": "REAL-PR-10"
+    },
+    {
+      "id": "near_final_orchestrator",
+      "shadow_file": "odin/shadow_runtime/e2e_orchestrator_shadow.py",
+      "real_target": "odin/daemon.py",
+      "fixture": "examples/shadow_runtime/near_final_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "policy_engine",
+      "shadow_file": "odin/shadow_runtime/policy_engine_shadow.py",
+      "real_target": "odin/core/policy_engine.py",
+      "fixture": "examples/shadow_runtime/near_final_policy_block.invalid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "resource_scheduler",
+      "shadow_file": "odin/shadow_runtime/resource_scheduler_shadow.py",
+      "real_target": "odin/core/resource_posture.py",
+      "fixture": "examples/shadow_runtime/model_route_standard.valid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "state_machine",
+      "shadow_file": "odin/shadow_runtime/state_machine_shadow.py",
+      "real_target": "odin/core/state_machine.py",
+      "fixture": "examples/shadow_runtime/near_final_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "failure_recovery",
+      "shadow_file": "odin/shadow_runtime/failure_recovery_shadow.py",
+      "real_target": "odin/core/failure_recovery.py",
+      "fixture": "examples/shadow_runtime/near_final_policy_block.invalid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "provider_adapter_plan",
+      "shadow_file": "odin/shadow_runtime/provider_adapter_shadow.py",
+      "real_target": "odin/models/providers/mock.py",
+      "fixture": "examples/shadow_runtime/near_final_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "registry_consistency_report",
+      "shadow_file": "odin/shadow_runtime/registry_consistency_shadow.py",
+      "real_target": "odin/cli.py",
+      "fixture": "examples/shadow_runtime/near_final_shadow_flow.valid.json",
+      "test": "tests/test_shadow_runtime_near_final.py",
+      "task": "PR-25",
+      "bundle": "REAL-PR-11"
+    },
+    {
+      "id": "fairy_dsl_shadow",
+      "shadow_file": "odin/shadow_runtime/fairy_dsl_shadow.py",
+      "real_target": "odin/shadow_runtime/fairy_dsl.py",
+      "fixture": "examples/fairy/odin_rewrite_story.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-27",
+      "bundle": "REAL-PR-12"
+    },
+    {
+      "id": "ystar_native_unit",
+      "shadow_file": "odin/shadow_runtime/ystar_native_dsl_shadow.py",
+      "real_target": "odin/shadow_runtime/ystar_native_dsl.py",
+      "fixture": "examples/fairy/odin_ystar_unit.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-26",
+      "bundle": "REAL-PR-12"
+    },
+    {
+      "id": "narrative_aorta_node",
+      "shadow_file": "odin/shadow_runtime/narrative_aorta_shadow.py",
+      "real_target": "odin/narrative/aorta.py",
+      "fixture": "examples/fairy/odin_rewrite_story.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-26",
+      "bundle": "REAL-PR-12"
+    },
+    {
+      "id": "fairy_to_shadow_ir",
+      "shadow_file": "odin/shadow_runtime/fairy_to_shadow_ir_shadow.py",
+      "real_target": "odin/compiler/fairy_to_shadow_ir.py",
+      "fixture": "examples/fairy/odin_rewrite_story.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-28",
+      "bundle": "REAL-PR-12"
+    },
+    {
+      "id": "ystar_mediation",
+      "shadow_file": "odin/shadow_runtime/ystar_mediation_shadow.py",
+      "real_target": "odin/compiler/ystar_mediation.py",
+      "fixture": "examples/fairy/odin_ystar_unit.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-29",
+      "bundle": "REAL-PR-12"
+    },
+    {
+      "id": "runtime_pack_manifest",
+      "shadow_file": "odin/compiler/runtime_pack.py",
+      "real_target": "odin/compiler/runtime_pack.py",
+      "fixture": "examples/compiler/standard_local_runtime_pack.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-32",
+      "bundle": "REAL-PR-13"
+    },
+    {
+      "id": "pack_validator",
+      "shadow_file": "odin/compiler/pack_validator.py",
+      "real_target": "odin/compiler/pack_validator.py",
+      "fixture": "examples/compiler/standard_local_runtime_pack.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-32",
+      "bundle": "REAL-PR-13"
+    },
+    {
+      "id": "aot_runtime_pack_compiler",
+      "shadow_file": "odin/compiler/aot_compiler.py",
+      "real_target": "odin/compiler/aot_compiler.py",
+      "fixture": "examples/compiler/standard_local_runtime_pack.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-33",
+      "bundle": "REAL-PR-13"
+    },
+    {
+      "id": "capability_slice_compiler",
+      "shadow_file": "odin/compiler/capability_slice.py",
+      "real_target": "odin/compiler/capability_slice.py",
+      "fixture": "examples/compiler/standard_local_runtime_pack.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-34",
+      "bundle": "REAL-PR-13"
+    },
+    {
+      "id": "pack_loader",
+      "shadow_file": "odin/compiler/pack_loader.py",
+      "real_target": "odin/compiler/pack_loader.py",
+      "fixture": "examples/compiler/standard_local_runtime_pack.valid.json",
+      "test": "tests/test_narrative_compiler_integration.py",
+      "task": "PR-35",
+      "bundle": "REAL-PR-13"
+    },
+    {
+      "id": "odin_core_centerline",
+      "shadow_file": "odin/shadow_runtime/odin_core_centerline_shadow.py",
+      "real_target": "odin/core/centerline.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-38",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "qli_master_interface",
+      "shadow_file": "odin/shadow_runtime/qli_master_interface_shadow.py",
+      "real_target": "odin/core/qli_master_interface.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-38",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "dfas_stability_core",
+      "shadow_file": "odin/shadow_runtime/dfas_stability_core_shadow.py",
+      "real_target": "odin/core/dfas_stability_core.py",
+      "fixture": "examples/shadow_runtime/odin_core_policy_block.invalid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-39",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "seed_archetype_economy",
+      "shadow_file": "odin/shadow_runtime/seed_archetype_economy_shadow.py",
+      "real_target": "odin/precompute/seed_archetype_economy.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-40",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "qmath_center_solver",
+      "shadow_file": "odin/shadow_runtime/qmath_center_solver_shadow.py",
+      "real_target": "odin/precompute/qmath_center_solver.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-41",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "ring_radar_resonance",
+      "shadow_file": "odin/shadow_runtime/ring_radar_resonance_shadow.py",
+      "real_target": "odin/precompute/ring_radar_resonance.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-42",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "why_trace",
+      "shadow_file": "odin/shadow_runtime/why_trace_shadow.py",
+      "real_target": "odin/packets/why_trace.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-42",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "maria_michael_superposition",
+      "shadow_file": "odin/shadow_runtime/maria_michael_superposition_shadow.py",
+      "real_target": "odin/precompute/maria_michael_superposition.py",
+      "fixture": "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+      "test": "tests/test_odin_core_qli_dfas_seed_economy.py",
+      "task": "PR-43",
+      "bundle": "REAL-PR-14"
+    },
+    {
+      "id": "qirc_gold_spine",
+      "shadow_file": "odin/shadow_runtime/qirc_gold_spine_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_gold_spine.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_hot_window",
+      "shadow_file": "odin/shadow_runtime/qirc_hot_window_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_hot_window.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_seed_prewarm",
+      "shadow_file": "odin/shadow_runtime/qirc_seed_prewarm_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_seed_prewarm.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_admissibility",
+      "shadow_file": "odin/shadow_runtime/qirc_admissibility_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_admissibility.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_block.invalid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_ring_radar",
+      "shadow_file": "odin/shadow_runtime/qirc_ring_radar_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_ring_radar.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_why_trace",
+      "shadow_file": "odin/shadow_runtime/qirc_why_trace_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_why_trace.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "qirc_runtime_pack_channels",
+      "shadow_file": "odin/shadow_runtime/qirc_runtime_pack_shadow.py",
+      "real_target": "odin/semantic_bus/qirc_runtime_pack.py",
+      "fixture": "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+      "test": "tests/test_qirc_gold_spine.py",
+      "task": "PR-45",
+      "bundle": "REAL-PR-15"
+    },
+    {
+      "id": "bug6_q7_invariant",
+      "shadow_file": "odin/shadow_runtime/bug6_q7_invariant_shadow.py",
+      "real_target": "odin/core/bug6_q7_invariant.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-50",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "y_core_posture",
+      "shadow_file": "odin/shadow_runtime/y_core_posture_shadow.py",
+      "real_target": "odin/core/y_core_posture.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-51",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "operational_seed_substrate",
+      "shadow_file": "odin/shadow_runtime/operational_seed_substrate_shadow.py",
+      "real_target": "odin/seeds/operational_seed_substrate.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-52",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "seed_archetype_synthesis",
+      "shadow_file": "odin/shadow_runtime/seed_archetype_synthesis_shadow.py",
+      "real_target": "odin/seeds/seed_archetype_synthesis.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-53",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "fairy_ystar_seed_binding",
+      "shadow_file": "odin/shadow_runtime/fairy_ystar_seed_binding_shadow.py",
+      "real_target": "odin/shadow_runtime/fairy_ystar_seed_binding.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-54",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "shadow_runtime_seed_binding",
+      "shadow_file": "odin/shadow_runtime/shadow_runtime_seed_binding_shadow.py",
+      "real_target": "odin/shadow_runtime/seed_binding.py",
+      "fixture": "examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json",
+      "test": "tests/test_bug6_q7_seed_core.py",
+      "task": "PR-55",
+      "bundle": "REAL-PR-16"
+    },
+    {
+      "id": "ai_git_safety",
+      "shadow_file": "odin/shadow_runtime/ai_git_safety_shadow.py",
+      "real_target": "odin/runtime/ai_git_safety.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_flow.valid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-56",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "autonomy_escalation_gate",
+      "shadow_file": "odin/shadow_runtime/autonomy_escalation_gate_shadow.py",
+      "real_target": "odin/runtime/autonomy_escalation_gate.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_block.invalid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-57",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "safety_superposition",
+      "shadow_file": "odin/shadow_runtime/safety_superposition_shadow.py",
+      "real_target": "odin/runtime/safety_superposition.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_flow.valid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-58",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "semantic_diff_branch_merge",
+      "shadow_file": "odin/shadow_runtime/semantic_diff_branch_merge_shadow.py",
+      "real_target": "odin/runtime/semantic_diff_branch_merge.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_flow.valid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-59",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "skynet_pattern_boundary",
+      "shadow_file": "odin/shadow_runtime/skynet_pattern_boundary_shadow.py",
+      "real_target": "odin/runtime/skynet_pattern_boundary.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_block.invalid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-60",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "human_review_apply_boundary",
+      "shadow_file": "odin/shadow_runtime/human_review_apply_boundary_shadow.py",
+      "real_target": "odin/runtime/human_review_apply_boundary.py",
+      "fixture": "examples/shadow_runtime/ai_git_safety_flow.valid.json",
+      "test": "tests/test_ai_git_safety_consolidation.py",
+      "task": "PR-59",
+      "bundle": "REAL-PR-17"
+    },
+    {
+      "id": "pre_llm_intelligence",
+      "shadow_file": "odin/shadow_runtime/pre_llm_intelligence_shadow.py",
+      "real_target": "odin/pre_llm_intelligence.py",
+      "fixture": "examples/shadow_runtime/pre_llm_intelligence_flow.valid.json",
+      "test": "tests/test_pre_llm_intelligence_amplification.py",
+      "task": "PR-61",
+      "bundle": "REAL-PR-18"
+    },
+    {
+      "id": "model_work_avoidance",
+      "shadow_file": "odin/shadow_runtime/model_work_avoidance_shadow.py",
+      "real_target": "odin/model_work_avoidance.py",
+      "fixture": "examples/shadow_runtime/pre_llm_direct_apply_block.invalid.json",
+      "test": "tests/test_pre_llm_intelligence_amplification.py",
+      "task": "PR-61",
+      "bundle": "REAL-PR-18"
+    },
+    {
+      "id": "output_intelligence_composer",
+      "shadow_file": "odin/shadow_runtime/output_intelligence_composer_shadow.py",
+      "real_target": "odin/output_intelligence_composer.py",
+      "fixture": "examples/shadow_runtime/pre_llm_intelligence_flow.valid.json",
+      "test": "tests/test_pre_llm_intelligence_amplification.py",
+      "task": "PR-61",
+      "bundle": "REAL-PR-18"
+    },
+    {
+      "id": "perceived_intelligence_metrics",
+      "shadow_file": "odin/shadow_runtime/perceived_intelligence_metrics_shadow.py",
+      "real_target": "odin/perceived_intelligence_metrics.py",
+      "fixture": "examples/shadow_runtime/pre_llm_intelligence_flow.valid.json",
+      "test": "tests/test_pre_llm_intelligence_amplification.py",
+      "task": "PR-61",
+      "bundle": "REAL-PR-18"
+    },
+    {
+      "id": "micro_to_macro_synthesis",
+      "shadow_file": "odin/shadow_runtime/micro_to_macro_synthesis_shadow.py",
+      "real_target": "odin/micro_to_macro_synthesis.py",
+      "fixture": "examples/shadow_runtime/pre_llm_intelligence_flow.valid.json",
+      "test": "tests/test_pre_llm_intelligence_amplification.py",
+      "task": "PR-61",
+      "bundle": "REAL-PR-18"
+    },
+    {
+      "id": "universal_model_agent_parity",
+      "shadow_file": "odin/shadow_runtime/universal_model_agent_parity_shadow.py",
+      "real_target": "odin/universal_model_agent_parity.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "model_agent_card",
+      "shadow_file": "odin/shadow_runtime/model_agent_card_shadow.py",
+      "real_target": "odin/model_agent_card.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "agent_work_capsule",
+      "shadow_file": "odin/shadow_runtime/agent_work_capsule_shadow.py",
+      "real_target": "odin/agent_work_capsule.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "agent_capability_pack",
+      "shadow_file": "odin/shadow_runtime/agent_capability_pack_shadow.py",
+      "real_target": "odin/agent_capability_pack.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "external_agent_adapter",
+      "shadow_file": "odin/shadow_runtime/external_agent_adapter_shadow.py",
+      "real_target": "odin/external_agent_adapter.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "agent_permission_card",
+      "shadow_file": "odin/shadow_runtime/agent_permission_card_shadow.py",
+      "real_target": "odin/agent_permission_card.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "agent_candidate_protocol",
+      "shadow_file": "odin/shadow_runtime/agent_candidate_protocol_shadow.py",
+      "real_target": "odin/agent_candidate_protocol.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "agent_twin_archetype",
+      "shadow_file": "odin/shadow_runtime/agent_twin_archetype_shadow.py",
+      "real_target": "odin/agent_twin_archetype.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "universal_agent_why_trace",
+      "shadow_file": "odin/shadow_runtime/universal_agent_why_trace_shadow.py",
+      "real_target": "odin/universal_agent_why_trace.py",
+      "fixture": "examples/shadow_runtime/universal_model_agent_parity_flow.valid.json",
+      "test": "tests/test_universal_model_agent_parity.py",
+      "task": "PR-66",
+      "bundle": "REAL-PR-19"
+    },
+    {
+      "id": "thor_handoff_compiler",
+      "shadow_file": "odin/shadow_runtime/thor_handoff_compiler_shadow.py",
+      "real_target": "odin/thor_bridge/thor_adapter.py",
+      "fixture": "examples/handoff/thor_handoff_compile_flow.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-73",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "handoff_prompt_pull",
+      "shadow_file": "odin/shadow_runtime/handoff_prompt_pull_shadow.py",
+      "real_target": "odin/thor_bridge/handoff_prompt_pull.py",
+      "fixture": "examples/handoff/thor_handoff_compile_flow.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-73",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "thor_return_review",
+      "shadow_file": "odin/shadow_runtime/thor_return_review_shadow.py",
+      "real_target": "odin/thor_bridge/return_review.py",
+      "fixture": "examples/handoff/thor_direct_apply_handoff.invalid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-74",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "y_handoff_bridge",
+      "shadow_file": "odin/shadow_runtime/y_handoff_bridge_shadow.py",
+      "real_target": "odin/thor_bridge/y_handoff_bridge.py",
+      "fixture": "examples/handoff/y_handoff_bridge.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-75",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "mjolnir_strike_bridge",
+      "shadow_file": "odin/shadow_runtime/mjolnir_strike_bridge_shadow.py",
+      "real_target": "odin/thor_bridge/mjolnir_strike_bridge.py",
+      "fixture": "examples/handoff/mjolnir_strike_candidate.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-76",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "handoff_to_universal_work",
+      "shadow_file": "odin/shadow_runtime/handoff_to_universal_work_shadow.py",
+      "real_target": "odin/universal_work/handoff_compiler.py",
+      "fixture": "examples/handoff/thor_handoff_compile_flow.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-78",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "handoff_postprocessing",
+      "shadow_file": "odin/shadow_runtime/handoff_postprocessing_shadow.py",
+      "real_target": "odin/packets/handoff_postprocessing.py",
+      "fixture": "examples/handoff/thor_handoff_compile_flow.valid.json",
+      "test": "tests/test_thor_y_handoff_compiler.py",
+      "task": "PR-79",
+      "bundle": "REAL-PR-20"
+    },
+    {
+      "id": "universal_llm_work_construct",
+      "shadow_file": "odin/shadow_runtime/universal_llm_work_construct_shadow.py",
+      "real_target": "odin/universal_work/universal_llm_work_construct.py",
+      "fixture": "examples/universal_llm_work/universal_llm_work_session.valid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "model_agent_adapter_boundary",
+      "shadow_file": "odin/shadow_runtime/model_agent_adapter_shadow.py",
+      "real_target": "odin/agents/model_agent_adapter.py",
+      "fixture": "examples/universal_llm_work/universal_llm_work_session.valid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "remote_worker_boundary",
+      "shadow_file": "odin/shadow_runtime/remote_worker_boundary_shadow.py",
+      "real_target": "odin/agents/remote_worker_boundary.py",
+      "fixture": "examples/universal_llm_work/remote_apply_attempt.invalid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "agent_tool_permission_boundary",
+      "shadow_file": "odin/shadow_runtime/agent_tool_permission_shadow.py",
+      "real_target": "odin/agents/tool_permission.py",
+      "fixture": "examples/universal_llm_work/remote_apply_attempt.invalid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "universal_use_case_matrix",
+      "shadow_file": "odin/shadow_runtime/universal_use_case_matrix_shadow.py",
+      "real_target": "odin/profiles/universal_use_case_matrix.py",
+      "fixture": "examples/universal_llm_work/universal_llm_work_session.valid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "ai_git_work_session",
+      "shadow_file": "odin/shadow_runtime/ai_git_work_session_shadow.py",
+      "real_target": "odin/packets/ai_git_work_session.py",
+      "fixture": "examples/universal_llm_work/universal_llm_work_session.valid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "gpl2_license_policy",
+      "shadow_file": "odin/shadow_runtime/gpl2_license_policy_shadow.py",
+      "real_target": "odin/license/policy.py",
+      "fixture": "examples/universal_llm_work/universal_llm_work_session.valid.json",
+      "test": "tests/test_universal_llm_work_construct.py",
+      "task": "PR-81",
+      "bundle": "REAL-PR-21"
+    },
+    {
+      "id": "app_seed_pack_compiler",
+      "shadow_file": "odin/shadow_runtime/app_seed_pack_compiler_shadow.py",
+      "real_target": "odin/seed_packs/compiler.py",
+      "fixture": "examples/seed_packs/app_seed_pack_manifest.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-87",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "universal_seed_pack_manifest",
+      "shadow_file": "odin/shadow_runtime/universal_seed_pack_manifest_shadow.py",
+      "real_target": "odin/seed_packs/manifest.py",
+      "fixture": "examples/seed_packs/app_seed_pack_manifest.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-88",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "operational_seed_functions",
+      "shadow_file": "odin/shadow_runtime/operational_seed_functions_shadow.py",
+      "real_target": "odin/seed_packs/functions.py",
+      "fixture": "examples/seed_packs/app_seed_pack_manifest.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-89",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "seed_pack_security_boundary",
+      "shadow_file": "odin/shadow_runtime/seed_pack_security_boundary_shadow.py",
+      "real_target": "odin/seed_packs/security.py",
+      "fixture": "examples/seed_packs/app_seed_pack_executable_block.invalid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-89",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "seed_pack_to_runtime_pack",
+      "shadow_file": "odin/shadow_runtime/seed_pack_to_runtime_pack_shadow.py",
+      "real_target": "odin/seed_packs/runtime_pack_compile.py",
+      "fixture": "examples/seed_packs/seed_pack_compile_plan.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-90",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "seed_pack_composition_conflict",
+      "shadow_file": "odin/shadow_runtime/seed_pack_composition_conflict_shadow.py",
+      "real_target": "odin/seed_packs/composition.py",
+      "fixture": "examples/seed_packs/seed_pack_compile_plan.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-91",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "seed_pack_why_trace",
+      "shadow_file": "odin/shadow_runtime/seed_pack_why_trace_shadow.py",
+      "real_target": "odin/seed_packs/why_trace.py",
+      "fixture": "examples/seed_packs/seed_pack_compile_plan.valid.json",
+      "test": "tests/test_app_seed_pack_compiler.py",
+      "task": "PR-92",
+      "bundle": "REAL-PR-22"
+    },
+    {
+      "id": "shadow_narrative",
+      "shadow_file": "odin/shadow_runtime/shadow_narrative_shadow.py",
+      "real_target": "odin/shadow_narrative/core.py",
+      "fixture": "examples/shadow_narrative/shadow_narrative_helpful_tyrant.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-93",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "anti_fairy_dsl",
+      "shadow_file": "odin/shadow_runtime/anti_fairy_dsl_shadow.py",
+      "real_target": "odin/shadow_narrative/anti_fairy.py",
+      "fixture": "examples/shadow_narrative/shadow_narrative_helpful_tyrant.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-94",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "loki_mediation",
+      "shadow_file": "odin/shadow_runtime/loki_mediation_shadow.py",
+      "real_target": "odin/shadow_narrative/loki.py",
+      "fixture": "examples/shadow_narrative/loki_authority_escalation.invalid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-95",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "narrative_antipattern_mirror",
+      "shadow_file": "odin/shadow_runtime/narrative_antipattern_mirror_shadow.py",
+      "real_target": "odin/shadow_narrative/mirror.py",
+      "fixture": "examples/shadow_narrative/shadow_narrative_helpful_tyrant.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-94",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "failure_story_registry",
+      "shadow_file": "odin/shadow_runtime/failure_story_registry_shadow.py",
+      "real_target": "odin/shadow_narrative/failure_registry.py",
+      "fixture": "examples/shadow_narrative/narrative_red_team_case.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-97",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "shadow_narrative_to_gate",
+      "shadow_file": "odin/shadow_runtime/shadow_narrative_to_gate_shadow.py",
+      "real_target": "odin/shadow_narrative/gate_compiler.py",
+      "fixture": "examples/shadow_narrative/narrative_red_team_case.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-96",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "narrative_red_team_compiler",
+      "shadow_file": "odin/shadow_runtime/narrative_red_team_compiler_shadow.py",
+      "real_target": "odin/shadow_narrative/red_team_compiler.py",
+      "fixture": "examples/shadow_narrative/narrative_red_team_case.valid.json",
+      "test": "tests/test_shadow_narrative_loki_antipattern.py",
+      "task": "PR-97",
+      "bundle": "REAL-PR-23"
+    },
+    {
+      "id": "windows_product_runtime",
+      "shadow_file": "odin/shadow_runtime/windows_product_runtime_shadow.py",
+      "real_target": "odin/windows/product_runtime.py",
+      "fixture": "examples/windows/windows_product_runtime_manifest.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-98",
+      "bundle": "REAL-PR-24"
+    },
+    {
+      "id": "windows_ipc_security",
+      "shadow_file": "odin/shadow_runtime/windows_ipc_security_shadow.py",
+      "real_target": "odin/windows/ipc_security.py",
+      "fixture": "examples/windows/windows_product_runtime_manifest.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-99",
+      "bundle": "REAL-PR-24"
+    },
+    {
+      "id": "pattern_mine_intake",
+      "shadow_file": "odin/shadow_runtime/pattern_mine_intake_shadow.py",
+      "real_target": "odin/pattern_mines/intake.py",
+      "fixture": "examples/pattern_mines/pattern_mine_manifest.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-103",
+      "bundle": "REAL-PR-25"
+    },
+    {
+      "id": "flow_pack_compiler",
+      "shadow_file": "odin/shadow_runtime/flow_pack_compiler_shadow.py",
+      "real_target": "odin/pattern_mines/flow_pack_compiler.py",
+      "fixture": "examples/pattern_mines/pattern_mine_manifest.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-104",
+      "bundle": "REAL-PR-25"
+    },
+    {
+      "id": "work_atom_runtime",
+      "shadow_file": "odin/shadow_runtime/work_atom_runtime_shadow.py",
+      "real_target": "odin/work_atoms/runtime.py",
+      "fixture": "examples/work_atoms/work_atom_graph.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-108",
+      "bundle": "REAL-PR-26"
+    },
+    {
+      "id": "micro_to_macro_work_synthesis",
+      "shadow_file": "odin/shadow_runtime/micro_to_macro_work_synthesis_shadow.py",
+      "real_target": "odin/work_atoms/micro_to_macro.py",
+      "fixture": "examples/work_atoms/work_atom_graph.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-110",
+      "bundle": "REAL-PR-26"
+    },
+    {
+      "id": "odin_hub_operational_center",
+      "shadow_file": "odin/shadow_runtime/odin_hub_operational_center_shadow.py",
+      "real_target": "odin/hub/operational_center.py",
+      "fixture": "examples/odin_hub/odin_hub_surface.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-112",
+      "bundle": "REAL-PR-27"
+    },
+    {
+      "id": "odin_hub_recovery",
+      "shadow_file": "odin/shadow_runtime/odin_hub_recovery_shadow.py",
+      "real_target": "odin/hub/recovery.py",
+      "fixture": "examples/odin_hub/odin_hub_surface.valid.json",
+      "test": "tests/test_product_pattern_atom_hub_lock.py",
+      "task": "PR-114",
+      "bundle": "REAL-PR-27"
+    },
+    {
+      "id": "public_repo_canon",
+      "shadow_file": "odin/shadow_runtime/public_repo_canon_shadow.py",
+      "real_target": "odin/public_repo/canon.py",
+      "fixture": "examples/public_repo/public_repo_canon_lock.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-116",
+      "bundle": "REAL-PR-28"
+    },
+    {
+      "id": "windows_build_ready",
+      "shadow_file": "odin/shadow_runtime/windows_build_ready_shadow.py",
+      "real_target": "odin/windows/build_ready.py",
+      "fixture": "examples/windows/windows_build_ready_manifest.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-117",
+      "bundle": "REAL-PR-28"
+    },
+    {
+      "id": "windows_ipc_endpoint",
+      "shadow_file": "odin/shadow_runtime/windows_ipc_endpoint_shadow.py",
+      "real_target": "odin/windows/ipc_endpoint.py",
+      "fixture": "examples/windows/windows_ipc_endpoint.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-118",
+      "bundle": "REAL-PR-28"
+    },
+    {
+      "id": "mvp_v1_power_mode",
+      "shadow_file": "odin/shadow_runtime/mvp_v1_power_mode_shadow.py",
+      "real_target": "odin/runtime/mode_profiles.py",
+      "fixture": "examples/public_repo/public_repo_canon_lock.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-120",
+      "bundle": "REAL-PR-28"
+    },
+    {
+      "id": "seed_pattern_pack_security",
+      "shadow_file": "odin/shadow_runtime/seed_pattern_pack_security_shadow.py",
+      "real_target": "odin/seed_packs/security_certification.py",
+      "fixture": "examples/seed_packs/seed_pattern_pack_certification.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-121",
+      "bundle": "REAL-PR-28"
+    },
+    {
+      "id": "public_build_readiness",
+      "shadow_file": "odin/shadow_runtime/public_build_readiness_shadow.py",
+      "real_target": "odin/public_repo/build_readiness.py",
+      "fixture": "examples/public_repo/public_repo_canon_lock.valid.json",
+      "test": "tests/test_public_repo_windows_build_ready.py",
+      "task": "PR-122",
+      "bundle": "REAL-PR-28"
+    }
+  ]
+}

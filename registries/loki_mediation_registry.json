@@ -1,0 +1,16 @@
+{
+  "registry_id": "loki_mediation_registry",
+  "version": "0.7.0",
+  "allowed_outputs": [
+    "risk_candidate",
+    "gate_recommendation",
+    "negative_fixture_plan",
+    "why_trace_note"
+  ],
+  "forbidden_outputs": [
+    "final_decision",
+    "app_mutation",
+    "external_send",
+    "receipt"
+  ]
+}

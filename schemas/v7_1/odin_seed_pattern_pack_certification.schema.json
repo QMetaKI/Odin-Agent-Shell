@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_seed_pattern_pack_certification.schema.json",
+  "title": "odin seed pattern pack certification",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "certification_state": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "scan_results": {
+      "type": "object"
+    },
+    "blocked_reasons": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "certification_state"
+  ]
+}

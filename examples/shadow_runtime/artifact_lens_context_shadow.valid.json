@@ -1,0 +1,33 @@
+{
+  "work_id": "WORK-LENS-001",
+  "caller_id": "app",
+  "binding_ref": "OB-001",
+  "trace_id": "TRACE-LENS-001",
+  "domain": "wedding_speech",
+  "input_artifacts": [
+    {
+      "artifact_id": "ART-1",
+      "artifact_type": "markdown",
+      "privacy_class": "local_only"
+    }
+  ],
+  "work_intent": {
+    "verb": "rewrite",
+    "goal": "Improve section"
+  },
+  "output_contract": {
+    "artifact_type": "markdown_candidate",
+    "candidate_only": true,
+    "requires_app_apply_gate": true,
+    "max_tokens": 300
+  },
+  "constraints": {
+    "allowed": [
+      "project anchors"
+    ],
+    "forbidden": [
+      "invent facts"
+    ]
+  },
+  "claim_boundary": "candidate_projection_only"
+}

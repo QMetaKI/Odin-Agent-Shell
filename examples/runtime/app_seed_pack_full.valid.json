@@ -1,0 +1,34 @@
+{
+  "artifact_kind": "odin_app_seed_pack",
+  "claim_boundary": "declarative_seed_pack_only",
+  "pack_id": "DEMO-SEED-PACK-001",
+  "protocol_version": "7.1",
+  "seeds": [
+    {
+      "activation_tags": [
+        "writing",
+        "always"
+      ],
+      "functions": [
+        "context_bias",
+        "output_shape"
+      ],
+      "id": "clarity_seed",
+      "purpose": "prefer concise structured candidate output",
+      "weight": 1.2
+    },
+    {
+      "activation_tags": [
+        "boundary",
+        "always"
+      ],
+      "functions": [
+        "gate_bias",
+        "claim_filter"
+      ],
+      "id": "boundary_seed",
+      "purpose": "preserve app-owned apply boundary",
+      "weight": 2.0
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_app_seed_pack_manifest",
+  "protocol_version": "7.1",
+  "pack_id": "bad_seed_pack",
+  "producer": "example_app",
+  "trust_tier": "untrusted",
+  "seed_families": [
+    "domain"
+  ],
+  "operational_functions": [
+    "execute_code"
+  ],
+  "privacy_class": "blocked_sensitive",
+  "claim_boundary": "invalid_attempt_to_execute_seed_code"
+}

@@ -1,0 +1,37 @@
+{
+  "registry_id": "windows_process_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "odin_host",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_daemon",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_tray",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_control_center",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_model_runner",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_pack_compiler",
+      "status": "candidate"
+    },
+    {
+      "id": "odin_diagnostics",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

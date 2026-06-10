@@ -1,0 +1,8 @@
+{
+  "artifact_kind": "odin_seed_pattern_pack_certification",
+  "protocol_version": "7.1",
+  "certification_state": "review_required",
+  "source": "app_seed_pack",
+  "scan_results": {},
+  "blocked_reasons": []
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_pre_llm_intelligence_packet.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "work_id",
+    "trace_id",
+    "centerline_id",
+    "admissibility",
+    "model_required",
+    "pre_model_steps",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_pre_llm_intelligence_packet"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "centerline_id": {
+      "type": "string"
+    },
+    "admissibility": {
+      "enum": [
+        "go",
+        "hold",
+        "ask_context",
+        "split_work",
+        "block"
+      ]
+    },
+    "model_required": {
+      "type": "boolean"
+    },
+    "pre_model_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

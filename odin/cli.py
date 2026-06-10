@@ -1,0 +1,1571 @@
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+import sys
+
+from odin.runtime.engine import run_universal_work_file
+from odin.seeds.compiler import compile_seed_pack
+from odin.patterns.intake import compile_pattern_mine
+from odin.hub.static_hub import write_static_hub
+from odin.diagnostics.support_bundle import emit_support_bundle
+from odin.daemon.local_api import run_local_api
+from odin.models.providers.registry import list_provider_cards
+from odin.runtime.store import RuntimeStore
+
+ROOT = Path(__file__).resolve().parents[1]
+FORBIDDEN_CLAIMS = {
+    "runtime_verified",
+    "host_validated",
+    "model_inference_verified",
+    "network_verified",
+    "security_verified",
+    "production_ready",
+    "deploy_verified",
+    "patch_applied",
+    "tests_passed",
+    "full_implementation_complete",
+}
+
+def load_json(path: Path):
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+def validate_json() -> list[str]:
+    errors = []
+    for path in sorted(ROOT.rglob("*.json")):
+        try:
+            load_json(path)
+        except Exception as exc:
+            errors.append(f"{path.relative_to(ROOT)}: {exc}")
+    return errors
+
+def validate_registries() -> list[str]:
+    errors = []
+    reg_dir = ROOT / "registries"
+    required = [
+        "artifact_types.json",
+        "verb_registry.json",
+        "output_contract_types.json",
+        "semantic_bus_channels.json",
+        "model_scale_ladder.json",
+        "slot_classes.json",
+        "artifact_lenses.json",
+        "acceptance_gates.json",
+        "failure_states.json",
+        "codex_pr_bundle_registry.json",
+    ]
+    for name in required:
+        p = reg_dir / name
+        if not p.exists():
+            errors.append(f"missing registry {name}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{name}: missing registry_id/version")
+    ladder = load_json(reg_dir / "model_scale_ladder.json")
+    if ladder.get("default") != "3b_7b_8b_hybrid":
+        errors.append("model_scale_ladder default must be 3b_7b_8b_hybrid")
+    channels = load_json(reg_dir / "semantic_bus_channels.json").get("channels", [])
+    for ch in channels:
+        if not str(ch.get("name","")).startswith("#"):
+            errors.append(f"invalid semantic bus channel: {ch}")
+        if ch.get("local_only") is not True:
+            errors.append(f"semantic bus channel must be local_only: {ch}")
+    return errors
+
+def validate_system_map() -> list[str]:
+    errors = []
+    p = ROOT / "SYSTEM_MAP.json"
+    if not p.exists():
+        return ["SYSTEM_MAP.json missing"]
+    data = load_json(p)
+    for key in ["repo","version","canonical_entrypoints","canonical_docs","schemas_dir","registries_dir"]:
+        if key not in data:
+            errors.append(f"SYSTEM_MAP missing {key}")
+    for rel in data.get("canonical_entrypoints", []) + data.get("canonical_docs", []):
+        if not (ROOT / rel).exists():
+            errors.append(f"SYSTEM_MAP points to missing file: {rel}")
+    return errors
+
+def validate_claims() -> list[str]:
+    """Detect obvious positive overclaims.
+
+    The forbidden claim *tokens* are allowed in schemas, registries, docs and code
+    when they define boundaries. This scanner only blocks explicit affirmative
+    phrasing that would tell a user the runtime is already verified/production-ready.
+    """
+    errors = []
+    positive_patterns = [
+        "is runtime_verified",
+        "is host_validated",
+        "is model_inference_verified",
+        "is network_verified",
+        "is security_verified",
+        "is production_ready",
+        "is deploy_verified",
+        "is patch_applied",
+        "is tests_passed",
+        "is full_implementation_complete",
+        "runtime is verified",
+        "host is validated",
+        "security is verified",
+        "production ready",
+        "tests passed",
+        "patch applied",
+        "deployment verified",
+    ]
+    allowed_files = {
+        "CLAIM_BOUNDARY.md",
+        "AGENTS.md",
+        "README.md",
+        "MASTER_SPECS_V7_1.md",
+        "MASTER_ARCHITECTURE_V7_1.md",
+    }
+    this_file = Path(__file__).resolve()
+    for path in sorted(ROOT.rglob("*")):
+        if path.resolve() == this_file:
+            continue
+        if path.is_dir() or ".git" in path.parts:
+            continue
+        if path.suffix.lower() not in {".md", ".py", ".json", ".yml", ".yaml", ".ts", ".txt"}:
+            continue
+        if path.name in allowed_files or "schemas" in path.parts or "registries" in path.parts:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in positive_patterns:
+            if phrase in text:
+                errors.append(f"positive overclaim phrase '{phrase}' in {path.relative_to(ROOT)}")
+    return errors
+
+
+def validate_docs() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/MASTER_ARCHITECTURE_V7_1.md": ["Internal Semantic IRC Bus", "3B + 7B/8B", "Universal Work Kernel", "Candidate Artifact", "Model Scale Ladder", "Deep Subsystem Spec Lock"],
+        "docs/MASTER_SPECS_V7_1.md": ["Repository Layout Spec", "ModelWorkPacket", "Acceptance Gates", "Caller Manifest", "Semantic Cache", "Provider Adapter Spec", "Deep Subsystem Spec Lock"],
+        "docs/UNIVERSAL_WORK_KERNEL.md": ["ODIN_UNIVERSAL_WORK", "Binding Validation", "Candidate Artifact", "Validation Rules Catalog", "State Machine"],
+        "docs/INTERNAL_SEMANTIC_BUS.md": ["local-only", "#context.distill", "Semantic Event Envelope", "Module Bot Contract", "Bridge to App-Owned QIRC"],
+        "docs/SMALL_MODEL_POWER_LAYER.md": ["Context Distillery", "Slot Forge", "Candidate Tournament", "Tiny Specialist Modes", "Low-Memory Strict Mode"],
+        "docs/MODEL_SCALE_LADDER.md": ["3B + 7B/8B", "low_memory_strict", "remote optional", "Scale Ladder", "Escalation Discipline"],
+        "docs/APP_INTEGRATION_STANDARD.md": ["No LLM", "Odin Capability Bridge", "Candidate", "App QIRC Bridge"],
+        "docs/API_SPEC.md": ["/v7/universal-work/run", "/v7/bus/status", "localhost", "Endpoint Families"],
+        "docs/STORAGE_SPEC.md": ["SQLite", "Retention Policy", "semantic_bus_events"],
+        "docs/SECURITY_PRIVACY.md": ["local-first", "Secret Rules", "Boundary Matrix"],
+        "docs/TESTING_AND_GATES.md": ["Universal Work", "Semantic Bus", "Negative Tests", "Gate Families"],
+        "docs/DATA_CONTRACTS_V7_1.md": ["Contract Families", "Universal Work", "Candidate DNA", "Versioning"],
+        "docs/ALGORITHMS_V7_1.md": ["Universal Work Validation", "Context Distillation", "Model Route Selection", "Claim Gate"],
+        "docs/FLOW_CATALOG_V7_1.md": ["Markdown Rewrite", "Traureden Section", "Code PatchPlan", "App QIRC Digest"],
+        "docs/IMPLEMENTATION_DOD_V7_1.md": ["DoD", "Universal Work Kernel", "Internal Semantic Bus", "Model Provider Adapter"],
+        "docs/WINDOWS_RUNTIME.md": ["Process Responsibilities", "Runtime modes", "odin-daemon"],
+        "docs/THOR_INTEGRATION.md": ["Thor Bridge", "candidate-only", "Modes"],
+        "docs/BOUNDED_CODE_WORK.md": ["PatchPlan Candidate", "Bounded Code Work", "Required Boundaries"],
+        "docs/LOCAL_MEDIATION_PROTOCOL_V7_1.md": ["Local Mediation Protocol", "Artifact Directions", "Conflict Handling"],
+    }
+    min_lengths = {
+        "docs/MASTER_ARCHITECTURE_V7_1.md": 80000,
+        "docs/MASTER_SPECS_V7_1.md": 80000,
+        "docs/UNIVERSAL_WORK_KERNEL.md": 12000,
+        "docs/INTERNAL_SEMANTIC_BUS.md": 10000,
+        "docs/SMALL_MODEL_POWER_LAYER.md": 11000,
+        "docs/MODEL_SCALE_LADDER.md": 5000,
+        "docs/API_SPEC.md": 4500,
+        "docs/STORAGE_SPEC.md": 3500,
+        "docs/SECURITY_PRIVACY.md": 3000,
+        "docs/DATA_CONTRACTS_V7_1.md": 12000,
+        "docs/ALGORITHMS_V7_1.md": 12000,
+        "docs/FLOW_CATALOG_V7_1.md": 6000,
+        "docs/IMPLEMENTATION_DOD_V7_1.md": 12000,
+        "docs/TESTING_AND_GATES.md": 3500,
+        "docs/APP_INTEGRATION_STANDARD.md": 2500,
+        "docs/LOCAL_MEDIATION_PROTOCOL_V7_1.md": 2000,
+        "docs/WINDOWS_RUNTIME.md": 2500,
+        "docs/THOR_INTEGRATION.md": 1500,
+        "docs/BOUNDED_CODE_WORK.md": 1500,
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"required doc missing: {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+        if rel in min_lengths and len(text) < min_lengths[rel]:
+            errors.append(f"{rel}: too short for deep spec lock ({len(text)} < {min_lengths[rel]})")
+    return errors
+
+
+def validate_codex_tasks() -> list[str]:
+    errors = []
+    registry_path = ROOT / "registries" / "codex_task_registry.json"
+    if not registry_path.exists():
+        return ["codex task registry missing"]
+    data = load_json(registry_path)
+    tasks = data.get("tasks", [])
+    if len(tasks) < 20:
+        errors.append(f"codex task registry too small ({len(tasks)} < 20)")
+    seen = set()
+    completed = set()
+    for task in tasks:
+        tid = task.get("id")
+        if not tid:
+            errors.append("codex task missing id")
+            continue
+        if tid in seen:
+            errors.append(f"duplicate codex task id {tid}")
+        seen.add(tid)
+        for dep in task.get("depends_on", []):
+            if dep not in completed:
+                errors.append(f"{tid}: dependency {dep} must appear before task")
+        completed.add(tid)
+        doc_rel = task.get("doc")
+        if not doc_rel:
+            errors.append(f"{tid}: missing doc")
+            continue
+        p = ROOT / doc_rel
+        if not p.exists():
+            errors.append(f"{tid}: task doc missing: {doc_rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        for anchor in [tid, "Objective", "Primary Files", "Required Behavior", "Forbidden Scope", "Definition of Done", "Codex PR Summary Template"]:
+            if anchor not in text:
+                errors.append(f"{doc_rel}: missing anchor {anchor!r}")
+        if len(text) < 2500:
+            errors.append(f"{doc_rel}: task doc too short ({len(text)} < 2500)")
+    required_docs = [
+        "docs/codex/CODEX_TASK_LOCK_V0_4_0.md",
+        "docs/codex/IMPLEMENTATION_SEQUENCE_V0_4_0.md",
+        "docs/codex/PR_DEPENDENCY_GRAPH_V0_4_0.md",
+        "docs/codex/TASK_DOD_MATRIX_V0_4_0.md",
+        "docs/codex/CODEX_PROMPT_PACKS_V0_4_0.md",
+        "docs/codex/PR_TASK_INDEX.md",
+    ]
+    for rel in required_docs:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing codex task lock doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if "v0.4.0" not in text and "PR Task Index" not in text:
+            errors.append(f"{rel}: missing v0.4.0/task-lock marker")
+    return errors
+
+
+
+def validate_codex_bundles() -> list[str]:
+    errors = []
+    registry_path = ROOT / "registries" / "codex_pr_bundle_registry.json"
+    if not registry_path.exists():
+        return ["codex PR bundle registry missing"]
+    data = load_json(registry_path)
+    bundles = data.get("bundles", [])
+    if len(bundles) < 6:
+        errors.append(f"codex PR bundle registry too small ({len(bundles)} < 6)")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    task_ids = {task.get("id") for task in task_registry.get("tasks", [])}
+    covered = []
+    seen = set()
+    completed = set()
+    for bundle in bundles:
+        bid = bundle.get("id")
+        if not bid:
+            errors.append("bundle missing id")
+            continue
+        if bid in seen:
+            errors.append(f"duplicate bundle id {bid}")
+        seen.add(bid)
+        if not bid.startswith("REAL-PR-"):
+            errors.append(f"bundle id must start with REAL-PR-: {bid}")
+        for dep in bundle.get("depends_on", []):
+            if dep not in completed:
+                errors.append(f"{bid}: dependency {dep} must appear before bundle")
+        completed.add(bid)
+        internal = bundle.get("internal_tasks", [])
+        if not internal:
+            errors.append(f"{bid}: missing internal_tasks")
+        for tid in internal:
+            if tid not in task_ids:
+                errors.append(f"{bid}: unknown internal task {tid}")
+            covered.append(tid)
+        doc_rel = bundle.get("doc")
+        if not doc_rel:
+            errors.append(f"{bid}: missing doc")
+            continue
+        p = ROOT / doc_rel
+        if not p.exists():
+            errors.append(f"{bid}: bundle doc missing: {doc_rel}")
+            continue
+        doc = p.read_text(encoding="utf-8", errors="ignore")
+        for anchor in [bid, "Objective", "Internal Tasks Covered", "Primary Files", "Required Behavior", "Forbidden Scope", "Definition of Done", "Codex PR Summary Template"]:
+            if anchor not in doc:
+                errors.append(f"{doc_rel}: missing anchor {anchor!r}")
+        if len(doc) < 3000:
+            errors.append(f"{doc_rel}: bundle doc too short ({len(doc)} < 3000)")
+    missing = sorted(tid for tid in task_ids if tid and tid not in set(covered))
+    if missing:
+        errors.append("codex bundle registry does not cover internal tasks: " + ", ".join(missing))
+    for rel in ["docs/codex/CODEX_REAL_PR_BUNDLE_PLAN_V0_4_1.md", "docs/codex/REAL_PR_BUNDLE_INDEX_V0_4_1.md"]:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing codex bundle doc {rel}")
+        elif "v0.4.1" not in p.read_text(encoding="utf-8", errors="ignore"):
+            errors.append(f"{rel}: missing v0.4.1 marker")
+    return errors
+
+
+def validate_senior_review() -> list[str]:
+    errors = []
+    required = {
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md": ["Senior Reviewer Simulation", "SR-01", "Approval Conditions"],
+        "docs/SENIOR_REVIEW_REMEDIATION_PLAN_V0_4_2.md": ["Senior Review Remediation Plan", "PR-22", "REAL-PR-08"],
+        "docs/CODEX_ANTI_DRIFT_POLICY.md": ["Codex Anti-Drift Policy", "Forbidden Codex Shortcuts", "Authority Order"],
+        "docs/TRACEABILITY_MATRIX_V7_1.md": ["Traceability Matrix", "PR-22", "REAL-PR-08"],
+        "docs/QUALITY_RISK_REGISTER_V7_1.md": ["Quality and Risk Register", "R-001", "Critical"],
+        "docs/SEMANTIC_BUS_RED_LINES_V7_1.md": ["Semantic Bus Red-Line Policy", "The bus may not mutate app state", "Forbidden Event Types"],
+        "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md": ["Public Repo Release Checklist", "No runtime-proof claims", "Codex Launch Rule"],
+        "docs/codex/SENIOR_REVIEW_CODEX_ADDENDUM_V0_4_2.md": ["Codex Senior Review Addendum", "PR-22", "REAL-PR-08"],
+    }
+    for rel, anchors in required.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing senior review doc {rel}")
+            continue
+        content = p.read_text(encoding="utf-8", errors="ignore")
+        if len(content) < 1200:
+            errors.append(f"{rel}: too short for senior review hardening")
+        for anchor in anchors:
+            if anchor not in content:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    if "PR-22" not in tasks:
+        errors.append("PR-22 missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    covered = {tid for bundle in bundle_registry.get("bundles", []) for tid in bundle.get("internal_tasks", [])}
+    if "PR-22" not in covered:
+        errors.append("PR-22 not covered by real PR bundle registry")
+    return errors
+
+
+
+def validate_shadow_runtime() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md": ["Shadow Runtime", "Non-Authority Boundary", "Codex Rule"],
+        "docs/SHADOW_RUNTIME_CODE_NEAR_BOOK_V7_1.md": ["Mechanical Conversion Pattern", "Done Criteria", "Anti-Patterns"],
+        "docs/SHADOW_RUNTIME_TO_REAL_BUILD_MAPPING_V7_1.md": ["Mapping Table", "PR-23", "REAL-PR-09"],
+        "docs/CONTRACT_TO_SHADOW_CODE_MAP_V7_1.md": ["Binding Gate", "Universal Work Compile", "Final Gate"],
+        "docs/SHADOW_RUNTIME_STATE_MACHINES_V7_1.md": ["Universal Work Shadow State Machine", "Semantic Bus Shadow State Machine"],
+        "docs/SHADOW_RUNTIME_ACCEPTANCE_TESTS_V7_1.md": ["SR-TEST-001", "validate-shadow-runtime"],
+        "docs/YNODE_SHADOW_RUNTIME_PATTERN_ADAPTATION_V7_1.md": ["YNode", "Odin-specific adaptation"],
+        "docs/SHADOW_RUNTIME_FULL_COVERAGE_V7_1.md": ["Full Shadow Runtime", "Covered Subsystems", "Codex Rule"],
+        "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md": ["Shadow Subsystem Coverage Matrix", "artifact_lens_context_distillery", "REAL-PR-10"],
+        "docs/SHADOW_RUNTIME_NEAR_FINAL_LOCK_V7_1.md": ["Shadow Runtime Near-Final Lock", "Near-Final Spine", "PR-25"],
+        "docs/SHADOW_RUNTIME_E2E_ORCHESTRATOR_V7_1.md": ["Shadow Runtime End-to-End Orchestrator", "Canonical Entrypoint", "Failure Behavior"],
+        "docs/SHADOW_RUNTIME_POLICY_ENGINE_V7_1.md": ["Shadow Runtime Policy Engine", "Forbidden Markers", "Codex Conversion"],
+        "docs/SHADOW_RUNTIME_STATE_FAILURE_MATRIX_V7_1.md": ["Shadow Runtime State and Failure Matrix", "Canonical Success States", "Recovery Discipline"],
+        "docs/SHADOW_RUNTIME_RESOURCE_PROVIDER_PLAN_V7_1.md": ["Shadow Runtime Resource and Provider Plan", "Resource Posture", "Provider Adapter Plan"],
+        "docs/SHADOW_RUNTIME_CODEX_CONVERSION_PLAYBOOK_V7_1.md": ["Shadow Runtime Codex Conversion Playbook", "Conversion Pattern", "PR-25 Role"],
+        "docs/SHADOW_RUNTIME_REAL_MODULE_MAP_V7_1.md": ["Shadow Runtime to Real Module Map", "Shadow Module", "Real Target"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing shadow runtime doc {rel}")
+            continue
+        content = p.read_text(encoding="utf-8", errors="ignore")
+        if len(content) < 1000:
+            errors.append(f"{rel}: too short for shadow runtime lock")
+        for anchor in anchors:
+            if anchor not in content:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    registry_path = ROOT / "registries" / "shadow_runtime_contract_registry.json"
+    if not registry_path.exists():
+        errors.append("shadow runtime contract registry missing")
+    else:
+        data = load_json(registry_path)
+        contracts = data.get("contracts", [])
+        ids = {c.get("id") for c in contracts}
+        required_ids = {"binding_gate", "universal_work_compile", "semantic_bus_batch", "model_route_plan", "candidate_response_packet", "shadow_final_gate", "artifact_lens_context_distillery", "worklet_slot_gaptext", "candidate_tournament", "low_memory_strict", "thor_bridge", "bounded_code_work", "storage_trace_receipt", "api_endpoint_plan", "app_qirc_digest_bridge", "model_dojo_scoreboard", "security_redaction", "support_bundle", "windows_runtime_plan", "sdk_template_validation", "near_final_orchestrator", "policy_engine", "resource_scheduler", "state_machine", "failure_recovery", "provider_adapter_plan", "registry_consistency_report"}
+        missing = sorted(required_ids - ids)
+        if missing:
+            errors.append("shadow runtime registry missing contracts: " + ", ".join(missing))
+        for c in contracts:
+            for key in ["shadow_file", "real_target", "fixture", "test", "task", "bundle"]:
+                if key not in c:
+                    errors.append(f"shadow runtime contract {c.get('id')}: missing {key}")
+            for key in ["shadow_file", "fixture", "test"]:
+                rel = c.get(key)
+                if rel and not (ROOT / rel).exists():
+                    errors.append(f"shadow runtime contract {c.get('id')}: {key} path missing: {rel}")
+    for rel in [
+        "odin/shadow_runtime/__init__.py",
+        "odin/shadow_runtime/types.py",
+        "odin/shadow_runtime/pipeline.py",
+        "examples/shadow_runtime/markdown_rewrite_shadow_flow.valid.json",
+        "examples/shadow_runtime/direct_apply_blocked.invalid.json",
+        "tests/test_shadow_runtime_lock.py",
+        "docs/codex/tasks/PR-23_SHADOW_RUNTIME_CODE_NEAR_LOCK.md",
+        "docs/codex/bundles/REAL-PR-09_SHADOW_RUNTIME_MECHANICAL_BUILD_BRIDGE.md",
+        "docs/codex/tasks/PR-24_FULL_SHADOW_RUNTIME_COVERAGE.md",
+        "docs/codex/bundles/REAL-PR-10_FULL_SHADOW_RUNTIME_COVERAGE.md",
+        "docs/codex/tasks/PR-25_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_LOCK.md",
+        "docs/codex/bundles/REAL-PR-11_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_BRIDGE.md",
+        "odin/shadow_runtime/e2e_orchestrator_shadow.py",
+        "tests/test_shadow_runtime_near_final.py",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing shadow runtime file {rel}")
+    return errors
+
+
+
+def validate_narrative_compiler() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/FAIRY_DSL_V7_1.md": ["Fairy DSL", "Dual Spine", "no prose", "Y*"],
+        "docs/YSTAR_NATIVE_DSL_V7_1.md": ["Y* Native DSL", "Validation Rules", "candidate_only", "app_authority"],
+        "docs/NARRATIVE_AORTA_V7_1.md": ["Narrative Aorta", "Aorta Node Contract", "Children", "Red Lines"],
+        "docs/FAIRY_TO_SHADOW_IR_COMPILER_V7_1.md": ["Fairy-to-Shadow IR", "Compiler Inputs", "Failure Rules"],
+        "docs/YSTAR_MEDIATION_DIRECTIVE_V7_1.md": ["Y* Mediation Directive", "Runtime Boundaries", "Invalid Conditions"],
+        "docs/NARRATIVE_CODE_BOUNDARY_V7_1.md": ["Narrative Code Boundary", "Forbidden", "Boundary Table"],
+        "docs/MARIA_FAIRY_SPINE_V7_1.md": ["Maria Fairy Spine", "Mapping", "Review Checklist"],
+        "docs/SHADOW_RUNTIME_COMPILER_V7_1.md": ["Shadow Runtime Compiler", "Compiler Inputs", "Hot Path Rule"],
+        "docs/RUNTIME_PACK_SPEC_V7_1.md": ["Runtime Pack", "Manifest Shape", "Load Rule"],
+        "docs/CAPABILITY_SLICE_COMPILER_V7_1.md": ["Capability Slice", "Efficiency Rule", "Safety Rule"],
+        "docs/PACK_LOADER_SECURITY_V7_1.md": ["Pack Loader Security", "Rollback Flow", "Red Lines"],
+        "docs/AOT_CACHED_JIT_FALLBACK_V7_1.md": ["AOT", "Cached Capability", "Forbidden"],
+        "docs/GENERATED_RUNTIME_GATES_V7_1.md": ["Generated Runtime Gates", "Generated Gate Families", "Codex Rule"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing narrative compiler doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for narrative compiler lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    required_registries = [
+        "fairy_dsl_registry.json",
+        "ystar_stage_registry.json",
+        "narrative_aorta_registry.json",
+        "runtime_pack_registry.json",
+        "compiler_stage_registry.json",
+    ]
+    for name in required_registries:
+        p = ROOT / "registries" / name
+        if not p.exists():
+            errors.append(f"missing narrative compiler registry {name}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{name}: missing registry_id/version")
+    required_schemas = [
+        "odin_fairy_story.schema.json",
+        "odin_ystar_native_unit.schema.json",
+        "odin_ystar_mediation_directive.schema.json",
+        "odin_narrative_aorta_node.schema.json",
+        "odin_fairy_shadow_mapping.schema.json",
+        "odin_runtime_pack.schema.json",
+        "odin_capability_slice.schema.json",
+    ]
+    for name in required_schemas:
+        if not (ROOT / "schemas" / "v7_1" / name).exists():
+            errors.append(f"missing narrative compiler schema {name}")
+    for rel in [
+        "odin/shadow_runtime/fairy_dsl_shadow.py",
+        "odin/shadow_runtime/ystar_native_dsl_shadow.py",
+        "odin/shadow_runtime/narrative_aorta_shadow.py",
+        "odin/shadow_runtime/fairy_to_shadow_ir_shadow.py",
+        "odin/shadow_runtime/ystar_mediation_shadow.py",
+        "odin/compiler/shadow_ir.py",
+        "odin/compiler/runtime_pack.py",
+        "odin/compiler/pack_validator.py",
+        "odin/compiler/aot_compiler.py",
+        "tests/test_narrative_compiler_integration.py",
+        "examples/fairy/odin_rewrite_story.valid.json",
+        "examples/compiler/standard_local_runtime_pack.valid.json",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing narrative compiler file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(26, 38)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    for bid in ["REAL-PR-12", "REAL-PR-13"]:
+        if bid not in bundles:
+            errors.append(f"{bid} missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_odin_core_qli() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/ODIN_CORE_CENTERLINE_V7_1.md": ["Odin Core Centerline", "Centerline Packet", "Non-authority boundary"],
+        "docs/ODIN_QLI_MASTER_INTERFACE_V7_1.md": ["Odin QLI Master Interface", "Ring Path", "Maria/Michael Superposition"],
+        "docs/DFAS_STABILITY_CORE_V7_1.md": ["DFAS Stability Core", "Decision outputs", "Stop-early rule"],
+        "docs/SEED_ARCHETYPE_ECONOMY_V7_1.md": ["Seed / Archetype Economy", "Activation pipeline", "Conflict resolver"],
+        "docs/QMATH_CENTER_SOLVER_V7_1.md": ["QMath Center Solver", "route_score", "Stop rule"],
+        "docs/RING_RADAR_RESONANCE_V7_1.md": ["Ring Activation Map", "Resonance bands", "Why Trace"],
+        "docs/WHY_TRACE_EXPLAINABILITY_V7_1.md": ["Why Trace", "Redaction rules", "user-safe trace"],
+        "docs/MARIA_MICHAEL_SUPERPOSITION_V7_1.md": ["Maria / Michael Superposition", "80 Maria / 20 Michael", "profile"],
+        "docs/QFOUNDATION_SYSTEM_INTAKE_V7_1.md": ["QFoundation System Intake", "Odin System Palette", "Maria/Michael Binding"],
+        "docs/Q_METAMODELL_INTAKE_V7_1.md": ["Q Metamodell", "CUTK1", "Runtime Economy"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_1.md": ["Senior Reviewer", "Approval Conditions", "SR-CORE-01"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Odin Core/QLI doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1500:
+            errors.append(f"{rel}: too short for Odin Core/QLI hardening")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in [
+        "odin_centerline_packet.schema.json",
+        "odin_admissibility_decision.schema.json",
+        "odin_seed_activation_packet.schema.json",
+        "odin_archetype_role_packet.schema.json",
+        "odin_route_score.schema.json",
+        "odin_ring_activation_map.schema.json",
+        "odin_why_trace.schema.json",
+        "odin_maria_michael_profile.schema.json",
+    ]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing Odin Core/QLI schema {rel}")
+    for rel in [
+        "seed_registry.json",
+        "archetype_role_registry.json",
+        "resonance_band_registry.json",
+        "centerline_gate_registry.json",
+        "qmath_score_registry.json",
+        "maria_michael_profile_registry.json",
+        "qfoundation_system_palette_registry.json",
+    ]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing Odin Core/QLI registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in [
+        "odin/shadow_runtime/odin_core_centerline_shadow.py",
+        "odin/shadow_runtime/qli_master_interface_shadow.py",
+        "odin/shadow_runtime/dfas_stability_core_shadow.py",
+        "odin/shadow_runtime/seed_archetype_economy_shadow.py",
+        "odin/shadow_runtime/qmath_center_solver_shadow.py",
+        "odin/shadow_runtime/ring_radar_resonance_shadow.py",
+        "odin/shadow_runtime/why_trace_shadow.py",
+        "odin/shadow_runtime/maria_michael_superposition_shadow.py",
+        "examples/shadow_runtime/odin_core_qli_flow.valid.json",
+        "examples/shadow_runtime/odin_core_policy_block.invalid.json",
+        "tests/test_odin_core_qli_dfas_seed_economy.py",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing Odin Core/QLI file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(38, 45)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-14" not in bundles:
+        errors.append("REAL-PR-14 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_qirc_gold_spine() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/ODIN_QIRC_GOLD_SPINE_V7_1.md": ["Odin QIRC Gold Spine", "Red Lines", "QIRC-L0"],
+        "docs/QIRC_CHANNEL_TAXONOMY_V7_1.md": ["QIRC Channel Taxonomy", "#core.ingress", "#why.route"],
+        "docs/QIRC_EVENT_ENVELOPE_V2_V7_1.md": ["QIRC Event Envelope", "centerline_id", "payload_ref"],
+        "docs/QIRC_HOT_WINDOW_MEMORY_V7_1.md": ["Hot Window", "Work Memory", "Trace Memory"],
+        "docs/QIRC_SEED_ARCHETYPE_PREWARM_V7_1.md": ["Seed", "Archetype", "Budget"],
+        "docs/QIRC_ADMISSIBILITY_GATE_V7_1.md": ["Admissibility", "hold", "split_work"],
+        "docs/QIRC_RING_RADAR_RUNTIME_V7_1.md": ["Ring Radar", "R0 Boundary", "Resonance"],
+        "docs/QIRC_WHY_TRACE_V7_1.md": ["Why Trace", "blocked_routes", "redacted"],
+        "docs/QIRC_RUNTIME_PACK_INTEGRATION_V7_1.md": ["Runtime Pack", "Capability Slice", "compiled channel"],
+        "docs/QIRC_APP_BRIDGE_DIGEST_V7_1.md": ["App Bridge Digest", "digest", "Odin may not become app QIRC"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing QIRC Gold Spine doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for QIRC Gold Spine lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in [
+        "odin_qirc_event.schema.json",
+        "odin_qirc_hot_window.schema.json",
+        "odin_qirc_seed_budget.schema.json",
+        "odin_qirc_admissibility_gate.schema.json",
+        "odin_qirc_role_activation.schema.json",
+        "odin_qirc_ring_radar.schema.json",
+        "odin_qirc_why_trace.schema.json",
+        "odin_qirc_capability_slice_channels.schema.json",
+    ]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing QIRC schema {rel}")
+    for rel in [
+        "qirc_channel_registry.json",
+        "qirc_event_type_registry.json",
+        "qirc_role_channel_matrix.json",
+        "qirc_admissibility_reason_registry.json",
+        "qirc_hot_window_policy_registry.json",
+    ]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing QIRC registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in [
+        "odin/shadow_runtime/qirc_gold_spine_shadow.py",
+        "odin/shadow_runtime/qirc_hot_window_shadow.py",
+        "odin/shadow_runtime/qirc_seed_prewarm_shadow.py",
+        "odin/shadow_runtime/qirc_admissibility_shadow.py",
+        "odin/shadow_runtime/qirc_ring_radar_shadow.py",
+        "odin/shadow_runtime/qirc_why_trace_shadow.py",
+        "odin/shadow_runtime/qirc_runtime_pack_shadow.py",
+        "examples/shadow_runtime/qirc_gold_spine_flow.valid.json",
+        "examples/shadow_runtime/qirc_gold_spine_block.invalid.json",
+        "tests/test_qirc_gold_spine.py",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing QIRC Gold Spine file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(45, 50)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-15" not in bundles:
+        errors.append("REAL-PR-15 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_bug6_q7_seed_core() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/BUG6_CHILDREN_FIRST_INVARIANT_V7_1.md": ["Bug6", "Children-First", "Bug6 Pre-Selector Invariant Gate"],
+        "docs/Q7_BUGFREE_STABILITY_V7_1.md": ["Q7", "Bugfree Stability", "negative path"],
+        "docs/Y_CORE_POSTURE_V7_1.md": ["Odin Y-Core", "authority split", "Odin Ring 0"],
+        "docs/OPERATIONAL_SEED_SUBSTRATE_V7_1.md": ["Operational Seed Substrate", "Seed lifecycle", "Hard seeds"],
+        "docs/BUG6_Q7_SEED_CORE_SYNTHESIS_V7_1.md": ["Bug6", "Q7", "Seed Core Synthesis"],
+        "docs/FAIRY_YSTAR_SEED_BINDING_V7_1.md": ["Fairy", "Y*", "seed binding"],
+        "docs/SHADOW_RUNTIME_SEED_WEAVE_V7_1.md": ["Shadow Runtime Seed Weave", "Candidate DNA", "active_seeds"],
+        "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md": ["Runtime Pack Seed Profiles", "Low Memory Strict", "hard seeds"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_3.md": ["Senior Review", "Bug6", "Q7", "SR-063-01"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Bug6/Q7/seed core doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for Bug6/Q7/seed core lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_bug6_invariant_packet.schema.json","odin_q7_stability_packet.schema.json","odin_y_core_posture.schema.json","odin_operational_seed_substrate.schema.json","odin_seed_archetype_synthesis.schema.json","odin_shadow_seed_binding.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing Bug6/Q7/seed schema {rel}")
+    for rel in ["bug6_invariant_registry.json","q7_stability_registry.json","y_core_posture_registry.json","operational_seed_substrate_registry.json","seed_archetype_synthesis_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing Bug6/Q7/seed registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin/shadow_runtime/bug6_q7_invariant_shadow.py","odin/shadow_runtime/y_core_posture_shadow.py","odin/shadow_runtime/operational_seed_substrate_shadow.py","odin/shadow_runtime/seed_archetype_synthesis_shadow.py","odin/shadow_runtime/fairy_ystar_seed_binding_shadow.py","odin/shadow_runtime/shadow_runtime_seed_binding_shadow.py","examples/shadow_runtime/bug6_q7_seed_core_flow.valid.json","examples/shadow_runtime/bug6_q7_seed_core_block.invalid.json","tests/test_bug6_q7_seed_core.py"]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing Bug6/Q7/seed core file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(50, 56)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-16" not in bundles:
+        errors.append("REAL-PR-16 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_ai_git_safety() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md": ["AI-Git Safety Architecture", "Candidate Artifact", "Semantic Diff"],
+        "docs/AUTONOMY_ESCALATION_GATE_V7_1.md": ["Autonomy Escalation Gate", "A0", "A5"],
+        "docs/SAFETY_SUPERPOSITION_POLICY_V7_1.md": ["Safety Superposition", "Maria", "Michael"],
+        "docs/SEMANTIC_DIFF_BRANCH_MERGE_V7_1.md": ["Semantic Diff", "Semantic Branch", "Candidate Merge"],
+        "docs/SKYNET_PATTERN_BOUNDARY_V7_1.md": ["Skynet Pattern Boundary", "Odin Countermeasures", "Escalation Signals"],
+        "docs/HUMAN_REVIEW_APP_APPLY_BOUNDARY_V7_1.md": ["Human Review", "App Apply Boundary", "Candidate Action Classes"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_4.md": ["Senior Reviewer", "SR-064-01", "Approval Conditions"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing AI-Git safety doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for AI-Git safety consolidation")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_ai_git_safety_packet.schema.json","odin_autonomy_escalation_gate.schema.json","odin_safety_superposition_packet.schema.json","odin_semantic_diff_packet.schema.json","odin_safety_why_trace.schema.json","odin_human_review_gate.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing AI-Git safety schema {rel}")
+    for rel in ["ai_git_safety_registry.json","autonomy_escalation_gate_registry.json","safety_superposition_registry.json","semantic_diff_registry.json","human_review_gate_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing AI-Git safety registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin/shadow_runtime/ai_git_safety_shadow.py","odin/shadow_runtime/autonomy_escalation_gate_shadow.py","odin/shadow_runtime/safety_superposition_shadow.py","odin/shadow_runtime/semantic_diff_branch_merge_shadow.py","odin/shadow_runtime/skynet_pattern_boundary_shadow.py","odin/shadow_runtime/human_review_apply_boundary_shadow.py","tests/test_ai_git_safety_consolidation.py"]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing AI-Git safety file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(56, 61)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-17" not in bundles:
+        errors.append("REAL-PR-17 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_pre_llm_intelligence() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md": ["Pre-LLM Intelligence Layer", "Model Work Avoidance", "Output Intelligence Composer"],
+        "docs/ODIN_PRE_MODEL_COGNITION_V7_1.md": ["Odin Pre-Model Cognition", "Pre-Model Cognition Trace", "DFAS"],
+        "docs/QIRC_PRECOMPUTE_FIELD_V7_1.md": ["QIRC Precompute Field", "#model.avoidance", "#why.trace"],
+        "docs/MODEL_WORK_AVOIDANCE_V7_1.md": ["Model Work Avoidance", "no_model_template_candidate", "large model"],
+        "docs/OUTPUT_INTELLIGENCE_COMPOSER_V7_1.md": ["Output Intelligence Composer", "Candidate Artifact", "model fragments"],
+        "docs/PERCEIVED_INTELLIGENCE_METRICS_V7_1.md": ["Perceived Intelligence Metrics", "visible_usefulness", "Anti-Deception Boundary"],
+        "docs/MICRO_TO_MACRO_CANDIDATE_SYNTHESIS_V7_1.md": ["Micro-to-Macro Candidate Synthesis", "micro_results", "candidate bundle"],
+        "docs/MICRO_MODEL_ILLUSION_BOUNDARY_V7_1.md": ["Micro Model Illusion Boundary", "Forbidden", "Allowed"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_5.md": ["Senior Review Simulation", "SR-065-01", "Approval Conditions"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Pre-LLM intelligence doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for Pre-LLM intelligence lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_pre_llm_intelligence_packet.schema.json","odin_model_work_avoidance_decision.schema.json","odin_pre_model_cognition_trace.schema.json","odin_output_intelligence_composition.schema.json","odin_perceived_intelligence_score.schema.json","odin_micro_to_macro_synthesis_packet.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing Pre-LLM schema {rel}")
+    for rel in ["pre_llm_intelligence_registry.json","model_work_avoidance_registry.json","output_composer_pattern_registry.json","perceived_intelligence_metric_registry.json","micro_to_macro_synthesis_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing Pre-LLM registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin/shadow_runtime/pre_llm_intelligence_shadow.py","odin/shadow_runtime/pre_model_cognition_shadow.py","odin/shadow_runtime/model_work_avoidance_shadow.py","odin/shadow_runtime/output_intelligence_composer_shadow.py","odin/shadow_runtime/perceived_intelligence_metrics_shadow.py","odin/shadow_runtime/micro_to_macro_synthesis_shadow.py","examples/shadow_runtime/pre_llm_intelligence_flow.valid.json","examples/shadow_runtime/pre_llm_direct_apply_block.invalid.json","tests/test_pre_llm_intelligence_amplification.py"]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing Pre-LLM file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(61, 66)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-18" not in bundles:
+        errors.append("REAL-PR-18 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_universal_model_agent_parity() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/UNIVERSAL_MODEL_AGENT_PARITY_V7_1.md": ["Universal Model / Agent Parity", "Any model", "Candidate"],
+        "docs/MODEL_AGENT_CAPABILITY_CARDS_V7_1.md": ["Capability Cards", "worker_kind", "allowed_slot_classes"],
+        "docs/MODEL_AGENT_WORK_CAPSULES_V7_1.md": ["Work Capsules", "active_workers", "Candidate"],
+        "docs/UNIVERSAL_AGENT_CANDIDATE_PROTOCOL_V7_1.md": ["Universal Agent Candidate Protocol", "Candidate", "Forbidden outputs"],
+        "docs/MODEL_AGENT_PERMISSION_CARD_SYSTEM_V7_1.md": ["Permission Card", "app_apply_required", "blocked"],
+        "docs/EXTERNAL_MODEL_AGENT_ADAPTER_BOUNDARY_V7_1.md": ["External Model / Agent Adapter Boundary", "candidate", "redact"],
+        "docs/UNIVERSAL_AGENT_ORCHESTRATION_MATRIX_V7_1.md": ["Universal Agent Orchestration Matrix", "Worker type", "Default gate"],
+        "docs/MODEL_AGENT_WHY_TRACE_V7_1.md": ["Why Trace", "selected_worker", "rejected_workers"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_6.md": ["Senior Review Simulation", "SR-066-01", "Approval Conditions"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing universal model/agent parity doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for universal model/agent parity lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["model_agent_card_registry.json","model_agent_adapter_registry.json","model_agent_permission_registry.json","universal_agent_parity_registry.json","agent_candidate_protocol_registry.json","agent_twin_archetype_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing universal model/agent registry {rel}")
+            continue
+        data = load_json(p)
+        if "registry_id" not in data or "version" not in data:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin_model_agent_card.schema.json","odin_agent_work_capsule.schema.json","odin_agent_capability_pack.schema.json","odin_agent_permission_card.schema.json","odin_agent_candidate_session.schema.json","odin_twin_parity_mapping.schema.json","odin_external_agent_adapter.schema.json","odin_model_agent_why_trace.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing universal model/agent schema {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(66, 73)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-19" not in bundles:
+        errors.append("REAL-PR-19 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_universal_llm_work_construct() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md": ["Universal LLM Work Construct", "Any model", "Candidate"],
+        "docs/THOR_ODIN_AI_GIT_LAYER_V7_1.md": ["AI-Git", "Semantic Diff", "Why Trace"],
+        "docs/UNIVERSAL_MODEL_AGENT_ADAPTERS_V7_1.md": ["Adapters", "Permission Card", "Candidate"],
+        "docs/REMOTE_MODEL_WORKER_BOUNDARY_V7_1.md": ["Remote", "redaction", "candidate"],
+        "docs/LOCAL_REMOTE_LLM_PARITY_V7_1.md": ["Parity", "candidate protocol", "trust"],
+        "docs/AGENT_TOOL_PERMISSION_BOUNDARY_V7_1.md": ["Permission", "blocked", "app_apply_required"],
+        "docs/UNIVERSAL_USE_CASE_MATRIX_V7_1.md": ["Universal Use Case Matrix", "Preferred worker", "Output"],
+        "docs/ANY_MODEL_ANY_AGENT_SAME_BOUNDARY_V7_1.md": ["Any model", "Any agent", "same Odin boundary"],
+        "docs/THOR_ODIN_GPL2_ONLY_POLICY.md": ["GPL-2.0-only", "AI-Git", "license"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_8.md": ["Senior Review", "SR-068-01", "Approval Conditions"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing universal LLM construct doc {rel}")
+            continue
+        data = p.read_text(encoding="utf-8", errors="ignore")
+        if len(data) < 1200:
+            errors.append(f"{rel}: too short for universal LLM construct lock")
+        for anchor in anchors:
+            if anchor not in data:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_universal_llm_worker.schema.json","odin_model_agent_adapter.schema.json","odin_remote_worker_boundary.schema.json","odin_agent_tool_permission_card.schema.json","odin_universal_use_case_profile.schema.json","odin_ai_git_work_session.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing universal LLM construct schema {rel}")
+    for rel in ["universal_llm_worker_registry.json","model_agent_adapter_registry.json","remote_worker_boundary_registry.json","agent_tool_permission_registry.json","universal_use_case_registry.json","ai_git_layer_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing universal LLM construct registry {rel}")
+            continue
+        obj = load_json(p)
+        if "registry_id" not in obj or "version" not in obj:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["LICENSE","LICENSE_POLICY.md","THOR_ODIN_GPL2_ONLY_POLICY.md","PROTOCOL_BOUNDARY.md","SPDX_POLICY.md"]:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing license policy file {rel}")
+        elif "GPL-2.0-only" not in p.read_text(encoding="utf-8", errors="ignore"):
+            errors.append(f"{rel}: missing GPL-2.0-only marker")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(81, 87)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-21" not in bundles:
+        errors.append("REAL-PR-21 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_app_seed_pack_compiler() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md": ["App Seed Pack Compiler", "SPC-01", "Runtime Pack capability slice"],
+        "docs/UNIVERSAL_SEED_PACK_FORMAT_V7_1.md": ["Seed Pack Manifest", "Seed Unit", "Operational Seed Function"],
+        "docs/OPERATIONAL_SEED_FUNCTIONS_V7_1.md": ["Operational Seed Function", "declarative", "model_avoidance_hint"],
+        "docs/SEED_PACK_SECURITY_BOUNDARY_V7_1.md": ["Seed Pack Security Boundary", "No arbitrary seed-pack code execution", "Trust and provenance"],
+        "docs/SEED_PACK_TO_RUNTIME_PACK_COMPILER_V7_1.md": ["Runtime Pack capability slice", "Shadow Runtime seed weave", "Generated gates"],
+        "docs/SEED_PACK_CAPABILITY_SLICES_V7_1.md": ["Capability Slice", "seed_pack_profile", "low_memory_strict"],
+        "docs/SEED_PACK_COMPOSITION_AND_CONFLICTS_V7_1.md": ["Conflict", "Composition", "prefer_centerline_stability"],
+        "docs/SEED_PACK_USE_CASE_MATRIX_V7_1.md": ["Use Case Matrix", "WordPress", "Traureden", "Coding", "GameDev"],
+        "docs/SEED_PACK_WHY_TRACE_AND_EXPLAINABILITY_V7_1.md": ["Why Trace", "active_seed_pack", "tokens_saved_estimate"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_9.md": ["Senior Review", "SR-069-01", "Approval Conditions", "Seed Pack Compiler"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing app seed pack doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for app seed pack compiler lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_app_seed_pack_manifest.schema.json","odin_seed_pack_unit.schema.json","odin_operational_seed_function.schema.json","odin_seed_pack_compile_plan.schema.json","odin_seed_pack_security_policy.schema.json","odin_seed_pack_capability_slice.schema.json","odin_seed_pack_activation_result.schema.json","odin_seed_pack_why_trace.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing app seed pack schema {rel}")
+    for rel in ["app_seed_pack_type_registry.json","operational_seed_function_registry.json","seed_pack_compiler_stage_registry.json","seed_pack_security_boundary_registry.json","seed_pack_capability_profile_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing app seed pack registry {rel}")
+            continue
+        obj = load_json(p)
+        if "registry_id" not in obj or "version" not in obj:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin/shadow_runtime/app_seed_pack_compiler_shadow.py","odin/shadow_runtime/universal_seed_pack_manifest_shadow.py","odin/shadow_runtime/operational_seed_functions_shadow.py","odin/shadow_runtime/seed_pack_security_boundary_shadow.py","odin/shadow_runtime/seed_pack_to_runtime_pack_shadow.py","odin/shadow_runtime/seed_pack_composition_conflict_shadow.py","odin/shadow_runtime/seed_pack_use_case_matrix_shadow.py","odin/shadow_runtime/seed_pack_why_trace_shadow.py","examples/seed_packs/app_seed_pack_manifest.valid.json","examples/seed_packs/app_seed_pack_executable_block.invalid.json","tests/test_app_seed_pack_compiler.py"]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing app seed pack file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(87, 93)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-22" not in bundles:
+        errors.append("REAL-PR-22 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_shadow_narrative_loki() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/SHADOW_NARRATIVE_V7_1.md": ["Shadow Narrative", "Fairy DSL", "anti-pattern"],
+        "docs/ANTI_FAIRY_DSL_V7_1.md": ["Anti-Fairy DSL", "mirror_of", "required_gate"],
+        "docs/LOKI_MEDIATION_LAYER_V7_1.md": ["Loki", "may not rule", "Ambivalence"],
+        "docs/NARRATIVE_ANTIPATTERN_MIRROR_V7_1.md": ["Narrative Anti-Pattern Mirror", "Helpful Tyrant", "Gate"],
+        "docs/FAILURE_STORY_REGISTRY_V7_1.md": ["Failure Story Registry", "severity", "required_gate"],
+        "docs/SHADOW_NARRATIVE_TO_GATES_V7_1.md": ["Shadow Narrative to Gate Compiler", "negative fixture", "repair route"],
+        "docs/NARRATIVE_RED_TEAM_COMPILER_V7_1.md": ["Narrative Red-Team Compiler", "negative", "Codex Rule"],
+        "docs/LOKI_BOUNDARY_POLICY_V7_1.md": ["Loki Boundary Policy", "Forbidden", "Odin Core"],
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_0.md": ["Senior Reviewer", "Shadow Narrative", "Approval Conditions"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Shadow Narrative/Loki doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 1200:
+            errors.append(f"{rel}: too short for Shadow Narrative/Loki lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in ["odin_shadow_narrative.schema.json","odin_anti_fairy_unit.schema.json","odin_loki_mediation_packet.schema.json","odin_narrative_antipattern.schema.json","odin_failure_story.schema.json","odin_shadow_to_gate_mapping.schema.json","odin_narrative_red_team_case.schema.json"]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing Shadow Narrative/Loki schema {rel}")
+    for rel in ["shadow_narrative_registry.json","anti_fairy_pattern_registry.json","loki_mediation_registry.json","narrative_antipattern_registry.json","failure_story_registry.json","shadow_to_gate_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing Shadow Narrative/Loki registry {rel}")
+            continue
+        obj = load_json(p)
+        if "registry_id" not in obj or "version" not in obj:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in ["odin/shadow_runtime/shadow_narrative_shadow.py","odin/shadow_runtime/anti_fairy_dsl_shadow.py","odin/shadow_runtime/loki_mediation_shadow.py","odin/shadow_runtime/narrative_antipattern_mirror_shadow.py","odin/shadow_runtime/failure_story_registry_shadow.py","odin/shadow_runtime/shadow_narrative_to_gate_shadow.py","odin/shadow_runtime/narrative_red_team_compiler_shadow.py","examples/shadow_narrative/shadow_narrative_helpful_tyrant.valid.json","examples/shadow_narrative/loki_authority_escalation.invalid.json","tests/test_shadow_narrative_loki_antipattern.py"]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing Shadow Narrative/Loki file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i:02d}" for i in range(93, 98)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-23" not in bundles:
+        errors.append("REAL-PR-23 missing from codex PR bundle registry")
+    return errors
+
+
+def validate_product_pattern_atom_hub() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_4.md": ["Senior Review", "WINDOWS_PRODUCT_RUNTIME_LOCK", "PATTERN_MINE_FLOW_PACK_INTAKE_LOCK", "WORK_ATOM_RUNTIME_LOCK", "ODIN_HUB_OPERATIONAL_CENTER_LOCK"],
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md": ["Windows Product Runtime", "Process Responsibilities", "Runtime modes", "safe_mode"],
+        "docs/WINDOWS_IPC_SECURITY_V7_1.md": ["Windows IPC Security", "named pipe", "localhost", "WAN forbidden"],
+        "docs/WINDOWS_INSTALLER_UPDATE_ROLLBACK_V7_1.md": ["Windows Installer Update Rollback", "portable zip", "rollback", "safe mode"],
+        "docs/WINDOWS_SUPPORT_BUNDLE_DIAGNOSTICS_V7_1.md": ["Windows Support Bundle Diagnostics", "redaction", "doctor", "no secrets"],
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md": ["Pattern Mine", "Flow Pack", "compile-only", "Why Trace"],
+        "docs/PATTERN_MINE_CLAIM_BOUNDARY_V7_1.md": ["Pattern Mine Claim Boundary", "not authority", "no executable code"],
+        "docs/FLOW_PACK_TO_SEED_PACK_V7_1.md": ["Flow Pack to Seed Pack", "QIRC prewarm", "runtime pack slice"],
+        "docs/PATTERN_SPINE_COMPILER_V7_1.md": ["Pattern Spine Compiler", "retrieval manifest", "work atoms"],
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md": ["Work Atom", "smallest meaningful", "candidate-only"],
+        "docs/WORK_ATOM_GRAPH_V7_1.md": ["Work Atom Graph", "budget", "micro-to-macro"],
+        "docs/WORK_ATOM_BUDGET_GATE_V7_1.md": ["Work Atom Budget Gate", "loop gain", "split work"],
+        "docs/MICRO_TO_MACRO_WORK_SYNTHESIS_V7_1.md": ["Micro to Macro", "Candidate Artifact", "Output Composer"],
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md": ["Odin Hub", "operational center", "not just a dashboard"],
+        "docs/ODIN_HUB_PANEL_MAP_V7_1.md": ["Odin Hub Panel Map", "Home", "QIRC"],
+        "docs/ODIN_HUB_COMMAND_ROUTING_V7_1.md": ["Odin Hub Command Routing", "doctor", "safe-mode"],
+        "docs/ODIN_HUB_RECOVERY_AND_SAFE_MODE_V7_1.md": ["Odin Hub Recovery", "safe mode", "rollback"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Product/Pattern/Atom/Hub doc {rel}")
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 800:
+            errors.append(f"{rel}: too short for Product/Pattern/Atom/Hub lock")
+        for anchor in anchors:
+            if anchor not in text:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in [
+        "odin_windows_product_runtime_manifest.schema.json", "odin_windows_process_contract.schema.json", "odin_windows_ipc_policy.schema.json", "odin_windows_installer_profile.schema.json", "odin_windows_recovery_plan.schema.json", "odin_windows_support_bundle_policy.schema.json",
+        "odin_pattern_mine_manifest.schema.json", "odin_flow_pack_manifest.schema.json", "odin_pattern_spine.schema.json", "odin_pattern_mine_compile_plan.schema.json", "odin_flow_pack_to_seed_pack.schema.json", "odin_pattern_mine_claim_boundary.schema.json",
+        "odin_work_atom.schema.json", "odin_work_atom_graph.schema.json", "odin_work_atom_runtime_plan.schema.json", "odin_work_atom_result.schema.json", "odin_work_atom_budget_gate.schema.json", "odin_micro_to_macro_synthesis.schema.json",
+        "odin_hub_surface.schema.json", "odin_hub_panel_contract.schema.json", "odin_hub_command_route.schema.json", "odin_hub_recovery_plan.schema.json", "odin_hub_support_bundle_request.schema.json",
+    ]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing Product/Pattern/Atom/Hub schema {rel}")
+    for rel in ["windows_process_registry.json","windows_ipc_policy_registry.json","windows_installer_profile_registry.json","windows_recovery_registry.json","pattern_mine_type_registry.json","flow_pack_registry.json","pattern_spine_registry.json","work_atom_type_registry.json","work_atom_budget_registry.json","odin_hub_panel_registry.json","odin_hub_command_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing Product/Pattern/Atom/Hub registry {rel}")
+            continue
+        obj = load_json(p)
+        if "registry_id" not in obj or "version" not in obj:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in [
+        "odin/shadow_runtime/windows_product_runtime_shadow.py", "odin/shadow_runtime/windows_ipc_security_shadow.py", "odin/shadow_runtime/windows_installer_rollback_shadow.py",
+        "odin/shadow_runtime/pattern_mine_intake_shadow.py", "odin/shadow_runtime/flow_pack_compiler_shadow.py", "odin/shadow_runtime/pattern_spine_compiler_shadow.py",
+        "odin/shadow_runtime/work_atom_runtime_shadow.py", "odin/shadow_runtime/work_atom_budget_gate_shadow.py", "odin/shadow_runtime/micro_to_macro_work_synthesis_shadow.py",
+        "odin/shadow_runtime/odin_hub_operational_center_shadow.py", "odin/shadow_runtime/odin_hub_panel_router_shadow.py", "odin/shadow_runtime/odin_hub_recovery_shadow.py",
+        "examples/windows/windows_product_runtime_manifest.valid.json", "examples/pattern_mines/pattern_mine_manifest.valid.json", "examples/work_atoms/work_atom_graph.valid.json", "examples/odin_hub/odin_hub_surface.valid.json",
+        "tests/test_product_pattern_atom_hub_lock.py",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing Product/Pattern/Atom/Hub file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for i in range(98, 116):
+        if f"PR-{i}" not in tasks:
+            errors.append(f"PR-{i} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    for bid in ["REAL-PR-24", "REAL-PR-25", "REAL-PR-26", "REAL-PR-27"]:
+        if bid not in bundles:
+            errors.append(f"{bid} missing from codex PR bundle registry")
+    return errors
+
+
+def validate_public_repo_windows_build_ready() -> list[str]:
+    errors = []
+    required_docs = {
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_5.md": ["Senior Review", "PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK", "Approval conditions"],
+        "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md": ["Public Repo Canon", "Windows build-ready rule", "Codex rule"],
+        "docs/PUBLIC_REPO_ROOT_CLEANUP_POLICY_V7_1.md": ["Root file responsibilities", "Codex cleanup behavior"],
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md": ["Process topology", "IPC hierarchy", "Safe mode"],
+        "docs/WINDOWS_IPC_ENDPOINT_CONTRACTS_V7_1.md": ["Endpoint classes", "Forbidden endpoints", "Failure states"],
+        "docs/WINDOWS_INSTALLER_UPDATE_ROLLBACK_DRILLDOWN_V7_1.md": ["Installer profiles", "Update lifecycle", "Rollback lifecycle"],
+        "docs/MVP_V1_POWER_MODE_BOUNDARY_V7_1.md": ["MVP", "V1", "Power Mode"],
+        "docs/SEED_PATTERN_PACK_SECURITY_CERTIFICATION_V7_1.md": ["Certification states", "Compile-only rule", "Block conditions"],
+        "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md": ["Required before implementation", "Implementation entry rule"],
+    }
+    for rel, anchors in required_docs.items():
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"missing Public Repo/Windows Build Ready doc {rel}")
+            continue
+        txt = p.read_text(encoding="utf-8", errors="ignore")
+        if len(txt) < 800:
+            errors.append(f"{rel}: too short for public repo/windows build-ready lock")
+        for anchor in anchors:
+            if anchor not in txt:
+                errors.append(f"{rel}: missing anchor {anchor!r}")
+    for rel in [
+        "odin_public_repo_canon_lock.schema.json", "odin_windows_build_ready_manifest.schema.json", "odin_mvp_v1_power_mode_profile.schema.json", "odin_seed_pattern_pack_certification.schema.json", "odin_windows_ipc_endpoint.schema.json", "odin_release_readiness_gate.schema.json",
+    ]:
+        if not (ROOT / "schemas" / "v7_1" / rel).exists():
+            errors.append(f"missing public repo/windows build-ready schema {rel}")
+    for rel in ["public_repo_canon_registry.json","windows_build_mode_registry.json","mvp_v1_power_mode_registry.json","seed_pattern_pack_security_registry.json","windows_ipc_endpoint_registry.json","public_build_readiness_registry.json"]:
+        p = ROOT / "registries" / rel
+        if not p.exists():
+            errors.append(f"missing public repo/windows build-ready registry {rel}")
+            continue
+        obj = load_json(p)
+        if "registry_id" not in obj or "version" not in obj:
+            errors.append(f"{rel}: missing registry_id/version")
+    for rel in [
+        "odin/shadow_runtime/public_repo_canon_shadow.py", "odin/shadow_runtime/windows_build_ready_shadow.py", "odin/shadow_runtime/mvp_v1_power_mode_shadow.py", "odin/shadow_runtime/seed_pattern_pack_security_shadow.py", "odin/shadow_runtime/windows_ipc_endpoint_shadow.py", "odin/shadow_runtime/public_build_readiness_shadow.py", "tests/test_public_repo_windows_build_ready.py",
+    ]:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing public repo/windows build-ready file {rel}")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    tasks = {task.get("id") for task in task_registry.get("tasks", [])}
+    for tid in [f"PR-{i}" for i in range(116, 124)]:
+        if tid not in tasks:
+            errors.append(f"{tid} missing from codex task registry")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    bundles = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    if "REAL-PR-28" not in bundles:
+        errors.append("REAL-PR-28 missing from codex PR bundle registry")
+    return errors
+
+
+
+def validate_real_pr_execution() -> list[str]:
+    errors = []
+    registry_path = ROOT / "registries" / "real_pr_execution_registry.json"
+    if not registry_path.exists():
+        return ["real PR execution registry missing"]
+    data = load_json(registry_path)
+    prs = data.get("execution_prs", [])
+    if data.get("alignment_lock") != "BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK":
+        errors.append("real PR execution registry must declare BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK")
+    if len(prs) != 8:
+        errors.append(f"real PR execution registry must contain exactly 8 actual PRs ({len(prs)} found)")
+    task_registry = load_json(ROOT / "registries" / "codex_task_registry.json")
+    bundle_registry = load_json(ROOT / "registries" / "codex_pr_bundle_registry.json")
+    task_ids = {task.get("id") for task in task_registry.get("tasks", [])}
+    bundle_ids = {bundle.get("id") for bundle in bundle_registry.get("bundles", [])}
+    covered = []
+    legacy_covered = []
+    seen = set()
+    completed = set()
+    required_fields = [
+        "absorbs_internal_tasks",
+        "absorbs_legacy_bundles",
+        "fully_absorbs_legacy_bundles",
+        "partially_absorbs_legacy_bundles",
+        "expected_existing_paths",
+        "expected_new_paths",
+        "existing_files",
+        "target_files",
+        "acceptance_gates",
+        "proof_boundaries",
+        "must_run",
+        "must_preserve",
+        "master_architecture_sections",
+        "execution_scope",
+        "internal_ladder_relation",
+    ]
+    for pr in prs:
+        pid = pr.get("id")
+        if not pid:
+            errors.append("real execution PR missing id")
+            continue
+        if pid in seen:
+            errors.append(f"duplicate real execution PR id {pid}")
+        seen.add(pid)
+        if not str(pid).startswith("REAL-GH-PR-"):
+            errors.append(f"real execution PR id must start with REAL-GH-PR-: {pid}")
+        for dep in pr.get("depends_on", []):
+            if dep not in completed:
+                errors.append(f"{pid}: dependency {dep} must appear before PR")
+        completed.add(pid)
+        for key in required_fields:
+            if key not in pr:
+                errors.append(f"{pid}: missing {key}")
+        internal = pr.get("internal_tasks", [])
+        if pr.get("absorbs_internal_tasks") != internal:
+            errors.append(f"{pid}: absorbs_internal_tasks must match internal_tasks")
+        if not internal:
+            errors.append(f"{pid}: missing internal_tasks")
+        for tid in internal:
+            if tid not in task_ids:
+                errors.append(f"{pid}: unknown internal task {tid}")
+            covered.append(tid)
+        for bid in pr.get("absorbs_legacy_bundles", []):
+            if bid not in bundle_ids:
+                errors.append(f"{pid}: unknown absorbed legacy bundle {bid}")
+            legacy_covered.append(bid)
+        if not pr.get("acceptance_gates"):
+            errors.append(f"{pid}: missing acceptance_gates")
+        if not pr.get("proof_boundaries"):
+            errors.append(f"{pid}: missing proof_boundaries")
+        if not pr.get("must_run"):
+            errors.append(f"{pid}: missing must_run")
+        if not pr.get("master_architecture_sections"):
+            errors.append(f"{pid}: missing master_architecture_sections")
+        for rel in pr.get("expected_existing_paths", []):
+            if not (ROOT / rel).exists():
+                errors.append(f"{pid}: expected existing path missing: {rel}")
+        doc_rel = pr.get("doc")
+        if not doc_rel:
+            errors.append(f"{pid}: missing doc")
+            continue
+        doc_path = ROOT / doc_rel
+        if not doc_path.exists():
+            errors.append(f"{pid}: doc missing: {doc_rel}")
+            continue
+        doc = doc_path.read_text(encoding="utf-8", errors="ignore")
+        for anchor in [pid, "Objective", "Internal Tasks Covered", "Primary Files", "Required Behavior", "Forbidden Scope", "Definition of Done", "Codex PR Summary Template", "v0.7.7 Build Ladder Absolute Alignment Addendum", "Existing Prep Files", "Target Implementation Files", "Proof Boundaries"]:
+            if anchor not in doc:
+                errors.append(f"{doc_rel}: missing anchor {anchor!r}")
+        if len(doc) < 4500:
+            errors.append(f"{doc_rel}: too short for aligned real PR execution doc ({len(doc)} < 4500)")
+    missing = sorted(tid for tid in task_ids if tid and tid not in set(covered))
+    duplicates = sorted(tid for tid in set(covered) if covered.count(tid) > 1)
+    if missing:
+        errors.append("real execution PR registry does not cover internal tasks: " + ", ".join(missing))
+    if duplicates:
+        errors.append("real execution PR registry maps internal tasks more than once: " + ", ".join(duplicates))
+    missing_legacy = sorted(bid for bid in bundle_ids if bid and bid not in set(legacy_covered))
+    if missing_legacy:
+        errors.append("real execution PR registry does not absorb legacy bundles: " + ", ".join(missing_legacy))
+    required_docs = [
+        "docs/REAL_PR_EXECUTION_CONSOLIDATION_LOCK_V7_1.md",
+        "docs/BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK_V7_1.md",
+        "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_7.md",
+        "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_7_7.md",
+    ]
+    for rel in required_docs:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing real PR alignment doc {rel}")
+    master_arch = (ROOT / "docs" / "MASTER_ARCHITECTURE_V7_1.md").read_text(encoding="utf-8", errors="ignore")
+    master_specs = (ROOT / "docs" / "MASTER_SPECS_V7_1.md").read_text(encoding="utf-8", errors="ignore")
+    for label, text in [("MASTER_ARCHITECTURE", master_arch), ("MASTER_SPECS", master_specs)]:
+        if "v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK" not in text:
+            errors.append(f"{label}: missing current v0.7.7 repository state")
+        if "REAL-GH-PR-01..REAL-GH-PR-08" not in text:
+            errors.append(f"{label}: missing actual GitHub PR execution sequence")
+    return errors
+
+
+def validate_runtime_source_candidate() -> list[str]:
+    errors: list[str] = []
+    required_paths = [
+        "docs/RUNTIME_SOURCE_CANDIDATE_V0_8_0.md",
+        "docs/RUNTIME_SOURCE_MODULE_MAP_V0_8_0.md",
+        "docs/WINDOWS_DIRECT_SOURCE_HANDOFF_V0_8_0.md",
+        "docs/CODEX_RUNTIME_CANDIDATE_HANDOFF_V0_8_0.md",
+        "docs/codex/CHATGPT_DIRECT_RUNTIME_BUILD_PLAN_V0_8_0.md",
+        "registries/runtime_source_module_registry.json",
+        "schemas/v7_1/odin_runtime_source_module_registry.schema.json",
+        "examples/runtime/universal_work_full.valid.json",
+        "examples/runtime/app_seed_pack_full.valid.json",
+        "examples/runtime/pattern_mine_full.valid.json",
+        "tests/test_runtime_source_candidate_v080.py",
+        "odin/runtime/engine.py",
+        "odin/qirc/ledger.py",
+        "odin/seeds/compiler.py",
+        "odin/patterns/intake.py",
+        "odin/flow_packs/compiler.py",
+        "odin/work_atoms/runtime.py",
+        "odin/candidates/artifact.py",
+        "odin/why_trace/builder.py",
+        "odin/daemon/local_api.py",
+        "odin/hub/static_hub.py",
+        "odin/diagnostics/support_bundle.py",
+        "odin/recovery/safe_mode.py",
+    ]
+    for rel in required_paths:
+        if not (ROOT / rel).exists():
+            errors.append(f"runtime source candidate missing path: {rel}")
+    registry_path = ROOT / "registries" / "runtime_source_module_registry.json"
+    if registry_path.exists():
+        data = load_json(registry_path)
+        if data.get("version") != "0.8.0":
+            errors.append("runtime source module registry must be version 0.8.0")
+        for module in data.get("modules", []):
+            if module.get("candidate_only") is not True:
+                errors.append(f"runtime module not candidate_only: {module.get('id')}")
+            for rel in module.get("paths", []):
+                if not (ROOT / rel).exists():
+                    errors.append(f"runtime module {module.get('id')} path missing: {rel}")
+    master_arch = (ROOT / "docs" / "MASTER_ARCHITECTURE_V7_1.md").read_text(encoding="utf-8", errors="ignore")
+    if "v0.8.0 Direct Master Architecture Runtime Source Candidate" not in master_arch:
+        errors.append("MASTER_ARCHITECTURE missing v0.8.0 runtime source candidate section")
+    system_map = load_json(ROOT / "SYSTEM_MAP.json")
+    if "v0_8_0_direct_runtime_source_candidate" not in system_map:
+        errors.append("SYSTEM_MAP missing v0_8_0_direct_runtime_source_candidate")
+    return errors
+
+
+def validate_direct_runtime_release_candidate() -> list[str]:
+    errors: list[str] = []
+    required_paths = [
+        "docs/DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK_V0_8_6.md",
+        "docs/RUNTIME_CORE_COMPLETION_V0_8_1.md",
+        "docs/APP_BRIDGE_AND_GOLDEN_APP_LOCK_V0_8_2.md",
+        "docs/LOCAL_API_AND_ODIN_HUB_RUNTIME_LOCK_V0_8_3.md",
+        "docs/MODEL_PROVIDER_AND_WORKER_BOUNDARY_LOCK_V0_8_4.md",
+        "docs/WINDOWS_HOST_HANDOFF_LOCK_V0_8_5.md",
+        "docs/CODEX_DIRECT_RUNTIME_RC_HANDOFF_V0_8_6.md",
+        "docs/RELEASE_CANDIDATE_ACCEPTANCE_REPORT_V0_8_6.md",
+        "registries/direct_runtime_release_candidate_registry.json",
+        "schemas/v7_1/odin_direct_runtime_release_candidate_registry.schema.json",
+        "odin/runtime/config.py",
+        "odin/runtime/store.py",
+        "odin/runtime/session.py",
+        "odin/runtime/repair.py",
+        "odin_app_sdk/client.py",
+        "odin_app_sdk/manifest.py",
+        "odin/models/providers/base.py",
+        "odin/models/providers/mock.py",
+        "odin/models/providers/stubs.py",
+        "odin/models/providers/registry.py",
+        "windows/README_WINDOWS_HOST.md",
+        "windows/run_odin.ps1",
+        "windows/start_daemon.ps1",
+        "tests/test_direct_runtime_release_candidate_v086.py",
+    ]
+    for rel in required_paths:
+        if not (ROOT / rel).exists():
+            errors.append(f"direct runtime RC missing path: {rel}")
+    registry_path = ROOT / "registries" / "direct_runtime_release_candidate_registry.json"
+    if registry_path.exists():
+        data = load_json(registry_path)
+        if data.get("version") != "0.8.6":
+            errors.append("direct runtime release candidate registry must be version 0.8.6")
+        for module in data.get("modules", []):
+            if module.get("candidate_only") is not True:
+                errors.append(f"direct runtime module not candidate_only: {module.get('id')}")
+            for rel in module.get("paths", []):
+                if not (ROOT / rel).exists():
+                    errors.append(f"direct runtime module path missing: {rel}")
+        for boundary in ["no_windows_host_proof", "no_live_model_inference_proof", "no_app_apply_by_odin"]:
+            if boundary not in data.get("proof_boundaries", []):
+                errors.append(f"direct runtime RC missing proof boundary: {boundary}")
+    for rel in ["README.md", "CANON_ENTRY.md", "CODEX_START_HERE.md", "docs/MASTER_ARCHITECTURE_V7_1.md", "docs/MASTER_SPECS_V7_1.md"]:
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        if "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK" not in text:
+            errors.append(f"{rel}: missing v0.8.6 direct runtime release candidate lock marker")
+    return errors
+
+def validate_all() -> list[str]:
+    errors = []
+    errors.extend(validate_json())
+    errors.extend(validate_registries())
+    errors.extend(validate_system_map())
+    errors.extend(validate_claims())
+    errors.extend(validate_docs())
+    errors.extend(validate_codex_tasks())
+    errors.extend(validate_codex_bundles())
+    errors.extend(validate_real_pr_execution())
+    errors.extend(validate_senior_review())
+    errors.extend(validate_shadow_runtime())
+    errors.extend(validate_narrative_compiler())
+    errors.extend(validate_odin_core_qli())
+    errors.extend(validate_qirc_gold_spine())
+    errors.extend(validate_bug6_q7_seed_core())
+    errors.extend(validate_ai_git_safety())
+    errors.extend(validate_pre_llm_intelligence())
+    errors.extend(validate_universal_model_agent_parity())
+    errors.extend(validate_universal_llm_work_construct())
+    errors.extend(validate_app_seed_pack_compiler())
+    errors.extend(validate_shadow_narrative_loki())
+    errors.extend(validate_product_pattern_atom_hub())
+    errors.extend(validate_public_repo_windows_build_ready())
+    errors.extend(validate_runtime_source_candidate())
+    return errors
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(prog="odin")
+    sub = parser.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("validate-json")
+    sub.add_parser("validate-registries")
+    sub.add_parser("validate-system-map")
+    sub.add_parser("validate-claims")
+    sub.add_parser("validate-docs")
+    sub.add_parser("validate-codex-tasks")
+    sub.add_parser("validate-codex-bundles")
+    sub.add_parser("validate-real-pr-execution")
+    sub.add_parser("validate-senior-review")
+    sub.add_parser("validate-shadow-runtime")
+    sub.add_parser("validate-narrative-compiler")
+    sub.add_parser("validate-odin-core-qli")
+    sub.add_parser("validate-qirc-gold-spine")
+    sub.add_parser("validate-bug6-q7-seed-core")
+    sub.add_parser("validate-ai-git-safety")
+    sub.add_parser("validate-pre-llm-intelligence")
+    sub.add_parser("validate-universal-model-agent-parity")
+    sub.add_parser("validate-universal-llm-work-construct")
+    sub.add_parser("validate-app-seed-pack-compiler")
+    sub.add_parser("validate-shadow-narrative-loki")
+    sub.add_parser("validate-product-pattern-atom-hub")
+    sub.add_parser("validate-public-repo-windows-build-ready")
+    sub.add_parser("validate-runtime-source-candidate")
+    sub.add_parser("validate-direct-runtime-release-candidate")
+    sub.add_parser("validate-all")
+    sub.add_parser("doctor")
+    sub.add_parser("run-golden-flow")
+    sub.add_parser("list-providers")
+    run_work = sub.add_parser("run-work")
+    run_work.add_argument("work")
+    run_work.add_argument("--seed-pack")
+    run_work.add_argument("--pattern-mine")
+    run_work.add_argument("--caller-manifest")
+    compile_seed = sub.add_parser("compile-seed-pack")
+    compile_seed.add_argument("path")
+    compile_pattern = sub.add_parser("compile-pattern-mine")
+    compile_pattern.add_argument("path")
+    build_hub = sub.add_parser("build-hub")
+    build_hub.add_argument("--out", default=".odin_runtime/hub/index.html")
+    support = sub.add_parser("emit-support-bundle")
+    support.add_argument("--out", default=".odin_runtime/support")
+    serve = sub.add_parser("serve")
+    serve.add_argument("--host", default="127.0.0.1")
+    serve.add_argument("--port", type=int, default=8765)
+    args = parser.parse_args(argv)
+
+    if args.cmd == "doctor":
+        payload = {
+            "status": "ok",
+            "repo": "Odin-Agent-Shell",
+            "runtime_source_candidate": "v0.8.6",
+            "root": str(ROOT),
+            "claim_boundary": "doctor_reports_local_source_shape_not_host_proof",
+        }
+        print(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "run-golden-flow":
+        result = run_universal_work_file(
+            ROOT / "examples" / "runtime" / "universal_work_full.valid.json",
+            seed_pack_path=ROOT / "examples" / "runtime" / "app_seed_pack_full.valid.json",
+            pattern_mine_path=ROOT / "examples" / "runtime" / "pattern_mine_full.valid.json",
+            caller_manifest_path=ROOT / "examples" / "runtime" / "app_caller_manifest.valid.json",
+        )
+        payload = {
+            "status": result.get("runtime_status"),
+            "candidate_count": len(result.get("candidates", [])),
+            "qirc_event_count": result.get("qirc_digest", {}).get("event_count"),
+            "selected_candidate_id": result.get("selected_candidate_id"),
+            "claim_boundary": "golden_flow_is_local_runtime_candidate_not_host_proof",
+        }
+        print(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "list-providers":
+        print(json.dumps({"providers": list_provider_cards(), "claim_boundary": "provider_cards_not_live_inference_proof"}, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "run-work":
+        try:
+            result = run_universal_work_file(
+                args.work,
+                seed_pack_path=args.seed_pack,
+                pattern_mine_path=args.pattern_mine,
+                caller_manifest_path=args.caller_manifest,
+            )
+        except Exception as exc:
+            print(json.dumps({"status": "blocked", "error": str(exc), "claim_boundary": "run_work_error_no_apply"}, indent=2, ensure_ascii=False, sort_keys=True))
+            return 1
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "compile-seed-pack":
+        data = load_json(Path(args.path))
+        print(json.dumps(compile_seed_pack(data), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "compile-pattern-mine":
+        data = load_json(Path(args.path))
+        print(json.dumps(compile_pattern_mine(data), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "build-hub":
+        path = write_static_hub(Path(args.out))
+        print(json.dumps({"status": "ok", "hub": str(path), "claim_boundary": "static_hub_candidate"}, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "emit-support-bundle":
+        path = emit_support_bundle(ROOT, Path(args.out))
+        print(json.dumps({"status": "ok", "support_bundle": str(path), "claim_boundary": "diagnostic_candidate"}, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.cmd == "serve":
+        run_local_api(args.host, args.port)
+        return 0
+
+    if args.cmd == "validate-json":
+        errors = validate_json()
+    elif args.cmd == "validate-registries":
+        errors = validate_registries()
+    elif args.cmd == "validate-system-map":
+        errors = validate_system_map()
+    elif args.cmd == "validate-claims":
+        errors = validate_claims()
+    elif args.cmd == "validate-docs":
+        errors = validate_docs()
+    elif args.cmd == "validate-codex-tasks":
+        errors = validate_codex_tasks()
+    elif args.cmd == "validate-codex-bundles":
+        errors = validate_codex_bundles()
+    elif args.cmd == "validate-real-pr-execution":
+        errors = validate_real_pr_execution()
+    elif args.cmd == "validate-senior-review":
+        errors = validate_senior_review()
+    elif args.cmd == "validate-shadow-runtime":
+        errors = validate_shadow_runtime()
+    elif args.cmd == "validate-narrative-compiler":
+        errors = validate_narrative_compiler()
+    elif args.cmd == "validate-odin-core-qli":
+        errors = validate_odin_core_qli()
+    elif args.cmd == "validate-qirc-gold-spine":
+        errors = validate_qirc_gold_spine()
+    elif args.cmd == "validate-bug6-q7-seed-core":
+        errors = validate_bug6_q7_seed_core()
+    elif args.cmd == "validate-ai-git-safety":
+        errors = validate_ai_git_safety()
+    elif args.cmd == "validate-pre-llm-intelligence":
+        errors = validate_pre_llm_intelligence()
+    elif args.cmd == "validate-universal-model-agent-parity":
+        errors = validate_universal_model_agent_parity()
+    elif args.cmd == "validate-universal-llm-work-construct":
+        errors = validate_universal_llm_work_construct()
+    elif args.cmd == "validate-app-seed-pack-compiler":
+        errors = validate_app_seed_pack_compiler()
+    elif args.cmd == "validate-shadow-narrative-loki":
+        errors = validate_shadow_narrative_loki()
+    elif args.cmd == "validate-product-pattern-atom-hub":
+        errors = validate_product_pattern_atom_hub()
+    elif args.cmd == "validate-public-repo-windows-build-ready":
+        errors = validate_public_repo_windows_build_ready()
+    elif args.cmd == "validate-runtime-source-candidate":
+        errors = validate_runtime_source_candidate()
+    elif args.cmd == "validate-direct-runtime-release-candidate":
+        errors = validate_direct_runtime_release_candidate()
+    else:
+        errors = validate_all()
+
+    if errors:
+        for err in errors:
+            print(f"ERROR: {err}")
+        return 1
+    print(f"{args.cmd}: OK")
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())

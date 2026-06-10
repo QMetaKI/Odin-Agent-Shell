@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "odin_universal_work",
+  "binding_ref": "BIND-BAD-001",
+  "caller_id": "demo.bad.app",
+  "claim_boundary": {
+    "claims": [
+      "production_ready"
+    ]
+  },
+  "constraints": {
+    "actions": [
+      "direct_apply"
+    ],
+    "forbidden": []
+  },
+  "input_artifacts": [],
+  "model_policy": {
+    "resource_profile": "standard_local"
+  },
+  "output_contract": {
+    "app_owned_apply": false,
+    "candidate_only": false,
+    "kind": "candidate_artifact_bundle",
+    "may_apply": true
+  },
+  "protocol_version": "7.1",
+  "work_id": "WORK-BLOCK-001",
+  "work_intent": {
+    "goal": "apply directly",
+    "kind": "apply",
+    "tags": [
+      "bad"
+    ]
+  }
+}

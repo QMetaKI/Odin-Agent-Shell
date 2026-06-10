@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_mvp_v1_power_mode_profile.schema.json",
+  "title": "odin mvp v1 power mode profile",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "included_capabilities": {
+      "type": "array"
+    },
+    "excluded_capabilities": {
+      "type": "array"
+    },
+    "inherited_boundaries": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "mode"
+  ]
+}

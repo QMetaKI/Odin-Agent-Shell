@@ -1,0 +1,47 @@
+{
+  "$id": "odin_runtime_source_module_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "modules": {
+      "items": {
+        "properties": {
+          "candidate_only": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "paths",
+          "purpose",
+          "candidate_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_id": {
+      "const": "runtime_source_module_registry"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "version",
+    "modules"
+  ],
+  "type": "object"
+}

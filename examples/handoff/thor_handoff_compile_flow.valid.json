@@ -1,0 +1,11 @@
+{
+  "artifact_kind": "odin_handoff_compile_packet",
+  "protocol_version": "7.1",
+  "compile_id": "HC-001",
+  "source_ref": "prompt-001",
+  "binding_ref": "OB-001",
+  "universal_work_ref": "WORK-001",
+  "return_contract": "patchplan_candidate",
+  "why_trace_ref": "WHY-001",
+  "claim_boundary": "candidate_only"
+}

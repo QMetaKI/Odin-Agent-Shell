@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_output_contract.schema.json",
+  "title": "odin_output_contract",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "contract_id",
+    "artifact_type",
+    "candidate_only",
+    "requires_app_apply_gate"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_output_contract"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "contract_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "artifact_type": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "candidate_only": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "requires_app_apply_gate": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,48 @@
+{
+  "artifact_kind": "odin_universal_work",
+  "binding_ref": "BIND-DEMO-001",
+  "caller_id": "demo.markdown.app",
+  "claim_boundary": {
+    "claims": [
+      "candidate_only"
+    ]
+  },
+  "constraints": {
+    "actions": [],
+    "forbidden": [
+      "apply directly",
+      "send externally",
+      "mutate app state"
+    ]
+  },
+  "input_artifacts": [
+    {
+      "content": "Draft text that needs a candidate rewrite.",
+      "kind": "markdown"
+    }
+  ],
+  "model_policy": {
+    "latency_mode": "interactive",
+    "quality_target": "standard",
+    "requires_model": true,
+    "resource_profile": "standard_local"
+  },
+  "output_contract": {
+    "app_owned_apply": true,
+    "candidate_only": true,
+    "kind": "candidate_artifact_bundle",
+    "may_apply": false
+  },
+  "protocol_version": "7.1",
+  "work_id": "WORK-FULL-001",
+  "work_intent": {
+    "goal": "rewrite_markdown_candidate",
+    "kind": "rewrite",
+    "requires_model": true,
+    "tags": [
+      "writing",
+      "boundary",
+      "always"
+    ]
+  }
+}

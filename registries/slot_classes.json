@@ -1,0 +1,31 @@
+{
+  "registry_id": "odin.slot_classes.v7_1",
+  "version": "7.1",
+  "classes": [
+    "label.slot",
+    "route.slot",
+    "risk_label.slot",
+    "json_fill.slot",
+    "short_summary.slot",
+    "micro_rewrite.slot",
+    "context_digest.slot",
+    "event_digest_summary.slot",
+    "workflow_next_step.slot",
+    "support_answer.slot",
+    "document_digest.slot",
+    "code_micro_patch.slot",
+    "architecture_section.slot",
+    "quality_dialogue.slot",
+    "deep_synthesis.slot",
+    "handoff_compile.slot",
+    "return_minicheck.slot",
+    "claim_scan.slot",
+    "patchplan_candidate.slot",
+    "state_transition_explanation.slot",
+    "command_preview.slot",
+    "artifact_conversion.slot",
+    "artifact_extraction.slot",
+    "artifact_validation.slot",
+    "candidate_generation.slot"
+  ]
+}

@@ -1,0 +1,3010 @@
+{
+  "registry_id": "odin.codex_task_registry.v0_4_0",
+  "version": "0.7.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "default_model_strategy": "3b_7b_8b_hybrid",
+  "status": "v0.7.6_internal_micro_task_ladder",
+  "tasks": [
+    {
+      "id": "PR-00",
+      "title": "Canon Gates and Repo Hygiene",
+      "depends_on": [],
+      "doc": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
+      "primary_files": [
+        "odin/cli.py",
+        "tests/test_validation_cli.py",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "goal": "Lock the repository as a deterministic build surface before feature work starts.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-01",
+      "title": "Schema Strictening and Registry Parity",
+      "depends_on": [
+        "PR-00"
+      ],
+      "doc": "docs/codex/tasks/PR-01_SCHEMA_STRICTENING_AND_REGISTRY_PARITY.md",
+      "primary_files": [
+        "schemas/v7_1/",
+        "registries/",
+        "tests/test_registry_expansion.py"
+      ],
+      "goal": "Make JSON schemas and registries strict enough that protocol drift is caught early.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-02",
+      "title": "Protocol Packets and Binding Gate",
+      "depends_on": [
+        "PR-01"
+      ],
+      "doc": "docs/codex/tasks/PR-02_PROTOCOL_PACKETS_AND_BINDING_GATE.md",
+      "primary_files": [
+        "odin/protocol/",
+        "odin/apps/",
+        "schemas/v7_1/odin_binding.schema.json"
+      ],
+      "goal": "Implement local mediation packets, binding validation and caller policy enforcement.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-03",
+      "title": "Universal Work Kernel",
+      "depends_on": [
+        "PR-02"
+      ],
+      "doc": "docs/codex/tasks/PR-03_UNIVERSAL_WORK_KERNEL.md",
+      "primary_files": [
+        "odin/universal_work/",
+        "examples/universal_work/",
+        "tests/test_universal_work_validator.py"
+      ],
+      "goal": "Implement Universal Work validation, compilation entrypoint and failure reasons.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-04",
+      "title": "Candidate Artifacts Response Packets and Candidate DNA",
+      "depends_on": [
+        "PR-03"
+      ],
+      "doc": "docs/codex/tasks/PR-04_CANDIDATE_ARTIFACTS_RESPONSE_PACKETS_AND_CANDIDATE_DNA.md",
+      "primary_files": [
+        "odin/packets/",
+        "schemas/v7_1/odin_candidate_artifact.schema.json"
+      ],
+      "goal": "Implement candidate-only output objects, response bundles and traceable Candidate DNA.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-05",
+      "title": "Internal Semantic Bus MVP",
+      "depends_on": [
+        "PR-02"
+      ],
+      "doc": "docs/codex/tasks/PR-05_INTERNAL_SEMANTIC_BUS_MVP.md",
+      "primary_files": [
+        "odin/semantic_bus/",
+        "registries/semantic_bus_channels.json",
+        "tests/test_semantic_event.py"
+      ],
+      "goal": "Build the local-only semantic event bus, event envelope validation and replay skeleton.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-06",
+      "title": "Artifact Lenses and Context Distillery",
+      "depends_on": [
+        "PR-03",
+        "PR-05"
+      ],
+      "doc": "docs/codex/tasks/PR-06_ARTIFACT_LENSES_AND_CONTEXT_DISTILLERY.md",
+      "primary_files": [
+        "odin/small_model_power/context_distillery.py",
+        "registries/artifact_lenses.json"
+      ],
+      "goal": "Create artifact lens routing and compact context capsules bound to Universal Work.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-07",
+      "title": "Worklet Graph Slot Forge and Gaptext",
+      "depends_on": [
+        "PR-06"
+      ],
+      "doc": "docs/codex/tasks/PR-07_WORKLET_GRAPH_SLOT_FORGE_AND_GAPTEXT.md",
+      "primary_files": [
+        "odin/small_model_power/worklet_graph.py",
+        "odin/small_model_power/slot_forge.py",
+        "odin/slots/"
+      ],
+      "goal": "Split work into worklets, forge slot contracts and produce bounded gaptext.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-08",
+      "title": "Model Scale Ladder Router and Mock Provider",
+      "depends_on": [
+        "PR-07"
+      ],
+      "doc": "docs/codex/tasks/PR-08_MODEL_SCALE_LADDER_ROUTER_AND_MOCK_PROVIDER.md",
+      "primary_files": [
+        "odin/models/",
+        "registries/model_scale_ladder.json"
+      ],
+      "goal": "Implement hardware-agnostic route selection with mock provider execution.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-09",
+      "title": "Small Model Power Core",
+      "depends_on": [
+        "PR-08"
+      ],
+      "doc": "docs/codex/tasks/PR-09_SMALL_MODEL_POWER_CORE.md",
+      "primary_files": [
+        "odin/small_model_power/",
+        "odin/quality/"
+      ],
+      "goal": "Add critic cascade, candidate tournament, style stabilizer and anti-generic engine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-10",
+      "title": "Thor Bridge and Bounded Code Work",
+      "depends_on": [
+        "PR-04",
+        "PR-09"
+      ],
+      "doc": "docs/codex/tasks/PR-10_THOR_BRIDGE_AND_BOUNDED_CODE_WORK.md",
+      "primary_files": [
+        "odin/thor_bridge/",
+        "docs/THOR_INTEGRATION.md",
+        "docs/BOUNDED_CODE_WORK.md"
+      ],
+      "goal": "Map Thor-style handoff discipline into Odin candidate-only code and review flows.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-11",
+      "title": "Storage Trace Receipt Layer",
+      "depends_on": [
+        "PR-04",
+        "PR-05"
+      ],
+      "doc": "docs/codex/tasks/PR-11_STORAGE_TRACE_RECEIPT_LAYER.md",
+      "primary_files": [
+        "odin/storage/",
+        "docs/STORAGE_SPEC.md"
+      ],
+      "goal": "Add SQLite/object-store abstractions, trace entries, receipt candidates and retention hooks.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-12",
+      "title": "Local API Server",
+      "depends_on": [
+        "PR-03",
+        "PR-04",
+        "PR-05",
+        "PR-11"
+      ],
+      "doc": "docs/codex/tasks/PR-12_LOCAL_API_SERVER.md",
+      "primary_files": [
+        "odin/api/",
+        "docs/API_SPEC.md"
+      ],
+      "goal": "Expose local-only HTTP endpoints for status, apps, work, bus, traces and scoreboard.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-13",
+      "title": "SDKs and App Templates",
+      "depends_on": [
+        "PR-12"
+      ],
+      "doc": "docs/codex/tasks/PR-13_SDKS_AND_APP_TEMPLATES.md",
+      "primary_files": [
+        "sdk/",
+        "templates/app_connector/",
+        "docs/APP_INTEGRATION_STANDARD.md"
+      ],
+      "goal": "Create TypeScript/Python SDK surfaces and no-LLM-in-app connector templates.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-14",
+      "title": "Ollama and llama.cpp Provider Adapters",
+      "depends_on": [
+        "PR-08",
+        "PR-12"
+      ],
+      "doc": "docs/codex/tasks/PR-14_OLLAMA_AND_LLAMA.CPP_PROVIDER_ADAPTERS.md",
+      "primary_files": [
+        "odin/models/providers/",
+        "examples/model_profiles/"
+      ],
+      "goal": "Implement provider adapters behind ModelWorkPacket boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-15",
+      "title": "Low-Memory Strict Mode",
+      "depends_on": [
+        "PR-08",
+        "PR-09"
+      ],
+      "doc": "docs/codex/tasks/PR-15_LOW-MEMORY_STRICT_MODE.md",
+      "primary_files": [
+        "odin/core/resource_posture.py",
+        "docs/MODEL_SCALE_LADDER.md"
+      ],
+      "goal": "Implement low-resource route limits, semantic bus light mode and small-slot preference.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-16",
+      "title": "App QIRC Bridge Digest",
+      "depends_on": [
+        "PR-05",
+        "PR-13"
+      ],
+      "doc": "docs/codex/tasks/PR-16_APP_QIRC_BRIDGE_DIGEST.md",
+      "primary_files": [
+        "odin/apps/app_qirc_bridge.py",
+        "schemas/v7_1/"
+      ],
+      "goal": "Prepare digest-only bridge between app-owned event systems and Odin internal bus.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-17",
+      "title": "Model Dojo and Scoreboard",
+      "depends_on": [
+        "PR-08",
+        "PR-09",
+        "PR-11"
+      ],
+      "doc": "docs/codex/tasks/PR-17_MODEL_DOJO_AND_SCOREBOARD.md",
+      "primary_files": [
+        "odin/small_model_power/model_dojo.py",
+        "registries/"
+      ],
+      "goal": "Add model capability profiling and route quality metrics without model training.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-18",
+      "title": "Control Center Skeleton",
+      "depends_on": [
+        "PR-12",
+        "PR-17"
+      ],
+      "doc": "docs/codex/tasks/PR-18_CONTROL_CENTER_SKELETON.md",
+      "primary_files": [
+        "odin/api/",
+        "docs/WINDOWS_RUNTIME.md",
+        "templates/"
+      ],
+      "goal": "Prepare local control-center surfaces for apps, models, work lab, bus and traces.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-19",
+      "title": "Windows Runtime Tray and Installer Prep",
+      "depends_on": [
+        "PR-12",
+        "PR-18"
+      ],
+      "doc": "docs/codex/tasks/PR-19_WINDOWS_RUNTIME_TRAY_AND_INSTALLER_PREP.md",
+      "primary_files": [
+        "docs/WINDOWS_RUNTIME.md",
+        ".github/workflows/ci.yml"
+      ],
+      "goal": "Define and scaffold Windows daemon lifecycle, tray integration and package boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-20",
+      "title": "End-to-End Golden Flows",
+      "depends_on": [
+        "PR-13",
+        "PR-14",
+        "PR-16",
+        "PR-18"
+      ],
+      "doc": "docs/codex/tasks/PR-20_END-TO-END_GOLDEN_FLOWS.md",
+      "primary_files": [
+        "tests/",
+        "examples/",
+        "docs/FLOW_CATALOG_V7_1.md"
+      ],
+      "goal": "Add representative local golden flows and negative paths across the full stack.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-21",
+      "title": "Release Prep Hygiene and Support Bundle",
+      "depends_on": [
+        "PR-20"
+      ],
+      "doc": "docs/codex/tasks/PR-21_RELEASE_PREP_HYGIENE_AND_SUPPORT_BUNDLE.md",
+      "primary_files": [
+        "odin/storage/",
+        "docs/SECURITY_PRIVACY.md",
+        "README.md"
+      ],
+      "goal": "Add support bundle export, manifest refresh, docs parity and final pre-release gates.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-22",
+      "title": "Senior Review Hardening and Anti-Drift Lock",
+      "depends_on": [
+        "PR-21"
+      ],
+      "doc": "docs/codex/tasks/PR-22_SENIOR_REVIEW_HARDENING_AND_ANTI_DRIFT_LOCK.md",
+      "primary_files": [
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
+        "docs/SENIOR_REVIEW_REMEDIATION_PLAN_V0_4_2.md",
+        "docs/CODEX_ANTI_DRIFT_POLICY.md",
+        "docs/TRACEABILITY_MATRIX_V7_1.md",
+        "docs/QUALITY_RISK_REGISTER_V7_1.md",
+        "docs/SEMANTIC_BUS_RED_LINES_V7_1.md",
+        "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "tests/test_senior_review_hardening.py"
+      ],
+      "goal": "Capture senior-review findings as persistent anti-drift obligations before Codex implementation begins.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "default_model_strategy_3b_7b_8b"
+      ]
+    },
+    {
+      "id": "PR-23",
+      "title": "Shadow Runtime Code-Near Lock",
+      "depends_on": [
+        "PR-22"
+      ],
+      "doc": "docs/codex/tasks/PR-23_SHADOW_RUNTIME_CODE_NEAR_LOCK.md",
+      "primary_files": [
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+        "odin/shadow_runtime/",
+        "examples/shadow_runtime/",
+        "registries/shadow_runtime_contract_registry.json",
+        "tests/test_shadow_runtime_lock.py"
+      ],
+      "goal": "Create a YNode-style code-near Shadow Runtime so Codex can derive real Odin implementation mechanically.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "shadow_runtime_non_authority"
+      ]
+    },
+    {
+      "id": "PR-24",
+      "title": "Full Shadow Runtime Coverage",
+      "depends_on": [
+        "PR-23"
+      ],
+      "doc": "docs/codex/tasks/PR-24_FULL_SHADOW_RUNTIME_COVERAGE.md",
+      "primary_files": [
+        "odin/shadow_runtime/",
+        "examples/shadow_runtime/",
+        "registries/shadow_runtime_contract_registry.json",
+        "tests/test_full_shadow_runtime_coverage.py"
+      ],
+      "goal": "Extend Shadow Runtime coverage to all major Odin v7.1 subsystems.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only"
+      ]
+    },
+    {
+      "id": "PR-25",
+      "title": "Shadow Runtime Near-Final Optimization Lock",
+      "depends_on": [
+        "PR-24"
+      ],
+      "doc": "docs/codex/tasks/PR-25_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_LOCK.md",
+      "primary_files": [
+        "odin/shadow_runtime/",
+        "docs/SHADOW_RUNTIME_NEAR_FINAL_LOCK_V7_1.md",
+        "tests/test_shadow_runtime_near_final.py"
+      ],
+      "goal": "Make Shadow Runtime a near-final mechanical blueprint for the finished Odin system without runtime claims.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "PR-26",
+      "title": "Y* Native DSL and Narrative Aorta Spec",
+      "depends_on": [
+        "PR-25"
+      ],
+      "doc": "docs/codex/tasks/PR-26_YSTAR_NATIVE_DSL_AND_NARRATIVE_AORTA_SPEC.md",
+      "primary_files": [
+        "docs/FAIRY_DSL_V7_1.md",
+        "docs/YSTAR_NATIVE_DSL_V7_1.md",
+        "docs/NARRATIVE_AORTA_V7_1.md",
+        "schemas/v7_1/odin_ystar_native_unit.schema.json"
+      ],
+      "goal": "Y* Native DSL and Narrative Aorta Spec",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-27",
+      "title": "Fairy DSL Parser / Validator Shadow Layer",
+      "depends_on": [
+        "PR-26"
+      ],
+      "doc": "docs/codex/tasks/PR-27_FAIRY_DSL_PARSER_VALIDATOR_SHADOW_LAYER.md",
+      "primary_files": [
+        "odin/shadow_runtime/fairy_dsl_shadow.py",
+        "examples/fairy/odin_rewrite_story.valid.json",
+        "tests/test_narrative_compiler_integration.py"
+      ],
+      "goal": "Fairy DSL Parser / Validator Shadow Layer",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-28",
+      "title": "Fairy to Shadow IR Mapping",
+      "depends_on": [
+        "PR-27"
+      ],
+      "doc": "docs/codex/tasks/PR-28_FAIRY_TO_SHADOW_IR_MAPPING.md",
+      "primary_files": [
+        "odin/shadow_runtime/fairy_to_shadow_ir_shadow.py",
+        "schemas/v7_1/odin_fairy_shadow_mapping.schema.json"
+      ],
+      "goal": "Fairy to Shadow IR Mapping",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-29",
+      "title": "Y* Mediation Directive and Runtime Pack Prelude",
+      "depends_on": [
+        "PR-28"
+      ],
+      "doc": "docs/codex/tasks/PR-29_YSTAR_MEDIATION_DIRECTIVE_AND_RUNTIME_PACK_PRELUDE.md",
+      "primary_files": [
+        "odin/shadow_runtime/ystar_mediation_shadow.py",
+        "schemas/v7_1/odin_ystar_mediation_directive.schema.json"
+      ],
+      "goal": "Y* Mediation Directive and Runtime Pack Prelude",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-30",
+      "title": "Narrative Code Boundary Gates",
+      "depends_on": [
+        "PR-29"
+      ],
+      "doc": "docs/codex/tasks/PR-30_NARRATIVE_CODE_BOUNDARY_GATES.md",
+      "primary_files": [
+        "docs/NARRATIVE_CODE_BOUNDARY_V7_1.md",
+        "docs/MARIA_FAIRY_SPINE_V7_1.md",
+        "odin/cli.py"
+      ],
+      "goal": "Narrative Code Boundary Gates",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-31",
+      "title": "Shadow Runtime IR Formalization",
+      "depends_on": [
+        "PR-30"
+      ],
+      "doc": "docs/codex/tasks/PR-31_SHADOW_RUNTIME_IR_FORMALIZATION.md",
+      "primary_files": [
+        "odin/compiler/shadow_ir.py",
+        "docs/SHADOW_RUNTIME_COMPILER_V7_1.md"
+      ],
+      "goal": "Shadow Runtime IR Formalization",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-32",
+      "title": "Runtime Pack Manifest and Validator",
+      "depends_on": [
+        "PR-31"
+      ],
+      "doc": "docs/codex/tasks/PR-32_RUNTIME_PACK_MANIFEST_AND_VALIDATOR.md",
+      "primary_files": [
+        "odin/compiler/runtime_pack.py",
+        "odin/compiler/pack_manifest.py",
+        "odin/compiler/pack_validator.py",
+        "schemas/v7_1/odin_runtime_pack.schema.json"
+      ],
+      "goal": "Runtime Pack Manifest and Validator",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-33",
+      "title": "AOT Runtime Pack Compiler",
+      "depends_on": [
+        "PR-32"
+      ],
+      "doc": "docs/codex/tasks/PR-33_AOT_RUNTIME_PACK_COMPILER.md",
+      "primary_files": [
+        "odin/compiler/aot_compiler.py",
+        "docs/AOT_CACHED_JIT_FALLBACK_V7_1.md"
+      ],
+      "goal": "AOT Runtime Pack Compiler",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-34",
+      "title": "Capability Slice Compiler",
+      "depends_on": [
+        "PR-33"
+      ],
+      "doc": "docs/codex/tasks/PR-34_CAPABILITY_SLICE_COMPILER.md",
+      "primary_files": [
+        "odin/compiler/capability_slice.py",
+        "odin/compiler/cached_jit_compiler.py",
+        "schemas/v7_1/odin_capability_slice.schema.json"
+      ],
+      "goal": "Capability Slice Compiler",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-35",
+      "title": "Pack Loader, Cache and Rollback",
+      "depends_on": [
+        "PR-34"
+      ],
+      "doc": "docs/codex/tasks/PR-35_PACK_LOADER,_CACHE_AND_ROLLBACK.md",
+      "primary_files": [
+        "odin/compiler/pack_loader.py",
+        "docs/PACK_LOADER_SECURITY_V7_1.md"
+      ],
+      "goal": "Pack Loader, Cache and Rollback",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-36",
+      "title": "Generated Gates and Golden Tests",
+      "depends_on": [
+        "PR-35"
+      ],
+      "doc": "docs/codex/tasks/PR-36_GENERATED_GATES_AND_GOLDEN_TESTS.md",
+      "primary_files": [
+        "docs/GENERATED_RUNTIME_GATES_V7_1.md",
+        "tests/test_narrative_compiler_integration.py"
+      ],
+      "goal": "Generated Gates and Golden Tests",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-37",
+      "title": "Low-Memory / Standard / Quality Runtime Packs",
+      "depends_on": [
+        "PR-36"
+      ],
+      "doc": "docs/codex/tasks/PR-37_LOW_MEMORY_STANDARD_QUALITY_RUNTIME_PACKS.md",
+      "primary_files": [
+        "registries/runtime_pack_registry.json",
+        "examples/compiler/standard_local_runtime_pack.valid.json"
+      ],
+      "goal": "Low-Memory / Standard / Quality Runtime Packs",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "v7_1_invariants",
+        "candidate_only",
+        "app_owns_state",
+        "no_prose_execution",
+        "validated_pack_load_only"
+      ]
+    },
+    {
+      "id": "PR-38",
+      "title": "Odin Core Centerline and QLI Master Interface",
+      "doc": "docs/codex/tasks/PR-38_ODIN_CORE_CENTERLINE_AND_QLI_MASTER_INTERFACE.md",
+      "depends_on": [
+        "PR-37"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-39",
+      "title": "DFAS Stability Core and Admissibility Gate",
+      "doc": "docs/codex/tasks/PR-39_DFAS_STABILITY_CORE_AND_ADMISSIBILITY_GATE.md",
+      "depends_on": [
+        "PR-38"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-40",
+      "title": "Seed / Archetype Economy and Conflict Resolver",
+      "doc": "docs/codex/tasks/PR-40_SEED_ARCHETYPE_ECONOMY_AND_CONFLICT_RESOLVER.md",
+      "depends_on": [
+        "PR-39"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-41",
+      "title": "QMath Center Solver and Route Score Engine",
+      "doc": "docs/codex/tasks/PR-41_QMATH_CENTER_SOLVER_AND_ROUTE_SCORE_ENGINE.md",
+      "depends_on": [
+        "PR-40"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-42",
+      "title": "Ring Radar / Resonance / Why Trace",
+      "doc": "docs/codex/tasks/PR-42_RING_RADAR_RESONANCE_AND_WHY_TRACE.md",
+      "depends_on": [
+        "PR-41"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-43",
+      "title": "Maria / Michael Superposition Policy",
+      "doc": "docs/codex/tasks/PR-43_MARIA_MICHAEL_SUPERPOSITION_POLICY.md",
+      "depends_on": [
+        "PR-42"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-44",
+      "title": "QFoundation / Q Metamodell Intake Binding",
+      "doc": "docs/codex/tasks/PR-44_QFOUNDATION_QMETAMODELL_INTAKE_BINDING.md",
+      "depends_on": [
+        "PR-43"
+      ],
+      "real_bundle": "REAL-PR-14"
+    },
+    {
+      "id": "PR-45",
+      "title": "QIRC Gold Spine Channel Taxonomy",
+      "depends_on": [
+        "PR-44"
+      ],
+      "doc": "docs/codex/tasks/PR-45_QIRC_GOLD_SPINE_CHANNEL_TAXONOMY.md",
+      "primary_files": [
+        "docs/ODIN_QIRC_GOLD_SPINE_V7_1.md",
+        "docs/QIRC_CHANNEL_TAXONOMY_V7_1.md",
+        "registries/qirc_channel_registry.json"
+      ],
+      "goal": "Implement QIRC Gold Spine Channel Taxonomy as part of Odin QIRC Gold Spine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge"
+      ]
+    },
+    {
+      "id": "PR-46",
+      "title": "QIRC Event Envelope v2 and Hot Window Memory",
+      "depends_on": [
+        "PR-45"
+      ],
+      "doc": "docs/codex/tasks/PR-46_QIRC_EVENT_ENVELOPE_V2_AND_HOT_WINDOW_MEMORY.md",
+      "primary_files": [
+        "docs/QIRC_EVENT_ENVELOPE_V2_V7_1.md",
+        "docs/QIRC_HOT_WINDOW_MEMORY_V7_1.md",
+        "schemas/v7_1/odin_qirc_event.schema.json"
+      ],
+      "goal": "Implement QIRC Event Envelope v2 and Hot Window Memory as part of Odin QIRC Gold Spine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge"
+      ]
+    },
+    {
+      "id": "PR-47",
+      "title": "QIRC Seed / Archetype Prewarm and Budget Gates",
+      "depends_on": [
+        "PR-46"
+      ],
+      "doc": "docs/codex/tasks/PR-47_QIRC_SEED__ARCHETYPE_PREWARM_AND_BUDGET_GATES.md",
+      "primary_files": [
+        "docs/QIRC_SEED_ARCHETYPE_PREWARM_V7_1.md",
+        "registries/qirc_role_channel_matrix.json",
+        "odin/shadow_runtime/qirc_seed_prewarm_shadow.py"
+      ],
+      "goal": "Implement QIRC Seed / Archetype Prewarm and Budget Gates as part of Odin QIRC Gold Spine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge"
+      ]
+    },
+    {
+      "id": "PR-48",
+      "title": "QIRC Admissibility / QMath / Ring Radar Flow",
+      "depends_on": [
+        "PR-47"
+      ],
+      "doc": "docs/codex/tasks/PR-48_QIRC_ADMISSIBILITY__QMATH__RING_RADAR_FLOW.md",
+      "primary_files": [
+        "docs/QIRC_ADMISSIBILITY_GATE_V7_1.md",
+        "docs/QIRC_RING_RADAR_RUNTIME_V7_1.md",
+        "odin/shadow_runtime/qirc_admissibility_shadow.py"
+      ],
+      "goal": "Implement QIRC Admissibility / QMath / Ring Radar Flow as part of Odin QIRC Gold Spine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge"
+      ]
+    },
+    {
+      "id": "PR-49",
+      "title": "QIRC Why Trace and Runtime Pack Integration",
+      "depends_on": [
+        "PR-48"
+      ],
+      "doc": "docs/codex/tasks/PR-49_QIRC_WHY_TRACE_AND_RUNTIME_PACK_INTEGRATION.md",
+      "primary_files": [
+        "docs/QIRC_WHY_TRACE_V7_1.md",
+        "docs/QIRC_RUNTIME_PACK_INTEGRATION_V7_1.md",
+        "odin/shadow_runtime/qirc_why_trace_shadow.py"
+      ],
+      "goal": "Implement QIRC Why Trace and Runtime Pack Integration as part of Odin QIRC Gold Spine.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge"
+      ]
+    },
+    {
+      "id": "PR-50",
+      "title": "Bug6 / Q7 invariant lock",
+      "depends_on": [
+        "PR-49"
+      ],
+      "doc": "docs/codex/tasks/PR-50_BUG6_Q7_INVARIANT_LOCK.md",
+      "primary_files": [
+        "docs/BUG6_CHILDREN_FIRST_INVARIANT_V7_1.md",
+        "docs/Q7_BUGFREE_STABILITY_V7_1.md",
+        "schemas/v7_1/odin_bug6_invariant_packet.schema.json",
+        "schemas/v7_1/odin_q7_stability_packet.schema.json"
+      ],
+      "goal": "Bug6 / Q7 invariant lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-51",
+      "title": "Y-Core posture lock",
+      "depends_on": [
+        "PR-50"
+      ],
+      "doc": "docs/codex/tasks/PR-51_Y_CORE_POSTURE_LOCK.md",
+      "primary_files": [
+        "docs/Y_CORE_POSTURE_V7_1.md",
+        "schemas/v7_1/odin_y_core_posture.schema.json",
+        "odin/shadow_runtime/y_core_posture_shadow.py"
+      ],
+      "goal": "Y-Core posture lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-52",
+      "title": "Operational seed substrate lock",
+      "depends_on": [
+        "PR-51"
+      ],
+      "doc": "docs/codex/tasks/PR-52_OPERATIONAL_SEED_SUBSTRATE_LOCK.md",
+      "primary_files": [
+        "docs/OPERATIONAL_SEED_SUBSTRATE_V7_1.md",
+        "registries/operational_seed_substrate_registry.json",
+        "odin/shadow_runtime/operational_seed_substrate_shadow.py"
+      ],
+      "goal": "Operational seed substrate lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-53",
+      "title": "Seed / archetype synthesis lock",
+      "depends_on": [
+        "PR-52"
+      ],
+      "doc": "docs/codex/tasks/PR-53_SEED_ARCHETYPE_SYNTHESIS_LOCK.md",
+      "primary_files": [
+        "docs/BUG6_Q7_SEED_CORE_SYNTHESIS_V7_1.md",
+        "registries/seed_archetype_synthesis_registry.json",
+        "odin/shadow_runtime/seed_archetype_synthesis_shadow.py"
+      ],
+      "goal": "Seed / archetype synthesis lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-54",
+      "title": "Fairy / Y* seed binding lock",
+      "depends_on": [
+        "PR-53"
+      ],
+      "doc": "docs/codex/tasks/PR-54_FAIRY_YSTAR_SEED_BINDING_LOCK.md",
+      "primary_files": [
+        "docs/FAIRY_YSTAR_SEED_BINDING_V7_1.md",
+        "odin/shadow_runtime/fairy_ystar_seed_binding_shadow.py"
+      ],
+      "goal": "Fairy / Y* seed binding lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-55",
+      "title": "Shadow Runtime seed weave and runtime pack seed profiles",
+      "depends_on": [
+        "PR-54"
+      ],
+      "doc": "docs/codex/tasks/PR-55_SHADOW_RUNTIME_SEED_WEAVE_LOCK.md",
+      "primary_files": [
+        "docs/SHADOW_RUNTIME_SEED_WEAVE_V7_1.md",
+        "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md",
+        "odin/shadow_runtime/shadow_runtime_seed_binding_shadow.py"
+      ],
+      "goal": "Shadow Runtime seed weave and runtime pack seed profiles",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "bug6_children_first",
+        "q7_stability",
+        "local_first"
+      ]
+    },
+    {
+      "id": "PR-56",
+      "title": "AI-Git Safety Architecture Consolidation",
+      "depends_on": [
+        "PR-55"
+      ],
+      "doc": "docs/codex/tasks/PR-56_AIGIT_SAFETY_ARCHITECTURE_CONSOLIDATION.md",
+      "primary_files": [
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+        "odin/shadow_runtime/ai_git_safety_shadow.py",
+        "registries/ai_git_safety_registry.json"
+      ],
+      "goal": "AI-Git Safety Architecture Consolidation",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "local_first",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition"
+      ]
+    },
+    {
+      "id": "PR-57",
+      "title": "Autonomy Escalation Gate Lock",
+      "depends_on": [
+        "PR-56"
+      ],
+      "doc": "docs/codex/tasks/PR-57_AUTONOMY_ESCALATION_GATE_LOCK.md",
+      "primary_files": [
+        "docs/AUTONOMY_ESCALATION_GATE_V7_1.md",
+        "odin/shadow_runtime/autonomy_escalation_gate_shadow.py",
+        "registries/autonomy_escalation_gate_registry.json"
+      ],
+      "goal": "Autonomy Escalation Gate Lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "local_first",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition"
+      ]
+    },
+    {
+      "id": "PR-58",
+      "title": "Safety Superposition Policy Lock",
+      "depends_on": [
+        "PR-57"
+      ],
+      "doc": "docs/codex/tasks/PR-58_SAFETY_SUPERPOSITION_POLICY_LOCK.md",
+      "primary_files": [
+        "docs/SAFETY_SUPERPOSITION_POLICY_V7_1.md",
+        "odin/shadow_runtime/safety_superposition_shadow.py",
+        "registries/safety_superposition_registry.json"
+      ],
+      "goal": "Safety Superposition Policy Lock",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "local_first",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition"
+      ]
+    },
+    {
+      "id": "PR-59",
+      "title": "Semantic Diff Branch Merge and Human Review Boundary",
+      "depends_on": [
+        "PR-58"
+      ],
+      "doc": "docs/codex/tasks/PR-59_SEMANTIC_DIFF_BRANCH_MERGE_AND_HUMAN_REVIEW_BOUNDARY.md",
+      "primary_files": [
+        "docs/SEMANTIC_DIFF_BRANCH_MERGE_V7_1.md",
+        "docs/HUMAN_REVIEW_APP_APPLY_BOUNDARY_V7_1.md",
+        "odin/shadow_runtime/semantic_diff_branch_merge_shadow.py"
+      ],
+      "goal": "Semantic Diff Branch Merge and Human Review Boundary",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "local_first",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition"
+      ]
+    },
+    {
+      "id": "PR-60",
+      "title": "Skynet Pattern Boundary and AI-Git Why Trace",
+      "depends_on": [
+        "PR-59"
+      ],
+      "doc": "docs/codex/tasks/PR-60_SKYNET_PATTERN_BOUNDARY_AND_AIGIT_WHY_TRACE.md",
+      "primary_files": [
+        "docs/SKYNET_PATTERN_BOUNDARY_V7_1.md",
+        "odin/shadow_runtime/skynet_pattern_boundary_shadow.py",
+        "schemas/v7_1/odin_safety_why_trace.schema.json"
+      ],
+      "goal": "Skynet Pattern Boundary and AI-Git Why Trace",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_state",
+        "local_first",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition"
+      ]
+    },
+    {
+      "id": "PR-61",
+      "title": "Pre-LLM Intelligence Layer",
+      "depends_on": [
+        "PR-60"
+      ],
+      "doc": "docs/codex/tasks/PR-61_PRE-LLM_INTELLIGENCE_LAYER.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Implement pre-model cognition as a first-class candidate-only pipeline.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence"
+      ]
+    },
+    {
+      "id": "PR-62",
+      "title": "Model Work Avoidance and Admissibility Expansion",
+      "depends_on": [
+        "PR-61"
+      ],
+      "doc": "docs/codex/tasks/PR-62_MODEL_WORK_AVOIDANCE_AND_ADMISSIBILITY_EXPANSION.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Avoid unnecessary model work and require route reasons for escalation.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence"
+      ]
+    },
+    {
+      "id": "PR-63",
+      "title": "Output Intelligence Composer",
+      "depends_on": [
+        "PR-62"
+      ],
+      "doc": "docs/codex/tasks/PR-63_OUTPUT_INTELLIGENCE_COMPOSER.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Compose user-visible candidate bundles from fragments, traces and actions.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence"
+      ]
+    },
+    {
+      "id": "PR-64",
+      "title": "Perceived Intelligence Metrics",
+      "depends_on": [
+        "PR-63"
+      ],
+      "doc": "docs/codex/tasks/PR-64_PERCEIVED_INTELLIGENCE_METRICS.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Measure visible usefulness without deceptive claims.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence"
+      ]
+    },
+    {
+      "id": "PR-65",
+      "title": "Micro-to-Macro Candidate Synthesis",
+      "depends_on": [
+        "PR-64"
+      ],
+      "doc": "docs/codex/tasks/PR-65_MICRO-TO-MACRO_CANDIDATE_SYNTHESIS.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Combine micro-results into macro candidate artifacts safely.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence"
+      ]
+    },
+    {
+      "id": "PR-66",
+      "title": "Universal Model / Agent Parity Matrix",
+      "depends_on": [
+        "PR-65"
+      ],
+      "doc": "docs/codex/tasks/PR-66_UNIVERSAL_MODEL_AGENT_PARITY_MATRIX.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Generalize ChatGPT/Odin twin parity to all model and agent surfaces.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-67",
+      "title": "Model / Agent Capability Cards",
+      "depends_on": [
+        "PR-66"
+      ],
+      "doc": "docs/codex/tasks/PR-67_MODEL_AGENT_CAPABILITY_CARDS.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Define cards that describe skill, risk, permission and routing for every worker class.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-68",
+      "title": "Work Capsules and Capability Packs for Agents",
+      "depends_on": [
+        "PR-67"
+      ],
+      "doc": "docs/codex/tasks/PR-68_WORK_CAPSULES_AND_CAPABILITY_PACKS_FOR_AGENTS.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Create bounded work continuity and capability slices for model/agent workers.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-69",
+      "title": "External Agent Adapter Boundary",
+      "depends_on": [
+        "PR-68"
+      ],
+      "doc": "docs/codex/tasks/PR-69_EXTERNAL_AGENT_ADAPTER_BOUNDARY.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Normalize coding, browser, IDE and workflow agents into candidate-only adapters.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-70",
+      "title": "Universal Agent Candidate Protocol",
+      "depends_on": [
+        "PR-69"
+      ],
+      "doc": "docs/codex/tasks/PR-70_UNIVERSAL_AGENT_CANDIDATE_PROTOCOL.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Force all agent outputs through Candidate Artifact / Why Trace protocol.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-71",
+      "title": "Agent Permission Cards and Apply Boundary",
+      "depends_on": [
+        "PR-70"
+      ],
+      "doc": "docs/codex/tasks/PR-71_AGENT_PERMISSION_CARDS_AND_APPLY_BOUNDARY.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Lock permission tiers and app-owned apply for all worker classes.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-72",
+      "title": "Universal Agent Why Trace and Archetype Roles",
+      "depends_on": [
+        "PR-71"
+      ],
+      "doc": "docs/codex/tasks/PR-72_UNIVERSAL_AGENT_WHY_TRACE_AND_ARCHETYPE_ROLES.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "goal": "Explain worker selection and map models/agents into operational roles.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "universal_worker_boundary",
+        "why_trace"
+      ]
+    },
+    {
+      "id": "PR-73",
+      "title": "Thor Prompt Pull and Handoff Compiler Core",
+      "depends_on": [
+        "PR-72"
+      ],
+      "doc": "docs/codex/tasks/PR-73_THOR_PROMPT_PULL_AND_HANDOFF_COMPILER_CORE.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-74",
+      "title": "Thor Return Review and Receipt Boundary Pipeline",
+      "depends_on": [
+        "PR-73"
+      ],
+      "doc": "docs/codex/tasks/PR-74_THOR_RETURN_REVIEW_AND_RECEIPT_BOUNDARY_PIPELINE.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-75",
+      "title": "Y Handoff Bridge and Centerline Packet Compiler",
+      "depends_on": [
+        "PR-74"
+      ],
+      "doc": "docs/codex/tasks/PR-75_Y_HANDOFF_BRIDGE_AND_CENTERLINE_PACKET_COMPILER.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-76",
+      "title": "Mjolnir Focused Strike Handoff Bridge",
+      "depends_on": [
+        "PR-75"
+      ],
+      "doc": "docs/codex/tasks/PR-76_MJOLNIR_FOCUSED_STRIKE_HANDOFF_BRIDGE.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-77",
+      "title": "Handoff Prompt Canonicalization and Pattern Registry",
+      "depends_on": [
+        "PR-76"
+      ],
+      "doc": "docs/codex/tasks/PR-77_HANDOFF_PROMPT_CANONICALIZATION_AND_PATTERN_REGISTRY.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-78",
+      "title": "Handoff to Universal Work Conversion",
+      "depends_on": [
+        "PR-77"
+      ],
+      "doc": "docs/codex/tasks/PR-78_HANDOFF_TO_UNIVERSAL_WORK_CONVERSION.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-79",
+      "title": "Handoff Postprocessing Candidate Pipeline",
+      "depends_on": [
+        "PR-78"
+      ],
+      "doc": "docs/codex/tasks/PR-79_HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-80",
+      "title": "Thor Y Mjolnir Consolidated Handoff Gates",
+      "depends_on": [
+        "PR-79"
+      ],
+      "doc": "docs/codex/tasks/PR-80_THOR_Y_MJOLNIR_CONSOLIDATED_HANDOFF_GATES.md",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "goal": "Build and harden the Thor/Y/Mj\u00f6lnir handoff compiler lane while preserving Odin candidate-only boundaries.",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only"
+      ]
+    },
+    {
+      "id": "PR-81",
+      "title": "Universal LLM Work Construct",
+      "doc": "docs/codex/tasks/PR-81_UNIVERSAL_LLM_WORK_CONSTRUCT.md",
+      "primary_files": [
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+        "odin/shadow_runtime/universal_llm_work_construct_shadow.py"
+      ],
+      "goal": "Implement Universal LLM Work Construct as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-80"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-82",
+      "title": "Universal Model Agent Adapter Contract",
+      "doc": "docs/codex/tasks/PR-82_UNIVERSAL_MODEL_AGENT_ADAPTER_CONTRACT.md",
+      "primary_files": [
+        "docs/UNIVERSAL_MODEL_AGENT_ADAPTERS_V7_1.md",
+        "odin/shadow_runtime/model_agent_adapter_shadow.py"
+      ],
+      "goal": "Implement Universal Model Agent Adapter Contract as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-81"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-83",
+      "title": "Remote Worker Boundary and Local Remote Parity",
+      "doc": "docs/codex/tasks/PR-83_REMOTE_WORKER_BOUNDARY_AND_LOCAL_REMOTE_PARITY.md",
+      "primary_files": [
+        "docs/REMOTE_MODEL_WORKER_BOUNDARY_V7_1.md",
+        "docs/LOCAL_REMOTE_LLM_PARITY_V7_1.md"
+      ],
+      "goal": "Implement Remote Worker Boundary and Local Remote Parity as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-82"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-84",
+      "title": "Agent Tool Permission Boundary",
+      "doc": "docs/codex/tasks/PR-84_AGENT_TOOL_PERMISSION_BOUNDARY.md",
+      "primary_files": [
+        "docs/AGENT_TOOL_PERMISSION_BOUNDARY_V7_1.md",
+        "odin/shadow_runtime/agent_tool_permission_shadow.py"
+      ],
+      "goal": "Implement Agent Tool Permission Boundary as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-83"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-85",
+      "title": "Universal Use Case Matrix",
+      "doc": "docs/codex/tasks/PR-85_UNIVERSAL_USE_CASE_MATRIX.md",
+      "primary_files": [
+        "docs/UNIVERSAL_USE_CASE_MATRIX_V7_1.md",
+        "odin/shadow_runtime/universal_use_case_matrix_shadow.py"
+      ],
+      "goal": "Implement Universal Use Case Matrix as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-84"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-86",
+      "title": "Thor Odin AI Git Work Session and GPL2 Policy",
+      "doc": "docs/codex/tasks/PR-86_THOR_ODIN_AI_GIT_WORK_SESSION_AND_GPL2_POLICY.md",
+      "primary_files": [
+        "docs/THOR_ODIN_AI_GIT_LAYER_V7_1.md",
+        "docs/THOR_ODIN_GPL2_ONLY_POLICY.md",
+        "LICENSE_POLICY.md"
+      ],
+      "goal": "Implement Thor Odin AI Git Work Session and GPL2 Policy as v0.6.8 universal LLM work lock.",
+      "depends_on": [
+        "PR-85"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-87",
+      "title": "App Seed Pack Compiler Core",
+      "doc": "docs/codex/tasks/PR-87_APP_SEED_PACK_COMPILER_CORE.md",
+      "primary_files": [
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+        "odin/shadow_runtime/app_seed_pack_compiler_shadow.py",
+        "schemas/v7_1/odin_app_seed_pack_manifest.schema.json"
+      ],
+      "goal": "Implement App Seed Pack Compiler Core as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-86"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-88",
+      "title": "Universal Seed Pack Format and Manifest Validation",
+      "doc": "docs/codex/tasks/PR-88_UNIVERSAL_SEED_PACK_FORMAT_AND_MANIFEST_VALIDATION.md",
+      "primary_files": [
+        "docs/UNIVERSAL_SEED_PACK_FORMAT_V7_1.md",
+        "odin/shadow_runtime/universal_seed_pack_manifest_shadow.py",
+        "schemas/v7_1/odin_seed_pack_unit.schema.json"
+      ],
+      "goal": "Implement Universal Seed Pack Format and Manifest Validation as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-87"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-89",
+      "title": "Operational Seed Functions and Security Boundary",
+      "doc": "docs/codex/tasks/PR-89_OPERATIONAL_SEED_FUNCTIONS_AND_SECURITY_BOUNDARY.md",
+      "primary_files": [
+        "docs/OPERATIONAL_SEED_FUNCTIONS_V7_1.md",
+        "docs/SEED_PACK_SECURITY_BOUNDARY_V7_1.md",
+        "odin/shadow_runtime/operational_seed_functions_shadow.py"
+      ],
+      "goal": "Implement Operational Seed Functions and Security Boundary as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-88"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-90",
+      "title": "Seed Pack to Runtime Pack Compiler",
+      "doc": "docs/codex/tasks/PR-90_SEED_PACK_TO_RUNTIME_PACK_COMPILER.md",
+      "primary_files": [
+        "docs/SEED_PACK_TO_RUNTIME_PACK_COMPILER_V7_1.md",
+        "odin/shadow_runtime/seed_pack_to_runtime_pack_shadow.py",
+        "schemas/v7_1/odin_seed_pack_compile_plan.schema.json"
+      ],
+      "goal": "Implement Seed Pack to Runtime Pack Compiler as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-89"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-91",
+      "title": "Seed Pack Composition Conflict and Capability Slices",
+      "doc": "docs/codex/tasks/PR-91_SEED_PACK_COMPOSITION_CONFLICT_AND_CAPABILITY_SLICES.md",
+      "primary_files": [
+        "docs/SEED_PACK_COMPOSITION_AND_CONFLICTS_V7_1.md",
+        "docs/SEED_PACK_CAPABILITY_SLICES_V7_1.md",
+        "odin/shadow_runtime/seed_pack_composition_conflict_shadow.py"
+      ],
+      "goal": "Implement Seed Pack Composition Conflict and Capability Slices as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-90"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-92",
+      "title": "Seed Pack Why Trace and Use Case Matrix",
+      "doc": "docs/codex/tasks/PR-92_SEED_PACK_WHY_TRACE_AND_USE_CASE_MATRIX.md",
+      "primary_files": [
+        "docs/SEED_PACK_WHY_TRACE_AND_EXPLAINABILITY_V7_1.md",
+        "docs/SEED_PACK_USE_CASE_MATRIX_V7_1.md",
+        "odin/shadow_runtime/seed_pack_why_trace_shadow.py"
+      ],
+      "goal": "Implement Seed Pack Why Trace and Use Case Matrix as v0.6.9 app seed pack compiler lock.",
+      "depends_on": [
+        "PR-91"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-93",
+      "title": "Shadow Narrative Core",
+      "doc": "docs/codex/tasks/PR-93_SHADOW_NARRATIVE_CORE.md",
+      "primary_files": [
+        "docs/SHADOW_NARRATIVE_V7_1.md",
+        "schemas/v7_1/odin_shadow_narrative.schema.json",
+        "odin/shadow_runtime/shadow_narrative_shadow.py"
+      ],
+      "goal": "Implement Shadow Narrative Core as v0.7.0 Shadow Narrative / Loki / Anti-Pattern Lock.",
+      "depends_on": [
+        "PR-92"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-94",
+      "title": "Anti-Fairy DSL and Narrative Anti-Pattern Mirror",
+      "doc": "docs/codex/tasks/PR-94_ANTI_FAIRY_DSL_AND_NARRATIVE_ANTI_PATTERN_MIRROR.md",
+      "primary_files": [
+        "docs/ANTI_FAIRY_DSL_V7_1.md",
+        "docs/NARRATIVE_ANTIPATTERN_MIRROR_V7_1.md",
+        "odin/shadow_runtime/anti_fairy_dsl_shadow.py"
+      ],
+      "goal": "Implement Anti-Fairy DSL and Narrative Anti-Pattern Mirror as v0.7.0 Shadow Narrative / Loki / Anti-Pattern Lock.",
+      "depends_on": [
+        "PR-93"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-95",
+      "title": "Loki Mediation Layer and Boundary Policy",
+      "doc": "docs/codex/tasks/PR-95_LOKI_MEDIATION_LAYER_AND_BOUNDARY_POLICY.md",
+      "primary_files": [
+        "docs/LOKI_MEDIATION_LAYER_V7_1.md",
+        "docs/LOKI_BOUNDARY_POLICY_V7_1.md",
+        "odin/shadow_runtime/loki_mediation_shadow.py"
+      ],
+      "goal": "Implement Loki Mediation Layer and Boundary Policy as v0.7.0 Shadow Narrative / Loki / Anti-Pattern Lock.",
+      "depends_on": [
+        "PR-94"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-96",
+      "title": "Shadow Narrative to Gate Compiler",
+      "doc": "docs/codex/tasks/PR-96_SHADOW_NARRATIVE_TO_GATE_COMPILER.md",
+      "primary_files": [
+        "docs/SHADOW_NARRATIVE_TO_GATES_V7_1.md",
+        "registries/shadow_to_gate_registry.json",
+        "odin/shadow_runtime/shadow_narrative_to_gate_shadow.py"
+      ],
+      "goal": "Implement Shadow Narrative to Gate Compiler as v0.7.0 Shadow Narrative / Loki / Anti-Pattern Lock.",
+      "depends_on": [
+        "PR-95"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-97",
+      "title": "Narrative Red-Team Fixtures and Negative Runtime Tests",
+      "doc": "docs/codex/tasks/PR-97_NARRATIVE_RED_TEAM_FIXTURES_AND_NEGATIVE_RUNTIME_TESTS.md",
+      "primary_files": [
+        "docs/NARRATIVE_RED_TEAM_COMPILER_V7_1.md",
+        "examples/shadow_narrative/",
+        "tests/test_shadow_narrative_loki_antipattern.py"
+      ],
+      "goal": "Implement Narrative Red-Team Fixtures and Negative Runtime Tests as v0.7.0 Shadow Narrative / Loki / Anti-Pattern Lock.",
+      "depends_on": [
+        "PR-96"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "PR-98",
+      "title": "Windows Product Runtime Process Model",
+      "doc": "docs/codex/tasks/PR-98_WINDOWS_PRODUCT_RUNTIME_PROCESS_MODEL.md",
+      "primary_files": [
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "registries/windows_process_registry.json",
+        "odin/shadow_runtime/windows_product_runtime_shadow.py"
+      ],
+      "goal": "Define Windows process boundaries, product lifecycle and runtime mode contract.",
+      "depends_on": [
+        "PR-97"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-99",
+      "title": "Windows IPC Security and Pairing",
+      "doc": "docs/codex/tasks/PR-99_WINDOWS_IPC_SECURITY_AND_PAIRING.md",
+      "primary_files": [
+        "docs/WINDOWS_IPC_SECURITY_V7_1.md",
+        "registries/windows_ipc_policy_registry.json",
+        "odin/shadow_runtime/windows_ipc_security_shadow.py"
+      ],
+      "goal": "Define local IPC, pairing token and capability-scoped app bridge security.",
+      "depends_on": [
+        "PR-98"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-100",
+      "title": "Installer Update Rollback and Safe Mode",
+      "doc": "docs/codex/tasks/PR-100_INSTALLER_UPDATE_ROLLBACK_AND_SAFE_MODE.md",
+      "primary_files": [
+        "docs/WINDOWS_INSTALLER_UPDATE_ROLLBACK_V7_1.md",
+        "registries/windows_installer_profile_registry.json",
+        "registries/windows_recovery_registry.json",
+        "odin/shadow_runtime/windows_installer_rollback_shadow.py"
+      ],
+      "goal": "Define installer, update, rollback and safe-mode prep contract.",
+      "depends_on": [
+        "PR-99"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-101",
+      "title": "Windows Diagnostics and Support Bundle",
+      "doc": "docs/codex/tasks/PR-101_WINDOWS_DIAGNOSTICS_AND_SUPPORT_BUNDLE.md",
+      "primary_files": [
+        "docs/WINDOWS_SUPPORT_BUNDLE_DIAGNOSTICS_V7_1.md",
+        "odin/shadow_runtime/support_bundle_shadow.py"
+      ],
+      "goal": "Define diagnostics, doctor, redaction and support bundle behavior for Windows product target.",
+      "depends_on": [
+        "PR-100"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-102",
+      "title": "Windows Product Runtime Consolidation Gates",
+      "doc": "docs/codex/tasks/PR-102_WINDOWS_PRODUCT_RUNTIME_CONSOLIDATION_GATES.md",
+      "primary_files": [
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "tests/test_product_pattern_atom_hub_lock.py"
+      ],
+      "goal": "Add validation gates for Windows Product Runtime Lock.",
+      "depends_on": [
+        "PR-101"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-103",
+      "title": "Pattern Mine Manifest and Claim Boundary",
+      "doc": "docs/codex/tasks/PR-103_PATTERN_MINE_MANIFEST_AND_CLAIM_BOUNDARY.md",
+      "primary_files": [
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "docs/PATTERN_MINE_CLAIM_BOUNDARY_V7_1.md",
+        "registries/pattern_mine_type_registry.json"
+      ],
+      "goal": "Define Pattern Mine manifest and compile-only claim boundary.",
+      "depends_on": [
+        "PR-102"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-104",
+      "title": "Flow Pack Compiler and Seed Pack Bridge",
+      "doc": "docs/codex/tasks/PR-104_FLOW_PACK_COMPILER_AND_SEED_PACK_BRIDGE.md",
+      "primary_files": [
+        "docs/FLOW_PACK_TO_SEED_PACK_V7_1.md",
+        "registries/flow_pack_registry.json",
+        "odin/shadow_runtime/flow_pack_compiler_shadow.py"
+      ],
+      "goal": "Compile Flow Packs into seed-pack candidates and QIRC prewarm plans.",
+      "depends_on": [
+        "PR-103"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-105",
+      "title": "Pattern Spine Compiler",
+      "doc": "docs/codex/tasks/PR-105_PATTERN_SPINE_COMPILER.md",
+      "primary_files": [
+        "docs/PATTERN_SPINE_COMPILER_V7_1.md",
+        "registries/pattern_spine_registry.json",
+        "odin/shadow_runtime/pattern_spine_compiler_shadow.py"
+      ],
+      "goal": "Compile retrieval/flow/use-case matrices into Pattern Spine candidates.",
+      "depends_on": [
+        "PR-104"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-106",
+      "title": "Pattern Mine Intake Shadow and Fixtures",
+      "doc": "docs/codex/tasks/PR-106_PATTERN_MINE_INTAKE_SHADOW_AND_FIXTURES.md",
+      "primary_files": [
+        "examples/pattern_mines/",
+        "odin/shadow_runtime/pattern_mine_intake_shadow.py",
+        "tests/test_product_pattern_atom_hub_lock.py"
+      ],
+      "goal": "Add Pattern Mine valid/invalid fixtures and shadow path.",
+      "depends_on": [
+        "PR-105"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-107",
+      "title": "Pattern Mine Runtime Pack Integration",
+      "doc": "docs/codex/tasks/PR-107_PATTERN_MINE_RUNTIME_PACK_INTEGRATION.md",
+      "primary_files": [
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "docs/RUNTIME_PACK_SPEC_V7_1.md"
+      ],
+      "goal": "Bind pattern mines to runtime pack capability slices and Why Trace.",
+      "depends_on": [
+        "PR-106"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-108",
+      "title": "Work Atom Core Schema and Registry",
+      "doc": "docs/codex/tasks/PR-108_WORK_ATOM_CORE_SCHEMA_AND_REGISTRY.md",
+      "primary_files": [
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+        "registries/work_atom_type_registry.json",
+        "schemas/v7_1/odin_work_atom.schema.json"
+      ],
+      "goal": "Define Work Atom as smallest unit of Odin AI work.",
+      "depends_on": [
+        "PR-107"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-109",
+      "title": "Work Atom Graph and Budget Gate",
+      "doc": "docs/codex/tasks/PR-109_WORK_ATOM_GRAPH_AND_BUDGET_GATE.md",
+      "primary_files": [
+        "docs/WORK_ATOM_GRAPH_V7_1.md",
+        "docs/WORK_ATOM_BUDGET_GATE_V7_1.md",
+        "registries/work_atom_budget_registry.json"
+      ],
+      "goal": "Define Work Atom graphs, budgets and loop-gain constraints.",
+      "depends_on": [
+        "PR-108"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-110",
+      "title": "Micro to Macro Work Synthesis",
+      "doc": "docs/codex/tasks/PR-110_MICRO_TO_MACRO_WORK_SYNTHESIS.md",
+      "primary_files": [
+        "docs/MICRO_TO_MACRO_WORK_SYNTHESIS_V7_1.md",
+        "odin/shadow_runtime/micro_to_macro_work_synthesis_shadow.py"
+      ],
+      "goal": "Compose atom results into Candidate Artifacts and Why Trace.",
+      "depends_on": [
+        "PR-109"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-111",
+      "title": "Work Atom Shadow Runtime and Fixtures",
+      "doc": "docs/codex/tasks/PR-111_WORK_ATOM_SHADOW_RUNTIME_AND_FIXTURES.md",
+      "primary_files": [
+        "odin/shadow_runtime/work_atom_runtime_shadow.py",
+        "examples/work_atoms/",
+        "tests/test_product_pattern_atom_hub_lock.py"
+      ],
+      "goal": "Add Work Atom shadow runtime and positive/negative fixtures.",
+      "depends_on": [
+        "PR-110"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-112",
+      "title": "Odin Hub Operational Center Core",
+      "doc": "docs/codex/tasks/PR-112_ODIN_HUB_OPERATIONAL_CENTER_CORE.md",
+      "primary_files": [
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+        "registries/odin_hub_panel_registry.json",
+        "odin/shadow_runtime/odin_hub_operational_center_shadow.py"
+      ],
+      "goal": "Define Odin Hub as operational center rather than dashboard-only UI.",
+      "depends_on": [
+        "PR-111"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-113",
+      "title": "Odin Hub Panel Map and Command Routing",
+      "doc": "docs/codex/tasks/PR-113_ODIN_HUB_PANEL_MAP_AND_COMMAND_ROUTING.md",
+      "primary_files": [
+        "docs/ODIN_HUB_PANEL_MAP_V7_1.md",
+        "docs/ODIN_HUB_COMMAND_ROUTING_V7_1.md",
+        "registries/odin_hub_command_registry.json"
+      ],
+      "goal": "Define Hub panels and command routing under boundary gates.",
+      "depends_on": [
+        "PR-112"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-114",
+      "title": "Odin Hub Recovery Safe Mode and Diagnostics",
+      "doc": "docs/codex/tasks/PR-114_ODIN_HUB_RECOVERY_SAFE_MODE_AND_DIAGNOSTICS.md",
+      "primary_files": [
+        "docs/ODIN_HUB_RECOVERY_AND_SAFE_MODE_V7_1.md",
+        "odin/shadow_runtime/odin_hub_recovery_shadow.py"
+      ],
+      "goal": "Define Hub recovery, safe-mode, rollback and support workflow.",
+      "depends_on": [
+        "PR-113"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-115",
+      "title": "Product Pattern Atom Hub Consolidation Gates",
+      "doc": "docs/codex/tasks/PR-115_PRODUCT_PATTERN_ATOM_HUB_CONSOLIDATION_GATES.md",
+      "primary_files": [
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_4.md",
+        "tests/test_product_pattern_atom_hub_lock.py"
+      ],
+      "goal": "Add consolidated gates for v0.7.4 product/pattern/atom/hub lock.",
+      "depends_on": [
+        "PR-114"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-116",
+      "title": "Public Repo Canon Cleanup Lock",
+      "doc": "docs/codex/tasks/PR-116_PUBLIC_REPO_CANON_CLEANUP_LOCK.md",
+      "primary_files": [
+        "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md",
+        "docs/PUBLIC_REPO_ROOT_CLEANUP_POLICY_V7_1.md"
+      ],
+      "goal": "Public Repo Canon Cleanup Lock",
+      "depends_on": [
+        "PR-115"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-117",
+      "title": "Windows Implementation Drilldown",
+      "doc": "docs/codex/tasks/PR-117_WINDOWS_IMPLEMENTATION_DRILLDOWN.md",
+      "primary_files": [
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+        "odin/shadow_runtime/windows_build_ready_shadow.py"
+      ],
+      "goal": "Windows Implementation Drilldown",
+      "depends_on": [
+        "PR-116"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-118",
+      "title": "Windows IPC Endpoint Contracts",
+      "doc": "docs/codex/tasks/PR-118_WINDOWS_IPC_ENDPOINT_CONTRACTS.md",
+      "primary_files": [
+        "docs/WINDOWS_IPC_ENDPOINT_CONTRACTS_V7_1.md",
+        "registries/windows_ipc_endpoint_registry.json"
+      ],
+      "goal": "Windows IPC Endpoint Contracts",
+      "depends_on": [
+        "PR-117"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-119",
+      "title": "Windows Installer Update Rollback Drilldown",
+      "doc": "docs/codex/tasks/PR-119_WINDOWS_INSTALLER_UPDATE_ROLLBACK_DRILLDOWN.md",
+      "primary_files": [
+        "docs/WINDOWS_INSTALLER_UPDATE_ROLLBACK_DRILLDOWN_V7_1.md"
+      ],
+      "goal": "Windows Installer Update Rollback Drilldown",
+      "depends_on": [
+        "PR-118"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-120",
+      "title": "MVP V1 Power Mode Boundary",
+      "doc": "docs/codex/tasks/PR-120_MVP_V1_POWER_MODE_BOUNDARY.md",
+      "primary_files": [
+        "docs/MVP_V1_POWER_MODE_BOUNDARY_V7_1.md",
+        "registries/mvp_v1_power_mode_registry.json"
+      ],
+      "goal": "MVP V1 Power Mode Boundary",
+      "depends_on": [
+        "PR-119"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-121",
+      "title": "Seed Pattern Pack Security Certification",
+      "doc": "docs/codex/tasks/PR-121_SEED_PATTERN_PACK_SECURITY_CERTIFICATION.md",
+      "primary_files": [
+        "docs/SEED_PATTERN_PACK_SECURITY_CERTIFICATION_V7_1.md",
+        "registries/seed_pattern_pack_security_registry.json"
+      ],
+      "goal": "Seed Pattern Pack Security Certification",
+      "depends_on": [
+        "PR-120"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-122",
+      "title": "Codex Public Build Ready Gate",
+      "doc": "docs/codex/tasks/PR-122_CODEX_PUBLIC_BUILD_READY_GATE.md",
+      "primary_files": [
+        "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md"
+      ],
+      "goal": "Codex Public Build Ready Gate",
+      "depends_on": [
+        "PR-121"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    },
+    {
+      "id": "PR-123",
+      "title": "Public Repo Windows Build Ready Consolidation",
+      "doc": "docs/codex/tasks/PR-123_PUBLIC_REPO_WINDOWS_BUILD_READY_CONSOLIDATION.md",
+      "primary_files": [
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_5.md",
+        "tests/test_public_repo_windows_build_ready.py"
+      ],
+      "goal": "Public Repo Windows Build Ready Consolidation",
+      "depends_on": [
+        "PR-122"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ]
+    }
+  ],
+  "rule": "PR-00..PR-123 are internal micro tasks. Actual future GitHub PR execution is defined in registries/real_pr_execution_registry.json.",
+  "actual_execution_registry": "registries/real_pr_execution_registry.json"
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_ai_git_work_session.schema.json",
+  "title": "odin_ai_git_work_session",
+  "type": "object",
+  "required": [
+    "session_id",
+    "work_id",
+    "worker_id",
+    "candidate_refs",
+    "why_trace_ref"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "candidate_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "why_trace_ref": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

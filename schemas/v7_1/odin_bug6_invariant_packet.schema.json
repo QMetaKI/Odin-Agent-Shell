@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "work_id",
+    "children_first_preserved",
+    "authority_separation_preserved",
+    "worker_load_preserved",
+    "candidate_only_preserved",
+    "violations",
+    "decision"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_bug6_invariant_packet"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "children_first_preserved": {
+      "type": "boolean"
+    },
+    "authority_separation_preserved": {
+      "type": "boolean"
+    },
+    "worker_load_preserved": {
+      "type": "boolean"
+    },
+    "candidate_only_preserved": {
+      "type": "boolean"
+    },
+    "violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "enum": [
+        "allow",
+        "hold",
+        "split_work",
+        "ask_context",
+        "block"
+      ]
+    }
+  }
+}

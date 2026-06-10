@@ -1,0 +1,13 @@
+{
+  "registry_id": "centerline_gate_registry",
+  "version": "7.1",
+  "gates": [
+    "binding_gate",
+    "center_clarity_gate",
+    "admissibility_gate",
+    "seed_budget_gate",
+    "qmath_route_gate",
+    "claim_boundary_gate",
+    "final_gate"
+  ]
+}

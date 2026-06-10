@@ -1,0 +1,13 @@
+{
+  "registry_id": "odin.route_classes.v7_1",
+  "version": "7.1",
+  "classes": [
+    "micro",
+    "standard",
+    "quality",
+    "heavy",
+    "max_local_batch",
+    "remote_optional",
+    "cannot_safely_complete"
+  ]
+}

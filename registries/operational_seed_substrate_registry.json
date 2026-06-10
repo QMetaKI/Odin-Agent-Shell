@@ -1,0 +1,26 @@
+{
+  "registry_id": "operational_seed_substrate_registry",
+  "version": "7.1",
+  "seed_families": [
+    "boundary",
+    "safety",
+    "context",
+    "economy",
+    "evidence",
+    "style",
+    "route",
+    "compiler",
+    "shadow",
+    "qirc",
+    "fairy",
+    "maria_michael"
+  ],
+  "hard_seeds": [
+    "children_family_first",
+    "candidate_only",
+    "claim_boundary",
+    "app_authority_preserve",
+    "no_hidden_apply",
+    "local_first"
+  ]
+}

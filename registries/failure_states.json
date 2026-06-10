@@ -1,0 +1,17 @@
+{
+  "registry_id": "odin.failure_states.v7_1",
+  "version": "7.1",
+  "states": [
+    "BINDING_INVALID",
+    "PRIVACY_DENIED",
+    "ARTIFACT_BLOCKED",
+    "VERB_FORBIDDEN",
+    "OUTPUT_CONTRACT_INVALID",
+    "CONTEXT_TOO_BROAD",
+    "MODEL_ROUTE_BLOCKED",
+    "CLAIM_BOUNDARY_HIT",
+    "SCHEMA_INVALID",
+    "NEEDS_CONTEXT",
+    "CANNOT_SAFELY_COMPLETE"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_external_agent_adapter.schema.json",
+  "title": "odin_external_agent_adapter",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_kind",
+    "adapter_id",
+    "worker_kind",
+    "allowed_inputs",
+    "candidate_outputs",
+    "blocked_actions"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "adapter_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "worker_kind": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "allowed_inputs": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "candidate_outputs": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "blocked_actions": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_seed_activation_packet.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "packet_id",
+    "work_id",
+    "active_seeds",
+    "budget_profile"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_seed_activation_packet"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "budget_profile": {
+      "type": "string"
+    },
+    "active_seeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "seed_id",
+          "family",
+          "score",
+          "reason"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "seed_id": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "conflicts_resolved": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

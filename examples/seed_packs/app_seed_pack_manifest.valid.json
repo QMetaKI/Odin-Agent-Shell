@@ -1,0 +1,20 @@
+{
+  "artifact_kind": "odin_app_seed_pack_manifest",
+  "protocol_version": "7.1",
+  "pack_id": "wedding_studio_seed_pack",
+  "producer": "example_app",
+  "trust_tier": "app_declared_local",
+  "seed_families": [
+    "domain",
+    "style",
+    "safety"
+  ],
+  "operational_functions": [
+    "activate",
+    "qirc_prewarm",
+    "slot_hint",
+    "output_composer_pattern"
+  ],
+  "privacy_class": "local_only",
+  "claim_boundary": "seed_pack_is_declarative_candidate_context_only"
+}

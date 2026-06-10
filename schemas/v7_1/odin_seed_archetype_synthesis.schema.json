@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "work_id",
+    "active_seeds",
+    "suppressed_seeds",
+    "active_roles",
+    "decision"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_seed_archetype_synthesis"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "active_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suppressed_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "enum": [
+        "allow",
+        "hold",
+        "split_work",
+        "block"
+      ]
+    },
+    "why": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

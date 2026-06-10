@@ -1,0 +1,15 @@
+{
+  "registry_id": "odin.perceived_intelligence_metric_registry.v7_1",
+  "version": "0.6.5",
+  "metrics": [
+    "perceived_task_understanding",
+    "visible_usefulness",
+    "first_response_fit",
+    "correction_needed_rate",
+    "user_actionability",
+    "candidate_choice_quality",
+    "why_trace_clarity",
+    "model_work_avoided",
+    "large_model_avoidance_rate"
+  ]
+}

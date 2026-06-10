@@ -1,0 +1,12 @@
+{
+  "artifact_kind": "odin_windows_ipc_endpoint",
+  "protocol_version": "7.1",
+  "endpoint_id": "app_bridge_loopback",
+  "transport": "localhost_http",
+  "auth": "pairing_token",
+  "allowed_use": "universal_work",
+  "forbidden": [
+    "external_bind",
+    "app_apply"
+  ]
+}

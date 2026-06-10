@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "odin-agent-shell"
+version = "0.5.1"
+description = "Odin Agent Shell v7.1 repo prep full shadow runtime coverage and validation scaffold"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+odin = "odin.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

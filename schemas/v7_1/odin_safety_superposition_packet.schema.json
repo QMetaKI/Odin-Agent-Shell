@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_safety_superposition_packet.schema.json",
+  "title": "odin_safety_superposition_packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "work_id",
+    "decision",
+    "trace_id"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_safety_superposition_packet"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "candidate_only": {
+      "type": "boolean"
+    },
+    "app_owned_apply": {
+      "type": "boolean"
+    }
+  }
+}

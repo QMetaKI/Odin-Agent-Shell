@@ -1,0 +1,15 @@
+{
+  "work_id": "WORK-TOURNEY-001",
+  "candidates": [
+    {
+      "candidate_id": "A",
+      "score": 0.7,
+      "risk": 0.05
+    },
+    {
+      "candidate_id": "B",
+      "score": 0.86,
+      "risk": 0.12
+    }
+  ]
+}

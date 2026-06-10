@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_thor_handoff_request",
+  "type": "object",
+  "required": [
+    "request_id",
+    "kernel_binding",
+    "scope",
+    "return_contract",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "kernel_binding": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "scope": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "return_contract": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "claim_boundary": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

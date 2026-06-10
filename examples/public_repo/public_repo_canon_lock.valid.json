@@ -1,0 +1,11 @@
+{
+  "artifact_kind": "odin_public_repo_canon_lock",
+  "protocol_version": "7.1",
+  "lock_id": "public_repo_canon_v7_1",
+  "entry_order": [
+    "README.md",
+    "START_HERE.md"
+  ],
+  "root_cleanup_policy": {},
+  "current_status": "prep_canon"
+}

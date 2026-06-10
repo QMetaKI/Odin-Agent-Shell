@@ -1,0 +1,17 @@
+{
+  "registry_id": "resonance_band_registry",
+  "version": "7.1",
+  "bands": [
+    "intent_fit",
+    "context_fit",
+    "artifact_fit",
+    "seed_fit",
+    "archetype_fit",
+    "boundary_fit",
+    "model_fit",
+    "style_fit",
+    "privacy_risk",
+    "claim_risk",
+    "genericness_risk"
+  ]
+}

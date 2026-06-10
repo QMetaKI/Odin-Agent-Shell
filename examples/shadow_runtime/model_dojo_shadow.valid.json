@@ -1,0 +1,8 @@
+{
+  "model_id": "local-3b-q4",
+  "results": {
+    "json_fill": 0.9,
+    "claim_scan": 0.8,
+    "long_synthesis": 0.3
+  }
+}

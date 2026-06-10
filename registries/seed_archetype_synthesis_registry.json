@@ -1,0 +1,34 @@
+{
+  "registry_id": "seed_archetype_synthesis_registry",
+  "version": "7.1",
+  "role_mappings": [
+    {
+      "seed_family": "boundary",
+      "role": "boundary_guard"
+    },
+    {
+      "seed_family": "context",
+      "role": "context_weaver"
+    },
+    {
+      "seed_family": "economy",
+      "role": "scout_router"
+    },
+    {
+      "seed_family": "style",
+      "role": "quality_scribe"
+    },
+    {
+      "seed_family": "evidence",
+      "role": "mirror_critic"
+    },
+    {
+      "seed_family": "qirc",
+      "role": "trace_keeper"
+    },
+    {
+      "seed_family": "compiler",
+      "role": "slot_smith"
+    }
+  ]
+}

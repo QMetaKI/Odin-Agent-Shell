@@ -1,0 +1,12 @@
+{
+  "registry_id": "narrative_antipattern_registry",
+  "version": "0.7.0",
+  "families": [
+    "authority_drift",
+    "claim_fog",
+    "seed_noise",
+    "qirc_fanout",
+    "runtime_pack_overclaim",
+    "agent_overreach"
+  ]
+}

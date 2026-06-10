@@ -1,0 +1,33 @@
+{
+  "registry_id": "odin.model_scale_ladder.v7_1",
+  "version": "7.1",
+  "default": "3b_7b_8b_hybrid",
+  "levels": [
+    "deterministic_no_model",
+    "1b_2b_micro",
+    "3b_micro",
+    "3b_multi_slot",
+    "7b_8b_quality",
+    "3b_7b_8b_hybrid",
+    "3b_13b_14b_quality_hybrid",
+    "3b_22b_32b_heavy_local",
+    "moe_heavy_local_offload",
+    "70b_class_batch",
+    "remote_optional_explicit",
+    "cannot_safely_complete"
+  ],
+  "resource_profiles": [
+    "low_memory_strict",
+    "standard_local",
+    "quality_local",
+    "heavy_local",
+    "max_local_batch",
+    "remote_optional"
+  ],
+  "latency_modes": [
+    "interactive",
+    "draft",
+    "batch",
+    "overnight"
+  ]
+}

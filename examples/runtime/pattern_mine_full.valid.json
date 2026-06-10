@@ -1,0 +1,62 @@
+{
+  "artifact_kind": "odin_pattern_mine",
+  "claim_boundary": "pattern_prior_not_truth",
+  "flow_packs": [
+    {
+      "candidate_output_patterns": [
+        "safe",
+        "compact"
+      ],
+      "id": "rewrite_flow",
+      "steps": [
+        {
+          "atom_type": "context_compress_atom"
+        },
+        {
+          "atom_type": "boundary_scan_atom"
+        },
+        {
+          "atom_type": "candidate_variant_atom"
+        }
+      ],
+      "why_trace_template": "rewrite_trace"
+    }
+  ],
+  "mine_id": "DEMO-PATTERN-MINE-001",
+  "patterns": [
+    {
+      "candidate_template": "rewrite_with_claim_boundary",
+      "failure_modes": [
+        "golden_fog"
+      ],
+      "id": "return_with_boundary",
+      "label": "Return with boundary",
+      "operators": [
+        "compress",
+        "rewrite",
+        "explain"
+      ],
+      "tags": [
+        "writing",
+        "boundary"
+      ]
+    },
+    {
+      "candidate_template": "small_model_first",
+      "failure_modes": [
+        "worker_overload"
+      ],
+      "id": "smallest_worker",
+      "label": "Smallest sufficient worker",
+      "operators": [
+        "route",
+        "budget"
+      ],
+      "tags": [
+        "always"
+      ]
+    }
+  ],
+  "protocol_version": "7.1",
+  "truth_authority": false
+}

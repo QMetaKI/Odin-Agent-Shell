@@ -1,0 +1,13 @@
+{
+  "artifact_kind": "odin_thor_handoff_request",
+  "protocol_version": "7.1",
+  "request_id": "THOR-H-INVALID",
+  "kernel_binding": {},
+  "scope": {
+    "files": [
+      "app.py"
+    ]
+  },
+  "return_contract": "apply_changes_directly",
+  "claim_boundary": "invalid_direct_apply_attempt"
+}

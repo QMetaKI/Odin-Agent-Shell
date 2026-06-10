@@ -1,0 +1,95 @@
+{
+  "registry_id": "odin.acceptance_gates.v7_1",
+  "version": "7.1",
+  "gates": [
+    {
+      "id": "A_UNIVERSAL_WORK",
+      "requires": [
+        "input_artifact",
+        "verb",
+        "output_contract",
+        "constraints",
+        "boundary"
+      ]
+    },
+    {
+      "id": "B_NO_LLM_IN_APP",
+      "requires": [
+        "no_model_runtime",
+        "no_model_routing",
+        "bridge_only"
+      ]
+    },
+    {
+      "id": "C_APP_BOUNDARY",
+      "requires": [
+        "no_state_ownership",
+        "no_apply",
+        "no_external_send"
+      ]
+    },
+    {
+      "id": "D_MODEL_WORK_PACKET",
+      "requires": [
+        "slot_contract",
+        "output_contract",
+        "forbidden_claims",
+        "smallest_sufficient_route"
+      ]
+    },
+    {
+      "id": "E_SMALL_MODEL_POWER",
+      "requires": [
+        "context_capsule",
+        "worklet_graph_when_complex",
+        "slot_forge",
+        "critic_cascade_when_risky",
+        "candidate_dna"
+      ]
+    },
+    {
+      "id": "F_INTERNAL_SEMANTIC_BUS",
+      "requires": [
+        "local_only",
+        "event_id",
+        "work_id",
+        "trace_id",
+        "privacy_class",
+        "no_mutation"
+      ]
+    },
+    {
+      "id": "G_APP_QIRC_BRIDGE",
+      "requires": [
+        "digest_only",
+        "no_full_mirror",
+        "no_mutation_publish"
+      ]
+    },
+    {
+      "id": "H_CANDIDATE_OUTPUT",
+      "requires": [
+        "candidate_artifact",
+        "app_renderable",
+        "app_apply_gate"
+      ]
+    },
+    {
+      "id": "I_CLAIM_EVIDENCE",
+      "requires": [
+        "no_unsupported_runtime_claim",
+        "no_model_truth_promotion"
+      ]
+    },
+    {
+      "id": "J_WINDOWS_USABILITY",
+      "requires": [
+        "daemon",
+        "control_center",
+        "app_register",
+        "trace",
+        "support_bundle"
+      ]
+    }
+  ]
+}

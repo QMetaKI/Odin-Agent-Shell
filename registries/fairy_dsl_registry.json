@@ -1,0 +1,33 @@
+{
+  "registry_id": "odin.fairy_dsl_registry.v7_1",
+  "version": "0.6.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "narrative_aorta_compiler_lock",
+  "roles": [
+    {
+      "id": "gatekeeper",
+      "maps_to": "binding_policy_claim_gate"
+    },
+    {
+      "id": "weaver",
+      "maps_to": "context_distillery_seed_memory"
+    },
+    {
+      "id": "messenger",
+      "maps_to": "candidate_response_packet"
+    },
+    {
+      "id": "lantern",
+      "maps_to": "trace_receipt_candidate"
+    },
+    {
+      "id": "small_helper",
+      "maps_to": "tiny_specialist_worker"
+    }
+  ],
+  "rules": [
+    "no_prose_execution",
+    "every_node_requires_ystar_mapping",
+    "candidate_only_preserved"
+  ]
+}

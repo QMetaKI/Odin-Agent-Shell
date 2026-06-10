@@ -1,0 +1,9 @@
+{
+  "artifact_kind": "odin_narrative_red_team_case",
+  "protocol_version": "7.1",
+  "case_id": "RTC-SEED-HYDRA",
+  "anti_pattern_id": "seed_hydra",
+  "invalid_fixture": "examples/seed_packs/app_seed_pack_executable_block.invalid.json",
+  "expected_gate": "seed_budget_noise_gate",
+  "expected_decision": "narrow"
+}

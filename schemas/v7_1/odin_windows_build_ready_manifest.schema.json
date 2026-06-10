@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_windows_build_ready_manifest.schema.json",
+  "title": "odin windows build ready manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "processes": {
+      "type": "array"
+    },
+    "ipc": {
+      "type": "array"
+    },
+    "installer_profiles": {
+      "type": "array"
+    },
+    "safe_mode": {
+      "type": "object"
+    },
+    "support_bundle": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "processes"
+  ]
+}

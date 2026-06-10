@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_minicheck.schema.json",
+  "title": "odin_minicheck",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "minicheck_id",
+    "recommended_route",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_minicheck"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "minicheck_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "recommended_route": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "claim_boundary": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

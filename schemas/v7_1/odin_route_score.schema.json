@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_route_score.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "score_id",
+    "work_id",
+    "selected_route",
+    "score"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_route_score"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "score_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "selected_route": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    },
+    "components": {
+      "type": "object"
+    },
+    "blocked_routes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

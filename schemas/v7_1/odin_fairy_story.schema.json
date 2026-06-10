@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin Fairy Story",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_fairy_story"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "story_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "fairy_spine": {
+      "type": "string"
+    },
+    "ystar_unit_ref": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "story_id",
+    "title",
+    "fairy_spine",
+    "ystar_unit_ref",
+    "nodes",
+    "claim_boundary"
+  ]
+}

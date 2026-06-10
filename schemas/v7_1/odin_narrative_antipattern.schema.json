@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_narrative_antipattern.schema.json",
+  "title": "odin_narrative_antipattern",
+  "type": "object",
+  "required": [
+    "anti_pattern_id",
+    "signals",
+    "gate",
+    "severity",
+    "repair"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "anti_pattern_id": {
+      "type": "string"
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gate": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "repair": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

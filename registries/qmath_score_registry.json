@@ -1,0 +1,16 @@
+{
+  "registry_id": "qmath_score_registry",
+  "version": "7.1",
+  "components": [
+    "expected_quality_gain",
+    "stability_gain",
+    "boundary_fit",
+    "context_fit",
+    "token_cost",
+    "latency_cost",
+    "complexity_cost",
+    "privacy_risk",
+    "claim_risk",
+    "uncertainty_cost"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_failure_story.schema.json",
+  "title": "odin_failure_story",
+  "type": "object",
+  "required": [
+    "failure_story_id",
+    "narrative",
+    "technical_pattern",
+    "required_gate",
+    "why_trace"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "failure_story_id": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "string"
+    },
+    "technical_pattern": {
+      "type": "string"
+    },
+    "required_gate": {
+      "type": "string"
+    },
+    "why_trace": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

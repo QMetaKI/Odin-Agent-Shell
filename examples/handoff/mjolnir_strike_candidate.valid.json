@@ -1,0 +1,13 @@
+{
+  "artifact_kind": "odin_mjolnir_strike_candidate",
+  "protocol_version": "7.1",
+  "strike_id": "MJ-001",
+  "target_scope": {
+    "files": [
+      "docs/THOR_INTEGRATION.md"
+    ]
+  },
+  "candidate_action": "focused_patchplan_candidate",
+  "review_required": true,
+  "claim_boundary": "candidate_only_no_apply"
+}

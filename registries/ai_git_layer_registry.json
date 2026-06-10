@@ -1,0 +1,13 @@
+{
+  "concepts": [
+    "candidate_branch",
+    "semantic_diff",
+    "why_trace",
+    "review_gate",
+    "app_apply_boundary"
+  ],
+  "registry_id": "odin.ai_git_layer_registry.v0_6_8",
+  "version": "0.6.8",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

@@ -1,0 +1,12 @@
+{
+  "artifact_kind": "odin_universal_model_agent_parity_flow",
+  "work_id": "WORK-AGENT-001",
+  "selected_worker": "local_3b_micro",
+  "rejected_workers": [
+    {"worker": "hosted_large", "reason": "remote_not_allowed"},
+    {"worker": "coding_agent", "reason": "patchplan_not_required"}
+  ],
+  "candidate_only": true,
+  "requires_app_apply_gate": true,
+  "why_trace": "3B selected because task is schema repair and larger worker gain is below threshold."
+}

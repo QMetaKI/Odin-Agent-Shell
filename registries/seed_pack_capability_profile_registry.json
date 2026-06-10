@@ -1,0 +1,29 @@
+{
+  "registry_id": "seed_pack_capability_profile_registry.v7_1",
+  "version": "7.1",
+  "status": "spec_lock",
+  "items_key": "profiles",
+  "profiles": [
+    {
+      "id": "low_memory_strict",
+      "seed_budget": 12
+    },
+    {
+      "id": "standard_local",
+      "seed_budget": 24
+    },
+    {
+      "id": "quality_local",
+      "seed_budget": 36
+    },
+    {
+      "id": "heavy_local",
+      "seed_budget": 48
+    },
+    {
+      "id": "remote_optional_redacted",
+      "seed_budget": 18
+    }
+  ],
+  "claim_boundary": "specification_only_not_runtime_claim"
+}

@@ -1,0 +1,20 @@
+{
+  "registry_id": "universal_agent_parity_registry",
+  "version": "0.6.6",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "universal_model_agent_parity_lock",
+  "mappings": [
+    {
+      "external_surface": "chat_model",
+      "odin_counterpart": "candidate_conversation"
+    },
+    {
+      "external_surface": "coding_agent",
+      "odin_counterpart": "patchplan_candidate_worker"
+    },
+    {
+      "external_surface": "browser_agent",
+      "odin_counterpart": "research_candidate_worker"
+    }
+  ]
+}

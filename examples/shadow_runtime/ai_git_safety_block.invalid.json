@@ -1,0 +1,8 @@
+{
+  "work_id": "WORK-AI-GIT-002",
+  "forbidden": [
+    "direct_apply",
+    "external_send"
+  ],
+  "expected": "block"
+}

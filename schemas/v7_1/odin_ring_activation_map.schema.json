@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_ring_activation_map.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "map_id",
+    "work_id",
+    "rings"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_ring_activation_map"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "map_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "rings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

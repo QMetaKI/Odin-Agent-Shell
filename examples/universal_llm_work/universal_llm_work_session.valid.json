@@ -1,0 +1,9 @@
+{
+  "session_id": "AI-GIT-001",
+  "work_id": "WORK-001",
+  "worker_id": "local_3b_micro",
+  "candidate_refs": [
+    "CAND-001"
+  ],
+  "why_trace_ref": "WHY-001"
+}

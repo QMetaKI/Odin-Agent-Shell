@@ -1,0 +1,7 @@
+{
+  "artifact_kind": "odin_pre_llm_intelligence_packet",
+  "work_id": "WORK-BLOCK",
+  "trace_id": "TRACE-BLOCK",
+  "request_direct_apply": true,
+  "expected": "block"
+}

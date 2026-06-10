@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_anti_fairy_unit.schema.json",
+  "title": "odin_anti_fairy_unit",
+  "type": "object",
+  "required": [
+    "unit_id",
+    "mirror_of",
+    "signals",
+    "required_gate",
+    "repair",
+    "claim_boundary"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "unit_id": {
+      "type": "string"
+    },
+    "mirror_of": {
+      "type": "string"
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_gate": {
+      "type": "string"
+    },
+    "repair": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

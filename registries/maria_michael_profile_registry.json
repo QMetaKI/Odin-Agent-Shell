@@ -1,0 +1,31 @@
+{
+  "registry_id": "maria_michael_profile_registry",
+  "version": "7.1",
+  "profiles": [
+    {
+      "profile_id": "mama_qooo_refined_80_20",
+      "maria": 80,
+      "michael": 20
+    },
+    {
+      "profile_id": "papa_qstar_refined_20_80",
+      "maria": 20,
+      "michael": 80
+    },
+    {
+      "profile_id": "wedding_q_middle_50_50",
+      "maria": 50,
+      "michael": 50
+    },
+    {
+      "profile_id": "ritual_story_maria_85_15",
+      "maria": 85,
+      "michael": 15
+    },
+    {
+      "profile_id": "contingency_michael_35_65",
+      "maria": 35,
+      "michael": 65
+    }
+  ]
+}

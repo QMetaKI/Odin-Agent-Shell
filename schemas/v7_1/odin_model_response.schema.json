@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_model_response.schema.json",
+  "title": "odin_model_response",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "response_id",
+    "packet_id",
+    "model_id",
+    "content",
+    "claim_status"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_model_response"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "response_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "packet_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "model_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "content": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "claim_status": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

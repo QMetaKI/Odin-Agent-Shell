@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_public_repo_canon_lock.schema.json",
+  "title": "odin public repo canon lock",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "lock_id": {
+      "type": "string"
+    },
+    "entry_order": {
+      "type": "array"
+    },
+    "root_cleanup_policy": {
+      "type": "object"
+    },
+    "current_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "lock_id"
+  ]
+}

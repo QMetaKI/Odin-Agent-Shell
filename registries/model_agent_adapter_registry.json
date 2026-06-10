@@ -1,0 +1,20 @@
+{
+  "adapters": [
+    {
+      "id": "local_llm_adapter",
+      "boundary": "candidate_only"
+    },
+    {
+      "id": "remote_llm_adapter",
+      "boundary": "redacted_candidate_only"
+    },
+    {
+      "id": "coding_agent_adapter",
+      "boundary": "patchplan_candidate_only"
+    }
+  ],
+  "registry_id": "odin.model_agent_adapter_registry.v0_6_8",
+  "version": "0.6.6",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

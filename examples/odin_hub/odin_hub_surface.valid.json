@@ -1,0 +1,11 @@
+{
+  "artifact_kind": "odin_hub_surface",
+  "protocol_version": "7.1",
+  "id": "hub-valid",
+  "claim_boundary": "operational_center_candidate_only",
+  "panels": [
+    "home",
+    "apps",
+    "qirc_gold_spine"
+  ]
+}

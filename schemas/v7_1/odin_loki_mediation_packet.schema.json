@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_loki_mediation_packet.schema.json",
+  "title": "odin_loki_mediation_packet",
+  "type": "object",
+  "required": [
+    "packet_id",
+    "work_id",
+    "anti_patterns",
+    "recommendation",
+    "claim_boundary"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "packet_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "anti_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

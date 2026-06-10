@@ -1,0 +1,10 @@
+{
+  "template_name": "typescript",
+  "files": [
+    "odin/caller_manifest.json",
+    "src/odin_connector.ts",
+    "src/event_digest_builder.ts",
+    "src/candidate_renderer.ts",
+    "src/apply_gate_bridge.ts"
+  ]
+}

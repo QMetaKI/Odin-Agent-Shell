@@ -1,0 +1,12 @@
+{
+  "registry_id": "odin.output_composer_pattern_registry.v7_1",
+  "version": "0.6.5",
+  "patterns": [
+    "answer_card",
+    "variant_bundle",
+    "review_card",
+    "patchplan_candidate",
+    "studio_draft_bundle",
+    "why_trace_summary"
+  ]
+}

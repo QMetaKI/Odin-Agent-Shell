@@ -1,0 +1,14 @@
+{
+  "registry_id": "odin.qirc_event_type_registry.v0_6_2",
+  "version": "0.6.2",
+  "event_types": [
+    "work_received",
+    "hot_window_created",
+    "seed_activation_completed",
+    "admissibility_decided",
+    "route_scored",
+    "ring_radar_completed",
+    "candidate_composed",
+    "why_trace_created"
+  ]
+}

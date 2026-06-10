@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_pre_model_cognition_trace.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "work_id",
+    "trace_id",
+    "active_seeds",
+    "active_roles",
+    "route_scores",
+    "blocked_routes",
+    "summary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_pre_model_cognition_trace"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "active_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "route_scores": {
+      "type": "object"
+    },
+    "blocked_routes": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "sources": [
+    "prompt",
+    "thor_handoff",
+    "thor_return",
+    "y_handoff",
+    "mjolnir_candidate",
+    "app_event",
+    "repo_signal",
+    "codex_task",
+    "external_agent_candidate"
+  ],
+  "registry_id": "odin.handoff_source_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

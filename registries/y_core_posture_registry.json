@@ -1,0 +1,21 @@
+{
+  "registry_id": "y_core_posture_registry",
+  "version": "7.1",
+  "postures": [
+    {
+      "id": "odin_llm_work_core",
+      "scope": "odin_llm_work_only",
+      "app_authority_preserved": true
+    },
+    {
+      "id": "low_memory_core",
+      "scope": "minimal_local_llm_work",
+      "app_authority_preserved": true
+    },
+    {
+      "id": "compiler_core",
+      "scope": "shadow_and_runtime_pack_compilation",
+      "app_authority_preserved": true
+    }
+  ]
+}

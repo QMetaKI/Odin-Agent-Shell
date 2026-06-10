@@ -1,0 +1,18 @@
+{
+  "registry_id": "public_repo_canon_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "locks": [
+    {
+      "id": "public_repo_canon_v7_1",
+      "entry_order": [
+        "README.md",
+        "START_HERE.md",
+        "CANON_ENTRY.md",
+        "CODEX_START_HERE.md"
+      ],
+      "cleanup_policy": "root_current_canon_first"
+    }
+  ]
+}

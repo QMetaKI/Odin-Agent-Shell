@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_handoff_review_gate",
+  "type": "object",
+  "required": [
+    "review_gate_id",
+    "handoff_ref",
+    "decision",
+    "blocked_claims",
+    "required_review"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "review_gate_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "handoff_ref": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "decision": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "blocked_claims": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "required_review": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

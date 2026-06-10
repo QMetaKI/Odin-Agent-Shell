@@ -1,0 +1,47 @@
+{
+  "artifact_kind": "odin_ystar_native_unit",
+  "protocol_version": "7.1",
+  "unit_id": "YSTAR-001",
+  "story_ref": "FAIRY-001",
+  "center": {
+    "candidate_only": true,
+    "app_authority": "preserve",
+    "final_gate": "odin"
+  },
+  "rings": [
+    {
+      "ring": "R0",
+      "role": "boundary"
+    },
+    {
+      "ring": "R3",
+      "role": "context"
+    }
+  ],
+  "flow": [
+    "receive_universal_work",
+    "validate_binding",
+    "distill_context",
+    "forge_slot",
+    "route_model",
+    "build_candidate",
+    "final_gate"
+  ],
+  "forbidden": [
+    "app_mutation",
+    "external_send",
+    "runtime_verified_claim"
+  ],
+  "emits": [
+    "shadow_runtime_flow",
+    "worklet_graph",
+    "slot_contracts",
+    "candidate_dna"
+  ],
+  "holes": [],
+  "confidence": {
+    "structure": 0.92,
+    "runtime_mapping": 0.88
+  },
+  "claim_boundary": "ystar_staging_only"
+}

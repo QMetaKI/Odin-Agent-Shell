@@ -1,0 +1,6 @@
+{
+  "artifact_kind": "odin_shadow_model_route_fixture",
+  "resource_profile": "standard_local",
+  "latency_mode": "interactive",
+  "expected_route": "3b_7b_8b_hybrid"
+}

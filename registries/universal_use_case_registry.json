@@ -1,0 +1,19 @@
+{
+  "use_cases": [
+    "chat",
+    "coding",
+    "research",
+    "writing",
+    "business_planning",
+    "document_systems",
+    "gamedev",
+    "workflow_automation",
+    "support",
+    "rag",
+    "codex_handoff"
+  ],
+  "registry_id": "odin.universal_use_case_registry.v0_6_8",
+  "version": "0.6.8",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

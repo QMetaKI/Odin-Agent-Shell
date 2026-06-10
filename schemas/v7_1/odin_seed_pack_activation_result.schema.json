@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "activation_id",
+    "active_seed_count",
+    "suppressed_seeds",
+    "conflicts_resolved",
+    "why_trace_ref",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "activation_id": {
+      "type": "string"
+    },
+    "active_seed_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "suppressed_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflicts_resolved": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "why_trace_ref": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

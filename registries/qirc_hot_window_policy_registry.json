@@ -1,0 +1,21 @@
+{
+  "registry_id": "odin.qirc_hot_window_policy_registry.v0_6_2",
+  "version": "0.6.2",
+  "policies": [
+    {
+      "profile": "low_memory_strict",
+      "max_events": 12,
+      "payload_policy": "summary_only"
+    },
+    {
+      "profile": "standard_local",
+      "max_events": 32,
+      "payload_policy": "summary_with_refs"
+    },
+    {
+      "profile": "quality_local",
+      "max_events": 64,
+      "payload_policy": "summary_with_redacted_refs"
+    }
+  ]
+}

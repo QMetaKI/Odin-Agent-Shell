@@ -1,0 +1,32 @@
+{
+  "registry_id": "bug6_invariant_registry",
+  "version": "7.1",
+  "hard_floor": true,
+  "invariants": [
+    {
+      "id": "children_family_first",
+      "priority": "hard",
+      "floor": 1.0
+    },
+    {
+      "id": "authority_separation",
+      "priority": "hard",
+      "floor": 1.0
+    },
+    {
+      "id": "candidate_only",
+      "priority": "hard",
+      "floor": 1.0
+    },
+    {
+      "id": "worker_load_limit",
+      "priority": "hard",
+      "floor": 0.95
+    },
+    {
+      "id": "no_hidden_apply",
+      "priority": "hard",
+      "floor": 1.0
+    }
+  ]
+}

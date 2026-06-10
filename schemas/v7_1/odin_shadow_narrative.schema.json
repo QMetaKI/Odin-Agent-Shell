@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_shadow_narrative.schema.json",
+  "title": "odin_shadow_narrative",
+  "type": "object",
+  "required": [
+    "story_id",
+    "anti_pattern_id",
+    "violated_invariants",
+    "signals",
+    "required_gates",
+    "repair_routes",
+    "claim_boundary"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "story_id": {
+      "type": "string"
+    },
+    "anti_pattern_id": {
+      "type": "string"
+    },
+    "violated_invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repair_routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

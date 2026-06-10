@@ -1,0 +1,20 @@
+{
+  "registry_id": "mvp_v1_power_mode_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "profiles": [
+    {
+      "id": "mvp",
+      "scope": "minimal spine"
+    },
+    {
+      "id": "v1",
+      "scope": "useful local model runtime"
+    },
+    {
+      "id": "power_mode",
+      "scope": "advanced pattern/diagnostic/runtime pack surfaces"
+    }
+  ]
+}

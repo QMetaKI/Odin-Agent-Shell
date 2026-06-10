@@ -1,0 +1,12 @@
+{
+  "work_id": "WORK-BUG6-Q7-002",
+  "markers": [
+    "app_mutation",
+    "external_send"
+  ],
+  "context_tokens": 800,
+  "max_context_tokens": 1600,
+  "context_tags": [
+    "creative_expand"
+  ]
+}

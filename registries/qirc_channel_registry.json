@@ -1,0 +1,381 @@
+{
+  "registry_id": "odin.qirc_channel_registry.v0_6_2",
+  "version": "0.6.2",
+  "channels": [
+    {
+      "name": "#core.ingress",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#core.centerline",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#core.admissibility",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#core.boundary",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#core.final_gate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#core.hold",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qli.intent",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qli.authority_posture",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qli.packet_compile",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#dfas.stability",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#dfas.hold_simulate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#dfas.stop_early",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#seed.prewarm",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#seed.activate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#seed.decay",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#seed.conflict",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#seed.noise_gate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#archetype.role",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#archetype.composition",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#archetype.budget",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qmath.center_score",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qmath.route_score",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qmath.constraint_penalty",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qmath.admissibility",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#qmath.threshold",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#ring.activation",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#ring.radar",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#ring.pressure",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#resonance.normalize",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#resonance.fit",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#mirror.axis",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#rad.balance",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.raw_digest",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.hot_window",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.snapshot",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.dedup",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.collapse",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#context.checkpoint",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#memory.work",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#memory.trace",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#memory.pattern",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#shadow.ir",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#shadow.flow",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#shadow.holes",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#fairy.mapping",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#ystar.directive",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#runtime_pack.compile",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#runtime_pack.validate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#capability_slice.compile",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#worklet.graph",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#slot.forge",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#gaptext.build",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.route",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.3b",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.7b",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.hybrid",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.heavy",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#model.blocked",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.claim",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.boundary",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.context",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.style",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.generic",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#critic.schema",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#candidate.ghost",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#candidate.tournament",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#candidate.compose",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#candidate.dna",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#why.route",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#why.hold",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#why.seed",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#why.model",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#why.candidate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#receipt.candidate",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    },
+    {
+      "name": "#replay.work",
+      "local_only": true,
+      "authority_scope": "odin_internal_only"
+    }
+  ]
+}

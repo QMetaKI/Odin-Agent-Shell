@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_agent_capability_pack.schema.json",
+  "title": "odin_agent_capability_pack",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_kind",
+    "pack_id",
+    "worker_targets",
+    "capabilities",
+    "blocked_capabilities"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "pack_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "worker_targets": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "capabilities": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "blocked_capabilities": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    }
+  }
+}

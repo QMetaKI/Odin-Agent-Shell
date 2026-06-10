@@ -1,0 +1,18 @@
+{
+  "workers": [
+    {
+      "id": "local_3b_micro",
+      "kind": "local_llm",
+      "default_role": "micro_worker"
+    },
+    {
+      "id": "remote_model_candidate",
+      "kind": "remote_llm",
+      "default_role": "candidate_worker"
+    }
+  ],
+  "registry_id": "odin.universal_llm_worker_registry.v0_6_8",
+  "version": "0.6.8",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

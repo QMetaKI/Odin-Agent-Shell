@@ -1,0 +1,1179 @@
+{
+  "registry_id": "odin.codex_pr_bundle_registry.v0_4_1",
+  "version": "0.7.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.7.6_internal_legacy_bundle_ladder",
+  "internal_task_registry": "registries/codex_task_registry.json",
+  "rule": "Legacy internal bundle ladder retained for traceability and validation. Actual future GitHub PR execution is defined in registries/real_pr_execution_registry.json.",
+  "bundles": [
+    {
+      "id": "REAL-PR-01",
+      "title": "Foundation, Canon Gates, Schemas, Protocol Boundary",
+      "depends_on": [],
+      "internal_tasks": [
+        "PR-00",
+        "PR-01",
+        "PR-02"
+      ],
+      "objective": "Lock repository hygiene, strict schemas, registry parity, protocol packets and binding gate before feature implementation.",
+      "primary_files": [
+        "odin/cli.py",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/protocol/",
+        "odin/apps/",
+        "tests/"
+      ],
+      "required_behavior": [
+        "validate-all remains green",
+        "registry/schema drift is blocked",
+        "bindings enforce app authority and candidate-only posture",
+        "Codex can create first real protocol objects without runtime overclaim"
+      ],
+      "forbidden_scope": [
+        "no model provider implementation",
+        "no UI/control center work",
+        "no app state mutation",
+        "no remote route enablement"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-02",
+      "title": "Universal Work and Candidate Core",
+      "depends_on": [
+        "REAL-PR-01"
+      ],
+      "internal_tasks": [
+        "PR-03",
+        "PR-04"
+      ],
+      "objective": "Implement the core Universal Work validation/compile path and candidate artifact/response packet/Candidate DNA surfaces.",
+      "primary_files": [
+        "odin/universal_work/",
+        "odin/packets/",
+        "odin/core/final_gate.py",
+        "schemas/v7_1/odin_universal_work.schema.json",
+        "schemas/v7_1/odin_candidate_artifact.schema.json",
+        "tests/"
+      ],
+      "required_behavior": [
+        "valid Universal Work compiles into bounded internal plan",
+        "invalid work fails before model routing",
+        "Candidate Artifact and Response Packet are app-renderable",
+        "Candidate DNA links artifacts, work, route, trace and boundaries"
+      ],
+      "forbidden_scope": [
+        "no live model execution",
+        "no app apply",
+        "no UI implementation",
+        "no heavy provider work"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-02_UNIVERSAL_WORK_AND_CANDIDATE_CORE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-03",
+      "title": "Internal Semantic Bus, Lenses, Context and Worklets",
+      "depends_on": [
+        "REAL-PR-02"
+      ],
+      "internal_tasks": [
+        "PR-05",
+        "PR-06",
+        "PR-07"
+      ],
+      "objective": "Build local-only semantic bus MVP plus artifact lens routing, context distillation, worklet graph, slot forge and gaptext basics.",
+      "primary_files": [
+        "odin/semantic_bus/",
+        "odin/small_model_power/context_distillery.py",
+        "odin/small_model_power/worklet_graph.py",
+        "odin/small_model_power/slot_forge.py",
+        "odin/slots/",
+        "registries/semantic_bus_channels.json",
+        "registries/artifact_lenses.json",
+        "tests/"
+      ],
+      "required_behavior": [
+        "bus starts as local-only internal surface",
+        "semantic events validate and replay",
+        "artifact lenses select context strategy",
+        "context capsules are compact and bounded",
+        "worklet graph and slot forge produce model-ready structure"
+      ],
+      "forbidden_scope": [
+        "no public IRC",
+        "no LAN/mesh/federation",
+        "no app event ownership",
+        "no model provider implementation beyond mocks"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-03_INTERNAL_SEMANTIC_BUS_LENSES_CONTEXT_AND_WORKLETS.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-04",
+      "title": "Model Routing, Mock Provider, Small-Model Core and Low-Memory Mode",
+      "depends_on": [
+        "REAL-PR-03"
+      ],
+      "internal_tasks": [
+        "PR-08",
+        "PR-09",
+        "PR-14",
+        "PR-15"
+      ],
+      "objective": "Implement hardware-agnostic model route ladder, mock provider, provider adapter shells, small model power modules and low-memory strict mode.",
+      "primary_files": [
+        "odin/models/",
+        "odin/small_model_power/",
+        "registries/model_scale_ladder.json",
+        "registries/route_classes.json",
+        "tests/"
+      ],
+      "required_behavior": [
+        "default route preserves 3B + 7B/8B hybrid sweet spot",
+        "resource profile changes route class without hardcoded hardware names",
+        "mock provider exercises ModelWorkPacket path",
+        "low_memory_strict prefers deterministic/1B/2B/3B micro routes",
+        "Ollama/llama.cpp adapters expose bounded interfaces"
+      ],
+      "forbidden_scope": [
+        "no forced download of models",
+        "no remote by default",
+        "no claim that local models were actually benchmarked",
+        "no GPU-specific hardcoding"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-04_MODEL_ROUTING_MOCK_PROVIDER_SMALL_MODEL_CORE_AND_LOW_MEMORY_MODE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-05",
+      "title": "Thor Bridge, Bounded Code Work, Storage and Local API",
+      "depends_on": [
+        "REAL-PR-04"
+      ],
+      "internal_tasks": [
+        "PR-10",
+        "PR-11",
+        "PR-12"
+      ],
+      "objective": "Wire candidate-only Thor bridge, bounded code work surfaces, SQLite/object storage, traces, receipts and local API endpoint families.",
+      "primary_files": [
+        "odin/thor_bridge/",
+        "odin/storage/",
+        "odin/api/",
+        "odin/quality/",
+        "docs/API_SPEC.md",
+        "docs/STORAGE_SPEC.md",
+        "tests/"
+      ],
+      "required_behavior": [
+        "Thor mode produces candidate-only handoff/review/receipt structures",
+        "bounded code work returns PatchPlan/Review candidates only",
+        "storage records traces and candidate metadata with retention rules",
+        "local API exposes validated endpoint contracts on localhost"
+      ],
+      "forbidden_scope": [
+        "no patch application",
+        "no external send",
+        "no network federation",
+        "no runtime/test/security positive claim"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-05_THOR_BRIDGE_BOUNDED_CODE_WORK_STORAGE_AND_LOCAL_API.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-06",
+      "title": "SDKs, App Templates and App-QIRC Digest Bridge",
+      "depends_on": [
+        "REAL-PR-05"
+      ],
+      "internal_tasks": [
+        "PR-13",
+        "PR-16"
+      ],
+      "objective": "Make apps easy to connect without embedding LLMs and add digest-only bridge preparation for future app-owned QIRC/event systems.",
+      "primary_files": [
+        "sdk/",
+        "templates/",
+        "odin/apps/app_qirc_bridge.py",
+        "docs/APP_INTEGRATION_STANDARD.md",
+        "tests/"
+      ],
+      "required_behavior": [
+        "TypeScript/Python SDKs can build/send Universal Work to local API",
+        "templates contain Odin bridge only, not LLM runtime",
+        "app-QIRC bridge accepts digest artifacts only",
+        "bridge preserves app ownership of state and event system"
+      ],
+      "forbidden_scope": [
+        "no full app event mirror",
+        "no app mutation event publish",
+        "no provider credentials in templates",
+        "no bundled app-specific LLM logic"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-06_SDKS_APP_TEMPLATES_AND_APP_QIRC_DIGEST_BRIDGE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-07",
+      "title": "Model Dojo, Scoreboard, Control Center and Windows Runtime Prep",
+      "depends_on": [
+        "REAL-PR-06"
+      ],
+      "internal_tasks": [
+        "PR-17",
+        "PR-18",
+        "PR-19"
+      ],
+      "objective": "Add model profiling/scoreboard structures and the Windows-facing runtime/control-center skeleton without claiming finished host proof.",
+      "primary_files": [
+        "odin/models/",
+        "odin/api/",
+        "runtime/",
+        "docs/WINDOWS_RUNTIME.md",
+        "docs/IMPLEMENTATION_DOD_V7_1.md",
+        "tests/"
+      ],
+      "required_behavior": [
+        "Model Dojo can run mock/profile tests and update route hints",
+        "scoreboard reports model/task fit without benchmark overclaim",
+        "Control Center skeleton can read daemon/API status",
+        "Windows runtime docs and scripts prepare tray/installer work"
+      ],
+      "forbidden_scope": [
+        "no real installer completion claim",
+        "no host validation claim",
+        "no production status wording",
+        "no UI feature beyond skeleton unless tested"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-07_MODEL_DOJO_SCOREBOARD_CONTROL_CENTER_AND_WINDOWS_RUNTIME_PREP.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-08",
+      "title": "End-to-End Golden Flows, Release Prep Hygiene, Support Bundle and Senior Review Hardening",
+      "depends_on": [
+        "REAL-PR-07"
+      ],
+      "internal_tasks": [
+        "PR-20",
+        "PR-21",
+        "PR-22"
+      ],
+      "objective": "Add representative local golden flows, release hygiene, support bundle behavior and senior-review anti-drift controls.",
+      "primary_files": [
+        "tests/",
+        "examples/",
+        "odin/cli.py",
+        "runtime/support_bundles/",
+        "docs/TESTING_AND_GATES.md",
+        "CHANGELOG.md",
+        "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
+        "docs/SENIOR_REVIEW_REMEDIATION_PLAN_V0_4_2.md",
+        "docs/CODEX_ANTI_DRIFT_POLICY.md",
+        "docs/TRACEABILITY_MATRIX_V7_1.md"
+      ],
+      "required_behavior": [
+        "golden flows cover rewrite, event digest, semantic bus, mock model route, candidate response",
+        "negative gates block direct apply, remote default, forbidden claims and app state mutation",
+        "support bundle exports redacted diagnostics",
+        "release-prep docs identify remaining runtime proofs",
+        "senior review findings are captured",
+        "traceability matrix covers PR-22",
+        "anti-drift policy is enforced by validation"
+      ],
+      "forbidden_scope": [
+        "no v1 runtime release claim",
+        "no claim of finished security audit",
+        "no claim that real local models were validated unless receipts exist",
+        "no weakening senior review invariants",
+        "no runtime overclaim in release docs"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-08_END_TO_END_GOLDEN_FLOWS_RELEASE_PREP_HYGIENE_AND_SUPPORT_BUNDLE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing",
+        "senior_review_hardening"
+      ]
+    },
+    {
+      "id": "REAL-PR-09",
+      "title": "Shadow Runtime Mechanical Build Bridge",
+      "depends_on": [
+        "REAL-PR-08"
+      ],
+      "internal_tasks": [
+        "PR-23"
+      ],
+      "objective": "Add the code-near Shadow Runtime layer that makes future Codex implementation mechanical and drift-resistant.",
+      "primary_files": [
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+        "odin/shadow_runtime/",
+        "examples/shadow_runtime/",
+        "registries/shadow_runtime_contract_registry.json",
+        "tests/test_shadow_runtime_lock.py"
+      ],
+      "required_behavior": [
+        "shadow runtime imports without side effects",
+        "valid shadow flows produce candidate-only results",
+        "direct apply is blocked",
+        "semantic bus remains local-only",
+        "Codex can map shadow contracts to real targets"
+      ],
+      "forbidden_scope": [
+        "no real model calls",
+        "no sockets",
+        "no public IRC",
+        "no app state mutation",
+        "no remote fallback"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-09_SHADOW_RUNTIME_MECHANICAL_BUILD_BRIDGE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "shadow_runtime_non_authority"
+      ]
+    },
+    {
+      "id": "REAL-PR-10",
+      "title": "Full Shadow Runtime Coverage",
+      "depends_on": [
+        "REAL-PR-09"
+      ],
+      "internal_tasks": [
+        "PR-24"
+      ],
+      "objective": "Extend code-near Shadow Runtime coverage to every major Odin v7.1 subsystem.",
+      "primary_files": [
+        "odin/shadow_runtime/",
+        "examples/shadow_runtime/",
+        "registries/shadow_runtime_contract_registry.json",
+        "tests/test_full_shadow_runtime_coverage.py"
+      ],
+      "required_behavior": [
+        "full major-subsystem shadow coverage",
+        "fixtures and tests for every contract",
+        "all boundaries preserved"
+      ],
+      "forbidden_scope": [
+        "no live runtime proof",
+        "no model calls",
+        "no app mutation",
+        "no network"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-10_FULL_SHADOW_RUNTIME_COVERAGE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-11",
+      "title": "Shadow Runtime Near-Final Optimization Bridge",
+      "depends_on": [
+        "REAL-PR-10"
+      ],
+      "internal_tasks": [
+        "PR-25"
+      ],
+      "objective": "Make Shadow Runtime almost mechanically convertible into real Odin implementation while preserving all authority boundaries.",
+      "primary_files": [
+        "odin/shadow_runtime/",
+        "docs/SHADOW_RUNTIME_NEAR_FINAL_LOCK_V7_1.md",
+        "tests/test_shadow_runtime_near_final.py"
+      ],
+      "required_behavior": [
+        "near-final shadow flow covers major subsystems",
+        "invalid policy flow blocks before route execution",
+        "provider plan remains side-effect free",
+        "state machine and failure recovery are explicit"
+      ],
+      "forbidden_scope": [
+        "no live providers",
+        "no live API server",
+        "no app mutation",
+        "no external send",
+        "no runtime-proof claim"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-11_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_BRIDGE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "resource_based_model_routing"
+      ]
+    },
+    {
+      "id": "REAL-PR-12",
+      "title": "Fairy/Y* Narrative Aorta and Shadow Compiler Prelude",
+      "depends_on": [
+        "REAL-PR-11"
+      ],
+      "internal_tasks": [
+        "PR-26",
+        "PR-27",
+        "PR-28",
+        "PR-29",
+        "PR-30"
+      ],
+      "objective": "Add dual-spine Fairy/Y* narrative aorta, parser/validator shadow layer, mapping and red-line gates.",
+      "primary_files": [
+        "docs/",
+        "odin/shadow_runtime/",
+        "odin/compiler/",
+        "schemas/v7_1/",
+        "registries/",
+        "tests/"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-12_FAIRY_YSTAR_NARRATIVE_AORTA_AND_SHADOW_COMPILER_PRELUDE.md"
+    },
+    {
+      "id": "REAL-PR-13",
+      "title": "Shadow Runtime Compiler and Runtime Pack System",
+      "depends_on": [
+        "REAL-PR-12"
+      ],
+      "internal_tasks": [
+        "PR-31",
+        "PR-32",
+        "PR-33",
+        "PR-34",
+        "PR-35",
+        "PR-36",
+        "PR-37"
+      ],
+      "objective": "Add Shadow Runtime IR formalization, runtime pack manifests, validators, AOT/cached compilers, loader security and generated gates.",
+      "primary_files": [
+        "docs/",
+        "odin/shadow_runtime/",
+        "odin/compiler/",
+        "schemas/v7_1/",
+        "registries/",
+        "tests/"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-13_SHADOW_RUNTIME_COMPILER_AND_RUNTIME_PACK_SYSTEM.md"
+    },
+    {
+      "id": "REAL-PR-14",
+      "title": "Odin Core / QLI / DFAS / Seed Economy Hardening",
+      "doc": "docs/codex/bundles/REAL-PR-14_ODIN_CORE_QLI_DFAS_SEED_ECONOMY_HARDENING.md",
+      "depends_on": [
+        "REAL-PR-13"
+      ],
+      "internal_tasks": [
+        "PR-38",
+        "PR-39",
+        "PR-40",
+        "PR-41",
+        "PR-42",
+        "PR-43",
+        "PR-44"
+      ]
+    },
+    {
+      "id": "REAL-PR-15",
+      "title": "Odin QIRC Gold Spine Hardening",
+      "depends_on": [
+        "REAL-PR-14"
+      ],
+      "internal_tasks": [
+        "PR-45",
+        "PR-46",
+        "PR-47",
+        "PR-48",
+        "PR-49"
+      ],
+      "objective": "Harden QIRC as local semantic precompute/admissibility/trace backbone.",
+      "primary_files": [
+        "docs/ODIN_QIRC_GOLD_SPINE_V7_1.md",
+        "schemas/v7_1/odin_qirc_event.schema.json",
+        "registries/qirc_channel_registry.json",
+        "odin/shadow_runtime/qirc_gold_spine_shadow.py",
+        "tests/test_qirc_gold_spine.py"
+      ],
+      "required_behavior": [
+        "QIRC remains local-only",
+        "model dispatch waits for admissibility",
+        "hot-window memory replaces full-history reads",
+        "why trace is redacted"
+      ],
+      "forbidden_scope": [
+        "no public IRC",
+        "no app mutation",
+        "no app-state mirror",
+        "no external send"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-15_ODIN_QIRC_GOLD_SPINE_HARDENING.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_no_network_core"
+      ]
+    },
+    {
+      "id": "REAL-PR-16",
+      "title": "Bug6 / Q7 / Y-Core / Operational Seed Core Lock",
+      "depends_on": [
+        "REAL-PR-15"
+      ],
+      "internal_tasks": [
+        "PR-50",
+        "PR-51",
+        "PR-52",
+        "PR-53",
+        "PR-54",
+        "PR-55"
+      ],
+      "objective": "Harden Odin's center with Bug6, Q7, bounded Y-Core posture, operational seed substrate, archetype synthesis, Fairy/Y* seed binding and Shadow Runtime seed weave.",
+      "primary_files": [
+        "docs/BUG6_CHILDREN_FIRST_INVARIANT_V7_1.md",
+        "docs/Q7_BUGFREE_STABILITY_V7_1.md",
+        "docs/Y_CORE_POSTURE_V7_1.md",
+        "docs/OPERATIONAL_SEED_SUBSTRATE_V7_1.md",
+        "docs/BUG6_Q7_SEED_CORE_SYNTHESIS_V7_1.md",
+        "docs/FAIRY_YSTAR_SEED_BINDING_V7_1.md",
+        "docs/SHADOW_RUNTIME_SEED_WEAVE_V7_1.md",
+        "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/"
+      ],
+      "required_behavior": [
+        "Bug6/Q7 gates are explicit",
+        "Y-Core posture is bounded to Odin LLM work",
+        "seeds and archetype roles are operational and traceable",
+        "Fairy/Y* and Shadow Runtime carry seed bindings"
+      ],
+      "forbidden_scope": [
+        "no app mutation",
+        "no external send",
+        "no network QIRC expansion",
+        "no prose-only execution"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-16_BUG6_Q7_Y_CORE_OPERATIONAL_SEED_CORE_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "id": "REAL-PR-17",
+      "title": "AI-Git Safety Consolidation and Autonomy Boundary",
+      "depends_on": [
+        "REAL-PR-16"
+      ],
+      "internal_tasks": [
+        "PR-56",
+        "PR-57",
+        "PR-58",
+        "PR-59",
+        "PR-60"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-17_AI_GIT_SAFETY_CONSOLIDATION.md",
+      "primary_files": [
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+        "docs/AUTONOMY_ESCALATION_GATE_V7_1.md",
+        "docs/SAFETY_SUPERPOSITION_POLICY_V7_1.md"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "app-owned apply",
+        "why trace",
+        "semantic diff"
+      ],
+      "forbidden_scope": [
+        "app mutation",
+        "external send",
+        "public QIRC"
+      ],
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "id": "REAL-PR-18",
+      "title": "Pre-LLM Intelligence and Perceived Intelligence Amplification",
+      "depends_on": [
+        "REAL-PR-17"
+      ],
+      "internal_tasks": [
+        "PR-61",
+        "PR-62",
+        "PR-63",
+        "PR-64",
+        "PR-65"
+      ],
+      "objective": "Lock pre-model cognition, model-work avoidance, output composition and perceived intelligence metrics.",
+      "primary_files": [
+        "docs/",
+        "schemas/v7_1/",
+        "odin/shadow_runtime/",
+        "registries/",
+        "tests/"
+      ],
+      "required_behavior": [
+        "model dispatch follows admissibility",
+        "candidate-only composition",
+        "truthful perceived intelligence"
+      ],
+      "forbidden_scope": [
+        "direct_apply",
+        "external_send",
+        "false_verification_claims"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-18_PRE_LLM_INTELLIGENCE_AND_PERCEIVED_INTELLIGENCE_AMPLIFICATION.md"
+    },
+    {
+      "id": "REAL-PR-19",
+      "title": "Universal Model / Agent Parity and Worker Boundary",
+      "depends_on": [
+        "REAL-PR-18"
+      ],
+      "internal_tasks": [
+        "PR-66",
+        "PR-67",
+        "PR-68",
+        "PR-69",
+        "PR-70",
+        "PR-71",
+        "PR-72"
+      ],
+      "objective": "Generalize Odin twin parity to all model and agent worker classes.",
+      "primary_files": [
+        "docs/UNIVERSAL_MODEL_AGENT_PARITY_V7_1.md",
+        "docs/MODEL_AGENT_CAPABILITY_CARDS_V7_1.md",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/"
+      ],
+      "required_behavior": [
+        "every worker has capability card",
+        "every worker has permission card",
+        "all outputs candidate-only",
+        "why trace explains worker selection"
+      ],
+      "forbidden_scope": [
+        "agent autonomy",
+        "app mutation",
+        "external send",
+        "provider-specific bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-19_UNIVERSAL_MODEL_AGENT_PARITY_AND_WORKER_BOUNDARY.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "id": "REAL-PR-20",
+      "title": "Thor/Y/Mj\u00f6lnir Handoff Compiler Core",
+      "depends_on": [
+        "REAL-PR-19"
+      ],
+      "internal_tasks": [
+        "PR-73",
+        "PR-74",
+        "PR-75",
+        "PR-76",
+        "PR-77",
+        "PR-78",
+        "PR-79",
+        "PR-80"
+      ],
+      "objective": "Compile Thor, Y and Mj\u00f6lnir handoffs into Odin Universal Work, candidate returns, review gates and Why Trace without authority transfer.",
+      "primary_files": [
+        "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+        "schemas/v7_1/",
+        "registries/",
+        "odin/shadow_runtime/",
+        "examples/handoff/",
+        "tests/test_thor_y_handoff_compiler.py"
+      ],
+      "required_behavior": [
+        "Thor candidate-only preserved",
+        "Y centerline preserved",
+        "Mj\u00f6lnir focused strike remains candidate-only",
+        "Handoff compiles to Universal Work or blocked report",
+        "Why Trace emitted"
+      ],
+      "forbidden_scope": [
+        "no auto-apply",
+        "no hidden execution",
+        "no receipt issuance from mediation",
+        "no agent swarm"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-20_THOR_Y_MJOLNIR_HANDOFF_COMPILER_CORE.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "thor_kernel_boundary",
+        "y_core_boundary",
+        "mjolnir_candidate_boundary"
+      ]
+    },
+    {
+      "id": "REAL-PR-21",
+      "title": "Universal LLM Work Construct and AI-Git Layer",
+      "depends_on": [
+        "REAL-PR-20"
+      ],
+      "internal_tasks": [
+        "PR-81",
+        "PR-82",
+        "PR-83",
+        "PR-84",
+        "PR-85",
+        "PR-86"
+      ],
+      "objective": "Generalize Odin to any model, agent, app or workflow while preserving all v7.1 boundaries and GPL-2.0-only license identity.",
+      "primary_files": [
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+        "docs/THOR_ODIN_AI_GIT_LAYER_V7_1.md",
+        "docs/THOR_ODIN_GPL2_ONLY_POLICY.md",
+        "registries/universal_llm_worker_registry.json",
+        "schemas/v7_1/odin_universal_llm_worker.schema.json"
+      ],
+      "required_behavior": [
+        "Any model/agent is represented as a bounded candidate worker",
+        "Remote workers are redacted and permission-gated",
+        "Tool agents cannot apply or send externally",
+        "GPL-2.0-only policy is preserved"
+      ],
+      "forbidden_scope": [
+        "no autonomous agent framework",
+        "no direct apply",
+        "no external send",
+        "no license weakening"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-21_UNIVERSAL_LLM_WORK_CONSTRUCT_AND_AI_GIT_LAYER.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "REAL-PR-22",
+      "title": "App Seed Pack Compiler and Universal Seed Pack Runtime",
+      "depends_on": [
+        "REAL-PR-21"
+      ],
+      "internal_tasks": [
+        "PR-87",
+        "PR-88",
+        "PR-89",
+        "PR-90",
+        "PR-91",
+        "PR-92"
+      ],
+      "objective": "Compile app-provided seed packs into declarative, safe Odin precompute/runtime-pack priors.",
+      "primary_files": [
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+        "schemas/v7_1/odin_app_seed_pack_manifest.schema.json",
+        "registries/app_seed_pack_type_registry.json",
+        "odin/shadow_runtime/app_seed_pack_compiler_shadow.py"
+      ],
+      "required_behavior": [
+        "seed packs declarative only",
+        "compile to Odin-owned profiles",
+        "no app mutation",
+        "Why Trace discloses seed influence"
+      ],
+      "forbidden_scope": [
+        "executable seed pack code",
+        "remote permission grant",
+        "app apply",
+        "final gate bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-22_APP_SEED_PACK_COMPILER_AND_UNIVERSAL_SEED_PACK_RUNTIME.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "seed_packs_declarative_only"
+      ]
+    },
+    {
+      "id": "REAL-PR-23",
+      "title": "Shadow Narrative / Loki / Anti-Pattern Mirror",
+      "depends_on": [
+        "REAL-PR-22"
+      ],
+      "internal_tasks": [
+        "PR-93",
+        "PR-94",
+        "PR-95",
+        "PR-96",
+        "PR-97"
+      ],
+      "objective": "Compile narrative anti-patterns into Odin gates, negative fixtures, repair routes and Why Trace without granting Loki authority.",
+      "primary_files": [
+        "docs/SHADOW_NARRATIVE_V7_1.md",
+        "schemas/v7_1/odin_shadow_narrative.schema.json",
+        "registries/narrative_antipattern_registry.json",
+        "odin/shadow_runtime/shadow_narrative_shadow.py",
+        "tests/test_shadow_narrative_loki_antipattern.py"
+      ],
+      "required_behavior": [
+        "Shadow Narrative typed only",
+        "Loki risk candidates only",
+        "Anti-patterns map to gates and negative tests",
+        "Candidate-only preserved"
+      ],
+      "forbidden_scope": [
+        "no prose execution",
+        "no Loki authority",
+        "no app mutation",
+        "no external send"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-23_SHADOW_NARRATIVE_LOKI_ANTIPATTERN_MIRROR.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "app_owned_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ]
+    },
+    {
+      "id": "REAL-PR-24",
+      "title": "Windows Product Runtime Lock",
+      "depends_on": [
+        "REAL-PR-23"
+      ],
+      "internal_tasks": [
+        "PR-98",
+        "PR-99",
+        "PR-100",
+        "PR-101",
+        "PR-102"
+      ],
+      "objective": "Specify Odin as a real Windows product target: processes, IPC, installer/update/rollback, diagnostics and product gates.",
+      "primary_files": [
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "docs/WINDOWS_IPC_SECURITY_V7_1.md",
+        "docs/WINDOWS_INSTALLER_UPDATE_ROLLBACK_V7_1.md",
+        "registries/windows_process_registry.json"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "validated schemas/registries/shadow modules",
+        "negative fixtures"
+      ],
+      "forbidden_scope": [
+        "app apply",
+        "external send",
+        "runtime proof",
+        "boundary bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-24_WINDOWS_PRODUCT_RUNTIME_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "app_owns_apply"
+      ]
+    },
+    {
+      "id": "REAL-PR-25",
+      "title": "Pattern Mine Flow Pack Intake Lock",
+      "depends_on": [
+        "REAL-PR-24"
+      ],
+      "internal_tasks": [
+        "PR-103",
+        "PR-104",
+        "PR-105",
+        "PR-106",
+        "PR-107"
+      ],
+      "objective": "Add compile-only Pattern Mine and Flow Pack intake so external pattern mines become seed/flow/runtime-pack candidates.",
+      "primary_files": [
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "docs/FLOW_PACK_TO_SEED_PACK_V7_1.md",
+        "registries/pattern_mine_type_registry.json"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "validated schemas/registries/shadow modules",
+        "negative fixtures"
+      ],
+      "forbidden_scope": [
+        "app apply",
+        "external send",
+        "runtime proof",
+        "boundary bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-25_PATTERN_MINE_FLOW_PACK_INTAKE_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "app_owns_apply"
+      ]
+    },
+    {
+      "id": "REAL-PR-26",
+      "title": "Work Atom Runtime Lock",
+      "depends_on": [
+        "REAL-PR-25"
+      ],
+      "internal_tasks": [
+        "PR-108",
+        "PR-109",
+        "PR-110",
+        "PR-111"
+      ],
+      "objective": "Define Work Atoms as smallest units of Odin AI work and wire atom graphs, budgets and micro-to-macro synthesis.",
+      "primary_files": [
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+        "docs/WORK_ATOM_GRAPH_V7_1.md",
+        "registries/work_atom_type_registry.json"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "validated schemas/registries/shadow modules",
+        "negative fixtures"
+      ],
+      "forbidden_scope": [
+        "app apply",
+        "external send",
+        "runtime proof",
+        "boundary bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-26_WORK_ATOM_RUNTIME_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "app_owns_apply"
+      ]
+    },
+    {
+      "id": "REAL-PR-27",
+      "title": "Odin Hub Operational Center Lock",
+      "depends_on": [
+        "REAL-PR-26"
+      ],
+      "internal_tasks": [
+        "PR-112",
+        "PR-113",
+        "PR-114",
+        "PR-115"
+      ],
+      "objective": "Define Odin Hub as the operational center for apps, QIRC, packs, candidates, traces and recovery.",
+      "primary_files": [
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+        "docs/ODIN_HUB_PANEL_MAP_V7_1.md",
+        "registries/odin_hub_panel_registry.json"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "validated schemas/registries/shadow modules",
+        "negative fixtures"
+      ],
+      "forbidden_scope": [
+        "app apply",
+        "external send",
+        "runtime proof",
+        "boundary bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-27_ODIN_HUB_OPERATIONAL_CENTER_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "app_owns_apply"
+      ]
+    },
+    {
+      "id": "REAL-PR-28",
+      "title": "Public Repo Canon and Windows Build Ready Lock",
+      "depends_on": [
+        "REAL-PR-27"
+      ],
+      "internal_tasks": [
+        "PR-116",
+        "PR-117",
+        "PR-118",
+        "PR-119",
+        "PR-120",
+        "PR-121",
+        "PR-122",
+        "PR-123"
+      ],
+      "objective": "Public repository canon cleanup and Windows build readiness hardening.",
+      "primary_files": [
+        "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md",
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+        "docs/MVP_V1_POWER_MODE_BOUNDARY_V7_1.md"
+      ],
+      "required_behavior": [
+        "candidate-only",
+        "public repo current-canon clarity",
+        "Windows build-ready spec",
+        "seed pattern pack security certification"
+      ],
+      "forbidden_scope": [
+        "app apply",
+        "external send",
+        "runtime proof",
+        "host validation claim",
+        "boundary bypass"
+      ],
+      "doc": "docs/codex/bundles/REAL-PR-28_PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK.md",
+      "must_run": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "must_preserve": [
+        "candidate_only",
+        "gpl_2_0_only",
+        "app_owns_apply"
+      ]
+    }
+  ],
+  "actual_execution_registry": "registries/real_pr_execution_registry.json"
+}

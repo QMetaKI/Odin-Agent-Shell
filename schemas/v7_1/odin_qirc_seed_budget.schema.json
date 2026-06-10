@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_kind",
+    "protocol_version"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_qirc_seed_budget"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "privacy_class": {
+      "type": "string"
+    }
+  },
+  "title": "odin_qirc_seed_budget"
+}

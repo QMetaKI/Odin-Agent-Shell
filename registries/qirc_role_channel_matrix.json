@@ -1,0 +1,62 @@
+{
+  "registry_id": "odin.qirc_role_channel_matrix.v0_6_2",
+  "version": "0.6.2",
+  "roles": [
+    {
+      "role": "BoundaryGuard",
+      "channels": [
+        "#core.boundary",
+        "#critic.boundary"
+      ]
+    },
+    {
+      "role": "ContextWeaver",
+      "channels": [
+        "#context.hot_window",
+        "#context.collapse"
+      ]
+    },
+    {
+      "role": "SlotSmith",
+      "channels": [
+        "#slot.forge",
+        "#gaptext.build"
+      ]
+    },
+    {
+      "role": "CheapScout",
+      "channels": [
+        "#model.3b",
+        "#model.route"
+      ]
+    },
+    {
+      "role": "QualityScribe",
+      "channels": [
+        "#model.7b",
+        "#candidate.compose"
+      ]
+    },
+    {
+      "role": "MirrorCritic",
+      "channels": [
+        "#critic.claim",
+        "#critic.context"
+      ]
+    },
+    {
+      "role": "CandidateMessenger",
+      "channels": [
+        "#candidate.compose",
+        "#candidate.dna"
+      ]
+    },
+    {
+      "role": "TraceKeeper",
+      "channels": [
+        "#why.route",
+        "#replay.work"
+      ]
+    }
+  ]
+}

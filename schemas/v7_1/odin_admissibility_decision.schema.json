@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_admissibility_decision.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "decision_id",
+    "work_id",
+    "decision",
+    "reasons"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_admissibility_decision"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "continue",
+        "hold",
+        "ask_context",
+        "split_work",
+        "deterministic_only",
+        "route_3b_micro",
+        "route_7b_8b",
+        "route_hybrid",
+        "block"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk": {
+      "type": "object"
+    },
+    "fallback": {
+      "type": "string"
+    }
+  }
+}

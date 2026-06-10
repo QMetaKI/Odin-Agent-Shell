@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_agent_tool_permission_card.schema.json",
+  "title": "odin_agent_tool_permission_card",
+  "type": "object",
+  "required": [
+    "permission_id",
+    "worker_id",
+    "mode",
+    "blocked_actions"
+  ],
+  "properties": {
+    "permission_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "blocked_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

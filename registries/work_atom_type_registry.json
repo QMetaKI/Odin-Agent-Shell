@@ -1,0 +1,41 @@
+{
+  "registry_id": "work_atom_type_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "claim_check_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "json_repair_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "context_compress_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "boundary_scan_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "seed_conflict_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "qmath_score_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "semantic_diff_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "why_trace_atom",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

@@ -1,0 +1,1763 @@
+{
+  "alignment_lock": "BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK",
+  "architecture": "Odin Agent Shell v7.1",
+  "codex_handoff_lock": "CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+  "coverage": {
+    "coverage_rule": "every internal task appears exactly once in actual execution PRs; every legacy bundle appears at least once as full or partial absorption",
+    "current_master_docs": [
+      "docs/MASTER_ARCHITECTURE_V7_1.md",
+      "docs/MASTER_SPECS_V7_1.md",
+      "docs/BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK_V7_1.md"
+    ],
+    "duplicate_internal_tasks": [],
+    "execution_pr_count": 8,
+    "execution_style": "post_runtime_candidate_hardening_sequence",
+    "internal_task_count": 124,
+    "legacy_bundle_count": 28,
+    "missing_internal_tasks": [],
+    "post_v0_8_6_execution_pr_count": 8,
+    "unmapped_legacy_bundles": []
+  },
+  "current_base": "Odin-Agent-Shell v0.8.6 Direct Runtime Release Candidate",
+  "execution_prs": [
+    {
+      "absorbs_internal_tasks": [
+        "PR-00",
+        "PR-01",
+        "PR-02",
+        "PR-03",
+        "PR-04",
+        "PR-116"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-01",
+        "REAL-PR-02",
+        "REAL-PR-28"
+      ],
+      "acceptance": [
+        "validate-all is green",
+        "pytest suite is green",
+        "root docs contain no competing current-canon path",
+        "all public-entry docs point to this consolidated real PR execution plan"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "all public-entry docs point to this consolidated real PR execution plan",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "pytest suite is green",
+        "python -m odin.cli validate-all",
+        "root docs contain no competing current-canon path",
+        "validate-all is green"
+      ],
+      "chatgpt_materialized": [
+        "root public canon documents",
+        "Master Architecture / Specs v7.1",
+        "Universal Work examples and validation path",
+        "build-ladder alignment registry",
+        "CLI validate-all entrypoint"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "normalize public repo entrypoints so v0.8.7 is the only current handoff",
+        "turn Universal Work contracts into stricter typed interfaces where useful",
+        "remove ambiguity between prep docs and runtime candidate docs",
+        "harden schema/registry loading without weakening backwards compatibility",
+        "keep GPL-2.0-only and claim-boundary language intact"
+      ],
+      "codex_deliverables": [
+        "current-canon root docs",
+        "strict Universal Work contract checks",
+        "source tree hygiene pass",
+        "public README/START_HERE/CODEX_START_HERE synchronization",
+        "foundation regression tests"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-01_FOUNDATION_CANON_PROTOCOL_AND_UNIVERSAL_WORK_CORE.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "README.md",
+        "START_HERE.md",
+        "CANON_ENTRY.md",
+        "CODEX_START_HERE.md",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json",
+        "odin/cli.py",
+        "odin/protocol/",
+        "schemas/v7_1/",
+        "registries/",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "README.md",
+        "START_HERE.md",
+        "CANON_ENTRY.md",
+        "CODEX_START_HERE.md",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json",
+        "odin/cli.py",
+        "odin/protocol/",
+        "schemas/v7_1/",
+        "registries/",
+        "tests/"
+      ],
+      "expected_new_paths": [],
+      "forbidden_scope": [
+        "no live model provider execution",
+        "no Windows tray/control-center implementation",
+        "no app state mutation",
+        "no remote/network enablement",
+        "no runtime-proof claim"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-01",
+        "REAL-PR-02"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-01",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-00",
+        "PR-01",
+        "PR-02",
+        "PR-03",
+        "PR-04",
+        "PR-116"
+      ],
+      "master_architecture_sections": [
+        "0 Architecture Status",
+        "Universal Work Kernel",
+        "Binding Gate",
+        "Candidate Artifact",
+        "Public Canon"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "objective": "Create the public repo foundation, strict JSON/registry hygiene, binding gate, Universal Work core, candidate artifact core, and current-canon root surface before feature implementation expands. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-116"
+          ],
+          "id": "REAL-PR-28",
+          "total_internal_task_count": 8
+        }
+      ],
+      "primary_files": [
+        "README.md",
+        "START_HERE.md",
+        "CANON_ENTRY.md",
+        "CODEX_START_HERE.md",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json",
+        "odin/cli.py",
+        "odin/protocol/",
+        "schemas/v7_1/",
+        "registries/",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_app_state_mutation",
+        "no_external_send_by_odin",
+        "no_live_model_provider_execution",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_network_qirc_by_default",
+        "no_production_readiness_claim",
+        "no_remote/network_enablement",
+        "no_runtime-proof_claim",
+        "no_runtime_proof_without_host_receipts",
+        "no_windows_tray/control-center_implementation"
+      ],
+      "required_behavior": [
+        "root docs point to one current canon",
+        "validate-all blocks schema/registry drift",
+        "Universal Work and Candidate Artifact contracts are app-renderable and candidate-only",
+        "Binding gate preserves app authority and Odin non-apply posture"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "mostly materialized; Codex mainly hardens and normalizes",
+      "senior_review_focus": [
+        "single current canon",
+        "no competing build ladder",
+        "no overclaim",
+        "no scope creep into Windows/Provider implementation"
+      ],
+      "target_files": [],
+      "title": "Foundation, Canon, Protocol and Universal Work Core — Codex Hardening"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-05",
+        "PR-06",
+        "PR-07",
+        "PR-11",
+        "PR-12",
+        "PR-108",
+        "PR-109",
+        "PR-110",
+        "PR-111"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-03",
+        "REAL-PR-05",
+        "REAL-PR-26"
+      ],
+      "acceptance": [
+        "bus fixtures validate",
+        "work atom fixtures validate",
+        "negative recursion/budget fixtures fail closed",
+        "local API remains localhost/local IPC scoped"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "bus fixtures validate",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "local API remains localhost/local IPC scoped",
+        "negative recursion/budget fixtures fail closed",
+        "python -m odin.cli validate-all",
+        "work atom fixtures validate"
+      ],
+      "chatgpt_materialized": [
+        "RuntimeStore",
+        "WorkSession state machine",
+        "Work Atom Runtime",
+        "Local API smoke endpoints",
+        "candidate/session/qirc local file persistence",
+        "run-golden-flow candidate path"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "split current runtime flow into clearer bus/worklet/store boundaries",
+        "complete persistent store semantics and error taxonomy",
+        "add actual worklet graph abstraction above work atoms",
+        "harden Local API request/response validation",
+        "improve deterministic fixture coverage for storage and atom planning"
+      ],
+      "codex_deliverables": [
+        "odin/bus or equivalent semantic bus module",
+        "odin/worklets module",
+        "hardened odin/runtime/store.py",
+        "Local API endpoint tests",
+        "work atom negative tests"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-01"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-02_SEMANTIC_BUS_STORAGE_API_WORKLETS_AND_WORK_ATOM_RUNTIME.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "odin/storage/",
+        "odin/api/",
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "odin/storage/",
+        "odin/api/",
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "odin/bus/",
+        "odin/worklets/",
+        "odin/work_atoms/",
+        "schemas/v7_1/odin_work_atom*.json",
+        "registries/work_atom_*"
+      ],
+      "forbidden_scope": [
+        "no model provider implementation",
+        "no app apply endpoint",
+        "no WAN or LAN transport",
+        "no unbounded atom recursion",
+        "no hidden background worker autonomy"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-03",
+        "REAL-PR-26"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-02_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-02",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-05",
+        "PR-06",
+        "PR-07",
+        "PR-11",
+        "PR-12",
+        "PR-108",
+        "PR-109",
+        "PR-110",
+        "PR-111"
+      ],
+      "master_architecture_sections": [
+        "Internal Semantic Bus",
+        "Storage Spec",
+        "API Spec",
+        "Worklet Runtime",
+        "Work Atom Runtime"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow",
+        "python -m odin.cli serve --host 127.0.0.1 --port 8877 --once-smoke || true",
+        "python -m odin.cli validate-all"
+      ],
+      "objective": "Implement local-only semantic bus, artifact lenses, context distillery, worklet graph, Work Atom runtime, storage/trace/receipt records and local API skeleton as one coherent execution substrate. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-11",
+            "PR-12"
+          ],
+          "id": "REAL-PR-05",
+          "total_internal_task_count": 3
+        }
+      ],
+      "primary_files": [
+        "odin/bus/",
+        "odin/worklets/",
+        "odin/work_atoms/",
+        "odin/storage/",
+        "odin/api/",
+        "schemas/v7_1/odin_work_atom*.json",
+        "registries/work_atom_*",
+        "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_app_apply_endpoint",
+        "no_external_send_by_odin",
+        "no_hidden_background_worker_autonomy",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_model_provider_implementation",
+        "no_network_qirc_by_default",
+        "no_production_readiness_claim",
+        "no_runtime_proof_without_host_receipts",
+        "no_unbounded_atom_recursion",
+        "no_wan_or_lan_transport"
+      ],
+      "required_behavior": [
+        "semantic events remain local-only",
+        "Universal Work decomposes into bounded Worklets and Work Atoms",
+        "Work Atom budgets stop runaway micro-op expansion",
+        "storage, trace and local API surfaces preserve candidate-only discipline"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "partially materialized; Codex completes bus/worklet/store/API depth",
+      "senior_review_focus": [
+        "state determinism",
+        "no hidden apply",
+        "no external networking beyond localhost candidate API",
+        "small composable atoms"
+      ],
+      "target_files": [
+        "odin/bus/",
+        "odin/worklets/",
+        "odin/work_atoms/",
+        "schemas/v7_1/odin_work_atom*.json",
+        "registries/work_atom_*"
+      ],
+      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms — Completion"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-08",
+        "PR-09",
+        "PR-14",
+        "PR-15",
+        "PR-17",
+        "PR-61",
+        "PR-62",
+        "PR-63",
+        "PR-64",
+        "PR-65",
+        "PR-66",
+        "PR-67",
+        "PR-68",
+        "PR-69",
+        "PR-70",
+        "PR-71",
+        "PR-72",
+        "PR-81",
+        "PR-82",
+        "PR-83",
+        "PR-84",
+        "PR-85"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-04",
+        "REAL-PR-07",
+        "REAL-PR-18",
+        "REAL-PR-19",
+        "REAL-PR-21"
+      ],
+      "acceptance": [
+        "model routing negative cases fail closed",
+        "remote worker boundary fixtures validate",
+        "agent permission fixtures block apply/tool escalation",
+        "pre-LLM direct-apply example remains invalid"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "agent permission fixtures block apply/tool escalation",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "model routing negative cases fail closed",
+        "pre-LLM direct-apply example remains invalid",
+        "python -m odin.cli validate-all",
+        "remote worker boundary fixtures validate"
+      ],
+      "chatgpt_materialized": [
+        "provider base classes",
+        "MockProvider",
+        "Null/Echo-like stub cards",
+        "provider registry/list-providers",
+        "model route inside runtime engine",
+        "candidate-only worker boundary docs"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "finish provider contract isolation",
+        "add Ollama/llama.cpp/OpenAI-compatible/Claude-compatible adapters as disabled-by-default stubs or optional integrations",
+        "harden provider config redaction",
+        "strengthen pre-LLM routing and model-work-avoidance tests",
+        "ensure every provider return is candidate-only and gate-checked"
+      ],
+      "codex_deliverables": [
+        "provider interface tests",
+        "provider config fixtures",
+        "disabled-by-default real provider adapters",
+        "pre-LLM route-selection tests",
+        "redaction and secret-boundary tests"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-02"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-03_MODEL_RUNTIME_PRE_LLM_INTELLIGENCE_AND_UNIVERSAL_MODEL_AGENT_BOUNDARY.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "odin/models/",
+        "odin/precompute/",
+        "registries/universal_llm_worker_registry.json",
+        "registries/remote_worker_boundary_registry.json",
+        "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md",
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "odin/models/",
+        "odin/precompute/",
+        "registries/universal_llm_worker_registry.json",
+        "registries/remote_worker_boundary_registry.json",
+        "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md",
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "odin/agents/",
+        "odin/output/",
+        "registries/model_*"
+      ],
+      "forbidden_scope": [
+        "no remote provider credentials",
+        "no unreviewed tool use by agents",
+        "no model output accepted as truth",
+        "no app state ownership by Odin",
+        "no production performance claim"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-04",
+        "REAL-PR-18",
+        "REAL-PR-19"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-03_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-03",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-08",
+        "PR-09",
+        "PR-14",
+        "PR-15",
+        "PR-17",
+        "PR-61",
+        "PR-62",
+        "PR-63",
+        "PR-64",
+        "PR-65",
+        "PR-66",
+        "PR-67",
+        "PR-68",
+        "PR-69",
+        "PR-70",
+        "PR-71",
+        "PR-72",
+        "PR-81",
+        "PR-82",
+        "PR-83",
+        "PR-84",
+        "PR-85"
+      ],
+      "master_architecture_sections": [
+        "Model Scale Ladder",
+        "Pre-LLM Intelligence",
+        "Universal Model/Agent Boundary",
+        "Remote Worker Boundary"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "app_owns_apply",
+        "pre_model_admissibility",
+        "truthful_perceived_intelligence",
+        "universal_worker_boundary",
+        "why_trace",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli list-providers",
+        "python -m odin.cli run-golden-flow",
+        "python -m odin.cli validate-all"
+      ],
+      "objective": "Build the model/agent worker layer: scale ladder, mock/local provider seams, low-memory strict behavior, pre-LLM intelligence, model-work avoidance, output composer, model/agent cards, permission cards and local/remote parity boundary. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-17"
+          ],
+          "id": "REAL-PR-07",
+          "total_internal_task_count": 3
+        },
+        {
+          "covered_internal_tasks": [
+            "PR-81",
+            "PR-82",
+            "PR-83",
+            "PR-84",
+            "PR-85"
+          ],
+          "id": "REAL-PR-21",
+          "total_internal_task_count": 6
+        }
+      ],
+      "primary_files": [
+        "odin/models/",
+        "odin/precompute/",
+        "odin/agents/",
+        "odin/output/",
+        "registries/model_*",
+        "registries/universal_llm_worker_registry.json",
+        "registries/remote_worker_boundary_registry.json",
+        "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md",
+        "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_app_state_ownership_by_odin",
+        "no_external_send_by_odin",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_model_output_accepted_as_truth",
+        "no_network_qirc_by_default",
+        "no_production_performance_claim",
+        "no_production_readiness_claim",
+        "no_remote_provider_credentials",
+        "no_runtime_proof_without_host_receipts",
+        "no_unreviewed_tool_use_by_agents"
+      ],
+      "required_behavior": [
+        "Odin does deterministic/precompute work before model dispatch",
+        "smallest sufficient worker is selected from declared capability cards",
+        "remote workers are candidate workers only",
+        "permission cards block apply, external send and authority escalation"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "strong boundary scaffold; real providers remain Codex/host work",
+      "senior_review_focus": [
+        "provider cannot become authority",
+        "no secret leakage",
+        "no claim that real inference was proven unless Codex actually proves it",
+        "remote optional and disabled by default"
+      ],
+      "target_files": [
+        "odin/agents/",
+        "odin/output/",
+        "registries/model_*"
+      ],
+      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary — Provider-Ready"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-10",
+        "PR-56",
+        "PR-57",
+        "PR-58",
+        "PR-59",
+        "PR-60",
+        "PR-73",
+        "PR-74",
+        "PR-75",
+        "PR-76",
+        "PR-77",
+        "PR-78",
+        "PR-79",
+        "PR-80",
+        "PR-86"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-05",
+        "REAL-PR-17",
+        "REAL-PR-20",
+        "REAL-PR-21"
+      ],
+      "acceptance": [
+        "Thor handoff fixtures validate",
+        "direct-apply handoff fixtures fail closed",
+        "AI-Git why trace is produced for candidate branches",
+        "review pipeline preserves app-owned apply"
+      ],
+      "acceptance_gates": [
+        "AI-Git why trace is produced for candidate branches",
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "Thor handoff fixtures validate",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "direct-apply handoff fixtures fail closed",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "python -m odin.cli validate-all",
+        "review pipeline preserves app-owned apply"
+      ],
+      "chatgpt_materialized": [
+        "handoff/compiler specs and registries",
+        "candidate artifact/why trace code",
+        "AI-Git safety architecture docs",
+        "review boundary docs",
+        "semantic diff concepts"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "materialize Thor handoff compiler modules",
+        "materialize candidate branch/semantic diff/review gate modules",
+        "connect handoff packets into Universal Work runtime path",
+        "add negative tests for direct-apply handoffs and fake receipts",
+        "keep Thor/Y/Mjölnir as candidate workers only"
+      ],
+      "codex_deliverables": [
+        "odin/handoff module",
+        "odin/aigit module",
+        "odin/review module",
+        "handoff-to-work tests",
+        "semantic diff fixtures",
+        "receipt-boundary tests"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-03"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-04_THOR_Y_MJOLNIR_HANDOFF_AI_GIT_SAFETY_AND_REVIEW_PIPELINE.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "odin/handoff/",
+        "odin/aigit/",
+        "odin/review/",
+        "odin/thor/",
+        "odin/mjolnir/",
+        "registries/handoff_*",
+        "registries/ai_git_*"
+      ],
+      "forbidden_scope": [
+        "no auto-merge",
+        "no auto-apply",
+        "no receipt issuance by model/agent",
+        "no autonomous PR creation",
+        "no claim acceptance without evidence gate"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-17",
+        "REAL-PR-20"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-04_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-04",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-10",
+        "PR-56",
+        "PR-57",
+        "PR-58",
+        "PR-59",
+        "PR-60",
+        "PR-73",
+        "PR-74",
+        "PR-75",
+        "PR-76",
+        "PR-77",
+        "PR-78",
+        "PR-79",
+        "PR-80",
+        "PR-86"
+      ],
+      "master_architecture_sections": [
+        "Thor Handoff Compiler",
+        "AI-Git Safety Layer",
+        "Human Review Boundary",
+        "Semantic Diff"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "bug6_children_first",
+        "q7_stability",
+        "safety_superposition",
+        "app_owned_apply",
+        "no_authority_transfer",
+        "no_hidden_execution",
+        "thor_kernel_bound",
+        "y_centerline_bound",
+        "mjolnir_candidate_only",
+        "app_owns_apply",
+        "same_boundary_for_all_workers",
+        "gpl_2_0_only"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "objective": "Implement Thor bridge, bounded code work, AI-Git safety architecture, autonomy escalation gate, semantic diff/branch/merge, human review boundary and Thor/Y/Mjolnir handoff compiler pipeline. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-10"
+          ],
+          "id": "REAL-PR-05",
+          "total_internal_task_count": 3
+        },
+        {
+          "covered_internal_tasks": [
+            "PR-86"
+          ],
+          "id": "REAL-PR-21",
+          "total_internal_task_count": 6
+        }
+      ],
+      "primary_files": [
+        "odin/handoff/",
+        "odin/aigit/",
+        "odin/review/",
+        "odin/thor/",
+        "odin/mjolnir/",
+        "registries/handoff_*",
+        "registries/ai_git_*",
+        "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+        "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_auto-apply",
+        "no_auto-merge",
+        "no_autonomous_pr_creation",
+        "no_claim_acceptance_without_evidence_gate",
+        "no_external_send_by_odin",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_network_qirc_by_default",
+        "no_production_readiness_claim",
+        "no_receipt_issuance_by_model/agent",
+        "no_runtime_proof_without_host_receipts"
+      ],
+      "required_behavior": [
+        "handoffs compile into Universal Work rather than uncontrolled prompts",
+        "returns become candidate artifacts with review metadata",
+        "semantic diff and branch/merge are candidate-only",
+        "human/app review remains outside model authority"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "mostly spec-level plus candidate/trace primitives; Codex builds real pipeline modules",
+      "senior_review_focus": [
+        "candidate-only handoff",
+        "no receipt fabrication",
+        "no agent swarm",
+        "no tool/apply authority transfer"
+      ],
+      "target_files": [
+        "odin/handoff/",
+        "odin/aigit/",
+        "odin/review/",
+        "odin/thor/",
+        "odin/mjolnir/",
+        "registries/handoff_*",
+        "registries/ai_git_*"
+      ],
+      "title": "Thor/Y/Mjölnir Handoff, AI-Git Safety and Review Pipeline — Real Modules"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-23",
+        "PR-24",
+        "PR-25",
+        "PR-26",
+        "PR-27",
+        "PR-28",
+        "PR-29",
+        "PR-30",
+        "PR-31",
+        "PR-32",
+        "PR-33",
+        "PR-34",
+        "PR-35",
+        "PR-36",
+        "PR-37",
+        "PR-93",
+        "PR-94",
+        "PR-95",
+        "PR-96",
+        "PR-97"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-09",
+        "REAL-PR-10",
+        "REAL-PR-11",
+        "REAL-PR-12",
+        "REAL-PR-13",
+        "REAL-PR-23"
+      ],
+      "acceptance": [
+        "shadow runtime registry contracts validate",
+        "Fairy/Y*/runtime pack fixtures validate",
+        "Loki authority escalation fixture is invalid",
+        "negative red-team cases map to gates"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "Fairy/Y*/runtime pack fixtures validate",
+        "Loki authority escalation fixture is invalid",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "negative red-team cases map to gates",
+        "python -m odin.cli validate-all",
+        "shadow runtime registry contracts validate"
+      ],
+      "chatgpt_materialized": [
+        "Shadow Runtime modules",
+        "Fairy/Y*/Loki docs and schemas",
+        "Anti-Fairy/Shadow Narrative registries",
+        "runtime pack docs and gates",
+        "negative Loki authority fixture"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "make narrative/compiler modules produce typed intermediate artifacts consumed by runtime engine",
+        "compile Shadow Narrative anti-patterns into gate hints",
+        "connect runtime packs to work atom planning",
+        "add bounded no-execution checks for generated runtime packs",
+        "improve red-team fixture generation"
+      ],
+      "codex_deliverables": [
+        "typed narrative IR objects",
+        "shadow-to-gate compiler tests",
+        "runtime pack loader hardening",
+        "Loki anti-pattern gate integration",
+        "negative fixtures for over-poetic/no-op narrative artifacts"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-04"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-05_NARRATIVE_COMPILER_SHADOW_RUNTIME_RUNTIME_PACKS_AND_LOKI_ANTI_PATTERN_.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "odin/shadow_runtime/",
+        "odin/compiler/",
+        "examples/fairy/",
+        "examples/compiler/",
+        "examples/shadow_narrative/",
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+        "docs/SHADOW_NARRATIVE_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "odin/shadow_runtime/",
+        "odin/compiler/",
+        "examples/fairy/",
+        "examples/compiler/",
+        "examples/shadow_narrative/",
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+        "docs/SHADOW_NARRATIVE_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "registries/fairy_*",
+        "registries/shadow_*",
+        "registries/loki_*"
+      ],
+      "forbidden_scope": [
+        "no prose-only execution",
+        "no generated hot-path executable runtime",
+        "no Loki authority",
+        "no unvalidated runtime pack load",
+        "no narrative claim treated as truth"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-09",
+        "REAL-PR-10",
+        "REAL-PR-11",
+        "REAL-PR-12",
+        "REAL-PR-13",
+        "REAL-PR-23"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-05_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-05",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-23",
+        "PR-24",
+        "PR-25",
+        "PR-26",
+        "PR-27",
+        "PR-28",
+        "PR-29",
+        "PR-30",
+        "PR-31",
+        "PR-32",
+        "PR-33",
+        "PR-34",
+        "PR-35",
+        "PR-36",
+        "PR-37",
+        "PR-93",
+        "PR-94",
+        "PR-95",
+        "PR-96",
+        "PR-97"
+      ],
+      "master_architecture_sections": [
+        "Shadow Runtime",
+        "Fairy/Y* Narrative Compiler",
+        "Runtime Packs",
+        "Loki Anti-Pattern Layer"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "shadow_runtime_non_authority",
+        "resource_based_model_routing",
+        "v7_1_invariants",
+        "no_prose_execution",
+        "validated_pack_load_only",
+        "app_owns_apply",
+        "no_loki_authority",
+        "gpl_2_0_only"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "objective": "Build the code-near Shadow Runtime, Fairy/Y* narrative compiler, runtime pack/capability slice pipeline, generated gates, Shadow Narrative, Anti-Fairy DSL, Loki mediation and narrative red-team compiler. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [],
+      "primary_files": [
+        "odin/shadow_runtime/",
+        "odin/compiler/",
+        "examples/fairy/",
+        "examples/compiler/",
+        "examples/shadow_narrative/",
+        "registries/fairy_*",
+        "registries/shadow_*",
+        "registries/loki_*",
+        "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+        "docs/SHADOW_NARRATIVE_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_external_send_by_odin",
+        "no_generated_hot-path_executable_runtime",
+        "no_loki_authority",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_narrative_claim_treated_as_truth",
+        "no_network_qirc_by_default",
+        "no_production_readiness_claim",
+        "no_prose-only_execution",
+        "no_runtime_proof_without_host_receipts",
+        "no_unvalidated_runtime_pack_load"
+      ],
+      "required_behavior": [
+        "narrative units compile into typed shadow/runtime artifacts",
+        "Shadow Runtime is code-near but non-authoritative",
+        "Loki emits risk candidates only",
+        "anti-patterns map to signals, gates, fixtures and repairs"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "good shadow layer scaffold; Codex deepens actual compiler integration",
+      "senior_review_focus": [
+        "narrative is code-near but not executable code",
+        "Loki emits risk candidates only",
+        "anti-patterns must map to gate/repair/test"
+      ],
+      "target_files": [
+        "registries/fairy_*",
+        "registries/shadow_*",
+        "registries/loki_*"
+      ],
+      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer — Executable Contracts"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-38",
+        "PR-39",
+        "PR-40",
+        "PR-41",
+        "PR-42",
+        "PR-43",
+        "PR-44",
+        "PR-45",
+        "PR-46",
+        "PR-47",
+        "PR-48",
+        "PR-49",
+        "PR-50",
+        "PR-51",
+        "PR-52",
+        "PR-53",
+        "PR-54",
+        "PR-55",
+        "PR-87",
+        "PR-88",
+        "PR-89",
+        "PR-90",
+        "PR-91",
+        "PR-92",
+        "PR-103",
+        "PR-104",
+        "PR-105",
+        "PR-106",
+        "PR-107",
+        "PR-121"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-14",
+        "REAL-PR-15",
+        "REAL-PR-16",
+        "REAL-PR-22",
+        "REAL-PR-25",
+        "REAL-PR-28"
+      ],
+      "acceptance": [
+        "seed pack invalid executable example fails closed",
+        "pattern mine claim-boundary examples validate",
+        "QIRC event envelope requires trace_id",
+        "Bug6/Q7 gates remain present in route decisions"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Bug6/Q7 gates remain present in route decisions",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "QIRC event envelope requires trace_id",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "pattern mine claim-boundary examples validate",
+        "python -m odin.cli validate-all",
+        "seed pack invalid executable example fails closed"
+      ],
+      "chatgpt_materialized": [
+        "odin/core package",
+        "QIRC local ledger",
+        "seed pack compiler/security",
+        "pattern mine intake/spine",
+        "flow pack compiler",
+        "run-work end-to-end golden flow"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "harden QIRC envelope and replay semantics",
+        "add signature/review/certification states for seed and pattern packs",
+        "stress-test pattern mine ingestion without importing truth authority",
+        "improve flow-pack to work-atom planning",
+        "add conflict resolution and activation budget tests"
+      ],
+      "codex_deliverables": [
+        "pack certification state machine",
+        "seed/pattern conflict tests",
+        "QIRC replay/snapshot tests",
+        "flow-pack planning tests",
+        "bulk pattern-mine fixture with claim-boundary lock"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-05"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-06_ODIN_CORE_QIRC_GOLD_SPINE_SEEDS_PATTERN_MINES_AND_FLOW_PACKS.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "odin/core/",
+        "registries/flow_pack_registry.json",
+        "docs/ODIN_CORE_CENTERLINE_V7_1.md",
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "odin/core/",
+        "registries/flow_pack_registry.json",
+        "docs/ODIN_CORE_CENTERLINE_V7_1.md",
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "odin/qirc/",
+        "odin/seeds/",
+        "odin/patterns/",
+        "odin/flow_packs/",
+        "registries/qirc_*",
+        "registries/seed_*",
+        "registries/pattern_*"
+      ],
+      "forbidden_scope": [
+        "no executable seed pack code",
+        "no religious/domain truth leakage from pattern mines",
+        "no QIRC network expansion",
+        "no unbounded seed fanout",
+        "no bypass of Odin final gate"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-14",
+        "REAL-PR-15",
+        "REAL-PR-16",
+        "REAL-PR-22",
+        "REAL-PR-25"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-06_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-06",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-38",
+        "PR-39",
+        "PR-40",
+        "PR-41",
+        "PR-42",
+        "PR-43",
+        "PR-44",
+        "PR-45",
+        "PR-46",
+        "PR-47",
+        "PR-48",
+        "PR-49",
+        "PR-50",
+        "PR-51",
+        "PR-52",
+        "PR-53",
+        "PR-54",
+        "PR-55",
+        "PR-87",
+        "PR-88",
+        "PR-89",
+        "PR-90",
+        "PR-91",
+        "PR-92",
+        "PR-103",
+        "PR-104",
+        "PR-105",
+        "PR-106",
+        "PR-107",
+        "PR-121"
+      ],
+      "master_architecture_sections": [
+        "Odin Core / QLI / DFAS",
+        "QIRC Gold Spine",
+        "Seed/Archetype Economy",
+        "Pattern Mine / Flow Pack Intake"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "qirc_digest_only_bridge",
+        "bug6_children_first",
+        "q7_stability",
+        "app_owns_apply",
+        "seed_packs_declarative_only",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli compile-pattern-mine examples/runtime/pattern_mine_full.valid.json",
+        "python -m odin.cli compile-seed-pack examples/runtime/app_seed_pack_full.valid.json",
+        "python -m odin.cli run-golden-flow",
+        "python -m odin.cli validate-all"
+      ],
+      "objective": "Implement Odin Core Centerline, QLI/DFAS/QMath route scoring, QIRC Gold Spine, Bug6/Q7 invariant layer, operational seed/archetype substrate, App Seed Pack compiler, Pattern Mine intake and Flow Pack bridge. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-121"
+          ],
+          "id": "REAL-PR-28",
+          "total_internal_task_count": 8
+        }
+      ],
+      "primary_files": [
+        "odin/core/",
+        "odin/qirc/",
+        "odin/seeds/",
+        "odin/patterns/",
+        "odin/flow_packs/",
+        "registries/qirc_*",
+        "registries/seed_*",
+        "registries/pattern_*",
+        "registries/flow_pack_registry.json",
+        "docs/ODIN_CORE_CENTERLINE_V7_1.md",
+        "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+        "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_bypass_of_odin_final_gate",
+        "no_executable_seed_pack_code",
+        "no_external_send_by_odin",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_network_qirc_by_default",
+        "no_production_readiness_claim",
+        "no_qirc_network_expansion",
+        "no_religious/domain_truth_leakage_from_pattern_mines",
+        "no_runtime_proof_without_host_receipts",
+        "no_unbounded_seed_fanout"
+      ],
+      "required_behavior": [
+        "centerline/admissibility gates run before dispatch",
+        "QIRC stays local/internal and trace-bound",
+        "seed and pattern packs are declarative, signed/classified or review-required",
+        "Pattern Mines compile to pattern spines/flow packs without becoming truth authority"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "one of the strongest materialized areas; Codex hardens security/performance/edge cases",
+      "senior_review_focus": [
+        "pattern packs are pattern sources not truth sources",
+        "no executable seed code",
+        "QIRC remains local ledger unless explicitly future-scoped"
+      ],
+      "target_files": [
+        "odin/qirc/",
+        "odin/seeds/",
+        "odin/patterns/",
+        "odin/flow_packs/",
+        "registries/qirc_*",
+        "registries/seed_*",
+        "registries/pattern_*"
+      ],
+      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs — Runtime Hardening"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-18",
+        "PR-19",
+        "PR-98",
+        "PR-99",
+        "PR-100",
+        "PR-101",
+        "PR-102",
+        "PR-112",
+        "PR-113",
+        "PR-114",
+        "PR-115",
+        "PR-117",
+        "PR-118",
+        "PR-119",
+        "PR-120"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-07",
+        "REAL-PR-24",
+        "REAL-PR-27",
+        "REAL-PR-28"
+      ],
+      "acceptance": [
+        "Windows runtime manifest fixtures validate",
+        "IPC endpoint contracts validate",
+        "support bundle redaction policy exists",
+        "MVP/V1/Power-Mode boundaries are machine-readable"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "IPC endpoint contracts validate",
+        "MVP/V1/Power-Mode boundaries are machine-readable",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "Windows runtime manifest fixtures validate",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "python -m odin.cli validate-all",
+        "support bundle redaction policy exists"
+      ],
+      "chatgpt_materialized": [
+        "static Odin Hub builder",
+        "Local API smoke path",
+        "diagnostics/support bundle",
+        "safe mode module",
+        "PowerShell scripts",
+        "service/tray stubs and Windows host docs"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "make Windows scripts robust on real Windows",
+        "implement or scaffold real service/tray project path without overclaiming host proof",
+        "harden localhost auth and optional named-pipe plan",
+        "add update/rollback/safe-mode receipts",
+        "document exact host-proof commands"
+      ],
+      "codex_deliverables": [
+        "Windows smoke scripts",
+        "service/tray implementation path or explicit stub boundary",
+        "Hub navigation polish",
+        "support bundle redaction test",
+        "host-proof checklist with receipts required"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-06"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-07_WINDOWS_PRODUCT_RUNTIME_ODIN_HUB_INSTALLER_IPC_AND_RECOVERY.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "examples/windows/",
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "examples/windows/",
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "expected_new_paths": [
+        "odin/windows/",
+        "odin/hub/",
+        "odin/diagnostics/",
+        "odin/recovery/",
+        "registries/windows_*",
+        "registries/odin_hub_*"
+      ],
+      "forbidden_scope": [
+        "no WAN IPC",
+        "no privileged global mutation by tray/UI",
+        "no installer production claim without host proof",
+        "no support bundle secret leak",
+        "no daemon ownership of app state"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-24",
+        "REAL-PR-27"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-07_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-07",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-18",
+        "PR-19",
+        "PR-98",
+        "PR-99",
+        "PR-100",
+        "PR-101",
+        "PR-102",
+        "PR-112",
+        "PR-113",
+        "PR-114",
+        "PR-115",
+        "PR-117",
+        "PR-118",
+        "PR-119",
+        "PR-120"
+      ],
+      "master_architecture_sections": [
+        "Windows Product Runtime",
+        "Odin Hub Operational Center",
+        "IPC Contracts",
+        "Installer / Rollback / Recovery"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli build-hub",
+        "python -m odin.cli emit-support-bundle",
+        "python -m odin.cli serve --host 127.0.0.1 --port 8877 --once-smoke || true",
+        "python -m odin.cli validate-all"
+      ],
+      "objective": "Build the Windows product shape: host/daemon/tray/control center, Odin Hub panels, process contracts, named-pipe/localhost IPC, pairing/auth policy, installer/update/rollback, safe mode, diagnostics and support bundles. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-18",
+            "PR-19"
+          ],
+          "id": "REAL-PR-07",
+          "total_internal_task_count": 3
+        },
+        {
+          "covered_internal_tasks": [
+            "PR-117",
+            "PR-118",
+            "PR-119",
+            "PR-120"
+          ],
+          "id": "REAL-PR-28",
+          "total_internal_task_count": 8
+        }
+      ],
+      "primary_files": [
+        "odin/windows/",
+        "odin/hub/",
+        "odin/diagnostics/",
+        "odin/recovery/",
+        "examples/windows/",
+        "registries/windows_*",
+        "registries/odin_hub_*",
+        "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+        "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+        "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app_apply_authority_for_odin",
+        "no_daemon_ownership_of_app_state",
+        "no_external_send_by_odin",
+        "no_installer_production_claim_without_host_proof",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_network_qirc_by_default",
+        "no_privileged_global_mutation_by_tray/ui",
+        "no_production_readiness_claim",
+        "no_runtime_proof_without_host_receipts",
+        "no_support_bundle_secret_leak",
+        "no_wan_ipc"
+      ],
+      "required_behavior": [
+        "Windows processes have explicit responsibilities",
+        "IPC endpoints are local and capability-scoped",
+        "Odin Hub is operational center not uncontrolled dashboard",
+        "safe mode and rollback are available for failed packs or model/runtime issues"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "prepared but not host-proven; Codex/Windows host work is substantial",
+      "senior_review_focus": [
+        "no claim of Windows service/tray/install proof without actual receipts",
+        "local-only default",
+        "support bundle redacts secrets",
+        "Hub remains operational center not authority"
+      ],
+      "target_files": [
+        "odin/windows/",
+        "odin/hub/",
+        "odin/diagnostics/",
+        "odin/recovery/",
+        "registries/windows_*",
+        "registries/odin_hub_*"
+      ],
+      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery — Host-Real Track"
+    },
+    {
+      "absorbs_internal_tasks": [
+        "PR-13",
+        "PR-16",
+        "PR-20",
+        "PR-21",
+        "PR-22",
+        "PR-122",
+        "PR-123"
+      ],
+      "absorbs_legacy_bundles": [
+        "REAL-PR-06",
+        "REAL-PR-08",
+        "REAL-PR-28"
+      ],
+      "acceptance": [
+        "golden flow fixtures validate",
+        "release checklist is current-canon only",
+        "senior-review anti-drift gates remain active",
+        "all internal tasks are covered by consolidated real execution PRs"
+      ],
+      "acceptance_gates": [
+        "All modified registries and schemas remain JSON-valid",
+        "Codex return report separates implemented, prepared, skipped and blocked work",
+        "No host/model/provider proof is claimed without a receipt produced in that environment",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "all internal tasks are covered by consolidated real execution PRs",
+        "all proof gaps and non-claims are stated in the PR summary",
+        "every created or updated artifact is registered in FILE_MANIFEST.json",
+        "golden flow fixtures validate",
+        "python -m odin.cli validate-all",
+        "release checklist is current-canon only",
+        "senior-review anti-drift gates remain active"
+      ],
+      "chatgpt_materialized": [
+        "odin_app_sdk",
+        "minimal notes app",
+        "wedding studio mock",
+        "codex handoff mock",
+        "game quest mock",
+        "run-golden-flow",
+        "direct runtime RC validator"
+      ],
+      "claim_boundary": "post_v0_8_6_codex_pr_may_harden_and_complete_but_must_not_overclaim_host_or_model_proof",
+      "codex_completion_focus": [
+        "turn example apps into robust integration fixtures",
+        "harden SDK client error handling and API compatibility",
+        "add public release checklist and Codex return report format",
+        "ensure all previous PR gates are represented in final RC validation",
+        "prepare final repo hygiene pass"
+      ],
+      "codex_deliverables": [
+        "SDK integration tests",
+        "golden app snapshots",
+        "release-candidate acceptance report",
+        "Codex final return template",
+        "public repo hygiene verification"
+      ],
+      "codex_execution_mode": "post_chatgpt_runtime_candidate_completion_pr",
+      "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+      "depends_on": [
+        "REAL-GH-PR-07"
+      ],
+      "doc": "docs/codex/real_execution_prs/REAL-GH-PR-08_APP_SDKS_APP_QIRC_DIGEST_GOLDEN_FLOWS_RELEASE_HYGIENE_AND_PUBLIC_BUILD.md",
+      "execution_scope": "actual_github_pr",
+      "existing_files": [
+        "sdk/",
+        "templates/",
+        "examples/",
+        "docs/codex/",
+        "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md",
+        "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md",
+        "registries/public_build_readiness_registry.json",
+        "tests/"
+      ],
+      "expected_existing_paths": [
+        "sdk/",
+        "templates/",
+        "examples/",
+        "docs/codex/",
+        "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md",
+        "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md",
+        "registries/public_build_readiness_registry.json",
+        "tests/"
+      ],
+      "expected_new_paths": [],
+      "forbidden_scope": [
+        "no app-owned state stored inside Odin",
+        "no direct external send from Odin",
+        "no production-ready wording",
+        "no hidden model credentials",
+        "no collapsing internal ladders into unexplained mega-PR"
+      ],
+      "fully_absorbs_legacy_bundles": [
+        "REAL-PR-06",
+        "REAL-PR-08"
+      ],
+      "handoff_doc": "docs/codex/prompts/REAL-GH-PR-08_CODEX_PROMPT.md",
+      "id": "REAL-GH-PR-08",
+      "internal_ladder_relation": "absorbs internal task ladder and legacy bundle ladder for execution; internal ladders remain traceability only",
+      "internal_tasks": [
+        "PR-13",
+        "PR-16",
+        "PR-20",
+        "PR-21",
+        "PR-22",
+        "PR-122",
+        "PR-123"
+      ],
+      "master_architecture_sections": [
+        "App SDKs and Templates",
+        "App QIRC Digest",
+        "Golden Flows",
+        "Public Build Gate"
+      ],
+      "must_preserve": [
+        "no_llm_in_app",
+        "candidate_only",
+        "local_first",
+        "app_owns_state",
+        "semantic_bus_local_only",
+        "default_model_strategy_3b_7b_8b",
+        "app_owns_apply",
+        "gpl_2_0_only",
+        "no_runtime_proof"
+      ],
+      "must_run": [
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow",
+        "python -m odin.cli validate-all",
+        "python -m odin.cli validate-direct-runtime-release-candidate",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "objective": "Finalize app-facing SDK/templates, App QIRC digest bridge, golden flows, support bundle/release hygiene, senior-review hardening and public build-ready gate so the repo can be handed to Codex as a coherent build program. Post-v0.8.6 focus: complete and harden the direct runtime candidate already materialized by ChatGPT.",
+      "partially_absorbs_legacy_bundles": [
+        {
+          "covered_internal_tasks": [
+            "PR-122",
+            "PR-123"
+          ],
+          "id": "REAL-PR-28",
+          "total_internal_task_count": 8
+        }
+      ],
+      "primary_files": [
+        "sdk/",
+        "templates/",
+        "examples/",
+        "docs/codex/",
+        "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md",
+        "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md",
+        "registries/public_build_readiness_registry.json",
+        "tests/"
+      ],
+      "proof_boundaries": [
+        "ChatGPT-built runtime candidate is not a substitute for host-real Codex proof",
+        "Codex must keep app-owned apply boundary intact",
+        "Codex must preserve GPL-2.0-only policy and no-hidden-authority posture",
+        "no_app-owned_state_stored_inside_odin",
+        "no_app_apply_authority_for_odin",
+        "no_collapsing_internal_ladders_into_unexplained_mega-pr",
+        "no_direct_external_send_from_odin",
+        "no_external_send_by_odin",
+        "no_hidden_model_credentials",
+        "no_model_inference_proof_without_actual_model_receipts",
+        "no_network_qirc_by_default",
+        "no_production-ready_wording",
+        "no_production_readiness_claim",
+        "no_runtime_proof_without_host_receipts"
+      ],
+      "required_behavior": [
+        "apps integrate through SDK/template bridges without LLM logic",
+        "App QIRC bridge is digest-only by default",
+        "golden flows exercise full candidate path",
+        "public build gate blocks overclaims and missing docs/fixtures"
+      ],
+      "return_report_required": true,
+      "runtime_status_after_chatgpt": "good RC layer; Codex turns it into final handoff quality",
+      "senior_review_focus": [
+        "apps keep apply authority",
+        "Golden Apps are examples not production apps",
+        "final RC report distinguishes proven vs prepared"
+      ],
+      "target_files": [],
+      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff — Final Codex RC"
+    }
+  ],
+  "handoff_rule": "Codex starts from the running v0.8.6 runtime candidate and completes eight focused hardening PRs; it does not restart from architecture only.",
+  "handoff_version": "0.8.7",
+  "legacy_internal_ladders": [
+    "registries/codex_task_registry.json",
+    "registries/codex_pr_bundle_registry.json"
+  ],
+  "registry_id": "odin.real_pr_execution_registry.v0_8_7",
+  "rule": "REAL-GH-PR-01..08 remains the only actual Codex/GitHub execution ladder, now reframed as post-v0.8.6 completion and hardening PRs.",
+  "status": "post_v0_8_6_codex_real_pr_handoff_ladder_locked",
+  "version": "0.8.7"
+}

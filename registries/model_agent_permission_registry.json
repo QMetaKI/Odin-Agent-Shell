@@ -1,0 +1,17 @@
+{
+  "registry_id": "model_agent_permission_registry",
+  "version": "0.6.6",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "universal_model_agent_parity_lock",
+  "permissions": [
+    "read_digest_only",
+    "read_local_context",
+    "draft_candidate",
+    "review_candidate",
+    "patchplan_candidate",
+    "scheduled_candidate",
+    "human_review_required",
+    "app_apply_required",
+    "blocked"
+  ]
+}

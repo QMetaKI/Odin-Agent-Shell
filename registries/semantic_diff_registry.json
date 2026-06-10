@@ -1,0 +1,11 @@
+{
+  "registry_id": "semantic_diff_registry",
+  "version": "0.6.4",
+  "diff_types": [
+    "meaning_delta",
+    "claim_delta",
+    "risk_delta",
+    "format_delta",
+    "scope_delta"
+  ]
+}

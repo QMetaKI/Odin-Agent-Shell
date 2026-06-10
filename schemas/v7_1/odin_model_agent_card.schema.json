@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_model_agent_card.schema.json",
+  "title": "odin_model_agent_card",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_kind",
+    "id",
+    "worker_kind",
+    "best_for",
+    "allowed_slot_classes",
+    "permission_profile"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "worker_kind": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "best_for": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "allowed_slot_classes": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    },
+    "permission_profile": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "number",
+        "null"
+      ]
+    }
+  }
+}

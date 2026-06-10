@@ -1,0 +1,14 @@
+{
+  "registry_id": "agent_candidate_protocol_registry",
+  "version": "0.6.6",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "universal_model_agent_parity_lock",
+  "candidate_types": [
+    "research_candidate",
+    "patchplan_candidate",
+    "workflow_candidate",
+    "scheduled_candidate_work",
+    "human_review_request",
+    "blocked_route_report"
+  ]
+}

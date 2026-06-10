@@ -1,0 +1,12 @@
+{
+  "bridges": [
+    "focused_patch_candidate",
+    "focused_review_candidate",
+    "focused_asset_candidate",
+    "focused_runtime_pack_candidate"
+  ],
+  "registry_id": "odin.mjolnir_bridge_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

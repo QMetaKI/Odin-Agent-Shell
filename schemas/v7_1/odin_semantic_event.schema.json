@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_semantic_event.schema.json",
+  "title": "odin_semantic_event",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "event_id",
+    "channel",
+    "event_type",
+    "source_module",
+    "trace_id",
+    "privacy_class",
+    "payload",
+    "created_at"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_semantic_event"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "pattern": "^#"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "source_module": {
+      "type": "string"
+    },
+    "source_ring": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "state_digest": {
+      "type": "string"
+    },
+    "privacy_class": {
+      "enum": [
+        "local_only",
+        "local_with_cache",
+        "local_redacted_trace",
+        "remote_allowed_explicit",
+        "blocked_sensitive"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "requires_receipt": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

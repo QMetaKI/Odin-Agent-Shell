@@ -1,0 +1,9 @@
+{
+  "work_id": "WORK-QIRC-1",
+  "trace_id": "TRACE-QIRC-1",
+  "context_tags": [
+    "rewrite",
+    "claim_boundary"
+  ],
+  "resource_profile": "standard_local"
+}

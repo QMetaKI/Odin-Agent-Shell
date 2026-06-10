@@ -1,0 +1,141 @@
+{
+  "claim_boundary": "runtime_source_registry_maps_local_candidate_modules_not_host_proofs",
+  "lock": "DIRECT_MASTER_ARCHITECTURE_RUNTIME_SOURCE_CANDIDATE",
+  "modules": [
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "universal_work_runtime",
+      "paths": [
+        "odin/runtime/engine.py",
+        "odin/universal_work/universal_work_validator.py"
+      ],
+      "purpose": "Universal Work intake and candidate orchestration"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "caller_manifest_boundary",
+      "paths": [
+        "odin/apps/caller_manifest.py"
+      ],
+      "purpose": "App bridge and app-owned apply validation"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "qirc_local_ledger",
+      "paths": [
+        "odin/qirc/ledger.py"
+      ],
+      "purpose": "Local event ledger and QIRC digest"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "seed_pack_compiler",
+      "paths": [
+        "odin/seeds/compiler.py",
+        "odin/seeds/security.py"
+      ],
+      "purpose": "Declarative seed-pack validation and compilation"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "pattern_mine_compiler",
+      "paths": [
+        "odin/patterns/intake.py",
+        "odin/patterns/spine.py"
+      ],
+      "purpose": "Pattern mine intake and pattern spine compilation"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "flow_pack_compiler",
+      "paths": [
+        "odin/flow_packs/compiler.py"
+      ],
+      "purpose": "Flow pack to work atom compilation"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "work_atom_runtime",
+      "paths": [
+        "odin/work_atoms/runtime.py",
+        "odin/work_atoms/atoms.py"
+      ],
+      "purpose": "Micro-op planning and execution"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "model_worker_boundary",
+      "paths": [
+        "odin/models/model_router.py",
+        "odin/models/workers.py"
+      ],
+      "purpose": "Candidate-only model routing and mock worker projection"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "candidate_pipeline",
+      "paths": [
+        "odin/candidates/artifact.py",
+        "odin/candidates/tournament.py",
+        "odin/core/final_gate.py"
+      ],
+      "purpose": "Candidate artifact, tournament and final gate"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "why_trace",
+      "paths": [
+        "odin/why_trace/builder.py"
+      ],
+      "purpose": "Route explanation and redacted trace"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "local_api",
+      "paths": [
+        "odin/daemon/local_api.py"
+      ],
+      "purpose": "Localhost API skeleton"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "odin_hub",
+      "paths": [
+        "odin/hub/static_hub.py"
+      ],
+      "purpose": "Static hub control-surface skeleton"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "diagnostics",
+      "paths": [
+        "odin/diagnostics/support_bundle.py"
+      ],
+      "purpose": "Support bundle candidate emitter"
+    },
+    {
+      "app_apply_owned_by_app": true,
+      "candidate_only": true,
+      "id": "recovery",
+      "paths": [
+        "odin/recovery/safe_mode.py"
+      ],
+      "purpose": "Safe-mode plan candidate"
+    }
+  ],
+  "registry_id": "runtime_source_module_registry",
+  "version": "0.8.0"
+}

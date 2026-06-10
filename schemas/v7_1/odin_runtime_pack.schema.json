@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin Runtime Pack",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_runtime_pack"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "source_shadow_hash": {
+      "type": "string"
+    },
+    "source_ystar_hash": {
+      "type": "string"
+    },
+    "resource_profile": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compiled_tables": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "tests_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "load_policy": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "pack_id",
+    "source_shadow_hash",
+    "source_ystar_hash",
+    "resource_profile",
+    "capabilities",
+    "forbidden_capabilities",
+    "compiled_tables",
+    "tests_required",
+    "load_policy",
+    "claim_boundary"
+  ]
+}

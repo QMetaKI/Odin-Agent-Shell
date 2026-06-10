@@ -1,0 +1,5 @@
+{
+  "worker_id": "remote_model_candidate",
+  "attempt": "app_apply",
+  "expected": "blocked"
+}

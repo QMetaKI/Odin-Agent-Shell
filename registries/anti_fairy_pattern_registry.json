@@ -1,0 +1,31 @@
+{
+  "registry_id": "anti_fairy_pattern_registry",
+  "version": "0.7.0",
+  "patterns": [
+    {
+      "id": "small_worker_overload",
+      "gate": "semantic_pressure_valve",
+      "severity": "narrow"
+    },
+    {
+      "id": "helpful_tyrant",
+      "gate": "app_apply_boundary_gate",
+      "severity": "block"
+    },
+    {
+      "id": "golden_fog",
+      "gate": "claim_evidence_gate",
+      "severity": "hold"
+    },
+    {
+      "id": "seed_hydra",
+      "gate": "seed_budget_noise_gate",
+      "severity": "narrow"
+    },
+    {
+      "id": "false_ring_promotion",
+      "gate": "ring_authority_gate",
+      "severity": "block"
+    }
+  ]
+}

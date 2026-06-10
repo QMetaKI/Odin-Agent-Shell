@@ -1,0 +1,20 @@
+{
+  "registry_id": "odin.runtime_pack_registry.v7_1",
+  "version": "0.6.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "narrative_aorta_compiler_lock",
+  "packs": [
+    "low_memory_strict.pack",
+    "standard_local.pack",
+    "quality_local.pack",
+    "heavy_local.pack",
+    "developer_debug.pack",
+    "app_capability_slice.pack"
+  ],
+  "load_rules": [
+    "requires_validation",
+    "rollback_on_failure",
+    "no_direct_apply",
+    "no_external_send"
+  ]
+}

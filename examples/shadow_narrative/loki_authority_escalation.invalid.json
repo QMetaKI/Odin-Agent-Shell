@@ -1,0 +1,12 @@
+{
+  "artifact_kind": "odin_loki_mediation_packet",
+  "protocol_version": "7.1",
+  "packet_id": "LOKI-BAD",
+  "work_id": "WORK-1",
+  "anti_patterns": [
+    "false_ring_promotion"
+  ],
+  "recommendation": "grant_authority",
+  "grant_authority": true,
+  "claim_boundary": "invalid"
+}

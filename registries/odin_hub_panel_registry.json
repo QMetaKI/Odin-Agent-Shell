@@ -1,0 +1,65 @@
+{
+  "registry_id": "odin_hub_panel_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "home",
+      "status": "candidate"
+    },
+    {
+      "id": "apps",
+      "status": "candidate"
+    },
+    {
+      "id": "work_capsules",
+      "status": "candidate"
+    },
+    {
+      "id": "seed_packs",
+      "status": "candidate"
+    },
+    {
+      "id": "pattern_mines",
+      "status": "candidate"
+    },
+    {
+      "id": "flow_packs",
+      "status": "candidate"
+    },
+    {
+      "id": "work_atoms",
+      "status": "candidate"
+    },
+    {
+      "id": "qirc_gold_spine",
+      "status": "candidate"
+    },
+    {
+      "id": "models",
+      "status": "candidate"
+    },
+    {
+      "id": "runtime_packs",
+      "status": "candidate"
+    },
+    {
+      "id": "handoffs",
+      "status": "candidate"
+    },
+    {
+      "id": "candidate_canvas",
+      "status": "candidate"
+    },
+    {
+      "id": "why_trace",
+      "status": "candidate"
+    },
+    {
+      "id": "diagnostics",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

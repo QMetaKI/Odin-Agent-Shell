@@ -1,0 +1,18 @@
+{
+  "registry_id": "odin.ystar_stage_registry.v7_1",
+  "version": "0.6.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "narrative_aorta_compiler_lock",
+  "stages": [
+    "fairy_story",
+    "ystar_native_unit",
+    "ystar_mediation_directive",
+    "shadow_ir_fragment",
+    "runtime_pack_prelude"
+  ],
+  "rules": [
+    "parser_before_compiler",
+    "validator_before_emitter",
+    "no_authority_escalation"
+  ]
+}

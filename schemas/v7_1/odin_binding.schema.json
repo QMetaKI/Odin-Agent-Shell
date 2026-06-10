@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_binding.schema.json",
+  "title": "odin_binding",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "binding_id",
+    "caller_id",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_binding"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "binding_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "caller_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "claim_boundary": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

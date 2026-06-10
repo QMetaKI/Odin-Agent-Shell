@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_model_work_avoidance_decision.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "work_id",
+    "decision",
+    "avoided_work",
+    "reason_codes",
+    "fallbacks"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_model_work_avoidance_decision"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "no_model_static_candidate",
+        "no_model_template_candidate",
+        "no_model_cached_candidate",
+        "model_required_micro",
+        "model_required_quality",
+        "model_required_hybrid",
+        "ask_context",
+        "split_work",
+        "hold",
+        "block"
+      ]
+    },
+    "avoided_work": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallbacks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

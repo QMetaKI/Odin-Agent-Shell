@@ -1,0 +1,76 @@
+{
+  "registry_id": "seed_registry",
+  "version": "7.1",
+  "seeds": [
+    {
+      "id": "claim_boundary",
+      "family": "boundary",
+      "default_score": 0.95
+    },
+    {
+      "id": "minimal_sufficient_route",
+      "family": "economy",
+      "default_score": 0.9
+    },
+    {
+      "id": "context_clarity",
+      "family": "context",
+      "default_score": 0.82
+    },
+    {
+      "id": "no_invention",
+      "family": "evidence",
+      "default_score": 0.94
+    },
+    {
+      "id": "children_family_first",
+      "family": "invariant",
+      "default_score": 1.0
+    },
+    {
+      "id": "authority_separation",
+      "family": "boundary",
+      "default_score": 1.0
+    },
+    {
+      "id": "candidate_only",
+      "family": "boundary",
+      "default_score": 1.0
+    },
+    {
+      "id": "app_authority_preserve",
+      "family": "boundary",
+      "default_score": 1.0
+    },
+    {
+      "id": "no_hidden_apply",
+      "family": "boundary",
+      "default_score": 1.0
+    },
+    {
+      "id": "worker_load_limit",
+      "family": "safety",
+      "default_score": 0.96
+    },
+    {
+      "id": "q7_route_cleanliness",
+      "family": "stability",
+      "default_score": 0.92
+    },
+    {
+      "id": "q7_negative_path",
+      "family": "stability",
+      "default_score": 0.88
+    },
+    {
+      "id": "shadow_seed_weave",
+      "family": "shadow",
+      "default_score": 0.82
+    },
+    {
+      "id": "fairy_ystar_seed_binding",
+      "family": "fairy",
+      "default_score": 0.84
+    }
+  ]
+}

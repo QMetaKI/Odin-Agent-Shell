@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin YStar Mediation Directive",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_ystar_mediation_directive"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "directive_id": {
+      "type": "string"
+    },
+    "ystar_unit_ref": {
+      "type": "string"
+    },
+    "target_shadow_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_boundaries": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "compile_hints": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "holes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "directive_id",
+    "ystar_unit_ref",
+    "target_shadow_modules",
+    "runtime_boundaries",
+    "compile_hints",
+    "holes",
+    "risk",
+    "claim_boundary"
+  ]
+}

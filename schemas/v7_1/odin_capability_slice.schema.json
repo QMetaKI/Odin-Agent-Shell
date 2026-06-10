@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin Capability Slice",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_capability_slice"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "slice_id": {
+      "type": "string"
+    },
+    "caller_id": {
+      "type": "string"
+    },
+    "resource_profile": {
+      "type": "string"
+    },
+    "allowed_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_pack_ref": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "slice_id",
+    "caller_id",
+    "resource_profile",
+    "allowed_capabilities",
+    "blocked_capabilities",
+    "runtime_pack_ref",
+    "claim_boundary"
+  ]
+}

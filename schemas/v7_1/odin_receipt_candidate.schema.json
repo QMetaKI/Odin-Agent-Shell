@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_receipt_candidate.schema.json",
+  "title": "odin_receipt_candidate",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "receipt_candidate_id",
+    "trace_id",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_receipt_candidate"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "receipt_candidate_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "trace_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "claim_boundary": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

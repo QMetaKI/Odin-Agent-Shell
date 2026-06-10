@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_conflict.schema.json",
+  "title": "odin_conflict",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "conflict_id",
+    "work_id",
+    "reason",
+    "recommended_route"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_conflict"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "conflict_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "work_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "recommended_route": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

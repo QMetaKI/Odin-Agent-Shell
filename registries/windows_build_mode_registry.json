@@ -1,0 +1,20 @@
+{
+  "registry_id": "windows_build_mode_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "modes": [
+    {
+      "id": "portable_zip",
+      "status": "mvp_default"
+    },
+    {
+      "id": "msix_candidate",
+      "status": "future"
+    },
+    {
+      "id": "winget_candidate",
+      "status": "future"
+    }
+  ]
+}

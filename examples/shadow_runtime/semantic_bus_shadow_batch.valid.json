@@ -1,0 +1,11 @@
+{
+  "artifact_kind": "odin_shadow_bus_batch_fixture",
+  "work_id": "WORK-SHADOW-001",
+  "expected_channels": [
+    "#work.received",
+    "#context.distill",
+    "#slot.forge",
+    "#candidate.ready"
+  ],
+  "local_only": true
+}

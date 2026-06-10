@@ -1,0 +1,16 @@
+{
+  "registry_id": "failure_story_registry",
+  "version": "0.7.0",
+  "severity_bands": [
+    "watch",
+    "narrow",
+    "hold",
+    "block"
+  ],
+  "stories": [
+    {
+      "id": "golden_fog",
+      "gate": "claim_evidence_gate"
+    }
+  ]
+}

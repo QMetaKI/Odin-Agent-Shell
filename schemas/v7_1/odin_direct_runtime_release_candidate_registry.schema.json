@@ -1,0 +1,30 @@
+{
+  "$id": "odin_direct_runtime_release_candidate_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_commands": {
+      "type": "array"
+    },
+    "modules": {
+      "type": "array"
+    },
+    "proof_boundaries": {
+      "type": "array"
+    },
+    "registry_id": {
+      "const": "direct_runtime_release_candidate_registry"
+    },
+    "version": {
+      "const": "0.8.6"
+    }
+  },
+  "required": [
+    "registry_id",
+    "version",
+    "modules",
+    "acceptance_commands",
+    "proof_boundaries"
+  ],
+  "type": "object"
+}

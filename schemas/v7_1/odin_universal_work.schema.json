@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_universal_work.schema.json",
+  "title": "odin_universal_work",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "work_id",
+    "caller_id",
+    "binding_ref",
+    "input_artifacts",
+    "work_intent",
+    "output_contract",
+    "constraints",
+    "model_policy",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_universal_work"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "work_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "caller_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "binding_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "work_intent": {
+      "type": "object"
+    },
+    "output_contract": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "model_policy": {
+      "type": "object"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "registry_id": "windows_installer_profile_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "portable_zip",
+      "status": "candidate"
+    },
+    {
+      "id": "msix_candidate",
+      "status": "candidate"
+    },
+    {
+      "id": "winget_candidate",
+      "status": "candidate"
+    },
+    {
+      "id": "developer_editable",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

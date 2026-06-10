@@ -1,0 +1,26 @@
+{
+  "registry_id": "seed_pattern_pack_security_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "certification_states": [
+    {
+      "id": "trusted_local"
+    },
+    {
+      "id": "review_required"
+    },
+    {
+      "id": "dev_only"
+    },
+    {
+      "id": "blocked"
+    },
+    {
+      "id": "signature_required"
+    },
+    {
+      "id": "quarantined"
+    }
+  ]
+}

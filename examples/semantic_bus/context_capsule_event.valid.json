@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "odin_semantic_event",
+  "protocol_version": "7.1",
+  "event_id": "EVT-001",
+  "channel": "#context.distill",
+  "event_type": "context_capsule_created",
+  "source_module": "context-distiller",
+  "source_ring": "R4",
+  "work_id": "WORK-EXAMPLE-001",
+  "trace_id": "TRACE-001",
+  "state_digest": "sha256:demo",
+  "privacy_class": "local_only",
+  "payload": {},
+  "requires_receipt": false,
+  "created_at": "2026-06-09T00:00:00Z"
+}

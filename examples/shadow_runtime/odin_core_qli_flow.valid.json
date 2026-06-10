@@ -1,0 +1,47 @@
+{
+  "artifact_kind": "odin_universal_work",
+  "protocol_version": "7.1",
+  "work_id": "WORK-QLI-001",
+  "caller_id": "example_app",
+  "binding_ref": "OB-001",
+  "input_artifacts": [
+    {
+      "artifact_id": "ART-1",
+      "artifact_type": "markdown",
+      "content_ref": "selected_text",
+      "trust_status": "caller_provided",
+      "privacy_class": "local_only",
+      "digest": "sha256-demo"
+    }
+  ],
+  "work_intent": {
+    "verb": "rewrite",
+    "mode": "clarity",
+    "goal": "rewrite selected markdown for clarity without changing meaning"
+  },
+  "output_contract": {
+    "artifact_type": "markdown_candidate",
+    "shape": "same_structure",
+    "max_tokens": 600,
+    "candidate_only": true,
+    "requires_app_apply_gate": true
+  },
+  "constraints": {
+    "allowed": [
+      "preserve meaning"
+    ],
+    "forbidden": [
+      "invent facts",
+      "claim verification",
+      "apply directly"
+    ]
+  },
+  "model_policy": {
+    "route": "smallest_sufficient",
+    "allow_3b": true,
+    "allow_7b_8b": true,
+    "allow_hybrid": true,
+    "allow_remote": false
+  },
+  "claim_boundary": "candidate_projection_only"
+}

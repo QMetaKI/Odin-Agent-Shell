@@ -1,0 +1,10 @@
+{
+  "artifact_kind": "odin_work_atom_graph",
+  "protocol_version": "7.1",
+  "id": "atom-graph-valid",
+  "claim_boundary": "candidate_only",
+  "atoms": [
+    "claim_check_atom",
+    "why_trace_atom"
+  ]
+}

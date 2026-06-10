@@ -1,0 +1,41 @@
+{
+  "registry_id": "operational_seed_function_registry.v7_1",
+  "version": "7.1",
+  "status": "spec_lock",
+  "items_key": "functions",
+  "functions": [
+    {
+      "id": "activate",
+      "execution": "declarative"
+    },
+    {
+      "id": "decay",
+      "execution": "declarative"
+    },
+    {
+      "id": "conflict_resolve",
+      "execution": "declarative"
+    },
+    {
+      "id": "budget_cap",
+      "execution": "declarative"
+    },
+    {
+      "id": "qirc_prewarm",
+      "execution": "declarative"
+    },
+    {
+      "id": "slot_hint",
+      "execution": "declarative"
+    },
+    {
+      "id": "output_composer_pattern",
+      "execution": "declarative"
+    },
+    {
+      "id": "model_avoidance_hint",
+      "execution": "declarative"
+    }
+  ],
+  "claim_boundary": "specification_only_not_runtime_claim"
+}

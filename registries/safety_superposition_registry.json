@@ -1,0 +1,24 @@
+{
+  "registry_id": "safety_superposition_registry",
+  "version": "0.6.4",
+  "profiles": [
+    {
+      "id": "maria_80_michael_20_default",
+      "maria": 80,
+      "michael": 20,
+      "rule": "care_first_boundary_always"
+    },
+    {
+      "id": "michael_65_maria_35_incident",
+      "maria": 35,
+      "michael": 65,
+      "rule": "prevent_cascade"
+    },
+    {
+      "id": "michael_80_maria_20_compiler",
+      "maria": 20,
+      "michael": 80,
+      "rule": "cut_invalid_paths_first"
+    }
+  ]
+}

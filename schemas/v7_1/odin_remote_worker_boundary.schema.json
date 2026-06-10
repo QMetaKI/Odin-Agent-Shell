@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_remote_worker_boundary.schema.json",
+  "title": "odin_remote_worker_boundary",
+  "type": "object",
+  "required": [
+    "worker_id",
+    "privacy_class",
+    "redaction_required",
+    "remote_allowed"
+  ],
+  "properties": {
+    "worker_id": {
+      "type": "string"
+    },
+    "privacy_class": {
+      "type": "string"
+    },
+    "redaction_required": {
+      "type": "boolean"
+    },
+    "remote_allowed": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

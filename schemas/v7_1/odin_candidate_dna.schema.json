@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_candidate_dna.schema.json",
+  "title": "odin_candidate_dna",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "candidate_dna_id",
+    "candidate_id",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_candidate_dna"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "candidate_dna_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "candidate_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "claim_boundary": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

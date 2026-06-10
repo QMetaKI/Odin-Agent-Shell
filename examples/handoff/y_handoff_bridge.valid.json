@@ -1,0 +1,14 @@
+{
+  "artifact_kind": "odin_y_handoff_packet",
+  "protocol_version": "7.1",
+  "y_handoff_id": "YH-001",
+  "centerline": "candidate_patchplan",
+  "ring_path": [
+    "R0",
+    "R1",
+    "R3",
+    "R5"
+  ],
+  "qirc_trace_ref": "QIRC-TRACE-001",
+  "claim_boundary": "candidate_only"
+}

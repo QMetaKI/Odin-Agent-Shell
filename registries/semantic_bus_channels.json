@@ -1,0 +1,286 @@
+{
+  "registry_id": "odin.semantic_bus_channels.v7_1",
+  "version": "7.1",
+  "channels": [
+    {
+      "name": "#odin.status",
+      "local_only": true
+    },
+    {
+      "name": "#odin.health",
+      "local_only": true
+    },
+    {
+      "name": "#odin.runtime",
+      "local_only": true
+    },
+    {
+      "name": "#odin.resource",
+      "local_only": true
+    },
+    {
+      "name": "#odin.model.posture",
+      "local_only": true
+    },
+    {
+      "name": "#app.handshake",
+      "local_only": true
+    },
+    {
+      "name": "#app.manifest",
+      "local_only": true
+    },
+    {
+      "name": "#app.event_digest",
+      "local_only": true
+    },
+    {
+      "name": "#app.context_request",
+      "local_only": true
+    },
+    {
+      "name": "#app.context_response",
+      "local_only": true
+    },
+    {
+      "name": "#work.received",
+      "local_only": true
+    },
+    {
+      "name": "#work.validate",
+      "local_only": true
+    },
+    {
+      "name": "#work.intent",
+      "local_only": true
+    },
+    {
+      "name": "#work.artifact",
+      "local_only": true
+    },
+    {
+      "name": "#work.verb",
+      "local_only": true
+    },
+    {
+      "name": "#work.output_contract",
+      "local_only": true
+    },
+    {
+      "name": "#work.boundary",
+      "local_only": true
+    },
+    {
+      "name": "#context.raw",
+      "local_only": true
+    },
+    {
+      "name": "#context.digest",
+      "local_only": true
+    },
+    {
+      "name": "#context.distill",
+      "local_only": true
+    },
+    {
+      "name": "#context.capsule",
+      "local_only": true
+    },
+    {
+      "name": "#context.privacy",
+      "local_only": true
+    },
+    {
+      "name": "#lens.select",
+      "local_only": true
+    },
+    {
+      "name": "#lens.text",
+      "local_only": true
+    },
+    {
+      "name": "#lens.document",
+      "local_only": true
+    },
+    {
+      "name": "#lens.code",
+      "local_only": true
+    },
+    {
+      "name": "#lens.log",
+      "local_only": true
+    },
+    {
+      "name": "#lens.event",
+      "local_only": true
+    },
+    {
+      "name": "#lens.state",
+      "local_only": true
+    },
+    {
+      "name": "#lens.game",
+      "local_only": true
+    },
+    {
+      "name": "#lens.wedding_speech",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.route",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.middle_out",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.seed",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.fit",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.mirror",
+      "local_only": true
+    },
+    {
+      "name": "#precompute.pressure",
+      "local_only": true
+    },
+    {
+      "name": "#worklet.graph",
+      "local_only": true
+    },
+    {
+      "name": "#worklet.node",
+      "local_only": true
+    },
+    {
+      "name": "#slot.forge",
+      "local_only": true
+    },
+    {
+      "name": "#slot.contract",
+      "local_only": true
+    },
+    {
+      "name": "#gaptext.build",
+      "local_only": true
+    },
+    {
+      "name": "#model.route",
+      "local_only": true
+    },
+    {
+      "name": "#model.3b",
+      "local_only": true
+    },
+    {
+      "name": "#model.7b",
+      "local_only": true
+    },
+    {
+      "name": "#model.hybrid",
+      "local_only": true
+    },
+    {
+      "name": "#model.response",
+      "local_only": true
+    },
+    {
+      "name": "#model.degraded",
+      "local_only": true
+    },
+    {
+      "name": "#model.blocked",
+      "local_only": true
+    },
+    {
+      "name": "#critic.claim",
+      "local_only": true
+    },
+    {
+      "name": "#critic.evidence",
+      "local_only": true
+    },
+    {
+      "name": "#critic.context",
+      "local_only": true
+    },
+    {
+      "name": "#critic.style",
+      "local_only": true
+    },
+    {
+      "name": "#critic.generic",
+      "local_only": true
+    },
+    {
+      "name": "#critic.schema",
+      "local_only": true
+    },
+    {
+      "name": "#critic.boundary",
+      "local_only": true
+    },
+    {
+      "name": "#candidate.ghost",
+      "local_only": true
+    },
+    {
+      "name": "#candidate.tournament",
+      "local_only": true
+    },
+    {
+      "name": "#candidate.compose",
+      "local_only": true
+    },
+    {
+      "name": "#candidate.dna",
+      "local_only": true
+    },
+    {
+      "name": "#candidate.ready",
+      "local_only": true
+    },
+    {
+      "name": "#response.packet",
+      "local_only": true
+    },
+    {
+      "name": "#response.render_hint",
+      "local_only": true
+    },
+    {
+      "name": "#response.blocked",
+      "local_only": true
+    },
+    {
+      "name": "#response.needs_context",
+      "local_only": true
+    },
+    {
+      "name": "#trace.event",
+      "local_only": true
+    },
+    {
+      "name": "#trace.export",
+      "local_only": true
+    },
+    {
+      "name": "#receipt.candidate",
+      "local_only": true
+    },
+    {
+      "name": "#claim.boundary",
+      "local_only": true
+    },
+    {
+      "name": "#reality.boundary",
+      "local_only": true
+    }
+  ]
+}

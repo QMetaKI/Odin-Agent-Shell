@@ -1,0 +1,9 @@
+{
+  "artifact_kind": "odin_pattern_mine_manifest",
+  "protocol_version": "7.1",
+  "id": "pattern-mine-valid",
+  "claim_boundary": "compile_only",
+  "flow_packs": [
+    "support_triage_flow"
+  ]
+}

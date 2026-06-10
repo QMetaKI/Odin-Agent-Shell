@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "binding_id",
+    "shadow_contract",
+    "active_seeds",
+    "archetype_roles",
+    "bug6_status",
+    "q7_status"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_shadow_seed_binding"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "binding_id": {
+      "type": "string"
+    },
+    "shadow_contract": {
+      "type": "string"
+    },
+    "active_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "archetype_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bug6_status": {
+      "type": "string"
+    },
+    "q7_status": {
+      "type": "string"
+    },
+    "why_trace_ref": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "artifact_kind": "odin_windows_build_ready_manifest",
+  "protocol_version": "7.1",
+  "processes": [
+    "odin-host",
+    "odin-daemon"
+  ],
+  "ipc": [
+    "named_pipe",
+    "localhost_http"
+  ],
+  "installer_profiles": [
+    "portable_zip"
+  ],
+  "safe_mode": {},
+  "support_bundle": {}
+}

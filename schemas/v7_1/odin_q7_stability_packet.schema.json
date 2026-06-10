@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "work_id",
+    "route_cleanliness_score",
+    "drift_risk",
+    "negative_path_coverage",
+    "replayability_status",
+    "candidate_boundary_status",
+    "decision"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_q7_stability_packet"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "route_cleanliness_score": {
+      "type": "number"
+    },
+    "drift_risk": {
+      "type": "number"
+    },
+    "negative_path_coverage": {
+      "type": "string"
+    },
+    "replayability_status": {
+      "type": "string"
+    },
+    "candidate_boundary_status": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "allow",
+        "repair_slot",
+        "split_work",
+        "hold",
+        "block"
+      ]
+    },
+    "repair_hint": {
+      "type": "string"
+    }
+  }
+}

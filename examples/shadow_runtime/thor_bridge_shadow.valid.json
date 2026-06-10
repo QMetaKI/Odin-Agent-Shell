@@ -1,0 +1,7 @@
+{
+  "work_id": "WORK-THOR-001",
+  "work_intent": {
+    "verb": "plan",
+    "goal": "PatchPlan candidate"
+  }
+}

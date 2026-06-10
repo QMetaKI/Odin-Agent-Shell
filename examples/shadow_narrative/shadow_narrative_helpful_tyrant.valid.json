@@ -1,0 +1,21 @@
+{
+  "artifact_kind": "odin_shadow_narrative",
+  "protocol_version": "7.1",
+  "story_id": "SN-HELPFUL-TYRANT",
+  "anti_pattern_id": "helpful_tyrant",
+  "violated_invariants": [
+    "app_owned_apply",
+    "candidate_only"
+  ],
+  "signals": [
+    "action_language",
+    "apply_request_inside_candidate"
+  ],
+  "required_gates": [
+    "human_review_app_apply_boundary"
+  ],
+  "repair_routes": [
+    "return_candidate_only"
+  ],
+  "claim_boundary": "candidate_only_not_runtime"
+}

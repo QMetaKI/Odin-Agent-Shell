@@ -1,0 +1,8 @@
+{
+  "artifact_kind": "odin_universal_model_agent_parity_flow",
+  "work_id": "WORK-AGENT-BLOCKED",
+  "selected_worker": "coding_agent",
+  "attempted_action": "apply_patch",
+  "blocked": true,
+  "block_reason": "agent_action_must_be_patchplan_candidate_not_apply"
+}

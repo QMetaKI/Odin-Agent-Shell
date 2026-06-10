@@ -1,0 +1,20 @@
+{
+  "registry_id": "odin.compiler_stage_registry.v7_1",
+  "version": "0.6.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "narrative_aorta_compiler_lock",
+  "stages": [
+    "parse_fairy",
+    "validate_ystar",
+    "build_mediation_directive",
+    "lower_to_shadow_ir",
+    "compile_runtime_pack",
+    "validate_pack",
+    "load_pack"
+  ],
+  "forbidden": [
+    "hot_path_live_codegen",
+    "model_generated_executable_code",
+    "unvalidated_pack_load"
+  ]
+}

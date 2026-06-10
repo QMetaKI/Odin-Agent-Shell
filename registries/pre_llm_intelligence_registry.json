@@ -1,0 +1,18 @@
+{
+  "registry_id": "odin.pre_llm_intelligence_registry.v7_1",
+  "version": "0.6.5",
+  "entries": [
+    {
+      "id": "hot_window_first",
+      "description": "Build hot-window context before model dispatch."
+    },
+    {
+      "id": "admissibility_before_model",
+      "description": "DFAS/QLI decision must precede model route."
+    },
+    {
+      "id": "output_composer_after_model",
+      "description": "Visible answer is composed candidate, not raw model text."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "acceptance_commands": [
+    "python -m odin.cli validate-all",
+    "python -m pytest -q -p no:cacheprovider",
+    "python -m odin.cli run-golden-flow",
+    "python -m odin.cli list-providers",
+    "python -m odin.cli build-hub --out .odin_runtime/hub/index.html",
+    "python -m odin.cli emit-support-bundle --out .odin_runtime/support"
+  ],
+  "artifact_kind": "odin_direct_runtime_release_candidate_registry",
+  "candidate_only": true,
+  "modules": [
+    {
+      "candidate_only": true,
+      "id": "runtime_core_completion",
+      "paths": [
+        "odin/runtime/config.py",
+        "odin/runtime/store.py",
+        "odin/runtime/session.py",
+        "odin/runtime/repair.py"
+      ]
+    },
+    {
+      "candidate_only": true,
+      "id": "app_sdk_and_golden_apps",
+      "paths": [
+        "odin_app_sdk/client.py",
+        "odin_app_sdk/manifest.py",
+        "examples/apps/minimal_notes_app/app.py",
+        "examples/apps/wedding_studio_mock/app.py",
+        "examples/apps/codex_handoff_mock/app.py",
+        "examples/apps/game_quest_mock/app.py"
+      ]
+    },
+    {
+      "candidate_only": true,
+      "id": "local_api_and_hub",
+      "paths": [
+        "odin/daemon/local_api.py",
+        "odin/hub/static_hub.py"
+      ]
+    },
+    {
+      "candidate_only": true,
+      "id": "provider_boundary",
+      "paths": [
+        "odin/models/providers/base.py",
+        "odin/models/providers/mock.py",
+        "odin/models/providers/stubs.py",
+        "odin/models/providers/registry.py"
+      ]
+    },
+    {
+      "candidate_only": true,
+      "id": "windows_handoff",
+      "paths": [
+        "windows/install_dev.ps1",
+        "windows/run_odin.ps1",
+        "windows/start_daemon.ps1",
+        "windows/open_hub.ps1",
+        "windows/emit_support_bundle.ps1",
+        "windows/README_WINDOWS_HOST.md"
+      ]
+    }
+  ],
+  "proof_boundaries": [
+    "no_windows_host_proof",
+    "no_service_tray_installer_proof",
+    "no_live_model_inference_proof",
+    "no_app_apply_by_odin"
+  ],
+  "registry_id": "direct_runtime_release_candidate_registry",
+  "release_candidate_locks": [
+    "v0.8.1",
+    "v0.8.2",
+    "v0.8.3",
+    "v0.8.4",
+    "v0.8.5",
+    "v0.8.6"
+  ],
+  "version": "0.8.6"
+}

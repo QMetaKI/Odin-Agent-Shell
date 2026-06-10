@@ -1,0 +1,18 @@
+{
+  "registry_id": "ai_git_safety_registry",
+  "version": "0.6.4",
+  "entries": [
+    {
+      "id": "candidate_branch",
+      "meaning": "candidate route branch, not app mutation"
+    },
+    {
+      "id": "semantic_diff",
+      "meaning": "meaning/risk/claim delta between input and candidate"
+    },
+    {
+      "id": "why_trace",
+      "meaning": "reviewable reason chain"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "work_id": "WORK-BUG6-Q7-001",
+  "markers": [],
+  "context_tokens": 800,
+  "max_context_tokens": 1600,
+  "context_tags": [
+    "context_clarity",
+    "schema_adherence",
+    "fairy_ystar_seed_binding"
+  ]
+}

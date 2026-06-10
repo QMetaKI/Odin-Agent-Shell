@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_release_readiness_gate.schema.json",
+  "title": "odin release readiness gate",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "gate_id": {
+      "type": "string"
+    },
+    "required_checks": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "gate_id"
+  ]
+}

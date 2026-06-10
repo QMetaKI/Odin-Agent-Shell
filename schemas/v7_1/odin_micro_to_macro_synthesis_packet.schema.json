@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_micro_to_macro_synthesis_packet.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "work_id",
+    "micro_results",
+    "macro_candidate_type",
+    "conflicts",
+    "candidate_only"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_micro_to_macro_synthesis_packet"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "micro_results": {
+      "type": "array"
+    },
+    "macro_candidate_type": {
+      "type": "string"
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    }
+  }
+}

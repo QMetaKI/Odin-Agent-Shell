@@ -1,0 +1,14 @@
+{
+  "bridge_id": "BRIDGE-001",
+  "digest_mode": "summary_only",
+  "allowed_channels": [
+    "task.state"
+  ],
+  "blocked_channels": [
+    "secrets",
+    "credentials"
+  ],
+  "requested_channels": [
+    "task.state"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "registry_id": "app_seed_pack_type_registry.v7_1",
+  "version": "7.1",
+  "status": "spec_lock",
+  "items_key": "seed_pack_types",
+  "seed_pack_types": [
+    {
+      "id": "domain_seed_pack",
+      "description": "domain-specific operational seeds"
+    },
+    {
+      "id": "workflow_seed_pack",
+      "description": "workflow and app-state guidance"
+    },
+    {
+      "id": "style_seed_pack",
+      "description": "tone and output-composer priors"
+    },
+    {
+      "id": "safety_seed_pack",
+      "description": "no-go, claim, privacy and app-boundary seeds"
+    },
+    {
+      "id": "low_memory_seed_pack",
+      "description": "small-model and no-model optimization profiles"
+    }
+  ],
+  "claim_boundary": "specification_only_not_runtime_claim"
+}

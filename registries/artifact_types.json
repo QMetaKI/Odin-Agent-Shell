@@ -1,0 +1,60 @@
+{
+  "registry_id": "odin.artifact_types.v7_1",
+  "version": "7.1",
+  "families": {
+    "text_document": [
+      "plain_text",
+      "markdown",
+      "html_fragment",
+      "document_excerpt",
+      "transcript",
+      "translation_source"
+    ],
+    "data_config": [
+      "json_object",
+      "yaml_object",
+      "csv_excerpt",
+      "schema",
+      "contract",
+      "form_data"
+    ],
+    "code_repo": [
+      "code_reference",
+      "code_excerpt",
+      "repo_context",
+      "diff",
+      "patch",
+      "error_log",
+      "stack_trace",
+      "test_output",
+      "build_log"
+    ],
+    "app_runtime": [
+      "event_digest",
+      "state_snapshot",
+      "workflow_state",
+      "ui_selection",
+      "tool_result",
+      "trace_log",
+      "receipt_ref"
+    ],
+    "game_interactive": [
+      "game_state_digest",
+      "scene_state_digest",
+      "npc_state",
+      "quest_state",
+      "dialogue_context",
+      "simulation_tick_digest"
+    ],
+    "media_reference": [
+      "image_reference",
+      "audio_reference",
+      "video_reference",
+      "file_reference",
+      "preview_digest",
+      "ocr_text",
+      "caption",
+      "metadata_digest"
+    ]
+  }
+}

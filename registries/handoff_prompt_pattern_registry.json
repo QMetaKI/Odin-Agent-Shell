@@ -1,0 +1,14 @@
+{
+  "patterns": [
+    "goal_scope_constraints_return",
+    "patchplan_candidate_prompt",
+    "review_note_prompt",
+    "risk_note_prompt",
+    "ask_context_prompt",
+    "split_work_prompt"
+  ],
+  "registry_id": "odin.handoff_prompt_pattern_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

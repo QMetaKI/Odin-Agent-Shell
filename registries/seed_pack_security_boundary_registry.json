@@ -1,0 +1,29 @@
+{
+  "registry_id": "seed_pack_security_boundary_registry.v7_1",
+  "version": "7.1",
+  "status": "spec_lock",
+  "items_key": "boundaries",
+  "boundaries": [
+    {
+      "id": "no_executable_seed_code",
+      "severity": "critical"
+    },
+    {
+      "id": "no_app_state_mutation",
+      "severity": "critical"
+    },
+    {
+      "id": "no_remote_permission_grant",
+      "severity": "critical"
+    },
+    {
+      "id": "no_final_gate_bypass",
+      "severity": "critical"
+    },
+    {
+      "id": "redact_blocked_sensitive_payloads",
+      "severity": "critical"
+    }
+  ],
+  "claim_boundary": "specification_only_not_runtime_claim"
+}

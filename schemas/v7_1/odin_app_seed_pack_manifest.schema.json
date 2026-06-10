@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "pack_id",
+    "producer",
+    "trust_tier",
+    "seed_families",
+    "operational_functions",
+    "privacy_class",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "trust_tier": {
+      "type": "string"
+    },
+    "seed_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operational_functions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy_class": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

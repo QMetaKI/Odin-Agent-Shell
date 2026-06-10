@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_windows_installer_profile.schema.json",
+  "title": "odin_windows_installer_profile",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "id",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

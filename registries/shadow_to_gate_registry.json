@@ -1,0 +1,16 @@
+{
+  "registry_id": "shadow_to_gate_registry",
+  "version": "0.7.0",
+  "mappings": [
+    {
+      "anti_pattern": "helpful_tyrant",
+      "gate": "human_review_app_apply_boundary",
+      "repair": "return_candidate_only"
+    },
+    {
+      "anti_pattern": "seed_hydra",
+      "gate": "seed_budget_noise_gate",
+      "repair": "top_k_cap_and_conflict_resolver"
+    }
+  ]
+}

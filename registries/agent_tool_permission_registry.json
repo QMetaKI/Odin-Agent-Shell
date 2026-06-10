@@ -1,0 +1,20 @@
+{
+  "permissions": [
+    {
+      "id": "draft_candidate_only",
+      "may_apply": false
+    },
+    {
+      "id": "command_preview_candidate_only",
+      "may_apply": false
+    },
+    {
+      "id": "blocked",
+      "may_apply": false
+    }
+  ],
+  "registry_id": "odin.agent_tool_permission_registry.v0_6_8",
+  "version": "0.6.8",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

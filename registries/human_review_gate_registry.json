@@ -1,0 +1,10 @@
+{
+  "registry_id": "human_review_gate_registry",
+  "version": "0.6.4",
+  "review_modes": [
+    "app_review",
+    "user_review",
+    "domain_owner_review",
+    "block"
+  ]
+}

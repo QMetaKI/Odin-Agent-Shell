@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "odin_fairy_story",
+  "protocol_version": "7.1",
+  "story_id": "FAIRY-001",
+  "title": "House of Odin Rewrite Flow",
+  "fairy_spine": "Maria tells that the gatekeeper checks keys, the weaver gathers red threads, and the messenger returns a golden candidate.",
+  "ystar_unit_ref": "YSTAR-001",
+  "nodes": [
+    {
+      "id": "gatekeeper",
+      "maps_to": "binding_gate"
+    },
+    {
+      "id": "weaver",
+      "maps_to": "context_distillery"
+    },
+    {
+      "id": "messenger",
+      "maps_to": "candidate_artifact"
+    }
+  ],
+  "claim_boundary": "fairy_story_is_not_executable"
+}

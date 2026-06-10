@@ -1,0 +1,18 @@
+{
+  "registry_id": "windows_ipc_endpoint_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "endpoints": [
+    {
+      "id": "host_daemon_pipe",
+      "transport": "named_pipe",
+      "auth": "local_scoped_token"
+    },
+    {
+      "id": "app_bridge_loopback",
+      "transport": "localhost_http",
+      "auth": "pairing_token"
+    }
+  ]
+}

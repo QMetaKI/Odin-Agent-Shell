@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_real_pr_execution_registry.schema.json",
+  "title": "Odin Real GitHub PR Execution Registry",
+  "type": "object",
+  "required": [
+    "registry_id",
+    "version",
+    "status",
+    "execution_prs",
+    "legacy_internal_ladders"
+  ],
+  "properties": {
+    "registry_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "architecture": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "string"
+    },
+    "legacy_internal_ladders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "execution_prs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "depends_on",
+          "internal_tasks",
+          "objective",
+          "primary_files",
+          "required_behavior",
+          "forbidden_scope",
+          "doc",
+          "acceptance",
+          "absorbs_internal_tasks",
+          "absorbs_legacy_bundles",
+          "fully_absorbs_legacy_bundles",
+          "partially_absorbs_legacy_bundles",
+          "expected_existing_paths",
+          "expected_new_paths",
+          "target_files",
+          "existing_files",
+          "acceptance_gates",
+          "proof_boundaries",
+          "must_run",
+          "must_preserve",
+          "master_architecture_sections",
+          "execution_scope",
+          "internal_ladder_relation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^REAL-GH-PR-[0-9]{2}$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "internal_tasks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "objective": {
+            "type": "string"
+          },
+          "primary_files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_behavior": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "doc": {
+            "type": "string"
+          },
+          "absorbs_internal_tasks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "absorbs_legacy_bundles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fully_absorbs_legacy_bundles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_existing_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_new_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "target_files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "existing_files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptance_gates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "proof_boundaries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "must_run": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "must_preserve": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "master_architecture_sections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "execution_scope": {
+            "type": "string"
+          },
+          "internal_ladder_relation": {
+            "type": "string"
+          },
+          "partially_absorbs_legacy_bundles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "covered_internal_tasks",
+                "total_internal_task_count"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "covered_internal_tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "total_internal_task_count": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "alignment_lock": {
+      "type": "string"
+    }
+  }
+}

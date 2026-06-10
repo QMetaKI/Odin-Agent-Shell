@@ -1,0 +1,20 @@
+def build_response_packet(work_id: str, caller_id: str, candidates: list[dict], trace_id: str) -> dict:
+    return {
+        "artifact_kind": "odin_response_packet",
+        "protocol_version": "7.1",
+        "response_id": f"ORP-{work_id}",
+        "request_id": None,
+        "work_id": work_id,
+        "caller_id": caller_id,
+        "response_kind": "candidate_artifact_bundle",
+        "candidates": candidates,
+        "status_chips": ["local", "candidate"],
+        "warnings": [],
+        "next_actions": [],
+        "blocked_claims": [],
+        "claim_status": "model_projection",
+        "evidence_status": "not_externally_verified",
+        "trace_id": trace_id,
+        "receipt_candidate_id": None,
+        "claim_boundary": "response_packet_is_candidate_not_app_apply",
+    }

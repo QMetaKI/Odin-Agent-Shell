@@ -1,0 +1,23 @@
+{
+  "registry_id": "archetype_role_registry",
+  "version": "7.1",
+  "roles": [
+    "archetype_synthesizer",
+    "boundary_guard",
+    "candidate_messenger",
+    "center_solver",
+    "context_weaver",
+    "fairy_mapper",
+    "invariant_keeper",
+    "mirror_critic",
+    "q7_cleaner",
+    "quality_scribe",
+    "recovery_keeper",
+    "runtime_pack_gardener",
+    "scout_router",
+    "seed_gardener",
+    "slot_smith",
+    "trace_keeper",
+    "why_lantern"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "registry_id": "odin.qirc_admissibility_reason_registry.v0_6_2",
+  "version": "0.6.2",
+  "reasons": [
+    "centerline_clear",
+    "scope_small_enough",
+    "candidate_only_preserved",
+    "remote_not_allowed",
+    "context_missing",
+    "seed_conflict_unresolved",
+    "quality_gain_below_cost",
+    "privacy_risk_high",
+    "app_authority_preserved"
+  ]
+}

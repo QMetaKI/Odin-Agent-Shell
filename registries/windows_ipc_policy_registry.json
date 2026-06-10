@@ -1,0 +1,29 @@
+{
+  "registry_id": "windows_ipc_policy_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "named_pipe_local",
+      "status": "candidate"
+    },
+    {
+      "id": "localhost_http_pairing",
+      "status": "candidate"
+    },
+    {
+      "id": "capability_token",
+      "status": "candidate"
+    },
+    {
+      "id": "wan_forbidden",
+      "status": "candidate"
+    },
+    {
+      "id": "lan_disabled_by_default",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

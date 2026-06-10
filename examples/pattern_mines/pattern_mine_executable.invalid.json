@@ -1,0 +1,7 @@
+{
+  "artifact_kind": "odin_pattern_mine_manifest",
+  "protocol_version": "7.1",
+  "id": "pattern-mine-invalid",
+  "claim_boundary": "invalid",
+  "forbidden": "execute arbitrary code"
+}

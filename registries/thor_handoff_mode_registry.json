@@ -1,0 +1,14 @@
+{
+  "modes": [
+    "compile_request",
+    "return_review",
+    "gap_report",
+    "risk_note",
+    "evidence_request",
+    "candidate_conflict"
+  ],
+  "registry_id": "odin.thor_handoff_mode_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

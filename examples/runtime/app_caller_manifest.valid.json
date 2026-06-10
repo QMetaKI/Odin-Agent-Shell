@@ -1,0 +1,17 @@
+{
+  "app_name": "Demo Markdown App",
+  "apply_boundary": {
+    "app_owned": true,
+    "external_send_by_app_only": true,
+    "odin_may_apply": false
+  },
+  "caller_id": "demo.markdown.app",
+  "permissions": [
+    "submit_work",
+    "receive_candidate",
+    "provide_seed_pack",
+    "provide_flow_pack"
+  ],
+  "protocol_version": "7.1",
+  "qirc_digest_mode": "digest_only"
+}

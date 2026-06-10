@@ -1,0 +1,23 @@
+{
+  "registry_id": "odin.narrative_aorta_registry.v7_1",
+  "version": "0.6.0",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "narrative_aorta_compiler_lock",
+  "nodes": [
+    {
+      "id": "aorta.gatekeeper.keys",
+      "ring": "R0",
+      "contract": "binding_gate"
+    },
+    {
+      "id": "aorta.weaver.red_threads",
+      "ring": "R3",
+      "contract": "context_capsule"
+    },
+    {
+      "id": "aorta.messenger.golden_candidate",
+      "ring": "R8",
+      "contract": "candidate_artifact"
+    }
+  ]
+}

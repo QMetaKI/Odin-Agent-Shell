@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_candidate_artifact.schema.json",
+  "title": "odin_candidate_artifact",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "candidate_id",
+    "candidate_type",
+    "work_id",
+    "caller_id",
+    "content",
+    "candidate_dna_ref",
+    "claim_status",
+    "evidence_status",
+    "trace_id",
+    "requires_app_apply_gate"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_candidate_artifact"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_type": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "caller_id": {
+      "type": "string"
+    },
+    "content": {
+      "type": [
+        "object",
+        "string",
+        "array",
+        "number",
+        "boolean",
+        "null"
+      ]
+    },
+    "render_hints": {
+      "type": "object"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "candidate_dna_ref": {
+      "type": "string"
+    },
+    "claim_status": {
+      "type": "string"
+    },
+    "evidence_status": {
+      "type": "string"
+    },
+    "blocked_claims": {
+      "type": "array"
+    },
+    "warnings": {
+      "type": "array"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "requires_app_apply_gate": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

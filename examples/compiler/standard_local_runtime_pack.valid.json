@@ -1,0 +1,38 @@
+{
+  "artifact_kind": "odin_runtime_pack",
+  "protocol_version": "7.1",
+  "pack_id": "standard_local_v7_1",
+  "source_shadow_hash": "sha256-shadow-placeholder",
+  "source_ystar_hash": "sha256-ystar-placeholder",
+  "resource_profile": "standard_local",
+  "capabilities": [
+    "universal_work",
+    "semantic_bus",
+    "context_distillery",
+    "slot_forge",
+    "model_route_standard",
+    "candidate_artifacts"
+  ],
+  "forbidden_capabilities": [
+    "direct_apply",
+    "external_send",
+    "unverified_runtime_claim"
+  ],
+  "compiled_tables": {
+    "verbs": "compiled/verbs.json",
+    "routes": "compiled/routes.json",
+    "policies": "compiled/policies.json",
+    "schemas": "compiled/schemas.json"
+  },
+  "tests_required": [
+    "candidate_only_gate",
+    "claim_boundary_gate",
+    "semantic_bus_local_only",
+    "model_route_ladder"
+  ],
+  "load_policy": {
+    "requires_validation": true,
+    "rollback_on_failure": true
+  },
+  "claim_boundary": "runtime_pack_requires_validation_before_load"
+}

@@ -1,0 +1,20 @@
+{
+  "registry_id": "public_build_readiness_registry",
+  "version": "7.1",
+  "status": "v0.7.5",
+  "claim_boundary": "registry guidance only; no runtime proof, host validation, model inference proof, network proof, security certification, app apply, or release claim",
+  "gates": [
+    {
+      "id": "validate_all"
+    },
+    {
+      "id": "pytest"
+    },
+    {
+      "id": "manifest_refreshed"
+    },
+    {
+      "id": "root_canon_current"
+    }
+  ]
+}

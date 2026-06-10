@@ -1,0 +1,15 @@
+{
+  "registry_id": "shadow_narrative_registry",
+  "version": "0.7.0",
+  "architecture": "Odin v7.1",
+  "status": "candidate_spec_lock",
+  "entries": [
+    "small_worker_overload",
+    "helpful_tyrant",
+    "golden_fog",
+    "seed_hydra",
+    "mirror_trap",
+    "false_ring_promotion",
+    "loki_gift_hidden_cost"
+  ]
+}

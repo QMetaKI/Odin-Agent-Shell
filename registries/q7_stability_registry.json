@@ -1,0 +1,19 @@
+{
+  "registry_id": "q7_stability_registry",
+  "version": "7.1",
+  "checks": [
+    "route_cleanliness",
+    "negative_path_coverage",
+    "replayability",
+    "candidate_boundary",
+    "drift_risk",
+    "failure_containment"
+  ],
+  "decisions": [
+    "allow",
+    "repair_slot",
+    "split_work",
+    "hold",
+    "block"
+  ]
+}

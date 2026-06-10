@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_universal_use_case_profile.schema.json",
+  "title": "odin_universal_use_case_profile",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "use_case",
+    "preferred_worker",
+    "output_contract"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "use_case": {
+      "type": "string"
+    },
+    "preferred_worker": {
+      "type": "string"
+    },
+    "output_contract": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

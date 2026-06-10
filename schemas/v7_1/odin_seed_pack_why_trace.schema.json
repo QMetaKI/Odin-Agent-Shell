@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "why_trace_id",
+    "active_seed_packs",
+    "blocked_seed_packs",
+    "route_impact",
+    "tokens_saved_estimate",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "why_trace_id": {
+      "type": "string"
+    },
+    "active_seed_packs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_seed_packs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "route_impact": {
+      "type": "string"
+    },
+    "tokens_saved_estimate": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

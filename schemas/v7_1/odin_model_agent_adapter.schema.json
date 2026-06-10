@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_model_agent_adapter.schema.json",
+  "title": "odin_model_agent_adapter",
+  "type": "object",
+  "required": [
+    "adapter_id",
+    "worker_id",
+    "accepted_input_contracts",
+    "allowed_output_contracts"
+  ],
+  "properties": {
+    "adapter_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "accepted_input_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_output_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

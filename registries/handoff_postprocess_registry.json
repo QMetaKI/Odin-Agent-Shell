@@ -1,0 +1,14 @@
+{
+  "postprocessors": [
+    "candidate_normalizer",
+    "claim_boundary_scanner",
+    "semantic_diff_builder",
+    "why_trace_builder",
+    "app_action_card_builder",
+    "review_gate"
+  ],
+  "registry_id": "odin.handoff_postprocess_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

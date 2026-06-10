@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_event_digest.schema.json",
+  "title": "odin_event_digest",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "event_digest_id",
+    "caller_id",
+    "digest",
+    "privacy_class"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_event_digest"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "event_digest_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "caller_id": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "digest": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    },
+    "privacy_class": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

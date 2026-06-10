@@ -1,0 +1,13 @@
+{
+  "bridges": [
+    "centerline_packet",
+    "ring_path_packet",
+    "qirc_trace_packet",
+    "seed_archetype_packet",
+    "smallest_worker_packet"
+  ],
+  "registry_id": "odin.y_handoff_bridge_registry",
+  "version": "0.6.7",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.7 Thor/Y/Mjölnir handoff compiler lock"
+}

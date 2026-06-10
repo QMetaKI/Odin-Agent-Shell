@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_centerline_packet.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "packet_id",
+    "work_id",
+    "active_center",
+    "admissibility_decision",
+    "authority_boundary",
+    "final_gate_required"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_centerline_packet"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "caller_id": {
+      "type": "string"
+    },
+    "active_center": {
+      "type": "string"
+    },
+    "admissibility_decision": {
+      "type": "string"
+    },
+    "authority_boundary": {
+      "type": "string"
+    },
+    "active_ring_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active_maria_michael_profile": {
+      "type": "string"
+    },
+    "active_seed_packet_ref": {
+      "type": "string"
+    },
+    "active_archetype_role_packet_ref": {
+      "type": "string"
+    },
+    "qmath_route_score_ref": {
+      "type": "string"
+    },
+    "why_trace_ref": {
+      "type": "string"
+    },
+    "allowed_routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_routes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "final_gate_required": {
+      "type": "boolean"
+    }
+  }
+}

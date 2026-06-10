@@ -1,0 +1,14 @@
+{
+  "artifact_kind": "odin_pre_llm_intelligence_packet",
+  "work_id": "WORK-065",
+  "trace_id": "TRACE-065",
+  "centerline_id": "CENTER-065",
+  "admissibility": "go",
+  "model_required": false,
+  "pre_model_steps": [
+    "hot_window",
+    "seed_prewarm",
+    "avoidance"
+  ],
+  "claim_boundary": "candidate_projection_only"
+}

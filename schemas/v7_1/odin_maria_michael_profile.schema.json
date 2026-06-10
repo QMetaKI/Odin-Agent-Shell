@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_maria_michael_profile.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "profile_id",
+    "maria",
+    "michael",
+    "collapse_rule"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_maria_michael_profile"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "maria": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "michael": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "best_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "collapse_rule": {
+      "type": "string"
+    },
+    "override_policy": {
+      "type": "string"
+    }
+  }
+}

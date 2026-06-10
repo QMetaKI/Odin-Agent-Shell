@@ -1,0 +1,30 @@
+{
+  "registry_id": "autonomy_escalation_gate_registry",
+  "version": "0.6.4",
+  "levels": [
+    {
+      "id": "A0",
+      "name": "observe_digest_only"
+    },
+    {
+      "id": "A1",
+      "name": "candidate_artifact"
+    },
+    {
+      "id": "A2",
+      "name": "candidate_action_card"
+    },
+    {
+      "id": "A3",
+      "name": "app_owned_preview_request"
+    },
+    {
+      "id": "A4",
+      "name": "app_owned_apply_after_review"
+    },
+    {
+      "id": "A5",
+      "name": "forbidden_for_odin"
+    }
+  ]
+}

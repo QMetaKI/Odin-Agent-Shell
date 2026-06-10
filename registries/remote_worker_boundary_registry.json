@@ -1,0 +1,13 @@
+{
+  "boundaries": [
+    {
+      "id": "remote_redacted_candidate_worker",
+      "remote_allowed": true,
+      "raw_state_allowed": false
+    }
+  ],
+  "registry_id": "odin.remote_worker_boundary_registry.v0_6_8",
+  "version": "0.6.8",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "v0.6.8 Universal LLM Work Construct and GPL-2.0-only lock"
+}

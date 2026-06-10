@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_universal_llm_worker.schema.json",
+  "title": "odin_universal_llm_worker",
+  "type": "object",
+  "required": [
+    "worker_id",
+    "worker_kind",
+    "capability_card_ref",
+    "permission_card_ref"
+  ],
+  "properties": {
+    "worker_id": {
+      "type": "string"
+    },
+    "worker_kind": {
+      "type": "string"
+    },
+    "capability_card_ref": {
+      "type": "string"
+    },
+    "permission_card_ref": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

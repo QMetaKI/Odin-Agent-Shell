@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "odin_why_trace.v7_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "why_trace_id",
+    "work_id",
+    "selected_route",
+    "summary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_why_trace"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "why_trace_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "selected_center": {
+      "type": "string"
+    },
+    "selected_route": {
+      "type": "string"
+    },
+    "active_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active_archetype_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_routes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "redaction_level": {
+      "type": "string"
+    }
+  }
+}

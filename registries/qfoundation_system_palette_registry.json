@@ -1,0 +1,16 @@
+{
+  "registry_id": "qfoundation_system_palette_registry",
+  "version": "7.1",
+  "profiles": [
+    "app_builder_like_work",
+    "chatbot_like_work",
+    "document_system_work",
+    "repo_audit_or_code_work",
+    "game_or_interactive_work",
+    "local_node_or_runtime_work",
+    "knowledge_os_work",
+    "business_or_workflow_os_work",
+    "legal_boundary_like_work",
+    "narrative_code_or_fairy_work"
+  ]
+}

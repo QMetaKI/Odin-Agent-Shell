@@ -1,0 +1,616 @@
+{
+  "architecture": "Odin Agent Shell v7.1",
+  "canonical_docs": [
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/MASTER_SPECS_V7_1.md",
+    "docs/UNIVERSAL_WORK_KERNEL.md",
+    "docs/INTERNAL_SEMANTIC_BUS.md",
+    "docs/SMALL_MODEL_POWER_LAYER.md",
+    "docs/MODEL_SCALE_LADDER.md",
+    "docs/APP_INTEGRATION_STANDARD.md",
+    "docs/LOCAL_MEDIATION_PROTOCOL_V7_1.md",
+    "docs/API_SPEC.md",
+    "docs/WINDOWS_RUNTIME.md",
+    "docs/STORAGE_SPEC.md",
+    "docs/TESTING_AND_GATES.md",
+    "docs/CODEX_BUILD_CONTRACT.md",
+    "docs/SUBSYSTEM_INDEX.md",
+    "docs/DATA_CONTRACTS_V7_1.md",
+    "docs/ALGORITHMS_V7_1.md",
+    "docs/FLOW_CATALOG_V7_1.md",
+    "docs/IMPLEMENTATION_DOD_V7_1.md",
+    "docs/codex/CODEX_TASK_LOCK_V0_4_0.md",
+    "docs/codex/IMPLEMENTATION_SEQUENCE_V0_4_0.md",
+    "docs/codex/PR_DEPENDENCY_GRAPH_V0_4_0.md",
+    "docs/codex/TASK_DOD_MATRIX_V0_4_0.md",
+    "docs/codex/CODEX_PROMPT_PACKS_V0_4_0.md",
+    "docs/codex/PR_TASK_INDEX.md",
+    "docs/codex/CODEX_REAL_PR_BUNDLE_PLAN_V0_4_1.md",
+    "docs/codex/REAL_PR_BUNDLE_INDEX_V0_4_1.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
+    "docs/SENIOR_REVIEW_REMEDIATION_PLAN_V0_4_2.md",
+    "docs/CODEX_ANTI_DRIFT_POLICY.md",
+    "docs/TRACEABILITY_MATRIX_V7_1.md",
+    "docs/QUALITY_RISK_REGISTER_V7_1.md",
+    "docs/SEMANTIC_BUS_RED_LINES_V7_1.md",
+    "docs/PUBLIC_REPO_RELEASE_CHECKLIST_V7_1.md",
+    "docs/codex/SENIOR_REVIEW_CODEX_ADDENDUM_V0_4_2.md",
+    "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+    "docs/SHADOW_RUNTIME_CODE_NEAR_BOOK_V7_1.md",
+    "docs/SHADOW_RUNTIME_TO_REAL_BUILD_MAPPING_V7_1.md",
+    "docs/CONTRACT_TO_SHADOW_CODE_MAP_V7_1.md",
+    "docs/SHADOW_RUNTIME_STATE_MACHINES_V7_1.md",
+    "docs/SHADOW_RUNTIME_ACCEPTANCE_TESTS_V7_1.md",
+    "docs/YNODE_SHADOW_RUNTIME_PATTERN_ADAPTATION_V7_1.md",
+    "docs/SHADOW_RUNTIME_FULL_COVERAGE_V7_1.md",
+    "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md",
+    "docs/SHADOW_RUNTIME_NEAR_FINAL_LOCK_V7_1.md",
+    "docs/SHADOW_RUNTIME_E2E_ORCHESTRATOR_V7_1.md",
+    "docs/SHADOW_RUNTIME_CODEX_CONVERSION_PLAYBOOK_V7_1.md",
+    "docs/codex/tasks/PR-25_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_LOCK.md",
+    "docs/codex/bundles/REAL-PR-11_SHADOW_RUNTIME_NEAR_FINAL_OPTIMIZATION_BRIDGE.md",
+    "docs/FAIRY_DSL_V7_1.md",
+    "docs/YSTAR_NATIVE_DSL_V7_1.md",
+    "docs/NARRATIVE_AORTA_V7_1.md",
+    "docs/SHADOW_RUNTIME_COMPILER_V7_1.md",
+    "docs/RUNTIME_PACK_SPEC_V7_1.md",
+    "docs/CAPABILITY_SLICE_COMPILER_V7_1.md",
+    "docs/AOT_CACHED_JIT_FALLBACK_V7_1.md",
+    "docs/ODIN_CORE_CENTERLINE_V7_1.md",
+    "docs/ODIN_QLI_MASTER_INTERFACE_V7_1.md",
+    "docs/DFAS_STABILITY_CORE_V7_1.md",
+    "docs/SEED_ARCHETYPE_ECONOMY_V7_1.md",
+    "docs/QMATH_CENTER_SOLVER_V7_1.md",
+    "docs/RING_RADAR_RESONANCE_V7_1.md",
+    "docs/WHY_TRACE_EXPLAINABILITY_V7_1.md",
+    "docs/MARIA_MICHAEL_SUPERPOSITION_V7_1.md",
+    "docs/QFOUNDATION_SYSTEM_INTAKE_V7_1.md",
+    "docs/Q_METAMODELL_INTAKE_V7_1.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_1.md",
+    "docs/ODIN_QIRC_GOLD_SPINE_V7_1.md",
+    "docs/QIRC_CHANNEL_TAXONOMY_V7_1.md",
+    "docs/QIRC_EVENT_ENVELOPE_V2_V7_1.md",
+    "docs/QIRC_HOT_WINDOW_MEMORY_V7_1.md",
+    "docs/QIRC_SEED_ARCHETYPE_PREWARM_V7_1.md",
+    "docs/QIRC_ADMISSIBILITY_GATE_V7_1.md",
+    "docs/QIRC_RING_RADAR_RUNTIME_V7_1.md",
+    "docs/QIRC_WHY_TRACE_V7_1.md",
+    "docs/QIRC_RUNTIME_PACK_INTEGRATION_V7_1.md",
+    "docs/QIRC_APP_BRIDGE_DIGEST_V7_1.md",
+    "docs/BUG6_CHILDREN_FIRST_INVARIANT_V7_1.md",
+    "docs/Q7_BUGFREE_STABILITY_V7_1.md",
+    "docs/Y_CORE_POSTURE_V7_1.md",
+    "docs/OPERATIONAL_SEED_SUBSTRATE_V7_1.md",
+    "docs/BUG6_Q7_SEED_CORE_SYNTHESIS_V7_1.md",
+    "docs/FAIRY_YSTAR_SEED_BINDING_V7_1.md",
+    "docs/SHADOW_RUNTIME_SEED_WEAVE_V7_1.md",
+    "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md",
+    "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+    "docs/AUTONOMY_ESCALATION_GATE_V7_1.md",
+    "docs/SAFETY_SUPERPOSITION_POLICY_V7_1.md",
+    "docs/SEMANTIC_DIFF_BRANCH_MERGE_V7_1.md",
+    "docs/SKYNET_PATTERN_BOUNDARY_V7_1.md",
+    "docs/HUMAN_REVIEW_APP_APPLY_BOUNDARY_V7_1.md",
+    "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md",
+    "docs/ODIN_PRE_MODEL_COGNITION_V7_1.md",
+    "docs/QIRC_PRECOMPUTE_FIELD_V7_1.md",
+    "docs/MODEL_WORK_AVOIDANCE_V7_1.md",
+    "docs/OUTPUT_INTELLIGENCE_COMPOSER_V7_1.md",
+    "docs/PERCEIVED_INTELLIGENCE_METRICS_V7_1.md",
+    "docs/MICRO_TO_MACRO_CANDIDATE_SYNTHESIS_V7_1.md",
+    "docs/MICRO_MODEL_ILLUSION_BOUNDARY_V7_1.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_5.md",
+    "docs/UNIVERSAL_MODEL_AGENT_PARITY_V7_1.md",
+    "docs/MODEL_AGENT_CAPABILITY_CARDS_V7_1.md",
+    "docs/UNIVERSAL_AGENT_CANDIDATE_PROTOCOL_V7_1.md",
+    "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+    "docs/THOR_PROMPT_EXTRACTION_AND_PULL_V7_1.md",
+    "docs/THOR_RETURN_REVIEW_RECEIPT_PIPELINE_V7_1.md",
+    "docs/Y_HANDOFF_COMPILER_BRIDGE_V7_1.md",
+    "docs/MJOLNIR_STRIKE_HANDOFF_BRIDGE_V7_1.md",
+    "docs/HANDOFF_PROMPT_CANONICALIZATION_V7_1.md",
+    "docs/HANDOFF_TO_UNIVERSAL_WORK_FLOW_V7_1.md",
+    "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+    "docs/THOR_Y_MJOLNIR_CONSOLIDATION_V7_1.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_7.md",
+    "docs/UNIVERSAL_LLM_WORK_CONSTRUCT_V7_1.md",
+    "docs/THOR_ODIN_AI_GIT_LAYER_V7_1.md",
+    "docs/UNIVERSAL_MODEL_AGENT_ADAPTERS_V7_1.md",
+    "docs/REMOTE_MODEL_WORKER_BOUNDARY_V7_1.md",
+    "docs/LOCAL_REMOTE_LLM_PARITY_V7_1.md",
+    "docs/AGENT_TOOL_PERMISSION_BOUNDARY_V7_1.md",
+    "docs/UNIVERSAL_USE_CASE_MATRIX_V7_1.md",
+    "docs/ANY_MODEL_ANY_AGENT_SAME_BOUNDARY_V7_1.md",
+    "docs/THOR_ODIN_GPL2_ONLY_POLICY.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_8.md",
+    "LICENSE_POLICY.md",
+    "THOR_ODIN_GPL2_ONLY_POLICY.md",
+    "PROTOCOL_BOUNDARY.md",
+    "SPDX_POLICY.md",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+    "docs/UNIVERSAL_SEED_PACK_FORMAT_V7_1.md",
+    "docs/SEED_PACK_SECURITY_BOUNDARY_V7_1.md",
+    "docs/SHADOW_NARRATIVE_V7_1.md",
+    "docs/ANTI_FAIRY_DSL_V7_1.md",
+    "docs/LOKI_MEDIATION_LAYER_V7_1.md",
+    "docs/NARRATIVE_ANTIPATTERN_MIRROR_V7_1.md",
+    "docs/FAILURE_STORY_REGISTRY_V7_1.md",
+    "docs/SHADOW_NARRATIVE_TO_GATES_V7_1.md",
+    "docs/NARRATIVE_RED_TEAM_COMPILER_V7_1.md",
+    "docs/LOKI_BOUNDARY_POLICY_V7_1.md",
+    "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_7_0.md",
+    "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+    "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+    "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md",
+    "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+    "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md",
+    "docs/WINDOWS_IMPLEMENTATION_DRILLDOWN_V7_1.md",
+    "docs/MVP_V1_POWER_MODE_BOUNDARY_V7_1.md",
+    "docs/SEED_PATTERN_PACK_SECURITY_CERTIFICATION_V7_1.md",
+    "docs/CODEX_PUBLIC_BUILD_READY_GATE_V7_1.md",
+    "docs/REAL_PR_EXECUTION_CONSOLIDATION_LOCK_V7_1.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_6.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_7_6.md",
+    "docs/BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK_V7_1.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_7.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_7_7.md",
+    "docs/RUNTIME_SOURCE_CANDIDATE_V0_8_0.md",
+    "docs/RUNTIME_SOURCE_MODULE_MAP_V0_8_0.md",
+    "docs/WINDOWS_DIRECT_SOURCE_HANDOFF_V0_8_0.md",
+    "docs/CODEX_RUNTIME_CANDIDATE_HANDOFF_V0_8_0.md",
+    "docs/codex/CHATGPT_DIRECT_RUNTIME_BUILD_PLAN_V0_8_0.md",
+    "docs/DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK_V0_8_6.md",
+    "docs/CODEX_DIRECT_RUNTIME_RC_HANDOFF_V0_8_6.md",
+    "docs/CODEX_REAL_PR_HANDOFF_LADDER_LOCK_V0_8_7.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md",
+    "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md"
+  ],
+  "canonical_entrypoints": [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "AGENTS.md",
+    "CODEX_START_HERE.md",
+    "SYSTEM_MAP.json"
+  ],
+  "codex": {
+    "actual_execution_registry": "registries/real_pr_execution_registry.json",
+    "latest_real_bundle": "REAL-PR-18",
+    "latest_real_pr_bundle": "REAL-GH-PR-08"
+  },
+  "codex_phases": [
+    "docs/codex/PHASE_0_CANON_LOCK.md",
+    "docs/codex/PHASE_1_UNIVERSAL_CORE.md",
+    "docs/codex/PHASE_2_SEMANTIC_BUS.md",
+    "docs/codex/PHASE_3_SMALL_MODEL_POWER.md",
+    "docs/codex/PHASE_4_MODEL_RUNTIME.md",
+    "docs/codex/PHASE_5_WINDOWS_APP.md",
+    "docs/codex/PHASE_6_APP_SDKS_TEMPLATES.md"
+  ],
+  "codex_real_pr_bundles": [
+    "docs/codex/CODEX_REAL_PR_BUNDLE_PLAN_V0_4_1.md",
+    "docs/codex/REAL_PR_BUNDLE_INDEX_V0_4_1.md",
+    "registries/codex_pr_bundle_registry.json",
+    "docs/codex/bundles",
+    "docs/codex/bundles/REAL-PR-09_SHADOW_RUNTIME_MECHANICAL_BUILD_BRIDGE.md",
+    "docs/codex/tasks/PR-24_FULL_SHADOW_RUNTIME_COVERAGE.md",
+    "docs/codex/bundles/REAL-PR-10_FULL_SHADOW_RUNTIME_COVERAGE.md",
+    "registries/real_pr_execution_registry.json"
+  ],
+  "codex_task_lock": [
+    "docs/codex/CODEX_TASK_LOCK_V0_4_0.md",
+    "docs/codex/IMPLEMENTATION_SEQUENCE_V0_4_0.md",
+    "docs/codex/PR_DEPENDENCY_GRAPH_V0_4_0.md",
+    "docs/codex/TASK_DOD_MATRIX_V0_4_0.md",
+    "docs/codex/CODEX_PROMPT_PACKS_V0_4_0.md",
+    "docs/codex/PR_TASK_INDEX.md",
+    "registries/codex_task_registry.json",
+    "docs/codex/CODEX_REAL_PR_BUNDLE_PLAN_V0_4_1.md",
+    "docs/codex/REAL_PR_BUNDLE_INDEX_V0_4_1.md",
+    "registries/codex_pr_bundle_registry.json"
+  ],
+  "codex_task_registry": "registries/codex_task_registry.json",
+  "codex_tasks_dir": "docs/codex/tasks",
+  "deep_subsystem_specs": [
+    "docs/ACCEPTANCE_TESTS_V7_1.md",
+    "docs/ALGORITHMS_V7_1.md",
+    "docs/API_SPEC.md",
+    "docs/APP_INTEGRATION_STANDARD.md",
+    "docs/BOUNDED_CODE_WORK.md",
+    "docs/CLAIM_BOUNDARY.md",
+    "docs/CODEX_BUILD_CONTRACT.md",
+    "docs/DATA_CONTRACTS_V7_1.md",
+    "docs/FLOW_CATALOG_V7_1.md",
+    "docs/IMPLEMENTATION_DOD_V7_1.md",
+    "docs/INTERNAL_SEMANTIC_BUS.md",
+    "docs/LOCAL_MEDIATION_PROTOCOL_V7_1.md",
+    "docs/MODEL_SCALE_LADDER.md",
+    "docs/REGISTRY_POLICY.md",
+    "docs/SCHEMA_POLICY.md",
+    "docs/SECURITY_PRIVACY.md",
+    "docs/SMALL_MODEL_POWER_LAYER.md",
+    "docs/STORAGE_SPEC.md",
+    "docs/SUBSYSTEM_INDEX.md",
+    "docs/TESTING_AND_GATES.md",
+    "docs/THOR_INTEGRATION.md",
+    "docs/UNIVERSAL_WORK_KERNEL.md",
+    "docs/WINDOWS_RUNTIME.md",
+    "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+    "docs/SHADOW_RUNTIME_CODE_NEAR_BOOK_V7_1.md",
+    "docs/SHADOW_RUNTIME_TO_REAL_BUILD_MAPPING_V7_1.md",
+    "docs/CONTRACT_TO_SHADOW_CODE_MAP_V7_1.md",
+    "docs/SHADOW_RUNTIME_STATE_MACHINES_V7_1.md",
+    "docs/SHADOW_RUNTIME_ACCEPTANCE_TESTS_V7_1.md",
+    "docs/YNODE_SHADOW_RUNTIME_PATTERN_ADAPTATION_V7_1.md",
+    "docs/SHADOW_RUNTIME_FULL_COVERAGE_V7_1.md",
+    "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md"
+  ],
+  "default_model_strategy": "3b_7b_8b_hybrid",
+  "layers": {
+    "pre_llm_intelligence": "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md"
+  },
+  "license": "GPL-2.0-only",
+  "locks": {
+    "v0_7_5": "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md"
+  },
+  "narrative_compiler_layer": {
+    "default_rule": "Fairy prose does not execute; Y* validates and stages; runtime packs load only after validation.",
+    "internal_tasks": [
+      "PR-26",
+      "PR-27",
+      "PR-28",
+      "PR-29",
+      "PR-30",
+      "PR-31",
+      "PR-32",
+      "PR-33",
+      "PR-34",
+      "PR-35",
+      "PR-36",
+      "PR-37"
+    ],
+    "real_bundles": [
+      "REAL-PR-12",
+      "REAL-PR-13"
+    ],
+    "status": "integrated_into_v7_1"
+  },
+  "non_claim": "This is repo-prep and architecture/spec canon, not completed runtime proof.",
+  "python_package": "odin",
+  "registries": {
+    "pre_llm_intelligence": "registries/pre_llm_intelligence_registry.json",
+    "qirc_gold_spine": [
+      "registries/qirc_channel_registry.json",
+      "registries/qirc_event_type_registry.json",
+      "registries/qirc_role_channel_matrix.json",
+      "registries/qirc_admissibility_reason_registry.json",
+      "registries/qirc_hot_window_policy_registry.json"
+    ],
+    "universal_llm_worker": "registries/universal_llm_worker_registry.json"
+  },
+  "registries_dir": "registries",
+  "repo": "Odin-Agent-Shell",
+  "schemas_dir": "schemas/v7_1",
+  "shadow_runtime_lock": {
+    "bundle": "REAL-PR-09",
+    "coverage_docs": [
+      "docs/SHADOW_RUNTIME_FULL_COVERAGE_V7_1.md",
+      "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md"
+    ],
+    "docs": [
+      "docs/SHADOW_RUNTIME_LOCK_V7_1.md",
+      "docs/SHADOW_RUNTIME_CODE_NEAR_BOOK_V7_1.md",
+      "docs/SHADOW_RUNTIME_TO_REAL_BUILD_MAPPING_V7_1.md",
+      "docs/CONTRACT_TO_SHADOW_CODE_MAP_V7_1.md",
+      "docs/SHADOW_RUNTIME_STATE_MACHINES_V7_1.md",
+      "docs/SHADOW_RUNTIME_ACCEPTANCE_TESTS_V7_1.md",
+      "docs/YNODE_SHADOW_RUNTIME_PATTERN_ADAPTATION_V7_1.md"
+    ],
+    "package": "odin/shadow_runtime",
+    "registry": "registries/shadow_runtime_contract_registry.json",
+    "status": "full_shadow_runtime_coverage",
+    "task": "PR-23"
+  },
+  "status": "v0.8.7 Codex Real PR Handoff Ladder Lock",
+  "tests_dir": "tests",
+  "v0_6_1_odin_core_qli_dfas_seed_economy": {
+    "bundle": "REAL-PR-14",
+    "docs": [
+      "docs/ODIN_CORE_CENTERLINE_V7_1.md",
+      "docs/ODIN_QLI_MASTER_INTERFACE_V7_1.md",
+      "docs/DFAS_STABILITY_CORE_V7_1.md",
+      "docs/SEED_ARCHETYPE_ECONOMY_V7_1.md",
+      "docs/QMATH_CENTER_SOLVER_V7_1.md",
+      "docs/RING_RADAR_RESONANCE_V7_1.md",
+      "docs/WHY_TRACE_EXPLAINABILITY_V7_1.md",
+      "docs/MARIA_MICHAEL_SUPERPOSITION_V7_1.md",
+      "docs/QFOUNDATION_SYSTEM_INTAKE_V7_1.md",
+      "docs/Q_METAMODELL_INTAKE_V7_1.md",
+      "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_1.md"
+    ],
+    "registries": [
+      "seed_registry.json",
+      "archetype_role_registry.json",
+      "qmath_score_registry.json",
+      "maria_michael_profile_registry.json"
+    ],
+    "tasks": [
+      "PR-38",
+      "PR-39",
+      "PR-40",
+      "PR-41",
+      "PR-42",
+      "PR-43",
+      "PR-44"
+    ]
+  },
+  "v0_6_3_bug6_q7_seed_core": {
+    "bundle": "REAL-PR-16",
+    "docs": [
+      "docs/BUG6_CHILDREN_FIRST_INVARIANT_V7_1.md",
+      "docs/Q7_BUGFREE_STABILITY_V7_1.md",
+      "docs/Y_CORE_POSTURE_V7_1.md",
+      "docs/OPERATIONAL_SEED_SUBSTRATE_V7_1.md",
+      "docs/BUG6_Q7_SEED_CORE_SYNTHESIS_V7_1.md",
+      "docs/FAIRY_YSTAR_SEED_BINDING_V7_1.md",
+      "docs/SHADOW_RUNTIME_SEED_WEAVE_V7_1.md",
+      "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md"
+    ],
+    "registries": [
+      "registries/bug6_invariant_registry.json",
+      "registries/q7_stability_registry.json",
+      "registries/y_core_posture_registry.json",
+      "registries/operational_seed_substrate_registry.json",
+      "registries/seed_archetype_synthesis_registry.json"
+    ],
+    "schemas": [
+      "schemas/v7_1/odin_bug6_invariant_packet.schema.json",
+      "schemas/v7_1/odin_q7_stability_packet.schema.json",
+      "schemas/v7_1/odin_y_core_posture.schema.json",
+      "schemas/v7_1/odin_operational_seed_substrate.schema.json",
+      "schemas/v7_1/odin_seed_archetype_synthesis.schema.json",
+      "schemas/v7_1/odin_shadow_seed_binding.schema.json"
+    ],
+    "tasks": [
+      "PR-50",
+      "PR-51",
+      "PR-52",
+      "PR-53",
+      "PR-54",
+      "PR-55"
+    ]
+  },
+  "v0_6_4_ai_git_safety_consolidation": {
+    "codex_tasks": [
+      "PR-56",
+      "PR-57",
+      "PR-58",
+      "PR-59",
+      "PR-60"
+    ],
+    "docs": [
+      "docs/AI_GIT_SAFETY_ARCHITECTURE_V7_1.md",
+      "docs/AUTONOMY_ESCALATION_GATE_V7_1.md",
+      "docs/SAFETY_SUPERPOSITION_POLICY_V7_1.md",
+      "docs/SEMANTIC_DIFF_BRANCH_MERGE_V7_1.md",
+      "docs/SKYNET_PATTERN_BOUNDARY_V7_1.md",
+      "docs/HUMAN_REVIEW_APP_APPLY_BOUNDARY_V7_1.md"
+    ],
+    "real_bundle": "REAL-PR-17",
+    "registries": [
+      "registries/ai_git_safety_registry.json",
+      "registries/autonomy_escalation_gate_registry.json",
+      "registries/safety_superposition_registry.json"
+    ],
+    "schemas": [
+      "schemas/v7_1/odin_ai_git_safety_packet.schema.json",
+      "schemas/v7_1/odin_autonomy_escalation_gate.schema.json",
+      "schemas/v7_1/odin_safety_superposition_packet.schema.json"
+    ]
+  },
+  "v0_6_6_universal_model_agent_parity": {
+    "boundary": "all model/agent work is candidate-only and app-owned apply remains external to Odin",
+    "codex_tasks": [
+      "PR-66",
+      "PR-67",
+      "PR-68",
+      "PR-69",
+      "PR-70",
+      "PR-71",
+      "PR-72"
+    ],
+    "docs": [
+      "docs/UNIVERSAL_MODEL_AGENT_PARITY_V7_1.md",
+      "docs/MODEL_AGENT_CAPABILITY_CARDS_V7_1.md",
+      "docs/UNIVERSAL_AGENT_CANDIDATE_PROTOCOL_V7_1.md"
+    ],
+    "real_bundle": "REAL-PR-19",
+    "registries": [
+      "registries/model_agent_card_registry.json",
+      "registries/model_agent_permission_registry.json",
+      "registries/universal_agent_parity_registry.json"
+    ],
+    "schemas": "schemas/v7_1/",
+    "shadow_runtime": "odin/shadow_runtime/"
+  },
+  "v0_6_7_thor_y_mjolnir_handoff_compiler": {
+    "claim_boundary": "handoff compiler candidate-only; no execution, no apply, no claim acceptance, no receipt issuance",
+    "docs": [
+      "docs/THOR_Y_HANDOFF_COMPILER_CORE_V7_1.md",
+      "docs/THOR_PROMPT_EXTRACTION_AND_PULL_V7_1.md",
+      "docs/THOR_RETURN_REVIEW_RECEIPT_PIPELINE_V7_1.md",
+      "docs/Y_HANDOFF_COMPILER_BRIDGE_V7_1.md",
+      "docs/MJOLNIR_STRIKE_HANDOFF_BRIDGE_V7_1.md",
+      "docs/HANDOFF_PROMPT_CANONICALIZATION_V7_1.md",
+      "docs/HANDOFF_TO_UNIVERSAL_WORK_FLOW_V7_1.md",
+      "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+      "docs/THOR_Y_MJOLNIR_CONSOLIDATION_V7_1.md",
+      "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_6_7.md"
+    ],
+    "internal_tasks": [
+      "PR-73",
+      "PR-74",
+      "PR-75",
+      "PR-76",
+      "PR-77",
+      "PR-78",
+      "PR-79",
+      "PR-80"
+    ],
+    "real_bundle": "REAL-PR-20",
+    "registries": [
+      "registries/handoff_source_registry.json",
+      "registries/thor_handoff_mode_registry.json",
+      "registries/handoff_prompt_pattern_registry.json",
+      "registries/y_handoff_bridge_registry.json",
+      "registries/mjolnir_bridge_registry.json",
+      "registries/handoff_postprocess_registry.json"
+    ],
+    "schemas": [
+      "schemas/v7_1/odin_thor_handoff_request.schema.json",
+      "schemas/v7_1/odin_handoff_prompt_pull.schema.json",
+      "schemas/v7_1/odin_handoff_compile_packet.schema.json",
+      "schemas/v7_1/odin_handoff_return_packet.schema.json",
+      "schemas/v7_1/odin_y_handoff_packet.schema.json",
+      "schemas/v7_1/odin_mjolnir_strike_candidate.schema.json",
+      "schemas/v7_1/odin_handoff_review_gate.schema.json",
+      "schemas/v7_1/odin_handoff_why_trace.schema.json"
+    ],
+    "shadow_modules": [
+      "odin/shadow_runtime/thor_handoff_compiler_shadow.py",
+      "odin/shadow_runtime/handoff_prompt_pull_shadow.py",
+      "odin/shadow_runtime/thor_return_review_shadow.py",
+      "odin/shadow_runtime/y_handoff_bridge_shadow.py",
+      "odin/shadow_runtime/mjolnir_strike_bridge_shadow.py",
+      "odin/shadow_runtime/handoff_to_universal_work_shadow.py",
+      "odin/shadow_runtime/handoff_postprocessing_shadow.py"
+    ]
+  },
+  "v0_6_9_app_seed_pack_compiler": {
+    "boundary": "declarative seed packs only; no executable seed-pack code; candidate-only",
+    "bundle": "REAL-PR-22",
+    "docs": [
+      "docs/APP_SEED_PACK_COMPILER_V7_1.md",
+      "docs/UNIVERSAL_SEED_PACK_FORMAT_V7_1.md",
+      "docs/OPERATIONAL_SEED_FUNCTIONS_V7_1.md",
+      "docs/SEED_PACK_SECURITY_BOUNDARY_V7_1.md",
+      "docs/SEED_PACK_TO_RUNTIME_PACK_COMPILER_V7_1.md"
+    ],
+    "registries": [
+      "registries/app_seed_pack_type_registry.json",
+      "registries/operational_seed_function_registry.json",
+      "registries/seed_pack_compiler_stage_registry.json"
+    ],
+    "schemas_dir": "schemas/v7_1/",
+    "tasks": [
+      "PR-87",
+      "PR-88",
+      "PR-89",
+      "PR-90",
+      "PR-91",
+      "PR-92"
+    ]
+  },
+  "v0_7_0_shadow_narrative_loki_antipattern": {
+    "claim_boundary": "typed anti-pattern mirror only; no Loki authority; no prose execution",
+    "codex_tasks": [
+      "PR-93",
+      "PR-94",
+      "PR-95",
+      "PR-96",
+      "PR-97"
+    ],
+    "docs": [
+      "docs/SHADOW_NARRATIVE_V7_1.md",
+      "docs/LOKI_MEDIATION_LAYER_V7_1.md"
+    ],
+    "real_bundle": "REAL-PR-23",
+    "registries": [
+      "registries/narrative_antipattern_registry.json",
+      "registries/shadow_to_gate_registry.json"
+    ],
+    "schemas": "schemas/v7_1/odin_shadow_narrative.schema.json"
+  },
+  "v0_7_4_product_pattern_atom_hub": {
+    "odin_hub_operational_center": "docs/ODIN_HUB_OPERATIONAL_CENTER_LOCK_V7_1.md",
+    "pattern_mine_flow_pack_intake": "docs/PATTERN_MINE_FLOW_PACK_INTAKE_LOCK_V7_1.md",
+    "real_bundles": [
+      "REAL-PR-24",
+      "REAL-PR-25",
+      "REAL-PR-26",
+      "REAL-PR-27"
+    ],
+    "windows_product_runtime": "docs/WINDOWS_PRODUCT_RUNTIME_LOCK_V7_1.md",
+    "work_atom_runtime": "docs/WORK_ATOM_RUNTIME_LOCK_V7_1.md"
+  },
+  "v0_7_6_real_pr_execution_consolidation": {
+    "execution_index": "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_7_6.md",
+    "execution_plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_6.md",
+    "execution_pr_count": 8,
+    "execution_registry": "registries/real_pr_execution_registry.json",
+    "internal_ladders": [
+      "registries/codex_task_registry.json",
+      "registries/codex_pr_bundle_registry.json"
+    ],
+    "lock_doc": "docs/REAL_PR_EXECUTION_CONSOLIDATION_LOCK_V7_1.md"
+  },
+  "v0_7_7_build_ladder_absolute_alignment": {
+    "actual_execution_registry": "registries/real_pr_execution_registry.json",
+    "actual_index": "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_7_7.md",
+    "actual_plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_7.md",
+    "actual_prs": "REAL-GH-PR-01..REAL-GH-PR-08",
+    "internal_ladders": [
+      "registries/codex_task_registry.json",
+      "registries/codex_pr_bundle_registry.json"
+    ],
+    "lock_doc": "docs/BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK_V7_1.md",
+    "rule": "internal ladders are traceability only; actual GitHub sequence is REAL-GH-PR-01..08"
+  },
+  "v0_8_0_direct_runtime_source_candidate": {
+    "claim_boundary": "local runtime source candidate only",
+    "commands": [
+      "doctor",
+      "run-work",
+      "compile-seed-pack",
+      "compile-pattern-mine",
+      "build-hub",
+      "emit-support-bundle",
+      "serve"
+    ],
+    "docs": [
+      "docs/RUNTIME_SOURCE_CANDIDATE_V0_8_0.md",
+      "docs/RUNTIME_SOURCE_MODULE_MAP_V0_8_0.md",
+      "docs/WINDOWS_DIRECT_SOURCE_HANDOFF_V0_8_0.md",
+      "docs/CODEX_RUNTIME_CANDIDATE_HANDOFF_V0_8_0.md",
+      "docs/codex/CHATGPT_DIRECT_RUNTIME_BUILD_PLAN_V0_8_0.md"
+    ],
+    "examples_dir": "examples/runtime",
+    "lock": "DIRECT_MASTER_ARCHITECTURE_RUNTIME_SOURCE_CANDIDATE",
+    "registry": "registries/runtime_source_module_registry.json",
+    "tests": [
+      "tests/test_runtime_source_candidate_v080.py"
+    ]
+  },
+  "v0_8_6_direct_runtime_release_candidate": {
+    "claim_boundary": "no_host_windows_or_live_model_proof_claimed",
+    "docs": [
+      "docs/DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK_V0_8_6.md",
+      "docs/CODEX_DIRECT_RUNTIME_RC_HANDOFF_V0_8_6.md",
+      "docs/RELEASE_CANDIDATE_ACCEPTANCE_REPORT_V0_8_6.md"
+    ],
+    "registry": "registries/direct_runtime_release_candidate_registry.json",
+    "status": "runtime_release_candidate_source_lock"
+  },
+  "v0_8_7_codex_real_pr_handoff_ladder": {
+    "actual_execution_ladder": "REAL-GH-PR-01..08",
+    "base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+    "claim_boundary": "codex_handoff_plan_not_completed_host_or_provider_proof",
+    "index": "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md",
+    "lock": "CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+    "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
+    "registry": "registries/codex_real_pr_handoff_registry.json"
+  },
+  "version": "0.8.7"
+}

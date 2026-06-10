@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_windows_ipc_endpoint.schema.json",
+  "title": "odin windows ipc endpoint",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "endpoint_id": {
+      "type": "string"
+    },
+    "transport": {
+      "type": "string"
+    },
+    "auth": {
+      "type": "string"
+    },
+    "allowed_use": {
+      "type": "string"
+    },
+    "forbidden": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "endpoint_id",
+    "transport"
+  ]
+}

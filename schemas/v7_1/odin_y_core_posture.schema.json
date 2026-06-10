@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "posture_id",
+    "authority_scope",
+    "app_authority_preserved",
+    "odin_scope",
+    "rings"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_y_core_posture"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "posture_id": {
+      "type": "string"
+    },
+    "authority_scope": {
+      "const": "odin_llm_work_only"
+    },
+    "app_authority_preserved": {
+      "type": "boolean"
+    },
+    "odin_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rings": {
+      "type": "object"
+    }
+  }
+}

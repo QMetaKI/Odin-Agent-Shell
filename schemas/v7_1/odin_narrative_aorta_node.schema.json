@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Odin Narrative Aorta Node",
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_narrative_aorta_node"
+    },
+    "protocol_version": {
+      "const": "7.1"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "fairy_label": {
+      "type": "string"
+    },
+    "ystar_node_ref": {
+      "type": "string"
+    },
+    "runtime_contract_ref": {
+      "type": "string"
+    },
+    "ring": {
+      "type": "string"
+    },
+    "authority_posture": {
+      "type": "string"
+    },
+    "forbidden_edges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trace_label": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "protocol_version",
+    "node_id",
+    "fairy_label",
+    "ystar_node_ref",
+    "runtime_contract_ref",
+    "ring",
+    "authority_posture",
+    "forbidden_edges",
+    "output_artifacts",
+    "trace_label"
+  ]
+}

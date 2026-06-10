@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "odin_output_intelligence_composition.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "candidate_id",
+    "work_id",
+    "composition_pattern",
+    "fragments",
+    "actions",
+    "candidate_only"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "const": "odin_output_intelligence_composition"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "composition_pattern": {
+      "type": "string"
+    },
+    "fragments": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    }
+  }
+}

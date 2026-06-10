@@ -1,0 +1,45 @@
+{
+  "registry_id": "odin_hub_command_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "doctor",
+      "status": "candidate"
+    },
+    {
+      "id": "safe_mode",
+      "status": "candidate"
+    },
+    {
+      "id": "compile_runtime_pack",
+      "status": "candidate"
+    },
+    {
+      "id": "compile_seed_pack",
+      "status": "candidate"
+    },
+    {
+      "id": "ingest_pattern_mine",
+      "status": "candidate"
+    },
+    {
+      "id": "rollback_pack",
+      "status": "candidate"
+    },
+    {
+      "id": "export_support_bundle",
+      "status": "candidate"
+    },
+    {
+      "id": "revalidate_app",
+      "status": "candidate"
+    },
+    {
+      "id": "revoke_app",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

@@ -1,0 +1,29 @@
+{
+  "registry_id": "pattern_spine_registry",
+  "version": "0.7.4",
+  "architecture": "odin_v7_1",
+  "status": "prep_lock",
+  "items": [
+    {
+      "id": "source_to_pattern",
+      "status": "candidate"
+    },
+    {
+      "id": "pattern_to_seed",
+      "status": "candidate"
+    },
+    {
+      "id": "pattern_to_atom",
+      "status": "candidate"
+    },
+    {
+      "id": "pattern_to_qirc",
+      "status": "candidate"
+    },
+    {
+      "id": "pattern_to_candidate",
+      "status": "candidate"
+    }
+  ],
+  "claim_boundary": "registry guidance only; no runtime proof"
+}

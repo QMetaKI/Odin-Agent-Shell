@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin-agent-shell.local/schemas/v7_1/odin_narrative_red_team_case.schema.json",
+  "title": "odin_narrative_red_team_case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "anti_pattern_id",
+    "invalid_fixture",
+    "expected_gate",
+    "expected_decision"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "anti_pattern_id": {
+      "type": "string"
+    },
+    "invalid_fixture": {
+      "type": "string"
+    },
+    "expected_gate": {
+      "type": "string"
+    },
+    "expected_decision": {
+      "type": "string"
+    },
+    "artifact_kind": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    }
+  }
+}

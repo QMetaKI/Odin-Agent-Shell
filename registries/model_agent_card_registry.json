@@ -1,0 +1,46 @@
+{
+  "registry_id": "model_agent_card_registry",
+  "version": "0.6.6",
+  "architecture": "Odin Agent Shell v7.1",
+  "status": "universal_model_agent_parity_lock",
+  "cards": [
+    {
+      "id": "local_3b_micro",
+      "worker_kind": "local_model",
+      "best_for": [
+        "route",
+        "extract",
+        "critic",
+        "schema_repair"
+      ],
+      "permission_profile": "candidate_only_local"
+    },
+    {
+      "id": "local_7b_quality",
+      "worker_kind": "local_model",
+      "best_for": [
+        "write",
+        "synthesize",
+        "review"
+      ],
+      "permission_profile": "candidate_only_local"
+    },
+    {
+      "id": "coding_agent_patchplan",
+      "worker_kind": "coding_agent",
+      "best_for": [
+        "patchplan",
+        "review"
+      ],
+      "permission_profile": "patchplan_candidate_only"
+    },
+    {
+      "id": "browser_agent_research",
+      "worker_kind": "browser_agent",
+      "best_for": [
+        "research_candidate"
+      ],
+      "permission_profile": "research_candidate_only"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_kind",
+    "slice_id",
+    "pack_refs",
+    "resource_profile",
+    "included_seeds",
+    "qirc_channels",
+    "model_routes",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "slice_id": {
+      "type": "string"
+    },
+    "pack_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resource_profile": {
+      "type": "string"
+    },
+    "included_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qirc_channels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model_routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "registry_id": "seed_pack_compiler_stage_registry.v7_1",
+  "version": "7.1",
+  "status": "spec_lock",
+  "items_key": "stages",
+  "stages": [
+    {
+      "id": "SPC-01",
+      "name": "manifest_validation"
+    },
+    {
+      "id": "SPC-02",
+      "name": "trust_classification"
+    },
+    {
+      "id": "SPC-03",
+      "name": "seed_unit_normalization"
+    },
+    {
+      "id": "SPC-04",
+      "name": "operational_function_validation"
+    },
+    {
+      "id": "SPC-05",
+      "name": "seed_graph_construction"
+    },
+    {
+      "id": "SPC-06",
+      "name": "conflict_decay_analysis"
+    },
+    {
+      "id": "SPC-07",
+      "name": "budget_fanout_capping"
+    },
+    {
+      "id": "SPC-08",
+      "name": "archetype_role_binding"
+    },
+    {
+      "id": "SPC-09",
+      "name": "qirc_prewarm_plan"
+    },
+    {
+      "id": "SPC-10",
+      "name": "ystar_fairy_binding"
+    },
+    {
+      "id": "SPC-11",
+      "name": "shadow_runtime_seed_weave"
+    },
+    {
+      "id": "SPC-12",
+      "name": "runtime_pack_capability_slice"
+    },
+    {
+      "id": "SPC-13",
+      "name": "generated_gates"
+    },
+    {
+      "id": "SPC-14",
+      "name": "why_trace_profile"
+    }
+  ],
+  "claim_boundary": "specification_only_not_runtime_claim"
+}
