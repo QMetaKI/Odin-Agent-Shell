@@ -1,26 +1,32 @@
 # Odin Agent Shell — Master Architecture v7.1
 
-> **Status:** Architecture/specification canon for the future public `Odin-Agent-Shell` repository.
-> **Claim boundary:** This repository state is a build-prep canon and scaffold. It does not claim host proof, model proof, external verification, or completed runtime behavior.
+> **Status:** Architecture/specification canon for the public `Odin-Agent-Shell` repository. Current handoff: v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK. Runtime base: v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK.
+> **Claim boundary:** This repository state is a candidate-only handoff and runtime-base canon. It does not claim production readiness, host proof, Windows service/tray/installer proof, model proof, external verification, security certification, external-send proof, app-state mutation proof, or completed runtime behavior.
 > **Public language:** neutral terminology. Internal inspiration may come from QIRC/YNode/QFoundation/Q Metamodell/Thor patterns, but the public repo should describe the system as Odin Agent Shell.
 
 
 ## 0. Architecture Status
 
-**Version:** v7.1  
-**Repository state:** v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK  
-**Primary target:** Windows-first local daemon + tray + control center + SDKs  
-**Primary consumer:** independent apps that need local LLM capability without embedding models  
-**Primary KPI:** maximum quality, speed, safety, universality, traceability and app-visible usefulness from small local models.  
-**Default model strategy:** 3B + 7B/8B hybrid.  
-**Optional acceleration/coordination layer:** Internal Semantic IRC Bus.  
+**Version:** v7.1
+**Repository state:** v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK
+**Runtime base:** v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK
+**Historical alignment marker:** v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK
+**Primary target:** Windows-first local daemon + tray + control center + SDKs
+**Primary consumer:** independent apps that need local LLM capability without embedding models
+**Primary KPI:** maximum quality, speed, safety, universality, traceability and app-visible usefulness from small local models.
+**Default model strategy:** 3B + 7B/8B hybrid.
+**Optional acceleration/coordination layer:** Internal Semantic IRC Bus.
 **Architectural posture:** local-first, candidate-only, app-sovereign, small-model-first, resource-aware.
 
 
 
-## 0.7.7 Build Execution Ladder
+## 0.8.7 Current Codex/GitHub Handoff Ladder
 
-The current actual build execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json`.
+The current actual Codex/GitHub execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json` and `registries/codex_real_pr_handoff_registry.json`. The v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK is the runtime base for this handoff.
+
+## 0.7.7 Historical Build Execution Ladder Alignment
+
+The historical v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK established that the actual build execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json`.
 
 `PR-00..PR-123` and `REAL-PR-01..REAL-PR-28` are internal traceability ladders only. They are not independent execution paths.
 
@@ -352,11 +358,11 @@ Artifacts are typed. Lenses interpret artifact families.
 
 ## Artifact families
 
-Text/document: plain_text, markdown, html_fragment, document_excerpt, transcript, translation_source.  
-Data/config: json_object, yaml_object, csv_excerpt, schema, contract, form_data.  
-Code/repo: code_reference, code_excerpt, repo_context, diff, patch, error_log, stack_trace, test_output, build_log.  
-App/runtime: event_digest, state_snapshot, workflow_state, ui_selection, tool_result, trace_log, receipt_ref.  
-Game/interactive: game_state_digest, scene_state_digest, npc_state, quest_state, dialogue_context, simulation_tick_digest.  
+Text/document: plain_text, markdown, html_fragment, document_excerpt, transcript, translation_source.
+Data/config: json_object, yaml_object, csv_excerpt, schema, contract, form_data.
+Code/repo: code_reference, code_excerpt, repo_context, diff, patch, error_log, stack_trace, test_output, build_log.
+App/runtime: event_digest, state_snapshot, workflow_state, ui_selection, tool_result, trace_log, receipt_ref.
+Game/interactive: game_state_digest, scene_state_digest, npc_state, quest_state, dialogue_context, simulation_tick_digest.
 Media references: image_reference, audio_reference, video_reference, file_reference, preview_digest, ocr_text, caption, metadata_digest.
 
 ## Trust statuses
@@ -562,8 +568,8 @@ Let larger models be escalation, not default.
 
 ## Small model roles
 
-3B roles: extractor, router, compressor, schema repair, no-go critic, claim critic, style critic, genericness critic, short candidate generator.  
-7B/8B roles: writer, synthesizer, document section drafter, patchplan candidate drafter, review summarizer, style rewriter.  
+3B roles: extractor, router, compressor, schema repair, no-go critic, claim critic, style critic, genericness critic, short candidate generator.
+7B/8B roles: writer, synthesizer, document section drafter, patchplan candidate drafter, review summarizer, style rewriter.
 Hybrid: 3B scouts/checks, 7B writes/synthesizes, Odin composes/gates.
 
 
@@ -660,11 +666,11 @@ L11 cannot safely complete
 
 ## Resource profiles
 
-low_memory_strict: templates, deterministic, bus light, 1B/2B/3B micro.  
-standard_local: 3B + 7B/8B sweet spot.  
-quality_local: 3B + 13B/14B optional quality.  
-heavy_local: 22B/32B or MoE/offload for batch-friendly work.  
-max_local_batch: very large local/offload, not live UX.  
+low_memory_strict: templates, deterministic, bus light, 1B/2B/3B micro.
+standard_local: 3B + 7B/8B sweet spot.
+quality_local: 3B + 13B/14B optional quality.
+heavy_local: 22B/32B or MoE/offload for batch-friendly work.
+max_local_batch: very large local/offload, not live UX.
 remote_optional: explicit permission only.
 
 ## Latency modes
@@ -2663,7 +2669,7 @@ app-owned apply remains external to Odin
 ## Flow: Simple Rewrite
 
 
-**Formula:** `selected markdown -> rewrite verb -> markdown_candidate`  
+**Formula:** `selected markdown -> rewrite verb -> markdown_candidate`
 **Default route:** 3B micro or 7B if quality required.
 
 
@@ -2689,7 +2695,7 @@ Return response packet
 ## Flow: Document Summary
 
 
-**Formula:** `document excerpt -> summarize -> summary_candidate`  
+**Formula:** `document excerpt -> summarize -> summary_candidate`
 **Default route:** 3B for short; 7B/8B for long; split if broad.
 
 
@@ -2715,7 +2721,7 @@ Return response packet
 ## Flow: Action Card
 
 
-**Formula:** `workflow_state -> plan/review -> action_card_candidate`  
+**Formula:** `workflow_state -> plan/review -> action_card_candidate`
 **Default route:** deterministic + 3B; candidate only.
 
 
@@ -2741,7 +2747,7 @@ Return response packet
 ## Flow: Code PatchPlan
 
 
-**Formula:** `repo_context -> plan -> patchplan_candidate`  
+**Formula:** `repo_context -> plan -> patchplan_candidate`
 **Default route:** Thor bridge + hybrid; no patch apply.
 
 
@@ -2767,7 +2773,7 @@ Return response packet
 ## Flow: Error Explain
 
 
-**Formula:** `error_log -> explain -> debug_hypothesis_candidate`  
+**Formula:** `error_log -> explain -> debug_hypothesis_candidate`
 **Default route:** 3B/7B depending complexity.
 
 
@@ -2793,7 +2799,7 @@ Return response packet
 ## Flow: Wedding Speech Section
 
 
-**Formula:** `project digest -> draft -> ceremony_section_candidate`  
+**Formula:** `project digest -> draft -> ceremony_section_candidate`
 **Default route:** 3B extract/check + 7B write.
 
 
@@ -2819,7 +2825,7 @@ Return response packet
 ## Flow: Game NPC Line
 
 
-**Formula:** `game_state_digest -> generate_candidate -> npc_line_candidate`  
+**Formula:** `game_state_digest -> generate_candidate -> npc_line_candidate`
 **Default route:** 3B fast/7B quality.
 
 
@@ -2845,7 +2851,7 @@ Return response packet
 ## Flow: App QIRC Digest
 
 
-**Formula:** `bridge digest -> summarize/route -> context capsule`  
+**Formula:** `bridge digest -> summarize/route -> context capsule`
 **Default route:** bus local digest only.
 
 
@@ -2871,7 +2877,7 @@ Return response packet
 ## Flow: Low Memory Assist
 
 
-**Formula:** `event digest -> template/gaptext -> small candidate`  
+**Formula:** `event digest -> template/gaptext -> small candidate`
 **Default route:** deterministic/1B/2B/3B.
 
 
@@ -2897,7 +2903,7 @@ Return response packet
 ## Flow: Heavy Batch Draft
 
 
-**Formula:** `large doc set -> compose -> document_section_bundle`  
+**Formula:** `large doc set -> compose -> document_section_bundle`
 **Default route:** quality/heavy local batch.
 
 

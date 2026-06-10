@@ -1,25 +1,31 @@
 # Odin Agent Shell — Master Specs v7.1
 
-> **Status:** Architecture/specification canon for the future public `Odin-Agent-Shell` repository.
-> **Claim boundary:** This repository state is a build-prep canon and scaffold. It does not claim host proof, model proof, external verification, or completed runtime behavior.
+> **Status:** Architecture/specification canon for the public `Odin-Agent-Shell` repository. Current handoff: v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK. Runtime base: v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK.
+> **Claim boundary:** This repository state is a candidate-only handoff and runtime-base canon. It does not claim production readiness, host proof, Windows service/tray/installer proof, model proof, external verification, security certification, external-send proof, app-state mutation proof, or completed runtime behavior.
 > **Public language:** neutral terminology. Internal inspiration may come from QIRC/YNode/QFoundation/Q Metamodell/Thor patterns, but the public repo should describe the system as Odin Agent Shell.
 
 
 ## 0. Spec Status
 
-**Spec name:** Odin Agent Shell Master Specs  
-**Architecture base:** Master Architecture v7.1  
-**Repository state:** v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK  
-**Runtime claim:** specification/scaffold only unless later receipts prove more.  
-**Implementation target:** Codex-build-ready public repo prep.  
-**Default route:** 3B + 7B/8B hybrid.  
+**Spec name:** Odin Agent Shell Master Specs
+**Architecture base:** Master Architecture v7.1
+**Repository state:** v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK
+**Runtime base:** v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK
+**Historical alignment marker:** v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK
+**Runtime claim:** candidate-only runtime base unless later receipts prove more.
+**Implementation target:** REAL-GH-PR-01..08 Codex/GitHub hardening sequence.
+**Default route:** 3B + 7B/8B hybrid.
 **Core invariant:** every AI-like feature must become Universal Work and every output must be Candidate Artifact.
 
 
 
-## 0.7.7 Build Execution Ladder
+## 0.8.7 Current Codex/GitHub Handoff Ladder
 
-The current actual build execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json`.
+The current actual Codex/GitHub execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json` and `registries/codex_real_pr_handoff_registry.json`. The v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK is the runtime base for this handoff.
+
+## 0.7.7 Historical Build Execution Ladder Alignment
+
+The historical v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK established that the actual build execution ladder is `REAL-GH-PR-01..REAL-GH-PR-08` in `registries/real_pr_execution_registry.json`.
 
 `PR-00..PR-123` and `REAL-PR-01..REAL-PR-28` are internal traceability ladders only. They are not independent execution paths.
 
@@ -791,8 +797,8 @@ v0.7.7 BUILD_LADDER_ABSOLUTE_ALIGNMENT_LOCK requires the master docs, subsystem 
 ## M.1 `caller_manifest.py`
 
 
-**Required functions/classes:** `load_manifest, validate_manifest, enforce_manifest_limits`  
-**Inputs:** caller manifest json.  
+**Required functions/classes:** `load_manifest, validate_manifest, enforce_manifest_limits`
+**Inputs:** caller manifest json.
 **Outputs:** validated manifest or errors.
 
 
@@ -818,8 +824,8 @@ Postconditions:
 ## M.2 `binding.py`
 
 
-**Required functions/classes:** `create_binding, validate_binding`  
-**Inputs:** manifest + request.  
+**Required functions/classes:** `create_binding, validate_binding`
+**Inputs:** manifest + request.
 **Outputs:** binding object.
 
 
@@ -845,8 +851,8 @@ Postconditions:
 ## M.3 `universal_work_validator.py`
 
 
-**Required functions/classes:** `validate_universal_work, compile_universal_work`  
-**Inputs:** Universal Work.  
+**Required functions/classes:** `validate_universal_work, compile_universal_work`
+**Inputs:** Universal Work.
 **Outputs:** CompiledWork.
 
 
@@ -872,8 +878,8 @@ Postconditions:
 ## M.4 `artifact_lenses.py`
 
 
-**Required functions/classes:** `select_lenses, validate_lens_compatibility`  
-**Inputs:** artifacts + verb.  
+**Required functions/classes:** `select_lenses, validate_lens_compatibility`
+**Inputs:** artifacts + verb.
 **Outputs:** active lenses.
 
 
@@ -899,8 +905,8 @@ Postconditions:
 ## M.5 `system_profile_compiler.py`
 
 
-**Required functions/classes:** `compile_system_profile`  
-**Inputs:** work + resources + policy.  
+**Required functions/classes:** `compile_system_profile`
+**Inputs:** work + resources + policy.
 **Outputs:** system profile.
 
 
@@ -926,8 +932,8 @@ Postconditions:
 ## M.6 `semantic_bus/bus.py`
 
 
-**Required functions/classes:** `start, stop, publish, subscribe, open_batch, replay`  
-**Inputs:** semantic events.  
+**Required functions/classes:** `start, stop, publish, subscribe, open_batch, replay`
+**Inputs:** semantic events.
 **Outputs:** bus status/events.
 
 
@@ -953,8 +959,8 @@ Postconditions:
 ## M.7 `context_distillery.py`
 
 
-**Required functions/classes:** `build_context_capsule`  
-**Inputs:** work + digest + lenses.  
+**Required functions/classes:** `build_context_capsule`
+**Inputs:** work + digest + lenses.
 **Outputs:** context capsule.
 
 
@@ -980,8 +986,8 @@ Postconditions:
 ## M.8 `worklet_graph.py`
 
 
-**Required functions/classes:** `build_graph, validate_graph`  
-**Inputs:** compiled work.  
+**Required functions/classes:** `build_graph, validate_graph`
+**Inputs:** compiled work.
 **Outputs:** worklet graph.
 
 
@@ -1007,8 +1013,8 @@ Postconditions:
 ## M.9 `slot_forge.py`
 
 
-**Required functions/classes:** `forge_slot, validate_slot`  
-**Inputs:** worklet + route.  
+**Required functions/classes:** `forge_slot, validate_slot`
+**Inputs:** worklet + route.
 **Outputs:** slot contract.
 
 
@@ -1034,8 +1040,8 @@ Postconditions:
 ## M.10 `model_router.py`
 
 
-**Required functions/classes:** `select_route, explain_route`  
-**Inputs:** slot + resources + policy.  
+**Required functions/classes:** `select_route, explain_route`
+**Inputs:** slot + resources + policy.
 **Outputs:** route plan.
 
 
@@ -1061,8 +1067,8 @@ Postconditions:
 ## M.11 `model_work_packet.py`
 
 
-**Required functions/classes:** `build_packet, validate_packet`  
-**Inputs:** slot + capsule.  
+**Required functions/classes:** `build_packet, validate_packet`
+**Inputs:** slot + capsule.
 **Outputs:** ModelWorkPacket.
 
 
@@ -1088,8 +1094,8 @@ Postconditions:
 ## M.12 `provider adapters`
 
 
-**Required functions/classes:** `list_models, health, run_packet`  
-**Inputs:** ModelWorkPacket.  
+**Required functions/classes:** `list_models, health, run_packet`
+**Inputs:** ModelWorkPacket.
 **Outputs:** ModelResponse.
 
 
@@ -1115,8 +1121,8 @@ Postconditions:
 ## M.13 `return_minicheck.py`
 
 
-**Required functions/classes:** `check_response`  
-**Inputs:** ModelResponse.  
+**Required functions/classes:** `check_response`
+**Inputs:** ModelResponse.
 **Outputs:** Minicheck.
 
 
@@ -1142,8 +1148,8 @@ Postconditions:
 ## M.14 `critic_cascade.py`
 
 
-**Required functions/classes:** `run_critics`  
-**Inputs:** candidate draft.  
+**Required functions/classes:** `run_critics`
+**Inputs:** candidate draft.
 **Outputs:** critic reports.
 
 
@@ -1169,8 +1175,8 @@ Postconditions:
 ## M.15 `candidate_tournament.py`
 
 
-**Required functions/classes:** `run_tournament`  
-**Inputs:** candidate set.  
+**Required functions/classes:** `run_tournament`
+**Inputs:** candidate set.
 **Outputs:** ranked candidates.
 
 
@@ -1196,8 +1202,8 @@ Postconditions:
 ## M.16 `candidate_artifact_builder.py`
 
 
-**Required functions/classes:** `build_candidate`  
-**Inputs:** outputs + reports.  
+**Required functions/classes:** `build_candidate`
+**Inputs:** outputs + reports.
 **Outputs:** CandidateArtifact.
 
 
@@ -1223,8 +1229,8 @@ Postconditions:
 ## M.17 `response_packet.py`
 
 
-**Required functions/classes:** `build_response_packet`  
-**Inputs:** candidate bundle.  
+**Required functions/classes:** `build_response_packet`
+**Inputs:** candidate bundle.
 **Outputs:** ResponsePacket.
 
 
@@ -1250,8 +1256,8 @@ Postconditions:
 ## M.18 `final_gate.py`
 
 
-**Required functions/classes:** `evaluate_candidate`  
-**Inputs:** candidate + DNA.  
+**Required functions/classes:** `evaluate_candidate`
+**Inputs:** candidate + DNA.
 **Outputs:** allow/downgrade/block.
 
 
@@ -1277,8 +1283,8 @@ Postconditions:
 ## M.19 `sqlite_store.py`
 
 
-**Required functions/classes:** `save/load/query`  
-**Inputs:** typed records.  
+**Required functions/classes:** `save/load/query`
+**Inputs:** typed records.
 **Outputs:** persisted records.
 
 
@@ -1304,8 +1310,8 @@ Postconditions:
 ## M.20 `api/routes.py`
 
 
-**Required functions/classes:** `http endpoints`  
-**Inputs:** requests.  
+**Required functions/classes:** `http endpoints`
+**Inputs:** requests.
 **Outputs:** responses.
 
 
