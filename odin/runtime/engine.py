@@ -15,8 +15,9 @@ from odin.work_atoms.runtime import execute_work_atoms
 from odin.worklets.graph import build_worklet_graph
 from odin.worklets.compiler import compile_worklet_graph_to_atom_plan
 from odin.bus.bus import LocalSemanticBus
-from odin.models.model_router import choose_route
 from odin.models.workers import build_worker_card, mock_generate
+from odin.precompute import score_pre_llm_route
+from odin.output.composer import compose_candidate_content
 from odin.candidates.artifact import build_candidate_artifact
 from odin.candidates.tournament import select_candidate
 from odin.core.final_gate import final_gate
@@ -93,19 +94,31 @@ class OdinRuntime:
         ledger.append("#work.atom", "work_atoms_executed", "odin.work_atoms.runtime", {"plan_id": plan.get("plan_id"), "atom_count": len(atom_execution.get("results", [])), "status": atom_execution.get("status")})
         bus.publish("runtime.work_atoms.executed", work_id=session.work_id, session_id=session.session_id, trace_id=trace.trace_id, payload={"plan_id": plan.get("plan_id"), "status": atom_execution.get("status"), "errors": atom_execution.get("errors", [])}, source="odin.work_atoms.runtime")
 
-        model_policy = work.get("model_policy", {})
-        route = choose_route(
-            model_policy.get("resource_profile", "standard_local"),
-            model_policy.get("latency_mode", "interactive"),
-            model_policy.get("quality_target", "standard"),
-            model_policy.get("requires_model", True),
-        )
-        worker = build_worker_card("mock_worker_001", "mock_local")
-        projection = mock_generate(worker, work, atom_execution, route)
-        session.mark("projected", "model_worker_projection_created", {"route": route, "worker_id": worker.get("worker_id")})
-        trace.add("model_route", "selected_candidate_worker", [route], {"worker_id": worker["worker_id"]})
-        ledger.append("#model.route", "route_selected", "odin.models.model_router", {"route": route, "worker_id": worker["worker_id"]})
+        route_decision = score_pre_llm_route(work)
+        if route_decision.get("blocked_reasons"):
+            trace.add("pre_llm_route", "blocked_before_provider_dispatch", route_decision.get("blocked_reasons"), route_decision)
+            ledger.append("#model.route", "pre_llm_blocked", "odin.precompute.route_score", {"blocked_reasons": route_decision.get("blocked_reasons")})
+            session.mark("blocked", "pre_llm_route_blocked", {"reasons": route_decision.get("blocked_reasons")})
+            raise OdinValidationError("pre-LLM route blocked work before provider dispatch: " + "; ".join(route_decision.get("blocked_reasons", [])))
+        route = route_decision.get("route")
+        worker = build_worker_card("mock_worker_001", route_decision.get("selected_worker_class", "mock_local"))
+        if route_decision.get("requires_model"):
+            projection = mock_generate(worker, work, atom_execution, route)
+        else:
+            projection = {
+                "artifact_kind": "odin_deterministic_no_model_output",
+                "protocol_version": "7.1",
+                "route": route,
+                "summary": f"Deterministic candidate route for {work.get('work_id')}; no model/provider executed.",
+                "candidate_only": True,
+                "model_inference_verified": False,
+                "claim_boundary": "deterministic_no_model_output_not_live_inference_or_truth",
+            }
+        session.mark("projected", "worker_projection_or_deterministic_output_created", {"route": route, "worker_id": worker.get("worker_id"), "requires_model": route_decision.get("requires_model")})
+        trace.add("pre_llm_route", "selected_candidate_worker", [route], {"worker_id": worker["worker_id"], "route_decision": route_decision})
+        ledger.append("#model.route", "route_selected", "odin.precompute.route_score", {"route": route, "worker_id": worker["worker_id"], "requires_model": route_decision.get("requires_model")})
 
+        composed_output = compose_candidate_content(work=work, route_decision=route_decision, deterministic_output=projection if not route_decision.get("requires_model") else None, provider_result=projection if route_decision.get("requires_model") else None, worker_card=worker)
         content = {
             "worklet_graph": worklet_graph,
             "work_atom_execution": atom_execution,
@@ -113,6 +126,8 @@ class OdinRuntime:
             "compiled_pattern_mine": compiled_pattern,
             "compiled_flow_packs": compiled_flows,
             "model_projection": projection,
+            "pre_llm_route": route_decision,
+            "output_composition": composed_output,
             "app_apply_instruction": "app_must_review_and_apply_or_reject",
         }
         candidate = build_candidate_artifact(work, content, trace.trace_id)

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1/odin_model_worker_permission_card.schema.json",
+  "title": "Odin Model Worker Permission Card",
+  "type": "object",
+  "required": ["artifact_kind", "protocol_version", "worker_id", "worker_class", "may_apply", "may_send_external", "may_mutate_app_state", "may_issue_receipt", "may_accept_claim", "may_call_tools", "allowed_outputs", "forbidden_outputs", "forbidden_roles", "claim_boundary"],
+  "properties": {
+    "artifact_kind": {"const": "odin_model_worker_permission_card"},
+    "protocol_version": {"const": "7.1"},
+    "worker_id": {"type": "string", "minLength": 1},
+    "worker_class": {"type": "string", "minLength": 1},
+    "may_apply": {"const": false},
+    "may_send_external": {"const": false},
+    "may_mutate_app_state": {"const": false},
+    "may_issue_receipt": {"const": false},
+    "may_accept_claim": {"const": false},
+    "may_call_tools": {"const": false},
+    "allowed_outputs": {"type": "array", "items": {"type": "string"}},
+    "forbidden_outputs": {"type": "array", "items": {"type": "string"}},
+    "allowed_roles": {"type": "array", "items": {"type": "string"}},
+    "forbidden_roles": {"type": "array", "items": {"type": "string"}},
+    "candidate_only": {"const": true},
+    "claim_boundary": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}
