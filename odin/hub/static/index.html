@@ -275,6 +275,107 @@
       </p>
     </section>
 
+    <!-- LRH-PR-10: Provider / Worker / Pre-LLM Inspector -->
+    <section id="provider-worker-inspector-panel" class="panel">
+      <h2>Provider / Worker Inspector <span class="badge">read-only</span> <span class="badge">local-only</span></h2>
+
+      <!-- Provider Card Viewer -->
+      <div class="dashboard-surface" id="pwi-provider-cards-surface">
+        <h3>Provider Cards <span class="badge">worker-only</span> <span class="badge">no-execution</span></h3>
+        <div id="pwi-provider-cards-content" class="panel-content">
+          <p class="loading">Loading provider cards…</p>
+        </div>
+        <p class="boundary-note">
+          Provider is worker, not authority. No live inference without receipt.
+          No credentials by default. Disabled by default. No provider execution.
+          Read-only metadata only.
+        </p>
+      </div>
+
+      <!-- Worker Permission Card Viewer -->
+      <div class="dashboard-surface" id="pwi-worker-permission-surface">
+        <h3>Worker Permission Cards <span class="badge">read-only</span> <span class="badge">no-mutation</span></h3>
+        <div id="pwi-worker-permission-content" class="panel-content">
+          <p class="loading">Loading worker permission cards…</p>
+        </div>
+        <p class="boundary-note">
+          Worker permission cards are read-only. No edit, activate, or mutation controls.
+          No agent worker/provider role confusion. candidate_only: true. app_owned_apply: true.
+        </p>
+      </div>
+
+      <!-- Pre-LLM Route Decision Viewer -->
+      <div class="dashboard-surface" id="pwi-pre-llm-route-surface">
+        <h3>Pre-LLM Route Decisions <span class="badge">inspection-only</span> <span class="badge">no-mutation</span></h3>
+        <div id="pwi-pre-llm-route-content" class="panel-content">
+          <p class="loading">Loading pre-LLM route decisions…</p>
+        </div>
+        <p class="boundary-note">
+          Pre-LLM route decisions are inspection-only.
+          No route mutation. No route policy change. Not live model inference.
+          Redaction applied before any model work.
+        </p>
+      </div>
+
+      <!-- Model-Work Avoidance Panel -->
+      <div class="dashboard-surface" id="pwi-model-avoidance-surface">
+        <h3>Model-Work Avoidance <span class="badge">read-only</span></h3>
+        <div id="pwi-model-avoidance-content" class="panel-content">
+          <p class="loading">Loading model-work avoidance rationale…</p>
+        </div>
+        <p class="boundary-note">
+          Why model work was avoided. No "run model" button. No provider execution.
+          No live inference without receipt. Candidate-only mode.
+        </p>
+      </div>
+
+      <!-- Redaction Status Panel -->
+      <div class="dashboard-surface" id="pwi-redaction-status-surface">
+        <h3>Redaction Status <span class="badge">not-certification</span></h3>
+        <div id="pwi-redaction-status-content" class="panel-content">
+          <p class="loading">Loading redaction status…</p>
+        </div>
+        <p class="boundary-note">
+          Redaction status is not safety certification.
+          No raw sensitive payload display. No redaction bypass.
+          Metadata-first display only. Not a security certification.
+        </p>
+      </div>
+
+      <!-- Disabled-by-Default Visibility -->
+      <div class="dashboard-surface" id="pwi-disabled-by-default-surface">
+        <h3>Disabled-by-Default Status <span class="badge">read-only</span></h3>
+        <div id="pwi-disabled-by-default-content" class="panel-content">
+          <p class="loading">Loading disabled-by-default status…</p>
+        </div>
+        <p class="boundary-note">
+          Provider execution is disabled by default. No credentials by default.
+          No enable/disable controls. No external send by default.
+        </p>
+      </div>
+
+      <!-- Provider/Worker Proof Gaps -->
+      <div class="dashboard-surface" id="pwi-proof-gaps-surface">
+        <h3>Provider/Worker Proof Gaps <span class="badge">viewer-only</span></h3>
+        <div id="pwi-proof-gaps-content" class="panel-content">
+          <p class="loading">Loading provider/worker proof gaps…</p>
+        </div>
+        <p class="boundary-note">
+          Displaying proof gaps does not close them. Not a production readiness certification.
+          Not a security certification. Not a model quality proof.
+        </p>
+      </div>
+
+      <p class="boundary-note">
+        Provider/Worker Inspector is local-only and read-only.
+        Provider is worker, not authority. No live inference without receipt.
+        No credentials by default. Disabled by default. No provider execution.
+        No worker mutation. No route mutation. No redaction bypass.
+        Redaction status is not safety certification.
+        Not a production readiness certification. Not a model quality claim.
+      </p>
+    </section>
+
     <section id="universal-work-placeholder" class="panel placeholder-panel">
       <h2>Universal Work Playground <span class="badge badge-placeholder">placeholder</span></h2>
       <p class="placeholder-note">
@@ -299,5 +400,6 @@
   <script src="dashboard.js"></script>
   <script src="candidate_store_viewer.js"></script>
   <script src="trace_viewer.js"></script>
+  <script src="provider_worker_inspector.js"></script>
 </body>
 </html>

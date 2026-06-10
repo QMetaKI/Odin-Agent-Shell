@@ -18,6 +18,8 @@ from odin.hub.shell import (
     build_candidate_store_viewer_proof_packet,
     validate_trace_viewer,
     build_trace_viewer_proof_packet,
+    validate_provider_worker_inspector,
+    build_provider_worker_inspector_proof_packet,
 )
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
@@ -2269,6 +2271,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_hub_runtime_dashboard())
     errors.extend(validate_candidate_store_viewer())
     errors.extend(validate_trace_viewer())
+    errors.extend(validate_provider_worker_inspector())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2312,9 +2315,11 @@ def main(argv: list[str] | None = None) -> int:
     prove_browser_hub_p.add_argument("--dashboard", action="store_true", default=False)
     prove_browser_hub_p.add_argument("--candidates", action="store_true", default=False)
     prove_browser_hub_p.add_argument("--traces", action="store_true", default=False)
+    prove_browser_hub_p.add_argument("--providers", action="store_true", default=False)
     sub.add_parser("validate-hub-runtime-dashboard")
     sub.add_parser("validate-candidate-store-viewer")
     sub.add_parser("validate-trace-viewer")
+    sub.add_parser("validate-provider-worker-inspector")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2608,9 +2613,19 @@ def main(argv: list[str] | None = None) -> int:
         use_dashboard = getattr(args, "dashboard", False)
         use_candidates = getattr(args, "candidates", False)
         use_traces = getattr(args, "traces", False)
-        result = build_browser_hub_proof_packet(shell_only=shell_only, dashboard=use_dashboard, candidates=use_candidates, traces=use_traces)
+        use_providers = getattr(args, "providers", False)
+        result = build_browser_hub_proof_packet(shell_only=shell_only, dashboard=use_dashboard, candidates=use_candidates, traces=use_traces, providers=use_providers)
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
+
+    if args.cmd == "validate-provider-worker-inspector":
+        errors = validate_provider_worker_inspector()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-provider-worker-inspector: OK")
+        return 0
 
     if args.cmd == "validate-trace-viewer":
         errors = validate_trace_viewer()

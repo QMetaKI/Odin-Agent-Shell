@@ -790,13 +790,256 @@ def build_trace_viewer_proof_packet() -> dict[str, Any]:
     }
 
 
-def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False, traces: bool = False) -> dict[str, Any]:
+PROVIDER_WORKER_INSPECTOR_CLAIM_BOUNDARY = (
+    "provider_worker_inspector_candidate_only_local_only_no_provider_execution_no_credentials_no_worker_mutation"
+)
+
+PROVIDER_WORKER_INSPECTOR_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_provider_authority_proof",
+    "not_provider_execution_proof",
+    "not_provider_credential_storage_proof",
+    "not_worker_mutation_proof",
+    "not_worker_permission_mutation_proof",
+    "not_route_mutation_proof",
+    "not_redaction_safety_certification",
+    "not_redaction_bypass_proof",
+    "not_full_pre_llm_runtime_coverage",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+]
+
+_PWI_REQUIRED_FILES = [
+    "odin/hub/static/provider_worker_inspector.js",
+    "odin/hub/static/index.html",
+    "docs/PROVIDER_WORKER_INSPECTOR_V1.md",
+    "tests/test_lrh_pr_10_provider_worker_inspector.py",
+]
+
+_PWI_REQUIRED_JS_API_REFS = [
+    "/v1/providers",
+    "/v1/proof-gaps",
+]
+
+_PWI_REQUIRED_JS_HEALTH_REFS = [
+    "/v1/status",
+]
+
+_PWI_REQUIRED_JS_BOUNDARY_TOKENS = [
+    "candidate_only",
+    "claim_boundary",
+    "local_only",
+    "read_only",
+    "no_provider_execution",
+    "no_credentials",
+    "no_worker_mutation",
+    "metadata_first",
+    "provider_as_worker",
+]
+
+_PWI_FORBIDDEN_CONTROL_PATTERNS = [
+    "function runProvider(",
+    "function executeProvider(",
+    "function callModel(",
+    "function runModel(",
+    "function testInference(",
+    "function saveCredential(",
+    "function setApiKey(",
+    "function enableProvider(",
+    "function disableProvider(",
+    "function mutateWorker(",
+    "function editPermission(",
+    "function changeRoute(",
+    "function mutateRoute(",
+    "function bypassRedaction(",
+    "function rawPayloadReveal(",
+    "function externalSend(",
+    "function uploadDiagnostics(",
+    "function hiddenUpload(",
+    'id="provider-credential',
+    'id="api-key',
+    'type="password"',
+    "providerCredential",
+    "apiKey",
+    "enablePublicNetwork(",
+]
+
+_PWI_REQUIRED_SURFACE_IDS = [
+    "pwi-provider-cards-content",
+    "pwi-worker-permission-content",
+    "pwi-pre-llm-route-content",
+    "pwi-model-avoidance-content",
+    "pwi-redaction-status-content",
+    "pwi-disabled-by-default-content",
+    "pwi-proof-gaps-content",
+]
+
+_PWI_REQUIRED_BOUNDARY_PHRASES = [
+    "Provider is worker, not authority",
+    "No live inference without receipt",
+    "No credentials by default",
+    "Disabled by default",
+    "No provider execution",
+    "No worker mutation",
+    "No route mutation",
+    "Redaction status is not safety certification",
+]
+
+_PWI_REQUIRED_DOC_PHRASES = [
+    "this does not execute providers",
+    "this does not call live models",
+    "this does not store or request provider credentials",
+    "this does not treat providers as authority",
+    "this does not mutate worker permissions",
+    "this does not mutate routing policy",
+    "this does not bypass redaction",
+    "this does not prove model quality",
+    "this does not prove production readiness",
+    "this does not prove security certification",
+    "proof boundaries",
+    "not_production_readiness_certification",
+]
+
+
+def validate_provider_worker_inspector() -> list[str]:
+    """Deterministic static validator for the Provider/Worker Inspector (LRH-PR-10).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    for rel in _PWI_REQUIRED_FILES:
+        p = _ROOT / rel
+        if not p.exists():
+            errors.append(f"provider worker inspector required file missing: {rel}")
+
+    pwi_js = _STATIC_DIR / "provider_worker_inspector.js"
+    if pwi_js.exists():
+        js = pwi_js.read_text(encoding="utf-8", errors="ignore")
+
+        for api_ref in _PWI_REQUIRED_JS_API_REFS:
+            if api_ref not in js:
+                errors.append(f"provider_worker_inspector.js: missing required API reference: {api_ref!r}")
+
+        for health_ref in _PWI_REQUIRED_JS_HEALTH_REFS:
+            if health_ref not in js:
+                errors.append(f"provider_worker_inspector.js: missing required status reference: {health_ref!r}")
+
+        for token in _PWI_REQUIRED_JS_BOUNDARY_TOKENS:
+            if token not in js:
+                errors.append(f"provider_worker_inspector.js: missing required boundary token: {token!r}")
+
+        js_lower = js.lower()
+        forbidden_found = [p for p in _PWI_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"provider_worker_inspector.js: forbidden interactive controls found: {forbidden_found}")
+
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js:
+            errors.append("provider_worker_inspector.js: missing localhost default reference")
+
+        if "function runProvider(" in js:
+            errors.append("provider_worker_inspector.js: must not define runProvider() function")
+        if "function executeProvider(" in js:
+            errors.append("provider_worker_inspector.js: must not define executeProvider() function")
+        if "function callModel(" in js:
+            errors.append("provider_worker_inspector.js: must not define callModel() function")
+        if "function externalSend(" in js:
+            errors.append("provider_worker_inspector.js: must not define externalSend() function")
+
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+
+        if "provider_worker_inspector.js" not in html:
+            errors.append("index.html: must load provider_worker_inspector.js")
+
+        for surface_id in _PWI_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required provider worker inspector surface id: {surface_id!r}")
+
+        html_lower = html.lower()
+        for phrase in _PWI_REQUIRED_BOUNDARY_PHRASES:
+            if phrase.lower() not in html_lower:
+                errors.append(f"index.html: missing required provider worker inspector boundary phrase: {phrase!r}")
+
+        forbidden_found = [p for p in _PWI_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden interactive controls found in provider worker inspector: {forbidden_found}")
+
+        if "redaction status is not safety certification" not in html.lower() and "not-certification" not in html.lower():
+            errors.append("index.html: provider worker inspector missing redaction status not-certification phrase")
+
+    doc = _ROOT / "docs" / "PROVIDER_WORKER_INSPECTOR_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _PWI_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"PROVIDER_WORKER_INSPECTOR_V1.md: missing required phrase: {phrase!r}")
+
+    return errors
+
+
+def build_provider_worker_inspector_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Provider/Worker Inspector (LRH-PR-10)."""
+    pwi_errors = validate_provider_worker_inspector()
+    all_ok = not bool(pwi_errors)
+
+    return {
+        "artifact_kind": "hub_provider_worker_inspector_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "read_only": True,
+        "provider_worker_inspector_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": pwi_errors,
+        "proven": [
+            "provider_worker_inspector_static_files_exist",
+            "provider_viewer_references_v1_providers",
+            "provider_cards_surface_present",
+            "worker_permission_cards_surface_present",
+            "pre_llm_route_decision_surface_present",
+            "model_work_avoidance_surface_present",
+            "redaction_status_surface_present",
+            "disabled_by_default_surface_present",
+            "no_provider_execution_controls",
+            "no_live_model_call_controls",
+            "no_credential_controls",
+            "no_worker_mutation_controls",
+            "no_route_mutation_controls",
+            "no_redaction_bypass_controls",
+            "no_external_send_controls",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "live_model_inference",
+            "model_quality",
+            "provider_authority",
+            "provider_credential_storage",
+            "full_pre_llm_runtime_coverage",
+            "full_redaction_safety_certification",
+            "worker_mutation_authority",
+            "external_send_authority",
+        ],
+        "proof_boundaries": PROVIDER_WORKER_INSPECTOR_PROOF_BOUNDARIES,
+        "claim_boundary": PROVIDER_WORKER_INSPECTOR_CLAIM_BOUNDARY,
+    }
+
+
+def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False, traces: bool = False, providers: bool = False) -> dict[str, Any]:
     """Emit a bounded proof packet for the browser hub shell.
 
     If candidates=True, runs the candidate store viewer validator.
     If dashboard=True, runs both shell and dashboard validators and returns a combined packet.
     If shell_only=True (default), runs only shell validator.
     """
+    if providers:
+        return build_provider_worker_inspector_proof_packet()
+
     if traces:
         return build_trace_viewer_proof_packet()
 
