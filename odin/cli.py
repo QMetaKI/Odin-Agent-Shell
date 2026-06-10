@@ -9,7 +9,12 @@ from odin.runtime.engine import run_universal_work_file
 from odin.seeds.compiler import compile_seed_pack
 from odin.patterns.intake import compile_pattern_mine
 from odin.hub.static_hub import write_static_hub
-from odin.hub.shell import validate_browser_hub_shell, build_browser_hub_proof_packet
+from odin.hub.shell import (
+    validate_browser_hub_shell,
+    build_browser_hub_proof_packet,
+    validate_hub_runtime_dashboard,
+    build_dashboard_proof_packet,
+)
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
 from odin.models.providers.registry import list_provider_cards
@@ -2257,6 +2262,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_runtime_doctor_bootstrap())
     errors.extend(validate_localhost_api_sdk_bridge())
     errors.extend(validate_browser_hub_shell())
+    errors.extend(validate_hub_runtime_dashboard())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2297,6 +2303,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-browser-hub-shell")
     prove_browser_hub_p = sub.add_parser("prove-browser-hub")
     prove_browser_hub_p.add_argument("--shell-only", action="store_true", default=False)
+    prove_browser_hub_p.add_argument("--dashboard", action="store_true", default=False)
+    sub.add_parser("validate-hub-runtime-dashboard")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2587,9 +2595,19 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "prove-browser-hub":
         shell_only = getattr(args, "shell_only", False)
-        result = build_browser_hub_proof_packet(shell_only=shell_only)
+        use_dashboard = getattr(args, "dashboard", False)
+        result = build_browser_hub_proof_packet(shell_only=shell_only, dashboard=use_dashboard)
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
+
+    if args.cmd == "validate-hub-runtime-dashboard":
+        errors = validate_hub_runtime_dashboard()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-hub-runtime-dashboard: OK")
+        return 0
 
     if args.cmd == "serve-browser-hub":
         # Scaffold — validates localhost boundary then emits static server plan

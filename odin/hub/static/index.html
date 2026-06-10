@@ -28,6 +28,7 @@
 
   <nav id="nav-shell" aria-label="Navigation Shell">
     <ul>
+      <li><a href="#dashboard-panel">Dashboard</a></li>
       <li><a href="#health-panel">Health</a></li>
       <li><a href="#status-panel">Status</a></li>
       <li><a href="#providers-panel">Providers (read-only)</a></li>
@@ -39,6 +40,78 @@
   </nav>
 
   <main>
+    <!-- LRH-PR-07: Hub Runtime Dashboard -->
+    <section id="dashboard-panel" class="panel">
+      <h2>Runtime Dashboard <span class="badge">read-only</span></h2>
+
+      <!-- Runtime Status Surface -->
+      <div class="dashboard-surface" id="runtime-status-surface">
+        <h3>Runtime Status</h3>
+        <div class="runtime-status-row">
+          <span id="runtime-status-indicator" class="runtime-status-unknown">Checking…</span>
+        </div>
+        <div id="runtime-status-detail" class="panel-content"></div>
+      </div>
+
+      <!-- Validation Status Surface -->
+      <div class="dashboard-surface" id="validation-status-surface">
+        <h3>Validation Status</h3>
+        <div id="validation-status-content" class="panel-content">
+          <p class="loading">Loading validation status…</p>
+        </div>
+      </div>
+
+      <!-- Doctor Result Surface -->
+      <div class="dashboard-surface" id="doctor-surface">
+        <h3>Doctor Result <span class="badge">read-only</span></h3>
+        <div id="doctor-content" class="panel-content">
+          <p class="loading">Loading doctor result…</p>
+        </div>
+      </div>
+
+      <!-- Support Bundle Surface -->
+      <div class="dashboard-surface" id="support-bundle-surface">
+        <h3>Support Bundle <span class="badge">local-only</span> <span class="badge">diagnostics-only</span></h3>
+        <div id="support-bundle-content" class="panel-content">
+          <p class="loading">Loading support bundle info…</p>
+        </div>
+        <p class="boundary-note">No app apply. No external send. No hidden upload. Diagnostics local only.</p>
+      </div>
+
+      <!-- Proof-Gap Summary Surface -->
+      <div class="dashboard-surface" id="proof-gap-summary-surface">
+        <h3>Proof-Gap Summary</h3>
+        <div id="proof-gap-summary-content" class="panel-content">
+          <p class="loading">Loading proof gaps…</p>
+        </div>
+      </div>
+
+      <!-- Dashboard Health Surface -->
+      <div class="dashboard-surface" id="dashboard-health-surface">
+        <h3>Health Surface</h3>
+        <div id="dashboard-health-content" class="panel-content">
+          <p class="loading">Loading health…</p>
+        </div>
+      </div>
+
+      <!-- Missing Capabilities Surface -->
+      <div class="dashboard-surface" id="missing-capabilities-surface">
+        <h3>Missing Capabilities / Not Proven</h3>
+        <div id="missing-capabilities-content" class="panel-content">
+          <p class="loading">Loading…</p>
+        </div>
+      </div>
+
+      <p class="boundary-note">
+        Dashboard is local-only and read-only.
+        No app apply. No external send. No provider execution.
+        Not a production health certification.
+        Not a hosted cloud dashboard.
+        Does not upload diagnostics.
+        Does not close proof gaps by displaying them.
+      </p>
+    </section>
+
     <section id="health-panel" class="panel">
       <h2>Health Panel</h2>
       <div id="health-content" class="panel-content">
@@ -105,5 +178,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>

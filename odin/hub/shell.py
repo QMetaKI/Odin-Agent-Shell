@@ -3,10 +3,14 @@
 Claim boundary: browser_hub_shell_candidate_only_local_only_no_apply_no_external_send
 
 This module provides:
-- validate_browser_hub_shell(): deterministic static validator
+- validate_browser_hub_shell(): deterministic static validator for the shell (LRH-PR-06)
 - build_browser_hub_proof_packet(): emit a proof packet for the shell
+- validate_hub_runtime_dashboard(): deterministic static validator for the dashboard (LRH-PR-07)
+- build_dashboard_proof_packet(): emit a dashboard proof packet
 - BROWSER_HUB_SHELL_CLAIM_BOUNDARY: canonical boundary string
 - BROWSER_HUB_PROOF_BOUNDARIES: list of not-proven items
+- DASHBOARD_CLAIM_BOUNDARY: dashboard-specific boundary string
+- DASHBOARD_PROOF_BOUNDARIES: dashboard-specific not-proven list
 
 Runtime serve is scaffold only — no live listen loop is claimed in LRH-PR-06.
 """
@@ -159,8 +163,196 @@ def validate_browser_hub_shell() -> list[str]:
     return errors
 
 
-def build_browser_hub_proof_packet(shell_only: bool = True) -> dict[str, Any]:
-    """Emit a bounded proof packet for the browser hub shell."""
+DASHBOARD_CLAIM_BOUNDARY = (
+    "hub_runtime_dashboard_candidate_only_local_only_no_apply_no_external_send_no_production_health_claim"
+)
+
+DASHBOARD_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_production_health_certification",
+    "not_hosted_cloud_dashboard_proof",
+    "not_hidden_diagnostic_upload_proof",
+    "not_live_browser_runtime_e2e",
+    "not_provider_execution_proof",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+]
+
+_DASHBOARD_REQUIRED_FILES = [
+    "odin/hub/static/dashboard.js",
+    "odin/hub/static/index.html",
+    "docs/HUB_RUNTIME_DASHBOARD_V1.md",
+    "tests/test_lrh_pr_07_hub_runtime_dashboard.py",
+]
+
+_DASHBOARD_FORBIDDEN_CONTROL_PATTERNS = [
+    "function apply(",
+    "function externalSend(",
+    "function sendExternally(",
+    'onclick="apply(',
+    "onclick=\"apply(",
+    'id="apply-btn',
+    "id=\"apply-btn",
+    'id="external-send',
+    "id=\"external-send",
+    "providerCredential",
+    "enablePublicNetwork(",
+    "hiddenUpload(",
+    "remoteUpload(",
+    "diagnosticUpload(",
+]
+
+_DASHBOARD_REQUIRED_BOUNDARY_PATTERNS = [
+    "candidate_only",
+    "claim_boundary",
+    "no_apply",
+    "local",
+]
+
+_DASHBOARD_REQUIRED_API_REFS = [
+    "/v1/health",
+    "/v1/status",
+    "/v1/proof-gaps",
+]
+
+_DASHBOARD_REQUIRED_SURFACE_IDS = [
+    "runtime-status",
+    "validation-status",
+    "doctor",
+    "support-bundle",
+    "proof-gap-summary",
+    "dashboard-health",
+    "missing-capabilities",
+]
+
+_DASHBOARD_REQUIRED_DOC_PHRASES = [
+    "not a production health certification",
+    "not a hosted cloud dashboard",
+    "does not upload diagnostics",
+    "does not grant app apply",
+    "does not send externally",
+    "does not execute provider",
+    "proof boundaries",
+    "not_production_readiness",
+]
+
+
+def validate_hub_runtime_dashboard() -> list[str]:
+    """Deterministic static validator for the Hub Runtime Dashboard (LRH-PR-07).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    for rel in _DASHBOARD_REQUIRED_FILES:
+        p = _ROOT / rel
+        if not p.exists():
+            errors.append(f"dashboard required file missing: {rel}")
+
+    dashboard_js = _STATIC_DIR / "dashboard.js"
+    if dashboard_js.exists():
+        js = dashboard_js.read_text(encoding="utf-8", errors="ignore")
+        for api_ref in _DASHBOARD_REQUIRED_API_REFS:
+            if api_ref not in js:
+                errors.append(f"dashboard.js: missing required API reference: {api_ref!r}")
+        for pattern in ["candidate_only", "claim_boundary"]:
+            if pattern not in js:
+                errors.append(f"dashboard.js: missing required boundary token: {pattern!r}")
+        js_lower = js.lower()
+        forbidden_found = [p for p in _DASHBOARD_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"dashboard.js: forbidden interactive controls found: {forbidden_found}")
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js:
+            errors.append("dashboard.js: missing localhost default reference")
+        if "function apply(" in js or "prototype.apply = function" in js:
+            errors.append("dashboard.js: must not have apply() function definition")
+        if "function externalSend(" in js or "prototype.externalSend" in js:
+            errors.append("dashboard.js: must not have externalSend() function definition")
+
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+        if "dashboard.js" not in html:
+            errors.append("index.html: must load dashboard.js")
+        for surface_id in _DASHBOARD_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required dashboard surface id: {surface_id!r}")
+        html_lower = html.lower()
+        forbidden_found = [p for p in _DASHBOARD_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden interactive controls found in dashboard section: {forbidden_found}")
+        if "support-bundle" not in html.lower():
+            errors.append("index.html: missing support-bundle surface")
+        for phrase in ["local-only", "diagnostics-only", "no hidden upload"]:
+            if phrase.lower() not in html.lower():
+                errors.append(f"index.html: support bundle surface missing phrase: {phrase!r}")
+
+    doc = _ROOT / "docs" / "HUB_RUNTIME_DASHBOARD_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _DASHBOARD_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"HUB_RUNTIME_DASHBOARD_V1.md: missing required phrase: {phrase!r}")
+
+    return errors
+
+
+def build_dashboard_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Hub Runtime Dashboard (LRH-PR-07)."""
+    dashboard_errors = validate_hub_runtime_dashboard()
+    all_ok = not bool(dashboard_errors)
+
+    return {
+        "artifact_kind": "hub_runtime_dashboard_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "dashboard_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": dashboard_errors,
+        "proven": [
+            "dashboard_static_files_exist",
+            "dashboard_references_v1_health",
+            "dashboard_references_v1_status",
+            "dashboard_references_v1_proof_gaps",
+            "no_apply_controls",
+            "no_external_send_controls",
+            "support_bundle_surface_is_local_only",
+            "no_hidden_diagnostic_upload_controls",
+            "runtime_status_surface_present",
+            "validation_status_surface_present",
+            "doctor_surface_present",
+            "proof_gap_summary_surface_present",
+            "missing_capabilities_surface_present",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "production_health_certification",
+            "hosted_cloud_dashboard",
+            "live_browser_runtime_e2e",
+            "provider_execution",
+            "app_state_mutation",
+            "external_send_authority",
+            "hidden_diagnostic_upload_absence_beyond_static_scan",
+            "live_model_inference",
+            "model_quality",
+        ],
+        "proof_boundaries": DASHBOARD_PROOF_BOUNDARIES,
+        "claim_boundary": DASHBOARD_CLAIM_BOUNDARY,
+    }
+
+
+def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False) -> dict[str, Any]:
+    """Emit a bounded proof packet for the browser hub shell.
+
+    If dashboard=True, runs both shell and dashboard validators and returns a combined packet.
+    If shell_only=True (default), runs only shell validator.
+    """
+    if dashboard:
+        return build_dashboard_proof_packet()
+
     errors = validate_browser_hub_shell()
     all_ok = not bool(errors)
 
