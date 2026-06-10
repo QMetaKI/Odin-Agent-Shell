@@ -174,7 +174,8 @@
     "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
     "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
     "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
-    "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md"
+    "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md",
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -297,13 +298,17 @@
     "legacy_policy": "quarantine_not_delete",
     "new_ladder": "LRH-PR-01..17",
     "prompts_dir": "docs/rebaseline/prompts",
+    "public_naming_neutrality": "neutral external app and host app terms only",
     "registries": [
       "registries/local_runtime_hub_build_ladder_v1.json",
       "registries/rebaseline_manifest_v1.json",
       "registries/rebaseline_coverage_matrix_v1.json"
     ],
+    "road_to_100_acceptance_harness": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "road_to_100_acceptance_harness_registry": "registries/road_to_100_acceptance_harness_v1.json",
     "status": "planning_governance_rebaseline_not_runtime_proof",
-    "target": "Odin Local Runtime Hub"
+    "target": "Odin Local Runtime Hub",
+    "target_branch": "codex/rebaseline-local-runtime-hub"
   },
   "locks": {
     "v0_7_5": "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md"

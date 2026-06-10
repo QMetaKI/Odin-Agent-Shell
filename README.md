@@ -91,5 +91,8 @@ This repository does not claim production readiness, security certification, dep
 
 ## Local Runtime Hub rebaseline
 
-The next practical product target is documented as **Odin Local Runtime Hub** in `docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md`. The current-state audit, coverage matrix, legacy quarantine policy, 100 percent definition, and LRH-PR-01..16 build ladder live under `docs/rebaseline/` and the matching machine-readable registries live in `registries/`.
+The next practical product target is documented as **Odin Local Runtime Hub** in `docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md`. The current-state audit, coverage matrix, legacy quarantine policy, 100 percent definition, and LRH-PR-01..17 build ladder live under `docs/rebaseline/` and the matching machine-readable registries live in `registries/`.
 
+
+
+The Road-to-100 acceptance harness is documented in `docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md` and `registries/road_to_100_acceptance_harness_v1.json`; it is a future proof-command model, not current runtime proof.

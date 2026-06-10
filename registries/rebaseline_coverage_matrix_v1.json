@@ -1,6 +1,6 @@
 {
   "artifact_kind": "odin_rebaseline_coverage_matrix",
-  "version": "1.1",
+  "version": "1.2",
   "target": "Odin Local Runtime Hub",
   "evidence_labels": [
     "Verified now",
@@ -1931,7 +1931,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1983,7 +1983,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -2074,7 +2074,7 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     },
     {
@@ -4272,6 +4272,45 @@
       "carry_forward_action": "Use Agent Permission Card, proof boundary packet and no-hidden-tool-use gates in LRH-PR-02 and later provider/agent slices.",
       "legacy_action": "not applicable",
       "new_ladder_mapping": "LRH-PR-02 and LRH-PR-10",
+      "risk": "review_required"
+    },
+    {
+      "id": "LRH-NEUTRAL-EXTERNAL-APP-BRIDGE",
+      "title": "Neutral External App Bridge Pack",
+      "source_path": "future docs/EXTERNAL_APP_BRIDGE_PACK_V1.md",
+      "mapped_current_implementation": "Pending LRH-PR-12 neutral bridge pack; no specific external app integration proof is claimed.",
+      "status": "not implemented",
+      "evidence": "Inference: future bridge work from SDK Bridge target",
+      "reason": "Public LRH architecture must remain reusable without concrete external app/project names.",
+      "carry_forward_action": "Implement in LRH-PR-12 with neutral fixtures.",
+      "legacy_action": "not applicable",
+      "new_ladder_mapping": "LRH-PR-12",
+      "risk": "review_required"
+    },
+    {
+      "id": "LRH-GENERIC-APP-BRIDGE-HARNESS",
+      "title": "Generic App Bridge Examples and Golden Harness",
+      "source_path": "future examples/generic_app_bridge/",
+      "mapped_current_implementation": "Pending LRH-PR-13 examples and golden harness.",
+      "status": "not implemented",
+      "evidence": "Inference: future golden harness from Road-to-100 ladder",
+      "reason": "Repeatable bridge proof should be neutral and app-owned apply preserving.",
+      "carry_forward_action": "Implement in LRH-PR-13 with reference host app fixtures.",
+      "legacy_action": "not applicable",
+      "new_ladder_mapping": "LRH-PR-13",
+      "risk": "review_required"
+    },
+    {
+      "id": "LRH-ROAD-TO-100-ACCEPTANCE-HARNESS",
+      "title": "Road-to-100 acceptance harness model",
+      "source_path": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md; registries/road_to_100_acceptance_harness_v1.json",
+      "mapped_current_implementation": "Planning model added; future proof commands are not implemented by this PR.",
+      "status": "partially implemented",
+      "evidence": "Diff-grounded: harness doc and registry added",
+      "reason": "Final acceptance must map proof commands to capabilities, prior LRH PRs, expected outputs and known non-proofs.",
+      "carry_forward_action": "Implement future proof commands in LRH-PR-17 only after dependencies land.",
+      "legacy_action": "do not move",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     }
   ]

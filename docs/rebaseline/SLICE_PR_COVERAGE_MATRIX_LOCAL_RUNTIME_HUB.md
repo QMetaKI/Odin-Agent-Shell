@@ -40,3 +40,11 @@ Proof boundaries: no production readiness proof, no Windows app proof, no Window
 | Codex PR prompt discipline | LRH-PR-02 | Repo-grounded: Codex prompts and task locks already structure branch, scope, commands and proof boundaries | partial conceptual | Add Codex agent profile and Agent Work Packet examples |
 | Claude Code repo-worker discipline | LRH-PR-02 | Inference: profile target for Claude-Code-equivalent local repo work | spec-only | Add Claude Code profile without claiming provider integration |
 | Future local model/agent worker boundary | LRH-PR-02 and LRH-PR-10 | Inference: agent protocol must remain distinct from provider/worker runtime | spec-only | Add permission cards, allowed-files packets and no-hidden-tool-use gates |
+
+## Final LRH normalized bridge mappings
+
+| Concept | New ladder mapping | Evidence | Status | Carry-forward action |
+|---|---|---|---|---|
+| Neutral external app bridge | LRH-PR-12 | Inference: SDK Bridge must remain generic and public-repo-safe | pending | Add neutral external app bridge pack without concrete external app names |
+| Generic app bridge examples and golden harness | LRH-PR-13 | Inference: future examples must be repeatable and neutral | pending | Add generic app bridge and reference host app fixtures |
+| Road-to-100 acceptance harness | LRH-PR-17 | Diff-grounded: harness docs and registry added | planning | Implement future proof commands only in acceptance PR |

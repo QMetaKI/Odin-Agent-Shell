@@ -4,7 +4,7 @@ Odin Local Runtime Hub is the new practical product target for the next build la
 
 ## Definition
 
-Odin as a portable local runtime, localhost-only API, browser-based Odin Hub/local webapp surface, SDK Bridge for YNode and other apps, easy start/stop/check flow, candidate-only Odin behavior, and app-owned apply/state/external send.
+Odin as a portable local runtime, localhost-only API, browser-based Odin Hub/local webapp surface, SDK Bridge for external apps and host apps, easy start/stop/check flow, candidate-only Odin behavior, and app-owned apply/state/external send.
 
 
 ## Odin Agent Operator Mode
@@ -41,7 +41,7 @@ Agent Operator Mode is intended to make Codex, Claude Code and future agents wor
 4. Odin starts a localhost-only runtime API.
 5. Browser Hub opens or is available locally.
 6. Hub shows health, providers, sessions, candidates, bus events, worklets, proof gaps.
-7. YNode and other apps connect via SDK Bridge.
+7. External apps and host apps connect via SDK Bridge.
 8. Apps send Universal Work.
 9. Odin returns Candidate Artifacts / Response Packets.
 10. Apps own apply, state, external send and domain authority.
@@ -69,3 +69,7 @@ This rebaseline uses these evidence labels only:
 
 Proof boundaries: no production readiness proof, no Windows app proof, no Windows service/tray/installer proof, no live model inference proof, no model quality proof, no security certification proof, no external send proof, no app-state mutation proof.
 
+
+## Public naming neutrality
+
+The Local Runtime Hub Road-to-100 artifacts use neutral external app terminology: external app, host app, client app, reference app, generic app bridge, external app bridge, client bridge, host app bridge, integration fixture and neutral app fixture. No concrete external app/product/project name is required for Odin public architecture.

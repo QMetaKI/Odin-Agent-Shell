@@ -20,7 +20,7 @@ Build Ladder:
 - The new ladder is executable PR by PR.
 - Each PR has acceptance gates.
 - The ladder leads toward a locally startable runtime.
-- It includes YNode bridge and portable packaging.
+- It includes external app bridge and portable packaging.
 
 Claim Boundary:
 - No production readiness proof.
@@ -104,4 +104,25 @@ Risk:
 - Avoid claiming full Thor protocol support without verified mapping.
 
 Verdict:
-- Required amendment before merge.
+- Agent Operator amendment applied. Road-to-100 normalization applied. Public naming neutralization applied. Remaining merge condition: validators and tests pass on current branch. No runtime behavior implemented in this PR. Merge-ready if CI remains green.
+
+## Final Road-to-100 Senior Reviewer Simulation
+
+Architecture:
+- The Road-to-100 ladder now maps Master Architecture v7.1 to executable Codex PRs.
+- Agent Operator Mode is correctly early as LRH-PR-02.
+- Portable Runtime follows after Agent Operator discipline.
+- Localhost API, Browser Hub, SDK Bridge, External App Bridge and Packaging are sequenced coherently.
+- Claim boundaries remain intact.
+- Public artifacts are neutral and do not depend on concrete external app names.
+
+Risks:
+- Avoid generic ladder entries.
+- Avoid stale mappings after renumbering.
+- Avoid accidentally implementing runtime in rebaseline PR.
+- Avoid Thor full-support claims.
+- Avoid agent autonomy creep.
+- Avoid naming concrete external projects in public architecture.
+
+Verdict:
+- Merge-ready after validation if all tests pass.

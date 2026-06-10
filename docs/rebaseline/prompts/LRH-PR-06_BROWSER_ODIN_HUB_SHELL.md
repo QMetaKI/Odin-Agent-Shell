@@ -10,67 +10,76 @@ LRH-PR-06: Browser Odin Hub Shell
 
 ## Objective
 
-Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Browser Odin Hub Shell.
+Create the local browser Hub shell and read-only navigation surface against the localhost API without adding app apply actions or remote networking defaults.
 
 ## Baseline
 
-Master Architecture v7.1, current v0.8.7 handoff, runtime base v0.8.6, and LRH build ladder v1. The amended ladder places LRH-PR-02 Odin Agent Operator Mode before portable runtime work.
+Master Architecture v7.1, Master Specs v7.1, the Local Runtime Hub target, the Road-to-100 ladder, candidate-only Odin and app-owned apply/state/external-send boundaries remain authoritative.
 
 ## Required intake
 
-Read root canon, Master Architecture, Master Specs, current REAL-GH plan/index, LRH target, LRH audit, LRH build ladder JSON, rebaseline manifest, relevant subsystem docs, schemas, registries and tests.
+Read root canon, Master Architecture, Master Specs, LRH target, current-state audit, build ladder JSON, rebaseline manifest, coverage matrix, Road-to-100 acceptance harness, relevant subsystem docs, schemas, registries and tests.
 
 ## Target files
-
-- `odin/`
-- `odin_app_sdk/`
-- `sdk/`
-- `docs/`
-- `tests/`
+- `odin/hub/`
+- `odin/hub/static/`
+- `odin/hub/api_client.js`
+- `docs/BROWSER_ODIN_HUB_SHELL_V1.md`
+- `tests/test_lrh_pr_06_browser_hub_shell.py`
 
 ## Allowed new files
-
-Use only files allowed by the ladder entry and the future PR's bounded scope.
+- `odin/hub/`
+- `odin/hub/static/`
+- `odin/hub/api_client.js`
+- `docs/BROWSER_ODIN_HUB_SHELL_V1.md`
+- `tests/test_lrh_pr_06_browser_hub_shell.py`
 
 ## Forbidden scope
-
-- do not make Odin apply app state
-- do not enable WAN/LAN API by default
-- do not claim live model proof without receipt
-- do not replace Master Architecture v7.1
+- no hosted cloud UI
+- no remote network default
+- no app apply button
+- no auth/security certification claim
+- no provider execution
 
 ## Required behavior
-
-Preserve candidate-only Odin, app-owned apply/state/external send, localhost-only default API, and explicit proof gaps. Do not implement outside this prompt's bounded scope.
+- serve static/browser shell locally
+- render API status
+- show health panel and navigation shell
+- avoid write/apply actions
 
 ## Required tests
-
-Add or update local deterministic tests. No network and no generated runtime artifacts unless the future PR explicitly requires controlled fixtures.
+- static shell served locally
+- API status render test
+- no write/apply control test
+- no remote network default test
 
 ## Required commands
-
+- `future target: python -m odin.cli prove-browser-hub --shell-only`
 - `python -m pip install -e .`
 - `python -m odin.cli validate-current-public-canon`
 - `python -m odin.cli validate-all`
 - `PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider`
-- `python -m odin.cli run-golden-flow`
 
 ## Acceptance gates
-
-- validate-all OK
-- pytest OK
-- claim boundaries explicit
-- candidate-only/app-owned-apply preserved
+- static/browser shell served locally
+- no auth claim
+- no remote network default
+- health panel
+- navigation shell
+- API status rendering
+- no write/apply actions
 
 ## Proof boundaries
-
 - no production readiness proof
-- no Windows app proof
+- no Windows service/tray/installer proof
+- no signed installer proof
 - no live model inference proof
+- no model quality proof
 - no security certification proof
-- no external send proof
+- no public network API proof
 - no app-state mutation proof
+- no external send authority proof
 
 ## Final response format
 
-Summary, Testing, Legacy moved/skipped if applicable, Proof boundaries, Ready yes/no, Next recommended PR.
+Summary, Testing, Proof boundaries, Skipped implementation claims, Ready yes/no, Next recommended PR.

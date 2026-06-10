@@ -1,85 +1,50 @@
 # Current State Audit — Local Runtime Hub
 
-## Current repo state
+## Current PR branch/head state
 
-- Branch: `codex/rebaseline-local-runtime-hub-build-ladder`.
-- Head: `75aa45b`.
-- PR #4 / REAL-GH-PR-03 merge evidence: `merged in current git log`.
-- Merged baseline used here: REAL-GH-PR-01, REAL-GH-PR-02, REAL-GH-PR-03.
-- Open/pending baseline items: REAL-GH-PR-04, REAL-GH-PR-05, REAL-GH-PR-06, REAL-GH-PR-07, REAL-GH-PR-08.
+| Field | Value | Evidence label | Notes |
+|---|---|---|---|
+| PR | #5 — REBASELINE: Local Runtime Hub Target, Legacy Quarantine and 100% Build Ladder | Prior-context | PR metadata is supplied by the amend prompt. |
+| Base | `main` | Prior-context | Remote PR metadata is not revalidated by this local control-plane pass. |
+| Branch | `codex/rebaseline-local-runtime-hub` | Prior-context | This is the target PR branch name. The local checkout may have a different ephemeral name, but the public audit records the target branch. |
+| Head | `b94f5deac07d1e09bb99968cde47766557b49c8f` | Verified now | Captured with `git rev-parse HEAD` in this workspace before this amend is committed. |
+| State | open | Prior-context | Supplied by the amend prompt. |
+| Control-plane PR | yes | Diff-grounded | Changes are limited to rebaseline docs, registries, manifest/system map and tests. |
+| Runtime behavior changed | no | Diff-grounded | No runtime source module is modified by this amend. |
 
-## Runtime reality counts
-
-{
-  "docs/codex/prompts": 8,
-  "docs/codex/tasks": 124,
-  "docs/codex/bundles": 28,
-  "docs/codex/reports": 3,
-  "odin/runtime": 8,
-  "odin/bus": 3,
-  "odin/worklets": 3,
-  "odin/work_atoms": 3,
-  "odin/qirc": 2,
-  "odin/models": 11,
-  "odin/precompute": 4,
-  "odin/output": 2,
-  "odin/candidates": 3,
-  "odin/why_trace": 2,
-  "odin/hub": 2,
-  "odin_app_sdk": 3,
-  "sdk": 4,
-  "examples": 75,
-  "tests": 34,
-  "schemas/v7_1": 132,
-  "registries": 98,
-  "windows": 9,
-  "runtime": 6,
-  "templates": 16
-}
-
-## Audit table
+## Area audit
 
 | Area | Current status | Evidence | Gap | Risk | Next action |
 |---|---|---|---|---|---|
-| Repo head / branch | codex/rebaseline-local-runtime-hub-build-ladder at 75aa45b | Verified now: git branch/git log run | Remote PR metadata not available in workspace | safe_current | Continue from current branch |
-| Merged PRs | REAL-GH-PR-01..03 are in git history | Verified now: merge commits #2/#3/#4 inspected | Later PRs lack merge receipts here | safe_current | Treat PR-03 as baseline |
-| Runtime | runtime modules exist with golden flow example | Repo-grounded: odin/runtime and examples inspected | Start/stop user flow not packaged | runtime_dependency | LRH-PR-02 |
-| Local API | odin/daemon/local_api.py exists | Repo-grounded | Contract hardening and SDK bridge pending | runtime_dependency | LRH-PR-04 |
-| Store/bus/worklets/atoms | odin/bus, odin/worklets, odin/work_atoms exist | Repo-grounded | Hub trace viewer pending | runtime_dependency | LRH-PR-08 |
-| Provider/worker/pre-LLM | odin/models and odin/precompute exist; provider-worker validator available in CLI | Repo-grounded | Provider inspector UI pending | review_required | LRH-PR-09 |
-| Hub/UI | odin/hub exists | Repo-grounded | Browser Hub product shell pending | safe_current | LRH-PR-05 |
-| SDK/YNode bridge | odin_app_sdk and sdk exist | Repo-grounded | YNode bridge proof pending | review_required | LRH-PR-11 |
-| Portable start | CLI doctor/run-golden-flow exist | Repo-grounded | One start command and release ZIP pending | safe_current | LRH-PR-02/LRH-PR-14 |
-| Validation/test coverage | tests and validators exist | Repo-grounded | LRH-specific governance tests added by this PR | safe_current | Keep checks current |
-| Legacy/superseded material | Older ladders retained | Repo-grounded | Review required before moves | review_required | No moves in LRH-PR-01 |
+| Rebaseline governance | partial, this PR | Diff-grounded: `docs/rebaseline/` and rebaseline registries are changed | Final CI and reviewer approval pending | safe_current | Merge after validators/tests pass |
+| Local Runtime Hub target | planning complete for this PR | Repo-grounded: target, 100 percent definition and build ladder exist | Implementation PRs pending | safe_current | LRH-PR-02 then LRH-PR-03 |
+| Odin Agent Operator Mode | spec-only future slice | Repo-grounded: LRH-PR-02 ladder and prompt define future packet/command surface | No `odin agent-*` commands exist in this PR | review_required | Implement in LRH-PR-02 |
+| Portable local runtime starter | partial/scaffold | Repo-grounded: runtime/local API files exist | Start/stop/check product flow pending | runtime_dependency | LRH-PR-03 |
+| Runtime doctor/bootstrap | spec-only future slice | Repo-grounded: ladder defines doctor/bootstrap targets | Doctor, bootstrap and plan-only repair pending | review_required | LRH-PR-04 |
+| Localhost API and SDK Bridge | partial/scaffold | Repo-grounded: `odin/daemon/local_api.py`, `odin_app_sdk/`, and `sdk/` exist | Hardened v1 API/SDK contract pending | runtime_dependency | LRH-PR-05 |
+| Browser Hub | partial/scaffold | Repo-grounded: `odin/hub/` exists | Browser shell/dashboard/viewers pending | review_required | LRH-PR-06..09 |
+| Provider/worker/pre-LLM visibility | partial | Repo-grounded: provider-worker validation exists | Inspector UI/API proof pending | review_required | LRH-PR-10 |
+| Universal Work playground | pending | Repo-grounded: Universal Work flows exist elsewhere | Local playground pending | review_required | LRH-PR-11 |
+| Neutral external app bridge | pending | Inference: SDK Bridge must support generic host apps | Neutral bridge pack and examples pending | review_required | LRH-PR-12..13 |
+| Packaging and Windows convenience | pending | Repo-grounded: packaging/Windows paths exist | Portable ZIP and Windows convenience proof pending | review_required | LRH-PR-15..16 |
+| Full acceptance harness | planning added | Diff-grounded: Road-to-100 harness docs/registry added | Future proof commands not implemented | review_required | LRH-PR-17 |
 
-## Proof gaps and blockers
+## Proof gaps retained
 
-- No live model inference proof is claimed.
-- No browser Hub product proof is claimed.
-- No YNode integration proof is claimed.
+- No production readiness proof is claimed.
 - No Windows service/tray/installer proof is claimed.
-- No WAN/LAN API proof is claimed.
-- Blockers are planning/execution blockers, not evidence of runtime failure unless a command in this workspace fails.
+- No signed installer proof is claimed.
+- No live model inference or model quality proof is claimed.
+- No specific external app integration proof is claimed.
+- No browser UI runtime proof is claimed.
+- No public network API proof is claimed.
+- No Thor full protocol support proof is claimed.
+- No agent autonomy, hidden tool execution, app-state mutation or external send authority is claimed.
 
-## Evidence and claim labels
-
-This rebaseline uses these evidence labels only:
+## Evidence labels
 
 - **Verified now** = command run in this workspace.
 - **Repo-grounded** = current file content inspected.
 - **Diff-grounded** = current PR diff.
-- **Prior-context** = handoff/source-chat memory, not reverified.
+- **Prior-context** = handoff/source-chat/user-provided metadata, not reverified remotely.
 - **Inference** = architecture inference, not proof.
-
-Proof boundaries: no production readiness proof, no Windows app proof, no Windows service/tray/installer proof, no live model inference proof, no model quality proof, no security certification proof, no external send proof, no app-state mutation proof.
-
-
-
-## Current agent operator capabilities
-
-| Area | Current status | Evidence | Gap | Risk | Next action |
-|---|---|---|---|---|---|
-| Odin Agent Operator Mode | spec-only | Repo-grounded: Codex prompts, Thor integration docs and Bounded Code Work docs exist, but no `odin agent-*` commands are implemented in this PR | Agent Work Packet schema, permission card, profile registry, Thor-compatible mapping and CLI/file-protocol commands are missing | review_required | Carry forward as LRH-PR-02 before portable runtime starter work |
-| Codex / Claude Code profiles | spec-only | Repo-grounded: Codex workflow docs exist; Claude Code is a future profile target only | No profile registry or packet examples | review_required | Define Codex, Claude Code and generic CLI profiles in LRH-PR-02 |
-| Thor-compatible protocol surface | partial conceptual | Repo-grounded: `docs/THOR_INTEGRATION.md` and `docs/BOUNDED_CODE_WORK.md` define Thor-inspired candidate-only boundaries | No verified Thor packet normalization or return packet mapping in current runtime | review_required | Add Thor compatibility registry with verified/gap labels in LRH-PR-02 |

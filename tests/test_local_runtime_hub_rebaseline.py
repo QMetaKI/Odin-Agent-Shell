@@ -58,7 +58,7 @@ def test_build_ladder_ids_are_deterministic_and_ordered() -> None:
     ladder = load_json("registries/local_runtime_hub_build_ladder_v1.json")
     ids = [entry["id"] for entry in ladder["ladder"]]
     assert ids == [f"LRH-PR-{index:02d}" for index in range(1, 18)]
-    assert ladder["ladder"][0]["expected_branch_name"] == "codex/rebaseline-local-runtime-hub-build-ladder"
+    assert ladder["ladder"][0]["expected_branch_name"] == "codex/rebaseline-local-runtime-hub"
 
 
 def test_first_five_prompts_exist() -> None:
@@ -123,3 +123,106 @@ def test_agent_operator_manifest_and_coverage_mapping() -> None:
         "AGENT-OPERATOR-FUTURE-LOCAL-AGENTS",
     ]:
         assert mapped[required]["new_ladder_mapping"].startswith("LRH-PR-02")
+
+
+
+def test_final_road_to_100_normalization() -> None:
+    audit = (ROOT / "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md").read_text(encoding="utf-8")
+    assert "codex/rebaseline-local-runtime-hub-build-ladder" not in audit
+    assert "75aa45b" not in audit
+    assert "Branch | `codex/rebaseline-local-runtime-hub`" in audit
+    assert "Runtime behavior changed | no" in audit
+
+    ladder = load_json("registries/local_runtime_hub_build_ladder_v1.json")
+    ids = [entry["id"] for entry in ladder["ladder"]]
+    assert ids == [f"LRH-PR-{index:02d}" for index in range(1, 18)]
+    by_id = {entry["id"]: entry for entry in ladder["ladder"]}
+    assert by_id["LRH-PR-02"]["title"] == "Odin Agent Operator Mode"
+    assert by_id["LRH-PR-03"]["title"] == "Portable Local Runtime Starter"
+    assert "LRH-PR-02" in by_id["LRH-PR-03"]["depends_on"]
+    assert by_id["LRH-PR-12"]["title"] == "Neutral External App Bridge Pack"
+    assert by_id["LRH-PR-13"]["title"] == "Generic App Bridge Examples and Golden Harness"
+    for entry in ladder["ladder"]:
+        for field in [
+            "id", "title", "objective", "why_this_slice_exists", "depends_on",
+            "current_coverage", "missing_work", "target_files", "allowed_new_files",
+            "forbidden_scope", "required_behavior", "required_tests", "required_commands",
+            "acceptance_gates", "proof_boundaries", "senior_reviewer_focus",
+            "senior_code_reviewer_focus", "expected_branch_name", "expected_pr_title",
+            "old_ladder_mapping", "definition_of_done", "next_slice_unlock",
+        ]:
+            assert field in entry, f"{entry['id']} missing {field}"
+        assert "implementation, tests, receipts" not in json.dumps(entry)
+
+
+def test_road_to_100_acceptance_harness_exists_and_is_valid() -> None:
+    doc = ROOT / "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md"
+    assert doc.exists()
+    assert "future target proof commands" in doc.read_text(encoding="utf-8")
+    harness = load_json("registries/road_to_100_acceptance_harness_v1.json")
+    assert harness["artifact_kind"] == "odin_road_to_100_acceptance_harness"
+    commands = {entry["command"]: entry for entry in harness["commands"]}
+    for suffix in [
+        "prove-local-runtime",
+        "prove-agent-operator-mode",
+        "prove-sdk-bridge",
+        "prove-browser-hub",
+        "prove-external-app-bridge",
+        "prove-portable-package",
+        "emit-support-bundle",
+    ]:
+        key = f"python -m odin.cli {suffix}"
+        assert key in commands
+        assert commands[key]["future_target"] is True
+        assert commands[key]["implemented_now"] is False
+        assert commands[key]["known_non_proof"]
+
+
+def test_100_percent_definition_categories_and_review_verdict() -> None:
+    definition = (ROOT / "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md").read_text(encoding="utf-8")
+    for category in [
+        "A. Startability", "B. Runtime Health", "C. Localhost API", "D. Browser Hub",
+        "E. Agent Operator Mode", "F. SDK Bridge", "G. External App Bridge",
+        "H. Universal Work Playground", "I. Provider / Worker / Pre-LLM Visibility",
+        "J. Packaging", "K. Support Bundle", "L. Boundary Preservation",
+        "M. CI/Test Acceptance", "N. Public Naming Neutrality",
+    ]:
+        assert category in definition
+    assert "No concrete external app/product/project names" in definition
+
+    review = (ROOT / "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md").read_text(encoding="utf-8")
+    assert "Required amendment before merge" not in review
+    assert "Merge-ready after validation if all tests pass" in review
+
+
+def test_prompt_pack_and_public_naming_neutrality() -> None:
+    for rel in [
+        "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md",
+        "docs/rebaseline/prompts/LRH-PR-03_PORTABLE_LOCAL_RUNTIME_STARTER.md",
+        "docs/rebaseline/prompts/LRH-PR-06_BROWSER_ODIN_HUB_SHELL.md",
+    ]:
+        assert (ROOT / rel).exists(), rel
+
+    checked_roots = [
+        ROOT / "docs/rebaseline",
+        ROOT / "registries/local_runtime_hub_build_ladder_v1.json",
+        ROOT / "registries/rebaseline_manifest_v1.json",
+        ROOT / "registries/rebaseline_coverage_matrix_v1.json",
+        ROOT / "registries/road_to_100_acceptance_harness_v1.json",
+        ROOT / "tests/test_local_runtime_hub_rebaseline.py",
+    ]
+    banned = ["Y" + "Node", "y" + "node"]
+    haystack = []
+    for path in checked_roots:
+        if path.is_dir():
+            for child in path.rglob("*"):
+                if child.is_file():
+                    haystack.append((str(child.relative_to(ROOT)), child.read_text(encoding="utf-8")))
+        else:
+            haystack.append((str(path.relative_to(ROOT)), path.read_text(encoding="utf-8")))
+    for name, content in haystack:
+        for banned_name in banned:
+            assert banned_name not in content, f"{banned_name} found in {name}"
+    neutral_text = "\n".join(content for _, content in haystack)
+    for neutral in ["external app", "host app", "reference app", "generic app bridge"]:
+        assert neutral in neutral_text

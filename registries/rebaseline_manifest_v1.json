@@ -7,7 +7,7 @@
   "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
   "previous_ladder": "REAL-GH-PR-01..08",
   "new_ladder": "LRH-PR-01..17",
-  "repo_head": "ace704f",
+  "repo_head": "b94f5de",
   "branch": "codex/rebaseline-local-runtime-hub",
   "merged_prs": [
     "REAL-GH-PR-01",
@@ -29,5 +29,12 @@
     "LRH-PR-02 Odin Agent Operator Mode",
     "LRH-PR-03 Portable Local Runtime Starter"
   ],
-  "agent_operator_mode": "early build/workflow milestone; candidate-only and permission-gated; Thor-compatible only where verified"
+  "agent_operator_mode": "LRH-PR-02 early build/workflow milestone; candidate-only and permission-gated; Thor-compatible only where verified",
+  "pr": "#5",
+  "base": "main",
+  "state": "open",
+  "control_plane_pr": true,
+  "runtime_behavior_changed": false,
+  "road_to_100_acceptance_harness": "registries/road_to_100_acceptance_harness_v1.json",
+  "public_naming_neutrality": "external app and host app terminology only; no specific external app integration proof"
 }

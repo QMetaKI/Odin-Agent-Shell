@@ -1,12 +1,12 @@
-# LRH-PR-02 Agent Operator Mode Prompt
+# Codex Prompt — LRH-PR-02 Odin Agent Operator Mode
 
 ## Branch
 
-`codex/lrh-pr-02-agent-operator-mode`
+Use `codex/lrh-pr-02-odin-agent-operator-mode`.
 
 ## PR title
 
-`LRH-PR-02: Odin Agent Operator Mode`
+LRH-PR-02: Odin Agent Operator Mode
 
 ## Objective
 
@@ -14,15 +14,13 @@ Create the CLI/file-protocol planning surface that lets Codex, Claude Code and f
 
 ## Baseline
 
-Master Architecture v7.1, Local Runtime Hub target v1, and the LRH-PR-01 rebaseline remain authoritative. This is a candidate-only repository workflow protocol slice, not a runtime autonomy slice.
+Master Architecture v7.1, Master Specs v7.1, the Local Runtime Hub target, the Road-to-100 ladder, candidate-only Odin and app-owned apply/state/external-send boundaries remain authoritative.
 
 ## Required intake
 
-Read `START_HERE.md`, `CANON_ENTRY.md`, `SYSTEM_MAP.json`, `docs/MASTER_ARCHITECTURE_V7_1.md`, `docs/MASTER_SPECS_V7_1.md`, `docs/THOR_INTEGRATION.md`, `docs/BOUNDED_CODE_WORK.md`, this build ladder, relevant schemas and registries, and the current AGENTS.md instructions.
+Read root canon, Master Architecture, Master Specs, LRH target, current-state audit, build ladder JSON, rebaseline manifest, coverage matrix, Road-to-100 acceptance harness, relevant subsystem docs, schemas, registries and tests.
 
 ## Target files
-
-- `docs/AGENT_OPERATOR_MODE_V1.md`
 - `odin/agent_operator/`
 - `schemas/v7_1/odin_agent_work_packet.schema.json`
 - `schemas/v7_1/odin_agent_return_report.schema.json`
@@ -33,35 +31,50 @@ Read `START_HERE.md`, `CANON_ENTRY.md`, `SYSTEM_MAP.json`, `docs/MASTER_ARCHITEC
 - `examples/agent_operator/claude_code_work_packet.valid.json`
 - `examples/agent_operator/thor_compatible_packet.valid.json`
 - `tests/test_lrh_pr_02_agent_operator_mode.py`
+- `docs/AGENT_OPERATOR_MODE_V1.md`
 
 ## Allowed new files
-
-Only add isolated docs, schemas, registries, examples, tests and minimal CLI/file-protocol scaffolding required for Agent Operator Mode.
+- `odin/agent_operator/`
+- `schemas/v7_1/odin_agent_work_packet.schema.json`
+- `schemas/v7_1/odin_agent_return_report.schema.json`
+- `schemas/v7_1/odin_agent_permission_card.schema.json`
+- `registries/agent_operator_profile_registry.json`
+- `registries/thor_compatibility_registry.json`
+- `examples/agent_operator/`
+- `tests/test_lrh_pr_02_agent_operator_mode.py`
+- `docs/AGENT_OPERATOR_MODE_V1.md`
 
 ## Forbidden scope
-
-No real agent autonomy. No network send. No app apply. No hidden tool execution. No provider API integration. No claim that Codex or Claude Code are integrated providers. No full Thor protocol claim without verified mapping. Do not replace the Local Runtime Hub target.
+- no autonomous external execution
+- no hidden tool execution
+- no network send by default
+- no app apply authority
+- no provider API integration claim
+- no full Thor protocol support claim without verified mapping
+- no replacement of Local Runtime Hub
 
 ## Required behavior
-
-Future commands must be designed around:
-
-- `odin agent-handoff --agent codex`
-- `odin agent-handoff --agent claude-code`
-- `odin agent-plan`
-- `odin agent-guard`
-- `odin agent-check`
-- `odin agent-proof`
-- `odin agent-return`
-
-The protocol must include Agent Work Packet, Agent Permission Card, Allowed Files / Forbidden Scope, Acceptance Gates, Proof Boundary Packet and Return Report Packet. Thor-compatible mapping must label verified mappings and gaps.
+- support Codex, Claude Code and generic CLI agent profiles
+- define Agent Work Packet, Permission Card and Return Report contracts
+- normalize Thor-style handoff concepts only where verified
+- record Thor incompatibilities as protocol gaps
+- keep agents as external workers, not providers or app authority
 
 ## Required tests
-
-Add deterministic tests for valid/invalid Agent Work Packets, permission cards, Codex and Claude Code profiles, generic CLI profile, Thor-compatible mapping gaps, no hidden apply authority, no external send by default, and candidate-only return reports.
+- valid and invalid Agent Work Packet fixtures
+- permission card rejects hidden tool use and external send
+- Codex, Claude Code and generic CLI profiles exist
+- Thor compatibility registry labels verified mappings and gaps
+- return report remains candidate-only
 
 ## Required commands
-
+- `future target: python -m odin.cli agent-handoff --agent codex`
+- `future target: python -m odin.cli agent-handoff --agent claude-code`
+- `future target: python -m odin.cli agent-plan`
+- `future target: python -m odin.cli agent-guard`
+- `future target: python -m odin.cli agent-check`
+- `future target: python -m odin.cli agent-proof`
+- `future target: python -m odin.cli agent-return`
 - `python -m pip install -e .`
 - `python -m odin.cli validate-current-public-canon`
 - `python -m odin.cli validate-all`
@@ -69,13 +82,30 @@ Add deterministic tests for valid/invalid Agent Work Packets, permission cards, 
 - `PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_lrh_pr_02_agent_operator_mode.py -p no:cacheprovider`
 
 ## Acceptance gates
-
-Agent packet schemas validate, Codex/Claude/generic profiles exist, Thor-compatible mapping exists with explicit gaps, agent commands are scaffolded or documented without hidden execution, tests prove candidate-only and no app-apply boundaries, and `validate-all` plus pytest pass.
+- Codex profile exists
+- Claude Code profile exists
+- generic CLI profile exists
+- Thor-compatible mapping exists with verified/gap labels
+- no hidden tool execution
+- no autonomous external execution
+- no app apply
+- no provider API claim
+- validate-all and pytest pass
 
 ## Proof boundaries
-
-Agent Operator Mode is repository-local workflow protocol, not live LLM provider proof. Codex and Claude Code remain external workers. Odin validates and constrains but does not secretly execute app actions. Thor compatibility is evidence-bound and gap-labeled.
+- no production readiness proof
+- no Windows service/tray/installer proof
+- no signed installer proof
+- no live model inference proof
+- no model quality proof
+- no security certification proof
+- no public network API proof
+- no app-state mutation proof
+- no external send authority proof
+- no agent autonomy proof
+- no full Thor protocol support proof
+- Codex and Claude Code remain external workers
 
 ## Final response format
 
-Summarize files changed, tests run, proof boundaries retained, skipped implementation claims, and whether the slice is ready for review.
+Summary, Testing, Proof boundaries, Skipped implementation claims, Ready yes/no, Next recommended PR.

@@ -2,7 +2,7 @@
 
 ## Branch
 
-Use `codex/lrh-pr-04-runtime-doctor-first-run-bootstrap-self-healing`.
+Use `codex/lrh-pr-04-runtime-doctor-first-run-bootstrap-and-self-healing`.
 
 ## PR title
 
@@ -10,67 +10,73 @@ LRH-PR-04: Runtime Doctor, First-Run Bootstrap and Self-Healing
 
 ## Objective
 
-Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Runtime Doctor, First-Run Bootstrap and Self-Healing.
+Add deterministic doctor, first-run bootstrap and plan-only repair surfaces for local runtime readiness without silently mutating user state.
 
 ## Baseline
 
-Master Architecture v7.1, current v0.8.7 handoff, runtime base v0.8.6, and LRH build ladder v1. The amended ladder places LRH-PR-02 Odin Agent Operator Mode before portable runtime work.
+Master Architecture v7.1, Master Specs v7.1, the Local Runtime Hub target, the Road-to-100 ladder, candidate-only Odin and app-owned apply/state/external-send boundaries remain authoritative.
 
 ## Required intake
 
-Read root canon, Master Architecture, Master Specs, current REAL-GH plan/index, LRH target, LRH audit, LRH build ladder JSON, rebaseline manifest, relevant subsystem docs, schemas, registries and tests.
+Read root canon, Master Architecture, Master Specs, LRH target, current-state audit, build ladder JSON, rebaseline manifest, coverage matrix, Road-to-100 acceptance harness, relevant subsystem docs, schemas, registries and tests.
 
 ## Target files
-
-- `odin/`
-- `odin_app_sdk/`
-- `sdk/`
-- `docs/`
-- `tests/`
+- `odin/doctor/`
+- `odin/bootstrap/`
+- `docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md`
+- `tests/test_lrh_pr_04_runtime_doctor_bootstrap.py`
 
 ## Allowed new files
-
-Use only files allowed by the ladder entry and the future PR's bounded scope.
+- `odin/doctor/`
+- `odin/bootstrap/`
+- `docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md`
+- `examples/doctor/`
+- `tests/test_lrh_pr_04_runtime_doctor_bootstrap.py`
 
 ## Forbidden scope
-
-- do not make Odin apply app state
-- do not enable WAN/LAN API by default
-- do not claim live model proof without receipt
-- do not replace Master Architecture v7.1
+- no automatic repair without explicit apply gate
+- no secret leakage in diagnostics
+- no production security claim
+- no host validation claim beyond local receipts
 
 ## Required behavior
-
-Preserve candidate-only Odin, app-owned apply/state/external send, localhost-only default API, and explicit proof gaps. Do not implement outside this prompt's bounded scope.
+- self-check Python/package/import/config/store/port status
+- generate safe first-run config when absent
+- emit repair plan without applying changes
+- support bundle includes diagnostics without secrets
 
 ## Required tests
-
-Add or update local deterministic tests. No network and no generated runtime artifacts unless the future PR explicitly requires controlled fixtures.
+- doctor success and failure fixtures
+- bootstrap idempotence test
+- repair plan is plan-only test
+- support bundle redaction test
 
 ## Required commands
-
+- `future target: python -m odin.cli doctor`
+- `future target: python -m odin.cli first-run-bootstrap`
+- `future target: python -m odin.cli repair-local-runtime --plan-only`
 - `python -m pip install -e .`
 - `python -m odin.cli validate-current-public-canon`
 - `python -m odin.cli validate-all`
 - `PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider`
-- `python -m odin.cli run-golden-flow`
 
 ## Acceptance gates
-
-- validate-all OK
-- pytest OK
-- claim boundaries explicit
-- candidate-only/app-owned-apply preserved
+- self-checks Python/package/imports/config/store/port
+- first-run config generated safely
+- repair is plan-only unless explicit apply gate exists
+- support bundle includes diagnostics without secrets
 
 ## Proof boundaries
-
 - no production readiness proof
-- no Windows app proof
+- no Windows service/tray/installer proof
+- no signed installer proof
 - no live model inference proof
+- no model quality proof
 - no security certification proof
-- no external send proof
+- no public network API proof
 - no app-state mutation proof
+- no external send authority proof
 
 ## Final response format
 
-Summary, Testing, Legacy moved/skipped if applicable, Proof boundaries, Ready yes/no, Next recommended PR.
+Summary, Testing, Proof boundaries, Skipped implementation claims, Ready yes/no, Next recommended PR.
