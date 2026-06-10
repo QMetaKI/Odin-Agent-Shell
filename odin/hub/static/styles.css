@@ -217,3 +217,59 @@ footer {
   color: var(--error);
   font-size: 0.875rem;
 }
+
+/* Dashboard surfaces (LRH-PR-07) */
+.dashboard-surface {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.dashboard-surface h3 {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.runtime-status-row {
+  margin-bottom: 0.5rem;
+}
+
+.runtime-status-unknown { color: var(--muted); font-weight: bold; }
+.runtime-status-running { color: var(--ok); font-weight: bold; }
+.runtime-status-not-running { color: var(--error); font-weight: bold; }
+
+.status-note {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0.15rem 0;
+}
+
+.boundary-note {
+  font-size: 0.8rem;
+  color: var(--warn);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.validation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.validation-table th,
+.validation-table td {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.validation-table th {
+  background: var(--bg);
+  color: var(--muted);
+  font-weight: normal;
+}
