@@ -19,6 +19,13 @@
     "unmapped_legacy_bundles": []
   },
   "current_base": "Odin-Agent-Shell v0.8.6 Direct Runtime Release Candidate",
+  "current_codex_hardening_path": [
+    "CODEX-PR-01",
+    "CODEX-PR-02",
+    "CODEX-PR-03",
+    "CODEX-PR-04",
+    "CODEX-PR-05"
+  ],
   "execution_prs": [
     {
       "absorbs_internal_tasks": [
@@ -205,7 +212,7 @@
         "no scope creep into Windows/Provider implementation"
       ],
       "target_files": [],
-      "title": "Foundation, Canon, Protocol and Universal Work Core — Codex Hardening"
+      "title": "Foundation, Canon, Protocol and Universal Work Core \u2014 Codex Hardening"
     },
     {
       "absorbs_internal_tasks": [
@@ -399,7 +406,7 @@
         "schemas/v7_1/odin_work_atom*.json",
         "registries/work_atom_*"
       ],
-      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms — Completion"
+      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms \u2014 Completion"
     },
     {
       "absorbs_internal_tasks": [
@@ -638,7 +645,7 @@
         "odin/output/",
         "registries/model_*"
       ],
-      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary — Provider-Ready"
+      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary \u2014 Provider-Ready"
     },
     {
       "absorbs_internal_tasks": [
@@ -696,7 +703,7 @@
         "materialize candidate branch/semantic diff/review gate modules",
         "connect handoff packets into Universal Work runtime path",
         "add negative tests for direct-apply handoffs and fake receipts",
-        "keep Thor/Y/Mjölnir as candidate workers only"
+        "keep Thor/Y/Mj\u00f6lnir as candidate workers only"
       ],
       "codex_deliverables": [
         "odin/handoff module",
@@ -861,7 +868,7 @@
         "registries/handoff_*",
         "registries/ai_git_*"
       ],
-      "title": "Thor/Y/Mjölnir Handoff, AI-Git Safety and Review Pipeline — Real Modules"
+      "title": "Thor/Y/Mj\u00f6lnir Handoff, AI-Git Safety and Review Pipeline \u2014 Real Modules"
     },
     {
       "absorbs_internal_tasks": [
@@ -1082,7 +1089,7 @@
         "registries/shadow_*",
         "registries/loki_*"
       ],
-      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer — Executable Contracts"
+      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer \u2014 Executable Contracts"
     },
     {
       "absorbs_internal_tasks": [
@@ -1338,7 +1345,7 @@
         "registries/seed_*",
         "registries/pattern_*"
       ],
-      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs — Runtime Hardening"
+      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs \u2014 Runtime Hardening"
     },
     {
       "absorbs_internal_tasks": [
@@ -1561,7 +1568,7 @@
         "registries/windows_*",
         "registries/odin_hub_*"
       ],
-      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery — Host-Real Track"
+      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery \u2014 Host-Real Track"
     },
     {
       "absorbs_internal_tasks": [
@@ -1747,11 +1754,16 @@
         "final RC report distinguishes proven vs prepared"
       ],
       "target_files": [],
-      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff — Final Codex RC"
+      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff \u2014 Final Codex RC"
     }
   ],
   "handoff_rule": "Codex starts from the running v0.8.6 runtime candidate and completes eight focused hardening PRs; it does not restart from architecture only.",
   "handoff_version": "0.8.7",
+  "historical_traceability_retained": [
+    "PR-00..PR-123",
+    "REAL-PR-01..28",
+    "REAL-GH-PR-01..08"
+  ],
   "legacy_internal_ladders": [
     "registries/codex_task_registry.json",
     "registries/codex_pr_bundle_registry.json"

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 from pathlib import Path
+import re
 import sys
 
 from odin.runtime.engine import run_universal_work_file
@@ -29,8 +31,24 @@ FORBIDDEN_CLAIMS = {
 }
 
 def load_json(path: Path):
-    with path.open("r", encoding="utf-8") as f:
-        return json.load(f)
+    """Load a required JSON file with deterministic validation errors."""
+    p = Path(path)
+    if not p.exists():
+        raise FileNotFoundError(f"required JSON file missing: {p.relative_to(ROOT) if p.is_relative_to(ROOT) else p}")
+    try:
+        with p.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError as exc:
+        rel = p.relative_to(ROOT) if p.is_relative_to(ROOT) else p
+        raise ValueError(f"invalid JSON in {rel}: line {exc.lineno}, column {exc.colno}: {exc.msg}") from exc
+
+
+def load_optional_json(path: Path, *, default=None):
+    """Load optional JSON without hiding malformed present files."""
+    p = Path(path)
+    if not p.exists():
+        return default
+    return load_json(p)
 
 def validate_json() -> list[str]:
     errors = []
@@ -89,56 +107,182 @@ def validate_system_map() -> list[str]:
             errors.append(f"SYSTEM_MAP points to missing file: {rel}")
     return errors
 
-def validate_claims() -> list[str]:
-    """Detect obvious positive overclaims.
+NEGATION_MARKERS = (
+    "not ",
+    "no ",
+    "without ",
+    "does not ",
+    "do not ",
+    "never ",
+    "not claim ",
+    "not claimed",
+    "not a ",
+)
 
-    The forbidden claim *tokens* are allowed in schemas, registries, docs and code
-    when they define boundaries. This scanner only blocks explicit affirmative
-    phrasing that would tell a user the runtime is already verified/production-ready.
-    """
+POSITIVE_CLAIM_PATTERNS = [
+    "runtime is verified",
+    "host is validated",
+    "model inference is verified",
+    "network is verified",
+    "security is verified",
+    "production ready",
+    "production readiness is verified",
+    "deployment verified",
+    "deploy verified",
+    "patch applied",
+    "tests passed",
+    "full implementation complete",
+]
+
+
+def _is_negated_overclaim_context(text: str, phrase_start: int) -> bool:
+    window = text[max(0, phrase_start - 240):phrase_start]
+    return any(marker in window for marker in NEGATION_MARKERS)
+
+
+def _scan_positive_overclaims(text: str) -> list[str]:
+    lowered = text.lower()
+    hits: list[str] = []
+    for phrase in POSITIVE_CLAIM_PATTERNS:
+        pattern = r"(?<![a-z0-9_])" + re.escape(phrase) + r"(?![a-z0-9_])"
+        for match in re.finditer(pattern, lowered):
+            if _is_negated_overclaim_context(lowered, match.start()):
+                continue
+            hits.append(phrase)
+    return hits
+
+
+def validate_claims() -> list[str]:
+    """Detect obvious positive overclaims while allowing explicit proof gaps."""
     errors = []
-    positive_patterns = [
-        "is runtime_verified",
-        "is host_validated",
-        "is model_inference_verified",
-        "is network_verified",
-        "is security_verified",
-        "is production_ready",
-        "is deploy_verified",
-        "is patch_applied",
-        "is tests_passed",
-        "is full_implementation_complete",
-        "runtime is verified",
-        "host is validated",
-        "security is verified",
-        "production ready",
-        "tests passed",
-        "patch applied",
-        "deployment verified",
-    ]
-    allowed_files = {
-        "CLAIM_BOUNDARY.md",
-        "AGENTS.md",
-        "README.md",
-        "MASTER_SPECS_V7_1.md",
-        "MASTER_ARCHITECTURE_V7_1.md",
-    }
     this_file = Path(__file__).resolve()
+    ignored_dirs = {".git", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache"}
     for path in sorted(ROOT.rglob("*")):
         if path.resolve() == this_file:
             continue
-        if path.is_dir() or ".git" in path.parts:
+        if path.is_dir() or any(part in ignored_dirs for part in path.parts):
             continue
         if path.suffix.lower() not in {".md", ".py", ".json", ".yml", ".yaml", ".ts", ".txt"}:
             continue
-        if path.name in allowed_files or "schemas" in path.parts or "registries" in path.parts:
-            continue
-        text = path.read_text(encoding="utf-8", errors="ignore").lower()
-        for phrase in positive_patterns:
-            if phrase in text:
-                errors.append(f"positive overclaim phrase '{phrase}' in {path.relative_to(ROOT)}")
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for phrase in _scan_positive_overclaims(text):
+            errors.append(f"positive overclaim phrase '{phrase}' in {path.relative_to(ROOT)}")
     return errors
 
+
+
+REQUIRED_ROOT_CANON_DOCS = [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "CODEX_START_HERE.md",
+    "CLAIM_BOUNDARY.md",
+    "PROTOCOL_BOUNDARY.md",
+    "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json",
+    "AGENTS.md",
+    "SECURITY.md",
+    "LICENSE_POLICY.md",
+    "THOR_ODIN_GPL2_ONLY_POLICY.md",
+]
+
+REQUIRED_HANDOFF_DOCS = [
+    "docs/CODEX_REAL_PR_HANDOFF_LADDER_LOCK_V0_8_7.md",
+    "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
+    "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md",
+    "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
+]
+
+PROOF_GAP_PHRASES = [
+    "no production readiness proof",
+    "no live model inference proof",
+    "no model quality proof",
+    "no security certification proof",
+    "manual review remains required",
+]
+
+CURRENT_CODEX_PR_IDS = [f"CODEX-PR-{i:02d}" for i in range(1, 6)]
+
+
+def validate_schemas_json() -> list[str]:
+    errors: list[str] = []
+    schemas_dir = ROOT / "schemas"
+    if not schemas_dir.exists():
+        return ["schemas directory missing"]
+    for path in sorted(schemas_dir.rglob("*.json")):
+        try:
+            load_json(path)
+        except Exception as exc:
+            errors.append(str(exc))
+    return errors
+
+
+def validate_runtime_imports() -> list[str]:
+    errors: list[str] = []
+    modules = [
+        "odin.runtime.config",
+        "odin.runtime.engine",
+        "odin.runtime.errors",
+        "odin.runtime.ids",
+        "odin.runtime.repair",
+        "odin.runtime.session",
+        "odin.runtime.store",
+        "odin.protocol.binding",
+        "odin.candidates.artifact",
+    ]
+    for module in modules:
+        try:
+            importlib.import_module(module)
+        except Exception as exc:
+            errors.append(f"runtime skeleton import failed for {module}: {exc}")
+    return errors
+
+
+def validate_current_canon_hardening() -> list[str]:
+    errors: list[str] = []
+    for rel in REQUIRED_ROOT_CANON_DOCS + REQUIRED_HANDOFF_DOCS:
+        if not (ROOT / rel).exists():
+            errors.append(f"required canon/handoff path missing: {rel}")
+    text_by_rel = {
+        rel: (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        for rel in ["README.md", "START_HERE.md", "CANON_ENTRY.md", "CODEX_START_HERE.md", "CLAIM_BOUNDARY.md"]
+        if (ROOT / rel).exists()
+    }
+    combined = "\n".join(text_by_rel.values())
+    for phrase in [
+        "Odin Agent Shell v7.1",
+        "v0.8.7",
+        "candidate-only",
+        "app-owned apply",
+        "Odin emits candidates only",
+    ]:
+        if phrase.lower() not in combined.lower():
+            errors.append(f"root canon docs missing current boundary phrase: {phrase}")
+    for phrase in PROOF_GAP_PHRASES:
+        if phrase.lower() not in combined.lower():
+            errors.append(f"root canon docs missing proof-gap phrase: {phrase}")
+    for pid in CURRENT_CODEX_PR_IDS:
+        if pid not in combined:
+            errors.append(f"root canon docs missing current 5-PR ladder id: {pid}")
+    for legacy in ["PR-00..PR-123", "REAL-PR-01..28", "REAL-GH-PR-01..08"]:
+        if legacy not in combined:
+            errors.append(f"root canon docs missing historical traceability marker: {legacy}")
+
+    handoff_registry = ROOT / "registries" / "codex_real_pr_handoff_registry.json"
+    if handoff_registry.exists():
+        data = load_json(handoff_registry)
+        ids = {item.get("id") for item in data.get("codex_pr_hardening_path", [])}
+        for pid in CURRENT_CODEX_PR_IDS:
+            if pid not in ids:
+                errors.append(f"codex handoff registry missing hardening path id: {pid}")
+        historical = data.get("historical_traceability", [])
+        for legacy in ["PR-00..PR-123", "REAL-PR-01..28", "REAL-GH-PR-01..08"]:
+            if legacy not in historical:
+                errors.append(f"codex handoff registry missing historical traceability: {legacy}")
+    else:
+        errors.append("codex real PR handoff registry missing")
+    return errors
 
 def validate_docs() -> list[str]:
     errors = []
@@ -1373,9 +1517,12 @@ def validate_direct_runtime_release_candidate() -> list[str]:
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
+    errors.extend(validate_schemas_json())
     errors.extend(validate_registries())
     errors.extend(validate_system_map())
     errors.extend(validate_claims())
+    errors.extend(validate_current_canon_hardening())
+    errors.extend(validate_runtime_imports())
     errors.extend(validate_docs())
     errors.extend(validate_codex_tasks())
     errors.extend(validate_codex_bundles())
@@ -1395,6 +1542,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_product_pattern_atom_hub())
     errors.extend(validate_public_repo_windows_build_ready())
     errors.extend(validate_runtime_source_candidate())
+    errors.extend(validate_direct_runtime_release_candidate())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -1404,6 +1552,9 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-registries")
     sub.add_parser("validate-system-map")
     sub.add_parser("validate-claims")
+    sub.add_parser("validate-current-canon-hardening")
+    sub.add_parser("validate-runtime-imports")
+    sub.add_parser("validate-schemas-json")
     sub.add_parser("validate-docs")
     sub.add_parser("validate-codex-tasks")
     sub.add_parser("validate-codex-bundles")
@@ -1517,6 +1668,12 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_system_map()
     elif args.cmd == "validate-claims":
         errors = validate_claims()
+    elif args.cmd == "validate-current-canon-hardening":
+        errors = validate_current_canon_hardening()
+    elif args.cmd == "validate-runtime-imports":
+        errors = validate_runtime_imports()
+    elif args.cmd == "validate-schemas-json":
+        errors = validate_schemas_json()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

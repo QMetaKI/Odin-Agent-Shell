@@ -1,7 +1,60 @@
 {
+  "actual_codex_pr_path": [
+    "CODEX-PR-01",
+    "CODEX-PR-02",
+    "CODEX-PR-03",
+    "CODEX-PR-04",
+    "CODEX-PR-05"
+  ],
   "architecture": "Odin Agent Shell v7.1",
   "claim_boundary": "handoff_registry_defines_codex_work_plan_not_completed_implementation",
+  "codex_pr_hardening_path": [
+    {
+      "id": "CODEX-PR-01",
+      "maps_from": [
+        "REAL-GH-PR-01"
+      ],
+      "proof_boundary": "candidate-only hardening; no runtime/provider/Windows/production proof",
+      "title": "Canon, Validation and Runtime Skeleton Hardening"
+    },
+    {
+      "id": "CODEX-PR-02",
+      "maps_from": [
+        "REAL-GH-PR-02"
+      ],
+      "proof_boundary": "caller/app-owned apply remains required",
+      "title": "Runtime Bus, Worklets, Work Atoms, Local API and App SDK"
+    },
+    {
+      "id": "CODEX-PR-03",
+      "maps_from": [
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-06"
+      ],
+      "proof_boundary": "no live provider/model inference proof without receipts",
+      "title": "Provider Boundary, Pre-LLM, QIRC, Seeds, Pattern Mines and Flow Packs"
+    },
+    {
+      "id": "CODEX-PR-04",
+      "maps_from": [
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05"
+      ],
+      "proof_boundary": "candidate and review pipeline only; no auto-apply",
+      "title": "Handoff, AI-Git, Narrative Compiler, Shadow Runtime and Loki"
+    },
+    {
+      "id": "CODEX-PR-05",
+      "maps_from": [
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "proof_boundary": "no Windows host or production proof without host receipts",
+      "title": "Windows Product Runtime, Odin Hub, Golden RC and Release Handoff"
+    }
+  ],
   "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+  "current_execution_mode": "Codex hardening from a running Runtime Candidate; candidate-only and not production proof",
   "execution_prs": [
     {
       "codex_completion_focus": [
@@ -36,7 +89,7 @@
         "python -m pytest -q -p no:cacheprovider"
       ],
       "runtime_status_after_chatgpt": "mostly materialized; Codex mainly hardens and normalizes",
-      "title": "Foundation, Canon, Protocol and Universal Work Core — Codex Hardening"
+      "title": "Foundation, Canon, Protocol and Universal Work Core \u2014 Codex Hardening"
     },
     {
       "codex_completion_focus": [
@@ -74,7 +127,7 @@
         "python -m odin.cli validate-all"
       ],
       "runtime_status_after_chatgpt": "partially materialized; Codex completes bus/worklet/store/API depth",
-      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms — Completion"
+      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms \u2014 Completion"
     },
     {
       "codex_completion_focus": [
@@ -112,7 +165,7 @@
         "python -m odin.cli validate-all"
       ],
       "runtime_status_after_chatgpt": "strong boundary scaffold; real providers remain Codex/host work",
-      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary — Provider-Ready"
+      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary \u2014 Provider-Ready"
     },
     {
       "codex_completion_focus": [
@@ -120,7 +173,7 @@
         "materialize candidate branch/semantic diff/review gate modules",
         "connect handoff packets into Universal Work runtime path",
         "add negative tests for direct-apply handoffs and fake receipts",
-        "keep Thor/Y/Mjölnir as candidate workers only"
+        "keep Thor/Y/Mj\u00f6lnir as candidate workers only"
       ],
       "depends_on": [
         "REAL-GH-PR-03"
@@ -149,7 +202,7 @@
         "python -m pytest -q -p no:cacheprovider"
       ],
       "runtime_status_after_chatgpt": "mostly spec-level plus candidate/trace primitives; Codex builds real pipeline modules",
-      "title": "Thor/Y/Mjölnir Handoff, AI-Git Safety and Review Pipeline — Real Modules"
+      "title": "Thor/Y/Mj\u00f6lnir Handoff, AI-Git Safety and Review Pipeline \u2014 Real Modules"
     },
     {
       "codex_completion_focus": [
@@ -186,7 +239,7 @@
         "python -m pytest -q -p no:cacheprovider"
       ],
       "runtime_status_after_chatgpt": "good shadow layer scaffold; Codex deepens actual compiler integration",
-      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer — Executable Contracts"
+      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer \u2014 Executable Contracts"
     },
     {
       "codex_completion_focus": [
@@ -225,7 +278,7 @@
         "python -m odin.cli validate-all"
       ],
       "runtime_status_after_chatgpt": "one of the strongest materialized areas; Codex hardens security/performance/edge cases",
-      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs — Runtime Hardening"
+      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs \u2014 Runtime Hardening"
     },
     {
       "codex_completion_focus": [
@@ -264,7 +317,7 @@
         "python -m odin.cli validate-all"
       ],
       "runtime_status_after_chatgpt": "prepared but not host-proven; Codex/Windows host work is substantial",
-      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery — Host-Real Track"
+      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery \u2014 Host-Real Track"
     },
     {
       "codex_completion_focus": [
@@ -303,8 +356,13 @@
         "python -m pytest -q -p no:cacheprovider"
       ],
       "runtime_status_after_chatgpt": "good RC layer; Codex turns it into final handoff quality",
-      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff — Final Codex RC"
+      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff \u2014 Final Codex RC"
     }
+  ],
+  "historical_traceability": [
+    "PR-00..PR-123",
+    "REAL-PR-01..28",
+    "REAL-GH-PR-01..08"
   ],
   "registry_id": "odin.codex_real_pr_handoff_registry.v0_8_7",
   "rule": "Use this registry as Codex handoff index. Each prompt starts from the current runtime candidate, not from blank architecture.",

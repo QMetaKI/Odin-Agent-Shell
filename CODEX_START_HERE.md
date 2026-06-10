@@ -377,3 +377,20 @@ docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md
 docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md
 docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md
 ```
+
+## v0.8.7 Current Codex hardening path
+
+- **Architecture:** Odin Agent Shell v7.1.
+- **Current handoff:** `v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK`, starting from the `v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK` runtime candidate.
+- **Current execution mode:** Codex hardening from a running Runtime Candidate; this is not a production-readiness claim.
+- **Actual Codex PR path:** `CODEX-PR-01`, `CODEX-PR-02`, `CODEX-PR-03`, `CODEX-PR-04`, `CODEX-PR-05`.
+- **Historical traceability retained:** `PR-00..PR-123`, `REAL-PR-01..28`, and `REAL-GH-PR-01..08` remain traceability ladders and are not deleted or treated as proof of completion.
+
+Boundary summary: Odin emits candidates only; app-owned apply remains mandatory; Odin does not mutate caller/app state; Odin does not silently send externally; provider/model output is never promoted to truth.
+
+Proof gaps retained: no production readiness proof; no live model inference proof; no model quality proof; no Windows service/tray/installer proof unless actually tested; no security certification proof; no external send proof; no app-state mutation proof; manual review remains required.
+
+### CODEX-PR-01 acceptance scope
+
+This PR hardens root canon, validation gates, schema/registry loading, runtime skeleton import boundaries, CLI failure messages, and release-candidate proof discipline. It does not implement Runtime Bus expansion, provider execution, QIRC authority, narrative runtime, Windows product runtime, App SDK expansion, app apply, external sends, or production readiness. Remaining work is intentionally deferred to `CODEX-PR-02..05`.
+

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_zip_contents_not_host_runtime_proof",
-  "file_count_excluding_manifest": 974,
+  "file_count_excluding_manifest": 975,
   "files": [
     {
       "path": ".editorconfig",
@@ -25,8 +25,8 @@
     },
     {
       "path": "CANON_ENTRY.md",
-      "sha256": "8d817aa85f102ef7d80d187cd35b281912d1e80ba5ef890261c44a1a3bbda2ce",
-      "size": 16148
+      "sha256": "aec9cb582ddf390a6c34c9640f24c798b3c42e9e8b651e73e0cd5a5f67b83ed7",
+      "size": 17755
     },
     {
       "path": "CHANGELOG.md",
@@ -35,13 +35,13 @@
     },
     {
       "path": "CLAIM_BOUNDARY.md",
-      "sha256": "8c02d657195f1473cdc12847df746fba31e39e06d5afcc4aac349f5748c7784b",
-      "size": 984
+      "sha256": "dca0e648c50dfbd1a644e28b167f0fb78876b153aa73231c2e2f17b08f7b3dbe",
+      "size": 1906
     },
     {
       "path": "CODEX_START_HERE.md",
-      "sha256": "073794be09f3ac1e604db66e3303cbfc5428c3d95484868001e6afe176725c06",
-      "size": 20947
+      "sha256": "43244677138d4194892ade1cebac51061013da9db3064a5a0b71dff49cc3e400",
+      "size": 22554
     },
     {
       "path": "LICENSE",
@@ -60,8 +60,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "3b14a4ceb623b1d92219e52b21461160ab4b61c1fd7e2468341a8cd932a2e98b",
-      "size": 15974
+      "sha256": "cbbb5f31574e3716f9fcaeb795af8ebe6760e1bd5e51a5eb6ef5345a847c68ce",
+      "size": 17581
     },
     {
       "path": "SECURITY.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "START_HERE.md",
-      "sha256": "e5338407c8f27ef7c03bfeae33556debf80af84a692a83b3eef733475297f889",
-      "size": 5806
+      "sha256": "f156fbf7e8a0d645ced10878dbe792d8735cb7879357493bf2d9afa17266e9e4",
+      "size": 7413
     },
     {
       "path": "SYSTEM_MAP.json",
@@ -205,8 +205,8 @@
     },
     {
       "path": "docs/CODEX_REAL_PR_HANDOFF_LADDER_LOCK_V0_8_7.md",
-      "sha256": "2a0353d2e367286fd609e6d068666bf547778d8aec754ff9f25248d85db9bf8b",
-      "size": 2845
+      "sha256": "443df1245299011db433e636038e29409b67d19ee83a198eb2eae581f5ba176c",
+      "size": 3979
     },
     {
       "path": "docs/CODEX_RUNTIME_CANDIDATE_HANDOFF_V0_8_0.md",
@@ -1025,8 +1025,8 @@
     },
     {
       "path": "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md",
-      "sha256": "2aa77af0f168b10db785b626af67db3a5ae7513ef2722064c6f052db8f4555ac",
-      "size": 892
+      "sha256": "9213c56b399a452ee988515cc876b7ad104f7fb4b22d91e080ac093bcaa61c4a",
+      "size": 2026
     },
     {
       "path": "docs/codex/CODEX_PROMPT_PACKS_V0_4_0.md",
@@ -1105,8 +1105,8 @@
     },
     {
       "path": "docs/codex/REAL_GITHUB_PR_EXECUTION_INDEX_V0_8_7.md",
-      "sha256": "fc2f958fdd07817d568dcd83dbfc2e33f6a7af6ae6019b8d8f0bc2df10565627",
-      "size": 1703
+      "sha256": "9eafc2d18ff1248facf5fac8b585695ac462d5c25a4e07aea1f5b791347ddaac",
+      "size": 2837
     },
     {
       "path": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_7_6.md",
@@ -1120,8 +1120,8 @@
     },
     {
       "path": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
-      "sha256": "f983e68c31bccf7a0c3d621c70826f80c815e2fd995d329d818be32b3e57ceaf",
-      "size": 12463
+      "sha256": "390da5894df0c01f9ed290d73476dc9699a2e40e737df15e69bedf005b54886a",
+      "size": 13597
     },
     {
       "path": "docs/codex/REAL_PR_BUNDLE_INDEX_V0_4_1.md",
@@ -2435,8 +2435,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "837a2cabbb37c237e2b8e84700a3f43ff36cb533c5295ffb8532be2dc05fb705",
-      "size": 90040
+      "sha256": "521bd22197d3f3b63b9179563ad73600a651786919a8ffcb608560a97c55ac9b",
+      "size": 95583
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -2660,8 +2660,8 @@
     },
     {
       "path": "odin/runtime/config.py",
-      "sha256": "6d38c040a60d46db21dc81d1cdf620b00738c9044b18b54511f52d9c191562f0",
-      "size": 1112
+      "sha256": "be2518c93a95953d46b66ede93679612f030830d689d768588ba9f92f4907302",
+      "size": 2473
     },
     {
       "path": "odin/runtime/engine.py",
@@ -3515,8 +3515,8 @@
     },
     {
       "path": "registries/codex_real_pr_handoff_registry.json",
-      "sha256": "ec1fb260984dc437ceefff3bc363707273d9153f1f43e9e2b3b3483ac1b493f2",
-      "size": 14777
+      "sha256": "1616337257dd756df0599de7204be10259682f0f38a0a3aafa66084493446953",
+      "size": 16537
     },
     {
       "path": "registries/codex_task_registry.json",
@@ -3735,8 +3735,8 @@
     },
     {
       "path": "registries/real_pr_execution_registry.json",
-      "sha256": "395104fa00fe0026f89bd14f7bfc7d56259d8f56e6942786b566c45e0dbc6932",
-      "size": 64267
+      "sha256": "b8e8297ec4c07877abffcfac5d544f4f55ee667485c36d54c894a829a8dea7bc",
+      "size": 64546
     },
     {
       "path": "registries/remote_worker_boundary_registry.json",
@@ -4692,6 +4692,11 @@
       "path": "tests/test_build_ladder_absolute_alignment.py",
       "sha256": "5b10228ddd8f4c8d95966c0a69dc22417047e3144dd484aa6334e139f68575d7",
       "size": 2002
+    },
+    {
+      "path": "tests/test_codex_pr01_hardening.py",
+      "sha256": "1c8b1558be744cf22fb10de46fccf14b0e7baa0fcbfad5cf3eb9c62fd15350a8",
+      "size": 2595
     },
     {
       "path": "tests/test_codex_pr_bundles.py",
