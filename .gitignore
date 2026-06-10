@@ -7,5 +7,5 @@ __pycache__/
 dist/
 build/
 odin_agent_shell.egg-info/
-.odin_runtime/local_runtime.lock
+.odin_runtime/
 .thor/

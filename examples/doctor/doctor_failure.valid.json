@@ -1,0 +1,36 @@
+{
+  "artifact_kind": "odin_doctor_report",
+  "candidate_only": true,
+  "claim_boundary": "doctor_report_read_only_candidate_not_production_readiness_proof",
+  "failure_count": 2,
+  "failure_reasons": [
+    "config has blocked host '0.0.0.0'; only localhost binds allowed",
+    "required packages not importable"
+  ],
+  "host": "127.0.0.1",
+  "known_non_proofs": [
+    "not_production_readiness_certification",
+    "not_windows_service_tray_installer_proof",
+    "not_provider_live_model_proof",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_security_certification"
+  ],
+  "port": 8877,
+  "read_only": true,
+  "skip_count": 1,
+  "state_mutated": false,
+  "status": "fail",
+  "warning_count": 1,
+  "checks": [
+    {"check": "python_version", "detail": "3.11.0", "status": "ok"},
+    {"check": "package_imports", "detail": "['odin.missing_module: No module named odin.missing_module']", "failure_reason": "required packages not importable", "status": "fail"},
+    {"check": "runtime_dir", "detail": ".odin_runtime", "failure_reason": "runtime dir absent — will be created on first start", "status": "warn"},
+    {"check": "lockfile", "detail": ".odin_runtime/local_runtime.lock", "failure_reason": "stale lockfile — process not alive", "status": "warn"},
+    {"check": "config_file", "detail": "host=0.0.0.0", "failure_reason": "config has blocked host '0.0.0.0'; only localhost binds allowed", "status": "fail"},
+    {"check": "host_safety", "detail": "127.0.0.1", "status": "ok"},
+    {"check": "port_availability", "detail": "127.0.0.1:8877 available", "status": "ok"},
+    {"check": "local_api_health", "detail": "127.0.0.1:8877", "failure_reason": "local API not reachable — runtime may not be running", "status": "skip"}
+  ]
+}

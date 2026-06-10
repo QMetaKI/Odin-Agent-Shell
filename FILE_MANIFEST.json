@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1029,
+  "file_count_excluding_manifest": 1045,
   "files": [
     {
       "path": ".editorconfig",
@@ -632,6 +632,11 @@
       "path": "docs/RUNTIME_CORE_COMPLETION_V0_8_1.md",
       "sha256": "13973a75c61aceb1ecdd4c121c0e0c20b4601ffb4e493706af4b7047cb68d3df",
       "size": 124
+    },
+    {
+      "path": "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md",
+      "sha256": "0cdc67e5e00d2b28fb4deb392ead5be785b8e78f2f8ec87ecc23e181735e0296",
+      "size": 7841
     },
     {
       "path": "docs/RUNTIME_PACK_SEED_PROFILES_V7_1.md",
@@ -1357,6 +1362,11 @@
       "path": "docs/codex/real_execution_prs/REAL-GH-PR-08_APP_SDKS_APP_QIRC_DIGEST_GOLDEN_FLOWS_RELEASE_HYGIENE_AND_PUBLIC_BUILD.md",
       "sha256": "de0185cb9f4d8427081c0e70636e9416b75d6a63c146cea2458d2a0051589ea6",
       "size": 6094
+    },
+    {
+      "path": "docs/codex/reports/LRH-PR-04_RETURN_REPORT.md",
+      "sha256": "b89a37c6d0de3c1c7fe2c5e92ed62ae0cbf0f4a3b8fe178109d647f9757eef14",
+      "size": 16545
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -2154,9 +2164,34 @@
       "size": 836
     },
     {
+      "path": "examples/bootstrap/first_run_config.valid.json",
+      "sha256": "397971ea43a7c3c7f8403fc9a10c0567a9b9317e6c03b230c68f29879ee8ab65",
+      "size": 964
+    },
+    {
+      "path": "examples/bootstrap/repair_plan.valid.json",
+      "sha256": "31a75448cbd5d76a7aab9d2fb778dec24dbab55f2bbef6814c167648a39a24d5",
+      "size": 1330
+    },
+    {
       "path": "examples/compiler/standard_local_runtime_pack.valid.json",
       "sha256": "71cb58ba37a38ad95a38b3c7220fbdfebcb86d23be7372d5bab2f562ab32a796",
       "size": 1001
+    },
+    {
+      "path": "examples/doctor/doctor_failure.valid.json",
+      "sha256": "fb316bdb6dd6f7b7d9e7a958ff9d8aa5fbe74696c0c35e528c8a75eb89537479",
+      "size": 1812
+    },
+    {
+      "path": "examples/doctor/doctor_success.valid.json",
+      "sha256": "8079e37e651a32ab3ca77c4f7cb4cbda5be4d4265544438a143702fc488585dc",
+      "size": 1380
+    },
+    {
+      "path": "examples/doctor/support_bundle_redacted.valid.json",
+      "sha256": "05e4711678aa76e8afb9cda729630e243ebdea9e9017037bd04146c881b2f332",
+      "size": 1263
     },
     {
       "path": "examples/fairy/odin_rewrite_story.valid.json",
@@ -2539,6 +2574,21 @@
       "size": 1575
     },
     {
+      "path": "odin/bootstrap/__init__.py",
+      "sha256": "22fa43f57dc2f649a8caf7d1769048980c111bf3e1da0092997ac12f9d5482db",
+      "size": 633
+    },
+    {
+      "path": "odin/bootstrap/first_run.py",
+      "sha256": "decf60ed656b42a9fba3fa7fbb3c14f5f006b57ae3c5bc8bd3aa495b2a28118d",
+      "size": 3660
+    },
+    {
+      "path": "odin/bootstrap/repair_plan.py",
+      "sha256": "00c4365aa4d7ea5d58371ae62cb38b52f4c63e9505998dfb25b9699ef6f0d014",
+      "size": 3819
+    },
+    {
       "path": "odin/bus/__init__.py",
       "sha256": "46959be2ec087578c80dedd3bebe37d3554ab80116ffef3aea853e623e83809b",
       "size": 173
@@ -2657,6 +2707,31 @@
       "path": "odin/diagnostics/support_bundle.py",
       "sha256": "02c1991cabc34cf5796accaa4cca05ecdd94e1faf386317349100def7b06433a",
       "size": 886
+    },
+    {
+      "path": "odin/doctor/__init__.py",
+      "sha256": "ab33ee8fc123b5f370c1353cfbd6443cd27cae4d768269687fc5fa447f8ce33b",
+      "size": 477
+    },
+    {
+      "path": "odin/doctor/checks.py",
+      "sha256": "f11864f80d5341d9fc0444cc2d2265752f622e61cfbc144cab7ec9a486fecf82",
+      "size": 6531
+    },
+    {
+      "path": "odin/doctor/diagnostics.py",
+      "sha256": "e4e61a68853d37a399b68021f4278d9ac5769936cb74b1b42269873d8a40460a",
+      "size": 2204
+    },
+    {
+      "path": "odin/doctor/redaction.py",
+      "sha256": "b009349668880699369db64521ad864fa6d22f633fc7ba7dae91fcd3a85bd706",
+      "size": 1228
+    },
+    {
+      "path": "odin/doctor/support_bundle.py",
+      "sha256": "f47c2fd3750ab5fef9e68a16323ebcad7778c992bca4a7e1566759f92d49e1e6",
+      "size": 2198
     },
     {
       "path": "odin/flow_packs/__init__.py",
@@ -4987,6 +5062,11 @@
       "path": "tests/test_local_runtime_hub_rebaseline.py",
       "sha256": "398b0f4934b8d0d496d0d5b5a0c6b4d590eb72fb9d70e9105ffb1580ddef6e2c",
       "size": 9948
+    },
+    {
+      "path": "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py",
+      "sha256": "633176abea2d25feb651386b30480e2ad1eef23b59c153c6431ff7920f8af4c8",
+      "size": 32634
     },
     {
       "path": "tests/test_model_router.py",

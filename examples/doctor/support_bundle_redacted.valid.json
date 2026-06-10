@@ -1,0 +1,39 @@
+{
+  "artifact_kind": "odin_diagnostics_support_bundle",
+  "bundle_id": "BUNDLE-EXAMPLE000001",
+  "candidate_only": true,
+  "claim_boundary": "support_bundle_diagnostics_only_local_redacted_no_external_send_no_secret_values",
+  "contents": {
+    "doctor_report": {
+      "artifact_kind": "odin_doctor_report",
+      "candidate_only": true,
+      "claim_boundary": "doctor_report_read_only_candidate_not_production_readiness_proof",
+      "failure_count": 0,
+      "failure_reasons": [],
+      "host": "127.0.0.1",
+      "port": 8877,
+      "read_only": true,
+      "state_mutated": false,
+      "status": "ok",
+      "env_snapshot": {
+        "TOKEN": "[REDACTED]",
+        "API_KEY": "[REDACTED]",
+        "PATH": "/usr/local/bin:/usr/bin"
+      }
+    }
+  },
+  "created_by": "odin.doctor.support_bundle",
+  "external_send": false,
+  "included_reports": ["doctor_report"],
+  "known_non_proofs": [
+    "not_production_security_certification",
+    "not_windows_service_tray_installer_proof",
+    "not_provider_live_model_proof",
+    "not_public_network_api_proof",
+    "not_external_send_authority",
+    "not_app_state_mutation_authority"
+  ],
+  "redaction_applied": true,
+  "redaction_policy": "doctor_output_redacted_no_secret_values",
+  "schema_version": "1.0"
+}

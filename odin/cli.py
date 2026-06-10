@@ -1814,6 +1814,144 @@ def validate_local_runtime_starter() -> list[str]:
     return errors
 
 
+def validate_runtime_doctor_bootstrap() -> list[str]:
+    """Validate runtime doctor, first-run bootstrap and self-healing surfaces (LRH-PR-04)."""
+    errors = []
+
+    required_modules = [
+        "odin/doctor/__init__.py",
+        "odin/doctor/checks.py",
+        "odin/doctor/diagnostics.py",
+        "odin/doctor/support_bundle.py",
+        "odin/doctor/redaction.py",
+        "odin/bootstrap/__init__.py",
+        "odin/bootstrap/first_run.py",
+        "odin/bootstrap/repair_plan.py",
+    ]
+    for rel in required_modules:
+        if not (ROOT / rel).exists():
+            errors.append(f"LRH-PR-04 module missing: {rel}")
+
+    doc = ROOT / "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md"
+    if not doc.exists():
+        errors.append("docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md missing")
+    else:
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore")
+        for required_phrase in [
+            "not production",
+            "plan-only",
+            "no external send",
+            "127.0.0.1",
+        ]:
+            if required_phrase.lower() not in doc_text.lower():
+                errors.append(
+                    f"docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md: missing required phrase: {required_phrase!r}"
+                )
+
+    required_examples = [
+        "examples/doctor/doctor_success.valid.json",
+        "examples/doctor/doctor_failure.valid.json",
+        "examples/bootstrap/first_run_config.valid.json",
+        "examples/bootstrap/repair_plan.valid.json",
+        "examples/doctor/support_bundle_redacted.valid.json",
+    ]
+    for rel in required_examples:
+        p = ROOT / rel
+        if not p.exists():
+            errors.append(f"LRH-PR-04 example missing: {rel}")
+            continue
+        try:
+            data = load_json(p)
+        except Exception as exc:
+            errors.append(f"{rel}: invalid JSON: {exc}")
+            continue
+        if rel == "examples/doctor/doctor_success.valid.json":
+            if data.get("artifact_kind") != "odin_doctor_report":
+                errors.append(f"{rel}: must have artifact_kind odin_doctor_report")
+            if data.get("state_mutated") is not False:
+                errors.append(f"{rel}: state_mutated must be false")
+            if data.get("candidate_only") is not True:
+                errors.append(f"{rel}: candidate_only must be true")
+        if rel == "examples/bootstrap/first_run_config.valid.json":
+            written = data.get("config_written", {})
+            if written.get("host") not in ("127.0.0.1", "localhost", "::1"):
+                errors.append(f"{rel}: config_written.host must be localhost")
+            if written.get("public_bind") is not False:
+                errors.append(f"{rel}: config_written.public_bind must be false")
+        if rel == "examples/bootstrap/repair_plan.valid.json":
+            if data.get("applied") is not False:
+                errors.append(f"{rel}: applied must be false")
+            if data.get("plan_only") is not True:
+                errors.append(f"{rel}: plan_only must be true")
+        if rel == "examples/doctor/support_bundle_redacted.valid.json":
+            if data.get("redaction_applied") is not True:
+                errors.append(f"{rel}: redaction_applied must be true")
+            if data.get("external_send") is not False:
+                errors.append(f"{rel}: external_send must be false")
+
+    test_file = ROOT / "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py"
+    if not test_file.exists():
+        errors.append("tests/test_lrh_pr_04_runtime_doctor_bootstrap.py missing")
+
+    try:
+        from odin.doctor.diagnostics import run_doctor, KNOWN_NON_PROOFS
+        report = run_doctor()
+        if report.get("state_mutated") is not False:
+            errors.append("doctor: state_mutated must be false")
+        if report.get("read_only") is not True:
+            errors.append("doctor: read_only must be true")
+        if report.get("candidate_only") is not True:
+            errors.append("doctor: candidate_only must be true")
+        for np in KNOWN_NON_PROOFS:
+            if np not in report.get("known_non_proofs", []):
+                errors.append(f"doctor report missing known_non_proof: {np}")
+    except Exception as exc:
+        errors.append(f"doctor module check failed: {exc}")
+
+    try:
+        from odin.bootstrap.first_run import SAFE_DEFAULT_CONFIG, BLOCKED_HOSTS
+        if SAFE_DEFAULT_CONFIG.get("host") in BLOCKED_HOSTS:
+            errors.append("bootstrap: SAFE_DEFAULT_CONFIG host must not be a blocked host")
+        if SAFE_DEFAULT_CONFIG.get("public_bind") is not False:
+            errors.append("bootstrap: SAFE_DEFAULT_CONFIG must have public_bind=false")
+        if SAFE_DEFAULT_CONFIG.get("external_send_default") is not False:
+            errors.append("bootstrap: SAFE_DEFAULT_CONFIG must have external_send_default=false")
+        if SAFE_DEFAULT_CONFIG.get("candidate_only") is not True:
+            errors.append("bootstrap: SAFE_DEFAULT_CONFIG must have candidate_only=true")
+    except Exception as exc:
+        errors.append(f"bootstrap first_run module check failed: {exc}")
+
+    try:
+        from odin.bootstrap.repair_plan import build_repair_plan, REPAIR_CLAIM_BOUNDARY
+        fake_report = {"artifact_kind": "odin_doctor_report", "status": "ok", "checks": [], "failure_count": 0, "warning_count": 0, "failure_reasons": []}
+        plan = build_repair_plan(fake_report)
+        if plan.get("applied") is not False:
+            errors.append("repair_plan: applied must be false")
+        if plan.get("state_mutated") is not False:
+            errors.append("repair_plan: state_mutated must be false")
+        if plan.get("plan_only") is not True:
+            errors.append("repair_plan: plan_only must be true")
+        if "plan_only" not in REPAIR_CLAIM_BOUNDARY:
+            errors.append("repair_plan: REPAIR_CLAIM_BOUNDARY must contain 'plan_only'")
+    except Exception as exc:
+        errors.append(f"repair_plan module check failed: {exc}")
+
+    try:
+        from odin.doctor.redaction import is_secret_key, redact_recursive
+        for secret_key in ("token", "api_key", "password", "authorization", "secret", "bearer", "credential"):
+            if not is_secret_key(secret_key):
+                errors.append(f"redaction: {secret_key!r} must be recognized as secret key")
+        redacted = redact_recursive({"token": "abc", "host": "127.0.0.1"})
+        if redacted.get("token") != "[REDACTED]":
+            errors.append("redaction: token value must be redacted")
+        if redacted.get("host") != "127.0.0.1":
+            errors.append("redaction: host must not be redacted")
+    except Exception as exc:
+        errors.append(f"redaction module check failed: {exc}")
+
+    return errors
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -1843,6 +1981,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_runtime_bus_worklets())
     errors.extend(validate_provider_worker_boundary())
     errors.extend(validate_local_runtime_starter())
+    errors.extend(validate_runtime_doctor_bootstrap())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -1878,6 +2017,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-all")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
+    sub.add_parser("validate-runtime-doctor-bootstrap")
     sub.add_parser("doctor")
     sub.add_parser("run-golden-flow")
     sub.add_parser("list-providers")
@@ -1926,6 +2066,10 @@ def main(argv: list[str] | None = None) -> int:
     build_hub.add_argument("--out", default=".odin_runtime/hub/index.html")
     support = sub.add_parser("emit-support-bundle")
     support.add_argument("--out", default=".odin_runtime/support")
+    support.add_argument("--diagnostics-only", action="store_true", default=False)
+    sub.add_parser("first-run-bootstrap")
+    repair_p = sub.add_parser("repair-local-runtime")
+    repair_p.add_argument("--plan-only", action="store_true", default=False)
     serve = sub.add_parser("serve")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
@@ -1933,14 +2077,31 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
-        payload = {
-            "status": "ok",
-            "repo": "Odin-Agent-Shell",
-            "runtime_source_candidate": "v0.8.6",
-            "root": str(ROOT),
-            "claim_boundary": "doctor_reports_local_source_shape_not_host_proof",
-        }
-        print(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True))
+        from odin.doctor.diagnostics import run_doctor
+        report = run_doctor()
+        print(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "first-run-bootstrap":
+        from odin.bootstrap.first_run import run_first_run_bootstrap
+        result = run_first_run_bootstrap()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "repair-local-runtime":
+        if not args.plan_only:
+            print(json.dumps({
+                "status": "blocked",
+                "error": "repair-local-runtime requires --plan-only flag; apply mode is not implemented",
+                "plan_only": False,
+                "claim_boundary": "repair_blocked_without_plan_only_flag",
+            }, indent=2, ensure_ascii=False, sort_keys=True))
+            return 1
+        from odin.doctor.diagnostics import run_doctor
+        from odin.bootstrap.repair_plan import build_repair_plan
+        doctor_report = run_doctor()
+        plan = build_repair_plan(doctor_report)
+        print(json.dumps(plan, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
     if args.cmd == "run-golden-flow":
@@ -1988,6 +2149,16 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"status": "ok", "hub": str(path), "claim_boundary": "static_hub_candidate"}, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
     if args.cmd == "emit-support-bundle":
+        if getattr(args, "diagnostics_only", False):
+            from odin.doctor.diagnostics import run_doctor
+            from odin.doctor.support_bundle import emit_diagnostics_support_bundle
+            doctor_report = run_doctor()
+            bundle = emit_diagnostics_support_bundle(
+                doctor_report=doctor_report,
+                out_dir=Path(args.out),
+            )
+            print(json.dumps(bundle, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
         path = emit_support_bundle(ROOT, Path(args.out))
         print(json.dumps({"status": "ok", "support_bundle": str(path), "claim_boundary": "diagnostic_candidate"}, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
@@ -2108,6 +2279,15 @@ def main(argv: list[str] | None = None) -> int:
         print("validate-agent-operator-mode: OK")
         return 0
 
+    if args.cmd == "validate-runtime-doctor-bootstrap":
+        errors = validate_runtime_doctor_bootstrap()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-runtime-doctor-bootstrap: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -2166,6 +2346,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_agent_operator_mode()
     elif args.cmd == "validate-local-runtime-starter":
         errors = validate_local_runtime_starter()
+    elif args.cmd == "validate-runtime-doctor-bootstrap":
+        errors = validate_runtime_doctor_bootstrap()
     else:
         errors = validate_all()
 

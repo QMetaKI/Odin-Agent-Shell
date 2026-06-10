@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_bootstrap_report",
+  "candidate_only": true,
+  "claim_boundary": "first_run_bootstrap_local_config_only_no_app_apply_no_external_send_localhost_safe_default_not_production_readiness_proof",
+  "config_path": ".odin_runtime/local_runtime_config.json",
+  "config_written": {
+    "app_owned_apply": true,
+    "candidate_only": true,
+    "claim_boundary": "local_config_is_not_production_readiness_proof",
+    "external_send_default": false,
+    "host": "127.0.0.1",
+    "port": 8877,
+    "provider_live_default": false,
+    "public_bind": false,
+    "runtime_mode": "portable"
+  },
+  "known_non_proofs": [
+    "not_production_readiness_proof",
+    "not_windows_service_tray_installer_proof",
+    "not_provider_live_model_proof",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof"
+  ],
+  "mutation_scope": "local_config_file_only",
+  "state_mutated": true,
+  "status": "created"
+}
