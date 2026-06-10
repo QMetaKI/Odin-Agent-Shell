@@ -1,0 +1,23 @@
+{
+  "work": {
+    "work_id": "SDK-TEST-WORK-001",
+    "work_intent": {
+      "kind": "summarize",
+      "goal": "summarize the input text",
+      "requires_model": false
+    },
+    "output_contract": {
+      "candidate_only": true,
+      "app_owned_apply": true,
+      "may_apply": false
+    },
+    "constraints": {
+      "actions": []
+    }
+  },
+  "caller_manifest": {
+    "app_id": "sdk_bridge_test",
+    "candidate_only": true,
+    "app_owned_apply": true
+  }
+}

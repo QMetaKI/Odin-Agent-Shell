@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Structured Error",
+  "description": "Structured error response from Odin local API. No traceback, no secrets.",
+  "type": "object",
+  "required": ["error", "code", "message", "candidate_only", "claim_boundary"],
+  "properties": {
+    "error": {"type": "boolean", "const": true},
+    "artifact_kind": {"type": "string", "const": "odin_local_api_error"},
+    "protocol_version": {"type": "string"},
+    "status": {"type": "string"},
+    "code": {"type": "string"},
+    "message": {"type": "string"},
+    "details": {"type": "object"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

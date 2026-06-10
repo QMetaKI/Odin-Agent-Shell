@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Session Response",
+  "description": "Response for GET /v1/sessions/{id}. Session record is candidate-only.",
+  "type": "object",
+  "required": ["candidate_only"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_session"},
+    "session_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

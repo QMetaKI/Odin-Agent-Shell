@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Health Response",
+  "description": "Response for GET /v1/health. candidate_only. No app apply authority.",
+  "type": "object",
+  "required": ["artifact_kind", "status", "candidate_only", "app_owned_apply"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_health"},
+    "protocol_version": {"type": "string"},
+    "status": {"type": "string", "enum": ["ok", "degraded", "error"]},
+    "runtime": {"type": "string"},
+    "network_scope": {"type": "string", "const": "localhost_only"},
+    "version": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "external_send_default": {"type": "boolean", "const": false},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

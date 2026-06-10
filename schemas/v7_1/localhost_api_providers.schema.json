@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin Localhost API Providers Response",
+  "description": "Response for GET /v1/providers. Provider cards, not live inference proof.",
+  "type": "object",
+  "required": ["artifact_kind", "providers", "candidate_only"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_localhost_api_providers"},
+    "protocol_version": {"type": "string"},
+    "providers": {"type": "array", "items": {"type": "object"}},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

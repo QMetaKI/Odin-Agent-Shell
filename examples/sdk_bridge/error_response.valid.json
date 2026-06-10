@@ -1,0 +1,11 @@
+{
+  "error": true,
+  "artifact_kind": "odin_local_api_error",
+  "protocol_version": "7.1",
+  "status": "blocked",
+  "code": "not_found",
+  "message": "unsupported route",
+  "details": {},
+  "candidate_only": true,
+  "claim_boundary": "local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim"
+}

@@ -53,6 +53,32 @@ Do not mark ready if validate-all or pytest fails.
 - claiming_proof_without_receipt
 - domain_state_mutation
 
+## LRH Development Conventions
+
+Added in LRH-PR-05. Subordinate to AGENTS.md and Master Architecture.
+
+**artifact_kind naming:** `odin_<subsystem>_<artifact_type>` (e.g. `odin_localhost_api_health`)
+
+**claim_boundary naming:** `<subsystem>_candidate_only_no_<forbidden>` (e.g. `local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim`)
+
+**known_non_proofs required list:** Every proof function must include `not_proven` list. Required entries:
+- `production_readiness`
+- `live_model_inference`
+- `app_state_mutation`
+- `external_send_authority`
+
+**fixture structure:** `examples/<subsystem>/<name>.<valid|invalid>.json` — response fixtures must include `candidate_only: true`, `claim_boundary`.
+
+**CLI parser/dispatch insertion pattern:**
+1. Add subparser in `main()` argument parser block
+2. Add early-return handler before the validate_all fallback
+3. Add to validate_all() if a new validate_* function
+4. For prove_* commands: return a proof packet dict with `proven`, `not_proven`, `claim_boundary`
+
+**validate_* integration pattern:** Each `validate_<feature>()` function returns `list[str]` errors. Add call to `validate_all()`. Add `validate-<feature>` subparser and early handler.
+
+**Return Report audit requirements:** Every LRH PR must include `docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md` with Thor audit, Odin Agent Operator audit, Claude Code worker audit, proof boundaries, skipped items, and next recommended PR.
+
 ## Skills
 
 See `.claude/skills/odin-agent-operator/SKILL.md` for the agent operator skill.
