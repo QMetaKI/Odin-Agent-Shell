@@ -6,6 +6,33 @@ Odin Local Runtime Hub is the new practical product target for the next build la
 
 Odin as a portable local runtime, localhost-only API, browser-based Odin Hub/local webapp surface, SDK Bridge for YNode and other apps, easy start/stop/check flow, candidate-only Odin behavior, and app-owned apply/state/external send.
 
+
+## Odin Agent Operator Mode
+
+Odin Agent Operator Mode is an early repository-local build/workflow surface for the Local Runtime Hub ladder. It lets coding agents and compatible agent systems use Odin as an orchestration, handoff, planning, guard, proof and return-report layer while preserving Odin's candidate-only and permission-gated architecture.
+
+It is **not** a live LLM provider API, autonomous agent swarm, hidden executor, app-apply authority, remote orchestration daemon, network transport by default, or replacement for the Local Runtime Hub. It is a CLI/file-protocol and packet-contract layer for agent-guided repository work.
+
+### Conceptual split
+
+- **Odin for Apps:** Universal Work → Candidate Artifact.
+- **Odin for Coding Agents:** Agent Task → Agent Work Packet → Guarded Patch/PR → Return Report.
+- **Odin for Agent Systems:** Agent Packet → Permission Gate → Candidate Work → Proof / Return Packet.
+
+### Coding Agent Operator Surface
+
+Primary target agents are Codex and Claude Code. Additional compatible targets include Gemini CLI, Cursor-style agents, Aider-style agents, OpenHands-style agents, and future local coding agents. Future canonical commands are `odin agent-handoff`, `odin agent-plan`, `odin agent-guard`, `odin agent-check`, `odin agent-proof`, and `odin agent-return`, with profiles such as `--agent codex`, `--agent claude-code`, and `--agent generic-cli-agent`. Codex- and Claude-specific aliases may be added later, but the canonical surface remains `agent-*`.
+
+### Thor-compatible protocol surface
+
+Thor compatibility is a reference/interoperability layer. Future Odin should read Thor handoff material, normalize Thor-style task/handoff packets into Odin Agent Work Packets, emit Odin return packets that Thor-compatible tooling can consume, preserve Thor guard/plan/expected/return concepts when useful, and record incompatibilities as protocol gaps rather than silent assumptions. This PR only uses the labels **Thor-compatible where verified**, **Thor-inspired where conceptual**, and **Thor-bound only when actual file/protocol evidence exists**. It does not claim full Thor protocol support.
+
+### General agent boundary
+
+Future agent systems must enter through Agent Work Packet, Agent Permission Card, Allowed Files / Forbidden Scope, Acceptance Gates, Proof Boundary Packet, and Return Report Packet. No agent may apply app state, send externally, mutate domain state, claim proof without receipt, use tools invisibly, or escape declared scope.
+
+Agent Operator Mode is intended to make Codex, Claude Code and future agents work under Odin's scope/proof discipline. It does not create agent autonomy, provider API integration, hidden tool use, or app-apply authority.
+
 ## Required end-user behavior
 
 1. User downloads/clones repo or release package.

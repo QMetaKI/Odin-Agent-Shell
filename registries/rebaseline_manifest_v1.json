@@ -6,9 +6,9 @@
   "current_handoff": "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
   "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
   "previous_ladder": "REAL-GH-PR-01..08",
-  "new_ladder": "LRH-PR-01..16",
-  "repo_head": "75aa45b",
-  "branch": "codex/rebaseline-local-runtime-hub-build-ladder",
+  "new_ladder": "LRH-PR-01..17",
+  "repo_head": "ace704f",
+  "branch": "codex/rebaseline-local-runtime-hub",
   "merged_prs": [
     "REAL-GH-PR-01",
     "REAL-GH-PR-02",
@@ -23,5 +23,11 @@
     "REAL-GH-PR-08"
   ],
   "legacy_policy": "quarantine_not_delete",
-  "claim_boundary": "rebaseline_is_planning_and_governance_not_runtime_proof"
+  "claim_boundary": "rebaseline_is_planning_and_governance_not_runtime_proof",
+  "early_build_milestones": [
+    "LRH-PR-01 Rebaseline",
+    "LRH-PR-02 Odin Agent Operator Mode",
+    "LRH-PR-03 Portable Local Runtime Starter"
+  ],
+  "agent_operator_mode": "early build/workflow milestone; candidate-only and permission-gated; Thor-compatible only where verified"
 }

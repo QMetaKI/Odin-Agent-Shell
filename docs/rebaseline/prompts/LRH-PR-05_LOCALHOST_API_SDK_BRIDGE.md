@@ -1,16 +1,16 @@
-# Codex Prompt — LRH-PR-01 Rebaseline, Legacy Quarantine, Local Runtime Hub Target
+# Codex Prompt — LRH-PR-05 Localhost API Contract Hardening and SDK Bridge v1
 
 ## Branch
 
-Use `codex/rebaseline-local-runtime-hub-build-ladder`.
+Use `codex/lrh-pr-05-localhost-api-contract-hardening-sdk-bridge-v1`.
 
 ## PR title
 
-REBASELINE: Local Runtime Hub Target, Legacy Quarantine and 100% Build Ladder
+LRH-PR-05: Localhost API Contract Hardening and SDK Bridge v1
 
 ## Objective
 
-Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Rebaseline, Legacy Quarantine, Local Runtime Hub Target.
+Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Localhost API Contract Hardening and SDK Bridge v1.
 
 ## Baseline
 
@@ -22,9 +22,11 @@ Read root canon, Master Architecture, Master Specs, current REAL-GH plan/index, 
 
 ## Target files
 
-- `docs/rebaseline/`
-- `registries/local_runtime_hub_build_ladder_v1.json`
-- `registries/rebaseline_manifest_v1.json`
+- `odin/`
+- `odin_app_sdk/`
+- `sdk/`
+- `docs/`
+- `tests/`
 
 ## Allowed new files
 

@@ -1,6 +1,6 @@
 {
   "artifact_kind": "odin_rebaseline_coverage_matrix",
-  "version": "1.0",
+  "version": "1.1",
   "target": "Odin Local Runtime Hub",
   "evidence_labels": [
     "Verified now",
@@ -33,7 +33,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -46,7 +46,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -59,7 +59,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -72,7 +72,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -85,7 +85,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -98,7 +98,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -111,7 +111,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -124,7 +124,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -137,7 +137,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -150,7 +150,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -163,7 +163,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -176,7 +176,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-04",
+      "new_ladder_mapping": "LRH-PR-05",
       "risk": "validator_dependency"
     },
     {
@@ -189,7 +189,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-04",
+      "new_ladder_mapping": "LRH-PR-05",
       "risk": "validator_dependency"
     },
     {
@@ -202,7 +202,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -215,7 +215,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -228,7 +228,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-04",
+      "new_ladder_mapping": "LRH-PR-05",
       "risk": "validator_dependency"
     },
     {
@@ -241,7 +241,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -254,7 +254,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-05",
+      "new_ladder_mapping": "LRH-PR-06",
       "risk": "validator_dependency"
     },
     {
@@ -267,7 +267,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -280,7 +280,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -293,7 +293,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -306,7 +306,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -319,7 +319,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -332,7 +332,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -345,7 +345,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -358,7 +358,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -371,7 +371,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-05",
+      "new_ladder_mapping": "LRH-PR-06",
       "risk": "validator_dependency"
     },
     {
@@ -384,7 +384,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -397,7 +397,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -410,7 +410,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -423,7 +423,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -436,7 +436,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -449,7 +449,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -462,7 +462,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -475,7 +475,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -488,7 +488,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -501,7 +501,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -514,7 +514,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -527,7 +527,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -540,7 +540,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -553,7 +553,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -566,7 +566,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -579,7 +579,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -592,7 +592,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -605,7 +605,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -618,7 +618,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -631,7 +631,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -644,7 +644,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -657,7 +657,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -670,7 +670,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -683,7 +683,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -696,7 +696,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -709,7 +709,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -722,7 +722,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -735,7 +735,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -748,7 +748,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -761,7 +761,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -774,7 +774,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -787,7 +787,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -800,7 +800,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -813,7 +813,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -826,7 +826,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -839,7 +839,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -852,7 +852,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -865,7 +865,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -878,7 +878,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -891,7 +891,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -904,7 +904,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -917,7 +917,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -930,7 +930,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -943,7 +943,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -956,7 +956,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -969,7 +969,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -982,7 +982,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -995,7 +995,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "validator_dependency"
     },
     {
@@ -1008,7 +1008,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1021,7 +1021,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1034,7 +1034,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1047,7 +1047,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1060,7 +1060,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1073,7 +1073,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1086,7 +1086,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1099,7 +1099,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1112,7 +1112,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1125,7 +1125,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1138,7 +1138,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1151,7 +1151,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1164,7 +1164,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1177,7 +1177,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1190,7 +1190,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1203,7 +1203,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1216,7 +1216,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1229,7 +1229,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1242,7 +1242,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1255,7 +1255,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1268,7 +1268,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1281,7 +1281,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1294,7 +1294,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1307,7 +1307,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1320,7 +1320,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1333,7 +1333,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1346,7 +1346,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1359,7 +1359,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1372,7 +1372,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1385,7 +1385,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1398,7 +1398,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1411,7 +1411,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1424,7 +1424,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1437,7 +1437,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1450,7 +1450,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1463,7 +1463,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1476,7 +1476,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1489,7 +1489,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1502,7 +1502,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1515,7 +1515,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1528,7 +1528,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1541,7 +1541,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1554,7 +1554,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1567,7 +1567,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1580,7 +1580,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1593,7 +1593,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1606,7 +1606,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1619,7 +1619,7 @@
       "reason": "Internal traceability ladder is broad; this rebaseline does not assert feature completion beyond local validation receipts.",
       "carry_forward_action": "carry forward as traceability and map relevant runtime/API/hub/SDK work into LRH ladder",
       "legacy_action": "do not move; current validators reference task registry and task files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1658,7 +1658,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1671,7 +1671,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1684,7 +1684,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1697,7 +1697,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1710,7 +1710,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-05",
+      "new_ladder_mapping": "LRH-PR-06",
       "risk": "validator_dependency"
     },
     {
@@ -1723,7 +1723,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1736,7 +1736,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1749,7 +1749,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1762,7 +1762,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1775,7 +1775,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1788,7 +1788,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1801,7 +1801,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1814,7 +1814,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1827,7 +1827,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1840,7 +1840,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1853,7 +1853,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1866,12 +1866,12 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
       "id": "REAL-PR-20",
-      "title": "Thor/Y/Mjölnir Handoff Compiler Core",
+      "title": "Thor/Y/Mj\u00f6lnir Handoff Compiler Core",
       "source_path": "docs/codex/bundles/REAL-PR-20_THOR_Y_MJOLNIR_HANDOFF_COMPILER_CORE.md",
       "mapped_current_implementation": "REAL-PR bundle overlay retained as internal traceability layer",
       "status": "partially implemented",
@@ -1879,7 +1879,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1892,7 +1892,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1905,7 +1905,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1918,7 +1918,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1931,7 +1931,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-15",
+      "new_ladder_mapping": "LRH-PR-16",
       "risk": "validator_dependency"
     },
     {
@@ -1944,7 +1944,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1957,7 +1957,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "validator_dependency"
     },
     {
@@ -1970,7 +1970,7 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-05",
+      "new_ladder_mapping": "LRH-PR-06",
       "risk": "validator_dependency"
     },
     {
@@ -1983,12 +1983,12 @@
       "reason": "Bundle plans are older overlay inputs and are not the immediate LRH execution ladder.",
       "carry_forward_action": "carry forward mapped concepts; do not treat as current product target",
       "legacy_action": "review_required; not moved because validators reference bundle registry and files",
-      "new_ladder_mapping": "LRH-PR-15",
+      "new_ladder_mapping": "LRH-PR-16",
       "risk": "validator_dependency"
     },
     {
       "id": "REAL-GH-PR-01",
-      "title": "Foundation, Canon, Protocol and Universal Work Core — Codex Hardening",
+      "title": "Foundation, Canon, Protocol and Universal Work Core \u2014 Codex Hardening",
       "source_path": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "fully implemented",
@@ -1996,12 +1996,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "baseline input",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "safe_current"
     },
     {
       "id": "REAL-GH-PR-02",
-      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms — Completion",
+      "title": "Runtime Bus, Persistence, Local API, Worklets and Work Atoms \u2014 Completion",
       "source_path": "docs/codex/prompts/REAL-GH-PR-02_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "fully implemented",
@@ -2009,12 +2009,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "baseline input",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "safe_current"
     },
     {
       "id": "REAL-GH-PR-03",
-      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary — Provider-Ready",
+      "title": "Model Provider Runtime, Pre-LLM Intelligence and Universal Worker Boundary \u2014 Provider-Ready",
       "source_path": "docs/codex/prompts/REAL-GH-PR-03_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item; PR #4 merge in git log makes REAL-GH-PR-03 part of current baseline",
       "status": "fully implemented",
@@ -2022,12 +2022,12 @@
       "reason": "Current branch contains merge commit for #4",
       "carry_forward_action": "baseline input",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-09",
+      "new_ladder_mapping": "LRH-PR-10",
       "risk": "safe_current"
     },
     {
       "id": "REAL-GH-PR-04",
-      "title": "Thor/Y/Mjölnir Handoff, AI-Git Safety and Review Pipeline — Real Modules",
+      "title": "Thor/Y/Mj\u00f6lnir Handoff, AI-Git Safety and Review Pipeline \u2014 Real Modules",
       "source_path": "docs/codex/prompts/REAL-GH-PR-04_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "pending-open-pr",
@@ -2035,12 +2035,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     },
     {
       "id": "REAL-GH-PR-05",
-      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer — Executable Contracts",
+      "title": "Narrative Compiler, Shadow Runtime, Runtime Packs and Loki Anti-Pattern Layer \u2014 Executable Contracts",
       "source_path": "docs/codex/prompts/REAL-GH-PR-05_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "pending-open-pr",
@@ -2048,12 +2048,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     },
     {
       "id": "REAL-GH-PR-06",
-      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs — Runtime Hardening",
+      "title": "Odin Core, QIRC Gold Spine, Seeds, Pattern Mines and Flow Packs \u2014 Runtime Hardening",
       "source_path": "docs/codex/prompts/REAL-GH-PR-06_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "pending-open-pr",
@@ -2061,12 +2061,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     },
     {
       "id": "REAL-GH-PR-07",
-      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery — Host-Real Track",
+      "title": "Windows Product Runtime, Odin Hub, Installer, IPC and Recovery \u2014 Host-Real Track",
       "source_path": "docs/codex/prompts/REAL-GH-PR-07_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "pending-open-pr",
@@ -2074,12 +2074,12 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-15",
+      "new_ladder_mapping": "LRH-PR-16",
       "risk": "review_required"
     },
     {
       "id": "REAL-GH-PR-08",
-      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff — Final Codex RC",
+      "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff \u2014 Final Codex RC",
       "source_path": "docs/codex/prompts/REAL-GH-PR-08_CODEX_PROMPT.md",
       "mapped_current_implementation": "Actual GitHub ladder item in current v0.8.7 execution plan",
       "status": "pending-open-pr",
@@ -2087,7 +2087,7 @@
       "reason": "Later REAL-GH items remain planned in v0.8.7 ladder unless corresponding merge receipts exist here.",
       "carry_forward_action": "carry forward into LRH ladder as future work/gates",
       "legacy_action": "do not move current REAL-GH prompts/reports",
-      "new_ladder_mapping": "LRH-PR-16",
+      "new_ladder_mapping": "LRH-PR-17",
       "risk": "review_required"
     },
     {
@@ -4221,6 +4221,58 @@
       "legacy_action": "do not move",
       "new_ladder_mapping": "LRH-PR-01",
       "risk": "validator_dependency"
+    },
+    {
+      "id": "AGENT-OPERATOR-THOR",
+      "title": "Thor handoff / guard / plan / expected / return",
+      "source_path": "docs/THOR_INTEGRATION.md; docs/BOUNDED_CODE_WORK.md",
+      "mapped_current_implementation": "Thor-inspired candidate-only handoff and bounded code work concepts exist as docs; no Agent Operator Mode packet normalization is implemented.",
+      "status": "partially implemented",
+      "evidence": "Repo-grounded: Thor and bounded code work docs inspected",
+      "reason": "Thor compatibility must be verified/gap-labeled before future protocol claims.",
+      "carry_forward_action": "Implement Thor-compatible handoff normalization and return packet mapping in LRH-PR-02.",
+      "legacy_action": "do not move",
+      "new_ladder_mapping": "LRH-PR-02",
+      "risk": "review_required"
+    },
+    {
+      "id": "AGENT-OPERATOR-CODEX",
+      "title": "Codex PR prompt discipline",
+      "source_path": "docs/codex/prompts/; docs/rebaseline/prompts/",
+      "mapped_current_implementation": "Codex prompts encode branch, scope, commands, proof boundaries and final response discipline; no Odin Agent Work Packet exists yet.",
+      "status": "partially implemented",
+      "evidence": "Repo-grounded: prompt pack paths exist",
+      "reason": "Codex-first workflow should become a first-class Agent Operator profile.",
+      "carry_forward_action": "Add Codex profile and work packet example in LRH-PR-02.",
+      "legacy_action": "do not move",
+      "new_ladder_mapping": "LRH-PR-02",
+      "risk": "safe_current"
+    },
+    {
+      "id": "AGENT-OPERATOR-CLAUDE-CODE",
+      "title": "Claude Code repo-worker discipline",
+      "source_path": "future profile target",
+      "mapped_current_implementation": "No repository implementation; profile target is intentionally future-facing.",
+      "status": "not implemented",
+      "evidence": "Inference: requested compatibility target, not proof of integration",
+      "reason": "Claude-Code-equivalent behavior should share the canonical agent-* surface without becoming provider integration.",
+      "carry_forward_action": "Add Claude Code profile and packet example in LRH-PR-02.",
+      "legacy_action": "not applicable",
+      "new_ladder_mapping": "LRH-PR-02",
+      "risk": "review_required"
+    },
+    {
+      "id": "AGENT-OPERATOR-FUTURE-LOCAL-AGENTS",
+      "title": "Future local model/agent worker boundary",
+      "source_path": "future agent systems",
+      "mapped_current_implementation": "Conceptual only; provider/worker paths remain separate from agent workflow protocol.",
+      "status": "not implemented",
+      "evidence": "Inference: future boundary derived from architecture laws",
+      "reason": "Agent worker scope must not be confused with model/provider runtime authority.",
+      "carry_forward_action": "Use Agent Permission Card, proof boundary packet and no-hidden-tool-use gates in LRH-PR-02 and later provider/agent slices.",
+      "legacy_action": "not applicable",
+      "new_ladder_mapping": "LRH-PR-02 and LRH-PR-10",
+      "risk": "review_required"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "artifact_kind": "odin_local_runtime_hub_build_ladder",
-  "version": "1.0",
+  "version": "1.1",
   "target": "Odin Local Runtime Hub",
   "baseline_architecture": "Master Architecture v7.1",
   "ladder": [
@@ -71,6 +71,111 @@
     },
     {
       "id": "LRH-PR-02",
+      "title": "Odin Agent Operator Mode",
+      "objective": "Create the CLI/file-protocol planning surface that lets Codex, Claude Code and future coding agents use Odin as a repo-local handoff, plan, guard, proof and return-report layer, with Thor-compatible packet normalization where verified.",
+      "depends_on": [
+        "LRH-PR-01"
+      ],
+      "current_coverage": "conceptual only; partially represented through Thor-style handoff practices, Codex prompts and existing return-report discipline",
+      "missing_work": [
+        "agent-handoff command",
+        "agent-plan command",
+        "agent-guard command",
+        "agent-check command",
+        "agent-proof command",
+        "agent-return command",
+        "agent work packet schema",
+        "agent return report schema",
+        "agent permission card schema",
+        "allowed files packet",
+        "forbidden scope packet",
+        "acceptance gate packet",
+        "proof boundary packet",
+        "Codex agent profile",
+        "Claude Code agent profile",
+        "generic CLI agent profile",
+        "Thor-compatible handoff normalization",
+        "Thor-compatible return packet mapping"
+      ],
+      "target_files": [
+        "docs/AGENT_OPERATOR_MODE_V1.md",
+        "odin/agent_operator/",
+        "schemas/v7_1/odin_agent_work_packet.schema.json",
+        "schemas/v7_1/odin_agent_return_report.schema.json",
+        "schemas/v7_1/odin_agent_permission_card.schema.json",
+        "registries/agent_operator_profile_registry.json",
+        "registries/thor_compatibility_registry.json",
+        "examples/agent_operator/",
+        "tests/test_lrh_pr_02_agent_operator_mode.py"
+      ],
+      "allowed_new_files": [
+        "odin/agent_operator/",
+        "schemas/v7_1/odin_agent_work_packet.schema.json",
+        "schemas/v7_1/odin_agent_return_report.schema.json",
+        "schemas/v7_1/odin_agent_permission_card.schema.json",
+        "registries/agent_operator_profile_registry.json",
+        "registries/thor_compatibility_registry.json",
+        "examples/agent_operator/codex_work_packet.valid.json",
+        "examples/agent_operator/claude_code_work_packet.valid.json",
+        "examples/agent_operator/thor_compatible_packet.valid.json",
+        "tests/test_lrh_pr_02_agent_operator_mode.py",
+        "docs/AGENT_OPERATOR_MODE_V1.md"
+      ],
+      "forbidden_scope": [
+        "no autonomous external execution",
+        "no app apply authority",
+        "no hidden tool use",
+        "no network send by default",
+        "no live provider claim",
+        "no model quality claim",
+        "no replacement of Local Runtime Hub",
+        "no full Thor protocol claim without verified evidence"
+      ],
+      "acceptance_gates": [
+        "agent work packet schema validates positive and negative examples",
+        "Codex, Claude Code and generic CLI agent profiles exist",
+        "Thor-compatible mapping records verified mappings and gaps",
+        "agent commands are scaffolded or explicitly defined without hidden execution",
+        "candidate-only and no-app-apply boundaries are tested",
+        "validate-all and pytest pass"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "Agent Operator Mode is repository-local workflow protocol, not live LLM provider proof",
+        "Codex and Claude Code remain external workers",
+        "Odin validates and constrains but does not secretly execute app actions",
+        "Thor compatibility must be evidence-bound and gap-labeled"
+      ],
+      "senior_reviewer_focus": [
+        "confirm the mode supports Codex-first and Claude-Code-equivalent workflows without autonomy creep",
+        "confirm Thor compatibility is verified/gap-labeled rather than claimed broadly",
+        "confirm Local Runtime Hub remains the product target"
+      ],
+      "senior_code_reviewer_focus": [
+        "confirm no runtime/provider/webapp behavior is implemented in the planning PR",
+        "confirm future files are isolated under agent_operator docs/schemas/registries/examples/tests",
+        "confirm command scaffolds remain permission-gated"
+      ],
+      "expected_pr_title": "LRH-PR-02: Odin Agent Operator Mode",
+      "expected_branch_name": "codex/lrh-pr-02-agent-operator-mode",
+      "old_ladder_mapping": "new early ladder slice inserted by PR #5 amendment",
+      "definition_of_done": [
+        "agent work packet schema exists",
+        "Codex and Claude Code profiles exist",
+        "agent-handoff/plan/guard/proof/return commands exist or are clearly scaffolded",
+        "Thor-compatible packet mapping exists with explicit gaps",
+        "tests prove candidate-only and no hidden apply boundaries",
+        "validate-all and pytest pass"
+      ]
+    },
+    {
+      "id": "LRH-PR-03",
       "title": "Portable Local Runtime Starter",
       "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Portable Local Runtime Starter.",
       "depends_on": [
@@ -127,76 +232,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-02: Portable Local Runtime Starter",
-      "expected_branch_name": "codex/lrh_pr_02_portable-local-runtime-starter",
-      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
-      "definition_of_done": [
-        "artifacts updated",
-        "required tests/checks recorded",
-        "proof boundaries retained"
-      ]
-    },
-    {
-      "id": "LRH-PR-03",
-      "title": "Runtime Doctor, First-Run Bootstrap and Self-Healing",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Runtime Doctor, First-Run Bootstrap and Self-Healing.",
-      "depends_on": [
-        "LRH-PR-01",
-        "LRH-PR-02"
-      ],
-      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
-      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
-      "target_files": [
-        "odin/",
-        "odin_app_sdk/",
-        "sdk/",
-        "docs/",
-        "tests/"
-      ],
-      "allowed_new_files": [
-        "bounded files named by the PR prompt"
-      ],
-      "forbidden_scope": [
-        "do not make Odin apply app state",
-        "do not enable WAN/LAN API by default",
-        "do not claim live model proof without receipt",
-        "do not replace Master Architecture v7.1"
-      ],
-      "acceptance_gates": [
-        "validate-all OK",
-        "pytest OK",
-        "claim boundaries explicit",
-        "candidate-only/app-owned-apply preserved"
-      ],
-      "required_commands": [
-        "python -m pip install -e .",
-        "python -m odin.cli validate-current-public-canon",
-        "python -m odin.cli validate-all",
-        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
-        "python -m odin.cli run-golden-flow"
-      ],
-      "proof_boundaries": [
-        "no production readiness proof",
-        "no Windows app proof",
-        "no live model inference proof",
-        "no security certification proof",
-        "no external send proof",
-        "no app-state mutation proof"
-      ],
-      "senior_reviewer_focus": [
-        "architecture preservation",
-        "candidate-only boundary",
-        "local-first localhost default",
-        "executable incremental scope"
-      ],
-      "senior_code_reviewer_focus": [
-        "minimal source churn",
-        "deterministic JSON",
-        "stable tests",
-        "no runtime source moves"
-      ],
-      "expected_pr_title": "LRH-PR-03: Runtime Doctor, First-Run Bootstrap and Self-Healing",
-      "expected_branch_name": "codex/lrh_pr_03_runtime-doctor,-first-run-bootstrap-and-self-healing",
+      "expected_pr_title": "LRH-PR-03: Portable Local Runtime Starter",
+      "expected_branch_name": "codex/lrh-pr-03-portable-local-runtime-starter",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -206,10 +243,10 @@
     },
     {
       "id": "LRH-PR-04",
-      "title": "Localhost API Contract Hardening and SDK Bridge v1",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Localhost API Contract Hardening and SDK Bridge v1.",
+      "title": "Runtime Doctor, First-Run Bootstrap and Self-Healing",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Runtime Doctor, First-Run Bootstrap and Self-Healing.",
       "depends_on": [
-        "LRH-PR-02",
+        "LRH-PR-01",
         "LRH-PR-03"
       ],
       "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
@@ -263,8 +300,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-04: Localhost API Contract Hardening and SDK Bridge v1",
-      "expected_branch_name": "codex/lrh_pr_04_localhost-api-contract-hardening-and-sdk-bridge-v1",
+      "expected_pr_title": "LRH-PR-04: Runtime Doctor, First-Run Bootstrap and Self-Healing",
+      "expected_branch_name": "codex/lrh-pr-04-runtime-doctor-first-run-bootstrap-self-healing",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -274,8 +311,8 @@
     },
     {
       "id": "LRH-PR-05",
-      "title": "Browser Odin Hub Shell",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Browser Odin Hub Shell.",
+      "title": "Localhost API Contract Hardening and SDK Bridge v1",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Localhost API Contract Hardening and SDK Bridge v1.",
       "depends_on": [
         "LRH-PR-03",
         "LRH-PR-04"
@@ -331,8 +368,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-05: Browser Odin Hub Shell",
-      "expected_branch_name": "codex/lrh_pr_05_browser-odin-hub-shell",
+      "expected_pr_title": "LRH-PR-05: Localhost API Contract Hardening and SDK Bridge v1",
+      "expected_branch_name": "codex/lrh-pr-05-localhost-api-contract-hardening-sdk-bridge-v1",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -342,8 +379,8 @@
     },
     {
       "id": "LRH-PR-06",
-      "title": "Hub Runtime Dashboard and Health Surfaces",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Hub Runtime Dashboard and Health Surfaces.",
+      "title": "Browser Odin Hub Shell",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Browser Odin Hub Shell.",
       "depends_on": [
         "LRH-PR-04",
         "LRH-PR-05"
@@ -399,8 +436,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-06: Hub Runtime Dashboard and Health Surfaces",
-      "expected_branch_name": "codex/lrh_pr_06_hub-runtime-dashboard-and-health-surfaces",
+      "expected_pr_title": "LRH-PR-06: Browser Odin Hub Shell",
+      "expected_branch_name": "codex/lrh-pr-06-browser-odin-hub-shell",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -410,8 +447,8 @@
     },
     {
       "id": "LRH-PR-07",
-      "title": "Sessions, Candidates, Store and Proof Gap Viewer",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Sessions, Candidates, Store and Proof Gap Viewer.",
+      "title": "Hub Runtime Dashboard and Health Surfaces",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Hub Runtime Dashboard and Health Surfaces.",
       "depends_on": [
         "LRH-PR-05",
         "LRH-PR-06"
@@ -467,8 +504,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-07: Sessions, Candidates, Store and Proof Gap Viewer",
-      "expected_branch_name": "codex/lrh_pr_07_sessions,-candidates,-store-and-proof-gap-viewer",
+      "expected_pr_title": "LRH-PR-07: Hub Runtime Dashboard and Health Surfaces",
+      "expected_branch_name": "codex/lrh-pr-07-hub-runtime-dashboard-health-surfaces",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -478,8 +515,8 @@
     },
     {
       "id": "LRH-PR-08",
-      "title": "Bus / Worklet / Atom Trace Viewer",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Bus / Worklet / Atom Trace Viewer.",
+      "title": "Sessions, Candidates, Store and Proof Gap Viewer",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Sessions, Candidates, Store and Proof Gap Viewer.",
       "depends_on": [
         "LRH-PR-06",
         "LRH-PR-07"
@@ -535,8 +572,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-08: Bus / Worklet / Atom Trace Viewer",
-      "expected_branch_name": "codex/lrh_pr_08_bus---worklet---atom-trace-viewer",
+      "expected_pr_title": "LRH-PR-08: Sessions, Candidates, Store and Proof Gap Viewer",
+      "expected_branch_name": "codex/lrh-pr-08-sessions-candidates-store-proof-gap-viewer",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -546,8 +583,8 @@
     },
     {
       "id": "LRH-PR-09",
-      "title": "Provider / Worker / Pre-LLM Inspector",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Provider / Worker / Pre-LLM Inspector.",
+      "title": "Bus / Worklet / Atom Trace Viewer",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Bus / Worklet / Atom Trace Viewer.",
       "depends_on": [
         "LRH-PR-07",
         "LRH-PR-08"
@@ -603,8 +640,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-09: Provider / Worker / Pre-LLM Inspector",
-      "expected_branch_name": "codex/lrh_pr_09_provider---worker---pre-llm-inspector",
+      "expected_pr_title": "LRH-PR-09: Bus / Worklet / Atom Trace Viewer",
+      "expected_branch_name": "codex/lrh-pr-09-bus--worklet--atom-trace-viewer",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -614,8 +651,8 @@
     },
     {
       "id": "LRH-PR-10",
-      "title": "Universal Work Playground",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Universal Work Playground.",
+      "title": "Provider / Worker / Pre-LLM Inspector",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Provider / Worker / Pre-LLM Inspector.",
       "depends_on": [
         "LRH-PR-08",
         "LRH-PR-09"
@@ -671,8 +708,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-10: Universal Work Playground",
-      "expected_branch_name": "codex/lrh_pr_10_universal-work-playground",
+      "expected_pr_title": "LRH-PR-10: Provider / Worker / Pre-LLM Inspector",
+      "expected_branch_name": "codex/lrh-pr-10-provider--worker--pre-llm-inspector",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -682,8 +719,8 @@
     },
     {
       "id": "LRH-PR-11",
-      "title": "YNode Bridge Pack",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: YNode Bridge Pack.",
+      "title": "Universal Work Playground",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Universal Work Playground.",
       "depends_on": [
         "LRH-PR-09",
         "LRH-PR-10"
@@ -739,8 +776,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-11: YNode Bridge Pack",
-      "expected_branch_name": "codex/lrh_pr_11_ynode-bridge-pack",
+      "expected_pr_title": "LRH-PR-11: Universal Work Playground",
+      "expected_branch_name": "codex/lrh-pr-11-universal-work-playground",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -750,8 +787,8 @@
     },
     {
       "id": "LRH-PR-12",
-      "title": "App Bridge Examples and Golden App Harness",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: App Bridge Examples and Golden App Harness.",
+      "title": "YNode Bridge Pack",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: YNode Bridge Pack.",
       "depends_on": [
         "LRH-PR-10",
         "LRH-PR-11"
@@ -807,8 +844,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-12: App Bridge Examples and Golden App Harness",
-      "expected_branch_name": "codex/lrh_pr_12_app-bridge-examples-and-golden-app-harness",
+      "expected_pr_title": "LRH-PR-12: YNode Bridge Pack",
+      "expected_branch_name": "codex/lrh-pr-12-ynode-bridge-pack",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -818,8 +855,8 @@
     },
     {
       "id": "LRH-PR-13",
-      "title": "Local Config, Redaction and Safe Settings UI",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Local Config, Redaction and Safe Settings UI.",
+      "title": "App Bridge Examples and Golden App Harness",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: App Bridge Examples and Golden App Harness.",
       "depends_on": [
         "LRH-PR-11",
         "LRH-PR-12"
@@ -875,8 +912,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-13: Local Config, Redaction and Safe Settings UI",
-      "expected_branch_name": "codex/lrh_pr_13_local-config,-redaction-and-safe-settings-ui",
+      "expected_pr_title": "LRH-PR-13: App Bridge Examples and Golden App Harness",
+      "expected_branch_name": "codex/lrh-pr-13-app-bridge-examples-golden-app-harness",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -886,8 +923,8 @@
     },
     {
       "id": "LRH-PR-14",
-      "title": "Portable Packaging and Release ZIP",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Portable Packaging and Release ZIP.",
+      "title": "Local Config, Redaction and Safe Settings UI",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Local Config, Redaction and Safe Settings UI.",
       "depends_on": [
         "LRH-PR-12",
         "LRH-PR-13"
@@ -943,8 +980,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-14: Portable Packaging and Release ZIP",
-      "expected_branch_name": "codex/lrh_pr_14_portable-packaging-and-release-zip",
+      "expected_pr_title": "LRH-PR-14: Local Config, Redaction and Safe Settings UI",
+      "expected_branch_name": "codex/lrh-pr-14-local-config-redaction-safe-settings-ui",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -954,8 +991,8 @@
     },
     {
       "id": "LRH-PR-15",
-      "title": "Windows Convenience Layer without Full Windows App",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Windows Convenience Layer without Full Windows App.",
+      "title": "Portable Packaging and Release ZIP",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Portable Packaging and Release ZIP.",
       "depends_on": [
         "LRH-PR-13",
         "LRH-PR-14"
@@ -1011,8 +1048,8 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-15: Windows Convenience Layer without Full Windows App",
-      "expected_branch_name": "codex/lrh_pr_15_windows-convenience-layer-without-full-windows-app",
+      "expected_pr_title": "LRH-PR-15: Portable Packaging and Release ZIP",
+      "expected_branch_name": "codex/lrh-pr-15-portable-packaging-release-zip",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -1022,8 +1059,8 @@
     },
     {
       "id": "LRH-PR-16",
-      "title": "Full Acceptance, E2E Golden Flows and User Start Proof",
-      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Full Acceptance, E2E Golden Flows and User Start Proof.",
+      "title": "Windows Convenience Layer without Full Windows App",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Windows Convenience Layer without Full Windows App.",
       "depends_on": [
         "LRH-PR-14",
         "LRH-PR-15"
@@ -1079,8 +1116,76 @@
         "stable tests",
         "no runtime source moves"
       ],
-      "expected_pr_title": "LRH-PR-16: Full Acceptance, E2E Golden Flows and User Start Proof",
-      "expected_branch_name": "codex/lrh_pr_16_full-acceptance,-e2e-golden-flows-and-user-start-proof",
+      "expected_pr_title": "LRH-PR-16: Windows Convenience Layer without Full Windows App",
+      "expected_branch_name": "codex/lrh-pr-16-windows-convenience-layer-without-full-windows-app",
+      "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
+      "definition_of_done": [
+        "artifacts updated",
+        "required tests/checks recorded",
+        "proof boundaries retained"
+      ]
+    },
+    {
+      "id": "LRH-PR-17",
+      "title": "Full Acceptance, E2E Golden Flows and User Start Proof",
+      "objective": "Advance Odin Local Runtime Hub toward the 100 percent local runtime target: Full Acceptance, E2E Golden Flows and User Start Proof.",
+      "depends_on": [
+        "LRH-PR-15",
+        "LRH-PR-16"
+      ],
+      "current_coverage": "partial/spec or pending implementation to be confirmed in that PR",
+      "missing_work": "implementation, tests, receipts, and documentation specific to this step",
+      "target_files": [
+        "odin/",
+        "odin_app_sdk/",
+        "sdk/",
+        "docs/",
+        "tests/"
+      ],
+      "allowed_new_files": [
+        "bounded files named by the PR prompt"
+      ],
+      "forbidden_scope": [
+        "do not make Odin apply app state",
+        "do not enable WAN/LAN API by default",
+        "do not claim live model proof without receipt",
+        "do not replace Master Architecture v7.1"
+      ],
+      "acceptance_gates": [
+        "validate-all OK",
+        "pytest OK",
+        "claim boundaries explicit",
+        "candidate-only/app-owned-apply preserved"
+      ],
+      "required_commands": [
+        "python -m pip install -e .",
+        "python -m odin.cli validate-current-public-canon",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "python -m odin.cli run-golden-flow"
+      ],
+      "proof_boundaries": [
+        "no production readiness proof",
+        "no Windows app proof",
+        "no live model inference proof",
+        "no security certification proof",
+        "no external send proof",
+        "no app-state mutation proof"
+      ],
+      "senior_reviewer_focus": [
+        "architecture preservation",
+        "candidate-only boundary",
+        "local-first localhost default",
+        "executable incremental scope"
+      ],
+      "senior_code_reviewer_focus": [
+        "minimal source churn",
+        "deterministic JSON",
+        "stable tests",
+        "no runtime source moves"
+      ],
+      "expected_pr_title": "LRH-PR-17: Full Acceptance, E2E Golden Flows and User Start Proof",
+      "expected_branch_name": "codex/lrh-pr-17-full-acceptance-e2e-golden-flows-user-start-proof",
       "old_ladder_mapping": "REAL-GH-PR-01..08 plus PR-00..PR-123 and REAL-PR-01..28 traceability",
       "definition_of_done": [
         "artifacts updated",
@@ -1088,5 +1193,6 @@
         "proof boundaries retained"
       ]
     }
-  ]
+  ],
+  "new_ladder": "LRH-PR-01..17"
 }

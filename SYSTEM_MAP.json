@@ -276,6 +276,35 @@
     "pre_llm_intelligence": "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md"
   },
   "license": "GPL-2.0-only",
+  "local_runtime_hub_rebaseline": {
+    "agent_operator_mode": {
+      "claim_boundary": "planning_pointer_only_no_runtime_behavior",
+      "id": "LRH-PR-02",
+      "prompt": "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md",
+      "title": "Odin Agent Operator Mode"
+    },
+    "claim_boundary": "no_runtime_windows_webapp_provider_security_or_production_proof_claimed_by_rebaseline",
+    "docs": [
+      "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
+      "docs/rebaseline/SLICE_PR_COVERAGE_MATRIX_LOCAL_RUNTIME_HUB.md",
+      "docs/rebaseline/LEGACY_QUARANTINE_PLAN_LOCAL_RUNTIME_HUB.md",
+      "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
+      "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
+      "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
+      "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md"
+    ],
+    "legacy_policy": "quarantine_not_delete",
+    "new_ladder": "LRH-PR-01..17",
+    "prompts_dir": "docs/rebaseline/prompts",
+    "registries": [
+      "registries/local_runtime_hub_build_ladder_v1.json",
+      "registries/rebaseline_manifest_v1.json",
+      "registries/rebaseline_coverage_matrix_v1.json"
+    ],
+    "status": "planning_governance_rebaseline_not_runtime_proof",
+    "target": "Odin Local Runtime Hub"
+  },
   "locks": {
     "v0_7_5": "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md"
   },
@@ -684,27 +713,5 @@
     "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "registry": "registries/codex_real_pr_handoff_registry.json"
   },
-  "version": "0.8.7",
-  "local_runtime_hub_rebaseline": {
-    "target": "Odin Local Runtime Hub",
-    "status": "planning_governance_rebaseline_not_runtime_proof",
-    "docs": [
-      "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
-      "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
-      "docs/rebaseline/SLICE_PR_COVERAGE_MATRIX_LOCAL_RUNTIME_HUB.md",
-      "docs/rebaseline/LEGACY_QUARANTINE_PLAN_LOCAL_RUNTIME_HUB.md",
-      "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
-      "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
-      "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
-      "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md"
-    ],
-    "registries": [
-      "registries/local_runtime_hub_build_ladder_v1.json",
-      "registries/rebaseline_manifest_v1.json",
-      "registries/rebaseline_coverage_matrix_v1.json"
-    ],
-    "prompts_dir": "docs/rebaseline/prompts",
-    "legacy_policy": "quarantine_not_delete",
-    "claim_boundary": "no_runtime_windows_webapp_provider_security_or_production_proof_claimed_by_rebaseline"
-  }
+  "version": "0.8.7"
 }

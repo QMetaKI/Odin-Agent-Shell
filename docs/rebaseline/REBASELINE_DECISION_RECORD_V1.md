@@ -27,3 +27,10 @@ This rebaseline uses these evidence labels only:
 
 Proof boundaries: no production readiness proof, no Windows app proof, no Windows service/tray/installer proof, no live model inference proof, no model quality proof, no security certification proof, no external send proof, no app-state mutation proof.
 
+
+
+## Amendment: Agent Operator Mode as LRH-PR-02
+
+Decision: insert Odin Agent Operator Mode as the early LRH-PR-02 build slice and shift the portable local runtime starter to LRH-PR-03. Rationale: future Codex, Claude Code and local-agent work should enter through Odin's own handoff/plan/guard/proof/return discipline before later Local Runtime Hub implementation PRs depend on agent-authored changes. This is a planning decision only; it does not implement `odin agent-*` commands.
+
+Boundaries: Agent Operator Mode does not replace the Local Runtime Hub, does not create autonomous execution, does not add provider API integration, does not grant app-apply authority, and does not claim full Thor protocol compatibility without verified packet evidence.

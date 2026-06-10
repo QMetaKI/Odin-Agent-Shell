@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1026,
+  "file_count_excluding_manifest": 1027,
   "files": [
     {
       "path": ".editorconfig",
@@ -80,8 +80,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "019cea222476ed7439d1e668df3a795d6851dc1a9a2e5d540ab924ab511f771e",
-      "size": 27875
+      "sha256": "637190bd8afe04e6e91b80a5eb223b3b213eb61fff71b24dcdf0f3701b9eb771",
+      "size": 28158
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1995,8 +1995,8 @@
     },
     {
       "path": "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
-      "sha256": "2428da4f8449ae121057a66887fced9a773eb7deaf77233a35aba00519627abb",
-      "size": 3754
+      "sha256": "929844d911db645d4f95cc8f22db5e8c6143d8169c65c2ac0ee3c8041c063bcc",
+      "size": 4900
     },
     {
       "path": "docs/rebaseline/LEGACY_QUARANTINE_PLAN_LOCAL_RUNTIME_HUB.md",
@@ -2005,58 +2005,63 @@
     },
     {
       "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
-      "sha256": "b217f6dd7770ee5dc8cf45e406fc4c2ce487413bdd2da7afb7af53beb15f0d5b",
-      "size": 1666
+      "sha256": "d8908fcf540480c87468b34d4ded4322a3e69853a946718b2139ab572038d776",
+      "size": 2204
     },
     {
       "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
-      "sha256": "0ccf61f5d517dbf989a4ea7919a7a8d24f0fc0bbc774bc4d9c5ad9714fa38585",
-      "size": 14766
+      "sha256": "5699217887847f3898f278ecdb4543f7c8bc41f3331a223edd9442fd7fc5747b",
+      "size": 22008
     },
     {
       "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
-      "sha256": "82e56dd80e95a6e31c8e95dad797629fef3a0254738cd55db745d14ec65f1773",
-      "size": 2026
+      "sha256": "e91c593ec7c35524a86b667fd968815c0f0f92f969ebdf62007d7cabc17c26d0",
+      "size": 4761
     },
     {
       "path": "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
-      "sha256": "50ab57451f216e968372773d2dc2173365b5bbfad0a72fe60b084cd246f33a7d",
-      "size": 1449
+      "sha256": "6390115ca1caf31d27389053c34567088cef798c0f25095b7f5ec5fc9eabbc5d",
+      "size": 2205
     },
     {
       "path": "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md",
-      "sha256": "9484f1942ab47fe77b5ccdd67ef46a8d526b11261bbc7c23c12972a5d3271d12",
-      "size": 2362
+      "sha256": "e92bba8f6172059a5a9a2d212af5761a9dc014f96a2e3ec5f70df3f81f0de057",
+      "size": 3676
     },
     {
       "path": "docs/rebaseline/SLICE_PR_COVERAGE_MATRIX_LOCAL_RUNTIME_HUB.md",
-      "sha256": "c5bc9bec9562e4d21cb24b88b8750c0ee137d8ee7289cae82d665cbe302c8c6d",
-      "size": 1805
+      "sha256": "094b7d0cfc76c747fef31946554d9cf94885fe931d1ec7fcbf5d2e3c4d553063",
+      "size": 2877
     },
     {
       "path": "docs/rebaseline/prompts/LRH-PR-01_REBASELINE.md",
-      "sha256": "d0ff1b86d7e647492653fce7f00bc3281658eb02e44c486ae9c9715c1c11baf1",
-      "size": 2060
+      "sha256": "eed9d8965305117fe8c1c2a8030a9c3c2fe37933af6bc6205a8dde5edbd522a2",
+      "size": 2312
     },
     {
-      "path": "docs/rebaseline/prompts/LRH-PR-02_PORTABLE_LOCAL_RUNTIME_STARTER.md",
-      "sha256": "f1ec2acba24247c7fdc8a3d04e157e8482b511718aca1c1856124b8db92b43b0",
-      "size": 1911
+      "path": "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md",
+      "sha256": "f6388b5a611742f46c0364b54aec2ba6846776dbb06f1ac922c79076e3db1143",
+      "size": 3752
     },
     {
-      "path": "docs/rebaseline/prompts/LRH-PR-03_RUNTIME_DOCTOR_BOOTSTRAP.md",
-      "sha256": "cc5c8315e27fafacdf3e98fb955f1b3916d6ce5b470105a0b5702666bb3b9a41",
-      "size": 1999
+      "path": "docs/rebaseline/prompts/LRH-PR-03_PORTABLE_LOCAL_RUNTIME_STARTER.md",
+      "sha256": "a64ab74f8f770df27bdae7e992fc0ce5e27bb50577ce8595415fdf6d8539ca81",
+      "size": 2165
     },
     {
-      "path": "docs/rebaseline/prompts/LRH-PR-04_LOCALHOST_API_SDK_BRIDGE.md",
-      "sha256": "f6018bd063dc0344130b01ed78bb53db0b3c620e32cdeb6e29d6e039d6928a63",
-      "size": 1991
+      "path": "docs/rebaseline/prompts/LRH-PR-04_RUNTIME_DOCTOR_BOOTSTRAP.md",
+      "sha256": "4f8abceb6d9ce334a9cb95552899c863acc23f72bd1c3c6c726393c4f7545e26",
+      "size": 2248
     },
     {
-      "path": "docs/rebaseline/prompts/LRH-PR-05_BROWSER_ODIN_HUB_SHELL.md",
-      "sha256": "6b35e8926f5574d5567a2f056b1754bc5d6be5dbea7d07e8cd441189c2743069",
-      "size": 1879
+      "path": "docs/rebaseline/prompts/LRH-PR-05_LOCALHOST_API_SDK_BRIDGE.md",
+      "sha256": "3e1d3482b6be4f92c20ebe3f5112a7e5eacdf6760dfdd60ed0536ae1f3ffa266",
+      "size": 2241
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-06_BROWSER_ODIN_HUB_SHELL.md",
+      "sha256": "a9d3e6a6577ece98f53771caa1bee76f8f12f02839382c07f4a5a2b6c35afd11",
+      "size": 2133
     },
     {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
@@ -3755,8 +3760,8 @@
     },
     {
       "path": "registries/local_runtime_hub_build_ladder_v1.json",
-      "sha256": "6e4299840127393e8c42c794b3ab3dd731ec21479f1ee919427f6f7ad14c2f63",
-      "size": 39657
+      "sha256": "3a0e84be9e5e90126373a490220c8e839c76919245177c8c3f7f9f3665873da4",
+      "size": 44692
     },
     {
       "path": "registries/loki_mediation_registry.json",
@@ -3935,13 +3940,13 @@
     },
     {
       "path": "registries/rebaseline_coverage_matrix_v1.json",
-      "sha256": "10bcab8aa77d927bd55dd11dd65b50594beebeebd812951c4caa937a31349ee7",
-      "size": 267639
+      "sha256": "e4229f3126cea3f9324148991cbefb655c90784f10e018db5eb19662ff0eebde",
+      "size": 270748
     },
     {
       "path": "registries/rebaseline_manifest_v1.json",
-      "sha256": "b0edc59687d5c0af2f380cba5cb180ddf328efd07df0f2979283ed67069cd000",
-      "size": 821
+      "sha256": "f86c99c398365ff8cc39b27c4a2df7bece10b1ac4dede843d5ad16c247719013",
+      "size": 1093
     },
     {
       "path": "registries/remote_worker_boundary_registry.json",
@@ -4970,8 +4975,8 @@
     },
     {
       "path": "tests/test_local_runtime_hub_rebaseline.py",
-      "sha256": "3d02bf8c304662a54a018f91323110d9c5e07a89572d915c134bf32caef2e974",
-      "size": 3176
+      "sha256": "47cebbeac03d76661692b8705a6f10747860e3bfb05c74adf54a94b82ab319cd",
+      "size": 4846
     },
     {
       "path": "tests/test_model_router.py",

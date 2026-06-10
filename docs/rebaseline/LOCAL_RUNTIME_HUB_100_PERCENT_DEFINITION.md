@@ -40,3 +40,8 @@ This rebaseline uses these evidence labels only:
 
 Proof boundaries: no production readiness proof, no Windows app proof, no Windows service/tray/installer proof, no live model inference proof, no model quality proof, no security certification proof, no external send proof, no app-state mutation proof.
 
+
+
+## Agent Operator Mode at 100 percent
+
+At the Local Runtime Hub 100 percent target, Odin Agent Operator Mode is a build/workflow capability: Codex, Claude Code and compatible future agents can use repository-local Agent Work Packets, Agent Permission Cards, acceptance gates, proof boundary packets and return reports. This remains candidate-only and permission-gated. It does not prove autonomous agent execution, provider integration, app-state apply, external send authority, or full Thor protocol support without separate receipts.

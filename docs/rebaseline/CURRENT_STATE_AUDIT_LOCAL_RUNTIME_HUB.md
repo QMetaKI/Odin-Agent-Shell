@@ -74,3 +74,12 @@ This rebaseline uses these evidence labels only:
 
 Proof boundaries: no production readiness proof, no Windows app proof, no Windows service/tray/installer proof, no live model inference proof, no model quality proof, no security certification proof, no external send proof, no app-state mutation proof.
 
+
+
+## Current agent operator capabilities
+
+| Area | Current status | Evidence | Gap | Risk | Next action |
+|---|---|---|---|---|---|
+| Odin Agent Operator Mode | spec-only | Repo-grounded: Codex prompts, Thor integration docs and Bounded Code Work docs exist, but no `odin agent-*` commands are implemented in this PR | Agent Work Packet schema, permission card, profile registry, Thor-compatible mapping and CLI/file-protocol commands are missing | review_required | Carry forward as LRH-PR-02 before portable runtime starter work |
+| Codex / Claude Code profiles | spec-only | Repo-grounded: Codex workflow docs exist; Claude Code is a future profile target only | No profile registry or packet examples | review_required | Define Codex, Claude Code and generic CLI profiles in LRH-PR-02 |
+| Thor-compatible protocol surface | partial conceptual | Repo-grounded: `docs/THOR_INTEGRATION.md` and `docs/BOUNDED_CODE_WORK.md` define Thor-inspired candidate-only boundaries | No verified Thor packet normalization or return packet mapping in current runtime | review_required | Add Thor compatibility registry with verified/gap labels in LRH-PR-02 |
