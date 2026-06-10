@@ -9,6 +9,7 @@ from odin.runtime.engine import run_universal_work_file
 from odin.seeds.compiler import compile_seed_pack
 from odin.patterns.intake import compile_pattern_mine
 from odin.hub.static_hub import write_static_hub
+from odin.hub.shell import validate_browser_hub_shell, build_browser_hub_proof_packet
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
 from odin.models.providers.registry import list_provider_cards
@@ -2255,6 +2256,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_local_runtime_starter())
     errors.extend(validate_runtime_doctor_bootstrap())
     errors.extend(validate_localhost_api_sdk_bridge())
+    errors.extend(validate_browser_hub_shell())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2292,6 +2294,12 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
     sub.add_parser("validate-localhost-api-sdk-bridge")
+    sub.add_parser("validate-browser-hub-shell")
+    prove_browser_hub_p = sub.add_parser("prove-browser-hub")
+    prove_browser_hub_p.add_argument("--shell-only", action="store_true", default=False)
+    serve_browser_hub_p = sub.add_parser("serve-browser-hub")
+    serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
+    serve_browser_hub_p.add_argument("--port", type=int, default=8878)
     prove_sdk_p = sub.add_parser("prove-sdk-bridge")
     prove_sdk_p.add_argument("--host", default="127.0.0.1")
     prove_sdk_p.add_argument("--port", type=int, default=8877)
@@ -2485,48 +2493,29 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
 
-    # Agent Operator Mode commands (LRH-PR-02, improved in LRH-PR-05)
+    # Agent Operator Mode commands (LRH-PR-02, improved in LRH-PR-05, hardened in LRH-PR-06)
     if args.cmd == "agent-handoff":
-        from odin.agent_operator.packets import build_agent_work_packet
         try:
-            # --lrh-pr auto-scope: derive objective and allowed_files from LRH ladder
             task_source = getattr(args, "task", None)
             lrh_pr = getattr(args, "lrh_pr", None)
-            if lrh_pr and not task_source:
-                task_source = f"lrh_pr_{lrh_pr}_auto_scope"
-            if not task_source:
-                print(json.dumps({"status": "blocked", "error": "either --task or --lrh-pr required", "claim_boundary": "agent_handoff_error_no_apply"}, indent=2))
-                return 1
-            objective = f"Agent handoff for task: {task_source}"
-            allowed_files: list[str] | None = None
+
             if lrh_pr:
-                # Derive allowed_files from LRH ladder registry for the given PR number
-                ladder_path = ROOT / "registries" / "local_runtime_hub_build_ladder_v1.json"
-                if ladder_path.exists():
-                    try:
-                        ladder = load_json(ladder_path)
-                        pr_id = f"LRH-PR-{lrh_pr.zfill(2)}"
-                        pr_entry = next(
-                            (p for p in ladder.get("prs", []) if p.get("id") == pr_id),
-                            None,
-                        )
-                        if pr_entry:
-                            objective = pr_entry.get("objective", objective)
-                            allowed_files = (
-                                pr_entry.get("target_files", []) +
-                                pr_entry.get("existing_files", [])
-                            ) or None
-                    except Exception:
-                        pass
-            packet = build_agent_work_packet(
-                agent_profile_id=args.agent,
-                task_source=task_source,
-                objective=objective,
-            )
-            if allowed_files:
-                packet["allowed_files"] = allowed_files
-            if lrh_pr:
-                packet["lrh_pr"] = lrh_pr
+                # Use LRH Ladder Compiler v1 to derive full packet
+                from odin.agent_operator.lrh_ladder_compiler import compile_lrh_pr_to_agent_work_packet
+                packet = compile_lrh_pr_to_agent_work_packet(lrh_pr, args.agent)
+                if task_source:
+                    packet["task_source"] = task_source
+            else:
+                if not task_source:
+                    print(json.dumps({"status": "blocked", "error": "either --task or --lrh-pr required", "claim_boundary": "agent_handoff_error_no_apply"}, indent=2))
+                    return 1
+                from odin.agent_operator.packets import build_agent_work_packet
+                packet = build_agent_work_packet(
+                    agent_profile_id=args.agent,
+                    task_source=task_source,
+                    objective=f"Agent handoff for task: {task_source}",
+                )
+
             output = json.dumps(packet, indent=2, ensure_ascii=False, sort_keys=True)
             print(output)
             out_path = getattr(args, "out", None)
@@ -2585,6 +2574,52 @@ def main(argv: list[str] | None = None) -> int:
             agent_profile_id=packet.get("agent_profile_id", "unknown"),
         )
         print(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-browser-hub-shell":
+        errors = validate_browser_hub_shell()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-browser-hub-shell: OK")
+        return 0
+
+    if args.cmd == "prove-browser-hub":
+        shell_only = getattr(args, "shell_only", False)
+        result = build_browser_hub_proof_packet(shell_only=shell_only)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "partial"} else 1
+
+    if args.cmd == "serve-browser-hub":
+        # Scaffold — validates localhost boundary then emits static server plan
+        host = getattr(args, "host", "127.0.0.1")
+        port = getattr(args, "port", 8878)
+        from odin.local_runtime.config import ALLOWED_HOSTS, BLOCKED_HOSTS
+        if host in BLOCKED_HOSTS:
+            print(json.dumps({
+                "status": "blocked",
+                "error": f"host {host!r} is not allowed; must be localhost",
+                "claim_boundary": "serve_browser_hub_localhost_only",
+            }, indent=2))
+            return 1
+        if host not in ALLOWED_HOSTS:
+            print(json.dumps({
+                "status": "blocked",
+                "error": f"host {host!r} is not an allowed localhost address",
+                "claim_boundary": "serve_browser_hub_localhost_only",
+            }, indent=2))
+            return 1
+        static_dir = ROOT / "odin" / "hub" / "static"
+        print(json.dumps({
+            "status": "scaffold",
+            "note": "serve-browser-hub is a scaffold in LRH-PR-06; live HTTP server not claimed",
+            "static_dir": str(static_dir),
+            "host": host,
+            "port": port,
+            "candidate_only": True,
+            "claim_boundary": "serve_browser_hub_localhost_only_scaffold",
+        }, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
     if args.cmd == "validate-agent-operator-mode":
