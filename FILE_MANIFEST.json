@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
-  "claim_boundary": "manifest_records_repo_contents_not_host_runtime_proof",
-  "file_count_excluding_manifest": 1012,
+  "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
+  "file_count_excluding_manifest": 1029,
   "files": [
     {
       "path": ".editorconfig",
@@ -60,8 +60,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "5c697376296fb39743911e8cf3de427dcaf02a150f32f491ee2eb8e83d6f2fe6",
-      "size": 4043
+      "sha256": "a67818c35723d36bc14dad45fba3fae139669571ab640481fe4be20f9953c753",
+      "size": 4659
     },
     {
       "path": "SECURITY.md",
@@ -75,13 +75,13 @@
     },
     {
       "path": "START_HERE.md",
-      "sha256": "a2696b090b35b3d4cea6b1bce4baf56b79a0c8f05a46d02755f6ed4822a304f3",
-      "size": 2263
+      "sha256": "39dab4bfd4a01c15f0a38f44391606941241094bdcc5e9dc88bad2f7acc53607",
+      "size": 2633
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "6fc8ba14d696d57444d624aee0296032b07f2d75a9ea5df00b364d8567eff448",
-      "size": 26320
+      "sha256": "7ad20d39972f9bd9494fdc4528378124affa065b1b8aaafcd8196f59fd72176a",
+      "size": 28551
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1994,6 +1994,81 @@
       "size": 2792
     },
     {
+      "path": "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
+      "sha256": "4e50063055f3582464d77b8547d49a49ded8c29a01c9c848bf09790eedd7f9ea",
+      "size": 4192
+    },
+    {
+      "path": "docs/rebaseline/LEGACY_QUARANTINE_PLAN_LOCAL_RUNTIME_HUB.md",
+      "sha256": "e9235bb57d17f6192ee696661346026445b117714c0f163f3a3ab24b84b1dd0f",
+      "size": 1680
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
+      "sha256": "627619f8a43ce597c6d85753e740858d4c28de1e8e46cea92edf702923030567",
+      "size": 5888
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md",
+      "sha256": "de9bddd9a4e3c46f1ce75832dfa39995eee1eac524541f9cced53f804ad660f3",
+      "size": 65433
+    },
+    {
+      "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "sha256": "81fd91b2b49850e7836eef521e6151692b29e9d038a83b061e6c646e94999d0f",
+      "size": 5144
+    },
+    {
+      "path": "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
+      "sha256": "8b63b638237611cbc1c98cbeca26cfe378d3efc68cafd7196f00334e648ffc9b",
+      "size": 3166
+    },
+    {
+      "path": "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md",
+      "sha256": "d420eaaea4f8302ad9a09fc3f17edc35a415575e81066dae4ed4a409cd4751d6",
+      "size": 4718
+    },
+    {
+      "path": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+      "sha256": "01f8e8779aeba45ad15ac8b87a62977b57482e13d85b98d1d3917da6e2e0d50e",
+      "size": 2769
+    },
+    {
+      "path": "docs/rebaseline/SLICE_PR_COVERAGE_MATRIX_LOCAL_RUNTIME_HUB.md",
+      "sha256": "b6b720eb03eeeaba75d6742231f493da8296e0e252b7a65d126ec2e6582a9cb0",
+      "size": 3564
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-01_REBASELINE.md",
+      "sha256": "ece61c2f78edc54489f0a165688f6f89312644d7abbe1566d416688d51736559",
+      "size": 3381
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-02_AGENT_OPERATOR_MODE.md",
+      "sha256": "ba245078f84a520934b88d7efb1b09e372046fe4a5b72daf405c85ad51c30723",
+      "size": 4301
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-03_PORTABLE_LOCAL_RUNTIME_STARTER.md",
+      "sha256": "210c79d8d349cfd44563812ff82be195e6b38b847760af498c5e8a499ee80e1e",
+      "size": 3312
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-04_RUNTIME_DOCTOR_BOOTSTRAP.md",
+      "sha256": "25dd9e61da453cc617e1873c092d9de8a6dab8a35cf7ba6abd43a8c482817c34",
+      "size": 2787
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-05_LOCALHOST_API_SDK_BRIDGE.md",
+      "sha256": "1128e56525f7bb7a771a59d0c053f37ea6aa595fa37236f71499b7a7f7a71eff",
+      "size": 3103
+    },
+    {
+      "path": "docs/rebaseline/prompts/LRH-PR-06_BROWSER_ODIN_HUB_SHELL.md",
+      "sha256": "48cab8de88ac2ecd90874d6cf20b7d4d721853858308a9e63d82bd4166d6f546",
+      "size": 2462
+    },
+    {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
       "sha256": "bfd7ec190a4ccf828e56e35711206a2c1e5784186da3aa0caf3e97ef99ee549e",
       "size": 6050
@@ -2432,6 +2507,16 @@
       "path": "examples/work_atoms/work_atom_graph.valid.json",
       "sha256": "0f2439ed1e020c2382227b38bb34de41d0d490b97b301d1bac02e73ea1ba051a",
       "size": 204
+    },
+    {
+      "path": "legacy/LEGACY_INDEX.md",
+      "sha256": "e82b85b4534ec7c86e5d85ee942a1d79b6353849da2b84d92427eb1fcdea7afd",
+      "size": 174
+    },
+    {
+      "path": "legacy/LEGACY_MAP.json",
+      "sha256": "a90906a73eb0e2204603c9ba2fd80c8d745f56d6e0d925e4cc5d1069d0185c9f",
+      "size": 113
     },
     {
       "path": "odin/__init__.py",
@@ -3524,31 +3609,6 @@
       "size": 2920
     },
     {
-      "path": "odin_agent_shell.egg-info/PKG-INFO",
-      "sha256": "ad055827aca4ba07364bf5af6f3053e70d79ad74cfc38ce3c3744ebd226aabf3",
-      "size": 254
-    },
-    {
-      "path": "odin_agent_shell.egg-info/SOURCES.txt",
-      "sha256": "56ea9eb72c7d70630bec29023954fb5b3d33d88b969eb30a98c865d06898e53e",
-      "size": 10398
-    },
-    {
-      "path": "odin_agent_shell.egg-info/dependency_links.txt",
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
-    },
-    {
-      "path": "odin_agent_shell.egg-info/entry_points.txt",
-      "sha256": "04daf22cafb1c6eb8718286b7df4519bc94277b766b5b67f50617b8519feebe5",
-      "size": 39
-    },
-    {
-      "path": "odin_agent_shell.egg-info/top_level.txt",
-      "sha256": "0ef15f37bd598a73e844e3f3c3681b23d26afcd3a69db97b277e36d65f9e2450",
-      "size": 18
-    },
-    {
       "path": "odin_app_sdk/__init__.py",
       "sha256": "84151567cfaf9a441f479171ca9683c783506ff851e2f5d536df4f68cbeeaf26",
       "size": 201
@@ -3702,6 +3762,11 @@
       "path": "registries/human_review_gate_registry.json",
       "sha256": "7b405e0fa9dcd9bc6a5679296473c32dcc88a0ca515558946d992cf5cfe8651d",
       "size": 173
+    },
+    {
+      "path": "registries/local_runtime_hub_build_ladder_v1.json",
+      "sha256": "61bb967e5a9a128b4d52b11bbee029300d38143761f9566eef9e85d58aeeab02",
+      "size": 77886
     },
     {
       "path": "registries/loki_mediation_registry.json",
@@ -3879,6 +3944,16 @@
       "size": 64267
     },
     {
+      "path": "registries/rebaseline_coverage_matrix_v1.json",
+      "sha256": "18099a391fcbfbffe66afa2bda832b264726272739b1e86c98cc95b79dea7850",
+      "size": 272978
+    },
+    {
+      "path": "registries/rebaseline_manifest_v1.json",
+      "sha256": "389c61132cb479b1c9103ae6b08865b1224cc585b06fa78a5773f9d3ed9925ef",
+      "size": 1428
+    },
+    {
       "path": "registries/remote_worker_boundary_registry.json",
       "sha256": "c8eafd7fe92dee4011f6e0a4ba29d0f1f63340345e3cdcca94742a84d2b80046",
       "size": 351
@@ -3887,6 +3962,11 @@
       "path": "registries/resonance_band_registry.json",
       "sha256": "38fb224bcdab4afcd09ee797387a10fbb56565c059b4f73cda3d9f1e383171f0",
       "size": 294
+    },
+    {
+      "path": "registries/road_to_100_acceptance_harness_v1.json",
+      "sha256": "f11d068a49a5deae28161e2edd42f99091f9dc99703d83cb50cc2617a443ea32",
+      "size": 3693
     },
     {
       "path": "registries/route_classes.json",
@@ -4902,6 +4982,11 @@
       "path": "tests/test_full_shadow_runtime_coverage.py",
       "sha256": "771175c1a1fa2d569bf6ff4fd4fc547abd126d4c0a31233fc05af35408e49c64",
       "size": 3765
+    },
+    {
+      "path": "tests/test_local_runtime_hub_rebaseline.py",
+      "sha256": "398b0f4934b8d0d496d0d5b5a0c6b4d590eb72fb9d70e9105ffb1580ddef6e2c",
+      "size": 9948
     },
     {
       "path": "tests/test_model_router.py",

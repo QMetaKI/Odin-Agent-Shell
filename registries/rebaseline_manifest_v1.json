@@ -1,0 +1,40 @@
+{
+  "artifact_kind": "odin_rebaseline_manifest",
+  "version": "1.0",
+  "target": "Odin Local Runtime Hub",
+  "baseline_architecture": "Master Architecture v7.1",
+  "current_handoff": "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+  "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+  "previous_ladder": "REAL-GH-PR-01..08",
+  "new_ladder": "LRH-PR-01..17",
+  "repo_head": "b94f5de",
+  "branch": "codex/rebaseline-local-runtime-hub",
+  "merged_prs": [
+    "REAL-GH-PR-01",
+    "REAL-GH-PR-02",
+    "REAL-GH-PR-03"
+  ],
+  "open_prs": [],
+  "pending_dependencies": [
+    "REAL-GH-PR-04",
+    "REAL-GH-PR-05",
+    "REAL-GH-PR-06",
+    "REAL-GH-PR-07",
+    "REAL-GH-PR-08"
+  ],
+  "legacy_policy": "quarantine_not_delete",
+  "claim_boundary": "rebaseline_is_planning_and_governance_not_runtime_proof",
+  "early_build_milestones": [
+    "LRH-PR-01 Rebaseline",
+    "LRH-PR-02 Odin Agent Operator Mode",
+    "LRH-PR-03 Portable Local Runtime Starter"
+  ],
+  "agent_operator_mode": "LRH-PR-02 early build/workflow milestone; candidate-only and permission-gated; Thor-compatible only where verified",
+  "pr": "#5",
+  "base": "main",
+  "state": "open",
+  "control_plane_pr": true,
+  "runtime_behavior_changed": false,
+  "road_to_100_acceptance_harness": "registries/road_to_100_acceptance_harness_v1.json",
+  "public_naming_neutrality": "external app and host app terminology only; no specific external app integration proof"
+}
