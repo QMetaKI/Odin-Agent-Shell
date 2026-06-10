@@ -1370,12 +1370,105 @@ def validate_direct_runtime_release_candidate() -> list[str]:
             errors.append(f"{rel}: missing v0.8.6 direct runtime release candidate lock marker")
     return errors
 
+
+
+def validate_current_public_canon() -> list[str]:
+    """Validate the v0.8.7 public-canon surface without scanning this validator's own token lists."""
+    errors: list[str] = []
+    root_docs = [
+        "README.md",
+        "START_HERE.md",
+        "CANON_ENTRY.md",
+        "CODEX_START_HERE.md",
+        "CLAIM_BOUNDARY.md",
+        "PROTOCOL_BOUNDARY.md",
+    ]
+    required_markers = [
+        "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+        "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+        "REAL-GH-PR-01..08",
+        "PR-00..PR-123",
+        "REAL-PR-01..28",
+    ]
+    required_boundary_markers = [
+        "candidate-only",
+        "app-owned apply",
+        "external sends",
+        "Providers are",
+        "QIRC",
+    ]
+    for rel in root_docs:
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"current canon root doc missing: {rel}")
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for marker in required_markers:
+            if marker not in text:
+                errors.append(f"{rel}: missing current-canon marker {marker!r}")
+        lower = text.lower()
+        for marker in required_boundary_markers:
+            if marker.lower() not in lower:
+                errors.append(f"{rel}: missing boundary marker {marker!r}")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8", errors="ignore")
+    for phrase in [
+        "current public repo canon",
+        "Actual Codex/GitHub PR ladder: REAL-GH-PR-01..08",
+        "Internal traceability ladders: PR-00..PR-123 and REAL-PR-01..28 only",
+    ]:
+        if phrase not in readme:
+            errors.append(f"README.md: missing canon summary phrase {phrase!r}")
+
+    system_map = load_json(ROOT / "SYSTEM_MAP.json")
+    current = system_map.get("current_public_canon", {})
+    if current.get("current_handoff") != "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK":
+        errors.append("SYSTEM_MAP current_public_canon.current_handoff must be v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK")
+    if current.get("runtime_base") != "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK":
+        errors.append("SYSTEM_MAP current_public_canon.runtime_base must be v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK")
+    if current.get("actual_codex_github_pr_ladder") != "REAL-GH-PR-01..08":
+        errors.append("SYSTEM_MAP current_public_canon.actual_codex_github_pr_ladder must be REAL-GH-PR-01..08")
+    if current.get("internal_traceability_ladders") != ["PR-00..PR-123", "REAL-PR-01..28"]:
+        errors.append("SYSTEM_MAP current_public_canon.internal_traceability_ladders must list PR-00..PR-123 and REAL-PR-01..28")
+
+    handoff = load_json(ROOT / "registries" / "codex_real_pr_handoff_registry.json")
+    execution_pr_ids = [pr.get("id") for pr in handoff.get("execution_prs", [])]
+    expected_ids = [f"REAL-GH-PR-{index:02d}" for index in range(1, 9)]
+    if execution_pr_ids != expected_ids:
+        errors.append("codex real PR handoff registry must define REAL-GH-PR-01..08 in order")
+    if handoff.get("current_handoff") != "v0.8.7_CODEX_REAL_PR_HANDOFF_LADDER_LOCK":
+        errors.append("codex real PR handoff registry must declare v0.8.7 current_handoff")
+    if handoff.get("current_base") != "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK":
+        errors.append("codex real PR handoff registry must declare v0.8.6 current_base")
+
+    # Scan only public root docs so this check cannot fail on its own patterns or test fixtures.
+    disallowed_current_fragments = [
+        "is the current canonical prep state",
+        "is the current prep state",
+        "is the current execution ladder",
+        "current actual github execution sequence: `real-pr-",
+        "current actual build execution ladder is `real-pr-",
+    ]
+    old_version_markers = ["v0.3", "v0.4", "v0.5", "v0.6", "v0.7"]
+    for rel in root_docs:
+        for line_no, line in enumerate((ROOT / rel).read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
+            normalized = " ".join(line.lower().split())
+            if any(fragment in normalized for fragment in disallowed_current_fragments):
+                errors.append(f"{rel}:{line_no}: disallowed competing current-canon phrase")
+            if "current" in normalized and any(marker in normalized for marker in old_version_markers):
+                if not any(scope in normalized for scope in ["historical", "history", "changelog", "not the current", "not current"]):
+                    errors.append(f"{rel}:{line_no}: older version appears in current-canon context")
+            if "production ready" in normalized and not any(scope in normalized for scope in ["not production ready", "does not claim", "not claim", "without receipt"]):
+                errors.append(f"{rel}:{line_no}: production-ready wording must be negated or proof-gap scoped")
+    return errors
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
     errors.extend(validate_registries())
     errors.extend(validate_system_map())
     errors.extend(validate_claims())
+    errors.extend(validate_current_public_canon())
     errors.extend(validate_docs())
     errors.extend(validate_codex_tasks())
     errors.extend(validate_codex_bundles())
@@ -1404,6 +1497,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-registries")
     sub.add_parser("validate-system-map")
     sub.add_parser("validate-claims")
+    sub.add_parser("validate-current-public-canon")
     sub.add_parser("validate-docs")
     sub.add_parser("validate-codex-tasks")
     sub.add_parser("validate-codex-bundles")
@@ -1517,6 +1611,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_system_map()
     elif args.cmd == "validate-claims":
         errors = validate_claims()
+    elif args.cmd == "validate-current-public-canon":
+        errors = validate_current_public_canon()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

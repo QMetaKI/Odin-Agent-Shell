@@ -1,7 +1,9 @@
 {
+  "actual_execution_ladder": "REAL-GH-PR-01..08",
   "architecture": "Odin Agent Shell v7.1",
   "claim_boundary": "handoff_registry_defines_codex_work_plan_not_completed_implementation",
   "current_base": "v0.8.6_DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK",
+  "current_handoff": "v0.8.7_CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
   "execution_prs": [
     {
       "codex_completion_focus": [
@@ -305,6 +307,10 @@
       "runtime_status_after_chatgpt": "good RC layer; Codex turns it into final handoff quality",
       "title": "App SDKs, Golden Apps, Release Gates and Public Build Handoff — Final Codex RC"
     }
+  ],
+  "internal_traceability_ladders": [
+    "PR-00..PR-123",
+    "REAL-PR-01..28"
   ],
   "registry_id": "odin.codex_real_pr_handoff_registry.v0_8_7",
   "rule": "Use this registry as Codex handoff index. Each prompt starts from the current runtime candidate, not from blank architecture.",

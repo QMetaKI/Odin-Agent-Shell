@@ -176,9 +176,14 @@
     "SYSTEM_MAP.json"
   ],
   "codex": {
+    "actual_execution_ladder": "REAL-GH-PR-01..08",
     "actual_execution_registry": "registries/real_pr_execution_registry.json",
-    "latest_real_bundle": "REAL-PR-18",
-    "latest_real_pr_bundle": "REAL-GH-PR-08"
+    "current_handoff": "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+    "internal_micro_task_ladder": "PR-00..PR-123 traceability only",
+    "latest_real_bundle": "REAL-PR-28",
+    "latest_real_pr_bundle": "REAL-GH-PR-08",
+    "legacy_bundle_ladder": "REAL-PR-01..28 traceability only",
+    "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK"
   },
   "codex_phases": [
     "docs/codex/PHASE_0_CANON_LOCK.md",
@@ -213,6 +218,16 @@
   ],
   "codex_task_registry": "registries/codex_task_registry.json",
   "codex_tasks_dir": "docs/codex/tasks",
+  "current_public_canon": {
+    "actual_codex_github_pr_ladder": "REAL-GH-PR-01..08",
+    "claim_boundary": "candidate_only_handoff_not_production_host_windows_model_security_external_send_or_app_state_proof",
+    "current_handoff": "v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK",
+    "internal_traceability_ladders": [
+      "PR-00..PR-123",
+      "REAL-PR-01..28"
+    ],
+    "runtime_base": "v0.8.6 DIRECT_RUNTIME_RELEASE_CANDIDATE_LOCK"
+  },
   "deep_subsystem_specs": [
     "docs/ACCEPTANCE_TESTS_V7_1.md",
     "docs/ALGORITHMS_V7_1.md",
