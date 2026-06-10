@@ -546,13 +546,260 @@ def build_candidate_store_viewer_proof_packet() -> dict[str, Any]:
     }
 
 
-def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False) -> dict[str, Any]:
+TRACE_VIEWER_CLAIM_BOUNDARY = (
+    "trace_viewer_candidate_only_local_only_no_event_mutation_no_public_bus_no_raw_payload"
+)
+
+TRACE_VIEWER_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_event_mutation_proof",
+    "not_bus_publish_replay_delete_ack_proof",
+    "not_public_bus_exposure_proof",
+    "not_lan_wan_trace_endpoint_proof",
+    "not_worklet_execution_proof",
+    "not_work_atom_mutation_proof",
+    "not_raw_sensitive_payload_safety_certification",
+    "not_live_browser_runtime_e2e",
+    "not_provider_execution_proof",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_full_bus_backend_coverage",
+    "not_full_worklet_backend_coverage",
+    "not_full_work_atom_backend_coverage",
+]
+
+_TV_REQUIRED_FILES = [
+    "odin/hub/static/trace_viewer.js",
+    "odin/hub/static/index.html",
+    "docs/HUB_TRACE_VIEWER_V1.md",
+    "tests/test_lrh_pr_09_trace_viewer.py",
+]
+
+_TV_REQUIRED_JS_API_REFS = [
+    "/v1/events",
+    "/v1/proof-gaps",
+]
+
+_TV_REQUIRED_JS_HEALTH_REFS = [
+    "/v1/health",
+    "/v1/status",
+]
+
+_TV_REQUIRED_JS_BOUNDARY_TOKENS = [
+    "candidate_only",
+    "claim_boundary",
+    "local_only",
+    "read_only",
+    "no_event_mutation",
+    "no_raw_payload",
+    "metadata_first",
+]
+
+_TV_FORBIDDEN_CONTROL_PATTERNS = [
+    "function publishEvent(",
+    "function replayEvent(",
+    "function deleteEvent(",
+    "function ackEvent(",
+    "function mutateEvent(",
+    "function executeWorklet(",
+    "function retryWorklet(",
+    "function mutateAtom(",
+    "function deleteAtom(",
+    "function applyTrace(",
+    "function externalSend(",
+    "function uploadTrace(",
+    "function hiddenUpload(",
+    "function rawPayloadReveal(",
+    "function unsafePayloadToggle(",
+    'id="public-bus-toggle',
+    'id="network-enable',
+    'id="raw-payload-reveal',
+    "providerCredential",
+    "enablePublicNetwork(",
+    "enablePublicBus(",
+]
+
+_TV_REQUIRED_SURFACE_IDS = [
+    "tv-bus-events-content",
+    "tv-worklet-trace-content",
+    "tv-work-atom-trace-content",
+    "tv-runtime-digest-content",
+    "tv-proof-gaps-content",
+]
+
+_TV_REQUIRED_BOUNDARY_PHRASES = [
+    "No event mutation",
+    "No bus publish",
+    "No worklet execution",
+    "No atom mutation",
+    "No raw sensitive payload",
+    "local-only",
+    "read-only",
+    "not-certification",
+]
+
+_TV_REQUIRED_DOC_PHRASES = [
+    "this does not mutate bus events",
+    "this does not publish, replay, delete or acknowledge bus events",
+    "this does not execute worklets",
+    "this does not mutate work atoms",
+    "this does not expose a public bus",
+    "this does not add lan/wan trace endpoints by default",
+    "this does not display raw sensitive payloads by default",
+    "this does not prove production readiness",
+    "this does not prove security certification",
+    "proof boundaries",
+    "not_production_readiness_certification",
+]
+
+
+def validate_trace_viewer() -> list[str]:
+    """Deterministic static validator for the Trace Viewer (LRH-PR-09).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    for rel in _TV_REQUIRED_FILES:
+        p = _ROOT / rel
+        if not p.exists():
+            errors.append(f"trace viewer required file missing: {rel}")
+
+    tv_js = _STATIC_DIR / "trace_viewer.js"
+    if tv_js.exists():
+        js = tv_js.read_text(encoding="utf-8", errors="ignore")
+
+        for api_ref in _TV_REQUIRED_JS_API_REFS:
+            if api_ref not in js:
+                errors.append(f"trace_viewer.js: missing required API reference: {api_ref!r}")
+
+        for health_ref in _TV_REQUIRED_JS_HEALTH_REFS:
+            if health_ref not in js:
+                errors.append(f"trace_viewer.js: missing required health/status reference: {health_ref!r}")
+
+        for token in _TV_REQUIRED_JS_BOUNDARY_TOKENS:
+            if token not in js:
+                errors.append(f"trace_viewer.js: missing required boundary token: {token!r}")
+
+        js_lower = js.lower()
+        forbidden_found = [p for p in _TV_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"trace_viewer.js: forbidden interactive controls found: {forbidden_found}")
+
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js:
+            errors.append("trace_viewer.js: missing localhost default reference")
+
+        if "function publishEvent(" in js:
+            errors.append("trace_viewer.js: must not define publishEvent() function")
+        if "function externalSend(" in js:
+            errors.append("trace_viewer.js: must not define externalSend() function")
+        if "function executeWorklet(" in js:
+            errors.append("trace_viewer.js: must not define executeWorklet() function")
+        if "function mutateAtom(" in js:
+            errors.append("trace_viewer.js: must not define mutateAtom() function")
+
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+
+        if "trace_viewer.js" not in html:
+            errors.append("index.html: must load trace_viewer.js")
+
+        for surface_id in _TV_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required trace viewer surface id: {surface_id!r}")
+
+        html_lower = html.lower()
+        for phrase in _TV_REQUIRED_BOUNDARY_PHRASES:
+            if phrase.lower() not in html_lower:
+                errors.append(f"index.html: missing required trace viewer boundary phrase: {phrase!r}")
+
+        forbidden_found = [p for p in _TV_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden interactive controls found in trace viewer: {forbidden_found}")
+
+        if "not-certification" not in html.lower() and "not a production" not in html.lower():
+            errors.append("index.html: runtime digest surface missing not-certification boundary phrase")
+
+    doc = _ROOT / "docs" / "HUB_TRACE_VIEWER_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _TV_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"HUB_TRACE_VIEWER_V1.md: missing required phrase: {phrase!r}")
+
+    return errors
+
+
+def build_trace_viewer_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Trace Viewer (LRH-PR-09)."""
+    tv_errors = validate_trace_viewer()
+    all_ok = not bool(tv_errors)
+
+    return {
+        "artifact_kind": "hub_trace_viewer_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "read_only": True,
+        "trace_viewer_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": tv_errors,
+        "proven": [
+            "trace_viewer_static_files_exist",
+            "trace_viewer_references_v1_events",
+            "trace_viewer_references_v1_proof_gaps",
+            "trace_viewer_references_v1_status",
+            "trace_viewer_references_v1_health",
+            "bus_event_timeline_surface_present",
+            "worklet_trace_surface_present",
+            "work_atom_trace_surface_present",
+            "runtime_digest_surface_present",
+            "local_only_trace_filters_present",
+            "metadata_first_display_enforced",
+            "redacted_payload_policy_present",
+            "no_event_mutation_controls",
+            "no_worklet_execution_controls",
+            "no_atom_mutation_controls",
+            "no_external_send_controls",
+            "no_public_bus_controls",
+            "raw_sensitive_payload_not_displayed_by_default",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "live_browser_runtime_e2e",
+            "full_bus_backend_coverage",
+            "full_worklet_backend_coverage",
+            "full_work_atom_backend_coverage",
+            "raw_sensitive_payload_safety_certification",
+            "event_mutation_authority",
+            "worklet_execution_authority",
+            "atom_mutation_authority",
+            "public_bus_exposure",
+            "external_send_authority",
+            "live_model_inference",
+            "model_quality",
+            "app_state_mutation",
+        ],
+        "proof_boundaries": TRACE_VIEWER_PROOF_BOUNDARIES,
+        "claim_boundary": TRACE_VIEWER_CLAIM_BOUNDARY,
+    }
+
+
+def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False, traces: bool = False) -> dict[str, Any]:
     """Emit a bounded proof packet for the browser hub shell.
 
     If candidates=True, runs the candidate store viewer validator.
     If dashboard=True, runs both shell and dashboard validators and returns a combined packet.
     If shell_only=True (default), runs only shell validator.
     """
+    if traces:
+        return build_trace_viewer_proof_packet()
+
     if candidates:
         return build_candidate_store_viewer_proof_packet()
 

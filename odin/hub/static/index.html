@@ -34,7 +34,7 @@
       <li><a href="#providers-panel">Providers (read-only)</a></li>
       <li><a href="#candidates-panel">Candidates</a></li>
       <li><a href="#proof-gaps-panel">Proof Gaps</a></li>
-      <li><a href="#events-panel">Events</a></li>
+      <li><a href="#events-panel">Trace Viewer</a></li>
       <li><a href="#universal-work-placeholder">Universal Work Playground</a></li>
     </ul>
   </nav>
@@ -198,11 +198,80 @@
       </div>
     </section>
 
-    <section id="events-panel" class="panel placeholder-panel">
-      <h2>Events</h2>
-      <p class="placeholder-note">
-        Event viewer — navigation placeholder.
-        Full trace viewer is in LRH-PR-09.
+    <!-- LRH-PR-09: Bus / Worklet / Atom Trace Viewer -->
+    <section id="events-panel" class="panel">
+      <h2>Trace Viewer <span class="badge">read-only</span> <span class="badge">local-only</span></h2>
+
+      <!-- Bus Event Timeline Surface -->
+      <div class="dashboard-surface" id="tv-bus-events-surface">
+        <h3>Bus Event Timeline <span class="badge">read-only</span> <span class="badge">no-mutation</span></h3>
+        <div id="tv-bus-events-content" class="panel-content">
+          <p class="loading">Loading bus event timeline…</p>
+        </div>
+        <p class="boundary-note">
+          No event mutation. No bus publish, replay, delete, or ack controls.
+          No public bus exposure. No LAN/WAN trace endpoint by default.
+          Raw sensitive payloads are not displayed by default.
+        </p>
+      </div>
+
+      <!-- Worklet Trace Surface -->
+      <div class="dashboard-surface" id="tv-worklet-trace-surface">
+        <h3>Worklet Trace <span class="badge">read-only</span> <span class="badge">no-execution</span></h3>
+        <div id="tv-worklet-trace-content" class="panel-content">
+          <p class="loading">Loading worklet trace…</p>
+        </div>
+        <p class="boundary-note">
+          No execute, retry, or apply controls. No worklet state mutation.
+          Worklet trace is read-only. Raw sensitive payloads not displayed.
+        </p>
+      </div>
+
+      <!-- Work Atom Trace Surface -->
+      <div class="dashboard-surface" id="tv-work-atom-trace-surface">
+        <h3>Work Atom Trace <span class="badge">read-only</span> <span class="badge">no-mutation</span></h3>
+        <div id="tv-work-atom-trace-content" class="panel-content">
+          <p class="loading">Loading work atom trace…</p>
+        </div>
+        <p class="boundary-note">
+          No mutate, delete, or apply controls. No atom state mutation.
+          Work atom trace is read-only. Raw sensitive payloads not displayed.
+        </p>
+      </div>
+
+      <!-- Runtime Digest Surface -->
+      <div class="dashboard-surface" id="tv-runtime-digest-surface">
+        <h3>Runtime Digest <span class="badge">local-receipt-only</span> <span class="badge">not-certification</span></h3>
+        <div id="tv-runtime-digest-content" class="panel-content">
+          <p class="loading">Loading runtime digest…</p>
+        </div>
+        <p class="boundary-note">
+          Runtime digest is a local receipt only.
+          Not a production readiness certification.
+          Not a security certification.
+        </p>
+      </div>
+
+      <!-- Trace Proof Gaps Surface -->
+      <div class="dashboard-surface" id="tv-proof-gaps-surface">
+        <h3>Trace Proof Gaps <span class="badge">viewer-only</span></h3>
+        <div id="tv-proof-gaps-content" class="panel-content">
+          <p class="loading">Loading trace proof gaps…</p>
+        </div>
+        <p class="boundary-note">
+          Displaying proof gaps does not close them.
+          Candidate-only. Not applied truth.
+        </p>
+      </div>
+
+      <p class="boundary-note">
+        Trace viewer is local-only and read-only.
+        No event mutation. No bus publish, replay, delete or ack.
+        No worklet execution. No atom mutation. No external send.
+        No public bus exposure. No LAN/WAN trace endpoint by default.
+        Raw sensitive payloads are not displayed by default.
+        Not a production readiness certification.
+        Not a security certification.
       </p>
     </section>
 
@@ -229,5 +298,6 @@
   <script src="app.js"></script>
   <script src="dashboard.js"></script>
   <script src="candidate_store_viewer.js"></script>
+  <script src="trace_viewer.js"></script>
 </body>
 </html>
