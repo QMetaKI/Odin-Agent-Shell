@@ -344,12 +344,218 @@ def build_dashboard_proof_packet() -> dict[str, Any]:
     }
 
 
-def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False) -> dict[str, Any]:
+CANDIDATE_STORE_VIEWER_CLAIM_BOUNDARY = (
+    "candidate_store_viewer_candidate_only_local_only_no_apply_no_external_send_no_store_mutation_no_raw_payload"
+)
+
+CANDIDATE_STORE_VIEWER_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_candidate_application_proof",
+    "not_candidate_as_truth_proof",
+    "not_store_mutation_proof",
+    "not_raw_sensitive_payload_safety_certification",
+    "not_live_browser_runtime_e2e",
+    "not_provider_execution_proof",
+    "not_public_network_api_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_full_session_list_backend",
+    "not_full_candidate_backend_coverage",
+    "not_full_store_backend_coverage",
+]
+
+_CSV_REQUIRED_FILES = [
+    "odin/hub/static/candidate_store_viewer.js",
+    "odin/hub/static/index.html",
+    "docs/HUB_CANDIDATE_STORE_VIEWER_V1.md",
+    "tests/test_lrh_pr_08_candidate_store_viewer.py",
+]
+
+_CSV_REQUIRED_JS_API_REFS = [
+    "/v1/candidates",
+    "/v1/sessions",
+    "/v1/proof-gaps",
+]
+
+_CSV_REQUIRED_JS_BOUNDARY_TOKENS = [
+    "candidate_only",
+    "claim_boundary",
+    "not_applied_truth",
+    "no_apply",
+]
+
+_CSV_FORBIDDEN_CONTROL_PATTERNS = [
+    "function apply(",
+    "function applyCandidate(",
+    "function externalSend(",
+    "function sendExternally(",
+    "function storeWrite(",
+    "function storeDelete(",
+    "function rawPayloadReveal(",
+    "function unsafePayloadToggle(",
+    'onclick="apply(',
+    "onclick=\"apply(",
+    'id="apply-btn',
+    "id=\"apply-btn",
+    'id="external-send',
+    "id=\"external-send",
+    "providerCredential",
+    "enablePublicNetwork(",
+    "hiddenUpload(",
+    "remoteUpload(",
+]
+
+_CSV_REQUIRED_SURFACE_IDS = [
+    "csv-sessions-content",
+    "csv-candidate-content",
+    "csv-store-content",
+    "csv-proof-gaps-content",
+]
+
+_CSV_REQUIRED_BOUNDARY_PHRASES = [
+    "Candidate-only",
+    "not applied truth",
+    "app-owned apply",
+    "No app apply",
+    "No external send",
+    "No store mutation",
+    "No raw sensitive payload",
+]
+
+_CSV_REQUIRED_DOC_PHRASES = [
+    "does not apply candidate artifacts",
+    "does not show candidates as applied truth",
+    "does not mutate the runtime store",
+    "does not send externally",
+    "does not display raw sensitive payloads by default",
+    "does not close proof gaps by displaying them",
+    "does not prove production readiness",
+    "proof boundaries",
+]
+
+
+def validate_candidate_store_viewer() -> list[str]:
+    """Deterministic static validator for the Candidate Store Viewer (LRH-PR-08).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    for rel in _CSV_REQUIRED_FILES:
+        p = _ROOT / rel
+        if not p.exists():
+            errors.append(f"candidate store viewer required file missing: {rel}")
+
+    csv_js = _STATIC_DIR / "candidate_store_viewer.js"
+    if csv_js.exists():
+        js = csv_js.read_text(encoding="utf-8", errors="ignore")
+
+        for api_ref in _CSV_REQUIRED_JS_API_REFS:
+            if api_ref not in js:
+                errors.append(f"candidate_store_viewer.js: missing required API reference: {api_ref!r}")
+
+        for token in _CSV_REQUIRED_JS_BOUNDARY_TOKENS:
+            if token not in js:
+                errors.append(f"candidate_store_viewer.js: missing required boundary token: {token!r}")
+
+        js_lower = js.lower()
+        forbidden_found = [p for p in _CSV_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"candidate_store_viewer.js: forbidden interactive controls found: {forbidden_found}")
+
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js:
+            errors.append("candidate_store_viewer.js: missing localhost default reference")
+
+        if "function apply(" in js:
+            errors.append("candidate_store_viewer.js: must not define apply() function")
+        if "function externalSend(" in js:
+            errors.append("candidate_store_viewer.js: must not define externalSend() function")
+
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+
+        if "candidate_store_viewer.js" not in html:
+            errors.append("index.html: must load candidate_store_viewer.js")
+
+        for surface_id in _CSV_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required candidate store viewer surface id: {surface_id!r}")
+
+        html_lower = html.lower()
+        for phrase in _CSV_REQUIRED_BOUNDARY_PHRASES:
+            if phrase.lower() not in html_lower:
+                errors.append(f"index.html: missing required boundary phrase: {phrase!r}")
+
+        forbidden_found = [p for p in _CSV_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden interactive controls found in candidate viewer: {forbidden_found}")
+
+    doc = _ROOT / "docs" / "HUB_CANDIDATE_STORE_VIEWER_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _CSV_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"HUB_CANDIDATE_STORE_VIEWER_V1.md: missing required phrase: {phrase!r}")
+
+    return errors
+
+
+def build_candidate_store_viewer_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Candidate Store Viewer (LRH-PR-08)."""
+    csv_errors = validate_candidate_store_viewer()
+    all_ok = not bool(csv_errors)
+
+    return {
+        "artifact_kind": "hub_candidate_store_viewer_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "read_only": True,
+        "viewer_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": csv_errors,
+        "proven": [
+            "candidate_store_viewer_static_files_exist",
+            "candidate_viewer_references_v1_candidates",
+            "candidate_viewer_references_v1_sessions",
+            "proof_gap_viewer_references_v1_proof_gaps",
+            "candidate_boundary_banner_present",
+            "not_applied_truth_warning_present",
+            "no_apply_controls",
+            "no_external_send_controls",
+            "no_store_mutation_controls",
+            "raw_sensitive_payload_not_displayed_by_default",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "live_browser_runtime_e2e",
+            "full_session_list_backend",
+            "full_candidate_backend_coverage",
+            "full_store_backend_coverage",
+            "raw_sensitive_payload_safety_certification",
+            "candidate_application",
+            "external_send_authority",
+            "store_mutation",
+            "live_model_inference",
+            "model_quality",
+        ],
+        "proof_boundaries": CANDIDATE_STORE_VIEWER_PROOF_BOUNDARIES,
+        "claim_boundary": CANDIDATE_STORE_VIEWER_CLAIM_BOUNDARY,
+    }
+
+
+def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False) -> dict[str, Any]:
     """Emit a bounded proof packet for the browser hub shell.
 
+    If candidates=True, runs the candidate store viewer validator.
     If dashboard=True, runs both shell and dashboard validators and returns a combined packet.
     If shell_only=True (default), runs only shell validator.
     """
+    if candidates:
+        return build_candidate_store_viewer_proof_packet()
+
     if dashboard:
         return build_dashboard_proof_packet()
 

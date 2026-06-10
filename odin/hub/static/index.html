@@ -133,12 +133,61 @@
       </div>
     </section>
 
-    <section id="candidates-panel" class="panel placeholder-panel">
-      <h2>Candidates</h2>
-      <p class="placeholder-note">
-        Candidate viewer — navigation placeholder.
-        Full candidate artifact viewer is in LRH-PR-08.
-        All outputs remain candidate-only.
+    <!-- LRH-PR-08: Candidate Store Viewer -->
+    <section id="candidates-panel" class="panel">
+      <h2>Candidates <span class="badge">candidate-only</span> <span class="badge">read-only</span></h2>
+
+      <!-- Sessions View -->
+      <div class="dashboard-surface" id="csv-sessions-surface">
+        <h3>Sessions <span class="badge">read-only</span></h3>
+        <div id="csv-sessions-content" class="panel-content">
+          <p class="loading">Loading sessions…</p>
+        </div>
+        <p class="boundary-note">Sessions view is read-only. No session mutation. Candidate-only.</p>
+      </div>
+
+      <!-- Candidate Artifact View -->
+      <div class="dashboard-surface" id="csv-candidate-surface">
+        <h3>Candidate Artifacts <span class="badge">candidate-only</span> <span class="badge">not-applied-truth</span></h3>
+        <div id="csv-candidate-content" class="panel-content">
+          <p class="loading">Loading candidate artifact…</p>
+        </div>
+        <p class="boundary-note">
+          Candidate-only. Not applied truth. App-owned apply.
+          No apply action. No external send. Raw sensitive payloads not displayed.
+        </p>
+      </div>
+
+      <!-- Store Metadata View -->
+      <div class="dashboard-surface" id="csv-store-surface">
+        <h3>Store Metadata <span class="badge">metadata-only</span> <span class="badge">read-only</span></h3>
+        <div id="csv-store-content" class="panel-content">
+          <p class="loading">Loading store metadata…</p>
+        </div>
+        <p class="boundary-note">
+          Store view is read-only and metadata-first.
+          No mutation controls. No raw record display. No store write actions.
+        </p>
+      </div>
+
+      <!-- Proof Gap Viewer -->
+      <div class="dashboard-surface" id="csv-proof-gaps-surface">
+        <h3>Proof Gaps <span class="badge">viewer-only</span></h3>
+        <div id="csv-proof-gaps-content" class="panel-content">
+          <p class="loading">Loading proof gaps…</p>
+        </div>
+        <p class="boundary-note">
+          Displaying proof gaps does not close them.
+          Candidate-only. Not applied truth.
+        </p>
+      </div>
+
+      <p class="boundary-note">
+        Candidate Store Viewer is local-only and read-only.
+        No app apply. No external send. No store mutation. No raw sensitive payload display.
+        Not a production readiness certification.
+        Does not close proof gaps by displaying them.
+        Does not show candidates as applied truth.
       </p>
     </section>
 
@@ -179,5 +228,6 @@
 
   <script src="app.js"></script>
   <script src="dashboard.js"></script>
+  <script src="candidate_store_viewer.js"></script>
 </body>
 </html>

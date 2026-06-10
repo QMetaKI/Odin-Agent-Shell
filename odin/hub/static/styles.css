@@ -273,3 +273,61 @@ footer {
   color: var(--muted);
   font-weight: normal;
 }
+
+/* LRH-PR-08: Candidate Store Viewer */
+.csv-boundary-banner {
+  background: #0a1a0a;
+  border: 1px solid var(--ok);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--ok);
+}
+
+.csv-not-applied-warning {
+  background: #1a1000;
+  border-left: 3px solid var(--warn);
+  padding: 0.4rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--warn);
+}
+
+.csv-session-record,
+.csv-candidate-record,
+.csv-store-record,
+.csv-fixture-placeholder {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.csv-table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.csv-table td {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.csv-table td.key-cell {
+  color: var(--muted);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.boundary-item {
+  color: var(--ok);
+}
+
+.muted {
+  color: var(--muted);
+  font-style: italic;
+}
