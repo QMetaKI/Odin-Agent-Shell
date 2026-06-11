@@ -1,0 +1,482 @@
+{
+  "registry_id": "odin.v7_1_1_slice_absorption_map",
+  "version": "7.1.1",
+  "rule": "historical micro-task and legacy bundle ladders are target/detail traceability, not independent execution paths",
+  "micro_task_registry": "registries/codex_task_registry.json",
+  "legacy_bundle_registry": "registries/codex_pr_bundle_registry.json",
+  "actual_execution_registry": "registries/real_pr_execution_registry.json",
+  "micro_task_count": 124,
+  "legacy_bundle_count": 28,
+  "actual_execution_pr_count": 8,
+  "actual_execution_ladder": "REAL-GH-PR-01..08",
+  "groups": [
+    {
+      "id": "canon_and_boundary",
+      "name": "Canon and Boundary",
+      "target_area_ids": [
+        "V711-CANON",
+        "V711-APP-BOUNDARY",
+        "V711-FINAL-GATE"
+      ],
+      "micro_tasks": [
+        "PR-00",
+        "PR-01",
+        "PR-02",
+        "PR-25",
+        "PR-30",
+        "PR-59",
+        "PR-60",
+        "PR-64",
+        "PR-69",
+        "PR-70",
+        "PR-71",
+        "PR-74",
+        "PR-77",
+        "PR-83",
+        "PR-84",
+        "PR-89",
+        "PR-95",
+        "PR-103",
+        "PR-113",
+        "PR-116"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-01",
+        "REAL-PR-07",
+        "REAL-PR-17",
+        "REAL-PR-19",
+        "REAL-PR-28"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "critical",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "universal_work_and_candidate_core",
+      "name": "Universal Work and Candidate Core",
+      "target_area_ids": [
+        "V711-UNIVERSAL-WORK",
+        "V711-CANDIDATE-DNA",
+        "V711-RESPONSE-PACKET"
+      ],
+      "micro_tasks": [
+        "PR-03",
+        "PR-04",
+        "PR-06",
+        "PR-09",
+        "PR-10",
+        "PR-11",
+        "PR-61",
+        "PR-63",
+        "PR-65",
+        "PR-69",
+        "PR-70",
+        "PR-73",
+        "PR-74",
+        "PR-75",
+        "PR-76",
+        "PR-77",
+        "PR-78",
+        "PR-79",
+        "PR-80",
+        "PR-104"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-02",
+        "REAL-PR-05",
+        "REAL-PR-20",
+        "REAL-PR-25",
+        "REAL-PR-27"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "critical",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "qirc_semantic_bus_and_replay",
+      "name": "QIRC Semantic Bus and Replay",
+      "target_area_ids": [
+        "V711-QIRC",
+        "V711-STORAGE-TRACE-RECEIPT"
+      ],
+      "micro_tasks": [
+        "PR-04",
+        "PR-05",
+        "PR-11",
+        "PR-12",
+        "PR-15",
+        "PR-16",
+        "PR-18",
+        "PR-42",
+        "PR-45",
+        "PR-46",
+        "PR-47",
+        "PR-48",
+        "PR-49",
+        "PR-60",
+        "PR-63",
+        "PR-70",
+        "PR-72",
+        "PR-92",
+        "PR-104",
+        "PR-107"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-03",
+        "REAL-PR-05",
+        "REAL-PR-06",
+        "REAL-PR-15",
+        "REAL-PR-20",
+        "REAL-PR-23",
+        "REAL-PR-27"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "context_lenses_worklets_slots_gaptext",
+      "name": "Context Lenses Worklets Slots Gaptext",
+      "target_area_ids": [
+        "V711-CONTEXT-DISTILLERY",
+        "V711-ARTIFACT-LENSES",
+        "V711-WORKLETS",
+        "V711-SLOT-FORGE",
+        "V711-GAPTEXT"
+      ],
+      "micro_tasks": [
+        "PR-06",
+        "PR-07",
+        "PR-15"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-03"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-02"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "small_model_power_and_hybrid_director",
+      "name": "Small Model Power and Hybrid Director",
+      "target_area_ids": [
+        "V711-SMALL-MODEL-POWER",
+        "V711-HYBRID-DIRECTOR",
+        "V711-MODEL-SCALE-LADDER"
+      ],
+      "micro_tasks": [
+        "PR-08",
+        "PR-09"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-04"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "critical",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "providers_and_modelworkpacket",
+      "name": "Providers and ModelWorkPacket",
+      "target_area_ids": [
+        "V711-PROVIDER-RUNTIME",
+        "V711-MODELWORKPACKET"
+      ],
+      "micro_tasks": [
+        "PR-08",
+        "PR-14"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-04"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "critics_tournament_style_quality",
+      "name": "Critics Tournament Style Quality",
+      "target_area_ids": [
+        "V711-MINICHECK",
+        "V711-CRITIC-CASCADE",
+        "V711-CANDIDATE-TOURNAMENT",
+        "V711-STYLE-STABILIZER",
+        "V711-ANTI-GENERIC"
+      ],
+      "micro_tasks": [
+        "PR-09",
+        "PR-10",
+        "PR-23"
+      ],
+      "legacy_bundles": [],
+      "actual_execution_prs": [],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "thor_agent_handoff_and_bounded_code",
+      "name": "Thor Agent Handoff and Bounded Code",
+      "target_area_ids": [
+        "V711-THOR-HANDOFF",
+        "V711-AGENT-OPERATOR"
+      ],
+      "micro_tasks": [
+        "PR-10",
+        "PR-66",
+        "PR-67",
+        "PR-68",
+        "PR-69",
+        "PR-70",
+        "PR-71",
+        "PR-72",
+        "PR-73",
+        "PR-74",
+        "PR-75",
+        "PR-76",
+        "PR-77",
+        "PR-78",
+        "PR-79",
+        "PR-80",
+        "PR-82",
+        "PR-84",
+        "PR-86"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-05",
+        "REAL-PR-11",
+        "REAL-PR-19",
+        "REAL-PR-20",
+        "REAL-PR-21",
+        "REAL-PR-23"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "storage_trace_receipt",
+      "name": "Storage Trace Receipt",
+      "target_area_ids": [
+        "V711-STORAGE-TRACE-RECEIPT"
+      ],
+      "micro_tasks": [
+        "PR-04",
+        "PR-11",
+        "PR-12",
+        "PR-18",
+        "PR-42",
+        "PR-49",
+        "PR-60",
+        "PR-63",
+        "PR-70",
+        "PR-72",
+        "PR-74",
+        "PR-92",
+        "PR-107",
+        "PR-110"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-05",
+        "REAL-PR-15",
+        "REAL-PR-20",
+        "REAL-PR-23",
+        "REAL-PR-27"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "sdk_app_bridge_templates",
+      "name": "SDK App Bridge Templates",
+      "target_area_ids": [
+        "V711-SDK-BRIDGE",
+        "V711-APP-TEMPLATES"
+      ],
+      "micro_tasks": [
+        "PR-10",
+        "PR-12",
+        "PR-13",
+        "PR-16",
+        "PR-18",
+        "PR-28",
+        "PR-71",
+        "PR-75",
+        "PR-76",
+        "PR-87",
+        "PR-88",
+        "PR-89",
+        "PR-90",
+        "PR-91",
+        "PR-92",
+        "PR-99",
+        "PR-104"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-05",
+        "REAL-PR-06",
+        "REAL-PR-09",
+        "REAL-PR-11",
+        "REAL-PR-12",
+        "REAL-PR-21",
+        "REAL-PR-22",
+        "REAL-PR-27"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "proof_governance_and_audit",
+      "name": "Proof Governance and Audit",
+      "target_area_ids": [
+        "V711-PROOF-GOVERNANCE",
+        "V711-FINAL-GATE"
+      ],
+      "micro_tasks": [
+        "PR-25",
+        "PR-64",
+        "PR-103"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-07"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "high",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    },
+    {
+      "id": "optional_host_surfaces",
+      "name": "Optional Host Surfaces",
+      "target_area_ids": [
+        "V711-OPTIONAL-HOST-SURFACE"
+      ],
+      "micro_tasks": [
+        "PR-18",
+        "PR-19",
+        "PR-98",
+        "PR-99",
+        "PR-101",
+        "PR-102",
+        "PR-112",
+        "PR-113",
+        "PR-114",
+        "PR-115",
+        "PR-117",
+        "PR-118",
+        "PR-119",
+        "PR-123"
+      ],
+      "legacy_bundles": [
+        "REAL-PR-07",
+        "REAL-PR-24",
+        "REAL-PR-27",
+        "REAL-PR-28"
+      ],
+      "actual_execution_prs": [
+        "REAL-GH-PR-01",
+        "REAL-GH-PR-02",
+        "REAL-GH-PR-03",
+        "REAL-GH-PR-04",
+        "REAL-GH-PR-05",
+        "REAL-GH-PR-06",
+        "REAL-GH-PR-07",
+        "REAL-GH-PR-08"
+      ],
+      "current_repo_real_status": "coarse_mapping_from_existing_registries",
+      "target_priority": "low",
+      "notes": "Historical micro-task and legacy bundle references are target/detail traceability, not independent execution paths. Mapping is coarse where registry prose is broader than one v7.1.1 target area."
+    }
+  ],
+  "mapping_precision": "coarse_from_registry_keywords",
+  "claim_boundary": "coverage_map_not_implementation_proof",
+  "note": "This map is a coverage map, not proof that all referenced slice details are implemented."
+}

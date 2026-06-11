@@ -1,0 +1,1697 @@
+{
+  "registry_id": "odin.v7_1_1_operational_target_registry",
+  "version": "7.1.1",
+  "baseline": "docs/MASTER_ARCHITECTURE_V7_1.md",
+  "status": "target_canon_not_runtime_completion",
+  "claim_boundary": "v7_1_1_target_canon_no_runtime_completion_claim",
+  "primary_identity": "small_model_performance_os_and_universal_semantic_work_kernel",
+  "central_function": "make_small_models_maximally_strong_through_operational_structure",
+  "qirc_position": "important_operational_coordination_layer_not_whole_identity",
+  "target_areas": [
+    {
+      "id": "V711-CANON",
+      "name": "Canon and target identity",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Canon and target identity as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Canon and target identity by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_docs",
+      "public_neutral_terms": [
+        "Canon and target identity",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "declare v7.1 baseline plus v7.1.1 target sharpening",
+        "separate target canon from repo-real implementation status",
+        "preserve historical ladders as traceability only"
+      ],
+      "required_tests": [
+        "V711-CANON area-specific structural tests",
+        "V711-CANON negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-CANON as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-SMALL-MODEL-POWER",
+      "name": "Small-model performance operating layer",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Small-model performance operating layer as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Small-model performance operating layer by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Small-model performance operating layer",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "coordinate Context Distillery, Worklets, Slot Forge, Gaptext, critics, tournament, cache, dojo, scoreboard, and Candidate DNA as one small-model operating layer",
+        "prefer deterministic/no-model and smallest sufficient local routes before escalation",
+        "make 3B and 7B/8B routes receive bounded slot work instead of broad prompts",
+        "preserve no live model inference or model quality claims without receipts"
+      ],
+      "required_tests": [
+        "module coverage tests for small-model layer",
+        "route-policy negative tests",
+        "dojo/scoreboard schema tests",
+        "claim-boundary tests for no benchmark proof"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Build measurable but candidate-only small-model operating slices, starting with context/slot/model-packet/critic receipts."
+    },
+    {
+      "id": "V711-UNIVERSAL-WORK",
+      "name": "Universal Work intake and kernel",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Universal Work intake and kernel as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Universal Work intake and kernel by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_code",
+      "public_neutral_terms": [
+        "Universal Work intake and kernel",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "compile AI-like requests into Universal Work lifecycle states",
+        "reject missing binding, forbidden verb, direct apply, external send, and privacy-denied work",
+        "emit blocked/needs_context/cannot_safely_complete outcomes"
+      ],
+      "required_tests": [
+        "V711-UNIVERSAL-WORK area-specific structural tests",
+        "V711-UNIVERSAL-WORK negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-UNIVERSAL-WORK as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-APP-BOUNDARY",
+      "name": "App-owned apply/state/external-send boundary",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines App-owned apply/state/external-send boundary as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions App-owned apply/state/external-send boundary by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_code",
+      "public_neutral_terms": [
+        "App-owned apply/state/external-send boundary",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "core_support",
+      "thor_handoff_relevance": "core_support",
+      "required_operational_behavior": [
+        "enforce Caller Manifest controls for artifacts, verbs, outputs, model, privacy, and bus policy",
+        "freeze per-request Binding authority envelope",
+        "block app apply, app state mutation, and external send leakage into Odin"
+      ],
+      "required_tests": [
+        "V711-APP-BOUNDARY area-specific structural tests",
+        "V711-APP-BOUNDARY negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-APP-BOUNDARY as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-QIRC",
+      "name": "QIRC / Internal Semantic IRC coordination substrate",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines QIRC / Internal Semantic IRC coordination substrate as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions QIRC / Internal Semantic IRC coordination substrate by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "QIRC / Internal Semantic IRC coordination substrate",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "core_support",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "maintain channel registry",
+        "enforce bounded semantic event envelope",
+        "local-only default",
+        "work batch open/close/replay",
+        "no public rooms",
+        "no app mutation",
+        "no Final Gate bypass"
+      ],
+      "required_tests": [
+        "channel registry tests",
+        "event envelope schema tests",
+        "local-only negative tests",
+        "batch replay structural tests",
+        "no-app-mutation tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no QIRC server runtime implementation proof",
+        "QIRC coordination is not app authority"
+      ],
+      "next_ladder_recommendation": "Harden QIRC/Semantic Bus as local coordination substrate without server-runtime or public-network claims."
+    },
+    {
+      "id": "V711-CONTEXT-DISTILLERY",
+      "name": "Context Distillery",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Context Distillery as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Context Distillery by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Context Distillery",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "build Context Capsule from event digest, selected artifacts, lens focus, relevance filter, and privacy class",
+        "record omitted context and open questions",
+        "split or block overloaded context through Semantic Pressure Valve",
+        "deny privacy-disallowed material"
+      ],
+      "required_tests": [
+        "capsule field tests",
+        "omission log tests",
+        "privacy denial tests",
+        "overload split/block tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Implement capsule builder and pressure valve receipts before model routing claims."
+    },
+    {
+      "id": "V711-ARTIFACT-LENSES",
+      "name": "Artifact Lenses",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Artifact Lenses as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Artifact Lenses by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Artifact Lenses",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "resolve artifact family, trust status, privacy class, lens, verb, and output contract",
+        "use lens plus output contract as first anti-generic layer",
+        "emit #lens.select/#contract.resolve/#artifact.validate target events"
+      ],
+      "required_tests": [
+        "V711-ARTIFACT-LENSES area-specific structural tests",
+        "V711-ARTIFACT-LENSES negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-ARTIFACT-LENSES as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-WORKLETS",
+      "name": "Worklet Graph",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Worklet Graph as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Worklet Graph by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Worklet Graph",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "compile Universal Work into bounded graph nodes",
+        "record dependency, critic/refine, and fallback edges",
+        "bind each node to slot-forge input",
+        "preserve trace refs across graph"
+      ],
+      "required_tests": [
+        "graph schema tests",
+        "dependency/fallback tests",
+        "trace-presence tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Build Worklet Graph compiler with small examples and negative malformed graph tests."
+    },
+    {
+      "id": "V711-SLOT-FORGE",
+      "name": "Slot Forge",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Slot Forge as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Slot Forge by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Slot Forge",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "build slot contract from worklet/lens/output/model profile",
+        "enforce token budgets",
+        "enforce output schema",
+        "enforce forbidden claims",
+        "adapt for 3B micro routes"
+      ],
+      "required_tests": [
+        "slot contract schema tests",
+        "token budget tests",
+        "forbidden-claim tests",
+        "3B micro slot fixture tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Make Slot Forge the first operational compiler after context/lens hardening."
+    },
+    {
+      "id": "V711-GAPTEXT",
+      "name": "Gaptext",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Gaptext as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Gaptext by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Gaptext",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "derive bounded gaptext from validated work, context capsule, and slot contract",
+        "exclude raw app request/state unless explicitly permitted",
+        "include allowed/forbidden and output schema hints",
+        "log gaptext provenance"
+      ],
+      "required_tests": [
+        "gaptext provenance tests",
+        "raw-state exclusion tests",
+        "budget tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Generate model-facing gaptext only from approved slot/capsule material."
+    },
+    {
+      "id": "V711-MODELWORKPACKET",
+      "name": "ModelWorkPacket",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines ModelWorkPacket as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions ModelWorkPacket by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "ModelWorkPacket",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "ModelWorkPacket is the only allowed model-facing request format",
+        "no raw app state without permission",
+        "slot contract binding",
+        "route policy binding",
+        "output schema and forbidden claims required"
+      ],
+      "required_tests": [
+        "missing-field negative tests",
+        "raw app state denial tests",
+        "route-policy tests",
+        "output-schema required tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Close provider input around ModelWorkPacket before any live-provider receipts."
+    },
+    {
+      "id": "V711-MODEL-SCALE-LADDER",
+      "name": "Model Scale Ladder",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Model Scale Ladder as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Model Scale Ladder by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_registry",
+      "public_neutral_terms": [
+        "Model Scale Ladder",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "evaluate deterministic/no-model before model tiers",
+        "select smallest sufficient route",
+        "bind route to capability card and model policy",
+        "return cannot_safely_complete when no safe route exists"
+      ],
+      "required_tests": [
+        "route order tests",
+        "capability card tests",
+        "cannot_safely_complete tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Refine route director and capability cards without benchmark claims."
+    },
+    {
+      "id": "V711-PROVIDER-RUNTIME",
+      "name": "Provider runtime seams",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Provider runtime seams as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Provider runtime seams by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Provider runtime seams",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "treat provider as transport, not authority",
+        "accept only ModelWorkPackets",
+        "return provider result as projection for critics/gates",
+        "separate mock, Ollama, llama.cpp, and explicit remote seams"
+      ],
+      "required_tests": [
+        "mock provider packet tests",
+        "provider authority negative tests",
+        "remote-explicit policy tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Harden provider-worker boundary with mock receipts before live adapter receipts."
+    },
+    {
+      "id": "V711-HYBRID-DIRECTOR",
+      "name": "3B / 7B/8B hybrid director",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines 3B / 7B/8B hybrid director as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions 3B / 7B/8B hybrid director by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "documented_only",
+      "public_neutral_terms": [
+        "3B / 7B/8B hybrid director",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "route 3B scout/extract/check",
+        "route 7B synth/write",
+        "run critic check",
+        "compose/gate through Odin",
+        "never claim measured model quality without eval receipt"
+      ],
+      "required_tests": [
+        "hybrid route plan tests",
+        "3B/7B role tests",
+        "critic/gate integration structural tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Prototype hybrid director with mock roles and explicit no-quality-proof boundary."
+    },
+    {
+      "id": "V711-MINICHECK",
+      "name": "Minicheck factual/contract check layer",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Minicheck factual/contract check layer as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Minicheck factual/contract check layer by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "target_not_repo_real_yet",
+      "public_neutral_terms": [
+        "Minicheck factual/contract check layer",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "emit schema_status, claim_hits, missing_evidence, forbidden_output_hits, return_contract_violations, and recommended_route",
+        "run before or after model work as configured",
+        "never treat Minicheck as truth certification"
+      ],
+      "required_tests": [
+        "minicheck field tests",
+        "forbidden output tests",
+        "missing evidence tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Add Minicheck packet and fixtures before deeper critic orchestration."
+    },
+    {
+      "id": "V711-CRITIC-CASCADE",
+      "name": "Critic Cascade",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Critic Cascade as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Critic Cascade by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Critic Cascade",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "claim critic",
+        "evidence critic",
+        "context critic",
+        "style critic",
+        "genericness critic",
+        "schema critic",
+        "boundary critic",
+        "critic score is not truth"
+      ],
+      "required_tests": [
+        "critic report schema tests",
+        "genericness tests",
+        "boundary critic tests",
+        "truth-overclaim negative tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Implement critic reports as gate inputs, not authority."
+    },
+    {
+      "id": "V711-CANDIDATE-TOURNAMENT",
+      "name": "Candidate Tournament",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Candidate Tournament as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Candidate Tournament by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Candidate Tournament",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "support 3B multi-candidate, 7B dual candidate, 3B critic select, hybrid refine best, and merge best parts",
+        "preserve Candidate DNA for each entrant",
+        "ensure tournament winner remains candidate"
+      ],
+      "required_tests": [
+        "tournament fixture tests",
+        "candidate DNA preservation tests",
+        "winner candidate-only tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Add tournament mechanics only after candidate DNA/critic report contracts are stable."
+    },
+    {
+      "id": "V711-STYLE-STABILIZER",
+      "name": "Style Stabilizer",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Style Stabilizer as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Style Stabilizer by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "documented_only",
+      "public_neutral_terms": [
+        "Style Stabilizer",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "apply style/taste rules as output-contract constraints",
+        "detect too cold/too generic/too vague/too long output",
+        "preserve source facts and candidate language",
+        "never invent facts for tone"
+      ],
+      "required_tests": [
+        "V711-STYLE-STABILIZER area-specific structural tests",
+        "V711-STYLE-STABILIZER negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-STYLE-STABILIZER as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-ANTI-GENERIC",
+      "name": "Anti-Generic Engine",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Anti-Generic Engine as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Anti-Generic Engine by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "documented_only",
+      "public_neutral_terms": [
+        "Anti-Generic Engine",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "detect lack of project anchors",
+        "detect clich\u00e9 phrasing",
+        "detect source-detail avoidance",
+        "require concrete anchor repair suggestions"
+      ],
+      "required_tests": [
+        "V711-ANTI-GENERIC area-specific structural tests",
+        "V711-ANTI-GENERIC negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-ANTI-GENERIC as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-WORK-MEMORY",
+      "name": "Work Memory",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Work Memory as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Work Memory by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Work Memory",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "store successful slot contracts, preferred output shapes, failed routes, app feedback, boundary issues, and fallback successes",
+        "exclude raw private chats, full app databases, secrets, and unnecessary personal context by default",
+        "feed route and slot selection without granting authority"
+      ],
+      "required_tests": [
+        "V711-WORK-MEMORY area-specific structural tests",
+        "V711-WORK-MEMORY negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-WORK-MEMORY as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-SEMANTIC-CACHE",
+      "name": "Semantic Cache",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Semantic Cache as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Semantic Cache by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Semantic Cache",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "cache deterministic/lens/context/candidate-shape work under privacy policy",
+        "never bypass Final Gate",
+        "record cache hit provenance and invalidation reason"
+      ],
+      "required_tests": [
+        "V711-SEMANTIC-CACHE area-specific structural tests",
+        "V711-SEMANTIC-CACHE negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-SEMANTIC-CACHE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-MODEL-DOJO",
+      "name": "Model Dojo",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Model Dojo as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Model Dojo by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Model Dojo",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "run JSON fill, German rewrite, schema repair, context compression, style control, event digest, no-go, and genericness fixtures",
+        "emit route-fit signals only",
+        "no model quality certification"
+      ],
+      "required_tests": [
+        "V711-MODEL-DOJO area-specific structural tests",
+        "V711-MODEL-DOJO negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim",
+        "no live model inference proof",
+        "no model quality proof",
+        "no benchmark proof",
+        "no target-host proof"
+      ],
+      "next_ladder_recommendation": "Use V711-MODEL-DOJO as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-SCOREBOARD",
+      "name": "Scoreboard",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Scoreboard as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Scoreboard by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Scoreboard",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "store route-fit, slot success, retry/fallback, latency/resource signals",
+        "separate local eval signals from benchmark or production-quality claims",
+        "feed Model Scale Ladder recommendations only"
+      ],
+      "required_tests": [
+        "V711-SCOREBOARD area-specific structural tests",
+        "V711-SCOREBOARD negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-SCOREBOARD as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-CANDIDATE-DNA",
+      "name": "Candidate DNA",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Candidate DNA as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Candidate DNA by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_code",
+      "public_neutral_terms": [
+        "Candidate DNA",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "record input artifact refs, context capsule ref, worklet graph ref, slot refs, model route refs, critic reports, cache hits, fallbacks, and claim boundary",
+        "attach DNA to each candidate",
+        "block missing ancestry where contract requires it"
+      ],
+      "required_tests": [
+        "DNA required-field tests",
+        "candidate ancestry tests",
+        "missing claim-boundary tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Close ancestry tracking for response packets and gate checks."
+    },
+    {
+      "id": "V711-RESPONSE-PACKET",
+      "name": "Response Packet",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Response Packet as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Response Packet by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "implemented_code",
+      "public_neutral_terms": [
+        "Response Packet",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "wrap candidates with response_id, work_id, status chips, next actions, blocked claims, trace refs, and receipt refs",
+        "preserve candidate-only rendering boundary",
+        "surface app apply requirement without applying"
+      ],
+      "required_tests": [
+        "V711-RESPONSE-PACKET area-specific structural tests",
+        "V711-RESPONSE-PACKET negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-RESPONSE-PACKET as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-FINAL-GATE",
+      "name": "Final Gate and claim/evidence/reality boundary",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Final Gate and claim/evidence/reality boundary as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Final Gate and claim/evidence/reality boundary by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Final Gate and claim/evidence/reality boundary",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "critical",
+      "qirc_relevance": "core_support",
+      "thor_handoff_relevance": "core_support",
+      "required_operational_behavior": [
+        "allow",
+        "downgrade",
+        "require evidence",
+        "ask context",
+        "retry",
+        "escalate",
+        "block",
+        "cannot_safely_complete"
+      ],
+      "required_tests": [
+        "gate action tests",
+        "blocked-claim tests",
+        "app-owned apply tests",
+        "trace/DNA presence tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Make Final Gate action outputs explicit and candidate-only across response paths."
+    },
+    {
+      "id": "V711-STORAGE-TRACE-RECEIPT",
+      "name": "Storage, trace, receipt, replay",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Storage, trace, receipt, replay as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Storage, trace, receipt, replay by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Storage, trace, receipt, replay",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "core_support",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "record manifests, bindings, event digests, capsules, candidates, DNA, slots, model runs, critics, bus events, and replay metadata under retention policy",
+        "keep raw app payload non-persistent by default",
+        "classify local command, candidate, trace, and external-required receipts"
+      ],
+      "required_tests": [
+        "V711-STORAGE-TRACE-RECEIPT area-specific structural tests",
+        "V711-STORAGE-TRACE-RECEIPT negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-STORAGE-TRACE-RECEIPT as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-THOR-HANDOFF",
+      "name": "Thor / Agent Handoff Compiler",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Thor / Agent Handoff Compiler as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Thor / Agent Handoff Compiler by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Thor / Agent Handoff Compiler",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "core_support",
+      "required_operational_behavior": [
+        "compile repo_context + task into handoff_candidate",
+        "compile diff + review into review_summary_candidate",
+        "compile test_output into test_report_candidate",
+        "classify Thor failures precisely",
+        "preserve Thor advisory-only boundary"
+      ],
+      "required_tests": [
+        "handoff packet tests",
+        "Thor advisory wording tests",
+        "failure classification tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Build Thor/Handoff compiler as candidate packet generator with no auto-apply or correctness proof."
+    },
+    {
+      "id": "V711-AGENT-OPERATOR",
+      "name": "Agent Operator mode",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Agent Operator mode as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Agent Operator mode by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Agent Operator mode",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "medium",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "core_support",
+      "required_operational_behavior": [
+        "compile agent work packets with allowed files, forbidden scope, guard checks, and return report shape",
+        "preserve candidate-only agent output",
+        "block hidden apply/merge/send authority"
+      ],
+      "required_tests": [
+        "V711-AGENT-OPERATOR area-specific structural tests",
+        "V711-AGENT-OPERATOR negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-AGENT-OPERATOR as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-SDK-BRIDGE",
+      "name": "SDK / API / Bridge Fabric",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines SDK / API / Bridge Fabric as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions SDK / API / Bridge Fabric by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "SDK / API / Bridge Fabric",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "register app",
+        "build digest/work",
+        "send to local API",
+        "receive candidate packet",
+        "render candidate",
+        "no apply/send/mutate methods inside Odin SDK"
+      ],
+      "required_tests": [
+        "V711-SDK-BRIDGE area-specific structural tests",
+        "V711-SDK-BRIDGE negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-SDK-BRIDGE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-APP-TEMPLATES",
+      "name": "App templates and Golden App fixtures",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines App templates and Golden App fixtures as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions App templates and Golden App fixtures by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "App templates and Golden App fixtures",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "medium",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "provide bridge-only templates for generic_http, python, typescript, wordpress, godot, electron, tauri, and generic_cli",
+        "keep app event bridge digest-only",
+        "forbid embedded LLM/provider execution in templates"
+      ],
+      "required_tests": [
+        "V711-APP-TEMPLATES area-specific structural tests",
+        "V711-APP-TEMPLATES negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-APP-TEMPLATES as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-OPTIONAL-HOST-SURFACE",
+      "name": "Optional host/debug/convenience surfaces",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Optional host/debug/convenience surfaces as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Optional host/debug/convenience surfaces by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "partially_implemented",
+      "public_neutral_terms": [
+        "Optional host/debug/convenience surfaces",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "low",
+      "qirc_relevance": "optional",
+      "thor_handoff_relevance": "optional",
+      "required_operational_behavior": [
+        "show local status, traces, receipts, candidates, settings, and diagnostics",
+        "remain optional host/debug/convenience surface, not identity",
+        "avoid app mutation, app authority, production proof, and Windows service/tray/installer claims"
+      ],
+      "required_tests": [
+        "V711-OPTIONAL-HOST-SURFACE area-specific structural tests",
+        "V711-OPTIONAL-HOST-SURFACE negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-OPTIONAL-HOST-SURFACE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    },
+    {
+      "id": "V711-PROOF-GOVERNANCE",
+      "name": "Proof Governance",
+      "source_refs": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+        "registries/codex_task_registry.json",
+        "registries/codex_pr_bundle_registry.json",
+        "registries/real_pr_execution_registry.json"
+      ],
+      "v7_1_baseline_intent": "v7.1 defines Proof Governance as part of the candidate-only Universal Work and app-sovereign architecture.",
+      "v7_1_1_clarification": "v7.1.1 positions Proof Governance by its role in small-model power, QIRC coordination, Thor/Handoff where relevant, and claim-boundary governance.",
+      "current_repo_real_status": "local_receipt",
+      "public_neutral_terms": [
+        "Proof Governance",
+        "Universal Work",
+        "Candidate Artifact",
+        "local-first",
+        "candidate-only"
+      ],
+      "internal_q_pattern_meaning": "Q-pattern lineage is recognized only as neutral Odin operational structure; no private mythology is required for public usage.",
+      "small_model_power_relevance": "high",
+      "qirc_relevance": "important",
+      "thor_handoff_relevance": "important",
+      "required_operational_behavior": [
+        "classify evidence",
+        "keep non-claims explicit",
+        "separate local receipt from external proof",
+        "block positive overclaim wording"
+      ],
+      "required_tests": [
+        "V711-PROOF-GOVERNANCE area-specific structural tests",
+        "V711-PROOF-GOVERNANCE negative boundary tests",
+        "claim-boundary wording tests"
+      ],
+      "required_proof_commands": [
+        "python -m odin.cli validate-all",
+        "python -m pytest -q -p no:cacheprovider"
+      ],
+      "non_claims": [
+        "target architecture is not implementation proof",
+        "registry is not runtime proof",
+        "no production readiness claim",
+        "no release certification claim",
+        "no security certification claim",
+        "no target-host proof claim"
+      ],
+      "next_ladder_recommendation": "Use V711-PROOF-GOVERNANCE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
+    }
+  ]
+}
