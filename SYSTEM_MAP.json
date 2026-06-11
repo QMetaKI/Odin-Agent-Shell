@@ -841,5 +841,17 @@
     "tests": "tests/test_lrh_pr_17_full_acceptance.py",
     "return_report": "docs/codex/reports/LRH-PR-17_RETURN_REPORT.md",
     "status": "full_acceptance_local_receipt_not_production_not_release_certification"
+  },
+  "post_lrh_pr_18_full_system_audit": {
+    "claim_boundary": "local_repo_audit_only_not_production_not_release_not_security_not_target_host",
+    "doc": "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+    "tests": "tests/test_lrh_pr_18_full_system_audit_artifact.py",
+    "evidence_basis": [
+      "registries/post_lrh_proof_governance_registry_v1.json",
+      "registries/road_to_100_acceptance_harness_v1.json",
+      "registries/runtime_backend_coverage_matrix_v1.json",
+      "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md"
+    ],
+    "status": "audit_artifact_local_repo_analysis_not_runtime_or_release_proof"
   }
 }
