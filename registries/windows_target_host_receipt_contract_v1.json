@@ -1,0 +1,84 @@
+{
+  "registry_id": "windows_target_host_receipt_contract_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_windows_target_host_receipt_contract",
+  "claim_boundary": "windows_target_host_receipt_contract_not_service_tray_installer_proof",
+  "candidate_only": true,
+  "local_only": true,
+  "status": "receipt_contract_only",
+  "description": "Windows target-host receipt boundary framework. Defines future receipt requirements for Windows service, tray, installer, and target-host validation. No service/tray/installer created. No target-host execution. Receipt contract only.",
+  "service_status": "not_created",
+  "tray_status": "not_created",
+  "installer_status": "not_created",
+  "target_host_execution_status": "not_attempted",
+  "microsoft_store_status": "not_attempted",
+  "allowed_claims": [
+    "target-host receipt contract defined",
+    "future receipt requirements enumerated",
+    "no target-host proof attempted",
+    "no service/tray/installer created"
+  ],
+  "future_receipt_requirements": [
+    {
+      "id": "windows_target_host_environment",
+      "description": "Real Windows target host (Windows 10/11) execution environment",
+      "status": "not_available",
+      "requires": "Windows VM or physical machine with target OS"
+    },
+    {
+      "id": "windows_service_install_receipt",
+      "description": "Receipt from Windows service installation on target host",
+      "status": "not_available",
+      "requires": "Windows target host + admin elevation + service binary"
+    },
+    {
+      "id": "windows_tray_launch_receipt",
+      "description": "Receipt from Windows system tray application launch on target host",
+      "status": "not_available",
+      "requires": "Windows target host + tray application binary"
+    },
+    {
+      "id": "windows_installer_build_receipt",
+      "description": "Receipt from installer package build (NSIS, WiX, or equivalent)",
+      "status": "not_available",
+      "requires": "Windows build environment + installer toolchain"
+    },
+    {
+      "id": "windows_installer_run_receipt",
+      "description": "Receipt from installer execution on Windows target host",
+      "status": "not_available",
+      "requires": "Windows target host + installer binary"
+    },
+    {
+      "id": "microsoft_store_submission_receipt",
+      "description": "Receipt from Microsoft Store package submission",
+      "status": "not_available",
+      "requires": "Microsoft Store developer account + signed MSIX package"
+    },
+    {
+      "id": "windows_e2e_flow_receipt",
+      "description": "Receipt from end-to-end flow on Windows target host",
+      "status": "not_available",
+      "requires": "Windows target host + installed application + E2E test run"
+    }
+  ],
+  "not_proven": [
+    "windows_service_proof",
+    "windows_tray_proof",
+    "windows_installer_proof",
+    "windows_target_host_validation",
+    "microsoft_store_readiness",
+    "signed_installer_proof",
+    "production_readiness_on_windows"
+  ],
+  "proof_boundaries": [
+    "not_windows_service_proof",
+    "not_windows_tray_proof",
+    "not_windows_installer_proof",
+    "not_target_host_proof",
+    "not_microsoft_store_readiness",
+    "not_signed_installer_proof",
+    "receipt_contract_only"
+  ]
+}

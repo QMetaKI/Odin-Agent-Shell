@@ -1,0 +1,142 @@
+{
+  "registry_id": "runtime_backend_coverage_matrix_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_runtime_backend_coverage_matrix",
+  "claim_boundary": "runtime_backend_coverage_local_matrix_not_production_coverage",
+  "candidate_only": true,
+  "local_only": true,
+  "description": "Local runtime backend coverage matrix for Odin Local Runtime Hub. Documents which backend capabilities have local receipt, which are partial, and which are retained gaps. Not production runtime coverage. Not target-host coverage. Not live model execution.",
+  "coverage_categories": [
+    {
+      "id": "local_api_server",
+      "description": "Local API server (localhost only)",
+      "lrh_pr_coverage": "LRH-PR-05",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_05_localhost_api_sdk_bridge.py",
+      "proof_command": "python -m odin.cli prove-sdk-bridge",
+      "known_non_proof": "not production API; not public network; not WAN/LAN proof"
+    },
+    {
+      "id": "runtime_store",
+      "description": "Local candidate runtime store",
+      "lrh_pr_coverage": "LRH-PR-08",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_08_candidate_store_viewer.py",
+      "known_non_proof": "not production storage; not external persistence"
+    },
+    {
+      "id": "browser_hub_shell",
+      "description": "Browser-based Hub shell UI scaffold",
+      "lrh_pr_coverage": "LRH-PR-06",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_06_browser_hub_shell.py",
+      "proof_command": "python -m odin.cli prove-browser-hub",
+      "known_non_proof": "not production hosted UI; not live browser automation"
+    },
+    {
+      "id": "provider_worker_pipeline",
+      "description": "Provider/worker pipeline routing",
+      "lrh_pr_coverage": "LRH-PR-10",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_10_provider_worker_inspector.py",
+      "known_non_proof": "not live model inference; not provider API call proof"
+    },
+    {
+      "id": "universal_work_engine",
+      "description": "Universal work engine (local fixture-safe)",
+      "lrh_pr_coverage": "LRH-PR-11",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_11_universal_work_playground.py",
+      "known_non_proof": "not live model quality; not production throughput"
+    },
+    {
+      "id": "trace_viewer",
+      "description": "Execution trace viewer",
+      "lrh_pr_coverage": "LRH-PR-09",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_09_trace_viewer.py",
+      "known_non_proof": "not production trace storage; not external log sink"
+    },
+    {
+      "id": "external_app_bridge",
+      "description": "Neutral external app bridge",
+      "lrh_pr_coverage": "LRH-PR-12",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_12_neutral_external_app_bridge.py",
+      "proof_command": "python -m odin.cli prove-external-app-bridge",
+      "known_non_proof": "not specific external app; not live external system; not public network"
+    },
+    {
+      "id": "portable_package",
+      "description": "Portable ZIP package manifest",
+      "lrh_pr_coverage": "LRH-PR-15",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_15_portable_package.py",
+      "proof_command": "python -m odin.cli prove-portable-package",
+      "known_non_proof": "not signed installer; not store package; not release certification"
+    },
+    {
+      "id": "windows_convenience_layer",
+      "description": "Windows convenience layer (docs/helpers)",
+      "lrh_pr_coverage": "LRH-PR-16",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_16_windows_convenience_layer.py",
+      "proof_command": "python -m odin.cli prove-windows-convenience-layer",
+      "known_non_proof": "not Windows service; not tray; not installer; not target-host proof"
+    },
+    {
+      "id": "runtime_doctor_bootstrap",
+      "description": "Runtime doctor and bootstrap flow",
+      "lrh_pr_coverage": "LRH-PR-04",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py",
+      "known_non_proof": "not production bootstrap; not target-host"
+    },
+    {
+      "id": "agent_operator_mode",
+      "description": "Agent Operator Mode handoff/plan/guard/check/proof",
+      "lrh_pr_coverage": "LRH-PR-02",
+      "local_coverage_status": "covered_with_receipt",
+      "test_file": "tests/test_lrh_pr_02_agent_operator_mode.py",
+      "proof_command": "python -m odin.cli prove-agent-operator-mode",
+      "known_non_proof": "not agent autonomy proof; not provider integration; not runtime host proof"
+    },
+    {
+      "id": "live_model_inference",
+      "description": "Live model inference execution",
+      "lrh_pr_coverage": "none",
+      "local_coverage_status": "retained_gap",
+      "known_non_proof": "non-goal boundary: requires live provider integration"
+    },
+    {
+      "id": "production_api_server",
+      "description": "Production public-network API server",
+      "lrh_pr_coverage": "none",
+      "local_coverage_status": "retained_gap",
+      "known_non_proof": "non-goal boundary: requires public network and production infrastructure"
+    },
+    {
+      "id": "target_host_runtime",
+      "description": "Target-host runtime execution (Windows/macOS/Linux target)",
+      "lrh_pr_coverage": "none",
+      "local_coverage_status": "retained_gap",
+      "known_non_proof": "non-goal boundary: requires real target-host execution environment"
+    }
+  ],
+  "not_proven": [
+    "production_runtime_coverage",
+    "target_host_coverage",
+    "live_model_execution",
+    "performance_certification",
+    "public_network_api_proof",
+    "specific_external_app_integration_proof"
+  ],
+  "proof_boundaries": [
+    "not_production_runtime_coverage",
+    "not_target_host_coverage",
+    "not_live_model_execution_proof",
+    "not_performance_certification",
+    "local_coverage_matrix_only"
+  ]
+}

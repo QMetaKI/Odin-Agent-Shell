@@ -1,0 +1,179 @@
+{
+  "registry_id": "forbidden_control_pattern_registry_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_forbidden_control_pattern_registry",
+  "claim_boundary": "forbidden_control_pattern_registry_schema_not_automated_enforcement",
+  "description": "Central registry of forbidden control patterns. Context-aware: scripts/code are strict; docs allow negated boundary phrases. Not an automated runtime enforcer — wording and pattern guidance source of truth.",
+  "categories": {
+    "app_apply": {
+      "description": "Patterns that would indicate direct application of app state by non-app actors",
+      "forbidden_in": ["scripts", "code", "agent_packets"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "app_state_apply",
+        "apply_app_state",
+        "direct_state_mutation",
+        "patch_applied_by_agent"
+      ]
+    },
+    "external_send": {
+      "description": "Patterns that would indicate sending data to external systems without authorization",
+      "forbidden_in": ["scripts", "code", "agent_packets"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "external_send",
+        "send_to_external",
+        "external_api_call_without_receipt",
+        "outbound_network_send"
+      ]
+    },
+    "hidden_tool_execution": {
+      "description": "Patterns that would indicate undeclared tool execution",
+      "forbidden_in": ["scripts", "code", "agent_packets"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "hidden_tool_execution",
+        "undeclared_tool_call",
+        "covert_execution"
+      ]
+    },
+    "public_network_bind": {
+      "description": "Patterns that would bind to public/non-localhost addresses",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "bind_0.0.0.0",
+        "public_network_bind",
+        "wan_bind",
+        "internet_facing_server"
+      ]
+    },
+    "provider_model_execution": {
+      "description": "Patterns that would execute live provider/model calls without receipts",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "provider_api_call_without_receipt",
+        "live_model_execution",
+        "model_inference_without_receipt"
+      ]
+    },
+    "windows_service_install": {
+      "description": "Patterns that would create or install Windows services",
+      "forbidden_in": ["scripts", "code", "agent_packets"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "windows_service_install",
+        "sc_create",
+        "install_windows_service",
+        "register_windows_service"
+      ]
+    },
+    "tray_launch": {
+      "description": "Patterns that would launch a system tray application",
+      "forbidden_in": ["scripts", "code", "agent_packets"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "systray_launch",
+        "tray_app_launch",
+        "launch_tray_icon"
+      ]
+    },
+    "installer_creation": {
+      "description": "Patterns that would create real installer artifacts",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "create_installer",
+        "build_installer",
+        "nsis_installer",
+        "wix_installer",
+        "inno_setup"
+      ]
+    },
+    "code_signing": {
+      "description": "Patterns that would perform actual code signing",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "signtool_sign",
+        "code_sign_artifact",
+        "sign_release",
+        "sign_binary"
+      ]
+    },
+    "registry_mutation": {
+      "description": "Patterns that would mutate Windows registry",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "registry_set_value",
+        "hkey_mutate",
+        "winreg_write"
+      ]
+    },
+    "task_scheduler_mutation": {
+      "description": "Patterns that would create or mutate Windows Task Scheduler entries",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "schtasks_create",
+        "create_scheduled_task",
+        "task_scheduler_register"
+      ]
+    },
+    "admin_elevation": {
+      "description": "Patterns that would request or assume administrative elevation",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "run_as_admin",
+        "require_admin",
+        "uac_elevation",
+        "sudo_required"
+      ]
+    },
+    "destructive_cleanup": {
+      "description": "Patterns that would perform destructive or irreversible cleanup without explicit user authorization",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "rm_rf_unbounded",
+        "wipe_all_data",
+        "factory_reset_without_confirm"
+      ]
+    },
+    "credential_exfiltration": {
+      "description": "Patterns that would extract or expose credentials",
+      "forbidden_in": ["scripts", "code", "agent_packets", "examples"],
+      "allowed_negated_in": ["docs", "reports"],
+      "patterns": [
+        "extract_credentials",
+        "dump_secrets",
+        "exfiltrate_api_key",
+        "log_plaintext_password"
+      ]
+    },
+    "unredacted_support_bundle": {
+      "description": "Patterns that would emit unredacted sensitive data in support bundles",
+      "forbidden_in": ["scripts", "code"],
+      "allowed_negated_in": ["docs", "reports", "examples"],
+      "patterns": [
+        "support_bundle_unredacted",
+        "include_secrets_in_bundle",
+        "dump_plaintext_config"
+      ]
+    }
+  },
+  "context_rules": {
+    "scripts_code": "strict — all forbidden patterns blocked",
+    "docs": "allow negated boundary phrases; forbid positive authority patterns",
+    "examples": "safe placeholders only; no real credentials; no real external targets",
+    "reports": "allow negated boundary phrases; allow classification discussion"
+  },
+  "false_positive_prevention": {
+    "note": "Docs and reports must be allowed to discuss forbidden patterns in negated context. Rules must not flag phrases like 'no app apply by agent' or 'not_production_readiness'. Only flag positive authority claims in wrong context.",
+    "safe_negation_markers": ["not ", "no_", "no ", "never ", "disallowed", "forbidden", "blocked", "not_proven", "retained_gap"]
+  }
+}

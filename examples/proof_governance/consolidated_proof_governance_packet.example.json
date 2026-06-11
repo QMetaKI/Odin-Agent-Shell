@@ -1,0 +1,116 @@
+{
+  "artifact_kind": "odin_consolidated_proof_governance_packet",
+  "lrh_pr": "LRH-PR-18",
+  "status": "ok_with_known_gaps",
+  "candidate_only": true,
+  "local_only": true,
+  "proof_governance_receipt": true,
+  "agent_proof_boundary": {
+    "no_app_apply_by_agent_receipt": "closed",
+    "no_external_send_by_agent_receipt": "closed",
+    "no_hidden_tool_execution_receipt": "closed"
+  },
+  "thor_hermetic_contract": {
+    "classification": "not_found_in_PATH",
+    "status": "contract_defined_not_execution_proven",
+    "advisory_only": true
+  },
+  "claim_phrase_registry": {
+    "forbidden_count": 20,
+    "allowed_negated_count": 21,
+    "status": "registry_loaded"
+  },
+  "forbidden_control_patterns": {
+    "categories_count": 15,
+    "status": "registry_loaded"
+  },
+  "file_manifest_closure": {
+    "status": "retained_gap",
+    "reason": "safe deterministic builder not yet available; hand-edit risk exceeds benefit",
+    "carry_forward": "LRH-PR-18+ backlog"
+  },
+  "runtime_backend_coverage": {
+    "covered_count": 11,
+    "retained_gap_count": 3,
+    "status": "registry_loaded"
+  },
+  "redaction_policy_matrix": {
+    "category_count": 6,
+    "status": "registry_loaded"
+  },
+  "release_readiness_boundary": {
+    "signing_status": "not_performed",
+    "certificate_status": "not_present",
+    "status": "boundary_contract_only"
+  },
+  "windows_target_host_boundary": {
+    "service_status": "not_created",
+    "tray_status": "not_created",
+    "installer_status": "not_created",
+    "status": "receipt_contract_only"
+  },
+  "closed_gaps": [
+    "no_app_apply_by_agent_receipt (deterministic local receipt)",
+    "no_external_send_by_agent_receipt (deterministic local receipt)",
+    "no_hidden_tool_execution_receipt (deterministic local receipt)",
+    "prove-agent-operator-mode CLI command (implemented)",
+    "prove-external-app-bridge CLI command (implemented as generic neutral local receipt)",
+    "prove-runtime-backend-coverage CLI command (implemented)",
+    "validate-consolidated-proof-governance CLI command (implemented)",
+    "prove-consolidated-proof-governance CLI command (implemented)",
+    "claim_phrase_registry (added)",
+    "claim_boundary_registry (added)",
+    "forbidden_control_pattern_registry (added)",
+    "runtime_backend_coverage_matrix (added)",
+    "redaction_policy_test_matrix (added)"
+  ],
+  "retained_gaps": [
+    "FILE_MANIFEST.json backfill (safe deterministic builder not yet available)",
+    "thor_hermetic_ci_execution (not_found_in_PATH; contract schema defined only)",
+    "signed_distribution_proof (no signing performed; boundary contract only)",
+    "windows_service_tray_installer_target_host_proof (no target-host execution; contract only)"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "release_certification",
+    "security_certification",
+    "signed_distribution",
+    "windows_service",
+    "windows_tray",
+    "windows_installer",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "public_network_api",
+    "specific_external_app_integration",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+    "hidden_tool_execution_authority",
+    "thor_hermetic_ci_execution_if_not_actually_available"
+  ],
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_release_certification",
+    "not_security_certification",
+    "not_signed_distribution_proof",
+    "not_windows_service_proof",
+    "not_windows_tray_proof",
+    "not_windows_installer_proof",
+    "not_windows_service_tray_installer_proof",
+    "not_target_host_proof",
+    "not_microsoft_store_readiness",
+    "not_public_network_api_proof",
+    "not_specific_external_app_integration_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_hidden_tool_execution_authority_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "claim_boundary": "consolidated_proof_governance_local_receipt_not_production_not_release_certification"
+}

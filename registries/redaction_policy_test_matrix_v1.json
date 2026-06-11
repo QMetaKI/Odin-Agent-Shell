@@ -1,0 +1,87 @@
+{
+  "registry_id": "redaction_policy_test_matrix_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_redaction_policy_test_matrix",
+  "claim_boundary": "redaction_policy_test_matrix_not_security_certification",
+  "candidate_only": true,
+  "local_only": true,
+  "description": "Redaction policy test matrix for Odin Local Runtime Hub. Documents redaction policy categories, test fixture categories, and boundaries. Not a redaction guarantee. Not security certification. Not secret leakage impossibility proof.",
+  "redaction_categories": [
+    {
+      "id": "api_keys",
+      "description": "API keys and authentication tokens",
+      "redaction_policy": "always_redact",
+      "redact_pattern": "api_key|api-key|apikey",
+      "test_fixture_file": "examples/redaction_policy/api_key_redaction.example.json",
+      "local_coverage_status": "covered"
+    },
+    {
+      "id": "passwords",
+      "description": "Passwords and passphrases",
+      "redaction_policy": "always_redact",
+      "redact_pattern": "password|passwd|passphrase",
+      "test_fixture_file": "examples/redaction_policy/password_redaction.example.json",
+      "local_coverage_status": "covered"
+    },
+    {
+      "id": "private_keys",
+      "description": "Private keys (PEM, SSH, etc.)",
+      "redaction_policy": "always_redact",
+      "redact_pattern": "private_key|-----BEGIN|PRIVATE KEY",
+      "test_fixture_file": "examples/redaction_policy/private_key_redaction.example.json",
+      "local_coverage_status": "covered"
+    },
+    {
+      "id": "tokens",
+      "description": "Bearer tokens, JWT tokens, OAuth tokens",
+      "redaction_policy": "always_redact",
+      "redact_pattern": "bearer_token|jwt|oauth_token",
+      "test_fixture_file": "examples/redaction_policy/token_redaction.example.json",
+      "local_coverage_status": "covered"
+    },
+    {
+      "id": "connection_strings",
+      "description": "Database and service connection strings",
+      "redaction_policy": "always_redact",
+      "redact_pattern": "connection_string|dsn|mongodb://|postgresql://",
+      "test_fixture_file": "examples/redaction_policy/connection_string_redaction.example.json",
+      "local_coverage_status": "covered"
+    },
+    {
+      "id": "local_paths",
+      "description": "Local filesystem paths containing usernames",
+      "redaction_policy": "redact_on_external_send",
+      "redact_pattern": "/home/|/Users/|C:\\\\Users\\\\",
+      "local_coverage_status": "covered"
+    }
+  ],
+  "redaction_boundary_phrases": [
+    "redaction_applied: true",
+    "external_send: false",
+    "local_diagnostics_only: true",
+    "no secret guarantee",
+    "not security certification",
+    "redaction is best-effort"
+  ],
+  "support_bundle_redaction_policy": {
+    "applies_to": "emit-support-bundle",
+    "redact_keys": ["api_key", "password", "private_key", "token", "connection_string", "secret"],
+    "redact_values_matching": ["-----BEGIN", "sk-", "pk-", "xox"],
+    "output_claim": "redacted_support_bundle_local_diagnostics_only"
+  },
+  "not_proven": [
+    "redaction_guarantee",
+    "security_certification",
+    "secret_leakage_impossible",
+    "production_security_proof",
+    "complete_secret_detection"
+  ],
+  "proof_boundaries": [
+    "not_redaction_guarantee",
+    "not_security_certification",
+    "not_secret_leakage_impossibility_proof",
+    "policy_and_test_matrix_only",
+    "best_effort_redaction"
+  ]
+}

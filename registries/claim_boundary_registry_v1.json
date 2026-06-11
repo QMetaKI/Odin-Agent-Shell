@@ -1,0 +1,110 @@
+{
+  "registry_id": "claim_boundary_registry_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_claim_boundary_registry",
+  "claim_boundary": "claim_boundary_registry_schema_and_naming_not_automated_enforcement",
+  "description": "Central registry of canonical claim boundary identifiers used across Odin docs, reports, registries, and code. Defines naming conventions and categorization.",
+  "naming_convention": "<subsystem>_candidate_only_no_<forbidden>",
+  "boundaries": [
+    {
+      "id": "consolidated_proof_governance_local_receipt_not_production_not_release_certification",
+      "subsystem": "proof_governance",
+      "lrh_pr": "LRH-PR-18",
+      "description": "LRH-PR-18 consolidated proof governance local receipt. Not production. Not release certification.",
+      "category": "consolidated_governance"
+    },
+    {
+      "id": "agent_proof_boundary_local_receipt_not_agent_authority_expansion",
+      "subsystem": "agent_operator",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Agent operator mode proof boundary receipt. No authority expansion.",
+      "category": "agent_proof"
+    },
+    {
+      "id": "thor_hermetic_contract_schema_only_not_thor_execution_proof",
+      "subsystem": "thor",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Thor hermetic CI artifact contract schema only. Not execution proof.",
+      "category": "thor"
+    },
+    {
+      "id": "claim_phrase_registry_local_wording_policy_not_automated_scanner",
+      "subsystem": "claim_scanner",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Claim phrase registry wording policy. Not automated runtime scanner.",
+      "category": "claim_wording"
+    },
+    {
+      "id": "forbidden_control_pattern_registry_schema_not_automated_enforcement",
+      "subsystem": "forbidden_controls",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Forbidden control pattern registry schema. Not automated enforcement.",
+      "category": "forbidden_controls"
+    },
+    {
+      "id": "runtime_backend_coverage_local_matrix_not_production_coverage",
+      "subsystem": "runtime_backend",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Runtime backend coverage matrix. Local coverage only. Not production.",
+      "category": "runtime_coverage"
+    },
+    {
+      "id": "redaction_policy_test_matrix_not_security_certification",
+      "subsystem": "redaction",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Redaction policy test matrix. Not security certification.",
+      "category": "redaction"
+    },
+    {
+      "id": "release_readiness_boundary_contract_not_signing_proof",
+      "subsystem": "release",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Release readiness boundary contract. No signing performed. Not release certification.",
+      "category": "release_boundary"
+    },
+    {
+      "id": "windows_target_host_receipt_contract_not_service_tray_installer_proof",
+      "subsystem": "windows_target_host",
+      "lrh_pr": "LRH-PR-18",
+      "description": "Windows target-host receipt contract. No service/tray/installer created. Not target-host proof.",
+      "category": "windows_target_host"
+    },
+    {
+      "id": "full_acceptance_local_receipt_not_production_not_release_certification",
+      "subsystem": "full_acceptance",
+      "lrh_pr": "LRH-PR-17",
+      "description": "Full acceptance local receipt. Not production. Not release certification.",
+      "category": "full_acceptance"
+    },
+    {
+      "id": "local_api_candidate_only_no_app_apply_no_external_send_no_wan_lan_claim",
+      "subsystem": "localhost_api",
+      "lrh_pr": "LRH-PR-05",
+      "description": "Localhost API SDK bridge. Candidate only. No app apply. No external send.",
+      "category": "localhost_api"
+    },
+    {
+      "id": "candidate_patch_only",
+      "subsystem": "agent_operator",
+      "lrh_pr": "LRH-PR-02",
+      "description": "Agent operator output is candidate patch only. No apply authority.",
+      "category": "agent_operator"
+    }
+  ],
+  "required_fields_per_boundary": ["id", "subsystem", "lrh_pr", "description", "category"],
+  "categories": [
+    "consolidated_governance",
+    "agent_proof",
+    "agent_operator",
+    "thor",
+    "claim_wording",
+    "forbidden_controls",
+    "runtime_coverage",
+    "redaction",
+    "release_boundary",
+    "windows_target_host",
+    "full_acceptance",
+    "localhost_api"
+  ]
+}

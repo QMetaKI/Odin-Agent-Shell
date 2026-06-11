@@ -25,13 +25,13 @@
     {
       "command": "python -m odin.cli prove-agent-operator-mode",
       "category": "agent_operator",
-      "capability": "agent handoff/plan/guard/proof/return contract proof",
+      "capability": "agent handoff/plan/guard/proof/return contract proof with boundary receipt closure",
       "required_prior_lrh_pr": "LRH-PR-02",
-      "status": "missing_command",
-      "checked_locally": false,
+      "status": "implemented_now",
+      "checked_locally": true,
       "expected_output": "agent_operator_proof_packet",
       "proof_boundary": "candidate-only local proof receipt; app-owned apply/state/external send preserved",
-      "known_non_proof": "not agent autonomy or provider integration; agent proof token closure deferred to LRH-PR-18"
+      "known_non_proof": "not agent autonomy or provider integration; not runtime host proof; implemented in LRH-PR-18"
     },
     {
       "command": "python -m odin.cli prove-sdk-bridge",
@@ -58,13 +58,13 @@
     {
       "command": "python -m odin.cli prove-external-app-bridge",
       "category": "external_app_bridge",
-      "capability": "neutral external app bridge proof",
+      "capability": "generic neutral external app bridge proof (no specific app)",
       "required_prior_lrh_pr": "LRH-PR-12..LRH-PR-13",
-      "status": "missing_command",
-      "checked_locally": false,
+      "status": "implemented_now",
+      "checked_locally": true,
       "expected_output": "external_app_bridge_proof_packet",
       "proof_boundary": "candidate-only local proof receipt; app-owned apply/state/external send preserved",
-      "known_non_proof": "not specific external app integration proof; command not yet in CLI"
+      "known_non_proof": "not specific external app integration proof; not live external system; implemented generically in LRH-PR-18"
     },
     {
       "command": "python -m odin.cli prove-portable-package",
@@ -170,14 +170,10 @@
     "fields": ["bundle_path", "redaction_applied", "external_send", "local_diagnostics_only", "claim_boundary"]
   },
   "remaining_proof_gaps": [
-    "agent_proof_token_closure (deferred to LRH-PR-18)",
-    "prove-agent-operator-mode CLI command not yet implemented (gap retained)",
-    "prove-external-app-bridge CLI command not yet implemented (gap retained)",
-    "thor_hermetic_ci_artifact (deferred to LRH-PR-19)",
-    "claim_scanner_phrase_registry (deferred to LRH-PR-20)",
-    "FILE_MANIFEST.json backfill (deferred to LRH-PR-21)",
-    "signed_distribution_proof (deferred to LRH-PR-25)",
-    "windows_service_tray_installer_target_host_proof (deferred to LRH-PR-26)",
+    "FILE_MANIFEST.json backfill (retained in LRH-PR-18; deterministic builder not yet available)",
+    "thor_hermetic_ci_execution (retained in LRH-PR-18; not_found_in_PATH; contract schema defined)",
+    "signed_distribution_proof (retained in LRH-PR-18; boundary contract defined; no signing performed)",
+    "windows_service_tray_installer_target_host_proof (retained in LRH-PR-18; contract defined; no target-host execution)",
     "production_readiness (non-goal boundary)",
     "release_certification (non-goal boundary)",
     "security_certification (non-goal boundary)",
@@ -221,7 +217,9 @@
     "app_state_mutation",
     "external_send_authority",
     "agent_proof_boundary_closure",
-    "thor_hermetic_ci_artifact"
+    "thor_hermetic_ci_artifact",
+    "thor_hermetic_ci_execution_if_not_actually_available",
+    "file_manifest_deterministic_builder"
   ],
   "lrh_pr_dependencies": ["LRH-PR-01","LRH-PR-02","LRH-PR-03","LRH-PR-04","LRH-PR-05","LRH-PR-06","LRH-PR-07","LRH-PR-08","LRH-PR-09","LRH-PR-10","LRH-PR-11","LRH-PR-12","LRH-PR-13","LRH-PR-14","LRH-PR-15","LRH-PR-16","LRH-PR-17"]
 }

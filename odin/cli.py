@@ -34,6 +34,11 @@ from odin.hub.shell import (
     build_windows_convenience_layer_proof_packet,
     validate_full_acceptance,
     build_full_acceptance_proof_packet,
+    validate_consolidated_proof_governance,
+    build_consolidated_proof_governance_packet,
+    build_agent_operator_mode_proof_packet,
+    build_external_app_bridge_proof_packet,
+    build_runtime_backend_coverage_proof_packet,
 )
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
@@ -2293,6 +2298,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_portable_package())
     errors.extend(validate_windows_convenience_layer())
     errors.extend(validate_full_acceptance())
+    errors.extend(validate_consolidated_proof_governance())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2355,6 +2361,11 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prove-windows-convenience-layer")
     sub.add_parser("validate-full-acceptance")
     sub.add_parser("prove-full-acceptance")
+    sub.add_parser("validate-consolidated-proof-governance")
+    sub.add_parser("prove-consolidated-proof-governance")
+    sub.add_parser("prove-agent-operator-mode")
+    sub.add_parser("prove-external-app-bridge")
+    sub.add_parser("prove-runtime-backend-coverage")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2814,6 +2825,35 @@ def main(argv: list[str] | None = None) -> int:
         }, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    if args.cmd == "validate-consolidated-proof-governance":
+        errors = validate_consolidated_proof_governance()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-consolidated-proof-governance: OK")
+        return 0
+
+    if args.cmd == "prove-consolidated-proof-governance":
+        result = build_consolidated_proof_governance_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    if args.cmd == "prove-agent-operator-mode":
+        result = build_agent_operator_mode_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    if args.cmd == "prove-external-app-bridge":
+        result = build_external_app_bridge_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    if args.cmd == "prove-runtime-backend-coverage":
+        result = build_runtime_backend_coverage_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
     if args.cmd == "validate-agent-operator-mode":
         errors = validate_agent_operator_mode()
         if errors:
@@ -2908,6 +2948,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_runtime_doctor_bootstrap()
     elif args.cmd == "validate-localhost-api-sdk-bridge":
         errors = validate_localhost_api_sdk_bridge()
+    elif args.cmd == "validate-consolidated-proof-governance":
+        errors = validate_consolidated_proof_governance()
     else:
         errors = validate_all()
 

@@ -1,0 +1,21 @@
+{
+  "artifact_kind": "odin_windows_target_host_receipt_example",
+  "lrh_pr": "LRH-PR-18",
+  "status": "receipt_contract_only",
+  "candidate_only": true,
+  "local_only": true,
+  "service_status": "not_created",
+  "tray_status": "not_created",
+  "installer_status": "not_created",
+  "target_host_execution_status": "not_attempted",
+  "microsoft_store_status": "not_attempted",
+  "claim_boundary": "windows_target_host_receipt_contract_not_service_tray_installer_proof",
+  "not_proven": [
+    "windows_service_proof",
+    "windows_tray_proof",
+    "windows_installer_proof",
+    "windows_target_host_validation",
+    "microsoft_store_readiness",
+    "signed_installer_proof"
+  ]
+}

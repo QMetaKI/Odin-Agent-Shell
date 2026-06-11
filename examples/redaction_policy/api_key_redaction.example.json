@@ -1,0 +1,21 @@
+{
+  "artifact_kind": "odin_redaction_policy_example",
+  "category": "api_keys",
+  "policy": "always_redact",
+  "candidate_only": true,
+  "claim_boundary": "redaction_policy_test_matrix_not_security_certification",
+  "input_example": {
+    "api_key": "[REDACTED]",
+    "provider": "example-provider",
+    "note": "real api keys are never stored in examples"
+  },
+  "redacted_output": {
+    "api_key": "[REDACTED]",
+    "provider": "example-provider"
+  },
+  "not_proven": [
+    "redaction_guarantee",
+    "security_certification",
+    "secret_leakage_impossible"
+  ]
+}
