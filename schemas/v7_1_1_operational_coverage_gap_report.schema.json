@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Odin v7.1.1 Operational Coverage Gap Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "generated_at_utc",
+    "claim_boundary",
+    "source_refs",
+    "evidence_rules",
+    "target_area_summary",
+    "road_to_100_summary",
+    "target_area_coverage",
+    "road_to_100_slice_coverage",
+    "gap_summary",
+    "critical_gaps",
+    "next_pr_recommendations",
+    "unsupported_claims",
+    "non_claims",
+    "senior_reviewer_notes",
+    "senior_code_reviewer_notes"
+  ],
+  "properties": {
+    "report_id": {"const": "odin.v7_1_1_operational_coverage_gap_report"},
+    "version": {"const": "7.1.1"},
+    "status": {"const": "local_coverage_gap_report_not_runtime_proof"},
+    "generated_at_utc": {"type": "string"},
+    "claim_boundary": {"type": "string", "pattern": "not_runtime_completion"},
+    "source_refs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evidence_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["class", "rule"],
+        "properties": {
+          "class": {"type": "string"},
+          "rule": {"type": "string"}
+        }
+      }
+    },
+    "target_area_summary": {"type": "object"},
+    "road_to_100_summary": {"type": "object"},
+    "target_area_coverage": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/target_area_coverage_record"}
+    },
+    "road_to_100_slice_coverage": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/slice_coverage_record"}
+    },
+    "gap_summary": {"$ref": "#/$defs/gap_summary"},
+    "critical_gaps": {"type": "array", "items": {"type": "object"}},
+    "next_pr_recommendations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/next_pr_recommendation"}
+    },
+    "unsupported_claims": {"type": "array", "items": {"type": "object"}},
+    "non_claims": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "senior_reviewer_notes": {"type": "array", "items": {"type": "string"}},
+    "senior_code_reviewer_notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "evidence_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "evidence_class", "reason"],
+      "properties": {
+        "path": {"type": "string", "not": {"pattern": "^/"}},
+        "evidence_class": {"type": "string"},
+        "reason": {"type": "string"}
+      }
+    },
+    "target_area_coverage_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_area_id",
+        "name",
+        "declared_status",
+        "computed_coverage_status",
+        "evidence_classes",
+        "evidence_refs",
+        "covered_by_road_to_100_slices",
+        "missing_evidence",
+        "gap_level",
+        "recommended_next_pr_family",
+        "claim_boundary",
+        "non_claims"
+      ],
+      "properties": {
+        "target_area_id": {"type": "string"},
+        "name": {"type": "string"},
+        "declared_status": {"type": "string"},
+        "computed_coverage_status": {"type": "string"},
+        "evidence_classes": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/evidence_ref"}},
+        "covered_by_road_to_100_slices": {"type": "array", "items": {"type": "string"}},
+        "missing_evidence": {"type": "array", "items": {"type": "string"}},
+        "gap_level": {"enum": ["none", "low", "medium", "high", "critical"]},
+        "recommended_next_pr_family": {"type": "string"},
+        "claim_boundary": {"const": "target_area_coverage_is_static_local_evidence_not_runtime_proof"},
+        "non_claims": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "slice_coverage_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slice_id",
+        "phase_id",
+        "title",
+        "target_area_ids",
+        "recommended_future_pr_family",
+        "dependency_status",
+        "computed_coverage_status",
+        "evidence_refs",
+        "missing_evidence",
+        "claim_boundary",
+        "non_claims"
+      ],
+      "properties": {
+        "slice_id": {"type": "string"},
+        "phase_id": {"type": "string"},
+        "title": {"type": "string"},
+        "target_area_ids": {"type": "array", "items": {"type": "string"}},
+        "recommended_future_pr_family": {"type": "string"},
+        "dependency_status": {"enum": ["satisfied", "blocked", "missing_dependency"]},
+        "computed_coverage_status": {"enum": ["missing", "documented_only", "partial", "locally_supported", "external_receipt_required"]},
+        "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/evidence_ref"}},
+        "missing_evidence": {"type": "array", "items": {"type": "string"}},
+        "claim_boundary": {"const": "slice_coverage_is_static_local_evidence_not_slice_completion"},
+        "non_claims": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "gap_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["critical", "high", "medium", "low", "external_receipt_required", "blocked"],
+      "properties": {
+        "critical": {"type": "array"},
+        "high": {"type": "array"},
+        "medium": {"type": "array"},
+        "low": {"type": "array"},
+        "external_receipt_required": {"type": "array"},
+        "blocked": {"type": "array"}
+      }
+    },
+    "next_pr_recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommended_pr_family", "title", "reason", "target_area_ids", "slice_ids", "blocked_by", "claim_boundary"],
+      "properties": {
+        "recommended_pr_family": {"type": "string"},
+        "title": {"type": "string"},
+        "reason": {"type": "string"},
+        "target_area_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "slice_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "blocked_by": {"type": "array", "items": {"type": "string"}},
+        "claim_boundary": {"const": "recommendation_not_implementation_proof"}
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1251,
+  "file_count_excluding_manifest": 1270,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -32,6 +32,51 @@
       "path": ".gitignore",
       "sha256": "2031f675cacc6abfed8d3e09652cbdf5b69224866bf426bc1a219b22af83bba4",
       "size": 116
+    },
+    {
+      "path": ".odin_runtime/bus_events/BUS-14e346d905d81a29.json",
+      "sha256": "8748987280aefc168d94f8c718ab35e2dc5f3dc5d21197d7f641e1ff3dc06070",
+      "size": 675
+    },
+    {
+      "path": ".odin_runtime/bus_events/BUS-47d6498f323a6e81.json",
+      "sha256": "d7eaf0534d35cd221f3c82b123c5b0464109a8fea0b3e99f67639fe49d7d0d80",
+      "size": 683
+    },
+    {
+      "path": ".odin_runtime/bus_events/BUS-5b866bfc22b26f07.json",
+      "sha256": "ab56067630300595ebae3ecdf0c6b54a047ba39f81b92a01dc978ab3f5506dd9",
+      "size": 680
+    },
+    {
+      "path": ".odin_runtime/bus_events/BUS-81693c4f621918c0.json",
+      "sha256": "0fa78207fe7c5eced8695c928f1b1f5ea65d99317ad197d04248c8c3dda3ba03",
+      "size": 682
+    },
+    {
+      "path": ".odin_runtime/bus_events/BUS-999d24678236cf34.json",
+      "sha256": "4e4f7ebc908c79b92358807ec1d3aaf9af2d705039ea83519be7fea384c8f1e1",
+      "size": 673
+    },
+    {
+      "path": ".odin_runtime/candidates/CAND-4047fbbf3a59b7.json",
+      "sha256": "7429efb7df64d2499ce61449eef9fb077b28aba50d4a6e15abc2f09196fc55eb",
+      "size": 11816
+    },
+    {
+      "path": ".odin_runtime/local_runtime_config.json",
+      "sha256": "9c06c74cb1ae982133ca5d3c062d32327617688d6eff8e3952c1398892e93dc7",
+      "size": 286
+    },
+    {
+      "path": ".odin_runtime/sessions/ORP-WORK-SDK-TEST-001.json",
+      "sha256": "6f7cefdf5f9d8c4f15b64790f076b5a9a1733c9a6fb2722af7017340654b1dac",
+      "size": 27982
+    },
+    {
+      "path": ".odin_runtime/traces/TRACE-ad103d8ee400.json",
+      "sha256": "f11c76ff3f574a8e9baccfe58c0b96165c7a6f96bb54ac3d3bb11973ef5d145d",
+      "size": 2728
     },
     {
       "path": "AGENTS.md",
@@ -100,8 +145,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "5cd8b3c961f9153a2dd6017212181214e81785c236378ee19b09338d104b1198",
-      "size": 36840
+      "sha256": "3e3a624531a77c8eabefb1d3b67d9377ffc9b92305292df9a88e71d8ab9f007a",
+      "size": 37507
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1632,6 +1677,11 @@
       "path": "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md",
       "sha256": "ebb43f5bb825e9b998e05e467be04f90a86a56f563d6044fb5cf68dba1a6d823",
       "size": 21713
+    },
+    {
+      "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+      "sha256": "9236e6808fa89ae82de3947a4750c967568eb71d314e8911c12f7ac4d7672d5c",
+      "size": 7970
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -4359,6 +4409,31 @@
       "size": 2920
     },
     {
+      "path": "odin_agent_shell.egg-info/PKG-INFO",
+      "sha256": "ad055827aca4ba07364bf5af6f3053e70d79ad74cfc38ce3c3744ebd226aabf3",
+      "size": 254
+    },
+    {
+      "path": "odin_agent_shell.egg-info/SOURCES.txt",
+      "sha256": "dbb01732b632ea69e3cd41e0abd4c93a350c4e97bc338aac4635cdaacbca8496",
+      "size": 12344
+    },
+    {
+      "path": "odin_agent_shell.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
+    },
+    {
+      "path": "odin_agent_shell.egg-info/entry_points.txt",
+      "sha256": "04daf22cafb1c6eb8718286b7df4519bc94277b766b5b67f50617b8519feebe5",
+      "size": 39
+    },
+    {
+      "path": "odin_agent_shell.egg-info/top_level.txt",
+      "sha256": "0ef15f37bd598a73e844e3f3c3681b23d26afcd3a69db97b277e36d65f9e2450",
+      "size": 18
+    },
+    {
       "path": "odin_app_sdk/__init__.py",
       "sha256": "84151567cfaf9a441f479171ca9683c783506ff851e2f5d536df4f68cbeeaf26",
       "size": 201
@@ -4967,6 +5042,11 @@
       "path": "registries/ystar_stage_registry.json",
       "sha256": "05af2b2aaf5825041522ee4fdff66cd224a66aa9ae8b0c800f623c1aba5e80d4",
       "size": 423
+    },
+    {
+      "path": "reports/v7_1_1_operational_coverage_gap_report.json",
+      "sha256": "e418b9330ad666d1bdcc900024ba9a320b74ff719d87665c61b4a87464f5c2a7",
+      "size": 907406
     },
     {
       "path": "runtime/.gitkeep",
@@ -5729,6 +5809,11 @@
       "size": 1391
     },
     {
+      "path": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
+      "sha256": "4e5f1fdfb18da25821879fc3f0a48bf908a2dff75bbbccf17920c6f4a930787b",
+      "size": 6364
+    },
+    {
       "path": "scripts/build_portable_package.py",
       "sha256": "97777b6c35b1e8ddfa42c4d982768ce8bbccdc411d8aacc4ecc7f1e9d572ad67",
       "size": 14672
@@ -6169,6 +6254,11 @@
       "size": 8125
     },
     {
+      "path": "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
+      "sha256": "341fde32644234a979b4d463d0b69ce7821eeda53efaecf5b688918cd51a09af",
+      "size": 6889
+    },
+    {
       "path": "tests/test_v7_1_1_road_to_100_ladder.py",
       "sha256": "7c9f9977c0d67dad8a9a2ffb865cbed04d2e3b39cc919d62a83f8616b5e3525d",
       "size": 6560
@@ -6182,6 +6272,11 @@
       "path": "tools/dev/thor_cli_probe.py",
       "sha256": "1578b826ee341dc800b16017a680a94bd3ba149f2cb04b78676ee0b589eb6bd7",
       "size": 6768
+    },
+    {
+      "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",
+      "sha256": "9048742515755cf184f9c093b6f1645356c74313e604eb01f2f1d2ede06af937",
+      "size": 26574
     },
     {
       "path": "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md",
