@@ -1030,13 +1030,307 @@ def build_provider_worker_inspector_proof_packet() -> dict[str, Any]:
     }
 
 
-def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False, traces: bool = False, providers: bool = False) -> dict[str, Any]:
+UNIVERSAL_WORK_PLAYGROUND_CLAIM_BOUNDARY = (
+    "uwp_candidate_only_local_only_no_apply_no_external_send_no_shell_no_provider_no_credentials"
+)
+
+UNIVERSAL_WORK_PLAYGROUND_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_arbitrary_shell_execution_proof",
+    "not_provider_execution_proof",
+    "not_credential_handling_proof",
+    "not_full_live_universal_work_backend_coverage",
+    "not_external_app_bridge_proof",
+    "candidate_result_not_applied_truth",
+]
+
+_UWP_REQUIRED_FILES = [
+    "odin/hub/static/universal_work_playground.js",
+    "odin/hub/static/index.html",
+    "docs/UNIVERSAL_WORK_PLAYGROUND_V1.md",
+    "tests/test_lrh_pr_11_universal_work_playground.py",
+    "examples/universal_work_playground/safe_demo_work_packet.valid.json",
+    "examples/universal_work_playground/safe_demo_candidate_result.valid.json",
+]
+
+_UWP_REQUIRED_JS_API_REFS = [
+    "/v1/universal-work",
+    "/v1/proof-gaps",
+]
+
+_UWP_REQUIRED_JS_BOUNDARY_TOKENS = [
+    "candidate_only",
+    "claim_boundary",
+    "local_only",
+    "read_only",
+    "no_app_apply",
+    "no_external_send",
+    "no_arbitrary_shell_execution",
+    "no_provider_execution",
+    "no_credentials",
+    "safe_demo_only",
+    "playground_only",
+    "not_applied_truth",
+    "proof_boundaries",
+    "known_non_proofs",
+    "metadata_first",
+    "provider_as_worker_not_authority",
+    "disabled_by_default",
+]
+
+_UWP_FORBIDDEN_CONTROL_PATTERNS = [
+    "function applyCandidate(",
+    "function externalSend(",
+    "function sendExternally(",
+    "function uploadResult(",
+    "function publishResult(",
+    "function runShell(",
+    "function executeShell(",
+    "function runCommand(",
+    "function executeCommand(",
+    "function runScript(",
+    "function executeScript(",
+    "function runProvider(",
+    "function executeProvider(",
+    "function callModel(",
+    "function runModel(",
+    "function testInference(",
+    "function saveCredential(",
+    "function setApiKey(",
+    'id="apply-btn',
+    'id="external-send',
+    'name="shell_command"',
+    'name="command"',
+    'name="script"',
+    'name="exec"',
+    'name="provider_credential"',
+    'name="api_key"',
+    'name="token"',
+    'name="secret"',
+    'name="remote_url"',
+    'name="callback_url"',
+    'name="webhook_url"',
+    'name="app_apply_target"',
+    'type="password"',
+    "providerCredential",
+    "apiKey",
+    "enablePublicNetwork(",
+]
+
+_UWP_REQUIRED_SURFACE_IDS = [
+    "uwp-work-form-content",
+    "uwp-candidate-result-content",
+    "uwp-proof-boundary-content",
+    "uwp-validation-status-content",
+    "uwp-provider-worker-context-content",
+]
+
+_UWP_REQUIRED_BOUNDARY_PHRASES = [
+    "Candidate-only",
+    "not applied truth",
+    "No app apply",
+    "No external send",
+    "No arbitrary shell execution",
+    "No provider execution",
+    "No credentials by default",
+    "safe demo only",
+    "candidate result is not applied truth",
+]
+
+_UWP_REQUIRED_DOC_PHRASES = [
+    "this does not apply candidate artifacts",
+    "this does not mutate app state",
+    "this does not send externally",
+    "this does not execute arbitrary shell commands",
+    "this does not execute providers",
+    "this does not call live models",
+    "this does not store or request credentials",
+    "this does not prove model quality",
+    "this does not prove production readiness",
+    "this does not prove security certification",
+    "proof boundaries",
+    "not_production_readiness_certification",
+    "candidate result is not applied truth",
+]
+
+
+def validate_universal_work_playground() -> list[str]:
+    """Deterministic static validator for the Universal Work Playground (LRH-PR-11).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    for rel in _UWP_REQUIRED_FILES:
+        p = _ROOT / rel
+        if not p.exists():
+            errors.append(f"universal work playground required file missing: {rel}")
+
+    uwp_js = _STATIC_DIR / "universal_work_playground.js"
+    if uwp_js.exists():
+        js = uwp_js.read_text(encoding="utf-8", errors="ignore")
+
+        for api_ref in _UWP_REQUIRED_JS_API_REFS:
+            if api_ref not in js:
+                errors.append(f"universal_work_playground.js: missing required API reference: {api_ref!r}")
+
+        for token in _UWP_REQUIRED_JS_BOUNDARY_TOKENS:
+            if token not in js:
+                errors.append(f"universal_work_playground.js: missing required boundary token: {token!r}")
+
+        js_lower = js.lower()
+        forbidden_found = [p for p in _UWP_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"universal_work_playground.js: forbidden interactive controls found: {forbidden_found}")
+
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js:
+            errors.append("universal_work_playground.js: missing localhost default reference")
+
+        for fn_name in ["function applyCandidate(", "function externalSend(", "function runShell(",
+                         "function executeShell(", "function runProvider(", "function callModel("]:
+            if fn_name in js:
+                errors.append(f"universal_work_playground.js: must not define forbidden function: {fn_name!r}")
+
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+
+        if "universal_work_playground.js" not in html:
+            errors.append("index.html: must load universal_work_playground.js")
+
+        for surface_id in _UWP_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required UWP surface id: {surface_id!r}")
+
+        html_lower = html.lower()
+        for phrase in _UWP_REQUIRED_BOUNDARY_PHRASES:
+            if phrase.lower() not in html_lower:
+                errors.append(f"index.html: missing required UWP boundary phrase: {phrase!r}")
+
+        forbidden_found = [p for p in _UWP_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden interactive controls found in UWP section: {forbidden_found}")
+
+    _uwp_examples = _ROOT / "examples" / "universal_work_playground"
+    work_packet = _uwp_examples / "safe_demo_work_packet.valid.json"
+    if work_packet.exists():
+        try:
+            wp_data = json.loads(work_packet.read_text(encoding="utf-8"))
+            if wp_data.get("candidate_only") is not True:
+                errors.append("safe_demo_work_packet.valid.json: candidate_only must be true")
+            if wp_data.get("local_only") is not True:
+                errors.append("safe_demo_work_packet.valid.json: local_only must be true")
+            if wp_data.get("app_apply") is not False:
+                errors.append("safe_demo_work_packet.valid.json: app_apply must be false")
+            if wp_data.get("external_send") is not False:
+                errors.append("safe_demo_work_packet.valid.json: external_send must be false")
+            if wp_data.get("arbitrary_shell_execution") is not False:
+                errors.append("safe_demo_work_packet.valid.json: arbitrary_shell_execution must be false")
+            if wp_data.get("provider_execution") is not False:
+                errors.append("safe_demo_work_packet.valid.json: provider_execution must be false")
+            if wp_data.get("credential_required") is not False:
+                errors.append("safe_demo_work_packet.valid.json: credential_required must be false")
+            if "claim_boundary" not in wp_data:
+                errors.append("safe_demo_work_packet.valid.json: missing claim_boundary")
+            if "proof_boundaries" not in wp_data:
+                errors.append("safe_demo_work_packet.valid.json: missing proof_boundaries")
+            if "known_non_proofs" not in wp_data:
+                errors.append("safe_demo_work_packet.valid.json: missing known_non_proofs")
+        except Exception as exc:
+            errors.append(f"safe_demo_work_packet.valid.json: parse error: {exc}")
+
+    candidate_result = _uwp_examples / "safe_demo_candidate_result.valid.json"
+    if candidate_result.exists():
+        try:
+            cr_data = json.loads(candidate_result.read_text(encoding="utf-8"))
+            if cr_data.get("candidate_only") is not True:
+                errors.append("safe_demo_candidate_result.valid.json: candidate_only must be true")
+            if cr_data.get("applied_truth") is not False:
+                errors.append("safe_demo_candidate_result.valid.json: applied_truth must be false")
+            if cr_data.get("app_state_mutated") is not False:
+                errors.append("safe_demo_candidate_result.valid.json: app_state_mutated must be false")
+            if cr_data.get("external_send") is not False:
+                errors.append("safe_demo_candidate_result.valid.json: external_send must be false")
+            if "claim_boundary" not in cr_data:
+                errors.append("safe_demo_candidate_result.valid.json: missing claim_boundary")
+            if "proof_boundaries" not in cr_data:
+                errors.append("safe_demo_candidate_result.valid.json: missing proof_boundaries")
+        except Exception as exc:
+            errors.append(f"safe_demo_candidate_result.valid.json: parse error: {exc}")
+
+    doc = _ROOT / "docs" / "UNIVERSAL_WORK_PLAYGROUND_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _UWP_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"UNIVERSAL_WORK_PLAYGROUND_V1.md: missing required phrase: {phrase!r}")
+
+    return errors
+
+
+def build_universal_work_playground_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Universal Work Playground (LRH-PR-11)."""
+    uwp_errors = validate_universal_work_playground()
+    all_ok = not bool(uwp_errors)
+
+    return {
+        "artifact_kind": "hub_universal_work_playground_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "playground_only": True,
+        "safe_demo_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": uwp_errors,
+        "proven": [
+            "universal_work_playground_static_files_exist",
+            "local_only_form_present",
+            "safe_demo_work_fixture_present",
+            "safe_demo_candidate_result_fixture_present",
+            "candidate_result_panel_present",
+            "proof_boundary_panel_present",
+            "validation_status_panel_present",
+            "provider_worker_boundary_context_present",
+            "no_app_apply_controls",
+            "no_external_send_controls",
+            "no_arbitrary_shell_execution_controls",
+            "no_provider_execution_controls",
+            "no_credential_controls",
+            "candidate_result_not_applied_truth",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "live_model_inference",
+            "model_quality",
+            "app_apply_authority",
+            "external_send_authority",
+            "arbitrary_shell_execution_safety",
+            "provider_execution",
+            "credential_handling",
+            "full_live_universal_work_backend_coverage",
+            "external_app_bridge",
+        ],
+        "proof_boundaries": UNIVERSAL_WORK_PLAYGROUND_PROOF_BOUNDARIES,
+        "claim_boundary": UNIVERSAL_WORK_PLAYGROUND_CLAIM_BOUNDARY,
+    }
+
+
+def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = False, candidates: bool = False, traces: bool = False, providers: bool = False, playground: bool = False) -> dict[str, Any]:
     """Emit a bounded proof packet for the browser hub shell.
 
     If candidates=True, runs the candidate store viewer validator.
     If dashboard=True, runs both shell and dashboard validators and returns a combined packet.
     If shell_only=True (default), runs only shell validator.
     """
+    if playground:
+        return build_universal_work_playground_proof_packet()
+
     if providers:
         return build_provider_worker_inspector_proof_packet()
 

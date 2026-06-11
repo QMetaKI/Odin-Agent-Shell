@@ -1,0 +1,42 @@
+{
+  "artifact_kind": "odin_universal_work_playground_safe_demo_candidate_result",
+  "candidate_artifact_id": "UWP-DEMO-CANDIDATE-001",
+  "source_work_packet_id": "UWP-DEMO-PACKET-001",
+  "candidate_only": true,
+  "applied_truth": false,
+  "app_state_mutated": false,
+  "external_send": false,
+  "candidate_kind": "safe_demo_candidate",
+  "candidate_status": "pending_app_review",
+  "candidate_summary": "Safe demo candidate artifact produced by Universal Work Playground. This is a bounded candidate output only — not applied truth, not final state, not executed. App owns apply. Odin does not apply.",
+  "claim_boundary": "uwp_candidate_result_candidate_only_not_applied_truth_no_app_state_mutation_no_external_send",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_arbitrary_shell_execution_proof",
+    "not_provider_execution_proof",
+    "not_credential_handling_proof",
+    "not_full_live_universal_work_backend_coverage",
+    "not_external_app_bridge_proof",
+    "candidate_result_not_applied_truth"
+  ],
+  "known_non_proofs": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "app_apply_authority",
+    "arbitrary_shell_execution",
+    "provider_execution",
+    "credential_handling",
+    "security_certification",
+    "model_quality",
+    "full_live_universal_work_backend_coverage",
+    "external_app_bridge"
+  ]
+}

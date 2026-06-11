@@ -35,7 +35,7 @@
       <li><a href="#candidates-panel">Candidates</a></li>
       <li><a href="#proof-gaps-panel">Proof Gaps</a></li>
       <li><a href="#events-panel">Trace Viewer</a></li>
-      <li><a href="#universal-work-placeholder">Universal Work Playground</a></li>
+      <li><a href="#universal-work-playground-panel">Universal Work Playground</a></li>
     </ul>
   </nav>
 
@@ -376,13 +376,81 @@
       </p>
     </section>
 
-    <section id="universal-work-placeholder" class="panel placeholder-panel">
-      <h2>Universal Work Playground <span class="badge badge-placeholder">placeholder</span></h2>
-      <p class="placeholder-note">
-        Universal Work Playground entry placeholder only.
-        This is not an active playground — full implementation is in LRH-PR-11.
-        No app apply. No external send. No provider execution.
-        Candidate-only when implemented.
+    <!-- LRH-PR-11: Universal Work Playground -->
+    <section id="universal-work-playground-panel" class="panel">
+      <h2>Universal Work Playground <span class="badge">local-only</span> <span class="badge">candidate-only</span> <span class="badge">safe-demo-only</span></h2>
+
+      <!-- Universal Work Form Surface -->
+      <div class="dashboard-surface" id="uwp-work-form-surface">
+        <h3>Universal Work Form <span class="badge">local-only</span> <span class="badge">safe-demo-only</span></h3>
+        <div id="uwp-work-form-content" class="panel-content">
+          <p class="loading">Loading Universal Work form…</p>
+        </div>
+        <p class="boundary-note">
+          Safe demo only. Candidate-only. Local-only.
+          No app apply. No external send. No arbitrary shell execution.
+          No provider execution. No credentials by default. No remote URL.
+        </p>
+      </div>
+
+      <!-- Candidate Result Panel -->
+      <div class="dashboard-surface" id="uwp-candidate-result-surface">
+        <h3>Candidate Result <span class="badge badge-candidate">candidate-only</span> <span class="badge badge-warning">not-applied-truth</span></h3>
+        <div id="uwp-candidate-result-content" class="panel-content">
+          <p class="loading">Loading candidate result…</p>
+        </div>
+        <p class="boundary-note">
+          Candidate-only. Candidate result is not applied truth. App-owned apply.
+          No app apply. No external send. No arbitrary shell execution.
+          No provider execution. No credentials.
+        </p>
+      </div>
+
+      <!-- Proof Boundary Panel -->
+      <div class="dashboard-surface" id="uwp-proof-boundary-surface">
+        <h3>Proof Boundary Panel <span class="badge">viewer-only</span></h3>
+        <div id="uwp-proof-boundary-content" class="panel-content">
+          <p class="loading">Loading proof boundaries…</p>
+        </div>
+        <p class="boundary-note">
+          Displaying proof boundaries does not close them.
+          No app apply. No external send. No arbitrary shell execution.
+          No provider execution. No credentials by default. No live model quality claim.
+          Not a production readiness certification. Not a security certification.
+        </p>
+      </div>
+
+      <!-- Validation / Status Panel -->
+      <div class="dashboard-surface" id="uwp-validation-status-surface">
+        <h3>Validation / Status <span class="badge">local-receipt-only</span></h3>
+        <div id="uwp-validation-status-content" class="panel-content">
+          <p class="loading">Loading validation status…</p>
+        </div>
+        <p class="boundary-note">
+          Validation receipt is local-only. Does not prove production readiness.
+          Does not prove model quality. Safe demo only.
+        </p>
+      </div>
+
+      <!-- Provider / Worker Boundary Context -->
+      <div class="dashboard-surface" id="uwp-provider-worker-context-surface">
+        <h3>Provider / Worker Boundary Context <span class="badge">read-only</span></h3>
+        <div id="uwp-provider-worker-context-content" class="panel-content">
+          <p class="loading">Loading provider/worker context…</p>
+        </div>
+        <p class="boundary-note">
+          Provider is worker, not authority. No live inference without receipt.
+          No credentials by default. Disabled by default. No provider execution from playground.
+        </p>
+      </div>
+
+      <p class="boundary-note">
+        Universal Work Playground is local-only, candidate-only, and safe-demo-only.
+        No app apply. No external send. No arbitrary shell execution. No provider execution.
+        No credentials by default. No live model quality claim.
+        Not a production readiness certification. Not a security certification.
+        Candidate result is not applied truth. App-owned apply.
+        Does not implement the External App Bridge.
       </p>
     </section>
   </main>
@@ -401,5 +469,6 @@
   <script src="candidate_store_viewer.js"></script>
   <script src="trace_viewer.js"></script>
   <script src="provider_worker_inspector.js"></script>
+  <script src="universal_work_playground.js"></script>
 </body>
 </html>
