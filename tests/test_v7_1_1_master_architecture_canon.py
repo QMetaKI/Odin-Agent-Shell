@@ -108,3 +108,52 @@ def test_system_map_contains_v7_1_1_entries():
     ]:
         assert key in data
         assert (ROOT / data[key]).exists()
+
+def test_master_architecture_boilerplate_ceiling_and_specific_sections():
+    text = _read(ARCH)
+    assert text.count("remains candidate-only and app-sovereign in v7.1.1") <= 3
+    for phrase in [
+        "Universal Work lifecycle",
+        "Context Capsule",
+        "Semantic Pressure Valve",
+        "Slot engineering is primary",
+        "ModelWorkPacket is the only allowed model-facing request format",
+        "Provider is transport, not authority",
+        "3B scout",
+        "7B writer",
+        "hybrid scout/write/check/compose",
+        "critic score is not truth",
+        "tournament winner remains candidate",
+        "Style is not prompt wording",
+        "Semantic Cache may never bypass Final Gate",
+        "Thor is advisory",
+        "App templates contain bridge logic, not LLM logic",
+        "optional host/debug/convenience",
+    ]:
+        assert phrase in text
+
+
+def test_operational_target_registry_area_specific_behavior():
+    data = _json(TARGET_REG)
+    areas = {area["id"]: area for area in data["target_areas"]}
+    checks = {
+        "V711-SLOT-FORGE": "token",
+        "V711-HYBRID-DIRECTOR": "3B",
+        "V711-QIRC": "channel",
+        "V711-MODELWORKPACKET": "raw app",
+        "V711-CRITIC-CASCADE": "critic",
+        "V711-FINAL-GATE": "block",
+    }
+    for area_id, needle in checks.items():
+        behavior_text = " ".join(areas[area_id]["required_operational_behavior"])
+        assert needle.lower() in behavior_text.lower()
+
+
+def test_slice_absorption_map_is_non_proof_coverage_map():
+    data = _json(SLICE_MAP)
+    assert data["mapping_precision"] == "coarse_from_registry_keywords"
+    assert data["claim_boundary"] == "coverage_map_not_implementation_proof"
+    payload = json.dumps(data).lower()
+    assert "coverage map" in payload
+    assert "not proof" in payload
+

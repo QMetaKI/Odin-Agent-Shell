@@ -69,3 +69,20 @@ Current repo-real state is mixed: docs, registries, validators, shadows, receipt
 
 ## Non-Claims
 No production readiness, release certification, security certification, target-host proof, Windows service/tray/installer proof, signed distribution proof, live model inference proof, model quality proof, QIRC server runtime implementation, measured small-model performance proof, app apply authority, app state mutation authority, external-send authority, or hidden agent/tool authority is claimed by this canon PR.
+
+## Same-PR Senior Hardening Pass v2
+- Replaced repeated section boilerplate in sections 9-27, 29, 30, and 33 with subsystem-specific target architecture.
+- Hardened operational synthesis into the requested 0-11 structure.
+- Added area-specific operational behavior/tests/recommendations for critical target registry entries.
+- Added slice-map non-proof metadata: mapping_precision and claim_boundary.
+- Added regression tests for boilerplate ceiling, section-specific phrases, registry specificity, and slice-map non-proof wording.
+- Branch discipline: update intended for existing PR branch `codex/create-v7.1.1-master-architecture-canon`.
+
+## Same-PR Hardening Command Receipts
+- `python -m pip install -e .` — completed locally.
+- `python -m pytest -q tests/test_v7_1_1_master_architecture_canon.py -p no:cacheprovider` — OK: 9 passed in 0.06s.
+- `python -m odin.cli validate-all` — OK: validate-all: OK.
+- `python -m pytest -q -p no:cacheprovider` — OK: 1627 passed, 2 skipped in 45.55s.
+
+## Same-PR Hardening Non-Claims
+This hardening pass adds target precision only. It does not add runtime behavior, QIRC server runtime code, provider execution, live model inference, Ollama/llama.cpp runtime execution, Windows app/tray/service/installer code, app authority changes, production readiness, release certification, security certification, target-host proof, or model quality proof.

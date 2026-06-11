@@ -455,8 +455,8 @@
     },
     {
       "path": "docs/MASTER_ARCHITECTURE_V7_1_1.md",
-      "sha256": "6c1083e08a2f23cd4201b4cf085bb895737943414ba95f4a7426b1553f484688",
-      "size": 23401
+      "sha256": "9edcb206fbbc5341c6e208da1f15484774ff50dae8f7e4cb1dc938d70ad8b41a",
+      "size": 36996
     },
     {
       "path": "docs/MASTER_SPECS_V7_1.md",
@@ -1095,8 +1095,8 @@
     },
     {
       "path": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
-      "sha256": "f0dfb31bd31db4b8484a71fb839d44a2a4fa60e4f930961c109b43be8ed8b8a5",
-      "size": 4238
+      "sha256": "b76945eb4a6ae39176b1c88301d57fd765d8aae8431c3b13a682405704f0d3d3",
+      "size": 5806
     },
     {
       "path": "docs/WHY_TRACE_EXPLAINABILITY_V7_1.md",
@@ -1645,8 +1645,8 @@
     },
     {
       "path": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
-      "sha256": "38aa2706fa0c692069dbfc0786387a7672ed49ed8da54aca16b6aa491525c720",
-      "size": 3763
+      "sha256": "fe0130167120a35e8154f035d6d9de7bb47e1aeffd142f96c8f9b382cb935f8d",
+      "size": 5159
     },
     {
       "path": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
@@ -4870,13 +4870,13 @@
     },
     {
       "path": "registries/v7_1_1_operational_target_registry.json",
-      "sha256": "c3c7613971c726e021413b7463e37ac5e0cfa2335f6c0e616b0e88897e1109f3",
-      "size": 79095
+      "sha256": "b1ef2959334b9631cf4974be0caea4ce8d899b29f3697862ef7a74517cff9ace",
+      "size": 78125
     },
     {
       "path": "registries/v7_1_1_slice_absorption_map.json",
-      "sha256": "7fbdd7dc573941242de311c6f79d85cfef9de97dba9181efd9fb3f765ea2e607",
-      "size": 13505
+      "sha256": "52ea4e3a9948c761c331458f9fd31d617f8e70cd43a787acf4c921db75f3aafe",
+      "size": 13801
     },
     {
       "path": "registries/verb_registry.json",
@@ -6145,8 +6145,8 @@
     },
     {
       "path": "tests/test_v7_1_1_master_architecture_canon.py",
-      "sha256": "24611aa9019f12f9144368a6505242cb7c1e22ecd351d008fed24fd3fb33e629",
-      "size": 4341
+      "sha256": "0a9bf6bba68c91863d32d1362034a6f60458edb518afbcc74722a759f2b7f980",
+      "size": 6165
     },
     {
       "path": "tests/test_validation_cli.py",

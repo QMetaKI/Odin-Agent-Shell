@@ -1,50 +1,64 @@
 # v7.1.1 Operational Target Synthesis
 
-## Status
+## 0. Status and Claim Boundary
 
-v7.1 remains the baseline architecture. v7.1.1 is a sharpening and implementation compass; it is not runtime completion, not production readiness, not release certification, not security certification, not target-host proof, not QIRC server implementation proof, not live model inference proof, and not model quality proof.
+v7.1.1 is a target synthesis and operational compass. v7.1 remains the baseline architecture. This document is not runtime completion, not production readiness, not release certification, not security certification, not target-host proof, not QIRC server implementation proof, not live model inference proof, and not model quality proof. A registry is not runtime proof; a doc is documented intent and boundary; a proof packet proves only its local proof packet.
 
-## What v7.1 Wanted
+## 1. Target Identity Shift
 
-v7.1 defined a local-first Universal Work Kernel, Small Model Power Layer, Internal Semantic Bus/QIRC coordination, Candidate Artifacts, Response Packets, Candidate DNA, app-owned apply/state/external-send boundaries, Model Scale Ladder, provider worker boundaries, SDK/app bridge surfaces, storage/trace/receipt, Thor bounded code work, and validation gates.
+The identity shift is precision, not expansion. Odin is not a direct app and not primarily a Windows app/tray/control-center product. Odin remains a local-first, app-sovereign, candidate-only Small-Model Performance OS and Universal Semantic Work Kernel. Windows, tray, hub, and control surfaces are optional host/debug/convenience layers.
 
-## What v7.1.1 Clarifies
+## 2. Current Repo-Real Baseline
 
-Odin is not a direct app and not primarily a Windows app/tray/control-center product. Windows/tray/control-center surfaces are optional host/debug/convenience layers. Odin remains Odin: a local-first, app-sovereign, candidate-only Small-Model Performance OS and Universal Semantic Work Kernel. QIRC is important but not Odin’s whole identity; it is a core coordination substrate inside Odin.
+Repo-real state includes broad v7.1 canon, schemas, registries, validators, shadow runtime coverage, bridge fixtures, local proof governance registries, and actual execution ladder registries. Some areas are implemented code or CLI, some are registry-level, some are proof-level local receipts, some are partially implemented, some are documented-only, and some remain target_not_repo_real_yet or external_receipt_required.
 
-## Repo-Real State
+## 3. Small-Model Power as Central Function
 
-The current repo contains broad v7.1 docs, registries, schema directories, validators, shadow runtime coverage, local receipts, runtime-source candidate seams, bridge fixtures, proof governance registries, and actual execution ladder registries. Some features are implemented code or CLI; some are registry-level; some are proof-level local receipts; some are partially implemented; some remain documented-only; some are target_not_repo_real_yet.
+The central function is making deterministic/no-model routes, 3B, 7B/8B, and 3B+7B/8B hybrid setups more useful inside Odin than outside Odin. Odin does this with Context Distillery, Artifact Lenses, Worklet Graphs, Slot Forge, Gaptext, ModelWorkPackets, route policy, semantic cache/work memory, Minicheck, Critic Cascade, Candidate Tournament, Style Stabilizer, Anti-Generic Engine, Taste Dials, Model Dojo, Scoreboard, Candidate DNA, Response Packets, Final Gate, and receipts.
 
-## Small-Model Power Priority
+## 4. QIRC as Coordination Substrate
 
-Small-model power matters most because 3B, 7B/8B, and 3B+7B/8B hybrid routes should become more useful inside Odin than outside Odin. The work that matters most is deterministic precompute, Context Distillery, Artifact Lenses, Worklet Graph, Slot Forge, Gaptext, ModelWorkPacket, Model Scale Ladder, semantic cache/work memory, Minicheck, Critic Cascade, Candidate Tournament, Style Stabilizer, Anti-Generic Engine, Model Dojo, Scoreboard, Candidate DNA, Response Packet, Final Gate, and receipts.
+QIRC is important but not Odin's whole identity. It should coordinate local semantic work events, context, precompute, slots, model routing, critics, candidates, traces, receipts, claims, and reality gates. QIRC must not mutate app state, apply, send externally, bypass Final Gate, expose public rooms by default, or grant model/agent authority.
 
-## QIRC Priority
+## 5. Q-Shabang Neutralized Components
 
-QIRC should coordinate work events, context, lenses, precompute, worklets, slots, Gaptext, model routing, critics, candidates, response packets, traces, receipts, claims, and reality gates. QIRC must not mutate app state, apply, send externally, bypass Final Gate, expose public rooms by default, or grant model/agent authority.
+Internal pattern lineage is publicized only as neutral Odin components: QIRC becomes Internal Semantic IRC/QIRC coordination; KI ohne KI becomes deterministic precompute/no-model routes; Q gates become claim/evidence/reality gates; mirror critics become Critic Cascade; seeds and pattern mines become pattern foundry, seed continuity, and flow packs; Thor becomes advisory handoff compiler; app sovereignty becomes app-owned apply/state/external-send; candidate reality becomes Candidate Artifact and Response Packet.
 
-## Thor / Handoff Priority
+## 6. Historical Slices and Bundles as Coverage Superset
 
-Thor is advisory. Thor/Handoff should compile bounded candidate handoff packets for repo/code/review work and classify failures. Odin validators and tests remain authority. No Thor output is proof of correctness by itself.
+`registries/codex_task_registry.json`, `registries/codex_pr_bundle_registry.json`, and `registries/real_pr_execution_registry.json` remain traceability sources. PR-00..PR-123 and REAL-PR-01..28 enrich target detail; REAL-GH-PR-01..08 remains the actual execution ladder. The slice absorption map is a coverage map, not proof that all referenced details are implemented.
 
-## Registry and Proof Interpretation
+## 7. Priority Target Areas
 
-The v7.1.1 operational target registry records target areas and status enums. The slice absorption map records micro-task traceability (124 tasks), legacy bundle traceability (28 bundles), and actual execution ladder coverage (8 REAL-GH PRs). A registry is not runtime proof; a proof packet proves only its local proof packet; a doc proves only documented intent/boundary; a test proves only the condition it tests.
+Critical: Small Model Power, Universal Work, App Boundary, Slot Forge, ModelWorkPacket, Hybrid Director, Critic Cascade, Candidate DNA, and Final Gate.
 
-## What Must Be Built Next
+High: QIRC, Context Distillery, Artifact Lenses, Worklets, Gaptext, Provider Runtime, Candidate Tournament, Work Memory, Semantic Cache, Model Dojo, SDK Bridge, and Thor Handoff.
 
-1. Coverage/gap compiler.
-2. QIRC/Semantic Bus operational upgrade.
-3. Context Distillery, Artifact Lenses, Worklet Graph, Slot Forge, Gaptext.
-4. ModelWorkPacket builder and Scale Ladder route director.
-5. 3B/7B/Hybrid director.
-6. Minicheck, Critic Cascade, Candidate Tournament, style and anti-generic passes.
-7. Model Dojo, Scoreboard, cache/work memory.
-8. Candidate DNA, Response Packet, Final Gate closure.
-9. Thor/Agent handoff compiler.
-10. SDK/template/app bridge closure and acceptance harness.
+Medium/optional: Optional Host Surface, App Templates, and Scoreboard when no real model receipts exist.
 
-## Non-Goals Unless Receipts Exist
+## 8. What Is Already Strong
 
-Do not claim production readiness, release certification, security certification, target-host proof, Windows service/tray/installer proof, signed distribution proof, live model inference proof, model quality proof, QIRC server runtime implementation, full small-model performance proof, specific external app integration proof, app apply authority, app state mutation authority, external-send authority, or hidden agent/tool authority.
+The repo is strong in canon boundaries, claim-boundary language, actual-vs-historical ladder separation, local-first/candidate-only posture, proof governance registries, structural validators, shadow/runtime-source mapping, and broad subsystem documentation. These are useful foundations but do not prove target runtime completion.
+
+## 9. What Is Still Weak
+
+The weak areas are operational closure: end-to-end Context Capsule construction, slot compiler receipts, ModelWorkPacket enforcement across provider paths, measured small-model route evaluation, QIRC runtime coordination receipts, Final Gate closure across all candidate types, Thor/Handoff over bus receipts, specific SDK/app integration receipts, and external target-host proof where such claims are desired later.
+
+## 10. Next Operationalization PR Families
+
+1. Coverage/gap compiler for v7.1.1 target areas.
+2. QIRC/Semantic Bus envelope, batch, replay, and local-only hardening.
+3. Context Distillery, Artifact Lenses, and Semantic Pressure Valve.
+4. Worklet Graph, Slot Forge, and Gaptext compiler.
+5. ModelWorkPacket builder and validator.
+6. Model Scale Ladder and provider transport seams.
+7. 3B scout / 7B writer / hybrid scout-write-check-compose director.
+8. Minicheck, Critic Cascade, Candidate Tournament, style, taste, and anti-generic passes.
+9. Work Memory, Semantic Cache, Model Dojo, and Scoreboard.
+10. Candidate DNA, Response Packet, and Final Gate closure.
+11. Thor / Agent Handoff Compiler.
+12. SDK/API/App Bridge closure and acceptance harness.
+
+## 11. Non-Claims and External Receipt Boundaries
+
+Do not claim production readiness, release certification, security certification, target-host proof, Windows service/tray/installer proof, signed distribution proof, live model inference proof, model quality proof, QIRC server runtime implementation, measured small-model performance proof, specific external app integration proof, app apply authority, app state mutation authority, external-send authority, or hidden agent/tool authority without exact receipts.
