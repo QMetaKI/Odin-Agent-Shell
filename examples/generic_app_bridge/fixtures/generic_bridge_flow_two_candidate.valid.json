@@ -1,0 +1,53 @@
+{
+  "candidate_only": true,
+  "applied_truth": false,
+  "local_only": true,
+  "host_app_owns_apply": true,
+  "host_app_owns_state": true,
+  "host_app_owns_external_send": true,
+  "app_state_mutated": false,
+  "external_send": false,
+  "proof_gap_aware": true,
+  "proof_gaps": [
+    "production_readiness",
+    "live_model_inference",
+    "security_certification",
+    "hosted_bridge",
+    "public_gateway",
+    "specific_external_app_integration",
+    "signed_distribution"
+  ],
+  "artifact": {
+    "kind": "generic_bridge_flow_two_candidate",
+    "result": "Example candidate output for flow two. Proof gaps are visible. This is not applied truth. The host app reads proof gaps and decides whether to use this result.",
+    "status": "candidate",
+    "session_id": "example-session-generic-bridge-flow-two-001"
+  },
+  "claim_boundary": "generic_app_bridge_flow_two_candidate_artifact_candidate_only_not_applied_truth_proof_gap_aware",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_live_model_inference_proof",
+    "not_provider_execution_proof",
+    "not_app_apply_proof",
+    "not_external_send_authority_proof",
+    "not_host_state_mutation_proof",
+    "not_specific_external_app_integration_proof",
+    "not_signed_distribution_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "known_non_proofs": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "real_app_integration",
+    "applied_patch",
+    "model_quality",
+    "security_certification",
+    "hosted_bridge",
+    "public_gateway",
+    "specific_external_app_integration",
+    "signed_distribution"
+  ]
+}

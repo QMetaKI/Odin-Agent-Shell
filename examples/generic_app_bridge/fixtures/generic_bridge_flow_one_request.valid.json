@@ -1,0 +1,36 @@
+{
+  "candidate_only": true,
+  "local_only": true,
+  "external_send": false,
+  "host_app_owns_apply": true,
+  "host_app_owns_state": true,
+  "host_app_owns_external_send": true,
+  "applied_truth": false,
+  "work": {
+    "kind": "generic_bridge_flow_one",
+    "description": "Minimal candidate flow — load request fixture, construct Universal Work request, pass to local Odin path. Host app owns apply. This is not applied truth.",
+    "input": {
+      "text": "Example input for generic bridge flow one."
+    }
+  },
+  "claim_boundary": "generic_app_bridge_flow_one_candidate_only_no_apply_no_external_send",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_live_model_inference_proof",
+    "not_provider_execution_proof",
+    "not_app_apply_proof",
+    "not_external_send_authority_proof",
+    "not_host_state_mutation_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "known_non_proofs": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "real_app_integration",
+    "applied_patch",
+    "model_quality"
+  ]
+}
