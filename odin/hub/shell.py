@@ -2608,3 +2608,244 @@ def build_portable_package_proof_packet() -> dict[str, Any]:
         "proof_boundaries": PORTABLE_PACKAGE_PROOF_BOUNDARIES,
         "claim_boundary": PORTABLE_PACKAGE_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-16 — Windows Convenience Layer
+# ---------------------------------------------------------------------------
+
+WINDOWS_CONVENIENCE_CLAIM_BOUNDARY = (
+    "windows_convenience_candidate_only_not_full_windows_app_not_service_not_tray_not_installer_not_signed"
+)
+
+WINDOWS_CONVENIENCE_PROOF_BOUNDARIES = [
+    "not_windows_service_proof",
+    "not_tray_proof",
+    "not_installer_proof",
+    "not_signed_installer_proof",
+    "not_full_windows_app_proof",
+    "not_target_host_proof",
+    "not_microsoft_store_readiness",
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_public_network_api_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+]
+
+WINDOWS_CONVENIENCE_NOT_PROVEN = [
+    "windows_service",
+    "windows_tray",
+    "windows_installer",
+    "signed_distribution",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "full_windows_app",
+    "production_readiness",
+    "security_certification",
+    "public_network_api",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+]
+
+_WCL_REQUIRED_FILES = [
+    "docs/WINDOWS_CONVENIENCE_LAYER_V1.md",
+    "tests/test_lrh_pr_16_windows_convenience_layer.py",
+    "scripts/start_odin.bat",
+    "scripts/check_odin.bat",
+    "scripts/stop_odin.bat",
+    "windows/README.md",
+    "windows/helper_manifest_v1.json",
+]
+
+_WCL_REQUIRED_DOC_PHRASES = [
+    "windows convenience layer",
+    "manual start",
+    "manual check",
+    "manual stop",
+    "candidate-only",
+    "local-only",
+    "not a full windows app",
+    "not windows service proof",
+    "not tray proof",
+    "not signed installer proof",
+    "not installer proof",
+    "not target-host proof",
+    "not microsoft store readiness",
+    "not production readiness",
+    "not security certification",
+    "no app apply",
+    "no external send",
+    "no live model inference",
+    "no model quality proof",
+    "service/tray/signing/installer remains a proof gap",
+]
+
+_WCL_FORBIDDEN_DOC_CLAIMS = [
+    "is fully proven",
+    "complete proof of",
+    "this is a full windows app",
+    "windows service is proven",
+    "tray is proven",
+    "installer is proven",
+    "signed distribution is proven",
+    "microsoft store ready",
+    "is production-ready",
+    "is security certified",
+]
+
+_WCL_FORBIDDEN_SCRIPT_PATTERNS = [
+    "sc create",
+    "sc.exe create",
+    "sc start",
+    "sc stop",
+    "schtasks",
+    "reg add",
+    "reg delete",
+    "start-process -verb runas",
+    "new-service",
+    "set-service",
+    "installutil",
+    "signtool",
+    "makeappx",
+    "winget",
+    "msix",
+    "--host 0.0.0.0",
+    "0.0.0.0",
+    "external_send",
+    "applycandidate",
+    "runprovider",
+    "callmodel",
+]
+
+_WCL_REQUIRED_MANIFEST_NOT_PROVEN = [
+    "windows_service",
+    "windows_tray",
+    "windows_installer",
+    "signed_distribution",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "production_readiness",
+    "security_certification",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+]
+
+
+def validate_windows_convenience_layer() -> list[str]:
+    """Deterministic static validator for Windows Convenience Layer (LRH-PR-16).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required file existence
+    for rel in _WCL_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"windows convenience layer required file missing: {rel}")
+
+    # Batch script shape and forbidden-pattern checks
+    for bat_rel in ("scripts/start_odin.bat", "scripts/check_odin.bat", "scripts/stop_odin.bat"):
+        bat = _ROOT / bat_rel
+        if bat.exists():
+            text = bat.read_text(encoding="utf-8", errors="ignore")
+            text_lower = text.lower()
+            if "@echo off" not in text_lower:
+                errors.append(f"{bat_rel}: missing @echo off")
+            if "python" not in text_lower:
+                errors.append(f"{bat_rel}: missing python invocation")
+            if "odin.cli" not in text_lower:
+                errors.append(f"{bat_rel}: missing odin.cli invocation")
+            for pattern in _WCL_FORBIDDEN_SCRIPT_PATTERNS:
+                if pattern.lower() in text_lower:
+                    errors.append(f"{bat_rel}: forbidden pattern found: {pattern!r}")
+
+    # Documentation phrase checks
+    doc = _ROOT / "docs" / "WINDOWS_CONVENIENCE_LAYER_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _WCL_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(
+                    f"WINDOWS_CONVENIENCE_LAYER_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _WCL_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in doc_text:
+                errors.append(
+                    f"WINDOWS_CONVENIENCE_LAYER_V1.md: forbidden overclaim phrase found: {claim!r}"
+                )
+
+    # Helper manifest shape check
+    manifest = _ROOT / "windows" / "helper_manifest_v1.json"
+    if manifest.exists():
+        try:
+            m = json.loads(manifest.read_text(encoding="utf-8"))
+            if m.get("artifact_kind") != "odin_windows_convenience_helper_manifest":
+                errors.append("helper_manifest_v1.json: wrong artifact_kind")
+            if m.get("lrh_pr") != "LRH-PR-16":
+                errors.append("helper_manifest_v1.json: wrong lrh_pr")
+            if m.get("candidate_only") is not True:
+                errors.append("helper_manifest_v1.json: candidate_only must be true")
+            if m.get("local_only") is not True:
+                errors.append("helper_manifest_v1.json: local_only must be true")
+            if m.get("windows_convenience_only") is not True:
+                errors.append("helper_manifest_v1.json: windows_convenience_only must be true")
+            not_proven = m.get("not_proven", [])
+            for entry in _WCL_REQUIRED_MANIFEST_NOT_PROVEN:
+                if entry not in not_proven:
+                    errors.append(f"helper_manifest_v1.json: not_proven missing {entry!r}")
+        except Exception as exc:
+            errors.append(f"helper_manifest_v1.json: parse error: {exc}")
+
+    return errors
+
+
+def build_windows_convenience_layer_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for Windows Convenience Layer (LRH-PR-16)."""
+    wcl_errors = validate_windows_convenience_layer()
+    all_ok = not bool(wcl_errors)
+
+    return {
+        "artifact_kind": "odin_windows_convenience_layer_proof_packet",
+        "lrh_pr": "LRH-PR-16",
+        "status": "ok" if all_ok else "partial",
+        "candidate_only": True,
+        "local_only": True,
+        "windows_convenience_only": True,
+        "manual_start_documented": True,
+        "manual_check_documented": True,
+        "manual_stop_documented": True,
+        "shortcut_notes_documented": True,
+        "service_tray_signing_installer_gaps_retained": True,
+        "validation_errors": wcl_errors,
+        "proven": [
+            "windows_convenience_doc_exists",
+            "bat_scripts_exist",
+            "bat_scripts_shape_valid",
+            "bat_scripts_no_forbidden_commands",
+            "doc_required_phrases_present",
+            "doc_no_overclaim",
+            "helper_manifest_valid",
+            "not_full_windows_app",
+            "not_windows_service_proof",
+            "not_tray_proof",
+            "not_installer_proof",
+            "not_signed_installer_proof",
+            "not_target_host_proof",
+            "not_microsoft_store_readiness",
+            "not_production_readiness",
+            "not_security_certification",
+            "no_app_apply",
+            "no_external_send",
+        ] if all_ok else [],
+        "not_proven": WINDOWS_CONVENIENCE_NOT_PROVEN,
+        "proof_boundaries": WINDOWS_CONVENIENCE_PROOF_BOUNDARIES,
+        "claim_boundary": WINDOWS_CONVENIENCE_CLAIM_BOUNDARY,
+    }

@@ -1,5 +1,23 @@
 @echo off
-REM Check the portable local Odin runtime health (Windows)
+REM ============================================================
+REM  Odin Windows convenience helper — manual local check
+REM  Candidate-only. Local-only. Windows convenience layer.
+REM ============================================================
+REM  NOT a service. NOT a tray app. NOT a signed installer.
+REM  NOT target-host proof. NOT production readiness.
+REM  Checks localhost only by default.
+REM  App owns apply/state/external-send.
+REM ============================================================
+REM  Usage: Run from repo root, or double-click from repo root.
+REM  Shortcut target: scripts\check_odin.bat
+REM  Shortcut working directory: <repo root>
+REM ============================================================
+
 if "%ODIN_HOST%"=="" set ODIN_HOST=127.0.0.1
 if "%ODIN_PORT%"=="" set ODIN_PORT=8877
+
 python -m odin.cli check --portable --host %ODIN_HOST% --port %ODIN_PORT% %*
+if %errorlevel% neq 0 (
+    echo ERROR: Odin check returned errorlevel %errorlevel%
+    exit /b %errorlevel%
+)
