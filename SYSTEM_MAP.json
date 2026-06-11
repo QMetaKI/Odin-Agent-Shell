@@ -482,6 +482,8 @@
     "status": "audit_artifact_local_repo_analysis_not_runtime_or_release_proof",
     "tests": "tests/test_lrh_pr_18_full_system_audit_artifact.py"
   },
+  "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+  "pr_26_v7_1_1_canon_boundary_integrity_return_report": "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
   "python_package": "odin",
   "real_gh_pr_03_provider_worker_boundary": {
     "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
@@ -864,7 +866,17 @@
     "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "registry": "registries/codex_real_pr_handoff_registry.json"
   },
+  "v7_1_1_canon_boundary_integrity_report": "reports/v7_1_1_canon_boundary_integrity_report.json",
+  "v7_1_1_canon_boundary_integrity_report_schema": "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
+  "v7_1_1_canon_boundary_integrity_tests": "tests/test_v7_1_1_canon_boundary_integrity.py",
+  "v7_1_1_canon_boundary_integrity_tool": "tools/v7_1_1/check_canon_boundary_integrity.py",
+  "v7_1_1_claim_boundary_registry": "registries/v7_1_1_claim_boundary_registry.json",
+  "v7_1_1_forbidden_claim_registry": "registries/v7_1_1_forbidden_claim_registry.json",
   "v7_1_1_master_architecture_return_report": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
+  "v7_1_1_operational_coverage_gap_compiler": "tools/v7_1_1/build_operational_coverage_gap_report.py",
+  "v7_1_1_operational_coverage_gap_compiler_tests": "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
+  "v7_1_1_operational_coverage_gap_report": "reports/v7_1_1_operational_coverage_gap_report.json",
+  "v7_1_1_operational_coverage_gap_report_schema": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
   "v7_1_1_operational_target_registry": "registries/v7_1_1_operational_target_registry.json",
   "v7_1_1_operational_target_synthesis": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
   "v7_1_1_road_to_100_build_ladder": "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
@@ -884,10 +896,5 @@
     "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
     "status": "target_canon_not_runtime_completion"
   },
-  "version": "0.8.7",
-  "v7_1_1_operational_coverage_gap_compiler": "tools/v7_1_1/build_operational_coverage_gap_report.py",
-  "v7_1_1_operational_coverage_gap_report_schema": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
-  "v7_1_1_operational_coverage_gap_report": "reports/v7_1_1_operational_coverage_gap_report.json",
-  "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
-  "v7_1_1_operational_coverage_gap_compiler_tests": "tests/test_v7_1_1_operational_coverage_gap_compiler.py"
+  "version": "0.8.7"
 }

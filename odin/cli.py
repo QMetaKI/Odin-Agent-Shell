@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+import importlib.util
 
 from odin.runtime.engine import run_universal_work_file
 from odin.seeds.compiler import compile_seed_pack
@@ -159,8 +160,18 @@ def validate_claims() -> list[str]:
         "MASTER_ARCHITECTURE_V7_1.md",
     }
     this_file = Path(__file__).resolve()
+    allowed_special = {
+        "registries/v7_1_1_claim_boundary_registry.json",
+        "registries/v7_1_1_forbidden_claim_registry.json",
+        "reports/v7_1_1_canon_boundary_integrity_report.json",
+        "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
+        "tools/v7_1_1/check_canon_boundary_integrity.py",
+        "tests/test_v7_1_1_canon_boundary_integrity.py",
+        "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
+    }
     for path in sorted(ROOT.rglob("*")):
-        if path.resolve() == this_file:
+        rel = path.relative_to(ROOT).as_posix() if path.exists() else ""
+        if path.resolve() == this_file or rel in allowed_special:
             continue
         if path.is_dir() or ".git" in path.parts or ".thor" in path.parts:
             continue
@@ -2255,6 +2266,28 @@ def run_sdk_bridge_proof(host: str = "127.0.0.1", port: int = 8877) -> dict:
     }
 
 
+def validate_canon_boundary_integrity() -> list[str]:
+    errors = []
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_canon_boundary_integrity.py"
+    if not tool_path.exists():
+        return ["canon boundary integrity tool missing"]
+    spec = importlib.util.spec_from_file_location("odin_v7_1_1_canon_boundary_integrity", tool_path)
+    if spec is None or spec.loader is None:
+        return ["canon boundary integrity tool import failed"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    report = module.build_report(ROOT, "2026-01-01T00:00:00Z")
+    for violation in report.get("hard_violations", []):
+        errors.append(
+            "canon boundary integrity hard violation: "
+            f"{violation.get('file_path')}:{violation.get('line_number')} "
+            f"{violation.get('phrase')} ({violation.get('context_type')})"
+        )
+    if report.get("report_id") != "odin.v7_1_1_canon_boundary_integrity_report":
+        errors.append("canon boundary integrity report_id mismatch")
+    return errors
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2299,6 +2332,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_windows_convenience_layer())
     errors.extend(validate_full_acceptance())
     errors.extend(validate_consolidated_proof_governance())
+    errors.extend(validate_canon_boundary_integrity())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2308,6 +2342,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-registries")
     sub.add_parser("validate-system-map")
     sub.add_parser("validate-claims")
+    sub.add_parser("validate-canon-boundary-integrity")
     sub.add_parser("validate-current-public-canon")
     sub.add_parser("validate-docs")
     sub.add_parser("validate-codex-tasks")
@@ -2896,6 +2931,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_claims()
     elif args.cmd == "validate-current-public-canon":
         errors = validate_current_public_canon()
+    elif args.cmd == "validate-canon-boundary-integrity":
+        errors = validate_canon_boundary_integrity()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odin.local/schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
+  "title": "Odin v7.1.1 Canon Boundary Integrity Report",
+  "type": "object",
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "generated_at_utc",
+    "claim_boundary",
+    "source_refs",
+    "ignored_path_families",
+    "scan_scope",
+    "summary",
+    "required_non_claims",
+    "claim_boundary_checks",
+    "forbidden_claim_findings",
+    "external_receipt_required_findings",
+    "allowed_context_findings",
+    "pattern_definition_findings",
+    "test_fixture_findings",
+    "missing_boundary_findings",
+    "hard_violations",
+    "recommendations",
+    "non_claims",
+    "senior_reviewer_notes",
+    "senior_code_reviewer_notes"
+  ],
+  "properties": {
+    "report_id": {"const": "odin.v7_1_1_canon_boundary_integrity_report"},
+    "version": {"const": "7.1.1"},
+    "status": {"const": "local_claim_boundary_integrity_report_not_runtime_proof"},
+    "generated_at_utc": {"type": "string"},
+    "claim_boundary": {
+      "type": "string",
+      "pattern": "static_local_claim_scan|not_claim_truth"
+    },
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "ignored_path_families": {"type": "array", "items": {"type": "string"}},
+    "scan_scope": {"type": "array", "items": {"type": "string"}},
+    "summary": {
+      "type": "object",
+      "required": ["hard_violation_count"],
+      "properties": {
+        "files_scanned": {"type": "integer", "minimum": 0},
+        "forbidden_phrase_occurrences": {"type": "integer", "minimum": 0},
+        "hard_violation_count": {"type": "integer", "minimum": 0},
+        "required_non_claim_count": {"type": "integer", "minimum": 0},
+        "claim_boundary_count": {"type": "integer", "minimum": 0},
+        "scanner_mode": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "required_non_claims": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "claim_boundary_checks": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "forbidden_claim_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "external_receipt_required_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "allowed_context_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "pattern_definition_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "test_fixture_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "missing_boundary_findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "hard_violations": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "recommendations": {"type": "array", "items": {"type": "string"}},
+    "non_claims": {"type": "array", "items": {"type": "string"}},
+    "senior_reviewer_notes": {"type": "array", "items": {"type": "string"}},
+    "senior_code_reviewer_notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": ["file_path", "line_number", "phrase", "context_type", "severity", "excerpt"],
+      "properties": {
+        "file_path": {"type": "string"},
+        "line_number": {"type": "integer", "minimum": 0},
+        "phrase": {"type": "string"},
+        "context_type": {
+          "enum": [
+            "allowed_static_claim",
+            "required_non_claim_present",
+            "missing_required_non_claim",
+            "forbidden_positive_claim",
+            "allowed_forbidden_context",
+            "external_receipt_required_claim",
+            "pattern_definition_context",
+            "test_fixture_context",
+            "claim_boundary_present",
+            "claim_boundary_missing",
+            "ignored_path_context",
+            "ignored_path_context_used_as_evidence"
+          ]
+        },
+        "severity": {"enum": ["info", "hard_violation"]},
+        "excerpt": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}
