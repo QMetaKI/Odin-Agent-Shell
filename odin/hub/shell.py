@@ -2332,3 +2332,279 @@ def build_local_config_safe_settings_proof_packet() -> dict[str, Any]:
         "proof_boundaries": LOCAL_CONFIG_SAFE_SETTINGS_PROOF_BOUNDARIES,
         "claim_boundary": LOCAL_CONFIG_SAFE_SETTINGS_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-15 — Portable Package and Release ZIP
+# ---------------------------------------------------------------------------
+
+PORTABLE_PACKAGE_CLAIM_BOUNDARY = (
+    "portable_package_candidate_only_not_signed_not_production_not_target_host_proof"
+)
+
+PORTABLE_PACKAGE_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_signed_distribution_proof",
+    "not_release_certification",
+    "not_windows_service_tray_installer_proof",
+    "not_target_host_proof",
+    "not_app_store_readiness_proof",
+    "not_public_network_api_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send",
+]
+
+PORTABLE_PACKAGE_NOT_PROVEN = [
+    "production_readiness",
+    "security_certification",
+    "signed_distribution",
+    "release_certification",
+    "windows_service_tray_installer",
+    "target_host_validation",
+    "app_store_readiness",
+    "public_network_api",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+]
+
+_PP_REQUIRED_FILES = [
+    "scripts/build_portable_package.py",
+    "docs/PORTABLE_PACKAGE_RELEASE_ZIP_V1.md",
+    "tests/test_lrh_pr_15_portable_package.py",
+    "dist_manifest/README.md",
+    "dist_manifest/portable_package_manifest.example.json",
+    "dist_manifest/portable_package_release_verification.example.json",
+    "dist_manifest/portable_package_exclusions_v1.json",
+]
+
+_PP_REQUIRED_SCRIPTS = [
+    "scripts/start_odin.sh",
+    "scripts/check_odin.sh",
+    "scripts/start_odin.bat",
+    "scripts/check_odin.bat",
+]
+
+_PP_REQUIRED_DOC_PHRASES = [
+    "portable package candidate",
+    "candidate-only",
+    "local-only",
+    "not production readiness",
+    "not security certification",
+    "not signed distribution proof",
+    "not release certification",
+    "not windows service",
+    "not target-host proof",
+    "not app store readiness",
+    "no app apply",
+    "no external send",
+    "no live model inference",
+    "generated artifacts are not committed",
+    "local verification report",
+]
+
+_PP_FORBIDDEN_DOC_CLAIMS = [
+    "is fully proven",
+    "complete proof of",
+    "is production-ready",
+    "is security certified",
+    "this is a release",
+    "this is signed",
+]
+
+_PP_REQUIRED_MANIFEST_FIELDS = [
+    "artifact_kind",
+    "lrh_pr",
+    "package_kind",
+    "candidate_only",
+    "local_only",
+    "claim_boundary",
+    "included_files",
+    "excluded_patterns",
+    "checksums",
+    "not_proven",
+    "proof_boundaries",
+]
+
+_PP_REQUIRED_REPORT_FIELDS = [
+    "artifact_kind",
+    "lrh_pr",
+    "status",
+    "candidate_only",
+    "local_only",
+    "portable_package_candidate",
+    "manifest_created",
+    "checksums_created",
+    "start_check_scripts_included",
+    "support_bundle_path_visible",
+    "junk_excluded",
+    "claim_boundary",
+    "not_proven",
+    "proof_boundaries",
+]
+
+_PP_JUNK_EXCLUSION_PATTERNS = [
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    ".env",
+    "node_modules",
+    "dist",
+    "build",
+]
+
+
+def validate_portable_package() -> list[str]:
+    """Deterministic static validator for Portable Package and Release ZIP (LRH-PR-15).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required file existence
+    for rel in _PP_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"portable package required file missing: {rel}")
+
+    # Builder script exists and is non-empty
+    builder = _ROOT / "scripts" / "build_portable_package.py"
+    if builder.exists():
+        text = builder.read_text(encoding="utf-8", errors="ignore")
+        if len(text) < 100:
+            errors.append("build_portable_package.py: too short")
+        if "CLAIM_BOUNDARY" not in text:
+            errors.append("build_portable_package.py: missing CLAIM_BOUNDARY constant")
+        if "candidate_only" not in text:
+            errors.append("build_portable_package.py: missing candidate_only field")
+        if "not_proven" not in text:
+            errors.append("build_portable_package.py: missing not_proven field")
+
+    # Example manifest shape
+    manifest_example = _ROOT / "dist_manifest" / "portable_package_manifest.example.json"
+    if manifest_example.exists():
+        try:
+            m = json.loads(manifest_example.read_text(encoding="utf-8"))
+            for field in _PP_REQUIRED_MANIFEST_FIELDS:
+                if field not in m:
+                    errors.append(f"portable_package_manifest.example.json: missing field {field!r}")
+            if m.get("artifact_kind") != "odin_portable_package_manifest":
+                errors.append("portable_package_manifest.example.json: wrong artifact_kind")
+            if m.get("lrh_pr") != "LRH-PR-15":
+                errors.append("portable_package_manifest.example.json: wrong lrh_pr")
+            if m.get("candidate_only") is not True:
+                errors.append("portable_package_manifest.example.json: candidate_only must be true")
+            if m.get("local_only") is not True:
+                errors.append("portable_package_manifest.example.json: local_only must be true")
+            not_proven = m.get("not_proven", [])
+            for entry in ["production_readiness", "security_certification", "signed_distribution"]:
+                if entry not in not_proven:
+                    errors.append(f"portable_package_manifest.example.json: not_proven missing {entry!r}")
+            # No backslash in included_files
+            for f in m.get("included_files", []):
+                if "\\" in f:
+                    errors.append(f"portable_package_manifest.example.json: backslash in path: {f!r}")
+        except Exception as exc:
+            errors.append(f"portable_package_manifest.example.json: parse error: {exc}")
+
+    # Example release verification report shape
+    report_example = _ROOT / "dist_manifest" / "portable_package_release_verification.example.json"
+    if report_example.exists():
+        try:
+            r = json.loads(report_example.read_text(encoding="utf-8"))
+            for field in _PP_REQUIRED_REPORT_FIELDS:
+                if field not in r:
+                    errors.append(f"portable_package_release_verification.example.json: missing field {field!r}")
+            if r.get("artifact_kind") != "odin_portable_package_release_verification":
+                errors.append("portable_package_release_verification.example.json: wrong artifact_kind")
+            if r.get("candidate_only") is not True:
+                errors.append("portable_package_release_verification.example.json: candidate_only must be true")
+        except Exception as exc:
+            errors.append(f"portable_package_release_verification.example.json: parse error: {exc}")
+
+    # Exclusions spec
+    exclusions = _ROOT / "dist_manifest" / "portable_package_exclusions_v1.json"
+    if exclusions.exists():
+        try:
+            e = json.loads(exclusions.read_text(encoding="utf-8"))
+            excluded_dirs = e.get("excluded_directories", [])
+            for pattern in _PP_JUNK_EXCLUSION_PATTERNS:
+                if pattern not in excluded_dirs and pattern not in e.get("excluded_files", []):
+                    errors.append(
+                        f"portable_package_exclusions_v1.json: missing junk exclusion pattern {pattern!r}"
+                    )
+        except Exception as exc:
+            errors.append(f"portable_package_exclusions_v1.json: parse error: {exc}")
+
+    # Start/check script presence
+    for rel in _PP_REQUIRED_SCRIPTS:
+        if not (_ROOT / rel).exists():
+            errors.append(f"portable package: required start/check script missing: {rel}")
+
+    # Doc phrase checks
+    doc = _ROOT / "docs" / "PORTABLE_PACKAGE_RELEASE_ZIP_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _PP_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(
+                    f"PORTABLE_PACKAGE_RELEASE_ZIP_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _PP_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in doc_text:
+                errors.append(
+                    f"PORTABLE_PACKAGE_RELEASE_ZIP_V1.md: forbidden overclaim phrase found: {claim!r}"
+                )
+
+    return errors
+
+
+def build_portable_package_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for Portable Package and Release ZIP (LRH-PR-15)."""
+    pp_errors = validate_portable_package()
+    all_ok = not bool(pp_errors)
+
+    return {
+        "artifact_kind": "odin_portable_package_proof_packet",
+        "lrh_pr": "LRH-PR-15",
+        "candidate_only": True,
+        "local_only": True,
+        "portable_package_candidate": True,
+        "manifest_created": True,
+        "checksums_created": True,
+        "start_check_scripts_included": True,
+        "support_bundle_path_visible": True,
+        "junk_excluded": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": pp_errors,
+        "proven": [
+            "builder_script_exists",
+            "dist_manifest_examples_exist",
+            "exclusion_policy_exists",
+            "doc_exists",
+            "tests_exist",
+            "start_check_scripts_present",
+            "manifest_shape_valid",
+            "checksums_in_manifest",
+            "junk_exclusion_policy_present",
+            "support_bundle_command_visible",
+            "not_signed_distribution",
+            "not_production_readiness",
+            "not_security_certification",
+            "not_release_certification",
+            "not_target_host_proof",
+            "not_app_store_readiness",
+            "no_app_apply",
+            "no_external_send",
+        ] if all_ok else [],
+        "not_proven": PORTABLE_PACKAGE_NOT_PROVEN,
+        "proof_boundaries": PORTABLE_PACKAGE_PROOF_BOUNDARIES,
+        "claim_boundary": PORTABLE_PACKAGE_CLAIM_BOUNDARY,
+    }

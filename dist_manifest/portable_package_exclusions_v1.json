@@ -1,0 +1,68 @@
+{
+  "artifact_kind": "odin_portable_package_exclusions",
+  "version": "1",
+  "lrh_pr": "LRH-PR-15",
+  "claim_boundary": "exclusion_policy_spec_not_runtime_enforcement_proof",
+  "candidate_only": true,
+  "local_only": true,
+  "excluded_directories": [
+    ".git",
+    ".pytest_cache",
+    "__pycache__",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".cache",
+    "node_modules",
+    ".venv",
+    "venv",
+    "dist",
+    "build"
+  ],
+  "excluded_files": [
+    ".env",
+    ".DS_Store",
+    "Thumbs.db",
+    ".env.local",
+    ".env.production",
+    ".env.staging",
+    ".env.development"
+  ],
+  "excluded_extensions": [
+    ".pyc",
+    ".pyo",
+    ".egg-info"
+  ],
+  "excluded_hidden_dirs": [
+    ".venv",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".pytest_cache",
+    ".cache"
+  ],
+  "rationale": [
+    ".git: version control metadata, not for distribution",
+    "__pycache__: Python bytecode cache, generated artifact",
+    ".pytest_cache: test runner cache, generated artifact",
+    ".mypy_cache: type checker cache, generated artifact",
+    ".ruff_cache: linter cache, generated artifact",
+    ".cache: generic cache directory",
+    "node_modules: npm dependencies, not for Python package",
+    ".venv/venv: local virtual environment, not for distribution",
+    "dist/build: build output directories",
+    ".env*: local environment files that may contain secrets",
+    ".DS_Store/Thumbs.db: OS metadata files",
+    ".pyc/.pyo: compiled Python bytecode, generated",
+    ".egg-info: Python package metadata, generated"
+  ],
+  "safe_placeholder_fixtures_policy": "Do not exclude example fixture files solely because they contain placeholder names. Fixtures are static spec artifacts.",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "secret_leakage_prevention_guarantee"
+  ],
+  "proof_boundaries": [
+    "exclusion_policy_is_candidate_only",
+    "not_security_certification",
+    "not_production_readiness_proof"
+  ]
+}

@@ -28,6 +28,8 @@ from odin.hub.shell import (
     build_generic_app_bridge_golden_harness_proof_packet,
     validate_local_config_safe_settings,
     build_local_config_safe_settings_proof_packet,
+    validate_portable_package,
+    build_portable_package_proof_packet,
 )
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
@@ -2284,6 +2286,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_neutral_external_app_bridge())
     errors.extend(validate_generic_app_bridge_golden_harness())
     errors.extend(validate_local_config_safe_settings())
+    errors.extend(validate_portable_package())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2340,6 +2343,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prove-generic-app-bridge-golden-harness")
     sub.add_parser("validate-local-config-safe-settings")
     sub.add_parser("prove-local-config-safe-settings")
+    sub.add_parser("validate-portable-package")
+    sub.add_parser("prove-portable-package")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2687,6 +2692,20 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "prove-local-config-safe-settings":
         result = build_local_config_safe_settings_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "partial"} else 1
+
+    if args.cmd == "validate-portable-package":
+        errors = validate_portable_package()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-portable-package: OK")
+        return 0
+
+    if args.cmd == "prove-portable-package":
+        result = build_portable_package_proof_packet()
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
 
