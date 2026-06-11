@@ -1,0 +1,32 @@
+{
+  "localhost_only": true,
+  "bind_host": "127.0.0.1",
+  "public_network_enabled": false,
+  "external_send_enabled": false,
+  "app_apply_enabled": false,
+  "provider_credentials_enabled": false,
+  "raw_payload_reveal_enabled": false,
+  "redaction_enabled": true,
+  "log_secrets": false,
+  "providers": {
+    "enabled_by_default": false
+  },
+  "candidate_only": true,
+  "claim_boundary": "local_config_safe_settings_candidate_only_no_app_apply_no_external_send_no_credentials_no_wan_lan_default",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_redaction_safety_certification",
+    "not_provider_credential_storage_proof",
+    "not_public_network_api_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_raw_payload_reveal_proof",
+    "settings_visibility_only",
+    "redaction_status_not_security_certification",
+    "provider_settings_disabled_by_default"
+  ]
+}

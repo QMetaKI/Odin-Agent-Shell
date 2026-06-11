@@ -14,6 +14,12 @@ SECRET_KEY_MARKERS: frozenset[str] = frozenset({
     "refresh_token",
     "access_token",
     "credential",
+    # LRH-PR-14: additional sensitive key patterns
+    "auth",
+    "private",
+    "sensitive",
+    "raw_payload",
+    "payload_raw",
 })
 
 REDACTED_PLACEHOLDER = "[REDACTED]"

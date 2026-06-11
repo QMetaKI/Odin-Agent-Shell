@@ -331,3 +331,25 @@ footer {
   color: var(--muted);
   font-style: italic;
 }
+
+/* LRH-PR-14: Local Config Safe Settings */
+.lcss-config-status { margin: 0.5rem 0; }
+.lcss-status-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.2rem 0; }
+.lcss-status-icon { font-size: 1rem; }
+.lcss-status-label { font-weight: 500; min-width: 16rem; }
+.lcss-status-value { color: var(--muted); font-family: monospace; }
+.lcss-block-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0.5rem 0; }
+.lcss-block-table th { background: var(--bg-raised); padding: 0.3rem 0.5rem; text-align: left; border: 1px solid var(--border); }
+.lcss-block-table td { padding: 0.3rem 0.5rem; border: 1px solid var(--border); vertical-align: top; }
+.lcss-field { font-family: monospace; color: var(--muted); }
+.lcss-blocked { font-family: monospace; color: var(--error); }
+.lcss-reason { color: var(--muted); font-style: italic; }
+.lcss-redaction-status { margin: 0.5rem 0; }
+.lcss-redaction-marker-info { margin: 0.5rem 0; font-size: 0.875rem; }
+.lcss-label { color: var(--muted); }
+.lcss-provider-disabled { margin: 0.5rem 0; }
+.lcss-boundary-list { margin: 0.5rem 0 0.5rem 1.5rem; }
+.lcss-proof-boundaries { margin: 0.5rem 0; }
+.lcss-non-proof-list { margin: 0.5rem 0 0.5rem 1.5rem; color: var(--muted); }
+.status-ok .lcss-status-icon { color: var(--ok); }
+.status-blocked .lcss-status-icon { color: var(--error); }

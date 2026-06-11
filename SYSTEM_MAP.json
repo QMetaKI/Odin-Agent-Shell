@@ -742,7 +742,10 @@
   "lrh_pr_04_runtime_doctor_bootstrap": {
     "claim_boundary": "doctor_bootstrap_repair_bundle_candidate_only_no_app_apply_no_external_send_not_production_proof",
     "doc": "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md",
-    "modules": ["odin/doctor/", "odin/bootstrap/"],
+    "modules": [
+      "odin/doctor/",
+      "odin/bootstrap/"
+    ],
     "examples": [
       "examples/doctor/doctor_success.valid.json",
       "examples/doctor/doctor_failure.valid.json",
@@ -754,5 +757,36 @@
     "return_report": "docs/codex/reports/LRH-PR-04_RETURN_REPORT.md",
     "status": "candidate_specification_not_runtime_verified"
   },
-  "version": "0.8.7"
+  "version": "0.8.7",
+  "lrh_pr_14_local_config_safe_settings": {
+    "claim_boundary": "local_config_safe_settings_candidate_only_local_only_settings_visibility_only_no_app_apply_no_external_send_no_credentials_no_wan_lan_default",
+    "doc": "docs/LOCAL_CONFIG_SAFE_SETTINGS_V1.md",
+    "modules": [
+      "odin/hub/",
+      "odin/doctor/redaction.py"
+    ],
+    "schemas": [
+      "schemas/v7_1/odin_local_config.schema.json"
+    ],
+    "examples": [
+      "examples/local_config/safe_local_config.valid.json",
+      "examples/local_config/unsafe_network_config.invalid.json",
+      "examples/local_config/unsafe_provider_enabled.invalid.json",
+      "examples/local_config/unsafe_raw_payload_reveal.invalid.json",
+      "examples/local_config/unsafe_redaction_disabled.invalid.json",
+      "examples/local_config/redaction_fixture.valid.json",
+      "examples/local_config/redaction_expected.valid.json"
+    ],
+    "hub_surfaces": [
+      "local-config-safe-settings-panel",
+      "lcss-config-status-content",
+      "lcss-unsafe-block-list-content",
+      "lcss-redaction-status-content",
+      "lcss-provider-disabled-content",
+      "lcss-proof-boundaries-content"
+    ],
+    "tests": "tests/test_lrh_pr_14_local_config_safe_settings.py",
+    "return_report": "docs/codex/reports/LRH-PR-14_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified"
+  }
 }

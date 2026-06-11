@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin_local_config.schema.json",
+  "title": "Odin Local Config",
+  "description": "Safe local configuration schema for Odin Local Runtime Hub. Settings visibility only. Not a security certification. Not a production readiness certification.",
+  "type": "object",
+  "required": [
+    "localhost_only",
+    "bind_host",
+    "public_network_enabled",
+    "external_send_enabled",
+    "app_apply_enabled",
+    "provider_credentials_enabled",
+    "raw_payload_reveal_enabled",
+    "redaction_enabled",
+    "providers",
+    "candidate_only",
+    "claim_boundary"
+  ],
+  "properties": {
+    "localhost_only": {
+      "type": "boolean",
+      "description": "Must be true. Odin local config is localhost-only by default.",
+      "enum": [true]
+    },
+    "bind_host": {
+      "type": "string",
+      "description": "Allowed bind hosts: 127.0.0.1 or localhost only.",
+      "enum": ["127.0.0.1", "localhost", "::1"]
+    },
+    "public_network_enabled": {
+      "type": "boolean",
+      "description": "Must be false. Public network is not Odin authority.",
+      "enum": [false]
+    },
+    "external_send_enabled": {
+      "type": "boolean",
+      "description": "Must be false. External send is not Odin authority.",
+      "enum": [false]
+    },
+    "app_apply_enabled": {
+      "type": "boolean",
+      "description": "Must be false. App apply is host-owned, not Odin authority.",
+      "enum": [false]
+    },
+    "provider_credentials_enabled": {
+      "type": "boolean",
+      "description": "Must be false. Provider credentials must not be enabled by default.",
+      "enum": [false]
+    },
+    "raw_payload_reveal_enabled": {
+      "type": "boolean",
+      "description": "Must be false. Raw payload reveal is not allowed in safe config.",
+      "enum": [false]
+    },
+    "redaction_enabled": {
+      "type": "boolean",
+      "description": "Must be true. Redaction must remain enabled.",
+      "enum": [true]
+    },
+    "log_secrets": {
+      "type": "boolean",
+      "description": "Must be false if present. Secrets must not appear in logs.",
+      "enum": [false]
+    },
+    "providers": {
+      "type": "object",
+      "required": ["enabled_by_default"],
+      "properties": {
+        "enabled_by_default": {
+          "type": "boolean",
+          "description": "Must be false. Providers are disabled by default. Explicit config required.",
+          "enum": [false]
+        }
+      },
+      "additionalProperties": false,
+      "description": "Provider settings. All providers disabled by default."
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "description": "Must be true. This config is a candidate artifact.",
+      "enum": [true]
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary identifier for this config artifact."
+    }
+  },
+  "additionalProperties": false,
+  "x_claim_boundary": "local_config_safe_settings_candidate_only_no_app_apply_no_external_send_no_credentials_no_wan_lan_default",
+  "x_not_proven": [
+    "production_readiness",
+    "security_certification",
+    "redaction_safety_certification",
+    "provider_credential_storage",
+    "public_network_api",
+    "app_apply_authority",
+    "external_send_authority",
+    "live_model_inference",
+    "model_quality",
+    "windows_service_tray_installer",
+    "signed_distribution"
+  ]
+}

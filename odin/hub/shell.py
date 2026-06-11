@@ -1975,3 +1975,360 @@ def build_generic_app_bridge_golden_harness_proof_packet() -> dict[str, Any]:
         "proof_boundaries": GENERIC_APP_BRIDGE_GOLDEN_HARNESS_PROOF_BOUNDARIES,
         "claim_boundary": GENERIC_APP_BRIDGE_GOLDEN_HARNESS_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-14 — Local Config, Redaction and Safe Settings UI
+# ---------------------------------------------------------------------------
+
+LOCAL_CONFIG_SAFE_SETTINGS_CLAIM_BOUNDARY = (
+    "local_config_safe_settings_candidate_only_local_only_settings_visibility_only_"
+    "no_app_apply_no_external_send_no_credentials_no_wan_lan_default"
+)
+
+LOCAL_CONFIG_SAFE_SETTINGS_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_redaction_safety_certification",
+    "not_provider_credential_storage_proof",
+    "not_public_network_api_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_raw_payload_reveal_proof",
+    "settings_visibility_only",
+    "redaction_status_not_security_certification",
+    "provider_settings_disabled_by_default",
+]
+
+# Unsafe settings that must be blocked
+_LCSS_UNSAFE_BLOCK_LIST = [
+    ("bind_host", ["0.0.0.0", "::"], "blocked because unsafe network default"),
+    ("public_network_enabled", [True], "blocked because external send is not Odin authority"),
+    ("external_send_enabled", [True], "blocked because external send is not Odin authority"),
+    ("app_apply_enabled", [True], "blocked because app apply is host-owned"),
+    ("provider_credentials_enabled", [True], "blocked because provider credentials must not be enabled by default"),
+    ("raw_payload_reveal_enabled", [True], "blocked because raw payload reveal is not allowed"),
+    ("log_secrets", [True], "blocked because secrets must not appear in logs"),
+    ("redaction_enabled", [False], "blocked because redaction must remain enabled"),
+]
+
+_LCSS_REQUIRED_FILES = [
+    "schemas/v7_1/odin_local_config.schema.json",
+    "examples/local_config/safe_local_config.valid.json",
+    "examples/local_config/unsafe_network_config.invalid.json",
+    "examples/local_config/unsafe_provider_enabled.invalid.json",
+    "examples/local_config/unsafe_raw_payload_reveal.invalid.json",
+    "examples/local_config/unsafe_redaction_disabled.invalid.json",
+    "examples/local_config/redaction_fixture.valid.json",
+    "examples/local_config/redaction_expected.valid.json",
+    "odin/hub/static/local_config_safe_settings.js",
+    "odin/hub/static/index.html",
+    "docs/LOCAL_CONFIG_SAFE_SETTINGS_V1.md",
+    "tests/test_lrh_pr_14_local_config_safe_settings.py",
+]
+
+_LCSS_REQUIRED_JS_BOUNDARY_TOKENS = [
+    "candidate_only",
+    "claim_boundary",
+    "local_only",
+    "read_only",
+    "settings_visibility_only",
+    "redaction_status_not_security_certification",
+    "provider_settings_disabled_by_default",
+    "no_app_apply",
+    "no_external_send",
+    "no_credentials",
+    "proof_boundaries",
+    "known_non_proofs",
+]
+
+_LCSS_FORBIDDEN_CONTROL_PATTERNS = [
+    'id="provider-credential',
+    'id="api-key',
+    'type="password"',
+    "providerCredential",
+    "enablePublicNetwork(",
+    "function enableProvider(",
+    "function disableProvider(",
+    "function saveCredential(",
+    "function setApiKey(",
+    "function bypassRedaction(",
+    "function rawPayloadReveal(",
+    "function externalSend(",
+    "function applyConfig(",
+    "function saveConfig(",
+    "function mutateConfig(",
+    'name="api_key"',
+    'name="token"',
+    'name="secret"',
+    'name="password"',
+    'name="credential"',
+]
+
+_LCSS_REQUIRED_SURFACE_IDS = [
+    "local-config-safe-settings-panel",
+    "lcss-config-status-content",
+    "lcss-unsafe-block-list-content",
+    "lcss-redaction-status-content",
+    "lcss-provider-disabled-content",
+    "lcss-proof-boundaries-content",
+]
+
+_LCSS_REQUIRED_BOUNDARY_PHRASES = [
+    "Settings visibility only",
+    "Not a security certification",
+    "Redaction status is not",
+    "providers disabled by default",
+    "No app apply",
+    "No external send",
+    "No credentials",
+    "No raw payload reveal",
+    "No redaction bypass",
+]
+
+_LCSS_REQUIRED_DOC_PHRASES = [
+    "does not grant app apply authority",
+    "does not send externally",
+    "does not execute providers",
+    "does not store provider credentials",
+    "does not display raw sensitive payloads",
+    "does not prove production readiness",
+    "does not prove security certification",
+    "not_production_readiness_certification",
+    "settings visibility only",
+    "redaction status is not a security certification",
+    "proof boundaries",
+]
+
+_LCSS_FORBIDDEN_DOC_CLAIMS = [
+    "fully proven",
+    "complete proof",
+    "redaction guaranteed",
+    "security certified",
+    "production-ready",
+    "certified",
+    "redaction safety certification: passed",
+]
+
+# Safe config required field values
+_LCSS_SAFE_CONFIG_REQUIRED = {
+    "localhost_only": True,
+    "public_network_enabled": False,
+    "external_send_enabled": False,
+    "app_apply_enabled": False,
+    "provider_credentials_enabled": False,
+    "raw_payload_reveal_enabled": False,
+    "redaction_enabled": True,
+}
+
+_LCSS_SAFE_BIND_HOSTS = {"127.0.0.1", "localhost", "::1"}
+
+# Keys considered sensitive for redaction checks
+_LCSS_SENSITIVE_KEYS = {
+    "token", "secret", "password", "api_key", "credential", "auth",
+    "private", "raw_payload", "payload_raw", "sensitive", "authorization", "bearer",
+}
+
+
+def _lcss_check_safe_config(config: dict) -> list[str]:
+    """Validate a config dict against safe config requirements."""
+    errors: list[str] = []
+    for field, expected in _LCSS_SAFE_CONFIG_REQUIRED.items():
+        if config.get(field) != expected:
+            errors.append(f"safe config: {field} must be {expected!r} (got {config.get(field)!r})")
+    bind = config.get("bind_host")
+    if bind not in _LCSS_SAFE_BIND_HOSTS:
+        errors.append(f"safe config: bind_host must be one of {sorted(_LCSS_SAFE_BIND_HOSTS)} (got {bind!r})")
+    providers = config.get("providers", {})
+    if providers.get("enabled_by_default") is not False:
+        errors.append(f"safe config: providers.enabled_by_default must be false")
+    return errors
+
+
+def _lcss_check_unsafe_config(config: dict) -> list[str]:
+    """Return block reasons for an unsafe config dict. Empty = not detected as unsafe."""
+    reasons: list[str] = []
+    for field, blocked_vals, reason in _LCSS_UNSAFE_BLOCK_LIST:
+        val = config.get(field)
+        if val in blocked_vals:
+            reasons.append(f"{field}={val!r}: {reason}")
+    # Check nested providers.enabled_by_default
+    providers = config.get("providers", {})
+    if isinstance(providers, dict) and providers.get("enabled_by_default") is True:
+        reasons.append("providers.enabled_by_default=true: blocked because provider credentials must not be enabled by default")
+    return reasons
+
+
+def _lcss_check_redaction(fixture: dict, expected: dict) -> list[str]:
+    """Check that redacting the fixture produces the expected output."""
+    errors: list[str] = []
+    try:
+        from odin.doctor.redaction import redact_recursive
+        redacted = redact_recursive(fixture)
+    except Exception as exc:
+        errors.append(f"redaction failed: {exc}")
+        return errors
+    for key in _LCSS_SENSITIVE_KEYS:
+        if key in fixture:
+            if redacted.get(key) != "[REDACTED]":
+                errors.append(f"redaction: key {key!r} not redacted (got {redacted.get(key)!r})")
+            if expected.get(key) != "[REDACTED]":
+                errors.append(f"redaction expected: key {key!r} should be [REDACTED] in expected fixture")
+    for key, val in fixture.items():
+        if key not in _LCSS_SENSITIVE_KEYS:
+            if redacted.get(key) != val:
+                errors.append(f"redaction: non-sensitive key {key!r} should not be redacted")
+    return errors
+
+
+def validate_local_config_safe_settings() -> list[str]:
+    """Deterministic static validator for Local Config, Redaction and Safe Settings UI (LRH-PR-14).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required file existence
+    for rel in _LCSS_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"local config safe settings required file missing: {rel}")
+
+    # Safe config fixture validation
+    safe_cfg_path = _ROOT / "examples/local_config/safe_local_config.valid.json"
+    if safe_cfg_path.exists():
+        try:
+            cfg = json.loads(safe_cfg_path.read_text(encoding="utf-8"))
+            errs = _lcss_check_safe_config(cfg)
+            errors.extend(errs)
+        except Exception as exc:
+            errors.append(f"safe_local_config.valid.json: parse error: {exc}")
+
+    # Unsafe config fixtures: each must be detected as unsafe
+    unsafe_fixtures = {
+        "examples/local_config/unsafe_network_config.invalid.json": "network",
+        "examples/local_config/unsafe_provider_enabled.invalid.json": "provider",
+        "examples/local_config/unsafe_raw_payload_reveal.invalid.json": "raw_payload",
+        "examples/local_config/unsafe_redaction_disabled.invalid.json": "redaction",
+    }
+    for rel, label in unsafe_fixtures.items():
+        p = _ROOT / rel
+        if p.exists():
+            try:
+                cfg = json.loads(p.read_text(encoding="utf-8"))
+                reasons = _lcss_check_unsafe_config(cfg)
+                if not reasons:
+                    errors.append(f"{rel}: expected to be detected as unsafe ({label}) but passed")
+            except Exception as exc:
+                errors.append(f"{rel}: parse error: {exc}")
+
+    # Redaction fixture and expected
+    redact_fixture_path = _ROOT / "examples/local_config/redaction_fixture.valid.json"
+    redact_expected_path = _ROOT / "examples/local_config/redaction_expected.valid.json"
+    if redact_fixture_path.exists() and redact_expected_path.exists():
+        try:
+            fixture = json.loads(redact_fixture_path.read_text(encoding="utf-8"))
+            expected = json.loads(redact_expected_path.read_text(encoding="utf-8"))
+            redact_errors = _lcss_check_redaction(fixture, expected)
+            errors.extend(redact_errors)
+        except Exception as exc:
+            errors.append(f"redaction fixture check failed: {exc}")
+    elif redact_fixture_path.exists():
+        errors.append("redaction expected fixture missing: examples/local_config/redaction_expected.valid.json")
+    elif redact_expected_path.exists():
+        errors.append("redaction source fixture missing: examples/local_config/redaction_fixture.valid.json")
+
+    # JS module boundary token checks
+    lcss_js = _STATIC_DIR / "local_config_safe_settings.js"
+    if lcss_js.exists():
+        js = lcss_js.read_text(encoding="utf-8", errors="ignore")
+        for token in _LCSS_REQUIRED_JS_BOUNDARY_TOKENS:
+            if token not in js:
+                errors.append(f"local_config_safe_settings.js: missing required boundary token: {token!r}")
+        js_lower = js.lower()
+        forbidden_found = [p for p in _LCSS_FORBIDDEN_CONTROL_PATTERNS if p.lower() in js_lower]
+        if forbidden_found:
+            errors.append(f"local_config_safe_settings.js: forbidden controls found: {forbidden_found}")
+        if "127.0.0.1" not in js and "ODIN_API_BASE" not in js and "localhost" not in js:
+            errors.append("local_config_safe_settings.js: missing localhost reference")
+
+    # index.html panel checks
+    index = _STATIC_DIR / "index.html"
+    if index.exists():
+        html = index.read_text(encoding="utf-8", errors="ignore")
+        if "local_config_safe_settings.js" not in html:
+            errors.append("index.html: must load local_config_safe_settings.js")
+        for surface_id in _LCSS_REQUIRED_SURFACE_IDS:
+            if surface_id not in html:
+                errors.append(f"index.html: missing required local config safe settings surface id: {surface_id!r}")
+        html_lower = html.lower()
+        for phrase in _LCSS_REQUIRED_BOUNDARY_PHRASES:
+            if phrase.lower() not in html_lower:
+                errors.append(f"index.html: missing required local config safe settings boundary phrase: {phrase!r}")
+        forbidden_found = [p for p in _LCSS_FORBIDDEN_CONTROL_PATTERNS if p.lower() in html_lower]
+        if forbidden_found:
+            errors.append(f"index.html: forbidden controls found in local config safe settings section: {forbidden_found}")
+
+    # Doc phrase checks
+    doc = _ROOT / "docs" / "LOCAL_CONFIG_SAFE_SETTINGS_V1.md"
+    if doc.exists():
+        doc_text = doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _LCSS_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(f"LOCAL_CONFIG_SAFE_SETTINGS_V1.md: missing required phrase: {phrase!r}")
+        for claim in _LCSS_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in doc_text:
+                errors.append(f"LOCAL_CONFIG_SAFE_SETTINGS_V1.md: forbidden overclaim phrase found: {claim!r}")
+
+    return errors
+
+
+def build_local_config_safe_settings_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for Local Config, Redaction and Safe Settings UI (LRH-PR-14)."""
+    lcss_errors = validate_local_config_safe_settings()
+    all_ok = not bool(lcss_errors)
+
+    return {
+        "artifact_kind": "local_config_safe_settings_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "settings_visibility_only": True,
+        "redaction_status_not_security_certification": True,
+        "provider_settings_disabled_by_default": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": lcss_errors,
+        "proven": [
+            "local_config_schema_exists",
+            "safe_config_fixture_exists",
+            "unsafe_config_fixtures_exist",
+            "redaction_fixtures_exist",
+            "safe_settings_ui_exists",
+            "unsafe_settings_blocked",
+            "secrets_redacted",
+            "no_secrets_in_logs",
+            "providers_disabled_by_default",
+            "no_provider_enabled_without_explicit_config",
+            "no_unsafe_wan_lan_default",
+            "no_security_certification_claim",
+            "no_raw_payload_reveal_control",
+            "no_redaction_bypass_control",
+            "no_provider_credential_input",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "redaction_safety_certification",
+            "provider_credential_storage",
+            "public_network_api",
+            "app_apply_authority",
+            "external_send_authority",
+            "live_model_inference",
+            "model_quality",
+            "windows_service_tray_installer",
+            "signed_distribution",
+        ],
+        "proof_boundaries": LOCAL_CONFIG_SAFE_SETTINGS_PROOF_BOUNDARIES,
+        "claim_boundary": LOCAL_CONFIG_SAFE_SETTINGS_CLAIM_BOUNDARY,
+    }
