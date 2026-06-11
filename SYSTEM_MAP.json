@@ -788,5 +788,23 @@
     "tests": "tests/test_lrh_pr_14_local_config_safe_settings.py",
     "return_report": "docs/codex/reports/LRH-PR-14_RETURN_REPORT.md",
     "status": "candidate_specification_not_runtime_verified"
+  },
+  "lrh_pr_15_portable_package": {
+    "claim_boundary": "portable_package_candidate_only_not_signed_not_production_not_target_host_proof",
+    "doc": "docs/PORTABLE_PACKAGE_RELEASE_ZIP_V1.md",
+    "modules": [
+      "scripts/build_portable_package.py",
+      "odin/hub/shell.py"
+    ],
+    "dist_manifest": [
+      "dist_manifest/README.md",
+      "dist_manifest/portable_package_manifest.example.json",
+      "dist_manifest/portable_package_release_verification.example.json",
+      "dist_manifest/portable_package_exclusions_v1.json"
+    ],
+    "tests": "tests/test_lrh_pr_15_portable_package.py",
+    "return_report": "docs/codex/reports/LRH-PR-15_RETURN_REPORT.md",
+    "support_bundle_command": "python -m odin.cli emit-support-bundle --diagnostics-only",
+    "status": "candidate_specification_not_runtime_verified"
   }
 }
