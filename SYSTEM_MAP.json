@@ -175,7 +175,12 @@
     "docs/rebaseline/LOCAL_RUNTIME_HUB_100_PERCENT_DEFINITION.md",
     "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
     "docs/rebaseline/REBASELINE_REVIEW_REPORT_V1.md",
-    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md"
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "registries/v7_1_1_operational_target_registry.json",
+    "registries/v7_1_1_slice_absorption_map.json",
+    "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -313,6 +318,130 @@
   "locks": {
     "v0_7_5": "docs/PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK_V7_1.md"
   },
+  "lrh_pr_02_agent_operator_mode": {
+    "claim_boundary": "agent_operator_mode_schemas_and_protocol_not_runtime_proof",
+    "doc": "docs/AGENT_OPERATOR_MODE_V1.md",
+    "module": "odin/agent_operator/",
+    "profiles_registry": "registries/agent_operator_profile_registry.json",
+    "schemas": [
+      "schemas/v7_1/odin_agent_work_packet.schema.json",
+      "schemas/v7_1/odin_agent_return_report.schema.json",
+      "schemas/v7_1/odin_agent_operator_permission_card.schema.json"
+    ],
+    "status": "candidate_specification_not_runtime_verified",
+    "tests": "tests/test_lrh_pr_02_agent_operator_mode.py",
+    "thor_compatibility_registry": "registries/thor_compatibility_registry.json"
+  },
+  "lrh_pr_03_portable_local_runtime_starter": {
+    "claim_boundary": "local_runtime_starter_candidate_only_localhost_no_app_apply_no_external_send",
+    "doc": "docs/LOCAL_RUNTIME_STARTER_V1.md",
+    "module": "odin/local_runtime/",
+    "status": "candidate_specification_not_runtime_verified",
+    "tests": "tests/test_lrh_pr_03_portable_local_runtime_starter.py"
+  },
+  "lrh_pr_04_runtime_doctor_bootstrap": {
+    "claim_boundary": "doctor_bootstrap_repair_bundle_candidate_only_no_app_apply_no_external_send_not_production_proof",
+    "doc": "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md",
+    "examples": [
+      "examples/doctor/doctor_success.valid.json",
+      "examples/doctor/doctor_failure.valid.json",
+      "examples/doctor/support_bundle_redacted.valid.json",
+      "examples/bootstrap/first_run_config.valid.json",
+      "examples/bootstrap/repair_plan.valid.json"
+    ],
+    "modules": [
+      "odin/doctor/",
+      "odin/bootstrap/"
+    ],
+    "return_report": "docs/codex/reports/LRH-PR-04_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified",
+    "tests": "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py"
+  },
+  "lrh_pr_14_local_config_safe_settings": {
+    "claim_boundary": "local_config_safe_settings_candidate_only_local_only_settings_visibility_only_no_app_apply_no_external_send_no_credentials_no_wan_lan_default",
+    "doc": "docs/LOCAL_CONFIG_SAFE_SETTINGS_V1.md",
+    "examples": [
+      "examples/local_config/safe_local_config.valid.json",
+      "examples/local_config/unsafe_network_config.invalid.json",
+      "examples/local_config/unsafe_provider_enabled.invalid.json",
+      "examples/local_config/unsafe_raw_payload_reveal.invalid.json",
+      "examples/local_config/unsafe_redaction_disabled.invalid.json",
+      "examples/local_config/redaction_fixture.valid.json",
+      "examples/local_config/redaction_expected.valid.json"
+    ],
+    "hub_surfaces": [
+      "local-config-safe-settings-panel",
+      "lcss-config-status-content",
+      "lcss-unsafe-block-list-content",
+      "lcss-redaction-status-content",
+      "lcss-provider-disabled-content",
+      "lcss-proof-boundaries-content"
+    ],
+    "modules": [
+      "odin/hub/",
+      "odin/doctor/redaction.py"
+    ],
+    "return_report": "docs/codex/reports/LRH-PR-14_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/v7_1/odin_local_config.schema.json"
+    ],
+    "status": "candidate_specification_not_runtime_verified",
+    "tests": "tests/test_lrh_pr_14_local_config_safe_settings.py"
+  },
+  "lrh_pr_15_portable_package": {
+    "claim_boundary": "portable_package_candidate_only_not_signed_not_production_not_target_host_proof",
+    "dist_manifest": [
+      "dist_manifest/README.md",
+      "dist_manifest/portable_package_manifest.example.json",
+      "dist_manifest/portable_package_release_verification.example.json",
+      "dist_manifest/portable_package_exclusions_v1.json"
+    ],
+    "doc": "docs/PORTABLE_PACKAGE_RELEASE_ZIP_V1.md",
+    "modules": [
+      "scripts/build_portable_package.py",
+      "odin/hub/shell.py"
+    ],
+    "return_report": "docs/codex/reports/LRH-PR-15_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified",
+    "support_bundle_command": "python -m odin.cli emit-support-bundle --diagnostics-only",
+    "tests": "tests/test_lrh_pr_15_portable_package.py"
+  },
+  "lrh_pr_16_windows_convenience_layer": {
+    "claim_boundary": "windows_convenience_candidate_only_not_full_windows_app_not_service_not_tray_not_installer_not_signed",
+    "doc": "docs/WINDOWS_CONVENIENCE_LAYER_V1.md",
+    "modules": [
+      "scripts/start_odin.bat",
+      "scripts/check_odin.bat",
+      "scripts/stop_odin.bat",
+      "odin/hub/shell.py"
+    ],
+    "return_report": "docs/codex/reports/LRH-PR-16_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified",
+    "tests": "tests/test_lrh_pr_16_windows_convenience_layer.py",
+    "windows_dir": "windows/",
+    "windows_files": [
+      "windows/README.md",
+      "windows/helper_manifest_v1.json",
+      "windows/manual_start.md",
+      "windows/shortcut_notes.md",
+      "windows/convenience_smoke_notes.md",
+      "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md"
+    ]
+  },
+  "lrh_pr_17_full_acceptance": {
+    "claim_boundary": "full_acceptance_local_receipt_not_production_not_release_certification",
+    "doc": "docs/FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md",
+    "harness_doc": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "modules": [
+      "odin/hub/shell.py",
+      "odin/cli.py"
+    ],
+    "registry": "registries/road_to_100_acceptance_harness_v1.json",
+    "return_report": "docs/codex/reports/LRH-PR-17_RETURN_REPORT.md",
+    "status": "full_acceptance_local_receipt_not_production_not_release_certification",
+    "tests": "tests/test_lrh_pr_17_full_acceptance.py"
+  },
+  "master_architecture_v7_1_1": "docs/MASTER_ARCHITECTURE_V7_1_1.md",
   "narrative_compiler_layer": {
     "default_rule": "Fairy prose does not execute; Y* validates and stages; runtime packs load only after validation.",
     "internal_tasks": [
@@ -336,6 +465,18 @@
     "status": "integrated_into_v7_1"
   },
   "non_claim": "This is repo-prep and architecture/spec canon, not completed runtime proof.",
+  "post_lrh_pr_18_full_system_audit": {
+    "claim_boundary": "local_repo_audit_only_not_production_not_release_not_security_not_target_host",
+    "doc": "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
+    "evidence_basis": [
+      "registries/post_lrh_proof_governance_registry_v1.json",
+      "registries/road_to_100_acceptance_harness_v1.json",
+      "registries/runtime_backend_coverage_matrix_v1.json",
+      "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md"
+    ],
+    "status": "audit_artifact_local_repo_analysis_not_runtime_or_release_proof",
+    "tests": "tests/test_lrh_pr_18_full_system_audit_artifact.py"
+  },
   "python_package": "odin",
   "real_gh_pr_03_provider_worker_boundary": {
     "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
@@ -718,140 +859,21 @@
     "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "registry": "registries/codex_real_pr_handoff_registry.json"
   },
-  "lrh_pr_02_agent_operator_mode": {
-    "claim_boundary": "agent_operator_mode_schemas_and_protocol_not_runtime_proof",
-    "doc": "docs/AGENT_OPERATOR_MODE_V1.md",
-    "module": "odin/agent_operator/",
-    "profiles_registry": "registries/agent_operator_profile_registry.json",
-    "thor_compatibility_registry": "registries/thor_compatibility_registry.json",
-    "schemas": [
-      "schemas/v7_1/odin_agent_work_packet.schema.json",
-      "schemas/v7_1/odin_agent_return_report.schema.json",
-      "schemas/v7_1/odin_agent_operator_permission_card.schema.json"
-    ],
-    "tests": "tests/test_lrh_pr_02_agent_operator_mode.py",
-    "status": "candidate_specification_not_runtime_verified"
+  "v7_1_1_master_architecture_return_report": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
+  "v7_1_1_operational_target_registry": "registries/v7_1_1_operational_target_registry.json",
+  "v7_1_1_operational_target_synthesis": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+  "v7_1_1_slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
+  "v7_1_1_target_canon": {
+    "baseline": "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "claim_boundary": "v7_1_1_target_canon_no_runtime_completion_claim",
+    "identity": "small_model_performance_os_and_universal_semantic_work_kernel",
+    "master_architecture": "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "operational_synthesis": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "operational_target_registry": "registries/v7_1_1_operational_target_registry.json",
+    "qirc_position": "important_operational_coordination_layer_not_whole_identity",
+    "rule": "v7.1 remains baseline; v7.1.1 clarifies target identity and operationalization priorities without claiming implementation completion",
+    "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
+    "status": "target_canon_not_runtime_completion"
   },
-  "lrh_pr_03_portable_local_runtime_starter": {
-    "claim_boundary": "local_runtime_starter_candidate_only_localhost_no_app_apply_no_external_send",
-    "doc": "docs/LOCAL_RUNTIME_STARTER_V1.md",
-    "module": "odin/local_runtime/",
-    "tests": "tests/test_lrh_pr_03_portable_local_runtime_starter.py",
-    "status": "candidate_specification_not_runtime_verified"
-  },
-  "lrh_pr_04_runtime_doctor_bootstrap": {
-    "claim_boundary": "doctor_bootstrap_repair_bundle_candidate_only_no_app_apply_no_external_send_not_production_proof",
-    "doc": "docs/RUNTIME_DOCTOR_BOOTSTRAP_V1.md",
-    "modules": [
-      "odin/doctor/",
-      "odin/bootstrap/"
-    ],
-    "examples": [
-      "examples/doctor/doctor_success.valid.json",
-      "examples/doctor/doctor_failure.valid.json",
-      "examples/doctor/support_bundle_redacted.valid.json",
-      "examples/bootstrap/first_run_config.valid.json",
-      "examples/bootstrap/repair_plan.valid.json"
-    ],
-    "tests": "tests/test_lrh_pr_04_runtime_doctor_bootstrap.py",
-    "return_report": "docs/codex/reports/LRH-PR-04_RETURN_REPORT.md",
-    "status": "candidate_specification_not_runtime_verified"
-  },
-  "version": "0.8.7",
-  "lrh_pr_14_local_config_safe_settings": {
-    "claim_boundary": "local_config_safe_settings_candidate_only_local_only_settings_visibility_only_no_app_apply_no_external_send_no_credentials_no_wan_lan_default",
-    "doc": "docs/LOCAL_CONFIG_SAFE_SETTINGS_V1.md",
-    "modules": [
-      "odin/hub/",
-      "odin/doctor/redaction.py"
-    ],
-    "schemas": [
-      "schemas/v7_1/odin_local_config.schema.json"
-    ],
-    "examples": [
-      "examples/local_config/safe_local_config.valid.json",
-      "examples/local_config/unsafe_network_config.invalid.json",
-      "examples/local_config/unsafe_provider_enabled.invalid.json",
-      "examples/local_config/unsafe_raw_payload_reveal.invalid.json",
-      "examples/local_config/unsafe_redaction_disabled.invalid.json",
-      "examples/local_config/redaction_fixture.valid.json",
-      "examples/local_config/redaction_expected.valid.json"
-    ],
-    "hub_surfaces": [
-      "local-config-safe-settings-panel",
-      "lcss-config-status-content",
-      "lcss-unsafe-block-list-content",
-      "lcss-redaction-status-content",
-      "lcss-provider-disabled-content",
-      "lcss-proof-boundaries-content"
-    ],
-    "tests": "tests/test_lrh_pr_14_local_config_safe_settings.py",
-    "return_report": "docs/codex/reports/LRH-PR-14_RETURN_REPORT.md",
-    "status": "candidate_specification_not_runtime_verified"
-  },
-  "lrh_pr_15_portable_package": {
-    "claim_boundary": "portable_package_candidate_only_not_signed_not_production_not_target_host_proof",
-    "doc": "docs/PORTABLE_PACKAGE_RELEASE_ZIP_V1.md",
-    "modules": [
-      "scripts/build_portable_package.py",
-      "odin/hub/shell.py"
-    ],
-    "dist_manifest": [
-      "dist_manifest/README.md",
-      "dist_manifest/portable_package_manifest.example.json",
-      "dist_manifest/portable_package_release_verification.example.json",
-      "dist_manifest/portable_package_exclusions_v1.json"
-    ],
-    "tests": "tests/test_lrh_pr_15_portable_package.py",
-    "return_report": "docs/codex/reports/LRH-PR-15_RETURN_REPORT.md",
-    "support_bundle_command": "python -m odin.cli emit-support-bundle --diagnostics-only",
-    "status": "candidate_specification_not_runtime_verified"
-  },
-  "lrh_pr_16_windows_convenience_layer": {
-    "claim_boundary": "windows_convenience_candidate_only_not_full_windows_app_not_service_not_tray_not_installer_not_signed",
-    "doc": "docs/WINDOWS_CONVENIENCE_LAYER_V1.md",
-    "windows_dir": "windows/",
-    "modules": [
-      "scripts/start_odin.bat",
-      "scripts/check_odin.bat",
-      "scripts/stop_odin.bat",
-      "odin/hub/shell.py"
-    ],
-    "windows_files": [
-      "windows/README.md",
-      "windows/helper_manifest_v1.json",
-      "windows/manual_start.md",
-      "windows/shortcut_notes.md",
-      "windows/convenience_smoke_notes.md",
-      "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md"
-    ],
-    "tests": "tests/test_lrh_pr_16_windows_convenience_layer.py",
-    "return_report": "docs/codex/reports/LRH-PR-16_RETURN_REPORT.md",
-    "status": "candidate_specification_not_runtime_verified"
-  },
-  "lrh_pr_17_full_acceptance": {
-    "claim_boundary": "full_acceptance_local_receipt_not_production_not_release_certification",
-    "doc": "docs/FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md",
-    "harness_doc": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
-    "registry": "registries/road_to_100_acceptance_harness_v1.json",
-    "modules": [
-      "odin/hub/shell.py",
-      "odin/cli.py"
-    ],
-    "tests": "tests/test_lrh_pr_17_full_acceptance.py",
-    "return_report": "docs/codex/reports/LRH-PR-17_RETURN_REPORT.md",
-    "status": "full_acceptance_local_receipt_not_production_not_release_certification"
-  },
-  "post_lrh_pr_18_full_system_audit": {
-    "claim_boundary": "local_repo_audit_only_not_production_not_release_not_security_not_target_host",
-    "doc": "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
-    "tests": "tests/test_lrh_pr_18_full_system_audit_artifact.py",
-    "evidence_basis": [
-      "registries/post_lrh_proof_governance_registry_v1.json",
-      "registries/road_to_100_acceptance_harness_v1.json",
-      "registries/runtime_backend_coverage_matrix_v1.json",
-      "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md"
-    ],
-    "status": "audit_artifact_local_repo_analysis_not_runtime_or_release_proof"
-  }
+  "version": "0.8.7"
 }
