@@ -1311,6 +1311,10 @@
       "reason": "linter_cache_artifact_not_static_repo_evidence"
     },
     {
+      "pattern": ".coverage",
+      "reason": "coverage_runtime_artifact_not_static_repo_evidence"
+    },
+    {
       "pattern": "dist/",
       "reason": "local_distribution_build_artifact_not_static_repo_evidence"
     },

@@ -29,6 +29,7 @@ IGNORED_PATTERNS = {
     ".pytest_cache/",
     ".mypy_cache/",
     ".ruff_cache/",
+    ".coverage",
     "dist/",
     "build/",
     "*.pyc",
@@ -43,6 +44,7 @@ IGNORED_SUBSTRINGS = [
     ".pytest_cache/",
     ".mypy_cache/",
     ".ruff_cache/",
+    ".coverage",
     "dist/",
     "build/",
     ".pyc",
@@ -247,6 +249,24 @@ def test_file_manifest_excludes_local_runtime_cache_and_build_artifacts():
             if token in path:
                 violations.append((path, token))
     assert violations == []
+
+
+def test_file_manifest_preserves_pr_25_artifacts():
+    data = _json(ROOT / "FILE_MANIFEST.json")
+    paths = {entry["path"] for entry in data.get("files", [])}
+    required = {
+        "tools/v7_1_1/build_operational_coverage_gap_report.py",
+        "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
+        "reports/v7_1_1_operational_coverage_gap_report.json",
+        "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+        "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
+    }
+    assert required <= paths
+
+
+def test_file_manifest_count_matches_entries():
+    data = _json(ROOT / "FILE_MANIFEST.json")
+    assert data["file_count_excluding_manifest"] == len(data.get("files", []))
 
 
 def test_file_manifest_presence_alone_does_not_create_implemented_code_candidate(tmp_path: Path):

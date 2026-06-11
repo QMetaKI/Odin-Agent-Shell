@@ -9,3 +9,8 @@ build/
 odin_agent_shell.egg-info/
 .odin_runtime/
 .thor/
+.mypy_cache/
+.ruff_cache/
+*.pyo
+*.egg-info/
+.coverage

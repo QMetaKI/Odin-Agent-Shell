@@ -52,6 +52,7 @@ IGNORED_EVIDENCE_PATHS = [
     {"pattern": ".pytest_cache/", "reason": "test_cache_artifact_not_static_repo_evidence"},
     {"pattern": ".mypy_cache/", "reason": "type_checker_cache_artifact_not_static_repo_evidence"},
     {"pattern": ".ruff_cache/", "reason": "linter_cache_artifact_not_static_repo_evidence"},
+    {"pattern": ".coverage", "reason": "coverage_runtime_artifact_not_static_repo_evidence"},
     {"pattern": "dist/", "reason": "local_distribution_build_artifact_not_static_repo_evidence"},
     {"pattern": "build/", "reason": "local_build_artifact_not_static_repo_evidence"},
     {"pattern": "*.pyc", "reason": "compiled_python_cache_not_static_repo_evidence"},
@@ -66,12 +67,14 @@ IGNORED_PATH_SUBSTRINGS = [
     ".pytest_cache/",
     ".mypy_cache/",
     ".ruff_cache/",
+    ".coverage",
     "dist/",
     "build/",
     ".egg-info/",
 ]
 
 IGNORED_PATH_SUFFIXES = (".pyc", ".pyo")
+IGNORED_PATH_FILENAMES = {".coverage"}
 
 
 EVIDENCE_RULES = [
@@ -186,6 +189,8 @@ def _normalized_rel(path_text: str) -> str:
 def _is_ignored_evidence_path(path_text: str) -> bool:
     rel = _normalized_rel(path_text)
     rel_with_slash = rel if rel.endswith("/") else f"{rel}/"
+    if rel in IGNORED_PATH_FILENAMES or Path(rel).name in IGNORED_PATH_FILENAMES:
+        return True
     if rel.endswith(IGNORED_PATH_SUFFIXES):
         return True
     return any(token in rel_with_slash for token in IGNORED_PATH_SUBSTRINGS)
@@ -599,7 +604,7 @@ def _walk_report_strings(value: Any, path: tuple[str, ...] = ()):
 
 
 def _ignored_token_in_text(text: str) -> str | None:
-    for token in IGNORED_PATH_SUBSTRINGS + [".pyc", ".pyo", ".egg-info/"]:
+    for token in IGNORED_PATH_SUBSTRINGS + [".coverage", ".pyc", ".pyo", ".egg-info/"]:
         if token in text:
             return token
     return None

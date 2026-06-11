@@ -30,8 +30,8 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "2031f675cacc6abfed8d3e09652cbdf5b69224866bf426bc1a219b22af83bba4",
-      "size": 116
+      "sha256": "87c5ba3d9a77103daea09fca846b55e1cdac12ba8f8ff8ab526f0218c1598d27",
+      "size": 170
     },
     {
       "path": "AGENTS.md",
@@ -1635,8 +1635,8 @@
     },
     {
       "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
-      "sha256": "534ea49567f528b47394e055a28b693e07f3b1f7977a8570abf8e849e1059f31",
-      "size": 10061
+      "sha256": "0b96deb77251d935d7d95a1b740beddbb5e87dbca49474e157487db17bccbbfc",
+      "size": 10779
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -4975,8 +4975,8 @@
     },
     {
       "path": "reports/v7_1_1_operational_coverage_gap_report.json",
-      "sha256": "64df6334f2a3783da83802132acb3a68b55db176e4747795f3d2fb0ee56c9830",
-      "size": 908870
+      "sha256": "455ae51f6e07298a92d7f09e9b899d039f62aa15a9caac13f7f4f0cf88eeca8c",
+      "size": 908982
     },
     {
       "path": "runtime/.gitkeep",
@@ -6185,8 +6185,8 @@
     },
     {
       "path": "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
-      "sha256": "650cce91fa1bb52a4766243a164da5bfc7f07a33e0b7af10901dffd67b734510",
-      "size": 9866
+      "sha256": "04b9d8eb5457bfdc6f93492a186216bb13c84e4c736424687218e91c5bf8bd54",
+      "size": 10648
     },
     {
       "path": "tests/test_v7_1_1_road_to_100_ladder.py",
@@ -6205,8 +6205,8 @@
     },
     {
       "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",
-      "sha256": "e7ab17375372e4eb206b7af530ad0e5ef319d6fc04c61790086d34163a6ff8e7",
-      "size": 30162
+      "sha256": "faecde8855f75fd90ac2d84cb8c6b142b9ef9257d56b5fc348ae7cb94bc863bd",
+      "size": 30427
     },
     {
       "path": "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md",

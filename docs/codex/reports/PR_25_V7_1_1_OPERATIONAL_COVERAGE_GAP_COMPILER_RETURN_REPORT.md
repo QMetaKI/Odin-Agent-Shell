@@ -137,20 +137,26 @@ The compiler emits PR-26 through PR-39 recommendation records. Each recommendati
 
 ## Evidence Hygiene Fix
 
-This same-PR hardening pass adds an explicit ignored-path policy so local runtime, session, packaging, cache, and build artifacts can never become static repo-real evidence.
+This same-PR final closure pass enforces the ignored evidence invariant across manifest enumeration, compiler scanning, report generation, tests, and reviewer documentation.
 
+- Ignored families added/enforced: `.odin_runtime/`, `odin_agent_shell.egg-info/`, `__pycache__/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `.coverage`, `dist/`, `build/`, `*.pyc`, `*.pyo`, and `*.egg-info/`.
 - `.odin_runtime/*` is ignored because it is local runtime/session output and not a committed implementation contract.
 - `odin_agent_shell.egg-info/*` is ignored because it is editable-install packaging metadata and not source, schema, registry, test, or governance evidence.
-- Ignored path families added: `.odin_runtime/`, `odin_agent_shell.egg-info/`, `__pycache__/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `dist/`, `build/`, `*.pyc`, `*.pyo`, and `*.egg-info/`.
-- `FILE_MANIFEST.json` was cleaned to remove local runtime/session/cache/build/packaging artifacts. No repository convention was found that justifies retaining those generated artifacts as manifest evidence for PR-25.
-- No manifest generator/exclusion source was updated because this repository does not expose a dedicated safe manifest builder for this file; the manifest was regenerated with the same deterministic file-record shape plus the PR-25 ignored-artifact exclusion policy.
+- `FILE_MANIFEST.json` was cleaned so `.odin_runtime/*`, `odin_agent_shell.egg-info/*`, cache, coverage, build, and packaging artifacts are absent from manifest enumeration.
+- Manifest generator found: no. Repository search found retained-gap documentation stating a safe deterministic `FILE_MANIFEST.json` builder is not yet implemented; no dedicated manifest generator was updated.
+- Generator exclusions updated: not applicable. Direct manifest cleanup was used for this PR-25 final hygiene closure.
 - `FILE_MANIFEST.json` remains registry/meta evidence only: it proves file presence and never upgrades a target area or slice to `implemented_code_candidate`.
-- The generated report now includes `ignored_evidence_paths` and the compiler recursively checks that ignored path tokens do not leak into coverage, gap, recommendation, evidence, missing-evidence, or unsupported-claim structures.
+- The generated report includes `ignored_evidence_paths` and the compiler recursively checks that ignored path tokens do not leak into coverage, gap, recommendation, evidence, missing-evidence, unsupported-claim, or source-ref structures.
 - The report was regenerated deterministically with `--generated-at-utc 2026-01-01T00:00:00Z`.
+- Recursive sanitizer test added and completed successfully: `test_ignored_paths_are_recursively_sanitized_outside_ignore_sections`.
+- Manifest preservation/count tests added and completed successfully: `test_file_manifest_preserves_pr_25_artifacts` and `test_file_manifest_count_matches_entries`.
+- Focused test command completed successfully locally.
+- `validate-all` passed locally.
+- Full pytest command completed successfully locally.
 
-Senior Reviewer note: Local runtime/session/build artifacts are not repo-real implementation proof.
+Senior Reviewer statement: FILE_MANIFEST no longer contributes local runtime/session/build artifacts to repo-real evidence enumeration.
 
-Senior Code Reviewer note: Evidence references are recursively sanitized against ignored path families.
+Senior Code Reviewer statement: The ignored evidence invariant is enforced by compiler ignore policy, recursive report sanitization, FILE_MANIFEST sanitization, and tests.
 
 ## 11. Commands Run
 
@@ -166,7 +172,7 @@ python -m pytest -q -p no:cacheprovider
 
 ## 12. Results
 
-Local result summary is recorded in the PR body and final response. The generated report covers all 33 v7.1.1 target areas and all 190 Road-to-100 slices.
+Local result summary is recorded in the PR body and final response. The generated report covers all 33 v7.1.1 target areas and all 190 Road-to-100 slices; focused test command, validate-all, and full pytest command completed successfully locally for the final evidence hygiene closure.
 
 ## 13. Claim Boundaries
 
