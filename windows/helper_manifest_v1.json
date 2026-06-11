@@ -1,0 +1,58 @@
+{
+  "artifact_kind": "odin_windows_convenience_helper_manifest",
+  "lrh_pr": "LRH-PR-16",
+  "candidate_only": true,
+  "local_only": true,
+  "windows_convenience_only": true,
+  "manual_start_helper": "scripts/start_odin.bat",
+  "manual_check_helper": "scripts/check_odin.bat",
+  "manual_stop_helper": "scripts/stop_odin.bat",
+  "claim_boundary": "windows_convenience_candidate_only_not_service_not_tray_not_installer_not_signed",
+  "not_proven": [
+    "windows_service",
+    "windows_tray",
+    "windows_installer",
+    "signed_distribution",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "full_windows_app",
+    "production_readiness",
+    "security_certification",
+    "public_network_api",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority"
+  ],
+  "proof_boundaries": [
+    "not_windows_service_proof",
+    "not_tray_proof",
+    "not_installer_proof",
+    "not_signed_installer_proof",
+    "not_full_windows_app_proof",
+    "not_target_host_proof",
+    "not_microsoft_store_readiness",
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_public_network_api_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof"
+  ],
+  "windows_helpers": [
+    "scripts/start_odin.bat",
+    "scripts/check_odin.bat",
+    "scripts/stop_odin.bat"
+  ],
+  "windows_docs": [
+    "windows/README.md",
+    "windows/manual_start.md",
+    "windows/shortcut_notes.md",
+    "windows/convenience_smoke_notes.md",
+    "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md",
+    "docs/WINDOWS_CONVENIENCE_LAYER_V1.md"
+  ]
+}

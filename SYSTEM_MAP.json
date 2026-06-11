@@ -806,5 +806,27 @@
     "return_report": "docs/codex/reports/LRH-PR-15_RETURN_REPORT.md",
     "support_bundle_command": "python -m odin.cli emit-support-bundle --diagnostics-only",
     "status": "candidate_specification_not_runtime_verified"
+  },
+  "lrh_pr_16_windows_convenience_layer": {
+    "claim_boundary": "windows_convenience_candidate_only_not_full_windows_app_not_service_not_tray_not_installer_not_signed",
+    "doc": "docs/WINDOWS_CONVENIENCE_LAYER_V1.md",
+    "windows_dir": "windows/",
+    "modules": [
+      "scripts/start_odin.bat",
+      "scripts/check_odin.bat",
+      "scripts/stop_odin.bat",
+      "odin/hub/shell.py"
+    ],
+    "windows_files": [
+      "windows/README.md",
+      "windows/helper_manifest_v1.json",
+      "windows/manual_start.md",
+      "windows/shortcut_notes.md",
+      "windows/convenience_smoke_notes.md",
+      "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md"
+    ],
+    "tests": "tests/test_lrh_pr_16_windows_convenience_layer.py",
+    "return_report": "docs/codex/reports/LRH-PR-16_RETURN_REPORT.md",
+    "status": "candidate_specification_not_runtime_verified"
   }
 }
