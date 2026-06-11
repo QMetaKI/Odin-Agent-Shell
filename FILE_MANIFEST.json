@@ -1655,8 +1655,8 @@
     },
     {
       "path": "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
-      "sha256": "b35575935a66295c2c065909c3d9f422342302b2395e7584e0fe1fb54618cc4c",
-      "size": 2388
+      "sha256": "9fbd6aef0af9cc7671dc5beb44b9bab673a902331fa7240838a06cb6487e639a",
+      "size": 8949
     },
     {
       "path": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
@@ -6170,8 +6170,8 @@
     },
     {
       "path": "tests/test_v7_1_1_road_to_100_ladder.py",
-      "sha256": "401ae59355ec1b369fa10e1dbe7a8384a58ee4f8abb0f943fe104b179a7f3877",
-      "size": 5726
+      "sha256": "7c9f9977c0d67dad8a9a2ffb865cbed04d2e3b39cc919d62a83f8616b5e3525d",
+      "size": 6560
     },
     {
       "path": "tests/test_validation_cli.py",

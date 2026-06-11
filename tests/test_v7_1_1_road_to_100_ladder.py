@@ -125,6 +125,25 @@ def test_coverage_matrix_covers_each_target_area_once_and_is_non_proof():
         assert set(entry["covered_by_slices"]) <= valid_slice_ids
 
 
+def test_ladder_and_matrix_identity_fields_are_exact():
+    ladder = _json(LADDER)
+    matrix = _json(MATRIX)
+    assert ladder["registry_id"] == "odin.v7_1_1_road_to_100_ladder"
+    assert ladder["version"] == "7.1.1"
+    assert ladder["claim_boundary"] == "ladder_is_plan_not_implementation_proof"
+    assert matrix["registry_id"] == "odin.v7_1_1_road_to_100_coverage_matrix"
+    assert matrix["version"] == "7.1.1"
+    assert matrix["claim_boundary"] == "coverage_matrix_is_planning_not_implementation_proof"
+
+
+def test_coverage_entries_have_notes_and_planned_slices():
+    valid_slice_ids = {s["id"] for s in _json(LADDER)["slices"]}
+    for entry in _json(MATRIX)["target_area_coverage"]:
+        assert entry["notes"]
+        assert entry["covered_by_slices"]
+        assert set(entry["covered_by_slices"]) <= valid_slice_ids
+
+
 def test_no_slice_contains_forbidden_placeholder_text():
     forbidden = ["TODO", "TBD", "placeholder", "later maybe", "as needed"]
     for s in _json(LADDER)["slices"]:
