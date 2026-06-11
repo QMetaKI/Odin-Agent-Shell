@@ -12,6 +12,19 @@ Dieser Audit ist eine lokale Repo-Analyse nach dem gemergten LRH-PR-18 Consolida
 
 Dokumentation zählt in diesem Audit nur als Beleg für Dokumentation. Eine Fähigkeit zählt erst als repo-real belegt, wenn sie durch Code, CLI, Registry, Test, CI-Konfiguration oder einen lokalen Command-Receipt im aktuellen Workspace gestützt ist.
 
+Nicht-verhandelbares Beweisprinzip für diesen Audit:
+
+```text
+A local proof packet proves only the local proof packet.
+A registry proves only that a registry exists and is validated.
+A doc proves only that the boundary is documented.
+A test proves only its tested condition.
+A green local run is not production readiness.
+Proof governance is not runtime completion.
+```
+
+Dieses Prinzip trennt Runtime-Fähigkeit, Proof-Governance-Fähigkeit, lokale Receipts und externe Receipts. Es verhindert, dass ein lokaler grüner Proof oder eine validierte Registry als Produkt-, Release-, Security- oder Target-Host-Abschluss gelesen wird.
+
 Verwendete Status-Enums:
 
 - `implemented_code`
@@ -132,6 +145,47 @@ Nicht beansprucht:
 **Status:** `partially_aligned`  
 **Evidence:** E002, E003, E009, E010, E013
 
+
+## 2.1 Odin in One Sentence
+
+**F020 — Odin in one sentence.** Odin ist ein local-first, candidate-only Universal-Work Runtime Hub mit CLI-gesteuerter Validierung, Agent-Operator-Guardrails, SDK-/External-App-Bridge-Flächen, Portable-/Windows-Convenience-Schichten und konsolidierter Proof-Governance, die lokale Receipts erzeugt und externe Proof-Gaps bewusst offen hält.  
+**Status:** `implemented_docs`, `implemented_code`, `implemented_cli`, `implemented_registry`, `local_receipt`  
+**Evidence:** E001, E007, E009, E014, E015, E016, E019, E029–E033
+
+## 2.2 Odin Is / Odin Is Not
+
+| Odin is | Evidence | Odin is not | Evidence / Status |
+|---|---|---|---|
+| local-first Universal-Work runtime hub | E001, E007, E015, E016 | production system proof | E004, E009 / `non_goal_boundary` |
+| candidate artifact generator | E001, E016, E017 | app-owned apply authority | E005, E015, E019 / `non_goal_boundary` |
+| proof-governance shell | E009, E028 | security certification | E004, E006, E012 / `external_receipt_required` |
+| CLI validation/proof surface | E014, E023–E033 | signed release | E012 / `external_receipt_required` |
+| SDK/external bridge candidate surface | E019, E030 | target-host proof | E009, E013 / `external_receipt_required` |
+| portable package candidate layer | E032 | Windows service/tray/installer proof | E013, E033 / `external_receipt_required` |
+| local audit/receipt system | E026–E036 | live model quality proof | E004, E010 / `not_evidenced_in_repo` |
+
+## 2.3 Runtime Capability vs Proof Capability
+
+Proof-governance maturity does not mean runtime/product/release completion. Runtime capability answers what Odin code can execute locally. Proof capability answers which local proof packet or command can be emitted. Registry/doc capability answers what is represented as machine-readable or documented governance. External receipts remain separate.
+
+| Area | Runtime capability | Proof capability | Registry/doc capability | Current limit | Evidence |
+|---|---|---|---|---|---|
+| Universal Work runtime | validates and processes local Universal Work into candidate response paths | golden flow and runtime-related proofs | Master specs and runtime coverage matrix | not production runtime or live model quality proof | E002, E003, E016, E031, E035 |
+| Candidate artifact generation | candidate artifact and response packet path exists | golden flow emits candidate receipt | candidate/store boundary documented | candidate is not applied truth | E001, E016, E017, E035 |
+| Local API / daemon | localhost API routes and forbidden routes exist | SDK/local runtime proof paths exist | local API boundary docs/registries | not public network API proof | E015, E018, E019 |
+| SDK bridge | Python SDK can call localhost candidate API | `prove-sdk-bridge` surface exists | SDK bridge docs/examples | not specific app proof | E019, E023 |
+| Browser/local hub | static/local hub surfaces exist | `prove-browser-hub` surface exists | hub docs/tests/coverage matrix | not hosted production UI proof | E010, E023 |
+| Agent Operator | packet/guard/proof/return surface exists | `prove-agent-operator-mode` local receipt | agent proof registry | not autonomy/provider/runtime-host proof | E011, E029 |
+| External app bridge | generic neutral candidate bridge | `prove-external-app-bridge` local receipt | bridge examples/coverage matrix | not specific external app integration | E010, E030 |
+| Portable package | candidate packaging layer and manifest/checksum model | `prove-portable-package` local receipt | release boundary and dist manifest docs | not signed/release proof | E012, E032 |
+| Windows convenience | helper/docs/scripts convenience layer | `prove-windows-convenience-layer` local receipt | Windows boundary docs | not service/tray/installer/target-host proof | E013, E033 |
+| Full acceptance harness | aggregates local command/proof posture | `prove-full-acceptance` local receipt | Road-to-100 registry | ok with known gaps, not product completion | E008, E026 |
+| Consolidated proof governance | no runtime expansion; governance layer | `prove-consolidated-proof-governance` local receipt | PR-18 governance registry | not runtime completion | E009, E028 |
+| Runtime backend coverage | no new backend execution by matrix itself | `prove-runtime-backend-coverage` matrix receipt | runtime backend coverage matrix | matrix proof only, not production coverage | E010, E031 |
+| Redaction matrix | support bundle redaction path exists | diagnostics/support receipt can show redaction applied | redaction policy matrix | not redaction guarantee/security cert | E009, E034 |
+| Signed distribution boundary | no signing runtime | governance proof reports boundary only | release readiness boundary registry | no certificate/signature receipt | E012, E028 |
+| Windows target-host boundary | no target-host runtime execution | governance proof reports boundary only | Windows target-host boundary docs/registry | no real Windows target-host receipt | E009, E013, E028 |
+
 ## 3. Repo Status and Evidence Basis
 
 | Field | Value | Status | Evidence |
@@ -143,6 +197,9 @@ Nicht beansprucht:
 | CI config | `.github/workflows/ci.yml` | `implemented_docs` | E021 |
 | Local test feasibility | feasible; pytest ran locally | `local_receipt` | E036 |
 | GitHub live metadata | not used | `not_evidenced_in_repo` | E022 |
+
+
+**Snapshot semantics:** Der `repo_status`-Block und die lokalen Command-Receipts dokumentieren den audit execution workspace snapshot. Sie sind kein zeitloser Claim über zukünftige HEADs, zukünftige PR-Merges oder spätere lokale Umgebungen nach diesem Audit-PR.
 
 ## 4. Evidence Ledger
 
@@ -277,24 +334,29 @@ Odin cannot currently prove production readiness, release certification, securit
 
 ## 9. v7.1 Master Architecture Comparison
 
-| v7.1 target element | Current status | Alignment | Evidence | What remains |
-|---|---|---|---|---|
-| Candidate Law | `implemented_code`, `local_receipt` | `aligned` | E001, E016 | none for local candidate path |
-| Semantic Bus Law | `implemented_code` | `partially_aligned` | E002, E016, E017 | full bus power profile not proven |
-| Universal but Bounded Law | `implemented_code` | `aligned` | E002, E016 | production hardening |
-| App-owned apply/state/send | `implemented_code`, `implemented_registry` | `aligned` | E005, E015, E019 | external app receipts |
-| Odin-owned candidates/artifacts/proof | `implemented_code` | `aligned` | E016, E017 | production storage proof |
-| Thor advisory boundary | `documented_only`, `retained_gap` | `partially_aligned` | E009 | Thor hermetic CI execution |
-| Local runtime target | `implemented_code` | `partially_aligned` | E007, E018 | target-host/prod proof |
-| SDK bridge target | `implemented_code` | `aligned` locally | E019 | concrete integrations |
-| Browser/local hub target | `implemented_code` | `partially_aligned` | E010 | hosted/live UI proof |
-| External app bridge target | `implemented_cli` | `partially_aligned` | E030 | specific app proof |
-| Windows runtime target | `implemented_docs` for convenience | `missing` for service/tray/installer | E013 | real Windows receipts |
-| Public naming neutrality | `implemented_docs` | `aligned` | E007 | keep enforcing |
-| Claim boundary discipline | `implemented_cli`, `implemented_registry` | `aligned` | E004, E009, E014 | prevent wording drift |
-| Protocol boundary discipline | `implemented_docs`, `implemented_code` | `aligned` | E005, E015 | integration receipts |
-| Security/default local-only posture | `implemented_code` | `partially_aligned` | E006, E018, E019 | not security certification |
-| Canon docs / entrypoints | `implemented_docs` | `aligned` | E001, E020 | keep current/historical separation |
+Diese Matrix trennt v7.1-Zielabsicht, aktuellen Odin-Status, Alignment-Enum, Evidence und verbleibendes Delta. Wenn ein Element nicht ausdrücklich v7.1-Ziel war, wird es als Extension markiert statt nachträglich in v7.1 hineininterpretiert.
+
+| v7.1 Target Element | v7.1 Intent | Current Odin Status | Alignment Enum | Evidence | Remaining Delta | Comment |
+|---|---|---|---|---|---|---|
+| Candidate Law | Odin outputs candidates; apps perform reality-changing actions | Candidate pipeline, store and response packet path exist | `aligned` | E001, E002, E016, E017 | external app apply receipts remain app-owned | Strongest core alignment |
+| Semantic Bus Law | local semantic coordination without authority/public exposure | local bus digest/store and trace surfaces exist | `partially_aligned` | E002, E016, E017 | full semantic bus power profile not production-proven | No public bus claim |
+| Universal but Bounded Law | universal processing, bounded authority, candidate output | Universal Work validation and candidate route exist | `aligned` | E002, E003, E016 | more product UX remains | Good local alignment |
+| Odin-owned candidate/artifact/proof boundary | Odin owns candidates, artifacts, receipts, traces | local candidate/session/trace store exists | `aligned` | E016, E017 | production storage not proven | Local records are not app apply receipts |
+| App-owned apply/state/external-send boundary | apps own state, apply, storage, external sends | API/SDK forbid or omit apply/send surfaces | `aligned` | E005, E015, E019 | concrete app receipts external | Core boundary preserved |
+| Local-first posture | local-first runtime, remote only by explicit permission | localhost config/API/SDK defaults exist | `aligned` | E006, E018, E019 | target-host/runtime hardening absent | No WAN/LAN proof |
+| SDK bridge target | apps connect through SDK/bridge surfaces | Python SDK and local API exist | `partially_aligned` | E019, E023 | specific app/TS maturity not audited as product | Candidate bridge surface only |
+| Browser/local hub target | local hub/control visibility | static/local hub surfaces and proof command surface exist | `partially_aligned` | E010, E023 | no live hosted UI or browser automation proof | Useful local scaffold |
+| External app bridge target | neutral app bridge and candidate response path | generic neutral bridge proof exists | `partially_aligned` | E010, E030 | no specific external app integration proof | Avoid concrete app claims |
+| Agent Operator target | Not explicit in original v7.1 as product target; current repo adds agent workflow guardrails | Agent Operator Mode exists with local proof receipts | `extended_beneficially` | E007, E011, E029 | not autonomy/provider/runtime-host proof | Beneficial governance extension |
+| Windows runtime target | Windows-first local daemon/tray/control center/SDKs | convenience docs/scripts only; no service/tray/installer receipts | `partially_aligned` | E002, E013, E033 | real Windows service/tray/installer/target-host proof | Major external delta |
+| Thor advisory target | Thor as candidate-only handoff/review/receipt discipline when invoked | Thor contract/boundary retained, hermetic execution gap remains | `partially_aligned` | E009 | Thor CI execution receipt missing | Advisory path only |
+| Claim boundary target | prevent unsupported runtime/security/deployment claims | claim scanner, registries, proof packets, audit document | `aligned` | E004, E009, E014, E028 | wording drift remains risk | Strong governance posture |
+| Protocol boundary target | packets cannot bypass binding/manifest/output contracts | protocol docs, local API forbidden routes, SDK boundary | `aligned` | E005, E015, E019 | concrete host integrations external | Good boundary discipline |
+| Security/default posture | local-only, candidate-only, remote disabled, app-owned apply | config and SDK enforce local defaults; docs state posture | `partially_aligned` | E006, E018, E019 | no security certification | Security posture, not certification |
+| Tests/validation discipline | validators, gates and tests protect repo state | validate-all and pytest green locally | `aligned` | E014, E024, E036 | CI run receipt not locally present | Strong local discipline |
+| Canon docs / entrypoint discipline | discoverable canonical docs and maps | root docs, SYSTEM_MAP, audit artifact entry | `aligned` | E001, E020, E021 | large historical doc surface can confuse | Intake order required |
+| Release/distribution target if present in v7.1 | v7.1 mentions repo/ZIP/export expectations but not signed-release completion proof as current state | portable candidate package and release boundary framework exist | `extended_neutrally` | E003, E012, E032 | signed distribution external receipt missing | Boundary framework is useful but not release proof |
+| Target-host / Windows service/tray/installer target if present in v7.1 | Windows-first runtime target includes daemon/tray/control-center aspiration | convenience layer exists; target-host proof absent | `partially_aligned` | E002, E013, E033 | real target-host/service/tray/installer receipts required | Honest retained external delta |
 
 ## 10. Current System vs Target Vision
 
@@ -308,21 +370,50 @@ Odin cannot currently prove production readiness, release certification, securit
 | Windows convenience target | 52/100 | scripts/docs/helper manifest | service/tray/installer/signing | Windows app proof |
 | production/release/security target | 5–22/100 | boundary registries only | external infra/receipts | ready/certified/secure |
 
+## 10.1 Current Distance to v7.1 Target Vision
+
+| Target area | Current closeness | What exists | What remains | Claim boundary |
+|---|---:|---|---|---|
+| Core architecture | 88 | laws, docs, validators, runtime candidate path | product hardening | not production completion |
+| Candidate Law / candidate artifact semantics | 92 | candidate artifact generation and app-owned apply boundary | external app apply receipts stay external | candidate is not applied truth |
+| Semantic bus / Universal Work | 76 | local bus digest/store, Universal Work runtime | full semantic bus power profile | no public bus proof |
+| Local runtime | 72 | localhost API, start/check config, runtime store | service supervision and target-host receipts | local receipt only |
+| Candidate artifact generation | 84 | golden flow and candidate pipeline | live provider/model quality not proven | candidate-only |
+| CLI validation/proof system | 92 | broad CLI validators/proofs green locally | modularity and drift hardening | local validation only |
+| Agent Operator | 84 | handoff/guard/proof receipts | autonomy/provider/runtime-host non-proofs | guardrails not autonomy |
+| SDK bridge | 76 | Python SDK and local API | specific app and target-host receipts | localhost candidate bridge |
+| Browser/local hub | 68 | static/local surfaces and proof command | hosted UI/browser automation/product UX | local hub only |
+| External app bridge | 63 | generic neutral local proof | specific app/public network/target-host proof | generic only |
+| Portable package | 58 | candidate package proof | signing/release verification | unsigned candidate |
+| Windows convenience/runtime | 52 | helper docs/scripts and proof | service/tray/installer/target-host | not Windows runtime proof |
+| Proof governance | 86 | PR-18 registries/proof packets | drift hardening | governance is not runtime completion |
+| Redaction/safe settings | 70 | redaction matrix/support bundle path | no guarantee/security cert | best-effort only |
+| Thor advisory path | 45 | contract/boundary | Thor hermetic CI execution | retained gap |
+| Release/distribution | 22 | boundary framework and candidate package | cert/signing/release receipts | external receipt required |
+| Target-host proof | 15 | receipt boundary docs | actual target-host execution | external receipt required |
+| Production/security certification | 3 | non-goal boundaries | formal audits/certification | non-goal/external |
+
 ## 11. Beneficial Extensions Beyond v7.1
 
-| X ID | Extension | Classification | Why it helps | Risk |
-|---|---|---|---|---|
-| X001 | LRH Road-to-100 ladder | `beneficial_extension` | Turns architecture into executable local target | ladder drift |
-| X002 | Full acceptance harness | `beneficial_extension` | Aggregates local proof commands | overclaim if misunderstood |
-| X003 | Consolidated proof governance | `beneficial_extension` | Centralizes closed and retained gaps | registry complexity |
-| X004 | Claim phrase registry | `beneficial_extension` | Reduces overclaim wording risk | not universal scanner |
-| X005 | Forbidden control registry | `beneficial_extension` | Guards apply/send/hidden authority | false positives |
-| X006 | Runtime backend coverage matrix | `beneficial_extension` | Makes coverage explicit | can age quickly |
-| X007 | Redaction policy matrix | `beneficial_extension` | Makes support-bundle redaction testable | not guarantee |
-| X008 | Signed distribution boundary framework | `neutral_extension` | Prevents false release claims | no signing proof |
-| X009 | Windows target-host receipt boundary | `beneficial_extension` | Prevents Windows overclaim | requires real Windows infra |
-| X010 | Portable packaging | `beneficial_extension` | Improves candidate distribution path | unsigned ambiguity |
-| X011 | Agent proof boundary receipts | `beneficial_extension` | Safer Codex/Claude workflow | may be mistaken as autonomy proof |
+Diese Elemente gehen über den ursprünglichen v7.1-Kern hinaus oder machen ihn ausführbarer. Sie ändern die Candidate-/App-owned-Semantik nicht, solange ihre Claim Boundaries erhalten bleiben.
+
+| Extension ID | Extension | Beyond v7.1 because | Why beneficial | Risk | Classification | Evidence |
+|---|---|---|---|---|---|---|
+| X001 | LRH Road-to-100 ladder | translates architecture into Local Runtime Hub build ladder | makes target executable and auditable | ladder drift | `beneficial_extension` | E007, E008 |
+| X002 | Return report discipline | adds PR-by-PR audit trail | improves handoff/review continuity | report claims can be overread | `beneficial_extension` | E009 |
+| X003 | Full acceptance harness | aggregates local proof receipts | shows local acceptance posture with known gaps | “full” can be misunderstood | `beneficial_extension` | E008, E026 |
+| X004 | Consolidated proof governance | central governance layer after LRH ladder | closes deterministic gaps and retains external gaps | proof-vs-runtime confusion | `beneficial_extension` | E009, E028 |
+| X005 | Agent proof receipts | local agent boundary receipts | improves Codex/Claude safety | mistaken for autonomy proof | `beneficial_extension` | E011, E029 |
+| X006 | Claim phrase registry | wording policy beyond core runtime | reduces overclaim risk | not universal enforcement | `beneficial_extension` | E009 |
+| X007 | Claim boundary registry | normalized boundary vocabulary | improves machine readability | registry drift | `beneficial_extension` | E009 |
+| X008 | Forbidden control registry | central forbidden authority patterns | protects app-owned boundaries | false positives/coverage gaps | `beneficial_extension` | E009 |
+| X009 | Redaction policy matrix | test matrix beyond core architecture | makes redaction expectations inspectable | not a guarantee | `beneficial_extension` | E009, E034 |
+| X010 | Runtime backend coverage matrix | coverage ledger beyond architecture | separates covered local receipts from retained gaps | can become stale | `beneficial_extension` | E010, E031 |
+| X011 | Signed distribution boundary framework | release boundary without signing | prevents premature signing claims | may be mistaken as release readiness | `neutral_extension` | E012, E028 |
+| X012 | Windows target-host receipt boundary | explicit future receipt contract | prevents Windows proof overclaim | requires external infrastructure | `beneficial_extension` | E009, E013 |
+| X013 | Portable packaging | candidate distribution layer | improves local handoff usability | unsigned package ambiguity | `beneficial_extension` | E032 |
+| X014 | Windows convenience layer | manual helper layer before full Windows app | improves manual usability | can be mistaken for installer/service | `beneficial_extension` | E013, E033 |
+| X015 | Evidence ledger / audit artifact itself | durable status artifact beyond runtime | improves future ChatGPT/Codex intake | audit is not runtime proof | `beneficial_extension` | E001–E036 |
 
 ## 12. Code Audit
 
@@ -582,15 +673,41 @@ Recommended future ChatGPT/Codex/Claude load order is included in Appendix D.
 | production-readiness evidence | 5 | intentionally non-goal |
 | security-certification evidence | 3 | security posture only, no cert |
 
+## 28.1 Rating Rationale
+
+| Rating | Score | Why this score | What would raise it | What would lower it | Evidence IDs |
+|---|---:|---|---|---|---|
+| v7.1 architecture alignment | 88 | strong on laws, boundaries, local-first posture and candidate semantics; partial on runtime depth, release, target-host, live model and production/security evidence | target-host receipts, deeper runtime UX, live provider receipts without boundary drift | direct apply/send, public bus/API exposure, unsupported claims | E001, E002, E005, E009, E016 |
+| local implementation completeness | 74 | many local surfaces exist and validate; some surfaces are governance/registry/proof layers, not productized runtime UX; external/non-local receipts are intentionally absent | productized local UX, stronger runtime orchestration, deterministic manifest tooling | replacing runtime work with docs-only claims | E014–E019, E024–E036 |
+| local validation confidence | 92 | validate-all completed locally with OK output; full pytest and focused audit tests completed locally | repeated CI receipts and deterministic environment matrix | flaky tests, hidden state, unvalidated docs | E024, E036 |
+| proof-governance maturity | 86 | strong due to PR-18 registries/proof packets and explicit gap retention; not maximal because registry drift and proof-vs-runtime confusion remain risks | automated registry drift tooling and manifest builder | treating governance as runtime completion | E009, E011, E028 |
+| developer usability | 78 | commands, tests and docs are clear; repo surface is large | tighter CLI modules and quick-start flows | more command sprawl | E014, E020, E023 |
+| agent usability | 84 | Agent Operator guardrails and proof receipts are strong | tighter task templates and return-report automation | hidden tool execution or scope ambiguity | E007, E011, E029 |
+| ChatGPT/LLM processability | 90 | stable IDs, machine-readable summary, registries and intake order make continuation easier | more generated indexes and drift checks | historical canon confusion | E001, E009, this audit |
+| Windows/manual usability | 52 | Windows convenience exists and helper/docs/proof surface exist; no Windows service/tray/installer/target-host receipt exists, so the mid/low score is an honest boundary, not a failure | real Windows target-host service/tray/installer receipts | claiming Windows proof from docs only | E013, E033 |
+| external-app bridge maturity | 63 | generic neutral local proof exists and app-owned boundaries exist; no specific external app integration proof, public network proof or target-host app receipt exists | concrete app receipts with app-owned apply boundary | specific app claims without receipts | E019, E030 |
+| release/distribution readiness | 22 | portable candidate package and release boundary framework exist; no signing, certificate, release pipeline or distribution receipt | signed artifact and verification receipts | calling boundary framework a release | E012, E032 |
+| target-host proof readiness | 15 | target-host boundary is documented; no target-host execution receipt exists | actual host execution logs and reproducible scripts | assuming local Linux receipt is Windows host proof | E009, E013 |
+| production-readiness evidence | 5 | non-goal boundaries exist; no production operations evidence | explicit production criteria and external receipts | any unsupported production claim | E004, E009 |
+| security-certification evidence | 3 | local security posture exists; no certification or third-party audit receipt | formal audit/certification receipts | using redaction tests as certification | E006, E012 |
+
 ## 29. What Is Truly Done Locally
 
-- Local validation and test receipts are green in this audit workspace.
-- Candidate-only Universal Work runtime path exists locally.
-- Local API and Python SDK bridge exist with localhost and no-apply/no-send boundaries.
-- Agent proof boundary gaps from LRH-PR-17 are locally closed in PR-18.
-- Consolidated proof governance registry exists and distinguishes closed from retained gaps.
-- Portable package candidate proof exists and remains explicitly unsigned/non-release.
-- Windows convenience proof exists and remains explicitly not service/tray/installer/target-host.
+| Local item | Done locally | Evidence | Still not proof of |
+|---|---|---|---|
+| local validation loop | `validate-all` and pytest ran locally | E024, E036 | production readiness, CI success in future environments |
+| full acceptance local receipt | `prove-full-acceptance` emitted local proof packet | E026 | full product completion or release certification |
+| consolidated proof governance receipt | `prove-consolidated-proof-governance` emitted governance packet | E028 | runtime/product/release completion |
+| agent proof boundary local receipt | `prove-agent-operator-mode` emitted closed local receipts | E011, E029 | agent autonomy, provider integration, runtime host proof |
+| generic external app bridge local receipt | generic proof command passed | E030 | specific external app integration, public network proof |
+| runtime backend coverage local matrix | coverage matrix and proof command exist | E010, E031 | production backend coverage, target-host coverage |
+| portable package candidate proof | package proof command passed | E032 | signed distribution, release certification |
+| Windows convenience local proof | convenience proof command passed | E013, E033 | Windows service/tray/installer/target-host proof |
+| redaction policy matrix | matrix and diagnostics/support redaction path exist | E009, E034 | redaction guarantee or security certification |
+| claim phrase registry | wording policy exists | E009 | universal overclaim prevention by itself |
+| claim boundary registry | boundary vocabulary exists | E009 | runtime enforcement by itself |
+| forbidden control registry | forbidden control taxonomy exists | E009 | exhaustive hidden-authority audit |
+| audit artifact itself | this status and target-delta document exists | this audit | runtime proof, release proof, target-host proof |
 
 ## 30. What Must Not Be Claimed Yet
 
@@ -613,17 +730,46 @@ Do not claim:
 - Thor hermetic CI execution;
 - FILE_MANIFEST deterministic closure.
 
+## 30.1 What Still Requires External Receipts
+
+| External receipt item | Why required | Valid receipt would look like | Currently present? | Status |
+|---|---|---|---|---|
+| signed distribution | signing needs real certificate/toolchain/artifact verification | signed artifact, certificate metadata, verification command output | no | `external_receipt_required` |
+| target-host execution | local repo run is not a target-host run | host OS, command log, artifact hashes, pass/fail receipt | no | `external_receipt_required` |
+| Windows service/tray/installer | docs/scripts are not installed service/tray/installer proof | Windows host transcript showing install/start/tray/stop/uninstall | no | `external_receipt_required` |
+| Microsoft Store / app store readiness | store acceptance is external process | store validation/submission receipt | no | `external_receipt_required` |
+| production readiness | production requires ops, deployment, monitoring and criteria | approved release/ops checklist with receipts | no | `non_goal_boundary` |
+| release certification | certification requires release process and approval | release pipeline and approval receipt | no | `non_goal_boundary` |
+| security certification | certification requires security audit/certifying process | signed security assessment/certification report | no | `external_receipt_required` |
+| live model inference | local mock/deterministic path is not live provider execution | provider/model run receipt with config and output boundary | no | `not_evidenced_in_repo` |
+| model quality | quality requires eval set/benchmark criteria | benchmark/eval report with methodology | no | `not_evidenced_in_repo` |
+| public network API proof | default posture blocks public API | reviewed WAN/LAN config, security review, network test receipt | no | `non_goal_boundary` |
+| specific external app integration | generic bridge is not a specific app | app-named integration test/receipt with app-owned apply boundary | no | `external_receipt_required` |
+
+## 30.2 What Should Not Be Done Next
+
+- Do not add production claims.
+- Do not chase signed release without signing receipts.
+- Do not implement Windows service/tray/installer in this repo without a target-host test plan.
+- Do not expand public network surface before boundary review.
+- Do not add live model claims through docs.
+- Do not let registries drift from code.
+- Do not let proof-governance become a replacement for runtime implementation.
+- Do not treat the audit artifact itself as runtime proof.
+- Do not merge broad new concepts before stabilizing existing proof/runtime maps.
+
 ## 31. Recommended Next Actions
 
-| Action ID | Action | Why | Boundary |
-|---|---|---|---|
-| A001 | Implement deterministic FILE_MANIFEST builder | closes retained gap safely | local-only |
-| A002 | Modularize CLI/proof builders | reduces sprawl/maintenance risk | no authority expansion |
-| A003 | Add registry consistency report generator | prevents drift between maps/registries/tests | local receipt |
-| A004 | Add Windows target-host proof pack only with actual Windows environment | closes target-host gaps | external receipt required |
-| A005 | Add signed distribution only with cert and signing CI | prevents release overclaim | external receipt required |
-| A006 | Add external reference app receipts only with clear generic/specific boundary | prevents specificity overclaim | app-specific receipt required |
-| A007 | Preserve not-production/not-security/not-release wording in every proof packet | protects claim boundary | mandatory |
+## 31.1 Next Rational Engineering Action
+
+| Action ID | Rank | Option | Action | Why now | Boundary |
+|---|---:|---|---|---|---|
+| A001 | 1 | Option A — Canonical freeze / handoff hardening | No runtime changes. Improve future intake, preserve current local proof state, avoid drift. | Safest default after a large audit/proof-governance consolidation. | does not expand claims |
+| A002 | 2 | Option B — Registry drift hardening | Add small tests/tooling to keep registries, SYSTEM_MAP, FILE_MANIFEST, docs and CLI aligned. | Directly reduces R002/R003/R005 without runtime authority expansion. | local validation only |
+| A003 | 3 | Option D — Runtime UX/productization | Improve local developer/user experience without production/release/security claims. | Useful after maps and proof boundaries are stable. | claim-bound local UX only |
+| A004 | 4 | Option C — External receipt campaign | Only if target-host/signing/CI assets exist; collect real receipts for Windows host, signing, installer, service/tray, release. | Valuable only with real external infrastructure. | external receipt required |
+
+Default recommendation: Option A, then Option B. Option C should not start from docs; it should start from real signing, CI, target-host and Windows assets. Option D is useful only if it preserves candidate-only and app-owned boundaries.
 
 ## 32. Final Verdict
 
