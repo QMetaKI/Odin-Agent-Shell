@@ -45,6 +45,35 @@ REFERENCE_INPUTS = [
     "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
 ]
 
+IGNORED_EVIDENCE_PATHS = [
+    {"pattern": ".odin_runtime/", "reason": "local_runtime_or_session_artifact_not_static_repo_evidence"},
+    {"pattern": "odin_agent_shell.egg-info/", "reason": "local_packaging_artifact_not_static_repo_evidence"},
+    {"pattern": "__pycache__/", "reason": "python_cache_artifact_not_static_repo_evidence"},
+    {"pattern": ".pytest_cache/", "reason": "test_cache_artifact_not_static_repo_evidence"},
+    {"pattern": ".mypy_cache/", "reason": "type_checker_cache_artifact_not_static_repo_evidence"},
+    {"pattern": ".ruff_cache/", "reason": "linter_cache_artifact_not_static_repo_evidence"},
+    {"pattern": "dist/", "reason": "local_distribution_build_artifact_not_static_repo_evidence"},
+    {"pattern": "build/", "reason": "local_build_artifact_not_static_repo_evidence"},
+    {"pattern": "*.pyc", "reason": "compiled_python_cache_not_static_repo_evidence"},
+    {"pattern": "*.pyo", "reason": "optimized_python_cache_not_static_repo_evidence"},
+    {"pattern": "*.egg-info/", "reason": "local_packaging_metadata_not_static_repo_evidence"},
+]
+
+IGNORED_PATH_SUBSTRINGS = [
+    ".odin_runtime/",
+    "odin_agent_shell.egg-info/",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    "dist/",
+    "build/",
+    ".egg-info/",
+]
+
+IGNORED_PATH_SUFFIXES = (".pyc", ".pyo")
+
+
 EVIDENCE_RULES = [
     {"class": "missing", "rule": "no matching local evidence reference was found"},
     {"class": "documented_only", "rule": "matching evidence under docs/ outside docs/codex/reports/ is documentation evidence only"},
@@ -149,17 +178,32 @@ def _tokens(*values: Any) -> list[str]:
     return out
 
 
+def _normalized_rel(path_text: str) -> str:
+    rel = path_text.replace("\\", "/")
+    return rel[2:] if rel.startswith("./") else rel
+
+
+def _is_ignored_evidence_path(path_text: str) -> bool:
+    rel = _normalized_rel(path_text)
+    rel_with_slash = rel if rel.endswith("/") else f"{rel}/"
+    if rel.endswith(IGNORED_PATH_SUFFIXES):
+        return True
+    return any(token in rel_with_slash for token in IGNORED_PATH_SUBSTRINGS)
+
+
 def _iter_scannable_files(root: Path) -> list[Path]:
     allowed = {".py", ".json", ".md", ".txt", ".yml", ".yaml", ".toml"}
     result: list[Path] = []
     for path in root.rglob("*"):
         if path.is_dir():
             continue
-        if any(part in {".git", ".pytest_cache", "__pycache__", ".mypy_cache"} for part in path.parts):
+        rel = path.relative_to(root).as_posix()
+        if _is_ignored_evidence_path(rel):
+            continue
+        if any(part in {".git", ".thor"} for part in path.parts):
             continue
         if path.suffix.lower() not in allowed:
             continue
-        rel = path.relative_to(root).as_posix()
         if rel == "reports/v7_1_1_operational_coverage_gap_report.json":
             continue
         result.append(path)
@@ -167,7 +211,11 @@ def _iter_scannable_files(root: Path) -> list[Path]:
 
 
 def _path_class(rel: str) -> str | None:
+    if _is_ignored_evidence_path(rel):
+        return None
     if rel in {"SYSTEM_MAP.json", "FILE_MANIFEST.json"}:
+        # FILE_MANIFEST records file presence only. It is registry/meta evidence
+        # and must never upgrade a target or slice to implementation evidence.
         return "registry_only"
     if rel.startswith("docs/codex/reports/"):
         return "report_present"
@@ -502,6 +550,7 @@ def build_report(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
         "claim_boundary": CLAIM_BOUNDARY,
         "source_refs": source_refs,
         "evidence_rules": EVIDENCE_RULES,
+        "ignored_evidence_paths": IGNORED_EVIDENCE_PATHS,
         "target_area_summary": {
             "total_target_areas": len(target_records),
             "by_computed_coverage_status": _counts(r["computed_coverage_status"] for r in target_records),
@@ -522,15 +571,51 @@ def build_report(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
         "senior_reviewer_notes": [
             "Operationalizes v7.1.1 as static local evidence classification only.",
             "Road-to-100 planning entries are not elevated to implementation proof.",
+            "Local runtime/session/build artifacts are ignored and are not repo-real implementation proof.",
             "Next PR families are recommendations, not completed work.",
         ],
         "senior_code_reviewer_notes": [
             "Compiler uses explicit required inputs and fails closed on missing files.",
             "Evidence rules are emitted in the report.",
             "No network, subprocess, provider, model, or QIRC server execution is performed.",
+            "Evidence references are recursively sanitized against ignored path families.",
         ],
     }
+    _assert_ignored_paths_sanitized(report)
     return report
+
+
+
+
+def _walk_report_strings(value: Any, path: tuple[str, ...] = ()):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield from _walk_report_strings(item, path + (str(key),))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from _walk_report_strings(item, path + (str(index),))
+    elif isinstance(value, str):
+        yield path, _normalized_rel(value)
+
+
+def _ignored_token_in_text(text: str) -> str | None:
+    for token in IGNORED_PATH_SUBSTRINGS + [".pyc", ".pyo", ".egg-info/"]:
+        if token in text:
+            return token
+    return None
+
+
+def _assert_ignored_paths_sanitized(report: dict[str, Any]) -> None:
+    allowed_top_level = {"ignored_evidence_paths", "senior_reviewer_notes", "senior_code_reviewer_notes"}
+    violations: list[str] = []
+    for path, text in _walk_report_strings(report):
+        if path and path[0] in allowed_top_level:
+            continue
+        token = _ignored_token_in_text(text)
+        if token is not None:
+            violations.append(".".join(path) + f" contains ignored evidence token {token}")
+    if violations:
+        raise ValueError("ignored evidence path leaked outside allowed report sections: " + "; ".join(violations[:10]))
 
 
 def _counts(values: Any) -> dict[str, int]:

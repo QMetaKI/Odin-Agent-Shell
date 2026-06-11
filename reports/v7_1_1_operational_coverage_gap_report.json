@@ -1285,6 +1285,52 @@
     "medium": []
   },
   "generated_at_utc": "2026-01-01T00:00:00Z",
+  "ignored_evidence_paths": [
+    {
+      "pattern": ".odin_runtime/",
+      "reason": "local_runtime_or_session_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": "odin_agent_shell.egg-info/",
+      "reason": "local_packaging_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": "__pycache__/",
+      "reason": "python_cache_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": ".pytest_cache/",
+      "reason": "test_cache_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": ".mypy_cache/",
+      "reason": "type_checker_cache_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": ".ruff_cache/",
+      "reason": "linter_cache_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": "dist/",
+      "reason": "local_distribution_build_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": "build/",
+      "reason": "local_build_artifact_not_static_repo_evidence"
+    },
+    {
+      "pattern": "*.pyc",
+      "reason": "compiled_python_cache_not_static_repo_evidence"
+    },
+    {
+      "pattern": "*.pyo",
+      "reason": "optimized_python_cache_not_static_repo_evidence"
+    },
+    {
+      "pattern": "*.egg-info/",
+      "reason": "local_packaging_metadata_not_static_repo_evidence"
+    }
+  ],
   "next_pr_recommendations": [
     {
       "blocked_by": [],
@@ -21888,11 +21934,13 @@
   "senior_code_reviewer_notes": [
     "Compiler uses explicit required inputs and fails closed on missing files.",
     "Evidence rules are emitted in the report.",
-    "No network, subprocess, provider, model, or QIRC server execution is performed."
+    "No network, subprocess, provider, model, or QIRC server execution is performed.",
+    "Evidence references are recursively sanitized against ignored path families."
   ],
   "senior_reviewer_notes": [
     "Operationalizes v7.1.1 as static local evidence classification only.",
     "Road-to-100 planning entries are not elevated to implementation proof.",
+    "Local runtime/session/build artifacts are ignored and are not repo-real implementation proof.",
     "Next PR families are recommendations, not completed work."
   ],
   "source_refs": [

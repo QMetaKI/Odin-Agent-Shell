@@ -135,6 +135,23 @@ Receipt/report convention detected in this repository:
 
 The compiler emits PR-26 through PR-39 recommendation records. Each recommendation includes the PR family, title, reason, target area IDs, slice IDs, blockers, and the `recommendation_not_implementation_proof` claim boundary.
 
+## Evidence Hygiene Fix
+
+This same-PR hardening pass adds an explicit ignored-path policy so local runtime, session, packaging, cache, and build artifacts can never become static repo-real evidence.
+
+- `.odin_runtime/*` is ignored because it is local runtime/session output and not a committed implementation contract.
+- `odin_agent_shell.egg-info/*` is ignored because it is editable-install packaging metadata and not source, schema, registry, test, or governance evidence.
+- Ignored path families added: `.odin_runtime/`, `odin_agent_shell.egg-info/`, `__pycache__/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `dist/`, `build/`, `*.pyc`, `*.pyo`, and `*.egg-info/`.
+- `FILE_MANIFEST.json` was cleaned to remove local runtime/session/cache/build/packaging artifacts. No repository convention was found that justifies retaining those generated artifacts as manifest evidence for PR-25.
+- No manifest generator/exclusion source was updated because this repository does not expose a dedicated safe manifest builder for this file; the manifest was regenerated with the same deterministic file-record shape plus the PR-25 ignored-artifact exclusion policy.
+- `FILE_MANIFEST.json` remains registry/meta evidence only: it proves file presence and never upgrades a target area or slice to `implemented_code_candidate`.
+- The generated report now includes `ignored_evidence_paths` and the compiler recursively checks that ignored path tokens do not leak into coverage, gap, recommendation, evidence, missing-evidence, or unsupported-claim structures.
+- The report was regenerated deterministically with `--generated-at-utc 2026-01-01T00:00:00Z`.
+
+Senior Reviewer note: Local runtime/session/build artifacts are not repo-real implementation proof.
+
+Senior Code Reviewer note: Evidence references are recursively sanitized against ignored path families.
+
 ## 11. Commands Run
 
 Commands run locally for this PR:
@@ -190,3 +207,4 @@ Local result summary is recorded in the PR body and final response. The generate
 - Are tests strict enough? Yes. Tests check identity, shape, full target/slice coverage, references, non-claims, fail-closed behavior, and output path confinement.
 - Is there no runtime/provider/model/QIRC-server execution? Yes. The compiler uses only local file reads and JSON output.
 - Is there no claim-language leak? Yes. The report uses non-claim boundaries and routes scan findings to `unsupported_claims`.
+- Are local runtime/session/build artifacts excluded from evidence? Yes. The compiler ignores the configured path families before evidence matching and recursively sanitizes report strings outside allowed ignored-evidence note sections.

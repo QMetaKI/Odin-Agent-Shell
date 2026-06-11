@@ -22,6 +22,40 @@ NON_CLAIMS = {
     "no QIRC server runtime proof claim",
 }
 
+IGNORED_PATTERNS = {
+    ".odin_runtime/",
+    "odin_agent_shell.egg-info/",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    "dist/",
+    "build/",
+    "*.pyc",
+    "*.pyo",
+    "*.egg-info/",
+}
+
+IGNORED_SUBSTRINGS = [
+    ".odin_runtime/",
+    "odin_agent_shell.egg-info/",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    "dist/",
+    "build/",
+    ".pyc",
+    ".pyo",
+    ".egg-info/",
+]
+
+ALLOWED_IGNORED_LOCATIONS = {
+    ("ignored_evidence_paths",),
+    ("senior_reviewer_notes",),
+    ("senior_code_reviewer_notes",),
+}
+
 
 def _json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -79,6 +113,7 @@ def test_report_top_level_shape_identity_and_claim_boundary(tmp_path: Path):
         "claim_boundary",
         "source_refs",
         "evidence_rules",
+        "ignored_evidence_paths",
         "target_area_summary",
         "road_to_100_summary",
         "target_area_coverage",
@@ -163,6 +198,67 @@ def test_report_does_not_contain_forbidden_positive_claims_outside_context(tmp_p
     ]
     for phrase in forbidden:
         assert phrase not in text
+
+
+def test_ignored_evidence_paths_are_reported(tmp_path: Path):
+    out = tmp_path / "report.json"
+    assert _run_compiler(out).returncode == 0
+    data = _json(out)
+    patterns = {entry["pattern"] for entry in data["ignored_evidence_paths"]}
+    assert IGNORED_PATTERNS <= patterns
+
+
+def _walk_strings(value, path=()):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield from _walk_strings(item, path + (str(key),))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from _walk_strings(item, path + (str(index),))
+    elif isinstance(value, str):
+        yield path, value.replace("\\", "/")
+
+
+def _allowed_ignored_path_location(path: tuple[str, ...]) -> bool:
+    return bool(path and (path[:1] in ALLOWED_IGNORED_LOCATIONS))
+
+
+def test_ignored_paths_are_recursively_sanitized_outside_ignore_sections(tmp_path: Path):
+    out = tmp_path / "report.json"
+    assert _run_compiler(out).returncode == 0
+    data = _json(out)
+    violations = []
+    for path, text in _walk_strings(data):
+        if _allowed_ignored_path_location(path):
+            continue
+        for token in IGNORED_SUBSTRINGS:
+            if token in text:
+                violations.append((path, token, text[:160]))
+    assert violations == []
+
+
+def test_file_manifest_excludes_local_runtime_cache_and_build_artifacts():
+    data = _json(ROOT / "FILE_MANIFEST.json")
+    assert "ignored_generated_artifact_exception" not in data
+    paths = [entry["path"].replace("\\", "/") for entry in data.get("files", [])]
+    violations = []
+    for path in paths:
+        for token in IGNORED_SUBSTRINGS:
+            if token in path:
+                violations.append((path, token))
+    assert violations == []
+
+
+def test_file_manifest_presence_alone_does_not_create_implemented_code_candidate(tmp_path: Path):
+    out = tmp_path / "report.json"
+    assert _run_compiler(out).returncode == 0
+    data = _json(out)
+    for section in ["target_area_coverage", "road_to_100_slice_coverage"]:
+        for record in data[section]:
+            for ref in record["evidence_refs"]:
+                if ref["path"] == "FILE_MANIFEST.json":
+                    assert ref["evidence_class"] == "registry_only"
+                    assert record["computed_coverage_status"] != "implemented_code_candidate"
 
 
 def test_compiler_fails_closed_when_required_registry_missing(tmp_path: Path):
