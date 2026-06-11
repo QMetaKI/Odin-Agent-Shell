@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1251,
+  "file_count_excluding_manifest": 1256,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -30,8 +30,8 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "2031f675cacc6abfed8d3e09652cbdf5b69224866bf426bc1a219b22af83bba4",
-      "size": 116
+      "sha256": "87c5ba3d9a77103daea09fca846b55e1cdac12ba8f8ff8ab526f0218c1598d27",
+      "size": 170
     },
     {
       "path": "AGENTS.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "5cd8b3c961f9153a2dd6017212181214e81785c236378ee19b09338d104b1198",
-      "size": 36840
+      "sha256": "3e3a624531a77c8eabefb1d3b67d9377ffc9b92305292df9a88e71d8ab9f007a",
+      "size": 37507
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1632,6 +1632,11 @@
       "path": "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md",
       "sha256": "ebb43f5bb825e9b998e05e467be04f90a86a56f563d6044fb5cf68dba1a6d823",
       "size": 21713
+    },
+    {
+      "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+      "sha256": "0b96deb77251d935d7d95a1b740beddbb5e87dbca49474e157487db17bccbbfc",
+      "size": 10779
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -4969,6 +4974,11 @@
       "size": 423
     },
     {
+      "path": "reports/v7_1_1_operational_coverage_gap_report.json",
+      "sha256": "455ae51f6e07298a92d7f09e9b899d039f62aa15a9caac13f7f4f0cf88eeca8c",
+      "size": 908982
+    },
+    {
       "path": "runtime/.gitkeep",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
@@ -5729,6 +5739,11 @@
       "size": 1391
     },
     {
+      "path": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
+      "sha256": "d0b962fc11af98e5cd574205445ceede95e4ba2dcb1e60a20a44ed0f922caf03",
+      "size": 8920
+    },
+    {
       "path": "scripts/build_portable_package.py",
       "sha256": "97777b6c35b1e8ddfa42c4d982768ce8bbccdc411d8aacc4ecc7f1e9d572ad67",
       "size": 14672
@@ -6169,6 +6184,11 @@
       "size": 8125
     },
     {
+      "path": "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
+      "sha256": "04b9d8eb5457bfdc6f93492a186216bb13c84e4c736424687218e91c5bf8bd54",
+      "size": 10648
+    },
+    {
       "path": "tests/test_v7_1_1_road_to_100_ladder.py",
       "sha256": "7c9f9977c0d67dad8a9a2ffb865cbed04d2e3b39cc919d62a83f8616b5e3525d",
       "size": 6560
@@ -6182,6 +6202,11 @@
       "path": "tools/dev/thor_cli_probe.py",
       "sha256": "1578b826ee341dc800b16017a680a94bd3ba149f2cb04b78676ee0b589eb6bd7",
       "size": 6768
+    },
+    {
+      "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",
+      "sha256": "faecde8855f75fd90ac2d84cb8c6b142b9ef9257d56b5fc348ae7cb94bc863bd",
+      "size": 30427
     },
     {
       "path": "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md",

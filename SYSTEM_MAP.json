@@ -184,7 +184,8 @@
     "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
     "registries/v7_1_1_road_to_100_ladder.json",
     "registries/v7_1_1_road_to_100_coverage_matrix.json",
-    "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md"
+    "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
+    "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -883,5 +884,10 @@
     "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
     "status": "target_canon_not_runtime_completion"
   },
-  "version": "0.8.7"
+  "version": "0.8.7",
+  "v7_1_1_operational_coverage_gap_compiler": "tools/v7_1_1/build_operational_coverage_gap_report.py",
+  "v7_1_1_operational_coverage_gap_report_schema": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
+  "v7_1_1_operational_coverage_gap_report": "reports/v7_1_1_operational_coverage_gap_report.json",
+  "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+  "v7_1_1_operational_coverage_gap_compiler_tests": "tests/test_v7_1_1_operational_coverage_gap_compiler.py"
 }
