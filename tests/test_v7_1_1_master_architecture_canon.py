@@ -157,3 +157,68 @@ def test_slice_absorption_map_is_non_proof_coverage_map():
     assert "coverage map" in payload
     assert "not proof" in payload
 
+def test_master_architecture_laws_are_specific():
+    text = _read(ARCH)
+    for phrase in [
+        "No LLM in App Law",
+        "Small-Model Power Before Bigger-Model Escalation Law",
+        "Traceability Before Trust Law",
+        "Explicit Receipt Before Claim Law",
+    ]:
+        assert phrase in text
+
+
+def test_master_architecture_responsibility_boundaries_are_specific():
+    text = _read(ARCH)
+    for phrase in [
+        "App owns",
+        "Odin owns",
+        "QIRC owns",
+        "Models own",
+        "Thor/Agent owns",
+        "Final Gate owns",
+        "QIRC does not own",
+    ]:
+        assert phrase in text
+
+
+def test_master_architecture_artifact_lens_detail_exists():
+    text = _read(ARCH)
+    for phrase in [
+        "text/document",
+        "data/config",
+        "code/repo",
+        "app/runtime",
+        "game/interactive",
+        "caller_provided",
+        "model_projection",
+        "verified_receipt",
+        "blocked_sensitive",
+    ]:
+        assert phrase in text
+
+
+def test_master_architecture_small_model_measurement_non_claim_exists():
+    text = _read(ARCH)
+    assert "What would count as measured improvement later" in text
+    assert "This PR does not measure small-model improvement" in text
+
+
+def test_master_architecture_operational_ladder_is_specific():
+    text = _read(ARCH)
+    for phrase in ["Objective", "Main files/modules", "Proof boundary", "Small-model power"]:
+        assert phrase.lower() in text.lower()
+
+
+def test_operational_target_registry_has_no_generic_only_areas():
+    data = _json(TARGET_REG)
+    generic_behaviors = {
+        "validate bounded input contracts",
+        "preserve candidate-only output",
+        "record trace/receipt where applicable",
+        "route through smallest sufficient worker before escalation",
+    }
+    for area in data["target_areas"]:
+        behaviors = set(area["required_operational_behavior"])
+        assert behaviors - generic_behaviors, area["id"]
+

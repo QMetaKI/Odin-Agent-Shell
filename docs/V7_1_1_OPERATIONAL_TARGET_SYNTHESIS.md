@@ -62,3 +62,10 @@ The weak areas are operational closure: end-to-end Context Capsule construction,
 ## 11. Non-Claims and External Receipt Boundaries
 
 Do not claim production readiness, release certification, security certification, target-host proof, Windows service/tray/installer proof, signed distribution proof, live model inference proof, model quality proof, QIRC server runtime implementation, measured small-model performance proof, specific external app integration proof, app apply authority, app state mutation authority, external-send authority, or hidden agent/tool authority without exact receipts.
+
+## 12. Recommended PR-25 Starting Point
+
+PR-25 — v7.1.1 Operational Coverage / Gap Compiler.
+
+Reason: PR-25 should turn the target registry into actionable build checks, prevent drift between target canon and repo-real status, map repo-real evidence to the next implementation PRs, keep the small-model-power target measurable, and avoid jumping into runtime work before coverage closure. This PR-25 starting point should read `registries/v7_1_1_operational_target_registry.json`, `registries/v7_1_1_slice_absorption_map.json`, existing schemas, tests, docs, and receipts, then emit scoped gaps with explicit claim boundaries.
+

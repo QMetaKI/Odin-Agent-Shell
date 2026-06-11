@@ -49,21 +49,41 @@ The main v7.1.1 metric is how much quality, speed, safety, boundedness, traceabi
 
 ## 5. Architectural Laws
 
-- **No LLM in App Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Universal Work Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Candidate Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Smallest Sufficient Worker Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **QIRC Coordination Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Work Environment Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **App-Owned Apply Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Proof-Governance Is Not Runtime Completion Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **No Hidden Authority Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **No Public Network by Default Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
-- **Model Projection Is Not Truth Law:** preserve candidate-only, local-first, app-sovereign execution boundaries.
+The v7.1.1 laws are operational constraints. They are not slogans and do not prove implementation by themselves.
+
+| Law | Statement | What it prevents | Small-model / sovereignty value | Non-claim boundary |
+|---|---|---|---|---|
+| No LLM in App Law | Apps contain bridge logic only; model work enters Odin as Universal Work. | Embedded app-side model runtimes, hidden prompts, and unreviewed app authority. | Keeps apps sovereign and lets Odin shape small-model jobs centrally. | Bridge presence is not model runtime proof. |
+| Universal Work Law | Every AI-like request must become a bounded Universal Work object before routing. | Vague prompts, missing constraints, and untyped outputs. | Reduces ambiguity before 3B/7B routing. | A compiled work object is not app apply. |
+| Candidate Law | Odin returns Candidate Artifacts and Response Packets, not reality changes. | Silent patching, state mutation, and unapproved sends. | Lets small models propose safely without owning truth. | Candidate output is not accepted truth. |
+| Smallest Sufficient Worker Law | Odin tries deterministic/no-model and smallest capable local routes before larger escalation. | Bigger-model defaulting and unnecessary remote or heavy local routes. | Forces structure to do work before model scale. | Route choice is not benchmark proof. |
+| QIRC Coordination Law | QIRC/Semantic Bus coordinates local work events, traces, receipts, and workers. | Treating coordination channels as app authority or public network surface. | Makes multi-step small-model work inspectable and replayable. | QIRC coordination is not QIRC server runtime proof. |
+| Work Environment Law | Work must carry explicit context, privacy, model, route, and output environment constraints. | Context chaos, privacy drift, and unsupported route assumptions. | Gives small models a clean work surface. | Environment metadata is not target-host proof. |
+| App-Owned Apply Law | The app owns UI, state, storage, apply, external sends, and domain truth. | Odin becoming the app, plugin mutator, email sender, or business-rule authority. | Keeps candidate-only output safe for app adoption. | Odin validation is not app approval. |
+| Proof-Governance Is Not Runtime Completion Law | Proof governance classifies receipts and claims; it does not complete runtime behavior. | Treating reports, registries, or green local checks as deployment proof. | Keeps small-model work measurable without overclaiming. | A local receipt proves only its local condition. |
+| No Hidden Authority Law | No model, provider, agent, Thor handoff, or bus event receives implicit apply/send/tool authority. | Covert tool execution and unauthorized side effects. | Lets small workers operate without danger of accidental reality changes. | Authority absence is not security certification. |
+| No Public Network by Default Law | QIRC/Semantic Bus, local APIs, and bridges default to local-only unless explicit policy says otherwise. | Public rooms, LAN/WAN federation, and accidental data exposure. | Protects local-first small-model context and traces. | Local-only config is not network security proof. |
+| Model Projection Is Not Truth Law | Model output is projection until checked, wrapped as candidate, and app-reviewed. | Treating plausible text as verified fact or app decision. | Enables cheap critic and gate passes over small-model output. | A model result is not evidence by itself. |
+| Small-Model Power Before Bigger-Model Escalation Law | Odin should exhaust structure, cache, slots, critics, and hybrid small-model routes before larger models. | Using scale to compensate for poor work shaping. | Makes 3B/7B/8B the default center instead of a fallback toy. | This PR does not measure improvement. |
+| Traceability Before Trust Law | Work, context, slots, model packets, critics, candidates, and gates need traceable ancestry. | Uninspectable candidate origins and unrepeatable route decisions. | Lets small models be trusted through structure and receipts. | Trace presence is not correctness proof. |
+| Explicit Receipt Before Claim Law | Positive claims require exact receipts scoped to the command, host, model, environment, or artifact. | Runtime, model, security, release, and target-host overclaims. | Keeps future improvement claims falsifiable. | No receipt means target intent only. |
 
 ## 6. Responsibility Boundaries
 
-Responsibility Boundaries remains candidate-only and app-sovereign in v7.1.1. The target is operational structure around Universal Work, Candidate Artifact output, smallest-sufficient routing, QIRC/Semantic Bus coordination where useful, and bounded receipts. This section is target canon, not runtime completion proof. Current implementation must be checked through repo-real code, schemas, registries, and local commands before any stronger claim is made.
+Responsibility boundaries define who owns reality and who owns candidate work.
+
+| Actor | Owns | Does not own |
+|---|---|---|
+| App owns | UI/UX, domain state, domain database/storage, project files, app event system, apply gate, external sends, user accounts, domain permissions, domain truth / business rules | model routing, Odin validators, QIRC coordination internals |
+| Odin owns | local mediation protocol, manifest/binding validation, Universal Work validation/compile, artifact/lens/verb/output-contract resolution, QIRC/Semantic Bus coordination rules, context distillation, worklet/slot/gaptext/model packet preparation, model route selection, candidate composition, critic/gate/proof/trace/receipt surfaces, SDK/API bridge rules | app state, app storage, external sends, domain truth, user account authority |
+| QIRC owns | local semantic coordination, channels/events/batches/replay, worker/model/critic/handoff coordination events, traceable communication substrate | app state, apply, external sends, final authority, public rooms by default |
+| Models own | projection work only: drafting, extraction, classification, repair, critique, or synthesis inside a ModelWorkPacket | truth, app authority, external tools, direct app context beyond packet |
+| Thor/Agent owns | advisory handoff/review/guard/return candidate surfaces | merge authority, apply authority, final correctness proof |
+| Final Gate owns | Odin-side allow/downgrade/block/cannot-safely-complete decision for returned candidates | app decision, production/security certification, external-send approval |
+
+QIRC does not own app state, apply, external sends, final authority, or public rooms by default.
+
+This boundary map is the operational reason Odin is useful to apps without becoming an app. It lets Odin improve small-model work while leaving reality decisions with the caller.
 
 ## 7. QIRC / Internal Semantic IRC Role
 
@@ -163,7 +183,35 @@ Future repo-real completion evidence should include manifest validator receipts,
 
 Artifact Type is the typed input/output family that tells Odin what kind of material it is handling. A Lens defines what matters and what can be ignored for the current task. A Verb is the semantic transformation requested. An Output Contract is the app-safe shape and candidate boundary that the response must satisfy.
 
-This layer exists to prevent generic output. The lens narrows source use, style, risk, level of detail, and domain anchors before a small model sees the task. The output contract prevents an otherwise plausible answer from becoming an unbounded blob.
+Artifact families:
+
+- text/document
+- data/config
+- code/repo
+- app/runtime
+- game/interactive
+- media references
+
+Trust statuses:
+
+- caller_provided
+- local_derived
+- tool_result
+- model_projection
+- accepted_projection
+- external_reference
+- verified_receipt
+- unknown
+
+Privacy classes:
+
+- local_only
+- local_with_cache
+- local_redacted_trace
+- remote_allowed_explicit
+- blocked_sensitive
+
+Lens + verb + output contract are the first anti-generic layer. The lens says which anchors matter, the verb says what transformation is allowed, and the output contract says what shape is safe for the app. Together they stop a small model from producing a plausible but generic answer with no app-specific anchors.
 
 Examples:
 
@@ -335,6 +383,21 @@ The Small-Model Power Layer is the central v7.1.1 operating layer. It makes 3B, 
 | Semantic Pressure Valve | split/block/ask when overloaded | protects small context windows | documented/partial |
 | Candidate DNA | trace candidate ancestry | auditable candidate output | implemented/partial |
 
+### Why this makes 3B/7B stronger
+
+- context shrinks before model work
+- slots narrow task shape and token budget
+- output contracts prevent drift
+- critics split evaluation into cheap targeted checks
+- candidate tournament improves quality without requiring a larger model
+- cache/precompute reduces repeated work
+- Dojo/Scoreboard turn experience into routing signals
+- Final Gate stops overclaim
+
+### What would count as measured improvement later
+
+Future evidence types include mock route receipts, local model eval receipts, before/after task suite results, latency/resource measurements, candidate quality rubric, 3B-only vs 7B-only vs hybrid comparison, no-model route savings, and regression gates. This PR does not measure small-model improvement.
+
 Do not claim all modules are implemented. v7.1.1 defines the target operating system around these modules and asks future PRs to convert each into receipts.
 
 ## 18. QIRC-Backed Coordination Flows
@@ -374,6 +437,22 @@ Flow C — low-memory 3B route:
 → #critic.boundary
 → #candidate.short
 ```
+
+Flow D — app digest bridge:
+
+```text
+#app.digest
+→ #work.intake
+→ #context.distill
+→ #candidate.compose
+→ #response.ready
+```
+
+Flow D is digest-only. There is no full app mirror by default and no app mutation.
+
+### QIRC is coordination, not identity
+
+Odin remains the runtime/kernel. QIRC is the coordination substrate. QIRC may become a literal local IRC/QIRC-compatible runtime later. This PR does not implement QIRC server runtime. Semantic Bus and QIRC are compatible target terminology where repo-real implementation may evolve.
 
 Each flow should have work batch open/close events, trace IDs, candidate receipts, and Final Gate status when implemented. No flow grants app authority or public-room exposure by default.
 
@@ -627,42 +706,22 @@ The repo-real baseline is mixed and must remain explicit. The table below summar
 
 ## 30. v7.1.1 Operational Target Areas
 
-The machine-readable operational target areas are defined in `registries/v7_1_1_operational_target_registry.json`. For planning, v7.1.1 groups them by priority.
+The machine-readable operational target areas are defined in `registries/v7_1_1_operational_target_registry.json`. This section translates them into PR-25+ planning language.
 
-Critical:
+| Priority | Target area | Why next | Preferred next PR family |
+|---|---|---|---|
+| Critical | Operational Coverage / Gap Compiler | Converts v7.1.1 target registry into actionable repo-real deltas and prevents drift. | PR-25 — v7.1.1 Operational Coverage / Gap Compiler |
+| Critical | Context Distillery + Artifact Lenses | Small models need bounded, source-anchored context before any route is useful. | Context/lens/capsule compiler PR |
+| Critical | Worklet Graph + Slot Forge + Gaptext | Slot engineering is primary and turns broad work into small model jobs. | Worklet/slot/gaptext compiler PR |
+| Critical | ModelWorkPacket + Model Scale Ladder | Provider inputs must be bounded before live model or adapter claims. | Model packet/router seam PR |
+| Critical | Hybrid Director | 3B scout and 7B writer roles need explicit orchestration and gates. | Hybrid route-director PR |
+| High | Critic Cascade + Candidate Tournament | Quality must come from checks and candidate comparison, not larger-model defaulting. | Critics/tournament PR |
+| High | Candidate DNA + Final Gate | Every candidate needs ancestry and final boundary action. | Candidate/gate closure PR |
+| High | Thor/Agent Handoff Compiler | Advisory handoffs need typed packets and classified receipts. | Thor/handoff PR |
+| High | SDK/App Bridge Closure | Apps need digest/work/response/candidate bridge surfaces without embedded LLM logic. | SDK/app bridge PR |
+| High | QIRC/Semantic Bus Runtime Upgrade | Coordination should be local, traceable, replayable, and explicitly non-authoritative. | QIRC/Semantic Bus hardening PR |
 
-- Small Model Power
-- Universal Work
-- App Boundary
-- Slot Forge
-- ModelWorkPacket
-- Hybrid Director
-- Critic Cascade
-- Candidate DNA
-- Final Gate
-
-High:
-
-- QIRC
-- Context Distillery
-- Artifact Lenses
-- Worklets
-- Gaptext
-- Provider Runtime
-- Candidate Tournament
-- Work Memory
-- Semantic Cache
-- Model Dojo
-- SDK Bridge
-- Thor Handoff
-
-Medium / Optional:
-
-- Optional Host Surface
-- App Templates
-- Scoreboard if no real model receipts
-
-Priority does not equal implementation status. Future PRs should pick a narrow target area, bind it to schemas/tests/receipts, and preserve all app-owned authority boundaries.
+Critical target areas remain Small Model Power, Universal Work, App Boundary, Slot Forge, ModelWorkPacket, Hybrid Director, Critic Cascade, Candidate DNA, and Final Gate. High target areas remain QIRC, Context Distillery, Artifact Lenses, Worklets, Gaptext, Provider Runtime, Candidate Tournament, Work Memory, Semantic Cache, Model Dojo, SDK Bridge, and Thor Handoff. Medium/optional areas include Optional Host Surface, App Templates, and Scoreboard when no real model receipts exist.
 
 ## 31. Non-Goals and External Receipts
 
@@ -671,23 +730,54 @@ Non-goals without concrete receipts: production readiness, release certification
 ## 32. Recommended Operationalization Ladder
 
 1. v7.1.1 target synthesis + coverage registry
+: Objective: freeze target areas and traceability. Main files/modules expected later: target registry, coverage compiler, gap reports. Proof boundary: registry coverage only, not implementation proof. Small-model power: prevents building model features before context/slot/gate gaps are known.
+
 2. operational coverage/gap compiler
+: Objective: compare repo-real files/tests/receipts to each target area. Main files/modules expected later: CLI validator, report generator, registry reader. Proof boundary: local coverage classification only. Small-model power: identifies missing amplifiers before model execution work.
+
 3. QIRC/Semantic Bus runtime upgrade
+: Objective: harden local event envelopes, channel taxonomy, batches, and replay. Main files/modules expected later: bus schemas, ledger/replay helpers, QIRC bridge validators. Proof boundary: no public rooms or QIRC server runtime claim unless implemented with receipts. Small-model power: coordinates multi-worker small-model flows.
+
 4. context distillery + artifact lenses
+: Objective: build Context Capsules from digests, artifacts, lenses, and privacy policy. Main files/modules expected later: capsule builder, lens resolver, omission logger. Proof boundary: capsule construction proof only. Small-model power: shrinks context and preserves anchors.
+
 5. worklet graph / slot forge / gaptext
+: Objective: compile work into graph nodes, slot contracts, and model-facing gaptext. Main files/modules expected later: worklet compiler, slot forge, gaptext builder. Proof boundary: generated slots/gaptext are not truth. Small-model power: makes 3B micro routes useful.
+
 6. ModelWorkPacket builder
+: Objective: enforce the only model-facing request format. Main files/modules expected later: packet schema, validator, fixtures. Proof boundary: packet validity is not live inference proof. Small-model power: replaces prompt sprawl with precise packets.
+
 7. Model Scale Ladder / provider seams
+: Objective: select smallest sufficient route and transport packets through bounded seams. Main files/modules expected later: route director, capability cards, mock/provider seams. Proof boundary: seam proof is not benchmark or live-model proof. Small-model power: keeps deterministic/3B/7B routes central.
+
 8. 3B/7B/Hybrid director
+: Objective: orchestrate 3B scout/extract/check and 7B synth/write roles. Main files/modules expected later: hybrid route planner, role fixtures, critic hooks. Proof boundary: no model quality claim without eval receipts. Small-model power: separates cheap checks from stronger synthesis.
+
 9. minicheck / critic cascade
+: Objective: produce structured schema/claim/evidence/context/style/genericness/boundary criticism. Main files/modules expected later: Minicheck packet, critic reports, gate inputs. Proof boundary: critic score is not truth. Small-model power: cheap evaluation improves candidate safety.
+
 10. candidate tournament / style / anti-generic
+: Objective: compare candidates and repair vague/style-drift output. Main files/modules expected later: tournament runner, style stabilizer, anti-generic rubric. Proof boundary: tournament winner remains candidate. Small-model power: improves output quality without defaulting to bigger models.
+
 11. model dojo / scoreboard / cache
+: Objective: collect route-fit, slot success, fallback, latency/resource, and cache signals. Main files/modules expected later: dojo fixtures, scoreboard registry, semantic cache policy. Proof boundary: no model quality certification. Small-model power: turns experience into routing signals.
+
 12. candidate DNA / response packet / final gate closure
+: Objective: attach ancestry, package response, and choose allow/downgrade/block/cannot-safely-complete actions. Main files/modules expected later: DNA builder, response packet composer, final gate validator. Proof boundary: Final Gate is not app decision. Small-model power: stops overclaim and preserves traceability.
+
 13. Thor / Agent handoff compiler
+: Objective: compile repo/test/review tasks into advisory handoff candidates. Main files/modules expected later: handoff packet schema, guard checks, return report fixtures. Proof boundary: Thor is advisory and not correctness proof. Small-model power: improves bounded code/review work through structured packets.
+
 14. SDK/template/app bridge closure
+: Objective: close app registration, digest, work, response, rendering, and conflict bridge contracts. Main files/modules expected later: SDK methods, templates, digest fixtures. Proof boundary: no app apply/send/mutate authority. Small-model power: apps provide cleaner work without embedding LLMs.
+
 15. full v7.1.1 operational acceptance harness
+: Objective: run target-area scenarios through validators and local receipts. Main files/modules expected later: acceptance harness, golden flows, support bundles. Proof boundary: local harness success is not production readiness. Small-model power: verifies amplifier chain behavior under regression tests.
 
 ## 33. Final Canon Summary
 
-v7.1.1 is target compass. v7.1 remains baseline. Odin is a Small-Model Performance OS and Universal Semantic Work Kernel that strengthens small and medium local models through operational structure: Universal Work, app-owned boundaries, Context Capsules, lenses, worklets, slots, Gaptext, ModelWorkPackets, scale routing, critics, tournaments, Candidate DNA, Response Packets, gates, traces, and receipts.
+v7.1.1 is the working target canon. v7.1 remains the complete baseline. Odin is a Small-Model Performance OS and Universal Work Kernel that makes small and medium local models stronger through operational structure rather than unbounded prompting.
 
-QIRC is an important coordination substrate but not the whole identity. Apps own apply, state, external-send, domain truth, storage, and user-facing reality decisions. Historical micro-slices and legacy bundles are target-detail traceability, not execution paths. Future work should operationalize coverage in precise PRs with receipts. No implementation completion is claimed by this target canon.
+QIRC is an important coordination substrate, not Odin's whole identity. Apps own apply, state, external-send, storage, domain truth, and user-facing reality. Odin owns bounded mediation, validation, route preparation, candidate composition, critics, gates, traces, receipts, and SDK/API bridge rules.
+
+Historical PR-00..PR-123 micro-slices and REAL-PR-01..28 legacy bundles remain target-detail coverage, not execution paths. Future work must proceed from the coverage/gap registry into narrow implementation PRs, starting naturally with PR-25 — v7.1.1 Operational Coverage / Gap Compiler. No implementation completion is claimed by this target canon.

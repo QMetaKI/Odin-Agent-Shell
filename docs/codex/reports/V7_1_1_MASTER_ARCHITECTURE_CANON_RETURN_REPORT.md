@@ -86,3 +86,23 @@ No production readiness, release certification, security certification, target-h
 
 ## Same-PR Hardening Non-Claims
 This hardening pass adds target precision only. It does not add runtime behavior, QIRC server runtime code, provider execution, live model inference, Ollama/llama.cpp runtime execution, Windows app/tray/service/installer code, app authority changes, production readiness, release certification, security certification, target-host proof, or model quality proof.
+
+## Final Same-PR Perfection Pass v3
+- Replaced generic law definitions with specific law statements, prevention goals, small-model/app-sovereignty value, and non-claim boundaries.
+- Replaced generic responsibility boundaries with an App/Odin/QIRC/Models/Thor-Final-Gate ownership map.
+- Added artifact families, trust statuses, privacy classes, and anti-generic lens/verb/output-contract explanation.
+- Added small-model measured-improvement future evidence and explicit non-claim.
+- Added QIRC coordination-not-identity subsection and app digest bridge flow.
+- Made operational target areas and recommended ladder actionable for PR-25+.
+- Removed generic-only target registry behavior across target areas.
+- Added tests for laws, boundaries, artifact/lens detail, small-model measurement non-claim, specific ladder fields, and no generic-only registry behavior.
+
+## Final Same-PR Perfection Command Receipts
+- `python -m pip install -e .` — completed locally.
+- `python -m pytest -q tests/test_v7_1_1_master_architecture_canon.py -p no:cacheprovider` — OK: 15 passed in 0.07s.
+- `python -m odin.cli validate-all` — OK: validate-all: OK.
+- `python -m pytest -q -p no:cacheprovider` — OK: 1633 passed, 2 skipped in 46.05s.
+
+## Final Same-PR Perfection Non-Claims
+This final pass sharpens target canon only. It does not implement runtime behavior, QIRC server runtime code, provider execution, live model inference, Ollama/llama.cpp runtime execution, Windows app/tray/service/installer code, app authority changes, production readiness, release readiness, security certification, target-host proof, model quality proof, or measured small-model performance improvement.
+

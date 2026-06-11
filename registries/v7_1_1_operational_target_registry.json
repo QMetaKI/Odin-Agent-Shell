@@ -34,16 +34,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "declare v7.1 baseline plus v7.1.1 target sharpening",
+        "separate target canon from repo-real implementation status",
+        "preserve historical ladders as traceability only"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-CANON area-specific structural tests",
+        "V711-CANON negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -57,7 +55,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Canon and target identity with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-CANON as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-SMALL-MODEL-POWER",
@@ -140,16 +138,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "compile AI-like requests into Universal Work lifecycle states",
+        "reject missing binding, forbidden verb, direct apply, external send, and privacy-denied work",
+        "emit blocked/needs_context/cannot_safely_complete outcomes"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-UNIVERSAL-WORK area-specific structural tests",
+        "V711-UNIVERSAL-WORK negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -163,7 +159,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Universal Work intake and kernel with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-UNIVERSAL-WORK as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-APP-BOUNDARY",
@@ -191,16 +187,14 @@
       "qirc_relevance": "core_support",
       "thor_handoff_relevance": "core_support",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "enforce Caller Manifest controls for artifacts, verbs, outputs, model, privacy, and bus policy",
+        "freeze per-request Binding authority envelope",
+        "block app apply, app state mutation, and external send leakage into Odin"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-APP-BOUNDARY area-specific structural tests",
+        "V711-APP-BOUNDARY negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -214,7 +208,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize App-owned apply/state/external-send boundary with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-APP-BOUNDARY as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-QIRC",
@@ -350,16 +344,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "resolve artifact family, trust status, privacy class, lens, verb, and output contract",
+        "use lens plus output contract as first anti-generic layer",
+        "emit #lens.select/#contract.resolve/#artifact.validate target events"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-ARTIFACT-LENSES area-specific structural tests",
+        "V711-ARTIFACT-LENSES negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -373,7 +365,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Artifact Lenses with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-ARTIFACT-LENSES as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-WORKLETS",
@@ -925,16 +917,15 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "apply style/taste rules as output-contract constraints",
+        "detect too cold/too generic/too vague/too long output",
+        "preserve source facts and candidate language",
+        "never invent facts for tone"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-STYLE-STABILIZER area-specific structural tests",
+        "V711-STYLE-STABILIZER negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -948,7 +939,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Style Stabilizer with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-STYLE-STABILIZER as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-ANTI-GENERIC",
@@ -976,16 +967,15 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "detect lack of project anchors",
+        "detect clich\u00e9 phrasing",
+        "detect source-detail avoidance",
+        "require concrete anchor repair suggestions"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-ANTI-GENERIC area-specific structural tests",
+        "V711-ANTI-GENERIC negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -999,7 +989,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Anti-Generic Engine with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-ANTI-GENERIC as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-WORK-MEMORY",
@@ -1027,16 +1017,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "store successful slot contracts, preferred output shapes, failed routes, app feedback, boundary issues, and fallback successes",
+        "exclude raw private chats, full app databases, secrets, and unnecessary personal context by default",
+        "feed route and slot selection without granting authority"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-WORK-MEMORY area-specific structural tests",
+        "V711-WORK-MEMORY negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1050,7 +1038,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Work Memory with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-WORK-MEMORY as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-SEMANTIC-CACHE",
@@ -1078,16 +1066,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "cache deterministic/lens/context/candidate-shape work under privacy policy",
+        "never bypass Final Gate",
+        "record cache hit provenance and invalidation reason"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-SEMANTIC-CACHE area-specific structural tests",
+        "V711-SEMANTIC-CACHE negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1101,7 +1087,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Semantic Cache with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-SEMANTIC-CACHE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-MODEL-DOJO",
@@ -1129,16 +1115,14 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "run JSON fill, German rewrite, schema repair, context compression, style control, event digest, no-go, and genericness fixtures",
+        "emit route-fit signals only",
+        "no model quality certification"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-MODEL-DOJO area-specific structural tests",
+        "V711-MODEL-DOJO negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1156,7 +1140,7 @@
         "no benchmark proof",
         "no target-host proof"
       ],
-      "next_ladder_recommendation": "Operationalize Model Dojo with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-MODEL-DOJO as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-SCOREBOARD",
@@ -1184,16 +1168,14 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "store route-fit, slot success, retry/fallback, latency/resource signals",
+        "separate local eval signals from benchmark or production-quality claims",
+        "feed Model Scale Ladder recommendations only"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-SCOREBOARD area-specific structural tests",
+        "V711-SCOREBOARD negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1207,7 +1189,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Scoreboard with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-SCOREBOARD as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-CANDIDATE-DNA",
@@ -1284,16 +1266,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "wrap candidates with response_id, work_id, status chips, next actions, blocked claims, trace refs, and receipt refs",
+        "preserve candidate-only rendering boundary",
+        "surface app apply requirement without applying"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-RESPONSE-PACKET area-specific structural tests",
+        "V711-RESPONSE-PACKET negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1307,7 +1287,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Response Packet with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-RESPONSE-PACKET as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-FINAL-GATE",
@@ -1390,16 +1370,14 @@
       "qirc_relevance": "core_support",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "record manifests, bindings, event digests, capsules, candidates, DNA, slots, model runs, critics, bus events, and replay metadata under retention policy",
+        "keep raw app payload non-persistent by default",
+        "classify local command, candidate, trace, and external-required receipts"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-STORAGE-TRACE-RECEIPT area-specific structural tests",
+        "V711-STORAGE-TRACE-RECEIPT negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1413,7 +1391,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Storage, trace, receipt, replay with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-STORAGE-TRACE-RECEIPT as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-THOR-HANDOFF",
@@ -1492,16 +1470,14 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "core_support",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "compile agent work packets with allowed files, forbidden scope, guard checks, and return report shape",
+        "preserve candidate-only agent output",
+        "block hidden apply/merge/send authority"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-AGENT-OPERATOR area-specific structural tests",
+        "V711-AGENT-OPERATOR negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1515,7 +1491,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Agent Operator mode with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-AGENT-OPERATOR as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-SDK-BRIDGE",
@@ -1543,15 +1519,17 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "provide register_app, status, event digest, context snapshot, universal work, send work, context request, response packet, render candidate, and conflict hooks",
-        "keep templates bridge-only with no LLM logic",
-        "make app event bridge digest-only",
-        "prevent app-owned apply leakage into Odin"
+        "register app",
+        "build digest/work",
+        "send to local API",
+        "receive candidate packet",
+        "render candidate",
+        "no apply/send/mutate methods inside Odin SDK"
       ],
       "required_tests": [
-        "SDK no-LLM tests",
-        "digest-only tests",
-        "no apply/no send template tests"
+        "V711-SDK-BRIDGE area-specific structural tests",
+        "V711-SDK-BRIDGE negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1565,7 +1543,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Close bridge contract while preserving app sovereignty and no embedded LLM runtime."
+      "next_ladder_recommendation": "Use V711-SDK-BRIDGE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-APP-TEMPLATES",
@@ -1593,16 +1571,14 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "provide bridge-only templates for generic_http, python, typescript, wordpress, godot, electron, tauri, and generic_cli",
+        "keep app event bridge digest-only",
+        "forbid embedded LLM/provider execution in templates"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-APP-TEMPLATES area-specific structural tests",
+        "V711-APP-TEMPLATES negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1616,7 +1592,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize App templates and Golden App fixtures with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-APP-TEMPLATES as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-OPTIONAL-HOST-SURFACE",
@@ -1644,16 +1620,14 @@
       "qirc_relevance": "optional",
       "thor_handoff_relevance": "optional",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "show local status, traces, receipts, candidates, settings, and diagnostics",
+        "remain optional host/debug/convenience surface, not identity",
+        "avoid app mutation, app authority, production proof, and Windows service/tray/installer claims"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-OPTIONAL-HOST-SURFACE area-specific structural tests",
+        "V711-OPTIONAL-HOST-SURFACE negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1667,7 +1641,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Optional host/debug/convenience surfaces with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-OPTIONAL-HOST-SURFACE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     },
     {
       "id": "V711-PROOF-GOVERNANCE",
@@ -1695,16 +1669,15 @@
       "qirc_relevance": "important",
       "thor_handoff_relevance": "important",
       "required_operational_behavior": [
-        "validate bounded input contracts",
-        "preserve candidate-only output",
-        "record trace/receipt where applicable",
-        "route through smallest sufficient worker before escalation"
+        "classify evidence",
+        "keep non-claims explicit",
+        "separate local receipt from external proof",
+        "block positive overclaim wording"
       ],
       "required_tests": [
-        "structural contract tests",
-        "negative boundary tests",
-        "registry/schema validation tests",
-        "receipt/gate tests when behavior exists"
+        "V711-PROOF-GOVERNANCE area-specific structural tests",
+        "V711-PROOF-GOVERNANCE negative boundary tests",
+        "claim-boundary wording tests"
       ],
       "required_proof_commands": [
         "python -m odin.cli validate-all",
@@ -1718,7 +1691,7 @@
         "no security certification claim",
         "no target-host proof claim"
       ],
-      "next_ladder_recommendation": "Operationalize Proof Governance with the smallest contract-bound patch and explicit receipts before claiming more than documented intent."
+      "next_ladder_recommendation": "Use V711-PROOF-GOVERNANCE as a narrow implementation slice only after coverage/gap classification records repo-real evidence and retained gaps."
     }
   ]
 }

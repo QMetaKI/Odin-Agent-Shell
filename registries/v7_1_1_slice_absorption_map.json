@@ -478,5 +478,5 @@
   ],
   "mapping_precision": "coarse_from_registry_keywords",
   "claim_boundary": "coverage_map_not_implementation_proof",
-  "note": "This map is a coverage map, not proof that all referenced slice details are implemented. Mapping is heuristic/coarse where registry text spans multiple target areas."
+  "note": "This map is a coverage map, not proof that all referenced slice details are implemented."
 }
