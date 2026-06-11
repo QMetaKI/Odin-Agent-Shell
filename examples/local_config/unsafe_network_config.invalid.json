@@ -1,0 +1,16 @@
+{
+  "_invalid_reason": "blocked because unsafe network default: bind_host 0.0.0.0 is a public WAN/LAN address",
+  "localhost_only": false,
+  "bind_host": "0.0.0.0",
+  "public_network_enabled": true,
+  "external_send_enabled": false,
+  "app_apply_enabled": false,
+  "provider_credentials_enabled": false,
+  "raw_payload_reveal_enabled": false,
+  "redaction_enabled": true,
+  "providers": {
+    "enabled_by_default": false
+  },
+  "candidate_only": true,
+  "claim_boundary": "unsafe_local_config_example_invalid_fixture"
+}

@@ -1,0 +1,18 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "redaction_fixture_candidate_only_no_reveal",
+  "host": "127.0.0.1",
+  "port": 8877,
+  "token": "ODIN_TEST_TOKEN_SHOULD_REDACT",
+  "secret": "ODIN_TEST_SECRET_SHOULD_REDACT",
+  "password": "ODIN_TEST_PASSWORD_SHOULD_REDACT",
+  "api_key": "ODIN_TEST_API_KEY_SHOULD_REDACT",
+  "credential": "ODIN_TEST_CREDENTIAL_SHOULD_REDACT",
+  "auth": "ODIN_TEST_AUTH_SHOULD_REDACT",
+  "private": "ODIN_TEST_PRIVATE_SHOULD_REDACT",
+  "raw_payload": "ODIN_TEST_RAW_PAYLOAD_SHOULD_REDACT",
+  "payload_raw": "ODIN_TEST_PAYLOAD_RAW_SHOULD_REDACT",
+  "sensitive": "ODIN_TEST_SENSITIVE_SHOULD_REDACT",
+  "safe_field": "this value is not sensitive",
+  "redaction_note": "Sensitive-looking keys are present for redaction testing only. Tests must not print raw values."
+}

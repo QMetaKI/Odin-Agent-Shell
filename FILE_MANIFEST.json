@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1045,
+  "file_count_excluding_manifest": 1057,
   "files": [
     {
       "path": ".editorconfig",
@@ -5227,6 +5227,66 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
+    },
+    {
+      "path": "schemas/v7_1/odin_local_config.schema.json",
+      "sha256": "21927cc066ed13dd54648fe5880894ebef495a277acc0f69fa6119f44fc50ddf",
+      "size": 3382
+    },
+    {
+      "path": "examples/local_config/safe_local_config.valid.json",
+      "sha256": "13beb804ed287057602d1d448142716f2dc2befe3e24ada5042a2ec85f350139",
+      "size": 1066
+    },
+    {
+      "path": "examples/local_config/unsafe_network_config.invalid.json",
+      "sha256": "4fdb60ea14f45409593de666b867d924344110078e49e4a3f5304b8b38f7e50c",
+      "size": 520
+    },
+    {
+      "path": "examples/local_config/unsafe_provider_enabled.invalid.json",
+      "sha256": "c2882e06fd87b4a5c36eee4be5f180c99b7a4e52178b3ba0c330fc9644f36e42",
+      "size": 502
+    },
+    {
+      "path": "examples/local_config/unsafe_raw_payload_reveal.invalid.json",
+      "sha256": "afed729d1027d72598dfe29be50b0b9d3a7c18b19cbede25cc6a4274b319fb59",
+      "size": 485
+    },
+    {
+      "path": "examples/local_config/unsafe_redaction_disabled.invalid.json",
+      "sha256": "a6f12aa63431c9f8e5a223bdc504af741dd925e78c2bf8b36d2a1774f457ca0c",
+      "size": 483
+    },
+    {
+      "path": "examples/local_config/redaction_fixture.valid.json",
+      "sha256": "686da1c4b95273e08c7a5ea48eba88c0b17ecd894c7fbc80d7a683ad62cc63fd",
+      "size": 796
+    },
+    {
+      "path": "examples/local_config/redaction_expected.valid.json",
+      "sha256": "3bf795696fbe79e0c89e80aa80f0369d21160ad42aa52c50030e81da9b3b949d",
+      "size": 578
+    },
+    {
+      "path": "docs/LOCAL_CONFIG_SAFE_SETTINGS_V1.md",
+      "sha256": "7a15b857b30c5a539c1fcf859840f31839563e7cdb0689c42f542e9393bfbc76",
+      "size": 6176
+    },
+    {
+      "path": "odin/hub/static/local_config_safe_settings.js",
+      "sha256": "ce85250ac1ad0f2d05b31593994c3c688aa562408288428907bad102a5f221e4",
+      "size": 10422
+    },
+    {
+      "path": "tests/test_lrh_pr_14_local_config_safe_settings.py",
+      "sha256": "5a332259502d2375d8ec829c4f9766cfa125436693eff555b4141d31a5388d28",
+      "size": 17221
+    },
+    {
+      "path": "docs/codex/reports/LRH-PR-14_RETURN_REPORT.md",
+      "sha256": "ef53cdd87144a9bf874a5242571b319ca11ecf5cfb8588373e95885c6303eb2c",
+      "size": 16738
     }
   ]
 }

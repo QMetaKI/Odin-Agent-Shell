@@ -1,0 +1,18 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "redaction_fixture_candidate_only_no_reveal",
+  "host": "127.0.0.1",
+  "port": 8877,
+  "token": "[REDACTED]",
+  "secret": "[REDACTED]",
+  "password": "[REDACTED]",
+  "api_key": "[REDACTED]",
+  "credential": "[REDACTED]",
+  "auth": "[REDACTED]",
+  "private": "[REDACTED]",
+  "raw_payload": "[REDACTED]",
+  "payload_raw": "[REDACTED]",
+  "sensitive": "[REDACTED]",
+  "safe_field": "this value is not sensitive",
+  "redaction_note": "Sensitive-looking keys are present for redaction testing only. Tests must not print raw values."
+}

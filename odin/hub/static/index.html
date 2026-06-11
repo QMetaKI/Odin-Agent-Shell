@@ -36,6 +36,7 @@
       <li><a href="#proof-gaps-panel">Proof Gaps</a></li>
       <li><a href="#events-panel">Trace Viewer</a></li>
       <li><a href="#universal-work-playground-panel">Universal Work Playground</a></li>
+      <li><a href="#local-config-safe-settings-panel">Safe Settings</a></li>
     </ul>
   </nav>
 
@@ -453,6 +454,87 @@
         Does not implement the External App Bridge.
       </p>
     </section>
+
+    <!-- LRH-PR-14: Local Config, Redaction and Safe Settings UI -->
+    <section id="local-config-safe-settings-panel" class="panel">
+      <h2>Local Config &amp; Safe Settings <span class="badge">read-only</span> <span class="badge">settings-visibility-only</span></h2>
+
+      <!-- Local Config Status Surface -->
+      <div class="dashboard-surface" id="lcss-config-status-surface">
+        <h3>Local Config Status <span class="badge">read-only</span> <span class="badge">not-certification</span></h3>
+        <div id="lcss-config-status-content" class="panel-content">
+          <p class="loading">Loading local config status…</p>
+        </div>
+        <p class="boundary-note">
+          Settings visibility only. Not a security certification.
+          No app apply. No external send. No credentials.
+          Localhost only. Read-only display.
+        </p>
+      </div>
+
+      <!-- Unsafe Setting Block List Surface -->
+      <div class="dashboard-surface" id="lcss-unsafe-block-list-surface">
+        <h3>Unsafe Setting Block List <span class="badge">read-only</span></h3>
+        <div id="lcss-unsafe-block-list-content" class="panel-content">
+          <p class="loading">Loading unsafe block list…</p>
+        </div>
+        <p class="boundary-note">
+          Block list is deterministic local validation. Not a security certification.
+          No raw payload reveal. No redaction bypass. Read-only display.
+        </p>
+      </div>
+
+      <!-- Redaction Status Surface -->
+      <div class="dashboard-surface" id="lcss-redaction-status-surface">
+        <h3>Redaction Status <span class="badge">not-certification</span> <span class="badge">status-only</span></h3>
+        <div id="lcss-redaction-status-content" class="panel-content">
+          <p class="loading">Loading redaction status…</p>
+        </div>
+        <p class="boundary-note">
+          Redaction status is not a security certification.
+          No raw sensitive payload display. No redaction bypass.
+          Not a redaction safety certification.
+        </p>
+      </div>
+
+      <!-- Provider Disabled-by-Default Panel -->
+      <div class="dashboard-surface" id="lcss-provider-disabled-surface">
+        <h3>Providers Disabled by Default <span class="badge">read-only</span></h3>
+        <div id="lcss-provider-disabled-content" class="panel-content">
+          <p class="loading">Loading provider status…</p>
+        </div>
+        <p class="boundary-note">
+          Providers disabled by default. Explicit config required.
+          No provider run button. No provider enable toggle.
+          No credential field. No API key field. No token field.
+          Provider settings visibility only. Not a provider execution proof.
+        </p>
+      </div>
+
+      <!-- Proof Boundaries and Known Non-Proofs -->
+      <div class="dashboard-surface" id="lcss-proof-boundaries-surface">
+        <h3>Proof Boundaries <span class="badge">viewer-only</span></h3>
+        <div id="lcss-proof-boundaries-content" class="panel-content">
+          <p class="loading">Loading proof boundaries…</p>
+        </div>
+        <p class="boundary-note">
+          Displaying proof boundaries does not close them.
+          Settings visibility only. Not a production readiness certification.
+          Not a security certification.
+        </p>
+      </div>
+
+      <p class="boundary-note">
+        Local Config Safe Settings panel is local-only, read-only, and settings-visibility-only.
+        Settings visibility only. Not a security certification. Not a production readiness certification.
+        No app apply. No external send. No credentials. No raw payload reveal. No redaction bypass.
+        Redaction status is not a security certification.
+        Providers disabled by default. No provider credential input. No provider enable toggle.
+        Does not grant app apply authority. Does not send externally. Does not execute providers.
+        Does not store provider credentials. Does not display raw sensitive payloads.
+        Does not prove production readiness. Does not prove security certification.
+      </p>
+    </section>
   </main>
 
   <footer>
@@ -470,5 +552,6 @@
   <script src="trace_viewer.js"></script>
   <script src="provider_worker_inspector.js"></script>
   <script src="universal_work_playground.js"></script>
+  <script src="local_config_safe_settings.js"></script>
 </body>
 </html>
