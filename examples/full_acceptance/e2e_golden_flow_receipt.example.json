@@ -1,0 +1,53 @@
+{
+  "artifact_kind": "odin_e2e_golden_flow_receipt",
+  "lrh_pr": "LRH-PR-17",
+  "status": "ok_with_known_gaps",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "e2e_golden_flow_local_receipt_not_live_model_not_production",
+  "golden_flow_steps": [
+    {
+      "step": "run_golden_flow",
+      "command": "python -m odin.cli run-golden-flow",
+      "status": "ok",
+      "note": "local deterministic fixture-safe golden flow; not live model quality"
+    },
+    {
+      "step": "prove_local_runtime",
+      "command": "python -m odin.cli prove-local-runtime --once-smoke",
+      "status": "ok",
+      "note": "local smoke proof; not production readiness"
+    },
+    {
+      "step": "prove_sdk_bridge",
+      "command": "python -m odin.cli prove-sdk-bridge",
+      "status": "ok",
+      "note": "local SDK bridge proof; not live daemon proof"
+    }
+  ],
+  "commands_checked": [
+    "run-golden-flow",
+    "prove-local-runtime",
+    "prove-sdk-bridge"
+  ],
+  "remaining_proof_gaps": [
+    "not live model inference proof",
+    "not production proof",
+    "not target-host validation",
+    "not specific external app integration proof"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "model_quality",
+    "target_host_validation",
+    "specific_external_app_integration"
+  ],
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "candidate_artifact_not_applied_truth",
+    "not_target_host_proof"
+  ]
+}

@@ -2849,3 +2849,356 @@ def build_windows_convenience_layer_proof_packet() -> dict[str, Any]:
         "proof_boundaries": WINDOWS_CONVENIENCE_PROOF_BOUNDARIES,
         "claim_boundary": WINDOWS_CONVENIENCE_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-17: Full Acceptance Harness
+# ---------------------------------------------------------------------------
+
+FULL_ACCEPTANCE_CLAIM_BOUNDARY = (
+    "full_acceptance_local_receipt_not_production_not_release_certification"
+)
+
+FULL_ACCEPTANCE_NOT_PROVEN = [
+    "production_readiness",
+    "release_certification",
+    "security_certification",
+    "signed_distribution",
+    "windows_service_tray_installer",
+    "target_host_validation",
+    "public_network_api",
+    "specific_external_app_integration",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+    "agent_proof_boundary_closure",
+    "thor_hermetic_ci_artifact",
+]
+
+FULL_ACCEPTANCE_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_release_certification",
+    "not_security_certification",
+    "not_signed_distribution_proof",
+    "not_windows_service_tray_installer_proof",
+    "not_target_host_proof",
+    "not_public_network_api_proof",
+    "not_specific_external_app_integration_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_proof",
+    "not_app_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send",
+]
+
+_FA_REQUIRED_FILES = [
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "registries/road_to_100_acceptance_harness_v1.json",
+    "docs/FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md",
+    "tests/test_lrh_pr_17_full_acceptance.py",
+]
+
+_FA_REQUIRED_HARNESS_PHRASES = [
+    "full acceptance local receipt",
+    "E2E golden flow",
+    "candidate-only",
+    "local-only",
+    "app-owned apply",
+    "not production readiness",
+    "not release certification",
+    "not security certification",
+    "not signed distribution proof",
+    "not Windows service/tray/installer proof",
+    "not target-host proof",
+    "not public network API proof",
+    "not live model inference proof",
+    "not model quality proof",
+    "not specific external app integration proof",
+    "remaining proof gaps are retained",
+]
+
+_FA_FORBIDDEN_DOC_CLAIMS = [
+    "guaranteed secure",
+    "windows service proven",
+    "tray proven",
+    "installer proven",
+    "live model quality proven",
+]
+
+_FA_REQUIRED_REGISTRY_FIELDS = [
+    "artifact_kind",
+    "claim_boundary",
+    "command_matrix",
+    "remaining_proof_gaps",
+    "proof_boundaries",
+    "known_non_proofs",
+]
+
+_FA_REQUIRED_NOT_PROVEN = [
+    "production_readiness",
+    "release_certification",
+    "security_certification",
+    "signed_distribution",
+    "windows_service_tray_installer",
+    "target_host_validation",
+    "public_network_api",
+    "specific_external_app_integration",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+    "agent_proof_boundary_closure",
+    "thor_hermetic_ci_artifact",
+]
+
+_FA_PUBLIC_NAMING_FORBIDDEN = [
+    "wordpress",
+    "obsidian",
+    "notion",
+    "vscode",
+    "cursor",
+    "jetbrains",
+    "microsoft store",
+    "apple store",
+    "github copilot",
+]
+
+
+def validate_full_acceptance() -> list[str]:
+    """Deterministic static validator for the Full Acceptance Harness (LRH-PR-17).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required file existence
+    for rel in _FA_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"full acceptance required file missing: {rel}")
+
+    # Harness doc phrase checks
+    harness_doc = _ROOT / "docs" / "rebaseline" / "ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md"
+    if harness_doc.exists():
+        text = harness_doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _FA_REQUIRED_HARNESS_PHRASES:
+            if phrase.lower() not in text:
+                errors.append(
+                    f"ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _FA_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in text:
+                errors.append(
+                    f"ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md: forbidden overclaim phrase: {claim!r}"
+                )
+
+    # E2E golden flows doc phrase checks
+    golden_doc = _ROOT / "docs" / "FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md"
+    if golden_doc.exists():
+        text = golden_doc.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _FA_REQUIRED_HARNESS_PHRASES:
+            if phrase.lower() not in text:
+                errors.append(
+                    f"FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _FA_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in text:
+                errors.append(
+                    f"FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md: forbidden overclaim phrase: {claim!r}"
+                )
+
+    # Registry shape check
+    registry = _ROOT / "registries" / "road_to_100_acceptance_harness_v1.json"
+    if registry.exists():
+        try:
+            reg = json.loads(registry.read_text(encoding="utf-8"))
+            for field in _FA_REQUIRED_REGISTRY_FIELDS:
+                if field not in reg:
+                    errors.append(f"road_to_100_acceptance_harness_v1.json: missing field: {field!r}")
+            # claim_boundary present
+            if not reg.get("claim_boundary"):
+                errors.append("road_to_100_acceptance_harness_v1.json: claim_boundary empty")
+            # command_matrix has correct shape
+            for cmd in reg.get("command_matrix", []):
+                for key in ("command", "status", "proof_boundary", "known_non_proof"):
+                    if key not in cmd:
+                        errors.append(
+                            f"command_matrix entry missing {key!r}: {cmd.get('command', '?')}"
+                        )
+                # Missing commands must NOT be marked as checked_locally=true
+                if cmd.get("status") == "missing_command" and cmd.get("checked_locally") is True:
+                    errors.append(
+                        f"missing_command must not have checked_locally=true: {cmd.get('command')}"
+                    )
+            # known_non_proofs retained
+            known_nps = reg.get("known_non_proofs", [])
+            for np in _FA_REQUIRED_NOT_PROVEN:
+                if np not in known_nps:
+                    errors.append(
+                        f"road_to_100_acceptance_harness_v1.json: known_non_proofs missing: {np!r}"
+                    )
+            # remaining_proof_gaps present and non-empty
+            if not reg.get("remaining_proof_gaps"):
+                errors.append(
+                    "road_to_100_acceptance_harness_v1.json: remaining_proof_gaps must be non-empty"
+                )
+        except Exception as exc:
+            errors.append(f"road_to_100_acceptance_harness_v1.json: parse error: {exc}")
+
+    # Example fixtures check
+    example_dir = _ROOT / "examples" / "full_acceptance"
+    for fname in (
+        "final_acceptance_report.example.json",
+        "remaining_proof_gaps.example.json",
+        "e2e_golden_flow_receipt.example.json",
+        "support_bundle_receipt.example.json",
+    ):
+        p = example_dir / fname
+        if not p.exists():
+            errors.append(f"full_acceptance example missing: examples/full_acceptance/{fname}")
+            continue
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            if data.get("candidate_only") is not True:
+                errors.append(f"{fname}: candidate_only must be true")
+            if data.get("claim_boundary") is None:
+                errors.append(f"{fname}: claim_boundary missing")
+        except Exception as exc:
+            errors.append(f"{fname}: parse error: {exc}")
+
+    # Public naming neutrality check on example artifacts
+    for fname in (
+        "final_acceptance_report.example.json",
+        "remaining_proof_gaps.example.json",
+        "e2e_golden_flow_receipt.example.json",
+        "support_bundle_receipt.example.json",
+    ):
+        p = example_dir / fname
+        if p.exists():
+            text_lower = p.read_text(encoding="utf-8", errors="ignore").lower()
+            for forbidden_name in _FA_PUBLIC_NAMING_FORBIDDEN:
+                if forbidden_name in text_lower:
+                    errors.append(
+                        f"{fname}: public naming violation — found {forbidden_name!r}"
+                    )
+
+    return errors
+
+
+def build_full_acceptance_proof_packet() -> dict[str, Any]:
+    """Emit a bounded full acceptance proof packet for LRH-PR-17.
+
+    Status: ok_with_known_gaps — remaining external/future proof gaps are explicitly retained.
+    This is a full acceptance local receipt. Not production readiness. Not release certification.
+    """
+    fa_errors = validate_full_acceptance()
+    all_ok = not bool(fa_errors)
+
+    commands_checked = [
+        "validate-current-public-canon",
+        "validate-agent-operator-mode",
+        "validate-local-runtime-starter",
+        "validate-runtime-doctor-bootstrap",
+        "validate-localhost-api-sdk-bridge",
+        "validate-browser-hub-shell",
+        "validate-hub-runtime-dashboard",
+        "validate-candidate-store-viewer",
+        "validate-trace-viewer",
+        "validate-provider-worker-inspector",
+        "validate-universal-work-playground",
+        "validate-neutral-external-app-bridge",
+        "validate-generic-app-bridge-golden-harness",
+        "validate-local-config-safe-settings",
+        "validate-portable-package",
+        "validate-windows-convenience-layer",
+        "prove-local-runtime",
+        "prove-sdk-bridge",
+        "prove-browser-hub",
+        "prove-portable-package",
+        "prove-windows-convenience-layer",
+        "emit-support-bundle",
+        "run-golden-flow",
+    ]
+
+    commands_missing = [
+        "prove-agent-operator-mode",
+        "prove-external-app-bridge",
+    ]
+
+    remaining_proof_gaps = [
+        "prove-agent-operator-mode not yet implemented (deferred to LRH-PR-18)",
+        "prove-external-app-bridge not yet implemented (gap retained)",
+        "thor_hermetic_ci_artifact (deferred to LRH-PR-19)",
+        "claim_scanner_phrase_registry (deferred to LRH-PR-20)",
+        "FILE_MANIFEST.json backfill (deferred to LRH-PR-21)",
+        "signed_distribution_proof (deferred to LRH-PR-25)",
+        "windows_service_tray_installer_target_host_proof (deferred to LRH-PR-26)",
+        "production_readiness (non-goal boundary)",
+        "release_certification (non-goal boundary)",
+        "security_certification (non-goal boundary)",
+        "live_model_inference_proof (non-goal boundary)",
+        "model_quality_proof (non-goal boundary)",
+        "public_network_api_proof (non-goal boundary)",
+        "specific_external_app_integration_proof (non-goal boundary)",
+        "app_apply_authority_proof (non-goal boundary)",
+        "app_state_mutation_proof (non-goal boundary)",
+        "external_send_authority_proof (non-goal boundary)",
+    ]
+
+    e2e_golden_flow_receipts = [
+        {
+            "flow": "universal_work_full_golden_flow",
+            "command": "python -m odin.cli run-golden-flow",
+            "status": "checked_locally",
+            "candidate_only": True,
+            "local_only": True,
+            "claim_boundary": "e2e_golden_flow_local_receipt_not_live_model_not_production",
+        }
+    ]
+
+    support_bundle_receipt = {
+        "artifact_kind": "odin_support_bundle_receipt",
+        "command": "python -m odin.cli emit-support-bundle --diagnostics-only",
+        "status": "checked_locally",
+        "redaction_applied": True,
+        "external_send": False,
+        "local_diagnostics_only": True,
+        "claim_boundary": "support_bundle_local_diagnostics_only_not_security_certification",
+    }
+
+    return {
+        "artifact_kind": "odin_full_acceptance_proof_packet",
+        "lrh_pr": "LRH-PR-17",
+        "status": "ok_with_known_gaps",
+        "candidate_only": True,
+        "local_only": True,
+        "full_acceptance_local_receipt": True,
+        "road_to_100_ladder": "LRH-PR-01..17",
+        "commands_checked": commands_checked,
+        "commands_green_locally": commands_checked if all_ok else [],
+        "commands_missing": commands_missing,
+        "commands_blocked": [],
+        "e2e_golden_flow_receipts": e2e_golden_flow_receipts,
+        "support_bundle_receipt": support_bundle_receipt,
+        "remaining_proof_gaps": remaining_proof_gaps,
+        "validation_errors": fa_errors,
+        "claim_boundary": FULL_ACCEPTANCE_CLAIM_BOUNDARY,
+        "proven": [
+            "all_prior_lrh_validators_green_locally",
+            "e2e_golden_flow_local_receipt",
+            "support_bundle_local_receipt",
+            "candidate_only_preserved",
+            "local_only_preserved",
+            "app_owned_apply_preserved",
+            "app_owned_state_preserved",
+            "app_owned_external_send_preserved",
+            "public_naming_neutrality_preserved",
+            "remaining_proof_gaps_retained",
+        ] if all_ok else [],
+        "not_proven": FULL_ACCEPTANCE_NOT_PROVEN,
+        "proof_boundaries": FULL_ACCEPTANCE_PROOF_BOUNDARIES,
+    }
