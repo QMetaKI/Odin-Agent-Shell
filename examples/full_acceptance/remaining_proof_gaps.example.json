@@ -1,0 +1,111 @@
+{
+  "artifact_kind": "odin_remaining_proof_gaps",
+  "lrh_pr": "LRH-PR-17",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "remaining_proof_gaps_retained_not_closed_by_documentation",
+  "gaps": [
+    {
+      "gap": "prove-agent-operator-mode",
+      "status": "missing_command",
+      "deferred_to": "LRH-PR-18",
+      "reason": "Agent proof token closure not yet implemented"
+    },
+    {
+      "gap": "prove-external-app-bridge",
+      "status": "missing_command",
+      "deferred_to": "gap_retained",
+      "reason": "External app bridge proof command not yet in CLI"
+    },
+    {
+      "gap": "thor_hermetic_ci_artifact",
+      "status": "gap_retained",
+      "deferred_to": "LRH-PR-19",
+      "reason": "Thor not found in PATH; hermetic CI artifact not implemented"
+    },
+    {
+      "gap": "claim_scanner_phrase_registry",
+      "status": "gap_retained",
+      "deferred_to": "LRH-PR-20",
+      "reason": "Claim scanner phrase registry not yet implemented"
+    },
+    {
+      "gap": "FILE_MANIFEST_backfill",
+      "status": "gap_retained",
+      "deferred_to": "LRH-PR-21",
+      "reason": "FILE_MANIFEST.json update deferred; appears generated/fragile"
+    },
+    {
+      "gap": "signed_distribution_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "LRH-PR-25",
+      "reason": "Signed distribution proof requires external signing process"
+    },
+    {
+      "gap": "windows_service_tray_installer_target_host_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "LRH-PR-26",
+      "reason": "Windows service/tray/installer proof requires target-host validation"
+    },
+    {
+      "gap": "production_readiness",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Production readiness not a goal of this LRH ladder"
+    },
+    {
+      "gap": "release_certification",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Release certification not a goal of this LRH ladder"
+    },
+    {
+      "gap": "security_certification",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Security certification not a goal of this LRH ladder"
+    },
+    {
+      "gap": "live_model_inference_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Live model inference requires external provider receipts"
+    },
+    {
+      "gap": "model_quality_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Model quality proof not a goal of this LRH ladder"
+    },
+    {
+      "gap": "public_network_api_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Public network API proof not a goal; localhost-only by default"
+    },
+    {
+      "gap": "specific_external_app_integration_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "future_external_process",
+      "reason": "Specific external app integration proof not a goal; neutral naming only"
+    },
+    {
+      "gap": "app_apply_authority_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "app_owned",
+      "reason": "App owns apply authority; not Odin's scope"
+    },
+    {
+      "gap": "app_state_mutation_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "app_owned",
+      "reason": "App owns state mutation; not Odin's scope"
+    },
+    {
+      "gap": "external_send_authority_proof",
+      "status": "non_goal_boundary",
+      "deferred_to": "app_owned",
+      "reason": "App owns external send authority; not Odin's scope"
+    }
+  ]
+}

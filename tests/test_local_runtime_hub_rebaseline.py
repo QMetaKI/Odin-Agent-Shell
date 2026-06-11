@@ -161,7 +161,15 @@ def test_road_to_100_acceptance_harness_exists_and_is_valid() -> None:
     assert "future target proof commands" in doc.read_text(encoding="utf-8")
     harness = load_json("registries/road_to_100_acceptance_harness_v1.json")
     assert harness["artifact_kind"] == "odin_road_to_100_acceptance_harness"
-    commands = {entry["command"]: entry for entry in harness["commands"]}
+    # LRH-PR-17 updated schema: command_matrix with status/known_non_proof fields
+    cmd_entries = harness.get("command_matrix", harness.get("commands", []))
+    commands = {}
+    for entry in cmd_entries:
+        cmd = entry["command"]
+        # Index by full command and by base suffix (without flags) for lookup
+        commands[cmd] = entry
+        base = cmd.replace("python -m odin.cli ", "").split()[0]
+        commands[base] = entry
     for suffix in [
         "prove-local-runtime",
         "prove-agent-operator-mode",
@@ -171,11 +179,14 @@ def test_road_to_100_acceptance_harness_exists_and_is_valid() -> None:
         "prove-portable-package",
         "emit-support-bundle",
     ]:
-        key = f"python -m odin.cli {suffix}"
-        assert key in commands
-        assert commands[key]["future_target"] is True
-        assert commands[key]["implemented_now"] is False
-        assert commands[key]["known_non_proof"]
+        assert suffix in commands, f"command not found in registry: {suffix}"
+        entry = commands[suffix]
+        assert entry.get("known_non_proof") or entry.get("proof_boundary"), (
+            f"{suffix}: known_non_proof or proof_boundary required"
+        )
+        assert entry.get("status") in {"implemented_now", "missing_command"}, (
+            f"{suffix}: status must be implemented_now or missing_command"
+        )
 
 
 def test_100_percent_definition_categories_and_review_verdict() -> None:

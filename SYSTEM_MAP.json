@@ -828,5 +828,18 @@
     "tests": "tests/test_lrh_pr_16_windows_convenience_layer.py",
     "return_report": "docs/codex/reports/LRH-PR-16_RETURN_REPORT.md",
     "status": "candidate_specification_not_runtime_verified"
+  },
+  "lrh_pr_17_full_acceptance": {
+    "claim_boundary": "full_acceptance_local_receipt_not_production_not_release_certification",
+    "doc": "docs/FULL_ACCEPTANCE_E2E_GOLDEN_FLOWS_V1.md",
+    "harness_doc": "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "registry": "registries/road_to_100_acceptance_harness_v1.json",
+    "modules": [
+      "odin/hub/shell.py",
+      "odin/cli.py"
+    ],
+    "tests": "tests/test_lrh_pr_17_full_acceptance.py",
+    "return_report": "docs/codex/reports/LRH-PR-17_RETURN_REPORT.md",
+    "status": "full_acceptance_local_receipt_not_production_not_release_certification"
   }
 }

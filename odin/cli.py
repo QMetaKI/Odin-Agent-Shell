@@ -32,6 +32,8 @@ from odin.hub.shell import (
     build_portable_package_proof_packet,
     validate_windows_convenience_layer,
     build_windows_convenience_layer_proof_packet,
+    validate_full_acceptance,
+    build_full_acceptance_proof_packet,
 )
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
@@ -2290,6 +2292,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_local_config_safe_settings())
     errors.extend(validate_portable_package())
     errors.extend(validate_windows_convenience_layer())
+    errors.extend(validate_full_acceptance())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2350,6 +2353,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prove-portable-package")
     sub.add_parser("validate-windows-convenience-layer")
     sub.add_parser("prove-windows-convenience-layer")
+    sub.add_parser("validate-full-acceptance")
+    sub.add_parser("prove-full-acceptance")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2727,6 +2732,20 @@ def main(argv: list[str] | None = None) -> int:
         result = build_windows_convenience_layer_proof_packet()
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
+
+    if args.cmd == "validate-full-acceptance":
+        errors = validate_full_acceptance()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-full-acceptance: OK")
+        return 0
+
+    if args.cmd == "prove-full-acceptance":
+        result = build_full_acceptance_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps", "partial"} else 1
 
     if args.cmd == "validate-provider-worker-inspector":
         errors = validate_provider_worker_inspector()
