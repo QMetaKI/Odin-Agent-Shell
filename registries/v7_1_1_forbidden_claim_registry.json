@@ -1,0 +1,76 @@
+{
+  "registry_id": "odin.v7_1_1_forbidden_claim_registry",
+  "version": "7.1.1",
+  "status": "forbidden_claim_registry_not_runtime_proof",
+  "claim_boundary": "registry_lists_forbidden_positive_claims_not_context_truth",
+  "positive_claim_patterns": [
+    "production ready",
+    "production-ready",
+    "ready for production",
+    "release ready",
+    "release-ready",
+    "security certified",
+    "security-certified",
+    "certified secure",
+    "target-host proven",
+    "target host proven",
+    "target-host proof complete",
+    "target host proof complete",
+    "live model proven",
+    "live model proof complete",
+    "model quality proven",
+    "measured small-model improvement",
+    "QIRC server implemented",
+    "QIRC runtime implemented",
+    "provider execution implemented",
+    "Windows service implemented",
+    "Windows tray implemented",
+    "installer proof complete",
+    "external app integration proven",
+    "app apply authority implemented",
+    "external send implemented",
+    "network/public room implemented"
+  ],
+  "allowed_context_markers": [
+    "non-claim",
+    "non claim",
+    "forbidden",
+    "not claimed",
+    "not a claim",
+    "future evidence",
+    "external receipt required",
+    "requires external proof",
+    "not runtime proof",
+    "not production readiness",
+    "not release readiness",
+    "not security certification",
+    "not target-host proof",
+    "not model quality proof",
+    "not QIRC server runtime",
+    "claim boundary",
+    "unsupported claim"
+  ],
+  "external_receipt_markers": [
+    "external receipt required",
+    "requires external proof",
+    "external proof required",
+    "future evidence"
+  ],
+  "severity_rules": [
+    {
+      "context_type": "forbidden_positive_claim",
+      "severity": "hard_violation",
+      "rule": "positive forbidden claim without explicit allowed context"
+    },
+    {
+      "context_type": "missing_required_non_claim",
+      "severity": "hard_violation",
+      "rule": "required non-claim missing from claim-boundary registry"
+    },
+    {
+      "context_type": "claim_boundary_missing",
+      "severity": "hard_violation",
+      "rule": "required claim boundary missing from claim-boundary registry"
+    }
+  ]
+}

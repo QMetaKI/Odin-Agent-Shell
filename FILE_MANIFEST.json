@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1256,
+  "file_count_excluding_manifest": 1263,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "3e3a624531a77c8eabefb1d3b67d9377ffc9b92305292df9a88e71d8ab9f007a",
-      "size": 37507
+      "sha256": "2f1027fba1eab9a4217a3ef45260eb2afabee0be40f848a052457c5c4edd99e0",
+      "size": 38211
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1637,6 +1637,11 @@
       "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
       "sha256": "0b96deb77251d935d7d95a1b740beddbb5e87dbca49474e157487db17bccbbfc",
       "size": 10779
+    },
+    {
+      "path": "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
+      "sha256": "05d1aba4ef926f1e17091ffd4e3ff33082effd450e200277ab55140179dc5efc",
+      "size": 8105
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -3215,8 +3220,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "7b40780113e9d56d2c19e407beb98ffeebd4ce9e785b1a45da8edbfd4cf515a7",
-      "size": 156456
+      "sha256": "958f67fb339f39c05a89c936cecacbf2eaae73e632c0740d87719c60e9b70fd1",
+      "size": 158341
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4884,6 +4889,16 @@
       "size": 417
     },
     {
+      "path": "registries/v7_1_1_claim_boundary_registry.json",
+      "sha256": "0d4844c4f1bd3c9b816d24055f95033308746fdecdcafb3a8f466fb8a0b21259",
+      "size": 3038
+    },
+    {
+      "path": "registries/v7_1_1_forbidden_claim_registry.json",
+      "sha256": "53d41451fb8e993804badc1b2fdf8ed91eaaa0a7e83f57e606b397c427f6cff6",
+      "size": 2216
+    },
+    {
       "path": "registries/v7_1_1_operational_target_registry.json",
       "sha256": "dafc04b35d57365f127b037f07a56813f8a33b087dcc5e2c9a95d4372f6a7874",
       "size": 78317
@@ -4972,6 +4987,11 @@
       "path": "registries/ystar_stage_registry.json",
       "sha256": "05af2b2aaf5825041522ee4fdff66cd224a66aa9ae8b0c800f623c1aba5e80d4",
       "size": 423
+    },
+    {
+      "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
+      "sha256": "7f0b7e454c9abd7509674561e5c28379524b8780861c9c6ef328f8c55e564941",
+      "size": 103252
     },
     {
       "path": "reports/v7_1_1_operational_coverage_gap_report.json",
@@ -5739,6 +5759,11 @@
       "size": 1391
     },
     {
+      "path": "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
+      "sha256": "255491523a4856fab366c376bab59fff767b2801c668896bd57217d2b762d775",
+      "size": 4081
+    },
+    {
       "path": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
       "sha256": "d0b962fc11af98e5cd574205445ceede95e4ba2dcb1e60a20a44ed0f922caf03",
       "size": 8920
@@ -6179,6 +6204,11 @@
       "size": 575
     },
     {
+      "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
+      "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
+      "size": 10774
+    },
+    {
       "path": "tests/test_v7_1_1_master_architecture_canon.py",
       "sha256": "388b36f84229752fd0919575eb81ee3d924cd9e961a7de50741458c010ba7d01",
       "size": 8125
@@ -6207,6 +6237,11 @@
       "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",
       "sha256": "faecde8855f75fd90ac2d84cb8c6b142b9ef9257d56b5fc348ae7cb94bc863bd",
       "size": 30427
+    },
+    {
+      "path": "tools/v7_1_1/check_canon_boundary_integrity.py",
+      "sha256": "cc7e222f83f5f91442872c80e0f04756205994ce17e002ad29244a16aaf54fc6",
+      "size": 16553
     },
     {
       "path": "windows/NO_SERVICE_TRAY_INSTALLER_PROOF.md",
