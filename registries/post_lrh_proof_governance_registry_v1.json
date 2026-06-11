@@ -1,0 +1,180 @@
+{
+  "registry_id": "post_lrh_proof_governance_registry_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_post_lrh_proof_governance_registry",
+  "title": "Post-LRH Proof Governance Registry — Consolidated Gap Closure & Release Boundary Pack",
+  "claim_boundary": "consolidated_proof_governance_local_receipt_not_production_not_release_certification",
+  "candidate_only": true,
+  "local_only": true,
+  "status": "ok_with_known_gaps",
+  "scope_description": "LRH-PR-18 absorbs the original PR-18+ backlog into one consolidated post-ladder proof governance pack. Closes deterministic local proof gaps where safe. Retains external/non-local/non-goal gaps explicitly. Introduces central registries for claim phrases, claim boundaries, forbidden controls, runtime coverage, redaction, release boundaries, and Windows target-host boundaries.",
+  "original_backlog_items": [
+    {
+      "id": "backlog_01",
+      "title": "Agent Proof Boundary Closure Pack",
+      "original_deferred_pr": "LRH-PR-18",
+      "status_in_pr_18": "closed_with_receipt",
+      "receipt_registry": "registries/agent_proof_boundary_registry_v1.json",
+      "cli_command": "python -m odin.cli prove-agent-operator-mode"
+    },
+    {
+      "id": "backlog_02",
+      "title": "Thor Toolchain Hermetic Install & CI Artifact Contract",
+      "original_deferred_pr": "LRH-PR-19",
+      "status_in_pr_18": "boundary_framework_added_not_hermetic_execution_proof",
+      "receipt_registry": "registries/thor_hermetic_ci_artifact_contract_v1.json",
+      "note": "Thor not available in PATH; contract schema and classification defined; not execution proof"
+    },
+    {
+      "id": "backlog_03",
+      "title": "Claim Scanner Phrase Registry & Report Wording Pack",
+      "original_deferred_pr": "LRH-PR-20",
+      "status_in_pr_18": "closed_with_receipt",
+      "receipt_registry": "registries/claim_phrase_registry_v1.json"
+    },
+    {
+      "id": "backlog_04",
+      "title": "Ladder Registry Closure / FILE_MANIFEST Backfill",
+      "original_deferred_pr": "LRH-PR-21",
+      "status_in_pr_18": "retained_gap_with_explicit_receipt",
+      "note": "FILE_MANIFEST.json backfill retained gap — safe deterministic builder not yet available; gap explicitly documented"
+    },
+    {
+      "id": "backlog_05",
+      "title": "Forbidden Control Pattern Registry",
+      "original_deferred_pr": "LRH-PR-22",
+      "status_in_pr_18": "closed_with_receipt",
+      "receipt_registry": "registries/forbidden_control_pattern_registry_v1.json"
+    },
+    {
+      "id": "backlog_06",
+      "title": "Runtime Backend Coverage Proof Matrix",
+      "original_deferred_pr": "LRH-PR-23",
+      "status_in_pr_18": "closed_with_receipt",
+      "receipt_registry": "registries/runtime_backend_coverage_matrix_v1.json",
+      "cli_command": "python -m odin.cli prove-runtime-backend-coverage"
+    },
+    {
+      "id": "backlog_07",
+      "title": "Redaction Policy Test Matrix",
+      "original_deferred_pr": "LRH-PR-24",
+      "status_in_pr_18": "closed_with_receipt",
+      "receipt_registry": "registries/redaction_policy_test_matrix_v1.json"
+    },
+    {
+      "id": "backlog_08",
+      "title": "Packaging / Distribution / Signed Release Boundary Framework",
+      "original_deferred_pr": "LRH-PR-25",
+      "status_in_pr_18": "boundary_framework_added_not_signing_proof",
+      "receipt_registry": "registries/release_readiness_boundary_v1.json",
+      "note": "Signing not performed. No certificate. No release certification. Boundary contract only."
+    },
+    {
+      "id": "backlog_09",
+      "title": "Windows Target-Host Installer / Service / Tray Boundary Framework",
+      "original_deferred_pr": "LRH-PR-26",
+      "status_in_pr_18": "boundary_framework_added_not_target_host_proof",
+      "receipt_registry": "registries/windows_target_host_receipt_contract_v1.json",
+      "note": "No service, tray, or installer created. No target-host execution. Receipt contract only."
+    }
+  ],
+  "closed_gaps": [
+    "no_app_apply_by_agent_receipt (deterministic local receipt)",
+    "no_external_send_by_agent_receipt (deterministic local receipt)",
+    "no_hidden_tool_execution_receipt (deterministic local receipt)",
+    "prove-agent-operator-mode CLI command (implemented)",
+    "prove-external-app-bridge CLI command (implemented as generic neutral local receipt)",
+    "prove-runtime-backend-coverage CLI command (implemented)",
+    "validate-consolidated-proof-governance CLI command (implemented)",
+    "prove-consolidated-proof-governance CLI command (implemented)",
+    "claim_phrase_registry (added)",
+    "claim_boundary_registry (added)",
+    "forbidden_control_pattern_registry (added)",
+    "runtime_backend_coverage_matrix (added)",
+    "redaction_policy_test_matrix (added)"
+  ],
+  "retained_gaps": [
+    {
+      "id": "gap_file_manifest_backfill",
+      "description": "FILE_MANIFEST.json backfill — safe deterministic builder not yet implemented",
+      "reason": "Risk of corrupting auto-generated manifest outweighs benefit of hand-edit; explicit gap retained",
+      "future_work": "Implement tools/dev/build_file_manifest.py with deterministic builder"
+    },
+    {
+      "id": "gap_thor_hermetic_ci_execution",
+      "description": "Thor hermetic CI execution — Thor not found in PATH",
+      "reason": "Thor classification: not_found_in_PATH; contract schema defined but execution not proven",
+      "future_work": "Requires Thor installation and CI environment"
+    },
+    {
+      "id": "gap_signed_distribution",
+      "description": "Signed distribution proof — no signing performed",
+      "reason": "Requires real code-signing certificate and external infrastructure",
+      "future_work": "Requires external signing infrastructure and receipts"
+    },
+    {
+      "id": "gap_windows_target_host",
+      "description": "Windows target-host service/tray/installer proof",
+      "reason": "Requires real Windows target-host execution environment",
+      "future_work": "Requires Windows target-host and external receipts"
+    }
+  ],
+  "non_goal_boundaries": [
+    "production_readiness",
+    "release_certification",
+    "security_certification",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "public_network_api_proof",
+    "live_model_inference_proof",
+    "model_quality_proof",
+    "specific_external_app_integration_proof",
+    "app_apply_authority_proof",
+    "app_state_mutation_proof",
+    "external_send_authority_proof",
+    "hidden_tool_execution_authority_proof"
+  ],
+  "proof_packet_fields": [
+    "artifact_kind",
+    "lrh_pr",
+    "status",
+    "candidate_only",
+    "local_only",
+    "proof_governance_receipt",
+    "agent_proof_boundary",
+    "thor_hermetic_contract",
+    "claim_phrase_registry",
+    "forbidden_control_patterns",
+    "file_manifest_closure",
+    "runtime_backend_coverage",
+    "redaction_policy_matrix",
+    "release_readiness_boundary",
+    "windows_target_host_boundary",
+    "closed_gaps",
+    "retained_gaps",
+    "not_proven",
+    "proof_boundaries",
+    "claim_boundary"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "release_certification",
+    "security_certification",
+    "signed_distribution",
+    "windows_service",
+    "windows_tray",
+    "windows_installer",
+    "target_host_validation",
+    "microsoft_store_readiness",
+    "public_network_api",
+    "specific_external_app_integration",
+    "live_model_inference",
+    "model_quality",
+    "app_apply_authority",
+    "app_state_mutation",
+    "external_send_authority",
+    "hidden_tool_execution_authority",
+    "thor_hermetic_ci_execution_if_not_actually_available"
+  ]
+}

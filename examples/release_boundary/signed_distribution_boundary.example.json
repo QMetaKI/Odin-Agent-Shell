@@ -1,0 +1,19 @@
+{
+  "artifact_kind": "odin_release_readiness_boundary_example",
+  "lrh_pr": "LRH-PR-18",
+  "status": "boundary_contract_only",
+  "candidate_only": true,
+  "local_only": true,
+  "signing_status": "not_performed",
+  "certificate_status": "not_present",
+  "release_certification_status": "not_attempted",
+  "claim_boundary": "release_readiness_boundary_contract_not_signing_proof",
+  "not_proven": [
+    "signed_distribution",
+    "release_certification",
+    "code_signing",
+    "distribution_channel_acceptance",
+    "production_readiness",
+    "security_certification"
+  ]
+}

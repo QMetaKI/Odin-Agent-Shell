@@ -1,0 +1,79 @@
+{
+  "registry_id": "agent_proof_boundary_registry_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_agent_proof_boundary_registry",
+  "claim_boundary": "agent_proof_boundary_local_receipt_not_agent_authority_expansion",
+  "candidate_only": true,
+  "local_only": true,
+  "description": "Receipt-bound local proof registry for Agent Operator Mode boundary enforcement. Closes the agent proof token gaps carried from LRH-PR-17.",
+  "receipts": {
+    "no_app_apply_by_agent_receipt": {
+      "status": "closed",
+      "evidence": [
+        "agent_work_packet.app_owned_apply == true",
+        "forbidden_actions includes app_state_apply",
+        "agent-guard finds no violations for app_state_apply",
+        "agent_operator_profile_registry.json candidate_only: true"
+      ],
+      "claim_boundary": "no_app_apply_by_agent_receipt_not_host_apply_proof",
+      "note": "App apply is host-owned / app-owned, not agent-owned. Receipt confirms packet enforces this boundary."
+    },
+    "no_external_send_by_agent_receipt": {
+      "status": "closed",
+      "evidence": [
+        "agent_work_packet.external_send_default == false",
+        "forbidden_actions includes external_send",
+        "agent-guard finds no violations for external_send"
+      ],
+      "claim_boundary": "no_external_send_by_agent_receipt_not_network_proof",
+      "note": "External send default is false. Receipt confirms packet enforces this boundary."
+    },
+    "no_hidden_tool_execution_receipt": {
+      "status": "closed",
+      "evidence": [
+        "agent_work_packet.hidden_tool_execution_allowed == false (not present, defaults to disallowed)",
+        "forbidden_actions includes hidden_tool_execution",
+        "agent-guard finds no violations for hidden_tool_execution",
+        "All tool calls are declared in packet and visible in handoff JSON"
+      ],
+      "claim_boundary": "no_hidden_tool_execution_receipt_not_runtime_audit_proof",
+      "note": "Hidden tool execution is disallowed per packet. Receipt confirms packet enforces this boundary."
+    }
+  },
+  "proof_command": "python -m odin.cli prove-agent-operator-mode",
+  "proof_output_kind": "odin_agent_operator_mode_proof_packet",
+  "required_proof_packet_fields": [
+    "artifact_kind",
+    "status",
+    "candidate_only",
+    "local_only",
+    "no_app_apply_by_agent_receipt",
+    "no_external_send_by_agent_receipt",
+    "no_hidden_tool_execution_receipt",
+    "agent_packet_validated",
+    "guard_passed",
+    "check_passed",
+    "not_proven",
+    "proof_boundaries",
+    "claim_boundary"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "runtime_host_proof",
+    "agent_autonomy_proof",
+    "provider_integration_proof"
+  ],
+  "proof_boundaries": [
+    "not_agent_authority_expansion",
+    "not_app_apply_proof",
+    "not_external_send_authority_proof",
+    "not_hidden_tool_execution_authority_proof",
+    "not_runtime_host_proof",
+    "candidate_only",
+    "local_only"
+  ]
+}

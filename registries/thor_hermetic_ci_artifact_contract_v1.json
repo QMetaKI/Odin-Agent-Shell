@@ -1,0 +1,98 @@
+{
+  "registry_id": "thor_hermetic_ci_artifact_contract_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_thor_hermetic_ci_artifact_contract",
+  "claim_boundary": "thor_hermetic_contract_schema_only_not_thor_execution_proof",
+  "candidate_only": true,
+  "local_only": true,
+  "status": "contract_defined_not_execution_proven",
+  "thor_classification_current": "not_found_in_PATH",
+  "description": "Thor hermetic CI artifact governance contract. Defines schema, diagnostic classes, and boundary requirements. Does NOT claim Thor is available or that hermetic CI execution has been proven.",
+  "diagnostic_classes": [
+    {
+      "class": "thor_available",
+      "description": "Thor found in PATH and importable",
+      "probe_result": false,
+      "current_environment": false
+    },
+    {
+      "class": "not_found_in_PATH",
+      "description": "Thor CLI not found in system PATH",
+      "probe_result": true,
+      "current_environment": true
+    },
+    {
+      "class": "entrypoint_missing_after_install",
+      "description": "Thor installed but CLI entrypoint missing",
+      "probe_result": false
+    },
+    {
+      "class": "module_not_importable_after_install",
+      "description": "Thor installed but Python module not importable",
+      "probe_result": false
+    },
+    {
+      "class": "clone_unavailable",
+      "description": "Thor repository clone failed (network/permission)",
+      "probe_result": false
+    },
+    {
+      "class": "network_unavailable",
+      "description": "Network not available for Thor clone/install",
+      "probe_result": false
+    },
+    {
+      "class": "permission_issue",
+      "description": "Permission error during Thor install",
+      "probe_result": false
+    },
+    {
+      "class": "working_directory_issue",
+      "description": "Working directory issue during Thor operations",
+      "probe_result": false
+    },
+    {
+      "class": "unknown_invocation_regression",
+      "description": "Thor invocation produced unexpected output",
+      "probe_result": false
+    }
+  ],
+  "hermetic_ci_artifact_schema": {
+    "required_fields": [
+      "artifact_kind",
+      "thor_classification",
+      "advisory_only",
+      "candidate_only",
+      "local_only",
+      "claim_boundary"
+    ],
+    "allowed_status_values": ["thor_available", "not_found_in_PATH", "entrypoint_missing_after_install", "module_not_importable_after_install", "clone_unavailable", "network_unavailable", "permission_issue", "working_directory_issue", "unknown_invocation_regression"],
+    "forbidden_claims": [
+      "thor_execution_proven",
+      "hermetic_ci_proven",
+      "thor_validates_release",
+      "thor_certifies_build"
+    ]
+  },
+  "proof_boundaries": [
+    "not_thor_execution_proof",
+    "not_hermetic_ci_execution_proof",
+    "not_release_validation_by_thor",
+    "thor_advisory_only",
+    "odin_validators_remain_authority"
+  ],
+  "not_proven": [
+    "thor_available_in_environment",
+    "hermetic_ci_execution",
+    "thor_validates_odin_release",
+    "production_readiness",
+    "release_certification"
+  ],
+  "future_receipt_requirements": [
+    "Thor installed and available in PATH",
+    "Thor hermetic CI run receipt from actual CI environment",
+    "Thor validates Odin build artifacts receipt",
+    "External CI environment confirmation"
+  ]
+}

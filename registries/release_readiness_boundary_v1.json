@@ -1,0 +1,75 @@
+{
+  "registry_id": "release_readiness_boundary_v1",
+  "version": "1.0",
+  "lrh_pr": "LRH-PR-18",
+  "artifact_kind": "odin_release_readiness_boundary",
+  "claim_boundary": "release_readiness_boundary_contract_not_signing_proof",
+  "candidate_only": true,
+  "local_only": true,
+  "status": "boundary_contract_only",
+  "description": "Signed distribution readiness boundary framework. Defines future receipt requirements for signed release. No signing performed. No certificate present. No release certification.",
+  "signing_status": "not_performed",
+  "certificate_status": "not_present",
+  "release_certification_status": "not_attempted",
+  "allowed_claims": [
+    "signed distribution remains future proof",
+    "signing receipt contract defined",
+    "required external receipts enumerated",
+    "no signing performed",
+    "no certificate present",
+    "no release certification"
+  ],
+  "future_receipt_requirements": [
+    {
+      "id": "code_signing_certificate",
+      "description": "Valid code-signing certificate (EV or standard)",
+      "status": "not_available",
+      "requires": "external CA or organization certificate authority"
+    },
+    {
+      "id": "signing_infrastructure",
+      "description": "Code signing toolchain (signtool, codesign, or equivalent)",
+      "status": "not_available",
+      "requires": "CI/CD signing environment with certificate access"
+    },
+    {
+      "id": "signed_artifact_receipt",
+      "description": "Receipt from successful artifact signing run",
+      "status": "not_available",
+      "requires": "signing infrastructure + certificate"
+    },
+    {
+      "id": "signature_verification_receipt",
+      "description": "Receipt from signature verification on signed artifact",
+      "status": "not_available",
+      "requires": "signed artifact + verification toolchain"
+    },
+    {
+      "id": "release_pipeline_receipt",
+      "description": "Receipt from release pipeline completing successfully",
+      "status": "not_available",
+      "requires": "CI/CD release pipeline + signing + artifact publication"
+    },
+    {
+      "id": "distribution_channel_receipt",
+      "description": "Receipt from distribution channel acceptance",
+      "status": "not_available",
+      "requires": "distribution channel (GitHub Releases, PyPI, etc.) + signed artifact"
+    }
+  ],
+  "not_proven": [
+    "signed_distribution",
+    "release_certification",
+    "code_signing",
+    "distribution_channel_acceptance",
+    "production_readiness",
+    "security_certification"
+  ],
+  "proof_boundaries": [
+    "not_signed_distribution_proof",
+    "not_release_certification",
+    "not_security_certification",
+    "not_code_signing_proof",
+    "boundary_contract_only"
+  ]
+}
