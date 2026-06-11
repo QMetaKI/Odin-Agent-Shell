@@ -65,6 +65,9 @@ Do not claim production readiness, release certification, security certification
 
 ## 12. Recommended PR-25 Starting Point
 
+The Road-to-100 ladder is the authoritative future build-slice map for v7.1.1 implementation work; it is a planning artifact, not implementation proof. See `docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md` and `registries/v7_1_1_road_to_100_ladder.json`.
+
+
 PR-25 — v7.1.1 Operational Coverage / Gap Compiler.
 
 Reason: PR-25 should turn the target registry into actionable build checks, prevent drift between target canon and repo-real status, map repo-real evidence to the next implementation PRs, keep the small-model-power target measurable, and avoid jumping into runtime work before coverage closure. This PR-25 starting point should read `registries/v7_1_1_operational_target_registry.json`, `registries/v7_1_1_slice_absorption_map.json`, existing schemas, tests, docs, and receipts, then emit scoped gaps with explicit claim boundaries.

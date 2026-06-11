@@ -774,6 +774,9 @@ Non-goals without concrete receipts: production readiness, release certification
 15. full v7.1.1 operational acceptance harness
 : Objective: run target-area scenarios through validators and local receipts. Main files/modules expected later: acceptance harness, golden flows, support bundles. Proof boundary: local harness success is not production readiness. Small-model power: verifies amplifier chain behavior under regression tests.
 
+
+The fine-grained Road-to-100 implementation sequence is maintained in `docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md` and `registries/v7_1_1_road_to_100_ladder.json`. It is a planning artifact, not implementation proof.
+
 ## 33. Final Canon Summary
 
 v7.1.1 is the working target canon. v7.1 remains the complete baseline. Odin is a Small-Model Performance OS and Universal Work Kernel that makes small and medium local models stronger through operational structure rather than unbounded prompting.

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1246,
+  "file_count_excluding_manifest": 1251,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "ced3f686cd4f1dcbe5d9fadb85a4c7e5c4805988b697c4563933e1874b7e2f01",
-      "size": 36248
+      "sha256": "5cd8b3c961f9153a2dd6017212181214e81785c236378ee19b09338d104b1198",
+      "size": 36840
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -455,8 +455,8 @@
     },
     {
       "path": "docs/MASTER_ARCHITECTURE_V7_1_1.md",
-      "sha256": "8159d5929676979b2cbb7f0e9e228fdc5c740dc078dd8b3b39d3005ebe81549d",
-      "size": 49352
+      "sha256": "31336152d09854c2416f5e2077c4b553f50ef6f7095b27878b2e177c8151a30a",
+      "size": 49568
     },
     {
       "path": "docs/MASTER_SPECS_V7_1.md",
@@ -1095,8 +1095,13 @@
     },
     {
       "path": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
-      "sha256": "bc656b472d47783c22b01ec54b7967942c97e274b6850ed85e8949c28b9132e8",
-      "size": 6437
+      "sha256": "1e3838c74d45c514ae4545a21b9ccc54d7b5efa58dfdbb53cd996605038234b2",
+      "size": 6686
+    },
+    {
+      "path": "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+      "sha256": "fbf02c0e675a1ec54dfbd4dd7f69d51226f4e9feda8398d346d0352b2c582a5a",
+      "size": 72810
     },
     {
       "path": "docs/WHY_TRACE_EXPLAINABILITY_V7_1.md",
@@ -1647,6 +1652,11 @@
       "path": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
       "sha256": "73c5eee810e790940e564d67f930fbd49b55b199ed5569d029eb10a835a94c43",
       "size": 6837
+    },
+    {
+      "path": "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
+      "sha256": "b35575935a66295c2c065909c3d9f422342302b2395e7584e0fe1fb54618cc4c",
+      "size": 2388
     },
     {
       "path": "docs/codex/tasks/PR-00_CANON_GATES_AND_REPO_HYGIENE.md",
@@ -4874,6 +4884,16 @@
       "size": 78317
     },
     {
+      "path": "registries/v7_1_1_road_to_100_coverage_matrix.json",
+      "sha256": "1efc56dbe2d0c98e1ab407078dfb0c1567f76d2ce3e271f3ec3189b463b7889e",
+      "size": 37716
+    },
+    {
+      "path": "registries/v7_1_1_road_to_100_ladder.json",
+      "sha256": "426123d096ec58a93052a0053a548220508a4c98892c8e7fc6fb7c13a5e546c3",
+      "size": 639598
+    },
+    {
       "path": "registries/v7_1_1_slice_absorption_map.json",
       "sha256": "061fd58c6aaf2bae209c0613b3c5449ee9285df57a5d4d973e70ae4bb95f22d6",
       "size": 13724
@@ -6147,6 +6167,11 @@
       "path": "tests/test_v7_1_1_master_architecture_canon.py",
       "sha256": "388b36f84229752fd0919575eb81ee3d924cd9e961a7de50741458c010ba7d01",
       "size": 8125
+    },
+    {
+      "path": "tests/test_v7_1_1_road_to_100_ladder.py",
+      "sha256": "401ae59355ec1b369fa10e1dbe7a8384a58ee4f8abb0f943fe104b179a7f3877",
+      "size": 5726
     },
     {
       "path": "tests/test_validation_cli.py",

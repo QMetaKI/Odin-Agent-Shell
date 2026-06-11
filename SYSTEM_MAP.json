@@ -180,7 +180,11 @@
     "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
     "registries/v7_1_1_operational_target_registry.json",
     "registries/v7_1_1_slice_absorption_map.json",
-    "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md"
+    "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "registries/v7_1_1_road_to_100_ladder.json",
+    "registries/v7_1_1_road_to_100_coverage_matrix.json",
+    "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -862,6 +866,10 @@
   "v7_1_1_master_architecture_return_report": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
   "v7_1_1_operational_target_registry": "registries/v7_1_1_operational_target_registry.json",
   "v7_1_1_operational_target_synthesis": "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+  "v7_1_1_road_to_100_build_ladder": "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+  "v7_1_1_road_to_100_coverage_matrix": "registries/v7_1_1_road_to_100_coverage_matrix.json",
+  "v7_1_1_road_to_100_ladder_registry": "registries/v7_1_1_road_to_100_ladder.json",
+  "v7_1_1_road_to_100_ladder_return_report": "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
   "v7_1_1_slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
   "v7_1_1_target_canon": {
     "baseline": "docs/MASTER_ARCHITECTURE_V7_1.md",
