@@ -1,0 +1,34 @@
+{
+  "odin_base_url": "http://127.0.0.1:8877",
+  "localhost_only": true,
+  "host_app_owns_apply": true,
+  "host_app_owns_state": true,
+  "host_app_owns_external_send": true,
+  "odin_external_send": false,
+  "odin_app_apply": false,
+  "credential_required": false,
+  "candidate_only": true,
+  "claim_boundary": "neutral_external_app_bridge_candidate_only_no_app_apply_no_external_send_no_credentials",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_hosted_bridge_proof",
+    "not_public_gateway_proof",
+    "not_real_external_app_integration_proof",
+    "not_app_apply_proof",
+    "not_host_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_provider_execution_proof",
+    "not_credential_storage_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "notes": [
+    "This is an example config only — not a real integration.",
+    "Host app owns apply, state, and external send. Odin does not.",
+    "No credentials, tokens, or secrets belong in this file.",
+    "Replace odin_base_url only with a localhost address.",
+    "Do not expose this bridge to a public or LAN network by default."
+  ]
+}

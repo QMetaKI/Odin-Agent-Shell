@@ -1,0 +1,37 @@
+{
+  "candidate_only": true,
+  "local_only": true,
+  "external_send": false,
+  "app_apply": false,
+  "host_app_owns_apply": true,
+  "host_app_owns_state": true,
+  "host_app_owns_external_send": true,
+  "arbitrary_shell_execution": false,
+  "provider_execution": false,
+  "credential_required": false,
+  "work": {
+    "kind": "neutral_bridge_demo",
+    "description": "Neutral demonstration Universal Work request for External App Bridge Pack. This is a candidate-only fixture. The host app submits this work and receives a Candidate Artifact. The host app owns apply.",
+    "input": {
+      "text": "Example input for neutral bridge demonstration."
+    }
+  },
+  "claim_boundary": "neutral_external_app_bridge_universal_work_request_candidate_only_no_apply_no_external_send",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_live_model_inference_proof",
+    "not_provider_execution_proof",
+    "not_app_apply_proof",
+    "not_external_send_authority_proof",
+    "not_host_state_mutation_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "known_non_proofs": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "real_external_app_integration"
+  ]
+}

@@ -22,6 +22,8 @@ from odin.hub.shell import (
     build_provider_worker_inspector_proof_packet,
     validate_universal_work_playground,
     build_universal_work_playground_proof_packet,
+    validate_neutral_external_app_bridge,
+    build_neutral_external_app_bridge_proof_packet,
 )
 from odin.diagnostics.support_bundle import emit_support_bundle
 from odin.daemon.local_api import run_local_api
@@ -2275,6 +2277,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_trace_viewer())
     errors.extend(validate_provider_worker_inspector())
     errors.extend(validate_universal_work_playground())
+    errors.extend(validate_neutral_external_app_bridge())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2325,6 +2328,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-candidate-store-viewer")
     sub.add_parser("validate-trace-viewer")
     sub.add_parser("validate-provider-worker-inspector")
+    sub.add_parser("validate-neutral-external-app-bridge")
+    sub.add_parser("prove-neutral-external-app-bridge")
     serve_browser_hub_p = sub.add_parser("serve-browser-hub")
     serve_browser_hub_p.add_argument("--host", default="127.0.0.1")
     serve_browser_hub_p.add_argument("--port", type=int, default=8878)
@@ -2632,6 +2637,20 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         print("validate-universal-work-playground: OK")
         return 0
+
+    if args.cmd == "validate-neutral-external-app-bridge":
+        errors = validate_neutral_external_app_bridge()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-neutral-external-app-bridge: OK")
+        return 0
+
+    if args.cmd == "prove-neutral-external-app-bridge":
+        result = build_neutral_external_app_bridge_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "partial"} else 1
 
     if args.cmd == "validate-provider-worker-inspector":
         errors = validate_provider_worker_inspector()

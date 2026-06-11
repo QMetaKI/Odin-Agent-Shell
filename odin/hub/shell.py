@@ -1376,3 +1376,279 @@ def build_browser_hub_proof_packet(shell_only: bool = True, dashboard: bool = Fa
         "proof_boundaries": BROWSER_HUB_PROOF_BOUNDARIES,
         "claim_boundary": BROWSER_HUB_SHELL_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-12 — Neutral External App Bridge Pack
+# ---------------------------------------------------------------------------
+
+NEUTRAL_EXTERNAL_APP_BRIDGE_CLAIM_BOUNDARY = (
+    "neutral_external_app_bridge_pack_candidate_only_no_app_apply_"
+    "no_external_send_no_credentials_no_hosted_bridge_no_public_gateway"
+)
+
+NEUTRAL_EXTERNAL_APP_BRIDGE_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_hosted_bridge_proof",
+    "not_public_gateway_proof",
+    "not_real_external_app_integration_proof",
+    "not_app_apply_proof",
+    "not_host_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_provider_execution_proof",
+    "not_provider_credential_storage_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send",
+]
+
+_NEAB_ROOT = _ROOT / "examples" / "external_app_bridge"
+_NEAB_DOC = _ROOT / "docs" / "NEUTRAL_EXTERNAL_APP_BRIDGE_PACK_V1.md"
+
+_NEAB_REQUIRED_FILES = [
+    "docs/NEUTRAL_EXTERNAL_APP_BRIDGE_PACK_V1.md",
+    "examples/external_app_bridge/neutral_host_health_check.py",
+    "examples/external_app_bridge/neutral_host_submit_universal_work.py",
+    "examples/external_app_bridge/neutral_host_read_candidate.py",
+    "examples/external_app_bridge/neutral_host_read_proof_gaps.py",
+    "examples/external_app_bridge/neutral_bridge_config.example.json",
+    "examples/external_app_bridge/neutral_universal_work_request.valid.json",
+    "examples/external_app_bridge/neutral_candidate_artifact_response.valid.json",
+    "tests/test_lrh_pr_12_neutral_external_app_bridge.py",
+]
+
+_NEAB_REQUIRED_DOC_PHRASES = [
+    "host app owns apply",
+    "host app owns state",
+    "host app owns external send",
+    "odin does not apply",
+    "odin does not send externally",
+    "candidate artifact",
+    "not applied truth",
+    "localhost",
+    "not_production_readiness_certification",
+    "not a hosted bridge",
+    "not a public",
+]
+
+_NEAB_FORBIDDEN_BRIDGE_CONFIG_KEYS = [
+    "token", "secret", "api_key", "password", "credential", "webhook_url",
+    "callback_url", "remote_url",
+]
+
+_NEAB_FORBIDDEN_HELPER_NAMES = [
+    "applyCandidate", "apply_candidate", "sendExternally", "send_external",
+    "uploadResult", "upload_result", "publishResult", "publish_result",
+    "mutateAppState", "mutate_app_state", "storeCredential", "store_credential",
+    "saveCredential", "save_credential", "setApiKey", "set_api_key",
+    "setToken", "set_token", "runProvider", "run_provider",
+    "executeProvider", "execute_provider", "callModel", "call_model",
+    "runModel", "run_model",
+]
+
+_NEAB_FORBIDDEN_DOC_CLAIMS = [
+    "production bridge complete",
+    "security certified",
+    "is a hosted bridge",
+    "is a public gateway",
+    "production-ready bridge",
+    "this is a hosted",
+    "this is a public gateway",
+]
+
+_NEAB_REQUIRED_CONFIG_KEYS = {
+    "odin_base_url": "http://127.0.0.1:8877",
+    "localhost_only": True,
+    "host_app_owns_apply": True,
+    "host_app_owns_state": True,
+    "host_app_owns_external_send": True,
+    "odin_external_send": False,
+    "odin_app_apply": False,
+    "credential_required": False,
+}
+
+_NEAB_REQUIRED_WORK_REQUEST_KEYS = {
+    "candidate_only": True,
+    "local_only": True,
+    "external_send": False,
+    "app_apply": False,
+    "host_app_owns_apply": True,
+    "host_app_owns_state": True,
+    "host_app_owns_external_send": True,
+}
+
+_NEAB_REQUIRED_CANDIDATE_KEYS = {
+    "candidate_only": True,
+    "applied_truth": False,
+    "app_state_mutated": False,
+    "external_send": False,
+}
+
+
+def validate_neutral_external_app_bridge() -> list[str]:
+    """Deterministic static validator for the Neutral External App Bridge Pack (LRH-PR-12).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required files
+    for rel in _NEAB_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"neutral external app bridge required file missing: {rel}")
+
+    # Bridge config fixture
+    config_path = _NEAB_ROOT / "neutral_bridge_config.example.json"
+    if config_path.exists():
+        try:
+            config = json.loads(config_path.read_text(encoding="utf-8"))
+            for key, expected in _NEAB_REQUIRED_CONFIG_KEYS.items():
+                if config.get(key) != expected:
+                    errors.append(
+                        f"neutral_bridge_config.example.json: {key} must be {expected!r} (got {config.get(key)!r})"
+                    )
+            for forbidden in _NEAB_FORBIDDEN_BRIDGE_CONFIG_KEYS:
+                if forbidden in config:
+                    errors.append(
+                        f"neutral_bridge_config.example.json: must not contain forbidden key: {forbidden!r}"
+                    )
+        except Exception as exc:
+            errors.append(f"neutral_bridge_config.example.json: parse error: {exc}")
+
+    # Universal Work request fixture
+    work_path = _NEAB_ROOT / "neutral_universal_work_request.valid.json"
+    if work_path.exists():
+        try:
+            work = json.loads(work_path.read_text(encoding="utf-8"))
+            for key, expected in _NEAB_REQUIRED_WORK_REQUEST_KEYS.items():
+                if work.get(key) != expected:
+                    errors.append(
+                        f"neutral_universal_work_request.valid.json: {key} must be {expected!r} (got {work.get(key)!r})"
+                    )
+            if "claim_boundary" not in work:
+                errors.append("neutral_universal_work_request.valid.json: missing claim_boundary")
+            if "proof_boundaries" not in work:
+                errors.append("neutral_universal_work_request.valid.json: missing proof_boundaries")
+            if "known_non_proofs" not in work:
+                errors.append("neutral_universal_work_request.valid.json: missing known_non_proofs")
+        except Exception as exc:
+            errors.append(f"neutral_universal_work_request.valid.json: parse error: {exc}")
+
+    # Candidate artifact fixture
+    artifact_path = _NEAB_ROOT / "neutral_candidate_artifact_response.valid.json"
+    if artifact_path.exists():
+        try:
+            artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
+            for key, expected in _NEAB_REQUIRED_CANDIDATE_KEYS.items():
+                if artifact.get(key) != expected:
+                    errors.append(
+                        f"neutral_candidate_artifact_response.valid.json: {key} must be {expected!r} (got {artifact.get(key)!r})"
+                    )
+            if "claim_boundary" not in artifact:
+                errors.append("neutral_candidate_artifact_response.valid.json: missing claim_boundary")
+            if "proof_boundaries" not in artifact:
+                errors.append("neutral_candidate_artifact_response.valid.json: missing proof_boundaries")
+        except Exception as exc:
+            errors.append(f"neutral_candidate_artifact_response.valid.json: parse error: {exc}")
+
+    # Doc phrase checks
+    if _NEAB_DOC.exists():
+        doc_text = _NEAB_DOC.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _NEAB_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(
+                    f"NEUTRAL_EXTERNAL_APP_BRIDGE_PACK_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _NEAB_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in doc_text:
+                errors.append(
+                    f"NEUTRAL_EXTERNAL_APP_BRIDGE_PACK_V1.md: forbidden overclaim phrase found: {claim!r}"
+                )
+
+    # SDK helper forbidden name check
+    sdk_files = [
+        _ROOT / "sdk" / "python" / "odin_client.py",
+        _ROOT / "odin_app_sdk" / "client.py",
+    ]
+    for sdk_file in sdk_files:
+        if sdk_file.exists():
+            sdk_text = sdk_file.read_text(encoding="utf-8", errors="ignore")
+            for name in _NEAB_FORBIDDEN_HELPER_NAMES:
+                if f"def {name}(" in sdk_text:
+                    errors.append(
+                        f"{sdk_file.name}: must not define forbidden helper: def {name}()"
+                    )
+
+    # Example files: check localhost guard and no forbidden patterns
+    example_files = [
+        "neutral_host_health_check.py",
+        "neutral_host_submit_universal_work.py",
+        "neutral_host_read_candidate.py",
+        "neutral_host_read_proof_gaps.py",
+    ]
+    for fname in example_files:
+        fpath = _NEAB_ROOT / fname
+        if fpath.exists():
+            src = fpath.read_text(encoding="utf-8", errors="ignore")
+            if "127.0.0.1" not in src and "localhost" not in src:
+                errors.append(f"{fname}: missing localhost reference / guard")
+            if "candidate_only" not in src:
+                errors.append(f"{fname}: missing candidate_only boundary reference")
+            if "host_app_owns_apply" not in src:
+                errors.append(f"{fname}: missing host_app_owns_apply boundary reference")
+
+    return errors
+
+
+def build_neutral_external_app_bridge_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Neutral External App Bridge Pack (LRH-PR-12)."""
+    errors = validate_neutral_external_app_bridge()
+    all_ok = not bool(errors)
+
+    return {
+        "artifact_kind": "neutral_external_app_bridge_pack_proof_packet",
+        "candidate_only": True,
+        "local_only_default": True,
+        "bridge_pack_only": True,
+        "neutral_app_only": True,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": errors,
+        "proven": [
+            "neutral_bridge_doc_exists",
+            "neutral_examples_exist",
+            "neutral_fixtures_exist",
+            "health_check_example_exists",
+            "universal_work_submit_example_exists",
+            "candidate_read_example_exists",
+            "proof_gap_read_example_exists",
+            "host_app_owns_apply_declared",
+            "host_app_owns_state_declared",
+            "host_app_owns_external_send_declared",
+            "odin_does_not_apply_declared",
+            "odin_does_not_external_send_declared",
+            "no_concrete_app_names",
+            "no_credentials_in_fixtures",
+            "no_external_send_controls",
+            "no_app_apply_helpers",
+            "candidate_result_not_applied_truth",
+            "localhost_only_default",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "hosted_bridge",
+            "public_gateway",
+            "real_external_app_integration",
+            "app_apply_authority",
+            "external_send_authority",
+            "credential_handling",
+            "provider_execution",
+            "live_model_inference",
+            "model_quality",
+            "app_state_mutation",
+        ],
+        "proof_boundaries": NEUTRAL_EXTERNAL_APP_BRIDGE_PROOF_BOUNDARIES,
+        "claim_boundary": NEUTRAL_EXTERNAL_APP_BRIDGE_CLAIM_BOUNDARY,
+    }
