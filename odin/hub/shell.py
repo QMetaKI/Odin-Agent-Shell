@@ -1652,3 +1652,326 @@ def build_neutral_external_app_bridge_proof_packet() -> dict[str, Any]:
         "proof_boundaries": NEUTRAL_EXTERNAL_APP_BRIDGE_PROOF_BOUNDARIES,
         "claim_boundary": NEUTRAL_EXTERNAL_APP_BRIDGE_CLAIM_BOUNDARY,
     }
+
+
+# ---------------------------------------------------------------------------
+# LRH-PR-13 — Generic App Bridge Golden Harness
+# ---------------------------------------------------------------------------
+
+GENERIC_APP_BRIDGE_GOLDEN_HARNESS_CLAIM_BOUNDARY = (
+    "generic_app_bridge_golden_harness_candidate_only_local_only_no_apply_no_external_send"
+)
+
+GENERIC_APP_BRIDGE_GOLDEN_HARNESS_PROOF_BOUNDARIES = [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_hosted_bridge_proof",
+    "not_public_gateway_proof",
+    "not_specific_external_app_integration_proof",
+    "not_signed_distribution_proof",
+    "not_windows_service_tray_installer_proof",
+    "not_app_apply_proof",
+    "not_host_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send",
+]
+
+_GABGH_ROOT = _ROOT / "examples" / "generic_app_bridge"
+_GABGH_REF_HOST = _ROOT / "examples" / "reference_host_app"
+_GABGH_DOC = _ROOT / "docs" / "GENERIC_APP_BRIDGE_GOLDEN_HARNESS_V1.md"
+_THOR_DISCIPLINE_DOC = _ROOT / "docs" / "THOR_CLI_INVOCATION_DISCIPLINE_V1.md"
+
+_GABGH_REQUIRED_FILES = [
+    "docs/GENERIC_APP_BRIDGE_GOLDEN_HARNESS_V1.md",
+    "docs/THOR_CLI_INVOCATION_DISCIPLINE_V1.md",
+    "examples/generic_app_bridge/generic_bridge_flow_one.py",
+    "examples/generic_app_bridge/generic_bridge_flow_two.py",
+    "examples/generic_app_bridge/generic_bridge_harness.py",
+    "examples/generic_app_bridge/fixtures/generic_bridge_flow_one_request.valid.json",
+    "examples/generic_app_bridge/fixtures/generic_bridge_flow_one_candidate.valid.json",
+    "examples/generic_app_bridge/fixtures/generic_bridge_flow_two_request.valid.json",
+    "examples/generic_app_bridge/fixtures/generic_bridge_flow_two_candidate.valid.json",
+    "examples/reference_host_app/reference_host_app.py",
+    "examples/reference_host_app/reference_host_policy.json",
+    "tests/test_lrh_pr_13_generic_app_bridge_golden_harness.py",
+]
+
+_GABGH_REQUIRED_REQUEST_KEYS = {
+    "candidate_only": True,
+    "local_only": True,
+    "host_app_owns_apply": True,
+    "applied_truth": False,
+}
+
+_GABGH_REQUIRED_CANDIDATE_KEYS = {
+    "candidate_only": True,
+    "applied_truth": False,
+    "host_app_owns_apply": True,
+    "app_state_mutated": False,
+    "external_send": False,
+}
+
+_GABGH_REQUIRED_POLICY_KEYS = {
+    "host_app_owns_apply": True,
+    "host_app_owns_state": True,
+    "host_app_owns_external_send": True,
+    "app_state_mutated": False,
+    "external_send_performed": False,
+}
+
+_GABGH_REQUIRED_DOC_PHRASES = [
+    "host app owns apply",
+    "host app owns state",
+    "host app owns external send",
+    "candidate artifact",
+    "not applied truth",
+    "candidate_only",
+    "local_only",
+    "golden harness",
+    "known non-proofs",
+    "proof boundaries",
+]
+
+_GABGH_FORBIDDEN_DOC_CLAIMS = [
+    "production-ready release",
+    "fully proven",
+    "complete proof",
+    "real integration complete",
+    "hosted bridge ready",
+    "public gateway ready",
+    "signed release ready",
+]
+
+_GABGH_FORBIDDEN_HELPER_NAMES = [
+    "apply_candidate",
+    "send_external",
+    "mutate_app_state",
+    "store_credential",
+    "save_credential",
+    "set_api_key",
+    "run_provider",
+    "execute_provider",
+    "call_model",
+    "run_model",
+]
+
+_GABGH_FORBIDDEN_CONCRETE_NAMES = [
+    "github_copilot",
+    "jira_integration",
+    "slack_bot",
+    "salesforce",
+    "notion_plugin",
+    "linear_integration",
+]
+
+_GABGH_REQUIRED_NEUTRAL_EXAMPLE_FILES = [
+    "examples/generic_app_bridge/generic_bridge_flow_one.py",
+    "examples/generic_app_bridge/generic_bridge_flow_two.py",
+]
+
+
+def validate_generic_app_bridge_golden_harness() -> list[str]:
+    """Deterministic static validator for the Generic App Bridge Golden Harness (LRH-PR-13).
+
+    Returns a list of error strings (empty = ok).
+    """
+    errors: list[str] = []
+
+    # Required files
+    for rel in _GABGH_REQUIRED_FILES:
+        if not (_ROOT / rel).exists():
+            errors.append(f"generic app bridge golden harness required file missing: {rel}")
+
+    # Neutral example count
+    neutral_count = sum(
+        1 for rel in _GABGH_REQUIRED_NEUTRAL_EXAMPLE_FILES if (_ROOT / rel).exists()
+    )
+    if neutral_count < 2:
+        errors.append(
+            f"generic app bridge: at least two neutral examples required; found {neutral_count}"
+        )
+
+    # Flow one request fixture
+    req_one = _GABGH_ROOT / "fixtures" / "generic_bridge_flow_one_request.valid.json"
+    if req_one.exists():
+        try:
+            data = json.loads(req_one.read_text(encoding="utf-8"))
+            for key, expected in _GABGH_REQUIRED_REQUEST_KEYS.items():
+                if data.get(key) != expected:
+                    errors.append(
+                        f"generic_bridge_flow_one_request.valid.json: {key} must be {expected}"
+                    )
+            if "claim_boundary" not in data:
+                errors.append("generic_bridge_flow_one_request.valid.json: missing claim_boundary")
+        except Exception as exc:
+            errors.append(f"generic_bridge_flow_one_request.valid.json: parse error: {exc}")
+
+    # Flow one candidate fixture
+    cand_one = _GABGH_ROOT / "fixtures" / "generic_bridge_flow_one_candidate.valid.json"
+    if cand_one.exists():
+        try:
+            data = json.loads(cand_one.read_text(encoding="utf-8"))
+            for key, expected in _GABGH_REQUIRED_CANDIDATE_KEYS.items():
+                if data.get(key) != expected:
+                    errors.append(
+                        f"generic_bridge_flow_one_candidate.valid.json: {key} must be {expected}"
+                    )
+            if "claim_boundary" not in data:
+                errors.append("generic_bridge_flow_one_candidate.valid.json: missing claim_boundary")
+        except Exception as exc:
+            errors.append(f"generic_bridge_flow_one_candidate.valid.json: parse error: {exc}")
+
+    # Flow two request fixture
+    req_two = _GABGH_ROOT / "fixtures" / "generic_bridge_flow_two_request.valid.json"
+    if req_two.exists():
+        try:
+            data = json.loads(req_two.read_text(encoding="utf-8"))
+            for key, expected in _GABGH_REQUIRED_REQUEST_KEYS.items():
+                if data.get(key) != expected:
+                    errors.append(
+                        f"generic_bridge_flow_two_request.valid.json: {key} must be {expected}"
+                    )
+        except Exception as exc:
+            errors.append(f"generic_bridge_flow_two_request.valid.json: parse error: {exc}")
+
+    # Flow two candidate fixture
+    cand_two = _GABGH_ROOT / "fixtures" / "generic_bridge_flow_two_candidate.valid.json"
+    if cand_two.exists():
+        try:
+            data = json.loads(cand_two.read_text(encoding="utf-8"))
+            for key, expected in _GABGH_REQUIRED_CANDIDATE_KEYS.items():
+                if data.get(key) != expected:
+                    errors.append(
+                        f"generic_bridge_flow_two_candidate.valid.json: {key} must be {expected}"
+                    )
+        except Exception as exc:
+            errors.append(f"generic_bridge_flow_two_candidate.valid.json: parse error: {exc}")
+
+    # Reference host policy fixture
+    policy = _GABGH_REF_HOST / "reference_host_policy.json"
+    if policy.exists():
+        try:
+            data = json.loads(policy.read_text(encoding="utf-8"))
+            for key, expected in _GABGH_REQUIRED_POLICY_KEYS.items():
+                if data.get(key) != expected:
+                    errors.append(
+                        f"reference_host_policy.json: {key} must be {expected}"
+                    )
+        except Exception as exc:
+            errors.append(f"reference_host_policy.json: parse error: {exc}")
+
+    # Doc phrase checks
+    if _GABGH_DOC.exists():
+        doc_text = _GABGH_DOC.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in _GABGH_REQUIRED_DOC_PHRASES:
+            if phrase.lower() not in doc_text:
+                errors.append(
+                    f"GENERIC_APP_BRIDGE_GOLDEN_HARNESS_V1.md: missing required phrase: {phrase!r}"
+                )
+        for claim in _GABGH_FORBIDDEN_DOC_CLAIMS:
+            if claim.lower() in doc_text:
+                errors.append(
+                    f"GENERIC_APP_BRIDGE_GOLDEN_HARNESS_V1.md: forbidden overclaim phrase: {claim!r}"
+                )
+
+    # Thor discipline doc phrase check
+    if _THOR_DISCIPLINE_DOC.exists():
+        thor_text = _THOR_DISCIPLINE_DOC.read_text(encoding="utf-8", errors="ignore").lower()
+        if "thor is advisory" not in thor_text:
+            errors.append(
+                "THOR_CLI_INVOCATION_DISCIPLINE_V1.md: missing 'Thor is advisory' statement"
+            )
+        if "classification" not in thor_text:
+            errors.append(
+                "THOR_CLI_INVOCATION_DISCIPLINE_V1.md: missing classification section"
+            )
+
+    # Neutral naming guard — no concrete app names in examples/fixtures
+    scan_paths: list[Path] = []
+    for rel in _GABGH_REQUIRED_NEUTRAL_EXAMPLE_FILES:
+        p = _ROOT / rel
+        if p.exists():
+            scan_paths.append(p)
+    for fixture_dir in [_GABGH_ROOT / "fixtures", _GABGH_REF_HOST]:
+        if fixture_dir.exists():
+            scan_paths.extend(fixture_dir.glob("*.json"))
+
+    for scan_path in scan_paths:
+        text = scan_path.read_text(encoding="utf-8", errors="ignore").lower()
+        for name in _GABGH_FORBIDDEN_CONCRETE_NAMES:
+            if name in text:
+                errors.append(
+                    f"{scan_path.name}: forbidden concrete app name found: {name!r}"
+                )
+
+    # Forbidden helper function names in example files
+    for rel in _GABGH_REQUIRED_NEUTRAL_EXAMPLE_FILES:
+        p = _ROOT / rel
+        if p.exists():
+            src = p.read_text(encoding="utf-8", errors="ignore")
+            for fname in _GABGH_FORBIDDEN_HELPER_NAMES:
+                if f"def {fname}(" in src:
+                    errors.append(
+                        f"{p.name}: must not define forbidden helper: def {fname}()"
+                    )
+
+    return errors
+
+
+def build_generic_app_bridge_golden_harness_proof_packet() -> dict[str, Any]:
+    """Emit a bounded proof packet for the Generic App Bridge Golden Harness (LRH-PR-13)."""
+    errors = validate_generic_app_bridge_golden_harness()
+    all_ok = not bool(errors)
+
+    return {
+        "artifact_kind": "generic_app_bridge_golden_harness_proof_packet",
+        "candidate_only": True,
+        "local_only": True,
+        "neutral_examples_count": 2,
+        "host_app_owns_apply": True,
+        "host_app_owns_state": True,
+        "host_app_owns_external_send": True,
+        "odin_app_apply": False,
+        "odin_external_send": False,
+        "host_state_mutation_by_odin": False,
+        "concrete_app_names_present": False,
+        "status": "ok" if all_ok else "partial",
+        "validation_errors": errors,
+        "proven": [
+            "generic_examples_exist",
+            "reference_host_app_exists",
+            "golden_harness_exists",
+            "two_neutral_examples_present",
+            "golden_harness_receipt_ok",
+            "host_app_owns_apply_declared",
+            "host_app_owns_state_declared",
+            "host_app_owns_external_send_declared",
+            "odin_app_apply_false",
+            "odin_external_send_false",
+            "host_state_mutation_by_odin_false",
+            "candidate_artifact_not_applied_truth",
+            "neutral_naming_guard_passed",
+            "local_only_examples",
+            "thor_invocation_discipline_doc_exists",
+        ] if all_ok else [],
+        "not_proven": [
+            "production_readiness",
+            "security_certification",
+            "signed_distribution",
+            "windows_service_tray_installer",
+            "hosted_bridge",
+            "public_network_api",
+            "specific_external_app_integration",
+            "live_model_inference",
+            "model_quality",
+            "provider_execution",
+            "real_app_state_mutation",
+            "external_send_authority",
+        ],
+        "proof_boundaries": GENERIC_APP_BRIDGE_GOLDEN_HARNESS_PROOF_BOUNDARIES,
+        "claim_boundary": GENERIC_APP_BRIDGE_GOLDEN_HARNESS_CLAIM_BOUNDARY,
+    }

@@ -1,0 +1,35 @@
+{
+  "host_app_owns_apply": true,
+  "host_app_owns_state": true,
+  "host_app_owns_external_send": true,
+  "host_owned_apply_demo": "plan_only",
+  "app_state_mutated": false,
+  "external_send_performed": false,
+  "candidate_inbox_policy": "inspect_and_decide",
+  "odin_apply_allowed": false,
+  "odin_external_send_allowed": false,
+  "odin_state_mutation_allowed": false,
+  "candidate_artifact_is_applied_truth": false,
+  "claim_boundary": "reference_host_app_policy_candidate_only_no_app_apply_no_external_send_no_state_mutation",
+  "proof_boundaries": [
+    "not_production_readiness_certification",
+    "not_security_certification",
+    "not_hosted_bridge_proof",
+    "not_public_gateway_proof",
+    "not_specific_external_app_integration_proof",
+    "not_app_apply_proof",
+    "not_host_state_mutation_proof",
+    "not_external_send_authority_proof",
+    "candidate_artifact_not_applied_truth",
+    "host_app_owns_apply_state_external_send"
+  ],
+  "known_non_proofs": [
+    "production_readiness",
+    "security_certification",
+    "hosted_bridge",
+    "public_gateway",
+    "real_app_state_mutation",
+    "external_send_authority",
+    "specific_external_app_integration"
+  ]
+}
