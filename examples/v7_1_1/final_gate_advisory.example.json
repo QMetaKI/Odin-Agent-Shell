@@ -1,0 +1,58 @@
+{
+  "final_gate_advisory_id": "odin_final_gate_advisory_example_b4_001",
+  "response_packet_ref": "odin_response_packet_example_b4_001",
+  "candidate_artifact_ref": "odin_candidate_artifact_example_b4_001",
+  "critic_cascade_ref": "odin_critic_cascade_example_b4_001",
+  "tournament_ref": "odin_tournament_example_b4_001",
+  "gate_checks": [
+    {
+      "check_id": "claim_boundary_present",
+      "status": "pass",
+      "finding": "claim_boundary field is present and non-empty"
+    },
+    {
+      "check_id": "candidate_only_true",
+      "status": "pass",
+      "finding": "candidate_only is true"
+    },
+    {
+      "check_id": "no_forbidden_actions",
+      "status": "pass",
+      "finding": "no forbidden actions detected in candidate output"
+    },
+    {
+      "check_id": "output_contract_compliant",
+      "status": "pass",
+      "finding": "output satisfies output contract shape"
+    },
+    {
+      "check_id": "no_app_apply_claim",
+      "status": "pass",
+      "finding": "no app apply claim detected"
+    },
+    {
+      "check_id": "no_external_send",
+      "status": "pass",
+      "finding": "no external send detected"
+    }
+  ],
+  "decision_recommendation": "advisory_pass",
+  "block_reasons": [],
+  "warning_reasons": [],
+  "required_human_review": [],
+  "is_apply_gate": false,
+  "is_app_authority": false,
+  "claim_boundary": "final_gate_advisory_example_is_advisory_only_not_apply_gate_not_app_authority_not_correctness_certification",
+  "candidate_only": true,
+  "non_claims": [
+    "not_apply_gate",
+    "not_app_authority",
+    "not_state_mutation",
+    "not_external_send",
+    "not_automatic_claim_acceptance",
+    "not_correctness_certification",
+    "not_safety_certification",
+    "not_production_readiness_certification",
+    "not_live_model_execution"
+  ]
+}

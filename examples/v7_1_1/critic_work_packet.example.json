@@ -1,0 +1,50 @@
+{
+  "critic_packet_id": "odin_critic_work_packet_example_b4_001",
+  "modelworkpacket_ref": "odin_modelworkpacket_example_b3_001",
+  "candidate_artifact_ref": "odin_candidate_artifact_example_b4_001",
+  "scale_ladder_route_class": "small_model_candidate",
+  "critic_tier": "small_model_advisory_critic",
+  "critic_inputs": [
+    "odin_candidate_artifact_example_b4_001",
+    "odin_minicheck_example_b4_001"
+  ],
+  "critic_rules": [
+    "evaluate schema shape compliance",
+    "evaluate claim boundary presence",
+    "evaluate forbidden action absence",
+    "evaluate output contract compliance",
+    "do not execute live model",
+    "do not apply changes",
+    "do not accept claims"
+  ],
+  "minicheck_refs": ["odin_minicheck_example_b4_001"],
+  "output_contract_ref": "odin_output_contract_example_001",
+  "decision_options": [
+    "critic_passed",
+    "critic_warned",
+    "critic_failed",
+    "human_review_required",
+    "cannot_safely_complete"
+  ],
+  "forbidden_actions": [
+    "direct_apply",
+    "app_state_mutation",
+    "external_send",
+    "claim_acceptance",
+    "live_model_execution",
+    "provider_execution_without_policy",
+    "correctness_proof_claim",
+    "model_quality_proof_claim"
+  ],
+  "claim_boundary": "critic_work_packet_example_is_static_advisory_not_live_model_not_app_apply",
+  "candidate_only": true,
+  "non_claims": [
+    "not_live_model_execution",
+    "not_provider_execution",
+    "not_claim_acceptance",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_correctness_proof",
+    "not_model_quality_proof"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "registry_id": "odin.v7_1_1_response_packet_registry",
+  "version": "7.1.1",
+  "status": "response_packet_registry_not_runtime_proof",
+  "claim_boundary": "response_packet_is_return_material_not_app_apply_not_external_send_not_correctness_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not_runtime_completion",
+    "not_production_proof",
+    "not_correctness_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_app_state_mutation",
+    "not_live_model_execution"
+  ],
+  "invariants": [
+    "Response Packet is return material",
+    "it is not app apply",
+    "it is not external send",
+    "it is not production proof",
+    "it is not correctness proof",
+    "it must distinguish claims_made from claims_not_made",
+    "it must distinguish commands_run from commands_not_run",
+    "it must distinguish tests_run from tests_not_run"
+  ],
+  "required_distinction_fields": [
+    "claims_made",
+    "claims_not_made",
+    "commands_run",
+    "commands_not_run",
+    "tests_run",
+    "tests_not_run"
+  ],
+  "schema_ref": "schemas/v7_1_1_response_packet.schema.json",
+  "example_ref": "examples/v7_1_1/response_packet.example.json"
+}

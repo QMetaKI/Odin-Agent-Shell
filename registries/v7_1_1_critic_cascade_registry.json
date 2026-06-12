@@ -1,0 +1,41 @@
+{
+  "registry_id": "odin.v7_1_1_critic_cascade_registry",
+  "version": "7.1.1",
+  "status": "critic_cascade_registry_not_runtime_proof",
+  "claim_boundary": "critic_cascade_is_static_stage_contract_not_live_model_execution_not_app_apply",
+  "candidate_only": true,
+  "non_claims": [
+    "not_live_model_execution",
+    "not_provider_execution",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_correctness_proof",
+    "not_model_quality_proof"
+  ],
+  "cascade_stages": [
+    "minicheck",
+    "schema_critic",
+    "contract_critic",
+    "route_aware_critic",
+    "consistency_critic",
+    "claim_boundary_critic",
+    "final_gate_advisor",
+    "human_review_required"
+  ],
+  "escalation_conditions": [
+    "missing_claim_boundary",
+    "forbidden_action_detected",
+    "route_class_mismatch",
+    "output_contract_violation",
+    "provider_policy_missing",
+    "runtime_claim_detected",
+    "model_quality_claim_detected",
+    "remote_route_requested",
+    "candidate_conflict_detected",
+    "final_gate_authority_claim_detected",
+    "receipt_truth_claim_detected"
+  ],
+  "schema_ref": "schemas/v7_1_1_critic_cascade.schema.json",
+  "example_ref": "examples/v7_1_1/critic_cascade.example.json",
+  "b3_modelworkpacket_ref": "registries/v7_1_1_modelworkpacket_contract.json"
+}

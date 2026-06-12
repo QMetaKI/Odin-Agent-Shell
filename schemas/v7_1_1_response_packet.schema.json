@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_response_packet.schema",
+  "title": "ResponsePacket",
+  "description": "Schema for a ResponsePacket — return material from the candidate evaluation pipeline. Not app apply, not external send, not correctness proof.",
+  "type": "object",
+  "required": [
+    "response_packet_id",
+    "selected_candidate_ref",
+    "candidate_dna_ref",
+    "critic_summary_refs",
+    "tournament_summary_ref",
+    "final_gate_advisory_ref",
+    "receipt_boundary_ref",
+    "user_visible_output_ref",
+    "evidence_refs",
+    "known_gaps",
+    "commands_run",
+    "commands_not_run",
+    "tests_run",
+    "tests_not_run",
+    "claims_made",
+    "claims_not_made",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "response_packet_id": {
+      "type": "string",
+      "description": "Unique identifier for this ResponsePacket"
+    },
+    "selected_candidate_ref": {
+      "type": "string",
+      "description": "Reference to the selected candidate artifact"
+    },
+    "candidate_dna_ref": {
+      "type": "string",
+      "description": "Reference to the CandidateDNA lineage of the selected candidate"
+    },
+    "critic_summary_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to critic evaluation summaries"
+    },
+    "tournament_summary_ref": {
+      "type": "string",
+      "description": "Reference to the tournament selection summary"
+    },
+    "final_gate_advisory_ref": {
+      "type": "string",
+      "description": "Reference to the Final Gate Advisory for the selected candidate"
+    },
+    "receipt_boundary_ref": {
+      "type": "string",
+      "description": "Reference to the Receipt Boundary record"
+    },
+    "user_visible_output_ref": {
+      "type": "string",
+      "description": "Reference to the user-visible output candidate"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to evidence supporting this response packet"
+    },
+    "known_gaps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known gaps, missing evidence, or unresolved items"
+    },
+    "commands_run": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Commands that were actually run during evaluation"
+    },
+    "commands_not_run": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Commands that were not run and why"
+    },
+    "tests_run": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tests that were actually run"
+    },
+    "tests_not_run": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tests that were not run and why"
+    },
+    "claims_made": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit claims made in this response packet"
+    },
+    "claims_not_made": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit claims NOT made — non-claims distinguished from claims_made"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this response packet does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — response packet is return material, not applied output"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this response packet does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

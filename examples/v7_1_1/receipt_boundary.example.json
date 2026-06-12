@@ -1,0 +1,39 @@
+{
+  "receipt_boundary_id": "odin_receipt_boundary_example_b4_001",
+  "response_packet_ref": "odin_response_packet_example_b4_001",
+  "final_gate_advisory_ref": "odin_final_gate_advisory_example_b4_001",
+  "accepted_claim_refs": [
+    "claim_b4_static_contract_schema_exists",
+    "claim_b4_minicheck_registry_exists",
+    "claim_b4_critic_work_packet_registry_exists"
+  ],
+  "denied_claim_refs": [],
+  "pending_claim_refs": [
+    "claim_b4_live_model_quality_not_yet_evaluated",
+    "claim_b4_provider_runtime_not_yet_integrated",
+    "claim_b4_production_readiness_not_yet_evaluated"
+  ],
+  "evidence_refs": [
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py"
+  ],
+  "review_refs": [
+    "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+    "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
+  ],
+  "is_absolute_truth": false,
+  "is_runtime_proof": false,
+  "is_security_certification": false,
+  "is_deployment_proof": false,
+  "claim_boundary": "receipt_boundary_example_is_scoped_review_state_not_absolute_truth_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not_absolute_truth",
+    "not_runtime_proof",
+    "not_security_certification",
+    "not_deployment_proof",
+    "not_production_readiness",
+    "not_live_model_execution",
+    "not_external_send"
+  ]
+}

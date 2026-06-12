@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_candidate_artifact.schema",
+  "title": "CandidateArtifact",
+  "description": "Schema for a CandidateArtifact — the evaluated candidate output. App-owned Apply Gate decides acceptance; this artifact does not.",
+  "type": "object",
+  "required": [
+    "candidate_artifact_id",
+    "modelworkpacket_ref",
+    "candidate_dna_ref",
+    "artifact_family_ref",
+    "output_contract_ref",
+    "content_ref",
+    "content_hash",
+    "evidence_refs",
+    "critic_status",
+    "tournament_status",
+    "final_gate_status",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "candidate_artifact_id": {
+      "type": "string",
+      "description": "Unique identifier for this candidate artifact"
+    },
+    "modelworkpacket_ref": {
+      "type": "string",
+      "description": "Reference to the ModelWorkPacket that produced this artifact"
+    },
+    "candidate_dna_ref": {
+      "type": "string",
+      "description": "Reference to the CandidateDNA lineage record for this artifact"
+    },
+    "artifact_family_ref": {
+      "type": "string",
+      "description": "Reference to the artifact family type"
+    },
+    "output_contract_ref": {
+      "type": "string",
+      "description": "Reference to the output contract this artifact must satisfy"
+    },
+    "content_ref": {
+      "type": "string",
+      "description": "Reference to the candidate content"
+    },
+    "content_hash": {
+      "type": "string",
+      "description": "Hash of the candidate content for integrity reference"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to evidence supporting this artifact"
+    },
+    "critic_status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "minicheck_passed",
+        "minicheck_warned",
+        "critic_pending",
+        "critic_passed",
+        "critic_warned",
+        "critic_failed",
+        "tournament_pending",
+        "tournament_selected",
+        "tournament_rejected",
+        "final_gate_pending",
+        "final_gate_advisory_passed",
+        "final_gate_advisory_warned",
+        "final_gate_advisory_blocked",
+        "human_review_required",
+        "cannot_safely_complete"
+      ],
+      "description": "Current critic evaluation status"
+    },
+    "tournament_status": {
+      "type": "string",
+      "enum": [
+        "not_entered",
+        "pending",
+        "selected",
+        "rejected",
+        "human_review_required"
+      ],
+      "description": "Current tournament status"
+    },
+    "final_gate_status": {
+      "type": "string",
+      "enum": [
+        "not_evaluated",
+        "advisory_passed",
+        "advisory_warned",
+        "advisory_blocked",
+        "human_review_required",
+        "cannot_safely_complete"
+      ],
+      "description": "Final gate advisory status — not app acceptance"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this artifact does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — artifact is candidate only until app accepts"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this artifact does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

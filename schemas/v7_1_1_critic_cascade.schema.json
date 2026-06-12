@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_critic_cascade.schema",
+  "title": "CriticCascade",
+  "description": "Schema for a CriticCascade — ordered stages of critic evaluation from minicheck to final gate advisory. Candidate only.",
+  "type": "object",
+  "required": [
+    "cascade_id",
+    "modelworkpacket_ref",
+    "critic_packet_refs",
+    "stage_order",
+    "entry_conditions",
+    "exit_conditions",
+    "escalation_conditions",
+    "fallback_conditions",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "cascade_id": {
+      "type": "string",
+      "description": "Unique identifier for this CriticCascade"
+    },
+    "modelworkpacket_ref": {
+      "type": "string",
+      "description": "Reference to the ModelWorkPacket whose output flows through the cascade"
+    },
+    "critic_packet_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to CriticWorkPackets in cascade order"
+    },
+    "stage_order": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "minicheck",
+          "schema_critic",
+          "contract_critic",
+          "route_aware_critic",
+          "consistency_critic",
+          "claim_boundary_critic",
+          "final_gate_advisor",
+          "human_review_required"
+        ]
+      },
+      "description": "Ordered stages of the critic cascade"
+    },
+    "entry_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions required to enter this cascade"
+    },
+    "exit_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions that allow normal exit from cascade"
+    },
+    "escalation_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "missing_claim_boundary",
+          "forbidden_action_detected",
+          "route_class_mismatch",
+          "output_contract_violation",
+          "provider_policy_missing",
+          "runtime_claim_detected",
+          "model_quality_claim_detected",
+          "remote_route_requested",
+          "candidate_conflict_detected",
+          "final_gate_authority_claim_detected",
+          "receipt_truth_claim_detected"
+        ]
+      },
+      "description": "Conditions that trigger escalation in this cascade"
+    },
+    "fallback_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions that trigger fallback or cannot_safely_complete"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary for this cascade"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — cascade output is advisory/candidate only"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this cascade does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

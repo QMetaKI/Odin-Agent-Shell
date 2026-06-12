@@ -1019,5 +1019,104 @@
       "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
       "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md"
     ]
+  },
+  "b4_minicheck_critics_final_gate": {
+    "actual_pr": "PR-30",
+    "bundle_id": "B4",
+    "claim_boundary": "b4_system_map_is_static_index_not_runtime_proof",
+    "slice_range": "V711-R100-106..137",
+    "status": "static_contract_evaluation_spine_added_not_runtime_complete",
+    "schemas": [
+      "schemas/v7_1_1_minicheck.schema.json",
+      "schemas/v7_1_1_critic_work_packet.schema.json",
+      "schemas/v7_1_1_critic_cascade.schema.json",
+      "schemas/v7_1_1_tournament_selection.schema.json",
+      "schemas/v7_1_1_candidate_dna.schema.json",
+      "schemas/v7_1_1_candidate_artifact.schema.json",
+      "schemas/v7_1_1_response_packet.schema.json",
+      "schemas/v7_1_1_final_gate_advisory.schema.json",
+      "schemas/v7_1_1_receipt_boundary.schema.json",
+      "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json"
+    ],
+    "registries": [
+      "registries/v7_1_1_minicheck_registry.json",
+      "registries/v7_1_1_critic_work_packet_registry.json",
+      "registries/v7_1_1_critic_cascade_registry.json",
+      "registries/v7_1_1_tournament_selection_registry.json",
+      "registries/v7_1_1_candidate_dna_registry.json",
+      "registries/v7_1_1_candidate_artifact_registry.json",
+      "registries/v7_1_1_response_packet_registry.json",
+      "registries/v7_1_1_final_gate_advisory_registry.json",
+      "registries/v7_1_1_receipt_boundary_registry.json"
+    ],
+    "examples": [
+      "examples/v7_1_1/minicheck.example.json",
+      "examples/v7_1_1/critic_work_packet.example.json",
+      "examples/v7_1_1/critic_cascade.example.json",
+      "examples/v7_1_1/tournament_selection.example.json",
+      "examples/v7_1_1/candidate_dna.example.json",
+      "examples/v7_1_1/candidate_artifact.example.json",
+      "examples/v7_1_1/response_packet.example.json",
+      "examples/v7_1_1/final_gate_advisory.example.json",
+      "examples/v7_1_1/receipt_boundary.example.json"
+    ],
+    "tools": [
+      "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    ],
+    "reports": [
+      "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json"
+    ],
+    "tests": [
+      "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md"
+    ],
+    "audits": [
+      "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
+    ],
+    "individual_artifacts": {
+      "v7_1_1_minicheck_schema": "schemas/v7_1_1_minicheck.schema.json",
+      "v7_1_1_minicheck_registry": "registries/v7_1_1_minicheck_registry.json",
+      "v7_1_1_minicheck_example": "examples/v7_1_1/minicheck.example.json",
+      "v7_1_1_critic_work_packet_schema": "schemas/v7_1_1_critic_work_packet.schema.json",
+      "v7_1_1_critic_work_packet_registry": "registries/v7_1_1_critic_work_packet_registry.json",
+      "v7_1_1_critic_work_packet_example": "examples/v7_1_1/critic_work_packet.example.json",
+      "v7_1_1_critic_cascade_schema": "schemas/v7_1_1_critic_cascade.schema.json",
+      "v7_1_1_critic_cascade_registry": "registries/v7_1_1_critic_cascade_registry.json",
+      "v7_1_1_critic_cascade_example": "examples/v7_1_1/critic_cascade.example.json",
+      "v7_1_1_tournament_selection_schema": "schemas/v7_1_1_tournament_selection.schema.json",
+      "v7_1_1_tournament_selection_registry": "registries/v7_1_1_tournament_selection_registry.json",
+      "v7_1_1_tournament_selection_example": "examples/v7_1_1/tournament_selection.example.json",
+      "v7_1_1_candidate_dna_schema": "schemas/v7_1_1_candidate_dna.schema.json",
+      "v7_1_1_candidate_dna_registry": "registries/v7_1_1_candidate_dna_registry.json",
+      "v7_1_1_candidate_dna_example": "examples/v7_1_1/candidate_dna.example.json",
+      "v7_1_1_candidate_artifact_schema": "schemas/v7_1_1_candidate_artifact.schema.json",
+      "v7_1_1_candidate_artifact_registry": "registries/v7_1_1_candidate_artifact_registry.json",
+      "v7_1_1_candidate_artifact_example": "examples/v7_1_1/candidate_artifact.example.json",
+      "v7_1_1_response_packet_schema": "schemas/v7_1_1_response_packet.schema.json",
+      "v7_1_1_response_packet_registry": "registries/v7_1_1_response_packet_registry.json",
+      "v7_1_1_response_packet_example": "examples/v7_1_1/response_packet.example.json",
+      "v7_1_1_final_gate_advisory_schema": "schemas/v7_1_1_final_gate_advisory.schema.json",
+      "v7_1_1_final_gate_advisory_registry": "registries/v7_1_1_final_gate_advisory_registry.json",
+      "v7_1_1_final_gate_advisory_example": "examples/v7_1_1/final_gate_advisory.example.json",
+      "v7_1_1_receipt_boundary_schema": "schemas/v7_1_1_receipt_boundary.schema.json",
+      "v7_1_1_receipt_boundary_registry": "registries/v7_1_1_receipt_boundary_registry.json",
+      "v7_1_1_receipt_boundary_example": "examples/v7_1_1/receipt_boundary.example.json",
+      "v7_1_1_b4_minicheck_critics_final_gate_tool": "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py",
+      "v7_1_1_b4_minicheck_critics_final_gate_report_schema": "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json",
+      "v7_1_1_b4_minicheck_critics_final_gate_report": "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+      "v7_1_1_b4_minicheck_critics_final_gate_tests": "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py",
+      "pr_30_b4_thor_repo_y_protocol_intake": "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
+      "pr_30_b4_thor_compact_handoff_prompt": "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "pr_30_b4_thor_y_critic_final_gate_prompts": "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
+      "pr_30_b4_thor_protocol_review_receipt_mapping": "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md",
+      "pr_30_b4_thor_odin_claude_audit": "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "pr_30_b4_minicheck_critics_final_gate_return_report": "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
+    }
   }
 }

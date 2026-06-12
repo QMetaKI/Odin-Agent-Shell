@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1345,
+  "file_count_excluding_manifest": 1384,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "7aa1f956c3ec16c70e8cdd36b4a9a704cf9791e464bca3eb33b128229c950911",
-      "size": 40182
+      "sha256": "67368b81a216a9eb9d2a39b7e5d5f1f5179b0b7938d5cfcae1cfc65a852b1c3b",
+      "size": 52570
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1329,6 +1329,21 @@
       "size": 4379
     },
     {
+      "path": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "sha256": "85726ee8171fa5edc4f4feec83a4c0157d1377aaf241559075f77a0b6aaa4487",
+      "size": 4639
+    },
+    {
+      "path": "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "sha256": "6b56675b1c581c16ec21cc518ac3565282b0ae7cb64ac86b0b345b026427b58f",
+      "size": 6696
+    },
+    {
+      "path": "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "sha256": "00c9d71bbd6faea6b075eb69b36c8e125886c7dde219aef62814cc807f6ce467",
+      "size": 10664
+    },
+    {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
       "sha256": "ef95b27f391d8cf9e55425a63d229880b4e941a37a685045ed09e7e5ce1e7a8b",
       "size": 4141
@@ -1467,6 +1482,71 @@
       "path": "docs/codex/bundles/REAL-PR-28_PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK.md",
       "sha256": "d273afe095dc8573ff8a5b3640eddded815f83ed41ce8ac0ab4169827461c1e7",
       "size": 3787
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
+      "sha256": "c6c62c72f853e2388f7ee6b7a79d4fbc422448e6662d4d1b21d81a9f66f3da22",
+      "size": 2015
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "sha256": "adda39fcc27accc481930dc2691ba93cafebbcc035fab2bf944caff9352004f3",
+      "size": 3922
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md",
+      "sha256": "ab6649b92e21f7a14bcdbedf3d4acd535ff9fb11d936f41cf1f127ecc5a07049",
+      "size": 3681
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_THOR_REPO_COGNITION_HANDOFF.md",
+      "sha256": "ac5ada54ad5a7a0625c021c1b5f928dad7178b189bcfdd57efd214eb2debe9a3",
+      "size": 6014
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md",
+      "sha256": "8e0e1809252d929a108c3ebe7054f5186eeee441d915634c34720726964c2929",
+      "size": 1893
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "sha256": "0c133867c2a6639ceb05d1583f0b0467003f68101ce81c03998ea7847766e7e8",
+      "size": 2459
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md",
+      "sha256": "f227ac3f35b614cf11a6df67f85a96f4f0b9c55679046667ffd3ba70645e7d4b",
+      "size": 5513
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
+      "sha256": "fea2abcbe1c05a38efba93cee02ef3bd847e4baaae35a472966c2f634361363a",
+      "size": 6146
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
+      "sha256": "ff8e4617025d79c585e369a274211bdf08a77f6bae1bf30cec40e5ee44870504",
+      "size": 7347
+    },
+    {
+      "path": "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "sha256": "1c7ff7c28e02f860277e2f58d51a74385753ef5fc1a214f450bdd3b6c6adcbb0",
+      "size": 4336
+    },
+    {
+      "path": "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md",
+      "sha256": "3fee5c0525413028d66c48e6bd5af59b95bc05b882f5b83418d46e832341e26c",
+      "size": 7600
+    },
+    {
+      "path": "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
+      "sha256": "523a799dd4e2f840d3c95b4d038574152b3ed87b1f9085255605eb9c76afba3f",
+      "size": 4829
+    },
+    {
+      "path": "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
+      "sha256": "2a24bfd5276f73bb0d60842fca78206035d02706521c8f74e35dcb694470f548",
+      "size": 4764
     },
     {
       "path": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
@@ -1647,6 +1727,21 @@
       "path": "docs/codex/reports/PR_27_B1_APP_BOUNDARY_UNIVERSAL_WORK_QIRC_SPINE_RETURN_REPORT.md",
       "sha256": "291ac4eda6c0753867c605b4f8bec7181a27018e97d68d9b8874016249c13c6a",
       "size": 9021
+    },
+    {
+      "path": "docs/codex/reports/PR_28_B2_CONTEXT_LENSES_WORKLETS_SLOT_GAPTEXT_RETURN_REPORT.md",
+      "sha256": "c0a4bc94c37df7b636c8816f52db33adc2da7de24214c0eb1a3fea0c7fd445e8",
+      "size": 4958
+    },
+    {
+      "path": "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md",
+      "sha256": "9c1a9288e4ecf073524662b4edc27551a90df9703ac19e411c9606f3c9757342",
+      "size": 8159
+    },
+    {
+      "path": "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md",
+      "sha256": "9b18bba88f12a7d83366fafd7b35fb492a05ad68c680a2ba8a9410219964b4b4",
+      "size": 8508
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -3084,9 +3179,99 @@
       "size": 2223
     },
     {
+      "path": "examples/v7_1_1/artifact_family.example.json",
+      "sha256": "11ca0853f7b7f1870556f05745e3a21855d5cb6f93a7e1bb9adbfc8d5106fb49",
+      "size": 653
+    },
+    {
+      "path": "examples/v7_1_1/artifact_lens.example.json",
+      "sha256": "fe12820c7b1edf781795dd6a4f7275350ee55f976d5a584845223173cfb7bf9d",
+      "size": 694
+    },
+    {
       "path": "examples/v7_1_1/binding_contract.example.json",
       "sha256": "f65a1d06c29116253a40b3b37792dc40addea0ed42fa2c22bb788880fe7a13d6",
       "size": 1103
+    },
+    {
+      "path": "examples/v7_1_1/candidate_artifact.example.json",
+      "sha256": "6246b563e9facd0a4d4e16d5b68cda15ae487775595a76e6fa17704143b46c64",
+      "size": 1004
+    },
+    {
+      "path": "examples/v7_1_1/candidate_dna.example.json",
+      "sha256": "2c4bad5105420def583855f1f4b5fddc997fb9d5a5d690ec7360271445a19ab3",
+      "size": 1344
+    },
+    {
+      "path": "examples/v7_1_1/context_capsule.example.json",
+      "sha256": "dec0eb7f0134925de61fd22c0988615edb6e36fb4259af766ebc6f77fefbca70",
+      "size": 1321
+    },
+    {
+      "path": "examples/v7_1_1/critic_cascade.example.json",
+      "sha256": "e881b2dd3568057385187967f01ba78461d8087c1ef831ff233d6034a6121fec",
+      "size": 1426
+    },
+    {
+      "path": "examples/v7_1_1/critic_work_packet.example.json",
+      "sha256": "be5ce1448a5d4409934b7c0e482e07df0d2116caf6a41cdd112c790a934422b7",
+      "size": 1559
+    },
+    {
+      "path": "examples/v7_1_1/final_gate_advisory.example.json",
+      "sha256": "e6973ddde04f7a8e89e59ad356ad607c7fb1b2c58ea505fc7dfdd131c5e4befb",
+      "size": 1789
+    },
+    {
+      "path": "examples/v7_1_1/gaptext.example.json",
+      "sha256": "7b994a179648b7441c12574cbb50f01cce305091b119ee8aa7acba538070d082",
+      "size": 1390
+    },
+    {
+      "path": "examples/v7_1_1/hybrid_director.example.json",
+      "sha256": "8f3b57444c4e21ccf7a746a6e8a6488affe62f6e0b7c57e965b5dbe4e2629d3d",
+      "size": 779
+    },
+    {
+      "path": "examples/v7_1_1/minicheck.example.json",
+      "sha256": "2847c66635a3847b5d11a5f412f840caca806b41b23dcba634f97542f10aae43",
+      "size": 1248
+    },
+    {
+      "path": "examples/v7_1_1/model_scale_ladder.example.json",
+      "sha256": "234a9549fce1a56dc23007d877abbb4a8f3e01fb68a9a5aafce3e1645e3fb82d",
+      "size": 782
+    },
+    {
+      "path": "examples/v7_1_1/modelworkpacket.example.json",
+      "sha256": "284ca1873f5895d78e91e27e1aca4335c29bc00feda851364eaaed747bf7e747",
+      "size": 1302
+    },
+    {
+      "path": "examples/v7_1_1/odin_claude_worker_adapter.example.json",
+      "sha256": "fcede1cfe727cba095688414cfc25a7d46f18dfc64bef5983f4377046d6139b7",
+      "size": 1319
+    },
+    {
+      "path": "examples/v7_1_1/output_contract.example.json",
+      "sha256": "af3d277aca2da35d1a0a9e386835b0379c510240676bd39d7ec217f7a3a53183",
+      "size": 720
+    },
+    {
+      "path": "examples/v7_1_1/provider_seam.example.json",
+      "sha256": "1d3108c38ac8b3fd0c8be24ec838a1304e363f7c301b60655bfb0c0e6ebb1f86",
+      "size": 631
+    },
+    {
+      "path": "examples/v7_1_1/receipt_boundary.example.json",
+      "sha256": "7f54855eef1f1a8c00e94d7c0a059afa3dd9dc8086e87b725733e9dc5e18c36d",
+      "size": 1398
+    },
+    {
+      "path": "examples/v7_1_1/response_packet.example.json",
+      "sha256": "a58ade2ad8f2f9ee515980111c79339ab781c5d0dda950516ad81c0700c81ca8",
+      "size": 2396
     },
     {
       "path": "examples/v7_1_1/semantic_bus_channel.example.json",
@@ -3099,9 +3284,34 @@
       "size": 631
     },
     {
+      "path": "examples/v7_1_1/slot_contract.example.json",
+      "sha256": "8d392dc8763229810ff2157f0013eb207c7524fac7bc4dd5f00ca794e3f5314c",
+      "size": 1152
+    },
+    {
+      "path": "examples/v7_1_1/small_model_power.example.json",
+      "sha256": "5b7999cb30bc86e98a4bc1074ebb4e01b41b8954910277a3cf635c3e3a62924e",
+      "size": 1022
+    },
+    {
+      "path": "examples/v7_1_1/thor_handoff_intake.example.json",
+      "sha256": "9eb4f4163b99ac28ad67da8341d281661a92877f9997202950ffbf980c4af04d",
+      "size": 1360
+    },
+    {
+      "path": "examples/v7_1_1/tournament_selection.example.json",
+      "sha256": "567e666d36318c9847f7e9d5fea44e2e730a0b26a02a0375528ab30bace4779b",
+      "size": 1276
+    },
+    {
       "path": "examples/v7_1_1/universal_work.example.json",
       "sha256": "cff38f50b2f468bbea902c2ba1091ffb99bdf924b308bbc9473047bd3cd9e58d",
       "size": 2602
+    },
+    {
+      "path": "examples/v7_1_1/worklet_graph.example.json",
+      "sha256": "0dacfbb46a1be9bf4c082a5a036c7dbc6ec80d2b277ac3b845bccd5349690269",
+      "size": 2201
     },
     {
       "path": "examples/windows/windows_build_ready_manifest.valid.json",
@@ -3250,8 +3460,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "73a90fe856ec2645ee420d1ba12bae4758c90171430c6416f450002217273230",
-      "size": 159987
+      "sha256": "30a4d7c781b0d911c53f2cffc375a106fece22140948e00eeb49748075ec5e56",
+      "size": 164087
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4920,8 +5130,8 @@
     },
     {
       "path": "registries/v7_1_1_actual_codex_bundle_plan.json",
-      "sha256": "3d5e43bc7e95db8b4a59ef27d20d816aa07caf47f0add35450121de8e9f76030",
-      "size": 8455
+      "sha256": "c559b166af00a98b200817022367b4eacd1ee4de611398cc0ea53c9ded7e2408",
+      "size": 9547
     },
     {
       "path": "registries/v7_1_1_app_manifest_contract.json",
@@ -4929,9 +5139,29 @@
       "size": 1600
     },
     {
+      "path": "registries/v7_1_1_artifact_family_registry.json",
+      "sha256": "5e66a06cd5aa858da9f28303cad04f2d54b4645a3af62cef4c86e125751ec18b",
+      "size": 3524
+    },
+    {
+      "path": "registries/v7_1_1_artifact_lens_registry.json",
+      "sha256": "2058bd476dd463f9d81a7d41fe4e45cd55a21df3fac9283bd58be98e0c3cce9b",
+      "size": 5858
+    },
+    {
       "path": "registries/v7_1_1_binding_contract_registry.json",
       "sha256": "14766e03727849f588bfd93719d07e42590f88279dd832db617f8b994a8fab94",
       "size": 1241
+    },
+    {
+      "path": "registries/v7_1_1_candidate_artifact_registry.json",
+      "sha256": "29600d9be96008587961bc7e308e256bafef5dc8474325dd2fb5b61bae09d718",
+      "size": 1236
+    },
+    {
+      "path": "registries/v7_1_1_candidate_dna_registry.json",
+      "sha256": "a0786f2256b58c06aded0dd2fb792c9ca0d81cb007140552834d67d1c778b389",
+      "size": 1501
     },
     {
       "path": "registries/v7_1_1_claim_boundary_registry.json",
@@ -4939,14 +5169,89 @@
       "size": 3038
     },
     {
+      "path": "registries/v7_1_1_context_distillery_contract.json",
+      "sha256": "f19e4376872d0fa6d624cbe7723027b21afc14ef5badfb28caaf7097b911ffd2",
+      "size": 1209
+    },
+    {
+      "path": "registries/v7_1_1_critic_cascade_registry.json",
+      "sha256": "66aa73143ae432b9ec87aa485461094a3e05090063892b3335ea7ec8b8449ac0",
+      "size": 1290
+    },
+    {
+      "path": "registries/v7_1_1_critic_work_packet_registry.json",
+      "sha256": "f8aafe5263f2c4ef68c95ba8dc5cf8ba52e729d66c2f01efbbc61de1ce18c2c8",
+      "size": 2007
+    },
+    {
+      "path": "registries/v7_1_1_final_gate_advisory_registry.json",
+      "sha256": "76d1bb97f9e7014c26726a9a1cc06fc0f1481bf619df09170ae0913728913973",
+      "size": 1514
+    },
+    {
       "path": "registries/v7_1_1_forbidden_claim_registry.json",
       "sha256": "53d41451fb8e993804badc1b2fdf8ed91eaaa0a7e83f57e606b397c427f6cff6",
       "size": 2216
     },
     {
+      "path": "registries/v7_1_1_gaptext_contract.json",
+      "sha256": "07bd930493a57d914dc5f7d2f7bad35cb061668117485d94e4e4b6467e2330fe",
+      "size": 797
+    },
+    {
+      "path": "registries/v7_1_1_hybrid_director_registry.json",
+      "sha256": "7eb0aa78d2276137a7415ad49cfa52d22749b08b6f02348ccdfd068cecde2480",
+      "size": 1290
+    },
+    {
+      "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
+      "sha256": "1b222de0b06912f5f6844d12d1a2d8154968ba69d371c6715a1d5d09bc30cec5",
+      "size": 22582
+    },
+    {
+      "path": "registries/v7_1_1_minicheck_registry.json",
+      "sha256": "3947063be993a912cbfc3b9b99c53344304a6be636cd8d87451fe38274a58ede",
+      "size": 1425
+    },
+    {
+      "path": "registries/v7_1_1_model_scale_ladder_registry.json",
+      "sha256": "e02500fdfa1dbcc8803cf94582e594fce0482d926501ecb7da16043a4913a051",
+      "size": 2285
+    },
+    {
+      "path": "registries/v7_1_1_modelworkpacket_contract.json",
+      "sha256": "15515da3c8c93e5afe05f3f748b26e700f60ec6864b4983a289089c0b5d63255",
+      "size": 1321
+    },
+    {
+      "path": "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
+      "sha256": "9d05c5cba928e9225caba64a64771060c36cbc90ae4cdec6fec4a70f28250bf1",
+      "size": 1170
+    },
+    {
       "path": "registries/v7_1_1_operational_target_registry.json",
       "sha256": "dafc04b35d57365f127b037f07a56813f8a33b087dcc5e2c9a95d4372f6a7874",
       "size": 78317
+    },
+    {
+      "path": "registries/v7_1_1_output_contract_registry.json",
+      "sha256": "bbce875e46402bce2c764e4d261c71b84d8a59553b535d96598ca25764ce45de",
+      "size": 1084
+    },
+    {
+      "path": "registries/v7_1_1_provider_seam_registry.json",
+      "sha256": "cca4242bb11ae5b585a978d2efd9e7ec61ab73917575d910f6c795a69ac1e11d",
+      "size": 1433
+    },
+    {
+      "path": "registries/v7_1_1_receipt_boundary_registry.json",
+      "sha256": "100c35bc89b8b057278c24be0de4e09b21fad89b032ea3f4d39f35f86916b136",
+      "size": 1161
+    },
+    {
+      "path": "registries/v7_1_1_response_packet_registry.json",
+      "sha256": "81146288ae9aa986fd573ae692c300664eaa781a8e10ec3153c9521c0e9083a4",
+      "size": 1154
     },
     {
       "path": "registries/v7_1_1_road_to_100_coverage_matrix.json",
@@ -4969,9 +5274,34 @@
       "size": 13724
     },
     {
+      "path": "registries/v7_1_1_slot_forge_contract_registry.json",
+      "sha256": "63b2cd49c7354101e9d358bfd7f5b7de52d642ffb4c43fd863b575b351aa053b",
+      "size": 1986
+    },
+    {
+      "path": "registries/v7_1_1_small_model_power_registry.json",
+      "sha256": "113ef536f1ec0af12ae7fc1fc6f47591acd918b7eae54786569dd4b18f83c4eb",
+      "size": 1662
+    },
+    {
+      "path": "registries/v7_1_1_thor_handoff_intake_registry.json",
+      "sha256": "e3a40c16a76a8db281cf731db54bd07e5de2fde1682b39b2db659337fed32f9a",
+      "size": 1050
+    },
+    {
+      "path": "registries/v7_1_1_tournament_selection_registry.json",
+      "sha256": "727937382a989456edf9ab5f1e788db3e4de6ddea3633e2b9415e34f2db83aa9",
+      "size": 1232
+    },
+    {
       "path": "registries/v7_1_1_universal_work_contract.json",
       "sha256": "658b3af3a765b2bd10e09156fa12ce7dd887accd1bc8a1dc60f59a926276c317",
       "size": 1487
+    },
+    {
+      "path": "registries/v7_1_1_worklet_graph_contract.json",
+      "sha256": "fdbfa0ed92d3b45f4daf376be0840ecc7b52df5d8261238de92209c25940ad43",
+      "size": 937
     },
     {
       "path": "registries/verb_registry.json",
@@ -5047,6 +5377,21 @@
       "path": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
       "sha256": "2762ea556e5dbe4a79fef25d4fc276d680cd3c5952b1ffdb77a27dcb7cf7c6bd",
       "size": 7554
+    },
+    {
+      "path": "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+      "sha256": "f062bbd589613ef779ce433fa59ed9c16e053da605e4800173c28775c7f9cc60",
+      "size": 6100
+    },
+    {
+      "path": "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+      "sha256": "ebc28f20c8a3ba3d5f31ea2d718629b09f0ec2e752c5879d8868429928c1ee6f",
+      "size": 5331
+    },
+    {
+      "path": "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+      "sha256": "5de374af0ec374673f0130d3afdefe188e0cadec5f785850f2747da6ec61cfe8",
+      "size": 38608
     },
     {
       "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
@@ -5824,9 +6169,34 @@
       "size": 1022
     },
     {
+      "path": "schemas/v7_1_1_artifact_family.schema.json",
+      "sha256": "409e0388658ebba08b53fc4121ff50d72e6fd1d6d650e686cb37fcadc34f5895",
+      "size": 811
+    },
+    {
+      "path": "schemas/v7_1_1_artifact_lens.schema.json",
+      "sha256": "c186a84a0be0529c322f683160a86c626589459d16964a6b82eafcec6ba704c7",
+      "size": 858
+    },
+    {
       "path": "schemas/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.schema.json",
       "sha256": "e117b5a3dd2cdf0888fc41690d709c0fddfa01849f669b6da49d4a999fe6fe60",
       "size": 606
+    },
+    {
+      "path": "schemas/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.schema.json",
+      "sha256": "2f4305097274d70f942ab6bb3bb56892f64070c30cbe3deb19883b0894e28e51",
+      "size": 1993
+    },
+    {
+      "path": "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json",
+      "sha256": "505ff3eb42b88a808886f4a9c278e43ee21037a77b81f57fd95d4dfe5ecc0446",
+      "size": 4309
+    },
+    {
+      "path": "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json",
+      "sha256": "ca33fb47cf2df1c0d575ce86946924eddc43608095255e5ca65dbe5c7556e8e1",
+      "size": 2795
     },
     {
       "path": "schemas/v7_1_1_binding_contract.schema.json",
@@ -5834,14 +6204,94 @@
       "size": 1007
     },
     {
+      "path": "schemas/v7_1_1_candidate_artifact.schema.json",
+      "sha256": "c64b73dc1b909d1114675043e9ae23095cf71c44601c7818f31f55982efb8253",
+      "size": 3462
+    },
+    {
+      "path": "schemas/v7_1_1_candidate_dna.schema.json",
+      "sha256": "f707c631c6f115af9749de948ef52be2f37c74313f48596526493424eed161c8",
+      "size": 3554
+    },
+    {
       "path": "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
       "sha256": "255491523a4856fab366c376bab59fff767b2801c668896bd57217d2b762d775",
       "size": 4081
     },
     {
+      "path": "schemas/v7_1_1_context_capsule.schema.json",
+      "sha256": "8672f80874d6b1904b9ff566d80e9de29578fd3f8827a94f9d246816487bf50f",
+      "size": 1380
+    },
+    {
+      "path": "schemas/v7_1_1_critic_cascade.schema.json",
+      "sha256": "4700529f289c5cc01bbf0e5fe3501b3824b1e88f023f8c1442ea2998bfeb19a5",
+      "size": 3079
+    },
+    {
+      "path": "schemas/v7_1_1_critic_work_packet.schema.json",
+      "sha256": "be727b86de56b0822a396044d3f54330faca4e8a777b7f56d691bd8557da77dc",
+      "size": 3418
+    },
+    {
+      "path": "schemas/v7_1_1_final_gate_advisory.schema.json",
+      "sha256": "75b5f6aa649833d01d98fb73382f17326c381643cca6622958864b492fb9aeee",
+      "size": 3368
+    },
+    {
+      "path": "schemas/v7_1_1_gaptext.schema.json",
+      "sha256": "ecb59fccf89052a05b00d6ea44cf50c75c325b00a09c75f5878235fd27661b72",
+      "size": 914
+    },
+    {
+      "path": "schemas/v7_1_1_hybrid_director.schema.json",
+      "sha256": "f77bdf6f8039c6018c5cb2ed2ba323ae07bd5c735af8a3b1eaf32e1b5dff9359",
+      "size": 3054
+    },
+    {
+      "path": "schemas/v7_1_1_minicheck.schema.json",
+      "sha256": "9e8dc41249847ca22964dab8ccc070dc946401eddff4658718b5e386cb3ceede",
+      "size": 2823
+    },
+    {
+      "path": "schemas/v7_1_1_model_scale_ladder.schema.json",
+      "sha256": "2b0ecf1c015c893beda7897a30bc2f4e2656a6ba699bb685b88824b7e4020dee",
+      "size": 3116
+    },
+    {
+      "path": "schemas/v7_1_1_modelworkpacket.schema.json",
+      "sha256": "d8bd07f25a66062f821974436c6615b44dc4793072e02aae4dd76bf25f865d78",
+      "size": 3488
+    },
+    {
+      "path": "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
+      "sha256": "d29bf75815e6995f1005b990fcf6bf534370a0e99bbf00999793a3c25911535c",
+      "size": 3070
+    },
+    {
       "path": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
       "sha256": "d0b962fc11af98e5cd574205445ceede95e4ba2dcb1e60a20a44ed0f922caf03",
       "size": 8920
+    },
+    {
+      "path": "schemas/v7_1_1_output_contract.schema.json",
+      "sha256": "eb7471632d217ef590831b3d94d4a77e997e54b62e14aa43219549b2fd802b7c",
+      "size": 1098
+    },
+    {
+      "path": "schemas/v7_1_1_provider_seam.schema.json",
+      "sha256": "36f8b6c79188f4eb0b04e8c9a0f1818d3661c827c3c66d6873cce90174e0a4ad",
+      "size": 1889
+    },
+    {
+      "path": "schemas/v7_1_1_receipt_boundary.schema.json",
+      "sha256": "b722df3c4c23f2074df579c09124384f1d6b7cf86cb7fdb13e47d46dc2b70ab4",
+      "size": 3122
+    },
+    {
+      "path": "schemas/v7_1_1_response_packet.schema.json",
+      "sha256": "b91ea41bee7b1d462569e729b5d59b2e21d53adf85e2fbe2e11ac3b89d7fbcf5",
+      "size": 3714
     },
     {
       "path": "schemas/v7_1_1_semantic_bus_channel.schema.json",
@@ -5854,9 +6304,34 @@
       "size": 703
     },
     {
+      "path": "schemas/v7_1_1_slot_contract.schema.json",
+      "sha256": "6f622f659ad858155a7af8804410d8ed61676bc8184fb408113c00b7772b4d2a",
+      "size": 1051
+    },
+    {
+      "path": "schemas/v7_1_1_small_model_power_contract.schema.json",
+      "sha256": "c7754029e359c7d0158a50914719c25d73ea4ac400e1c33dbd3c2a5700e34126",
+      "size": 2638
+    },
+    {
+      "path": "schemas/v7_1_1_thor_handoff_intake.schema.json",
+      "sha256": "c4f58718db527aa312bca03a1b820afc98e83ae3facf652688fc0ca6784d1fc4",
+      "size": 3058
+    },
+    {
+      "path": "schemas/v7_1_1_tournament_selection.schema.json",
+      "sha256": "b6b46e4805404bfcadffe03fc00ea2a7b0c1f8aca02bbd62ad92c37d5e36f0cb",
+      "size": 2798
+    },
+    {
       "path": "schemas/v7_1_1_universal_work.schema.json",
       "sha256": "d6b95656d8b4ecccb1e26c5ef6e7e39714c7aa81ceb94f880f276f4eb72d4bcd",
       "size": 778
+    },
+    {
+      "path": "schemas/v7_1_1_worklet_graph.schema.json",
+      "sha256": "ccf5cbceaaa2ebdb0f4429df3c9604b90559af8c6a58b4defe8a2928df0b502a",
+      "size": 1493
     },
     {
       "path": "scripts/build_portable_package.py",
@@ -6299,6 +6774,21 @@
       "size": 10966
     },
     {
+      "path": "tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py",
+      "sha256": "d559ca40c345956b98ca4bb0553601fa98c1afe104934e86ee9a22a6b52d4919",
+      "size": 23809
+    },
+    {
+      "path": "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py",
+      "sha256": "0fb926e3797d21b7ff528a8032146dace37b49992758b751291b01b8595ef99a",
+      "size": 24283
+    },
+    {
+      "path": "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py",
+      "sha256": "d5efb40814fb9d0667e23e5ea177e83eee72324ba0a3d9aa6152ccd2220569ba",
+      "size": 29910
+    },
+    {
       "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
       "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
       "size": 10774
@@ -6337,6 +6827,21 @@
       "path": "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
       "sha256": "a37b27f0fa2f92da3889c7cc4411c957934987f7a3a384a55e21756a9944679c",
       "size": 16277
+    },
+    {
+      "path": "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py",
+      "sha256": "7cc09485c491029aa3407f68498933825df039702bdfa4ea4d821a364241baff",
+      "size": 23177
+    },
+    {
+      "path": "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py",
+      "sha256": "3b7930fc2d87bbcae379f2860cd263e195b87ab9020ef28486649c91f56ad6b6",
+      "size": 22321
+    },
+    {
+      "path": "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py",
+      "sha256": "850bcd6fbe5c67cec40193e9014a9797205742fe2f9865b92391691d6f859056",
+      "size": 33943
     },
     {
       "path": "tools/v7_1_1/check_canon_boundary_integrity.py",
@@ -6417,316 +6922,6 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
-    },
-    {
-      "path": "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 3681
-    },
-    {
-      "path": "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1893
-    },
-    {
-      "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 2015
-    },
-    {
-      "path": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 4639
-    },
-    {
-      "path": "schemas/v7_1_1_artifact_family.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 811
-    },
-    {
-      "path": "schemas/v7_1_1_artifact_lens.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 858
-    },
-    {
-      "path": "schemas/v7_1_1_output_contract.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1098
-    },
-    {
-      "path": "schemas/v7_1_1_context_capsule.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1380
-    },
-    {
-      "path": "schemas/v7_1_1_worklet_graph.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1493
-    },
-    {
-      "path": "schemas/v7_1_1_slot_contract.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1051
-    },
-    {
-      "path": "schemas/v7_1_1_gaptext.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 914
-    },
-    {
-      "path": "schemas/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.schema.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1993
-    },
-    {
-      "path": "registries/v7_1_1_artifact_family_registry.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 3524
-    },
-    {
-      "path": "registries/v7_1_1_artifact_lens_registry.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 5858
-    },
-    {
-      "path": "registries/v7_1_1_output_contract_registry.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1084
-    },
-    {
-      "path": "registries/v7_1_1_context_distillery_contract.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1209
-    },
-    {
-      "path": "registries/v7_1_1_worklet_graph_contract.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 937
-    },
-    {
-      "path": "registries/v7_1_1_slot_forge_contract_registry.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1986
-    },
-    {
-      "path": "registries/v7_1_1_gaptext_contract.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 797
-    },
-    {
-      "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 10237
-    },
-    {
-      "path": "examples/v7_1_1/artifact_family.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 653
-    },
-    {
-      "path": "examples/v7_1_1/artifact_lens.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 694
-    },
-    {
-      "path": "examples/v7_1_1/output_contract.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 720
-    },
-    {
-      "path": "examples/v7_1_1/context_capsule.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1321
-    },
-    {
-      "path": "examples/v7_1_1/worklet_graph.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 2201
-    },
-    {
-      "path": "examples/v7_1_1/slot_contract.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1152
-    },
-    {
-      "path": "examples/v7_1_1/gaptext.example.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 1390
-    },
-    {
-      "path": "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 23177
-    },
-    {
-      "path": "tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 10575
-    },
-    {
-      "path": "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 6100
-    },
-    {
-      "path": "docs/codex/reports/PR_28_B2_CONTEXT_LENSES_WORKLETS_SLOT_GAPTEXT_RETURN_REPORT.md",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "size": 4958
-    },
-    {
-      "path": "schemas/v7_1_1_modelworkpacket.schema.json",
-      "sha256": "d8bd07f25a66062f821974436c6615b44dc4793072e02aae4dd76bf25f865d78",
-      "size": 3488
-    },
-    {
-      "path": "schemas/v7_1_1_model_scale_ladder.schema.json",
-      "sha256": "2b0ecf1c015c893beda7897a30bc2f4e2656a6ba699bb685b88824b7e4020dee",
-      "size": 3116
-    },
-    {
-      "path": "schemas/v7_1_1_provider_seam.schema.json",
-      "sha256": "36f8b6c79188f4eb0b04e8c9a0f1818d3661c827c3c66d6873cce90174e0a4ad",
-      "size": 1889
-    },
-    {
-      "path": "schemas/v7_1_1_small_model_power_contract.schema.json",
-      "sha256": "c7754029e359c7d0158a50914719c25d73ea4ac400e1c33dbd3c2a5700e34126",
-      "size": 2638
-    },
-    {
-      "path": "schemas/v7_1_1_hybrid_director.schema.json",
-      "sha256": "f77bdf6f8039c6018c5cb2ed2ba323ae07bd5c735af8a3b1eaf32e1b5dff9359",
-      "size": 3054
-    },
-    {
-      "path": "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
-      "sha256": "d29bf75815e6995f1005b990fcf6bf534370a0e99bbf00999793a3c25911535c",
-      "size": 3070
-    },
-    {
-      "path": "schemas/v7_1_1_thor_handoff_intake.schema.json",
-      "sha256": "c4f58718db527aa312bca03a1b820afc98e83ae3facf652688fc0ca6784d1fc4",
-      "size": 3058
-    },
-    {
-      "path": "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json",
-      "sha256": "505ff3eb42b88a808886f4a9c278e43ee21037a77b81f57fd95d4dfe5ecc0446",
-      "size": 4309
-    },
-    {
-      "path": "registries/v7_1_1_modelworkpacket_contract.json",
-      "sha256": "15515da3c8c93e5afe05f3f748b26e700f60ec6864b4983a289089c0b5d63255",
-      "size": 1321
-    },
-    {
-      "path": "registries/v7_1_1_model_scale_ladder_registry.json",
-      "sha256": "e02500fdfa1dbcc8803cf94582e594fce0482d926501ecb7da16043a4913a051",
-      "size": 2285
-    },
-    {
-      "path": "registries/v7_1_1_provider_seam_registry.json",
-      "sha256": "cca4242bb11ae5b585a978d2efd9e7ec61ab73917575d910f6c795a69ac1e11d",
-      "size": 1433
-    },
-    {
-      "path": "registries/v7_1_1_small_model_power_registry.json",
-      "sha256": "113ef536f1ec0af12ae7fc1fc6f47591acd918b7eae54786569dd4b18f83c4eb",
-      "size": 1662
-    },
-    {
-      "path": "registries/v7_1_1_hybrid_director_registry.json",
-      "sha256": "7eb0aa78d2276137a7415ad49cfa52d22749b08b6f02348ccdfd068cecde2480",
-      "size": 1290
-    },
-    {
-      "path": "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
-      "sha256": "9d05c5cba928e9225caba64a64771060c36cbc90ae4cdec6fec4a70f28250bf1",
-      "size": 1170
-    },
-    {
-      "path": "registries/v7_1_1_thor_handoff_intake_registry.json",
-      "sha256": "e3a40c16a76a8db281cf731db54bd07e5de2fde1682b39b2db659337fed32f9a",
-      "size": 1050
-    },
-    {
-      "path": "examples/v7_1_1/modelworkpacket.example.json",
-      "sha256": "284ca1873f5895d78e91e27e1aca4335c29bc00feda851364eaaed747bf7e747",
-      "size": 1302
-    },
-    {
-      "path": "examples/v7_1_1/model_scale_ladder.example.json",
-      "sha256": "234a9549fce1a56dc23007d877abbb4a8f3e01fb68a9a5aafce3e1645e3fb82d",
-      "size": 782
-    },
-    {
-      "path": "examples/v7_1_1/provider_seam.example.json",
-      "sha256": "1d3108c38ac8b3fd0c8be24ec838a1304e363f7c301b60655bfb0c0e6ebb1f86",
-      "size": 631
-    },
-    {
-      "path": "examples/v7_1_1/small_model_power.example.json",
-      "sha256": "5b7999cb30bc86e98a4bc1074ebb4e01b41b8954910277a3cf635c3e3a62924e",
-      "size": 1022
-    },
-    {
-      "path": "examples/v7_1_1/hybrid_director.example.json",
-      "sha256": "8f3b57444c4e21ccf7a746a6e8a6488affe62f6e0b7c57e965b5dbe4e2629d3d",
-      "size": 779
-    },
-    {
-      "path": "examples/v7_1_1/odin_claude_worker_adapter.example.json",
-      "sha256": "fcede1cfe727cba095688414cfc25a7d46f18dfc64bef5983f4377046d6139b7",
-      "size": 1319
-    },
-    {
-      "path": "examples/v7_1_1/thor_handoff_intake.example.json",
-      "sha256": "9eb4f4163b99ac28ad67da8341d281661a92877f9997202950ffbf980c4af04d",
-      "size": 1360
-    },
-    {
-      "path": "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py",
-      "sha256": "3b7930fc2d87bbcae379f2860cd263e195b87ab9020ef28486649c91f56ad6b6",
-      "size": 22321
-    },
-    {
-      "path": "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
-      "sha256": "ebc28f20c8a3ba3d5f31ea2d718629b09f0ec2e752c5879d8868429928c1ee6f",
-      "size": 5331
-    },
-    {
-      "path": "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py",
-      "sha256": "0fb926e3797d21b7ff528a8032146dace37b49992758b751291b01b8595ef99a",
-      "size": 24283
-    },
-    {
-      "path": "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
-      "sha256": "fea2abcbe1c05a38efba93cee02ef3bd847e4baaae35a472966c2f634361363a",
-      "size": 6146
-    },
-    {
-      "path": "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
-      "sha256": "0c133867c2a6639ceb05d1583f0b0467003f68101ce81c03998ea7847766e7e8",
-      "size": 2459
-    },
-    {
-      "path": "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
-      "sha256": "ff8e4617025d79c585e369a274211bdf08a77f6bae1bf30cec40e5ee44870504",
-      "size": 7347
-    },
-    {
-      "path": "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md",
-      "sha256": "f227ac3f35b614cf11a6df67f85a96f4f0b9c55679046667ffd3ba70645e7d4b",
-      "size": 5513
-    },
-    {
-      "path": "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
-      "sha256": "6b56675b1c581c16ec21cc518ac3565282b0ae7cb64ac86b0b345b026427b58f",
-      "size": 6696
-    },
-    {
-      "path": "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md",
-      "sha256": "9c1a9288e4ecf073524662b4edc27551a90df9703ac19e411c9606f3c9757342",
-      "size": 8159
     }
   ]
 }

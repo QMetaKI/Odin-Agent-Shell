@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_b4_minicheck_critics_final_gate_report.schema",
+  "title": "B4MinicheckCriticsFinalGateReport",
+  "description": "Schema for the B4 static candidate evaluation spine report.",
+  "type": "object",
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "claim_boundary",
+    "bundle",
+    "slice_coverage",
+    "absorbed_future_pr_families",
+    "minicheck_checks",
+    "critic_work_packet_checks",
+    "critic_cascade_checks",
+    "tournament_checks",
+    "candidate_dna_checks",
+    "candidate_artifact_checks",
+    "response_packet_checks",
+    "final_gate_advisory_checks",
+    "receipt_boundary_checks",
+    "hard_violations",
+    "non_claims"
+  ],
+  "properties": {
+    "report_id": { "type": "string" },
+    "version": { "type": "string" },
+    "status": { "type": "string" },
+    "generated_at_utc": { "type": "string" },
+    "claim_boundary": { "type": "string" },
+    "bundle": { "type": "object" },
+    "source_refs": { "type": "array", "items": { "type": "string" } },
+    "schema_refs": { "type": "array", "items": { "type": "string" } },
+    "registry_refs": { "type": "array", "items": { "type": "string" } },
+    "slice_coverage": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "absorbed_future_pr_families": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "minicheck_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "critic_work_packet_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "critic_cascade_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "tournament_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "candidate_dna_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "candidate_artifact_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "response_packet_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "final_gate_advisory_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "receipt_boundary_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "thor_protocol_checks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "hard_violations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "senior_reviewer_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "senior_code_reviewer_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

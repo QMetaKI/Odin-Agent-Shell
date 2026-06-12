@@ -1,0 +1,1383 @@
+{
+  "report_id": "odin.v7_1_1_b4_minicheck_critics_final_gate_report",
+  "version": "7.1.1",
+  "status": "local_candidate_evaluation_spine_report_not_runtime_proof",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "claim_boundary": "b4_report_is_static_candidate_evaluation_contract_validation_not_runtime_or_apply_gate",
+  "bundle": {
+    "bundle_id": "B4",
+    "actual_pr": "PR-30",
+    "slice_range": "V711-R100-106..137",
+    "exact_slice_count": 32,
+    "absorbed_families": [
+      "PR-33-MINICHECK-CRITICS-TOURNAMENT",
+      "PR-34-CANDIDATE-FINAL-GATE"
+    ],
+    "status": "static_contract_evaluation_spine_added_not_runtime_complete"
+  },
+  "source_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_road_to_100_ladder.json",
+    "registries/v7_1_1_model_scale_ladder_registry.json",
+    "registries/v7_1_1_modelworkpacket_contract.json"
+  ],
+  "schema_refs": [
+    "schemas/v7_1_1_minicheck.schema.json",
+    "schemas/v7_1_1_critic_work_packet.schema.json",
+    "schemas/v7_1_1_critic_cascade.schema.json",
+    "schemas/v7_1_1_tournament_selection.schema.json",
+    "schemas/v7_1_1_candidate_dna.schema.json",
+    "schemas/v7_1_1_candidate_artifact.schema.json",
+    "schemas/v7_1_1_response_packet.schema.json",
+    "schemas/v7_1_1_final_gate_advisory.schema.json",
+    "schemas/v7_1_1_receipt_boundary.schema.json",
+    "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json"
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_minicheck_registry.json",
+    "registries/v7_1_1_critic_work_packet_registry.json",
+    "registries/v7_1_1_critic_cascade_registry.json",
+    "registries/v7_1_1_tournament_selection_registry.json",
+    "registries/v7_1_1_candidate_dna_registry.json",
+    "registries/v7_1_1_candidate_artifact_registry.json",
+    "registries/v7_1_1_response_packet_registry.json",
+    "registries/v7_1_1_final_gate_advisory_registry.json",
+    "registries/v7_1_1_receipt_boundary_registry.json"
+  ],
+  "slice_coverage": [
+    "V711-R100-106",
+    "V711-R100-107",
+    "V711-R100-108",
+    "V711-R100-109",
+    "V711-R100-110",
+    "V711-R100-111",
+    "V711-R100-112",
+    "V711-R100-113",
+    "V711-R100-114",
+    "V711-R100-115",
+    "V711-R100-116",
+    "V711-R100-117",
+    "V711-R100-118",
+    "V711-R100-119",
+    "V711-R100-120",
+    "V711-R100-121",
+    "V711-R100-122",
+    "V711-R100-123",
+    "V711-R100-124",
+    "V711-R100-125",
+    "V711-R100-126",
+    "V711-R100-127",
+    "V711-R100-128",
+    "V711-R100-129",
+    "V711-R100-130",
+    "V711-R100-131",
+    "V711-R100-132",
+    "V711-R100-133",
+    "V711-R100-134",
+    "V711-R100-135",
+    "V711-R100-136",
+    "V711-R100-137"
+  ],
+  "absorbed_future_pr_families": [
+    "PR-33-MINICHECK-CRITICS-TOURNAMENT",
+    "PR-34-CANDIDATE-FINAL-GATE"
+  ],
+  "minicheck_checks": [
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: forbidden_action_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: no_runtime_claim_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: claim_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: context_ref_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: no_external_send_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: output_contract_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: provider_policy_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: gaptext_shape_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: final_gate_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: receipt_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: route_class_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: no_model_quality_claim_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: schema_shape_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck schema has check_kind: no_app_apply_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: forbidden_action_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: no_runtime_claim_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: claim_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: context_ref_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: no_external_send_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: output_contract_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: provider_policy_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: gaptext_shape_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: final_gate_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: receipt_boundary_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: route_class_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: no_model_quality_claim_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: schema_shape_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has check_kind: no_app_apply_check"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry candidate_only=true"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck registry has non_claims"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck non_claims includes not_live_model_execution"
+    },
+    {
+      "status": "pass",
+      "msg": "minicheck non_claims includes not_app_state_mutation"
+    }
+  ],
+  "critic_work_packet_checks": [
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: deterministic_schema_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: deterministic_contract_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: hybrid_advisory_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_work_packet schema has tier: small_model_advisory_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: hybrid_3b_7b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: deterministic_no_model"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: quality_hybrid_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: tiny_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: small_model_multi_slot_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: small_model_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: heavy_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: remote_explicit_only"
+    },
+    {
+      "status": "pass",
+      "msg": "critic schema route_class enum has: local_7b_8b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: deterministic_schema_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: deterministic_contract_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: hybrid_advisory_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry has tier: small_model_advisory_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: hybrid_3b_7b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: deterministic_no_model"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: quality_hybrid_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: tiny_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: small_model_multi_slot_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: small_model_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: heavy_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: remote_explicit_only"
+    },
+    {
+      "status": "pass",
+      "msg": "critic registry route_to_critic_mapping has: local_7b_8b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "critic non_claims includes not_claim_acceptance"
+    },
+    {
+      "status": "pass",
+      "msg": "critic non_claims includes not_app_state_mutation"
+    },
+    {
+      "status": "pass",
+      "msg": "critic non_claims includes not_live_model_execution"
+    }
+  ],
+  "critic_cascade_checks": [
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: schema_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: minicheck"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: consistency_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: contract_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: final_gate_advisor"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: claim_boundary_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema stage: route_aware_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: model_quality_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: candidate_conflict_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: remote_route_requested"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: missing_claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: runtime_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: receipt_truth_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: final_gate_authority_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: provider_policy_missing"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: route_class_mismatch"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: output_contract_violation"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade schema escalation: forbidden_action_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: schema_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: minicheck"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: consistency_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: contract_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: final_gate_advisor"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: claim_boundary_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry stage: route_aware_critic"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: model_quality_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: candidate_conflict_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: remote_route_requested"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: missing_claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: runtime_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: receipt_truth_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: final_gate_authority_claim_detected"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: provider_policy_missing"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: route_class_mismatch"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: output_contract_violation"
+    },
+    {
+      "status": "pass",
+      "msg": "critic_cascade registry escalation: forbidden_action_detected"
+    }
+  ],
+  "tournament_checks": [
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: route_class_fit"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: evidence_completeness"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: context_fidelity"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: forbidden_action_absence"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: human_review_need"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: receipt_readiness"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: contract_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: gaptext_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: claim_boundary_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament schema scoring dimension: schema_validity"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: route_class_fit"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: evidence_completeness"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: context_fidelity"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: forbidden_action_absence"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: human_review_need"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: receipt_readiness"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: contract_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: gaptext_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: claim_boundary_compliance"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament registry scoring dimension: schema_validity"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament non_claims includes not_app_apply"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament non_claims includes not_correctness_proof"
+    },
+    {
+      "status": "pass",
+      "msg": "tournament non_claims includes not_human_review_bypass"
+    }
+  ],
+  "candidate_dna_checks": [
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: source_gaptext_ref"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: constraint_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: generation_path"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: candidate_artifact_ref"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: source_context_capsule_ref"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: evidence_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: candidate_dna_id"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: privacy_class"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: source_route_class"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: content_hash"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: non_claims"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: source_slot_contract_ref"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: source_modelworkpacket_ref"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna schema required field: candidate_only"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna privacy_class enum has: public"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna privacy_class enum has: internal"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna privacy_class enum has: sensitive"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna privacy_class enum has: redacted"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna non_claims includes not_correctness_proof"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna non_claims includes not_authorship_truth"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna non_claims includes not_app_acceptance"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna registry has privacy_class in lineage fields"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_dna registry has content_hash in lineage fields"
+    }
+  ],
+  "candidate_artifact_checks": [
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: tournament_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: created"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: final_gate_advisory_blocked"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: minicheck_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: critic_failed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: tournament_rejected"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: critic_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: critic_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: critic_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: tournament_selected"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: final_gate_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: minicheck_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: final_gate_advisory_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact schema status: final_gate_advisory_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: tournament_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: created"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: final_gate_advisory_blocked"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: minicheck_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: critic_failed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: tournament_rejected"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: critic_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: critic_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: critic_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: tournament_selected"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: final_gate_pending"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: minicheck_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: final_gate_advisory_warned"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact registry status: final_gate_advisory_passed"
+    },
+    {
+      "status": "pass",
+      "msg": "candidate_artifact non_claims includes not_app_acceptance"
+    }
+  ],
+  "response_packet_checks": [
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: tests_not_run"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: claims_made"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: commands_not_run"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: claims_not_made"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: non_claims"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: candidate_only"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: commands_run"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet schema required field: tests_run"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet registry invariant: claims_made/claims_not_made distinction"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet registry invariant: commands_run/commands_not_run distinction"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet non_claims includes not_app_apply"
+    },
+    {
+      "status": "pass",
+      "msg": "response_packet non_claims includes not_external_send"
+    }
+  ],
+  "final_gate_advisory_checks": [
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema recommendation: advisory_block"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema recommendation: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema recommendation: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema recommendation: advisory_pass"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema recommendation: advisory_warn"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema is_apply_gate const=false"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory schema is_app_authority const=false"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry is_apply_gate=false"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry is_app_authority=false"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry recommendation: advisory_block"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry recommendation: human_review_required"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry recommendation: cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry recommendation: advisory_pass"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate_advisory registry recommendation: advisory_warn"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate non_claims includes not_apply_gate"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate non_claims includes not_correctness_certification"
+    },
+    {
+      "status": "pass",
+      "msg": "final_gate non_claims includes not_production_readiness_certification"
+    }
+  ],
+  "receipt_boundary_checks": [
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: accepted_claim_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: claim_boundary"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: candidate_only"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: pending_claim_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: denied_claim_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema required field: non_claims"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema is_absolute_truth const=false"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary schema is_runtime_proof const=false"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary non_claims includes not_absolute_truth"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary non_claims includes not_runtime_proof"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary non_claims includes not_security_certification"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary registry partition field: accepted_claim_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary registry partition field: denied_claim_refs"
+    },
+    {
+      "status": "pass",
+      "msg": "receipt_boundary registry partition field: pending_claim_refs"
+    }
+  ],
+  "thor_protocol_checks": [],
+  "bundle_checks": [
+    {
+      "status": "pass",
+      "msg": "B4 bundle exists in actual_codex_bundle_plan"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 actual_pr == PR-30"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 slice_range == V711-R100-106..137"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 has exactly 32 slice IDs (got 32)"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 has no out-of-range slice IDs (found: [])"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 absorbs PR-33-MINICHECK-CRITICS-TOURNAMENT"
+    },
+    {
+      "status": "pass",
+      "msg": "B4 absorbs PR-34-CANDIDATE-FINAL-GATE"
+    },
+    {
+      "status": "pass",
+      "msg": "canonical ladder has 190+ slices"
+    },
+    {
+      "status": "pass",
+      "msg": "canonical ladder has future_pr_families"
+    },
+    {
+      "status": "pass",
+      "msg": "B1 mapping preserved"
+    },
+    {
+      "status": "pass",
+      "msg": "B2 mapping preserved"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 mapping preserved"
+    },
+    {
+      "status": "pass",
+      "msg": "B1 actual_pr unchanged (PR-27)"
+    },
+    {
+      "status": "pass",
+      "msg": "B2 actual_pr unchanged (PR-28)"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 actual_pr unchanged (PR-29)"
+    }
+  ],
+  "artifact_existence_checks": [
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_minicheck.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_critic_work_packet.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_critic_cascade.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_tournament_selection.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_candidate_dna.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_candidate_artifact.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_response_packet.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_final_gate_advisory.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_receipt_boundary.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_minicheck_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_critic_work_packet_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_critic_cascade_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_tournament_selection_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_candidate_dna_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_candidate_artifact_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_response_packet_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_final_gate_advisory_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: registries/v7_1_1_receipt_boundary_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/minicheck.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/critic_work_packet.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/critic_cascade.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/tournament_selection.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/candidate_dna.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/candidate_artifact.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/response_packet.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/final_gate_advisory.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "artifact exists: examples/v7_1_1/receipt_boundary.example.json"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 ref exists: registries/v7_1_1_modelworkpacket_contract.json"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 ref exists: registries/v7_1_1_model_scale_ladder_registry.json"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 ref exists: schemas/v7_1_1_modelworkpacket.schema.json"
+    },
+    {
+      "status": "pass",
+      "msg": "B3 ref exists: schemas/v7_1_1_model_scale_ladder.schema.json"
+    }
+  ],
+  "negative_contract_checks": [
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: final_gate_advisory_registry does not claim app authority (is_apply_gate=false)"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: final_gate_advisory_registry does not claim correctness certification"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: response_packet_registry does not claim external send"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: tournament_selection_registry does not claim correctness proof"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: receipt_boundary_registry does not claim absolute truth"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class hybrid_3b_7b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class deterministic_no_model"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class quality_hybrid_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class tiny_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class small_model_multi_slot_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class small_model_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class cannot_safely_complete"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class heavy_local_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class remote_explicit_only"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry covers route class local_7b_8b_candidate"
+    },
+    {
+      "status": "pass",
+      "msg": "NEGATIVE: critic registry does not claim live model execution"
+    }
+  ],
+  "import_checks": [
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'openai' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'requests' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'aiohttp' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'mistralai' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'httpx' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'anthropic' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'boto3' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'cohere' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'google.generativeai' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no forbidden import 'urllib3' in tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    },
+    {
+      "status": "pass",
+      "msg": "no provider SDK/network/model imports found in B4 files"
+    }
+  ],
+  "manifest_checks": [
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: .odin_runtime/"
+    },
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: egg-info"
+    },
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: __pycache__"
+    },
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: .pyc"
+    },
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: dist/"
+    },
+    {
+      "status": "pass",
+      "msg": "FILE_MANIFEST does not reference ignored artifact: build/"
+    }
+  ],
+  "hard_violations": [],
+  "non_claims": [
+    "not_runtime_completion",
+    "not_production_readiness",
+    "not_release_certification",
+    "not_security_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_measured_critic_quality_proof",
+    "not_qirc_server_runtime_proof",
+    "not_provider_execution_proof",
+    "not_app_owned_apply_state_external_send_authority",
+    "not_final_gate_as_apply_gate"
+  ],
+  "senior_reviewer_notes": [
+    "B4 adds static candidate evaluation spine \u2014 no runtime behavior added",
+    "Final Gate Advisory correctly named and bounded as advisory-only",
+    "Receipt Boundary correctly partitions accepted/denied/pending \u2014 not absolute truth",
+    "All critic tiers are static contract roles \u2014 no live model execution in B4",
+    "B3 ModelWorkPacket and Scale Ladder route classes are consumed by CriticWorkPacket"
+  ],
+  "senior_code_reviewer_notes": [
+    "All schemas use additionalProperties: true for forward compatibility",
+    "Schemas use const: true/false for is_apply_gate and candidate_only enforcement",
+    "No provider SDK imports in B4 implementation files",
+    "All examples reference odin_ prefixed IDs \u2014 no absolute paths",
+    "Validator writes only to --out path \u2014 no other file writes"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_minicheck.schema",
+  "title": "Minicheck",
+  "description": "Schema for a Minicheck — a deterministic pre-evaluation check on a ModelWorkPacket output. Candidate only, no live inference.",
+  "type": "object",
+  "required": [
+    "minicheck_id",
+    "input_ref",
+    "modelworkpacket_ref",
+    "route_class_ref",
+    "check_kind",
+    "check_rules",
+    "pass_conditions",
+    "fail_conditions",
+    "warning_conditions",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "minicheck_id": {
+      "type": "string",
+      "description": "Unique identifier for this Minicheck"
+    },
+    "input_ref": {
+      "type": "string",
+      "description": "Reference to the candidate artifact or work output being checked"
+    },
+    "modelworkpacket_ref": {
+      "type": "string",
+      "description": "Reference to the ModelWorkPacket that produced the candidate"
+    },
+    "route_class_ref": {
+      "type": "string",
+      "description": "Scale ladder route class that produced the candidate"
+    },
+    "check_kind": {
+      "type": "string",
+      "enum": [
+        "schema_shape_check",
+        "claim_boundary_check",
+        "forbidden_action_check",
+        "output_contract_check",
+        "context_ref_check",
+        "gaptext_shape_check",
+        "route_class_check",
+        "provider_policy_check",
+        "no_runtime_claim_check",
+        "no_model_quality_claim_check",
+        "no_external_send_check",
+        "no_app_apply_check",
+        "final_gate_boundary_check",
+        "receipt_boundary_check"
+      ],
+      "description": "Kind of minicheck being performed"
+    },
+    "check_rules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Rules evaluated by this minicheck"
+    },
+    "pass_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions under which this check passes"
+    },
+    "fail_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions under which this check fails"
+    },
+    "warning_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions under which this check warns"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this minicheck does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — minicheck output is candidate only"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this minicheck does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

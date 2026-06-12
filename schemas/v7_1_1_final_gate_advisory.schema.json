@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_final_gate_advisory.schema",
+  "title": "FinalGateAdvisory",
+  "description": "Schema for a FinalGateAdvisory — advisory recommendation only. Not Apply Gate, not app authority, does not mutate state, does not send externally, does not certify correctness.",
+  "type": "object",
+  "required": [
+    "final_gate_advisory_id",
+    "response_packet_ref",
+    "candidate_artifact_ref",
+    "critic_cascade_ref",
+    "tournament_ref",
+    "gate_checks",
+    "decision_recommendation",
+    "block_reasons",
+    "warning_reasons",
+    "required_human_review",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "final_gate_advisory_id": {
+      "type": "string",
+      "description": "Unique identifier for this FinalGateAdvisory"
+    },
+    "response_packet_ref": {
+      "type": "string",
+      "description": "Reference to the ResponsePacket being evaluated"
+    },
+    "candidate_artifact_ref": {
+      "type": "string",
+      "description": "Reference to the candidate artifact being evaluated"
+    },
+    "critic_cascade_ref": {
+      "type": "string",
+      "description": "Reference to the critic cascade results"
+    },
+    "tournament_ref": {
+      "type": "string",
+      "description": "Reference to the tournament selection results"
+    },
+    "gate_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check_id": { "type": "string" },
+          "status": { "type": "string" },
+          "finding": { "type": "string" }
+        }
+      },
+      "description": "List of gate check results"
+    },
+    "decision_recommendation": {
+      "type": "string",
+      "enum": [
+        "advisory_pass",
+        "advisory_warn",
+        "advisory_block",
+        "human_review_required",
+        "cannot_safely_complete"
+      ],
+      "description": "Advisory recommendation — not a binding decision, not app authority"
+    },
+    "block_reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reasons for block recommendation, if any"
+    },
+    "warning_reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reasons for warning recommendation, if any"
+    },
+    "required_human_review": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Items that require human review before app acceptance"
+    },
+    "is_apply_gate": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — Final Gate Advisory is never Apply Gate"
+    },
+    "is_app_authority": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — Final Gate Advisory is never app authority"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — this advisory cannot certify correctness, safety, or production readiness"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — advisory is candidate guidance, never binding app decision"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this advisory does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

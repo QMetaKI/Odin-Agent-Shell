@@ -1,0 +1,40 @@
+{
+  "registry_id": "odin.v7_1_1_final_gate_advisory_registry",
+  "version": "7.1.1",
+  "status": "final_gate_advisory_registry_not_apply_gate_not_app_authority",
+  "claim_boundary": "final_gate_advisory_is_advisory_only_not_apply_gate_not_app_authority_not_correctness_certification",
+  "candidate_only": true,
+  "non_claims": [
+    "not_apply_gate",
+    "not_app_authority",
+    "not_state_mutation",
+    "not_external_send",
+    "not_automatic_claim_acceptance",
+    "not_correctness_certification",
+    "not_safety_certification",
+    "not_production_readiness_certification",
+    "not_live_model_execution"
+  ],
+  "invariants": [
+    "Final Gate Advisory is advisory-only",
+    "it can recommend pass, warn, block, human_review_required, or cannot_safely_complete",
+    "it cannot apply changes",
+    "it cannot accept claims automatically",
+    "it cannot mutate state",
+    "it cannot send externally",
+    "it cannot override app-owned Apply Gate",
+    "it cannot prove correctness, safety, production readiness, model quality, or deployment readiness"
+  ],
+  "allowed_recommendations": [
+    "advisory_pass",
+    "advisory_warn",
+    "advisory_block",
+    "human_review_required",
+    "cannot_safely_complete"
+  ],
+  "is_apply_gate": false,
+  "is_app_authority": false,
+  "schema_ref": "schemas/v7_1_1_final_gate_advisory.schema.json",
+  "example_ref": "examples/v7_1_1/final_gate_advisory.example.json",
+  "hybrid_director_final_gate_advisor_role_ref": "registries/v7_1_1_hybrid_director_registry.json"
+}
