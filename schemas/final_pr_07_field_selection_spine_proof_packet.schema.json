@@ -1,0 +1,40 @@
+{
+  "$id": "final_pr_07_field_selection_spine_proof_packet.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "app_owned_apply": {
+      "const": true
+    },
+    "artifact_kind": {
+      "const": "odin_field_selection_spine_proof_packet"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "const": "field_selection_scores_routes_not_truth"
+    },
+    "not_proven": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "proven": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_kind",
+    "proven",
+    "not_proven",
+    "claim_boundary",
+    "candidate_only",
+    "app_owned_apply"
+  ],
+  "type": "object"
+}

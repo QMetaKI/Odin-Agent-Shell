@@ -1,0 +1,29 @@
+{
+  "candidate_only": true,
+  "evidence_items": [
+    "app_owned_apply=True",
+    "candidate_only=True",
+    "local_only=True",
+    "release_deferred=True",
+    "repo_evidence=SYSTEM_MAP.json",
+    "trigger_shape=repo",
+    "work_type=repo"
+  ],
+  "field_id": "repo_reality_alignment",
+  "not_proven": [
+    "autonomous_decision_authority",
+    "final_truth_claim",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "reason_tokens": [
+    "work_type_available",
+    "work_type:repo"
+  ],
+  "trace_id": "field_trace_042265074a6034d5abc090c4"
+}

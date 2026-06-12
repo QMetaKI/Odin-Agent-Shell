@@ -1,0 +1,19 @@
+{
+  "axis_scores": {
+    "app_authority": 0.9,
+    "candidate_integrity": 0.9,
+    "claim_boundary": 0.9,
+    "evidence": 1.0,
+    "locality": 0.9,
+    "release_readiness": 0.85,
+    "repo_reality": 0.9,
+    "runtime_truth": 0.5,
+    "scope": 0.5,
+    "token_efficiency": 0.5
+  },
+  "candidate_only": true,
+  "evidence_requirement_met": true,
+  "hole_density": 0.0,
+  "overall_score": 0.785,
+  "route_confidence": 0.785
+}

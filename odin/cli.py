@@ -2737,6 +2737,33 @@ def validate_operational_seed_spine() -> list[str]:
     return []
 
 
+def validate_field_selection_spine() -> list[str]:
+    """Validate FINAL-PR-07 Field Selection Spine artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_07_field_selection_spine.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-07 validator: tools/rebaseline/check_final_pr_07_field_selection_spine.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_07_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-07 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    import tempfile as _tempfile
+    with _tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_07_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-07: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-07 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2799,6 +2826,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_y_pattern_spine())
     errors.extend(validate_prep_final_pr_06_08())
     errors.extend(validate_operational_seed_spine())
+    errors.extend(validate_field_selection_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2981,6 +3009,10 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-prep-final-pr-06-08")
     # FINAL-PR-06: Operational Seed Spine
     sub.add_parser("validate-operational-seed-spine")
+    sub.add_parser("validate-field-selection-spine")
+    explain_field_selection_p = sub.add_parser("explain-field-selection")
+    explain_field_selection_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("prove-field-selection-spine")
     explain_seed_route_p = sub.add_parser("explain-seed-route")
     explain_seed_route_p.add_argument("--demo", action="store_true", default=False)
     sub.add_parser("prove-operational-seed-spine")
@@ -3700,6 +3732,30 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "prove-operational-seed-spine":
         from odin.operational_seed_spine.proof import persist_proof_packet
+        result = persist_proof_packet(ROOT)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+
+    # FINAL-PR-07: Field Selection Spine commands
+    if args.cmd == "validate-field-selection-spine":
+        errors = validate_field_selection_spine()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-field-selection-spine: OK")
+        return 0
+
+    if args.cmd == "explain-field-selection":
+        from odin.field_selection_spine.selector import select_field_route
+        demo_ctx = {"trigger_shape": "repo", "work_type": "repo", "repo_evidence": "SYSTEM_MAP.json"}
+        result = select_field_route(demo_ctx).to_dict()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-field-selection-spine":
+        from odin.field_selection_spine.proof import persist_proof_packet
         result = persist_proof_packet(ROOT)
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0

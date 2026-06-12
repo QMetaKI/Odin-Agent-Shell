@@ -110,6 +110,8 @@ REQUIRED_COPY = [
     "Y Pattern Spine explains why a route/capsule was selected.",
     # FINAL-PR-06 Operational Seed Spine
     "Operational Seed Spine explains why a seed route and work capsule were selected.",
+    "Field Selection Spine scores work context against review axes and recommends a dominant routing field.",
+    "Odin ranks candidate routes by coherence.",
 ]
 
 
@@ -428,6 +430,13 @@ def generate_hub_html() -> str:
     <div class="dev-row" id="dev-operational-seed-spine">Operational Seed Spine: available. <code>python -m odin.cli explain-seed-route --demo</code> returns seed route. <code>python -m odin.cli validate-operational-seed-spine</code>. GET /demo/seed-route.json. candidate_only: true. Seeds are routing signals, not agents.</div>
     <div class="dev-row" id="dev-demo-flow">Demo flow: Raw demo input &#8594; Handoff Context &#8594; Universal Work &#8594; Candidate Artifact &#8594; Response Packet. No provider execution. No model inference. No app apply. No external send.</div>
   </details>
+</div>
+
+<div id="field-selection-spine-section" class="section">
+  <div class="label">Field Selection Spine</div>
+  <span class="chip ok">Available</span>
+  <p>Odin ranks candidate routes by coherence.</p>
+  <p class="note">Dev Mode: Field Selection Spine scores work context against review axes and recommends a dominant routing field.</p>
 </div>
 
 </body>

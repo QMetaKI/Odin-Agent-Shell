@@ -1,0 +1,29 @@
+{
+  "candidate_only": true,
+  "checked_files": [
+    "examples/final_pr_07/coherence_score.example.json",
+    "examples/final_pr_07/field_selection.example.json",
+    "examples/final_pr_07/field_signal.example.json",
+    "examples/final_pr_07/field_why_trace.example.json",
+    "odin/field_selection_spine/__init__.py",
+    "odin/field_selection_spine/coherence.py",
+    "odin/field_selection_spine/fields.py",
+    "odin/field_selection_spine/hole_density.py",
+    "odin/field_selection_spine/proof.py",
+    "odin/field_selection_spine/review_axes.py",
+    "odin/field_selection_spine/selector.py",
+    "odin/field_selection_spine/why_trace.py",
+    "registries/final_pr_07_field_selection_spine_registry.json",
+    "reports/final_pr_07_field_selection_spine_proof_packet.json",
+    "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
+    "tests/test_final_pr_07_field_selection_spine.py",
+    "tools/rebaseline/check_final_pr_07_field_selection_spine.py"
+  ],
+  "claim_boundary": "field_selection_scores_routes_not_truth",
+  "error_count": 0,
+  "errors": [],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "status": "ok",
+  "warning_count": 0,
+  "warnings": []
+}

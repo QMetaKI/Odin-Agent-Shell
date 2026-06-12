@@ -234,7 +234,7 @@ def test_no_forbidden_q_names_in_disallowed_sections():
         "qli", "q_li", "qstar", "q_star",
     ]
     # Modules now implemented by their respective PRs — checked by those PRs' own tests
-    implemented_dirs = ["odin/operational_seed_spine"]
+    implemented_dirs = ["odin/operational_seed_spine", "odin/field_selection_spine"]
     future_runtime_dirs = [
         "odin/operational_seed_spine",
         "odin/field_selection_spine",
@@ -332,7 +332,7 @@ def test_handoff_covers_existing_surfaces():
 
 def test_no_future_pr_runtime_modules_exist():
     # Modules now legitimately implemented by their respective PRs — skip them
-    implemented_dirs = ["odin/operational_seed_spine"]  # Implemented by FINAL-PR-06
+    implemented_dirs = ["odin/operational_seed_spine", "odin/field_selection_spine"]  # Implemented by FINAL-PR-06
     future_module_dirs = [
         "odin/operational_seed_spine",
         "odin/field_selection_spine",
