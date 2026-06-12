@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "applies_to_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "closure_guard_id": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "forbidden_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "guard_kind": {
+      "type": "string"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "required_non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "violation_severity": {
+      "enum": [
+        "blocker",
+        "warning"
+      ]
+    }
+  },
+  "required": [
+    "closure_guard_id",
+    "guard_kind",
+    "forbidden_claims",
+    "required_non_claims",
+    "applies_to_artifacts",
+    "violation_severity",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ClosureGuard",
+  "type": "object"
+}

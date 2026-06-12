@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_harness_ref": {
+      "type": "string"
+    },
+    "blocker_policy": {
+      "type": "object"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "dojo_session_ref": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "review_required_policy": {
+      "type": "object"
+    },
+    "score_rows": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scoreboard_id": {
+      "type": "string"
+    },
+    "scoring_dimensions": {
+      "items": {
+        "enum": [
+          "contract_compliance",
+          "claim_boundary_compliance",
+          "evidence_completeness",
+          "traceability",
+          "privacy_discipline",
+          "receipt_partition_integrity",
+          "provider_boundary_integrity",
+          "app_authority_boundary",
+          "thor_bridge_static_boundary",
+          "final_gate_advisory_boundary",
+          "regression_preservation",
+          "closure_readiness"
+        ]
+      },
+      "type": "array"
+    },
+    "scoring_mode": {
+      "enum": [
+        "static_evidence_score",
+        "static_review_score",
+        "closure_prep_score",
+        "human_review_required"
+      ]
+    },
+    "threshold_policy": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "scoreboard_id",
+    "acceptance_harness_ref",
+    "dojo_session_ref",
+    "scoring_mode",
+    "scoring_dimensions",
+    "score_rows",
+    "threshold_policy",
+    "blocker_policy",
+    "review_required_policy",
+    "evidence_refs",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "Scoreboard",
+  "type": "object"
+}

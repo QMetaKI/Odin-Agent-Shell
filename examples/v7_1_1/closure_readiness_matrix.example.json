@@ -1,0 +1,71 @@
+{
+  "blocker_policy": {
+    "forbidden_proof_claims_block": true
+  },
+  "bundle_refs": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "closure_readiness_matrix_is_static_closure_prep_only_not_release_security_runtime_or_deployment_certification",
+  "closure_readiness_matrix_id": "closure_readiness_matrix.b6.example",
+  "deferred_policy": {
+    "runtime_security_deployment_deferred": true
+  },
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "readiness_mode": "static_closure_prep",
+  "readiness_rows": [
+    {
+      "blocking_claim_refs": [],
+      "deferred_to": "B7+",
+      "evidence_refs": [
+        "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
+      ],
+      "pending_claim_refs": [
+        "claim.future_runtime_evaluation"
+      ],
+      "reason": "static contracts present with non-claims",
+      "row_id": "row.b6.static",
+      "status": "ready_static",
+      "subject_ref": "B6"
+    },
+    {
+      "blocking_claim_refs": [
+        "claim.runtime_proof"
+      ],
+      "deferred_to": "B7+",
+      "evidence_refs": [],
+      "pending_claim_refs": [
+        "claim.provider_runtime_policy"
+      ],
+      "reason": "runtime is outside B6",
+      "row_id": "row.runtime.deferred",
+      "status": "deferred_to_b7_plus",
+      "subject_ref": "runtime"
+    }
+  ],
+  "status_policy": {
+    "allowed_statuses": [
+      "ready_static",
+      "warn_static",
+      "blocked_static",
+      "deferred_to_b7_plus",
+      "requires_human_review",
+      "cannot_safely_complete"
+    ]
+  }
+}

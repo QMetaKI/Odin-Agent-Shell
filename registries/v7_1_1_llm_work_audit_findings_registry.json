@@ -473,6 +473,105 @@
       "suggested_future_bundle": "B7+",
       "summary": "B7+ must evaluate actual local provider runtime only after explicit policy/receipt guard",
       "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-001",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Acceptance Harness added and consumes B4/B5 evidence ids"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-002",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Dojo Session added as static review/training harness"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-003",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Scoreboard added without correctness/production benchmark claim"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-004",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Closure Checklist added without release approval claim"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-005",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Closure Readiness Matrix added without deployment/security/runtime proof claim"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-006",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Road-to-100 Closure Report added with known_gaps and B7+ recommendations"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-007",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "Closure Guard Registry added to prevent overclaim drift"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-008",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ Handoff Plan added for future runtime/Thor/provider/security evaluation"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-009",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ must evaluate real Thor pack to Odin intake"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-010",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ must evaluate actual local provider runtime only after explicit policy/receipt guard"
+    },
+    {
+      "bundle_id": "B6",
+      "claim_boundary": "finding_is_process_observation_not_runtime_release_security_or_provider_proof",
+      "finding_id": "B6-AUDIT-011",
+      "finding_type": "static_closure_prep",
+      "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ must perform closure review against B1-B6 contracts"
     }
   ],
   "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",

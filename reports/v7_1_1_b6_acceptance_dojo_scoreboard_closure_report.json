@@ -1,0 +1,449 @@
+{
+  "absorbed_future_pr_families": [
+    "PR-38-ACCEPTANCE-DOJO-SCOREBOARD-CLOSURE"
+  ],
+  "acceptance_harness_checks": [
+    {
+      "msg": "schemas/v7_1_1_acceptance_harness.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_acceptance_harness_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/acceptance_harness.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "acceptance_harness has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes response_packet_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes candidate_artifact_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes candidate_dna_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes final_gate_advisory_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes receipt_boundary_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes storage_record_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes trace_record_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness consumes receipt_ledger_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness contains required check kinds",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness is static evidence only",
+      "status": "pass"
+    },
+    {
+      "msg": "Acceptance Harness mode is not app acceptance",
+      "status": "pass"
+    }
+  ],
+  "b7_plus_handoff_plan_checks": [
+    {
+      "msg": "schemas/v7_1_1_b7_plus_handoff_plan.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_b7_plus_handoff_plan_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/b7_plus_handoff_plan.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "b7_plus_handoff_plan has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "B7+ Handoff Plan includes runtime evidence prerequisites",
+      "status": "pass"
+    },
+    {
+      "msg": "B7+ Handoff Plan includes provider runtime policy prerequisite",
+      "status": "pass"
+    },
+    {
+      "msg": "B7+ Handoff Plan includes provider runtime receipt prerequisite",
+      "status": "pass"
+    },
+    {
+      "msg": "B7+ Handoff Plan is planning only",
+      "status": "pass"
+    }
+  ],
+  "b7_plus_recommendations": [
+    "evaluate_real_thor_pack_to_odin_intake",
+    "evaluate_local_provider_runtime_under_policy_and_receipt_guard",
+    "perform_b1_to_b6_contract_closure_review",
+    "evaluate_target_host_runtime_separately",
+    "evaluate_security_review_separately"
+  ],
+  "boundary_checks": [
+    {
+      "msg": "B6 mapping exists",
+      "status": "pass"
+    },
+    {
+      "msg": "B6 actual_pr is PR-32",
+      "status": "pass"
+    },
+    {
+      "msg": "B6 maps V711-R100-170..189",
+      "status": "pass"
+    },
+    {
+      "msg": "B6 exact_slice_count is 20",
+      "status": "pass"
+    },
+    {
+      "msg": "B6 has exactly canonical slice IDs V711-R100-170..189",
+      "status": "pass"
+    },
+    {
+      "msg": "B6 absorbs exactly PR-38 closure family",
+      "status": "pass"
+    },
+    {
+      "msg": "B1 mapping preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "B2 mapping preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "B3 mapping preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "B4 mapping preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "B5 mapping preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "canonical ladder contains V711-R100-170..189",
+      "status": "pass"
+    },
+    {
+      "msg": "canonical ladder preserved",
+      "status": "pass"
+    },
+    {
+      "msg": "Final Gate Advisory remains not Apply Gate",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Ledger remains scoped evidence not absolute truth/proof",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy remains disabled-by-default",
+      "status": "pass"
+    },
+    {
+      "msg": "Thor-Odin Bridge remains static-only",
+      "status": "pass"
+    },
+    {
+      "msg": "SDK/App Bridge Prep remains non-authoritative",
+      "status": "pass"
+    },
+    {
+      "msg": "No provider SDK/network/API-key handling added in B6 implementation code",
+      "status": "pass"
+    },
+    {
+      "msg": "No ignored generated/local paths are used as evidence",
+      "status": "pass"
+    }
+  ],
+  "bundle": {
+    "actual_pr": "PR-32",
+    "bundle_id": "B6",
+    "exact_slice_count": 20,
+    "slice_range": "V711-R100-170..189"
+  },
+  "claim_boundary": "b6_report_is_static_closure_prep_not_release_certification_or_runtime_proof",
+  "closure_checklist_checks": [
+    {
+      "msg": "schemas/v7_1_1_closure_checklist.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_closure_checklist_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/closure_checklist.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "closure_checklist has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Checklist required checks exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Checklist is not release approval",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Checklist has no release approval claim",
+      "status": "pass"
+    }
+  ],
+  "closure_guard_checks": [
+    {
+      "msg": "schemas/v7_1_1_closure_guard.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_closure_guard_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/closure_guard.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "closure_guard has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Guard includes required no-overclaim guards",
+      "status": "pass"
+    }
+  ],
+  "closure_readiness_matrix_checks": [
+    {
+      "msg": "schemas/v7_1_1_closure_readiness_matrix.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_closure_readiness_matrix_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/closure_readiness_matrix.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "closure_readiness_matrix has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Readiness Matrix statuses exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Readiness Matrix row fields exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Readiness Matrix is not runtime/deployment/security proof",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Matrix has no deployment proof claim",
+      "status": "pass"
+    }
+  ],
+  "dojo_session_checks": [
+    {
+      "msg": "schemas/v7_1_1_dojo_session.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_dojo_session_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/dojo_session.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "dojo_session has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Dojo Session allowed training modes exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Dojo Session is static review/training only",
+      "status": "pass"
+    }
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_violations": [],
+  "known_gaps": [
+    "real_thor_pack_to_odin_intake_not_evaluated",
+    "actual_local_provider_runtime_not_evaluated",
+    "production_deployment_not_proven",
+    "security_certification_not_performed",
+    "live_model_quality_not_measured",
+    "app_owned_apply_gate_not_implemented_by_odin"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_acceptance_harness_registry.json",
+    "registries/v7_1_1_dojo_session_registry.json",
+    "registries/v7_1_1_scoreboard_registry.json",
+    "registries/v7_1_1_closure_checklist_registry.json",
+    "registries/v7_1_1_closure_readiness_matrix_registry.json",
+    "registries/v7_1_1_road_to_100_closure_report_registry.json",
+    "registries/v7_1_1_closure_guard_registry.json",
+    "registries/v7_1_1_b7_plus_handoff_plan_registry.json"
+  ],
+  "report_id": "odin.v7_1_1_b6_acceptance_dojo_scoreboard_closure_report",
+  "road_to_100_closure_report_checks": [
+    {
+      "msg": "schemas/v7_1_1_road_to_100_closure_report.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_road_to_100_closure_report_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/road_to_100_closure_report.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "road_to_100_closure_report has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Report includes required known_gaps",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Report includes B7+ recommendations",
+      "status": "pass"
+    },
+    {
+      "msg": "Closure Report is not release certification",
+      "status": "pass"
+    }
+  ],
+  "schema_refs": [
+    "schemas/v7_1_1_acceptance_harness.schema.json",
+    "schemas/v7_1_1_dojo_session.schema.json",
+    "schemas/v7_1_1_scoreboard.schema.json",
+    "schemas/v7_1_1_closure_checklist.schema.json",
+    "schemas/v7_1_1_closure_readiness_matrix.schema.json",
+    "schemas/v7_1_1_road_to_100_closure_report.schema.json",
+    "schemas/v7_1_1_closure_guard.schema.json",
+    "schemas/v7_1_1_b7_plus_handoff_plan.schema.json"
+  ],
+  "scoreboard_checks": [
+    {
+      "msg": "schemas/v7_1_1_scoreboard.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_scoreboard_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/scoreboard.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "scoreboard has boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Scoreboard scoring modes exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Scoreboard scoring dimensions exist",
+      "status": "pass"
+    },
+    {
+      "msg": "Scoreboard does not claim correctness/production/benchmark proof",
+      "status": "pass"
+    },
+    {
+      "msg": "Scoreboard has no production readiness claim",
+      "status": "pass"
+    }
+  ],
+  "senior_code_reviewer_notes": [
+    "validator performs static JSON/path checks and writes only requested report path"
+  ],
+  "senior_reviewer_notes": [
+    "static B6 closure-prep scope only; no release/runtime/security proof claim"
+  ],
+  "slice_coverage": [
+    "V711-R100-170",
+    "V711-R100-171",
+    "V711-R100-172",
+    "V711-R100-173",
+    "V711-R100-174",
+    "V711-R100-175",
+    "V711-R100-176",
+    "V711-R100-177",
+    "V711-R100-178",
+    "V711-R100-179",
+    "V711-R100-180",
+    "V711-R100-181",
+    "V711-R100-182",
+    "V711-R100-183",
+    "V711-R100-184",
+    "V711-R100-185",
+    "V711-R100-186",
+    "V711-R100-187",
+    "V711-R100-188",
+    "V711-R100-189"
+  ],
+  "source_refs": [
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+  ],
+  "status": "static_acceptance_dojo_scoreboard_closure_report_not_release_or_runtime_proof",
+  "version": "7.1.1"
+}

@@ -259,12 +259,24 @@
     },
     {
       "absorbed_future_pr_families": [
-        "PR-38-ACCEPTANCE-DOJO-SCOREBOARD",
-        "PR-39-FULL-V711-OPERATIONAL-CLOSURE"
+        "PR-38-ACCEPTANCE-DOJO-SCOREBOARD-CLOSURE"
       ],
       "actual_pr": "PR-32",
       "bundle_id": "B6",
-      "claim_boundary": "bundle_plan_only",
+      "claim_boundary": "b6_maps_static_acceptance_dojo_scoreboard_closure_prep_not_release_or_runtime_proof",
+      "description": "B6: Acceptance Harness / Dojo / Scoreboard / Closure Prep / B7+ Handoff",
+      "exact_slice_count": 20,
+      "non_claims": [
+        "not_runtime_completion",
+        "not_release_certification",
+        "not_production_readiness",
+        "not_security_certification",
+        "not_deployment_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_app_apply_authority_proof"
+      ],
       "slice_ids": [
         "V711-R100-170",
         "V711-R100-171",
@@ -288,8 +300,8 @@
         "V711-R100-189"
       ],
       "slice_range": "V711-R100-170..189",
-      "status": "future_actual_bundle_mapping_not_runtime_proof",
-      "title": "Acceptance / Dojo / Scoreboard / Closure"
+      "status": "static_acceptance_dojo_scoreboard_closure_prep_added_not_release_or_runtime_complete",
+      "title": "Acceptance Harness / Dojo / Scoreboard / Closure Prep"
     }
   ],
   "canonical_slice_count": 190,

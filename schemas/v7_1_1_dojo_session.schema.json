@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_harness_ref": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "candidate_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "dojo_session_id": {
+      "type": "string"
+    },
+    "evaluation_rounds": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "improvement_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lessons_learned": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "review_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "scenario_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "training_mode": {
+      "enum": [
+        "static_review",
+        "contract_drill",
+        "boundary_drill",
+        "evidence_drill",
+        "closure_drill",
+        "regression_drill"
+      ]
+    }
+  },
+  "required": [
+    "dojo_session_id",
+    "acceptance_harness_ref",
+    "training_mode",
+    "scenario_refs",
+    "candidate_refs",
+    "evaluation_rounds",
+    "review_roles",
+    "lessons_learned",
+    "improvement_actions",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "DojoSession",
+  "type": "object"
+}

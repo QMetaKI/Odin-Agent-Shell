@@ -1,0 +1,165 @@
+{
+  "claim_boundary": "registry_is_static_contract_not_runtime_release_security_or_app_authority_proof",
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "registry_id": "odin.v7_1_1_scoreboard_registry",
+  "scoreboards": [
+    {
+      "acceptance_harness_ref": "acceptance_harness.b6.example",
+      "blocker_policy": {
+        "release_or_runtime_claim_blocks_static_acceptance": true
+      },
+      "candidate_only": true,
+      "claim_boundary": "scoreboard_ranks_static_evidence_not_correctness_production_benchmark_or_deployment_proof",
+      "dojo_session_ref": "dojo_session.b6.example",
+      "evidence_refs": [
+        "registries/v7_1_1_acceptance_harness_registry.json"
+      ],
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority",
+        "not_correctness_proof",
+        "not_benchmark_proof",
+        "does_not_apply_or_merge"
+      ],
+      "review_required_policy": {
+        "human_review_required_for_release_decisions": true
+      },
+      "score_rows": [
+        {
+          "dimension": "contract_compliance",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "contract_compliance",
+          "static_score": 1
+        },
+        {
+          "dimension": "claim_boundary_compliance",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "claim_boundary_compliance",
+          "static_score": 1
+        },
+        {
+          "dimension": "evidence_completeness",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "evidence_completeness",
+          "static_score": 1
+        },
+        {
+          "dimension": "traceability",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "traceability",
+          "static_score": 1
+        },
+        {
+          "dimension": "privacy_discipline",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "privacy_discipline",
+          "static_score": 1
+        },
+        {
+          "dimension": "receipt_partition_integrity",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "receipt_partition_integrity",
+          "static_score": 1
+        },
+        {
+          "dimension": "provider_boundary_integrity",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "provider_boundary_integrity",
+          "static_score": 1
+        },
+        {
+          "dimension": "app_authority_boundary",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "app_authority_boundary",
+          "static_score": 1
+        },
+        {
+          "dimension": "thor_bridge_static_boundary",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "thor_bridge_static_boundary",
+          "static_score": 1
+        },
+        {
+          "dimension": "final_gate_advisory_boundary",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "final_gate_advisory_boundary",
+          "static_score": 1
+        },
+        {
+          "dimension": "regression_preservation",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "regression_preservation",
+          "static_score": 1
+        },
+        {
+          "dimension": "closure_readiness",
+          "evidence_refs": [
+            "acceptance_harness.b6.example"
+          ],
+          "row_id": "closure_readiness",
+          "static_score": 1
+        }
+      ],
+      "scoreboard_id": "scoreboard.b6.example",
+      "scoring_dimensions": [
+        "contract_compliance",
+        "claim_boundary_compliance",
+        "evidence_completeness",
+        "traceability",
+        "privacy_discipline",
+        "receipt_partition_integrity",
+        "provider_boundary_integrity",
+        "app_authority_boundary",
+        "thor_bridge_static_boundary",
+        "final_gate_advisory_boundary",
+        "regression_preservation",
+        "closure_readiness"
+      ],
+      "scoring_mode": "static_evidence_score",
+      "threshold_policy": {
+        "block_on_forbidden_claims": true
+      }
+    }
+  ],
+  "status": "static_contract_registry_not_runtime_or_release_proof",
+  "version": "7.1.1"
+}

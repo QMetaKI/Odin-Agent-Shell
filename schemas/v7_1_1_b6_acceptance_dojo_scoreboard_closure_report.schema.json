@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "absorbed_future_pr_families": {
+      "type": "array"
+    },
+    "acceptance_harness_checks": {
+      "type": "array"
+    },
+    "b7_plus_handoff_plan_checks": {
+      "type": "array"
+    },
+    "b7_plus_recommendations": {
+      "type": "array"
+    },
+    "boundary_checks": {
+      "type": "array"
+    },
+    "closure_checklist_checks": {
+      "type": "array"
+    },
+    "closure_guard_checks": {
+      "type": "array"
+    },
+    "closure_readiness_matrix_checks": {
+      "type": "array"
+    },
+    "dojo_session_checks": {
+      "type": "array"
+    },
+    "hard_violations": {
+      "type": "array"
+    },
+    "known_gaps": {
+      "type": "array"
+    },
+    "non_claims": {
+      "type": "array"
+    },
+    "road_to_100_closure_report_checks": {
+      "type": "array"
+    },
+    "scoreboard_checks": {
+      "type": "array"
+    },
+    "slice_coverage": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "claim_boundary",
+    "bundle",
+    "slice_coverage",
+    "absorbed_future_pr_families",
+    "acceptance_harness_checks",
+    "dojo_session_checks",
+    "scoreboard_checks",
+    "closure_checklist_checks",
+    "closure_readiness_matrix_checks",
+    "road_to_100_closure_report_checks",
+    "closure_guard_checks",
+    "b7_plus_handoff_plan_checks",
+    "boundary_checks",
+    "hard_violations",
+    "known_gaps",
+    "b7_plus_recommendations",
+    "non_claims"
+  ],
+  "title": "B6AcceptanceDojoScoreboardClosureReport",
+  "type": "object"
+}

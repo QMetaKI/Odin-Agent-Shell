@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_checks": {
+      "items": {
+        "properties": {
+          "check_kind": {
+            "enum": [
+              "claim_boundary_integrity",
+              "non_claim_presence",
+              "evidence_ref_presence",
+              "response_packet_completeness",
+              "candidate_lineage_traceability",
+              "privacy_class_preserved",
+              "storage_trace_receipt_consistency",
+              "receipt_partition_consistency",
+              "final_gate_advisory_boundary",
+              "provider_policy_disabled_defaults",
+              "thor_odin_bridge_static_only",
+              "sdk_app_bridge_no_app_authority",
+              "no_runtime_proof_claim",
+              "no_release_proof_claim"
+            ]
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_kind"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "acceptance_harness_id": {
+      "type": "string"
+    },
+    "acceptance_mode": {
+      "enum": [
+        "static_evidence_acceptance",
+        "static_review_acceptance",
+        "human_review_required",
+        "blocked_static",
+        "deferred_to_b7_plus",
+        "cannot_safely_complete"
+      ]
+    },
+    "acceptance_results": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "blocking_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_artifact_id": {
+      "type": "string"
+    },
+    "candidate_dna_id": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "final_gate_advisory_id": {
+      "type": "string"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "receipt_boundary_id": {
+      "type": "string"
+    },
+    "receipt_ledger_id": {
+      "type": "string"
+    },
+    "response_packet_id": {
+      "type": "string"
+    },
+    "storage_record_id": {
+      "type": "string"
+    },
+    "trace_record_id": {
+      "type": "string"
+    },
+    "warning_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "acceptance_harness_id",
+    "response_packet_id",
+    "candidate_artifact_id",
+    "candidate_dna_id",
+    "final_gate_advisory_id",
+    "receipt_boundary_id",
+    "storage_record_id",
+    "trace_record_id",
+    "receipt_ledger_id",
+    "acceptance_mode",
+    "acceptance_checks",
+    "acceptance_results",
+    "blocking_conditions",
+    "warning_conditions",
+    "evidence_refs",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "AcceptanceHarness",
+  "type": "object"
+}

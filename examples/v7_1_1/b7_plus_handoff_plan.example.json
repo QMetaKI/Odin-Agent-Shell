@@ -1,0 +1,57 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "b7_plus_handoff_plan_is_planning_only_not_b6_certification_release_approval_or_provider_runtime_trigger",
+  "deferred_items": [
+    "real_thor_pack_to_odin_intake",
+    "local_provider_runtime_under_policy",
+    "security_review",
+    "target_host_runtime"
+  ],
+  "handoff_plan_id": "b7_plus_handoff_plan.b6.example",
+  "local_provider_runtime_evaluation": {
+    "required": true,
+    "requires_policy_and_receipt_guard": true,
+    "status": "deferred_to_b7_plus"
+  },
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority",
+    "does_not_execute_b7_plus",
+    "does_not_trigger_provider_runtime"
+  ],
+  "recommended_next_slices": [
+    "V711-R100-190+"
+  ],
+  "required_evidence_before_runtime": [
+    "B1_to_B6_contract_closure_review",
+    "explicit_runtime_scope"
+  ],
+  "required_policy_before_provider_runtime": [
+    "provider_policy_enabled_by_human_owned_config",
+    "no_hidden_remote_fallback_policy"
+  ],
+  "required_receipt_before_provider_runtime": [
+    "receipt_guard_for_provider_runtime",
+    "trace_record_for_provider_execution_attempt"
+  ],
+  "security_review_evaluation": {
+    "required": true,
+    "status": "deferred_to_b7_plus"
+  },
+  "source_closure_report_ref": "road_to_100_closure_report.b6.example",
+  "target_host_runtime_evaluation": {
+    "required": true,
+    "status": "deferred_to_b7_plus"
+  },
+  "thor_pack_intake_evaluation": {
+    "required": true,
+    "status": "deferred_to_b7_plus"
+  }
+}

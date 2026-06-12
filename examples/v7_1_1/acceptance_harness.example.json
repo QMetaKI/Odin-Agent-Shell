@@ -1,0 +1,151 @@
+{
+  "acceptance_checks": [
+    {
+      "check_kind": "claim_boundary_integrity",
+      "description": "claim_boundary_integrity"
+    },
+    {
+      "check_kind": "non_claim_presence",
+      "description": "non_claim_presence"
+    },
+    {
+      "check_kind": "evidence_ref_presence",
+      "description": "evidence_ref_presence"
+    },
+    {
+      "check_kind": "response_packet_completeness",
+      "description": "response_packet_completeness"
+    },
+    {
+      "check_kind": "candidate_lineage_traceability",
+      "description": "candidate_lineage_traceability"
+    },
+    {
+      "check_kind": "privacy_class_preserved",
+      "description": "privacy_class_preserved"
+    },
+    {
+      "check_kind": "storage_trace_receipt_consistency",
+      "description": "storage_trace_receipt_consistency"
+    },
+    {
+      "check_kind": "receipt_partition_consistency",
+      "description": "receipt_partition_consistency"
+    },
+    {
+      "check_kind": "final_gate_advisory_boundary",
+      "description": "final_gate_advisory_boundary"
+    },
+    {
+      "check_kind": "provider_policy_disabled_defaults",
+      "description": "provider_policy_disabled_defaults"
+    },
+    {
+      "check_kind": "thor_odin_bridge_static_only",
+      "description": "thor_odin_bridge_static_only"
+    },
+    {
+      "check_kind": "sdk_app_bridge_no_app_authority",
+      "description": "sdk_app_bridge_no_app_authority"
+    },
+    {
+      "check_kind": "no_runtime_proof_claim",
+      "description": "no_runtime_proof_claim"
+    },
+    {
+      "check_kind": "no_release_proof_claim",
+      "description": "no_release_proof_claim"
+    }
+  ],
+  "acceptance_harness_id": "acceptance_harness.b6.example",
+  "acceptance_mode": "static_evidence_acceptance",
+  "acceptance_results": [
+    {
+      "check_kind": "claim_boundary_integrity",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "non_claim_presence",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "evidence_ref_presence",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "response_packet_completeness",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "candidate_lineage_traceability",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "privacy_class_preserved",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "storage_trace_receipt_consistency",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "receipt_partition_consistency",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "final_gate_advisory_boundary",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "provider_policy_disabled_defaults",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "thor_odin_bridge_static_only",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "sdk_app_bridge_no_app_authority",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "no_runtime_proof_claim",
+      "status": "ready_static"
+    },
+    {
+      "check_kind": "no_release_proof_claim",
+      "status": "ready_static"
+    }
+  ],
+  "blocking_conditions": [],
+  "candidate_artifact_id": "candidate_artifact.b4.example",
+  "candidate_dna_id": "candidate_dna.b4.example",
+  "candidate_only": true,
+  "claim_boundary": "acceptance_harness_is_static_evidence_review_not_app_acceptance_or_release_or_runtime_proof",
+  "evidence_refs": [
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+  ],
+  "final_gate_advisory_id": "final_gate_advisory.b4.example",
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority",
+    "not_app_acceptance",
+    "cannot_apply_changes"
+  ],
+  "receipt_boundary_id": "receipt_boundary.b4.example",
+  "receipt_ledger_id": "ledger.b5.example",
+  "response_packet_id": "response.b4.example",
+  "storage_record_id": "storage_record.b5.example",
+  "trace_record_id": "trace_record.b5.example",
+  "warning_conditions": [
+    "human_review_still_required_for_release_decisions"
+  ]
+}

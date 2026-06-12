@@ -1,0 +1,65 @@
+{
+  "claim_boundary": "registry_is_static_contract_not_runtime_release_security_or_app_authority_proof",
+  "dojo_sessions": [
+    {
+      "acceptance_harness_ref": "acceptance_harness.b6.example",
+      "candidate_only": true,
+      "candidate_refs": [
+        "candidate_artifact.b4.example"
+      ],
+      "claim_boundary": "dojo_session_is_static_review_training_harness_not_live_runtime_or_quality_proof",
+      "dojo_session_id": "dojo_session.b6.example",
+      "evaluation_rounds": [
+        {
+          "does_execute_models": false,
+          "does_execute_providers": false,
+          "mode": "contract_drill",
+          "round_id": "round.static.1"
+        }
+      ],
+      "improvement_actions": [
+        "defer_runtime_evaluation_to_b7_plus"
+      ],
+      "lessons_learned": [
+        "static_closure_prep_needs_known_gaps"
+      ],
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority",
+        "does_not_execute_models",
+        "does_not_execute_providers",
+        "does_not_mutate_app_state",
+        "does_not_claim_measured_human_or_model_quality"
+      ],
+      "review_roles": [
+        "senior_reviewer_simulated",
+        "senior_code_reviewer_simulated"
+      ],
+      "scenario_refs": [
+        "scenario.boundary.static"
+      ],
+      "training_mode": "static_review"
+    }
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "registry_id": "odin.v7_1_1_dojo_session_registry",
+  "status": "static_contract_registry_not_runtime_or_release_proof",
+  "version": "7.1.1"
+}
