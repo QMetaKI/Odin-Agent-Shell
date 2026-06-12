@@ -1322,6 +1322,54 @@
   "pr_33_b7_thor_provider_eval_audit": "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
   "pr_34_b8_security_review_audit": "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
   "pr_34_b8_security_review_return_report": "docs/codex/reports/PR_34_B8_SECURITY_REVIEW_RETURN_REPORT.md",
+  "prep_final_pr_06_08": {
+    "audits": [
+      "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
+      "docs/codex/audits/PREP_FINAL_PR_06_08_CODE_REVIEW.md",
+      "docs/codex/audits/PREP_FINAL_PR_06_08_ROADMAP_AUDIT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "prep_final_pr_06_08_prepares_future_prs_not_runtime_execution",
+    "cli_commands": [
+      "validate-prep-final-pr-06-08"
+    ],
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
+    "future_prs": [
+      "final_pr_06_operational_seed_spine",
+      "final_pr_07_field_selection_spine",
+      "final_pr_08_projection_candidate_spine",
+      "final_pr_09_release_closure"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PREP_FINAL_PR_06_08_REPO_REALITY_INTAKE.md"
+    ],
+    "pattern_mines": [
+      "docs/codex/pattern_mines/PREP_FINAL_PR_06_08_SOURCE_PATTERN_SYNTHESIS.md"
+    ],
+    "plan_docs": [
+      "docs/rebaseline/PREP_FINAL_PR_06_08_OPERATIONAL_SEED_DFAS_PROJECTION_PLAN.md"
+    ],
+    "prompts": [
+      "docs/codex/prompts/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "docs/codex/prompts/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "docs/codex/prompts/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE.md"
+    ],
+    "registry": "registries/prep_final_pr_06_08_plan.v1.json",
+    "reports": [
+      "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
+      "reports/prep_final_pr_06_08_report.json",
+      "reports/prep_final_pr_06_08_prompt_quality_matrix.json"
+    ],
+    "roadmap_shift": {
+      "historical_prs_renumbered": false,
+      "pr06_08_required_before_release": true,
+      "release_closure_moved_to": "FINAL-PR-09"
+    },
+    "status": "prep_artifacts_created_not_runtime_implementation",
+    "tests": "tests/test_prep_final_pr_06_08.py",
+    "validator": "tools/rebaseline/check_prep_final_pr_06_08.py"
+  },
   "provider_runtime_evaluation_policy_example": "examples/v7_1_1/provider_runtime_evaluation_policy.example.json",
   "provider_runtime_receipt_guard_example": "examples/v7_1_1/provider_runtime_receipt_guard.example.json",
   "python_package": "odin",

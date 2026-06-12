@@ -2683,6 +2683,33 @@ def validate_y_pattern_spine() -> list[str]:
                 return [f"y-pattern-spine validator failed: {exc}"]
     return []
 
+def validate_prep_final_pr_06_08() -> list[str]:
+    """Validate Prep FINAL-PR-06..08 scaffold artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_prep_final_pr_06_08.py"
+    if not tool_path.exists():
+        return ["missing prep validator: tools/rebaseline/check_prep_final_pr_06_08.py"]
+    spec = importlib.util.spec_from_file_location("odin_prep_final_pr_06_08_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load prep FINAL-PR-06..08 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    import tempfile as _tempfile
+    with _tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "prep_final_pr_06_08_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"prep-final-pr-06-08: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"prep-final-pr-06-08 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2743,6 +2770,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_04_provider_probe_security())
     errors.extend(validate_final_pr_05_execution_gate())
     errors.extend(validate_y_pattern_spine())
+    errors.extend(validate_prep_final_pr_06_08())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2921,6 +2949,8 @@ def main(argv: list[str] | None = None) -> int:
     explain_y_route_p = sub.add_parser("explain-y-route")
     explain_y_route_p.add_argument("--demo", action="store_true", default=False)
     sub.add_parser("prove-y-pattern-spine")
+    # Prep FINAL-PR-06..08
+    sub.add_parser("validate-prep-final-pr-06-08")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3595,6 +3625,16 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # Prep FINAL-PR-06..08 commands
+    if args.cmd == "validate-prep-final-pr-06-08":
+        errors = validate_prep_final_pr_06_08()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-prep-final-pr-06-08: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3687,6 +3727,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_05_execution_gate()
     elif args.cmd == "validate-y-pattern-spine":
         errors = validate_y_pattern_spine()
+    elif args.cmd == "validate-prep-final-pr-06-08":
+        errors = validate_prep_final_pr_06_08()
     else:
         errors = validate_all()
 

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1672,
+  "file_count_excluding_manifest": 1688,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -8280,6 +8280,86 @@
     },
     {
       "path": "docs/rebaseline/INSERT_Y_PATTERN_SPINE.md"
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "sha256": "120dfebaa6f1a1d63b4cb9bfddb3f34e3ab7a791bcb44877dcba513177abe926",
+      "size": 11889
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "sha256": "e9ad63513ab01a545bb0ccb73bca9dd293c945d724a39fe880a0acbc5d17aaa9",
+      "size": 11417
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "sha256": "aa358b833bd62951b90b3513c25e7525d63c3f329e3060b6227e85e6b5743ccd",
+      "size": 12327
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE.md",
+      "sha256": "498238b8a95aea46804caf24172783a4e5c20ade7ccdae6c7fc863a5d52c69a8",
+      "size": 8970
+    },
+    {
+      "path": "docs/codex/handoffs/PREP_FINAL_PR_06_08_REPO_REALITY_INTAKE.md",
+      "sha256": "ad4aacc19ff9f941373fd1faaf964c6d65bbfdef88568004dfd836bc73acd117",
+      "size": 9005
+    },
+    {
+      "path": "docs/codex/pattern_mines/PREP_FINAL_PR_06_08_SOURCE_PATTERN_SYNTHESIS.md",
+      "sha256": "e96132c5ff244ca3ca933b7717fe2f093ed26458f43f9ae36ee7971f052bf280",
+      "size": 13799
+    },
+    {
+      "path": "docs/rebaseline/PREP_FINAL_PR_06_08_OPERATIONAL_SEED_DFAS_PROJECTION_PLAN.md",
+      "sha256": "82dd44cc1780fe05a1f2d3b3ca32f722b98daee82dd92ca0ed888b49c385c2e1",
+      "size": 10134
+    },
+    {
+      "path": "registries/prep_final_pr_06_08_plan.v1.json",
+      "sha256": "3345be4dcf61f56b3db638c6248bdf47d04e39592f9d7f72aa9ccfa30d71becb",
+      "size": 18650
+    },
+    {
+      "path": "tools/rebaseline/check_prep_final_pr_06_08.py",
+      "sha256": "0853445dda262daf314959881b476a511a200121a7f7ea759dfcf98e91ae8eb3",
+      "size": 14716
+    },
+    {
+      "path": "tests/test_prep_final_pr_06_08.py",
+      "sha256": "a819b5cdf67955b51e3db44e3fc5db138e332364ae998768819f4141bfae95f5",
+      "size": 14766
+    },
+    {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
+      "sha256": "e9a2179c00f9f3c1e58ee0cf71eabee919e88d3d585b6f80f0b751f4643cc947",
+      "size": 8839
+    },
+    {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_CODE_REVIEW.md",
+      "sha256": "040251abb84b11c99e52ece8a44523fb2fc9916b0541e2ef733d4c190fa1f6bd",
+      "size": 6907
+    },
+    {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_ROADMAP_AUDIT.md",
+      "sha256": "5a8bce36b3db725a8826d1beb381bba07cbd9a1ea50c96a543bf244ed2aaa324",
+      "size": 5291
+    },
+    {
+      "path": "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
+      "sha256": "71b7cf3a04a6c354aa7aa224c6c145c2fea62ebae4d5b48103165198437f47f9",
+      "size": 5236
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_report.json",
+      "sha256": "61dc32392ca2f4b1a3566516516f3363ee63d021737d34e4e63f82ad9869c8a8",
+      "size": 2358
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_prompt_quality_matrix.json",
+      "sha256": "b3c89f8cc5c1ce7cd3d628a5a6ef92a41982b3e0a54134935a6de505141fd808",
+      "size": 3484
     }
   ]
 }

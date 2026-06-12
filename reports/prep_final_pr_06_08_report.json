@@ -1,0 +1,57 @@
+{
+  "candidate_only": true,
+  "checked_files": [
+    "docs/codex/prompts/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+    "docs/codex/prompts/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+    "docs/codex/prompts/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+    "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE.md",
+    "docs/codex/handoffs/PREP_FINAL_PR_06_08_REPO_REALITY_INTAKE.md",
+    "docs/codex/pattern_mines/PREP_FINAL_PR_06_08_SOURCE_PATTERN_SYNTHESIS.md",
+    "docs/rebaseline/PREP_FINAL_PR_06_08_OPERATIONAL_SEED_DFAS_PROJECTION_PLAN.md",
+    "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
+    "docs/codex/audits/PREP_FINAL_PR_06_08_CODE_REVIEW.md",
+    "docs/codex/audits/PREP_FINAL_PR_06_08_ROADMAP_AUDIT.md",
+    "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
+    "reports/prep_final_pr_06_08_report.json",
+    "reports/prep_final_pr_06_08_prompt_quality_matrix.json",
+    "registries/prep_final_pr_06_08_plan.v1.json",
+    "tools/rebaseline/check_prep_final_pr_06_08.py",
+    "tests/test_prep_final_pr_06_08.py"
+  ],
+  "claim_boundaries": {
+    "final_pr_06": "operational_seed_spine_routes_work_not_authority",
+    "final_pr_07": "field_selection_scores_routes_not_truth",
+    "final_pr_08": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+    "final_pr_09": "release_closure_records_evidence_not_production_certification",
+    "prep_pr": "prep_final_pr_06_08_prepares_future_prs_not_runtime_execution"
+  },
+  "errors": [],
+  "future_prs": [
+    "final_pr_06_operational_seed_spine",
+    "final_pr_07_field_selection_spine",
+    "final_pr_08_projection_candidate_spine",
+    "final_pr_09_release_closure"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "not_proven": [
+    "final_pr_06_runtime_implemented",
+    "final_pr_07_runtime_implemented",
+    "final_pr_08_runtime_implemented",
+    "final_pr_09_release_closure_complete",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send_authority",
+    "production_readiness",
+    "security_certification",
+    "live_model_inference"
+  ],
+  "roadmap_shift": {
+    "historical_prs_renumbered": false,
+    "pr06_08_required_before_release": true,
+    "release_closure_moved_to": "final_pr_09"
+  },
+  "status": "ok",
+  "warnings": []
+}

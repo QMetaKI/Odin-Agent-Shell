@@ -1,0 +1,453 @@
+{
+  "registry_id": "prep_final_pr_06_08_plan",
+  "version": "1.0.0",
+  "claim_boundary": "prep_final_pr_06_08_prepares_future_prs_not_runtime_execution",
+  "candidate_only": true,
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Machine-readable prep plan for FINAL-PR-06 through PR-09. Records scope, forbidden scope, expected artifacts, and claim boundaries for each future PR.",
+  "future_prs": {
+    "final_pr_06_operational_seed_spine": {
+      "pr_id": "final_pr_06_operational_seed_spine",
+      "title": "FINAL-PR-06 — Operational Seed Spine + Role Profiles + Seed-to-Work Capsule Compiler",
+      "purpose": "Implement a deterministic operational seed routing layer that maps work contexts to intent seeds, role profiles, and bounded work capsules. Seeds are operational routing signals, not autonomous agents.",
+      "allowed_scope": [
+        "odin/operational_seed_spine/ (new module — all files)",
+        "odin/cli.py (add validate-operational-seed-spine, explain-seed-route, prove-operational-seed-spine)",
+        "odin/local_hub/server.py (add GET /demo/seed-route.json)",
+        "odin/local_hub/ui.py (add Dev Mode seed spine section)",
+        "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
+        "registries/final_pr_06_operational_seed_spine_registry.json",
+        "examples/final_pr_06/ (new directory)",
+        "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+        "docs/codex/audits/FINAL_PR_06_*.md",
+        "docs/codex/reports/FINAL_PR_06_*.md",
+        "docs/codex/handoffs/FINAL_PR_06_*.md",
+        "reports/final_pr_06_*.json",
+        "tests/test_final_pr_06_operational_seed_spine.py",
+        "tools/rebaseline/check_final_pr_06_operational_seed_spine.py",
+        "SYSTEM_MAP.json (add final_pr_06 entry only)",
+        "FILE_MANIFEST.json (add new files only)"
+      ],
+      "forbidden_scope": [
+        "autonomous_reasoning_or_model_inference",
+        "provider_api_calls",
+        "app_state_mutation",
+        "app_apply",
+        "external_send",
+        "public_network_access",
+        "new_q_style_runtime_names",
+        "modifying_odin/y_pattern_spine/",
+        "modifying_odin/execution_gate/",
+        "modifying_odin/proof_chain/",
+        "modifying_odin/final_pr_ladder/",
+        "modifying_odin/seeds/ (create new operational_seed_spine instead)",
+        "implementing_field_selection_pr07",
+        "implementing_projection_pr08",
+        "claiming_seeds_are_intelligent_agents",
+        "claiming_role_profiles_are_runtime_personas"
+      ],
+      "expected_modules": [
+        "odin/operational_seed_spine/__init__.py",
+        "odin/operational_seed_spine/intent_seeds.py",
+        "odin/operational_seed_spine/role_profiles.py",
+        "odin/operational_seed_spine/seed_packs.py",
+        "odin/operational_seed_spine/selector.py",
+        "odin/operational_seed_spine/work_capsule.py",
+        "odin/operational_seed_spine/qirc_hints.py",
+        "odin/operational_seed_spine/token_budget.py",
+        "odin/operational_seed_spine/proof.py"
+      ],
+      "expected_schemas": [
+        "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json"
+      ],
+      "expected_registries": [
+        "registries/final_pr_06_operational_seed_spine_registry.json"
+      ],
+      "expected_examples": [
+        "examples/final_pr_06/intent_seed.example.json",
+        "examples/final_pr_06/role_profile.example.json",
+        "examples/final_pr_06/seed_work_capsule.example.json",
+        "examples/final_pr_06/seed_proof_packet.example.json"
+      ],
+      "expected_cli": [
+        "validate-operational-seed-spine",
+        "explain-seed-route --demo",
+        "prove-operational-seed-spine"
+      ],
+      "expected_validators": [
+        "tools/rebaseline/check_final_pr_06_operational_seed_spine.py"
+      ],
+      "expected_tests": [
+        "tests/test_final_pr_06_operational_seed_spine.py"
+      ],
+      "expected_reports": [
+        "reports/final_pr_06_operational_seed_spine_report.json",
+        "reports/final_pr_06_operational_seed_spine_proof_packet.json"
+      ],
+      "expected_local_hub_surfaces": [
+        "GET /demo/seed-route.json",
+        "dev_mode_section: Operational Seed Spine: available"
+      ],
+      "expected_proof_packet": {
+        "proven_required": [
+          "seed_packs_defined",
+          "role_profiles_defined",
+          "selector_deterministic",
+          "work_capsule_compiled"
+        ],
+        "not_proven_required": [
+          "autonomous_reasoning",
+          "model_inference",
+          "provider_execution",
+          "app_apply",
+          "app_state_mutation",
+          "external_send",
+          "production_readiness",
+          "security_certification"
+        ],
+        "candidate_only": true
+      },
+      "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+      "depends_on": [
+        "y_pattern_spine_merged",
+        "final_pr_05_execution_gate_merged"
+      ],
+      "not_proven": [
+        "autonomous_reasoning_proof",
+        "model_inference",
+        "provider_execution",
+        "app_apply",
+        "app_state_mutation",
+        "external_send_authority",
+        "public_network_access",
+        "production_readiness",
+        "security_certification",
+        "generated_code_correctness"
+      ],
+      "status": "future"
+    },
+    "final_pr_07_field_selection_spine": {
+      "pr_id": "final_pr_07_field_selection_spine",
+      "title": "FINAL-PR-07 — DFAS / Field Selection Spine + Coherence / Review Axes",
+      "purpose": "Implement deterministic field selection and coherence scoring. Produces route recommendations ranked by coherence — not autonomous decisions, not final truth claims.",
+      "allowed_scope": [
+        "odin/field_selection_spine/ (new module — all files)",
+        "odin/cli.py (add validate-field-selection-spine, explain-field-selection, prove-field-selection-spine)",
+        "odin/local_hub/server.py (add GET /demo/field-selection.json)",
+        "odin/local_hub/ui.py (add Dev Mode field selection section)",
+        "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
+        "registries/final_pr_07_field_selection_spine_registry.json",
+        "examples/final_pr_07/ (new directory)",
+        "docs/rebaseline/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+        "docs/codex/audits/FINAL_PR_07_*.md",
+        "docs/codex/reports/FINAL_PR_07_*.md",
+        "docs/codex/handoffs/FINAL_PR_07_*.md",
+        "reports/final_pr_07_*.json",
+        "tests/test_final_pr_07_field_selection_spine.py",
+        "tools/rebaseline/check_final_pr_07_field_selection_spine.py",
+        "SYSTEM_MAP.json (add final_pr_07 entry only)",
+        "FILE_MANIFEST.json (add new files only)"
+      ],
+      "forbidden_scope": [
+        "autonomous_decision_authority",
+        "final_truth_claims",
+        "provider_api_calls",
+        "app_state_mutation",
+        "app_apply",
+        "external_send",
+        "public_network_access",
+        "new_q_style_runtime_names",
+        "modifying_odin/operational_seed_spine/",
+        "modifying_odin/y_pattern_spine/",
+        "modifying_odin/execution_gate/",
+        "implementing_projection_pr08",
+        "using_dfas_as_module_name",
+        "claiming_coherence_scores_are_probabilities"
+      ],
+      "expected_modules": [
+        "odin/field_selection_spine/__init__.py",
+        "odin/field_selection_spine/fields.py",
+        "odin/field_selection_spine/review_axes.py",
+        "odin/field_selection_spine/coherence.py",
+        "odin/field_selection_spine/hole_density.py",
+        "odin/field_selection_spine/selector.py",
+        "odin/field_selection_spine/why_trace.py",
+        "odin/field_selection_spine/proof.py"
+      ],
+      "expected_schemas": [
+        "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json"
+      ],
+      "expected_registries": [
+        "registries/final_pr_07_field_selection_spine_registry.json"
+      ],
+      "expected_examples": [
+        "examples/final_pr_07/field_signal.example.json",
+        "examples/final_pr_07/field_selection.example.json",
+        "examples/final_pr_07/coherence_score.example.json",
+        "examples/final_pr_07/field_why_trace.example.json"
+      ],
+      "expected_cli": [
+        "validate-field-selection-spine",
+        "explain-field-selection --demo",
+        "prove-field-selection-spine"
+      ],
+      "expected_validators": [
+        "tools/rebaseline/check_final_pr_07_field_selection_spine.py"
+      ],
+      "expected_tests": [
+        "tests/test_final_pr_07_field_selection_spine.py"
+      ],
+      "expected_reports": [
+        "reports/final_pr_07_field_selection_spine_report.json",
+        "reports/final_pr_07_field_selection_spine_proof_packet.json"
+      ],
+      "expected_local_hub_surfaces": [
+        "GET /demo/field-selection.json",
+        "dev_mode_section: Field Selection Spine: available"
+      ],
+      "expected_proof_packet": {
+        "proven_required": [
+          "review_axes_defined",
+          "coherence_scorer_deterministic",
+          "field_selection_candidate_only",
+          "why_trace_recorded"
+        ],
+        "not_proven_required": [
+          "autonomous_decision_authority",
+          "final_truth_claim",
+          "model_inference",
+          "provider_execution",
+          "app_apply",
+          "app_state_mutation",
+          "external_send",
+          "production_readiness",
+          "security_certification"
+        ],
+        "candidate_only": true
+      },
+      "claim_boundary": "field_selection_scores_routes_not_truth",
+      "depends_on": [
+        "final_pr_06_operational_seed_spine_merged"
+      ],
+      "not_proven": [
+        "autonomous_decision_authority",
+        "final_truth_claim",
+        "model_inference",
+        "provider_execution",
+        "app_apply",
+        "app_state_mutation",
+        "external_send_authority",
+        "public_network_access",
+        "production_readiness",
+        "security_certification"
+      ],
+      "status": "future"
+    },
+    "final_pr_08_projection_candidate_spine": {
+      "pr_id": "final_pr_08_projection_candidate_spine",
+      "title": "FINAL-PR-08 — Projection / Candidate Graph / Materialization Spine",
+      "purpose": "Implement deterministic projection set organization, candidate graph construction, and materialization level tracking. Prepares candidate artifacts for app consumption — does not execute, apply, or mutate.",
+      "allowed_scope": [
+        "odin/projection_candidate_spine/ (new module — all files)",
+        "odin/cli.py (add validate-projection-candidate-spine, explain-projection-candidate, prove-projection-candidate-spine)",
+        "odin/local_hub/server.py (add GET /demo/projection-candidate.json)",
+        "odin/local_hub/ui.py (add Dev Mode projection candidate section)",
+        "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
+        "registries/final_pr_08_projection_candidate_spine_registry.json",
+        "examples/final_pr_08/ (new directory)",
+        "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+        "docs/codex/audits/FINAL_PR_08_*.md",
+        "docs/codex/reports/FINAL_PR_08_*.md",
+        "docs/codex/handoffs/FINAL_PR_08_*.md",
+        "reports/final_pr_08_*.json",
+        "tests/test_final_pr_08_projection_candidate_spine.py",
+        "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py",
+        "SYSTEM_MAP.json (add final_pr_08 entry only)",
+        "FILE_MANIFEST.json (add new files only)"
+      ],
+      "forbidden_scope": [
+        "executing_models_or_generating_code_via_model_calls",
+        "applying_patches_or_mutating_app_state",
+        "sending_external_messages",
+        "implying_hidden_runtime_or_shadow_execution",
+        "claiming_generated_code_is_production_proven",
+        "new_q_style_runtime_names",
+        "modifying_odin/field_selection_spine/",
+        "modifying_odin/operational_seed_spine/",
+        "modifying_odin/y_pattern_spine/",
+        "modifying_odin/execution_gate/",
+        "public_network_access",
+        "provider_api_calls"
+      ],
+      "expected_modules": [
+        "odin/projection_candidate_spine/__init__.py",
+        "odin/projection_candidate_spine/projection_set.py",
+        "odin/projection_candidate_spine/candidate_graph.py",
+        "odin/projection_candidate_spine/materialization.py",
+        "odin/projection_candidate_spine/expression_packet.py",
+        "odin/projection_candidate_spine/compare.py",
+        "odin/projection_candidate_spine/receipt_link.py",
+        "odin/projection_candidate_spine/proof.py"
+      ],
+      "expected_schemas": [
+        "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json"
+      ],
+      "expected_registries": [
+        "registries/final_pr_08_projection_candidate_spine_registry.json"
+      ],
+      "expected_examples": [
+        "examples/final_pr_08/projection_set.example.json",
+        "examples/final_pr_08/candidate_graph.example.json",
+        "examples/final_pr_08/expression_packet.example.json",
+        "examples/final_pr_08/projection_proof_packet.example.json"
+      ],
+      "expected_cli": [
+        "validate-projection-candidate-spine",
+        "explain-projection-candidate --demo",
+        "prove-projection-candidate-spine"
+      ],
+      "expected_validators": [
+        "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py"
+      ],
+      "expected_tests": [
+        "tests/test_final_pr_08_projection_candidate_spine.py"
+      ],
+      "expected_reports": [
+        "reports/final_pr_08_projection_candidate_spine_report.json",
+        "reports/final_pr_08_projection_candidate_spine_proof_packet.json"
+      ],
+      "expected_local_hub_surfaces": [
+        "GET /demo/projection-candidate.json",
+        "dev_mode_section: Projection Candidate Spine: available"
+      ],
+      "expected_proof_packet": {
+        "proven_required": [
+          "materialization_levels_defined",
+          "projection_set_candidate_only",
+          "candidate_graph_structured",
+          "expression_packet_near_code_not_executed",
+          "receipt_link_traceable"
+        ],
+        "not_proven_required": [
+          "hidden_runtime",
+          "model_inference",
+          "provider_execution",
+          "app_apply",
+          "app_state_mutation",
+          "external_send",
+          "generated_code_correctness",
+          "production_readiness",
+          "security_certification"
+        ],
+        "candidate_only": true
+      },
+      "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+      "depends_on": [
+        "final_pr_07_field_selection_spine_merged"
+      ],
+      "not_proven": [
+        "hidden_runtime",
+        "model_inference",
+        "provider_execution",
+        "app_apply",
+        "app_state_mutation",
+        "external_send_authority",
+        "generated_code_correctness_unless_tested",
+        "public_network_access",
+        "production_readiness",
+        "security_certification"
+      ],
+      "status": "future"
+    },
+    "final_pr_09_release_closure": {
+      "pr_id": "final_pr_09_release_closure",
+      "title": "FINAL-PR-09 — Release Closure / Full Acceptance / Claim Boundary Lock",
+      "purpose": "Perform final release closure after PR06, PR07, and PR08 are merged. Records evidence of completion, locks claim boundaries, and produces a release evidence packet. Does NOT certify production readiness or security.",
+      "allowed_scope": [
+        "docs/rebaseline/FINAL_PR_09_RELEASE_CLOSURE.md",
+        "docs/codex/audits/FINAL_PR_09_*.md",
+        "docs/codex/reports/FINAL_PR_09_*.md",
+        "docs/codex/handoffs/FINAL_PR_09_*.md",
+        "registries/final_pr_09_release_closure_registry.json",
+        "reports/final_pr_09_*.json",
+        "tests/test_final_pr_09_release_closure.py",
+        "tools/rebaseline/check_final_pr_09_release_closure.py",
+        "odin/cli.py (add validate-final-pr-09-release-closure, prove-final-pr-09-release-closure)",
+        "SYSTEM_MAP.json (add final_pr_09 entry only)",
+        "FILE_MANIFEST.json (add new files only)",
+        "registries/prep_final_pr_06_08_plan.v1.json (update pr09 status)"
+      ],
+      "forbidden_scope": [
+        "new_runtime_features_unless_required_for_closure_plumbing",
+        "production_readiness_overclaim",
+        "security_certification_overclaim",
+        "app_state_mutation",
+        "app_apply",
+        "external_send",
+        "provider_api_calls",
+        "public_network_access",
+        "renumbering_or_renaming_merged_historical_prs",
+        "new_q_style_runtime_names",
+        "modifying_any_spine_module"
+      ],
+      "expected_modules": [],
+      "expected_schemas": [],
+      "expected_registries": [
+        "registries/final_pr_09_release_closure_registry.json"
+      ],
+      "expected_examples": [],
+      "expected_cli": [
+        "validate-final-pr-09-release-closure",
+        "prove-final-pr-09-release-closure"
+      ],
+      "expected_validators": [
+        "tools/rebaseline/check_final_pr_09_release_closure.py"
+      ],
+      "expected_tests": [
+        "tests/test_final_pr_09_release_closure.py"
+      ],
+      "expected_reports": [
+        "reports/final_pr_09_release_closure_evidence.json",
+        "reports/final_pr_09_release_closure_proof_packet.json"
+      ],
+      "expected_local_hub_surfaces": [],
+      "expected_proof_packet": {
+        "proven_required": [
+          "all_ladder_validators_pass",
+          "proof_chain_complete",
+          "claim_boundaries_enumerated",
+          "not_proven_lock_complete"
+        ],
+        "not_proven_required": [
+          "production_readiness",
+          "security_certification",
+          "live_model_inference",
+          "provider_execution",
+          "app_apply",
+          "external_send_authority",
+          "deployment_proof"
+        ],
+        "candidate_only": true
+      },
+      "claim_boundary": "release_closure_records_evidence_not_production_certification",
+      "depends_on": [
+        "final_pr_06_operational_seed_spine_merged",
+        "final_pr_07_field_selection_spine_merged",
+        "final_pr_08_projection_candidate_spine_merged"
+      ],
+      "not_proven": [
+        "production_readiness",
+        "security_certification",
+        "live_model_inference",
+        "provider_execution_in_production",
+        "app_apply_authority",
+        "external_send_authority",
+        "deployment_proof",
+        "vulnerability_free_claim",
+        "target_host_runtime_proof",
+        "release_approval"
+      ],
+      "status": "future"
+    }
+  }
+}
