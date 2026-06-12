@@ -356,3 +356,175 @@ def test_validator_fails_closed_if_qirc_gains_app_authority(monkeypatch) -> None
     report = module.validate(ROOT, "2026-01-01T00:00:00Z")
     assert report["status"] == "failed"
     assert any("QIRC forbidden authority" in item for item in report["hard_violations"])
+
+HANDOFF_GAP_IDS = [
+    "handoff_first_pre_intake_policy", "handoff_context_schema", "handoff_packet_candidate_shape",
+    "generic_handoff_profile", "thor_handoff_profile", "y_handoff_profile", "mjolnir_handoff_profile",
+    "thor_handoff_compiler_discovery", "handoff_to_universal_work_mapping",
+    "handoff_to_context_capsule_mapping", "handoff_to_modelworkpacket_mapping",
+    "handoff_to_qirc_channel_mapping", "handoff_to_trace_receipt_mapping",
+    "handoff_to_final_gate_expectation_mapping", "dev_mode_handoff_viewer",
+    "normal_user_handoff_hidden_status",
+]
+HANDOFF_Q_IDS = [
+    "handoff_first_pre_intake_policy", "handoff_context_schema", "generic_handoff_profile",
+    "thor_handoff_profile", "y_handoff_profile", "mjolnir_handoff_profile",
+    "thor_handoff_compiler_discovery", "handoff_to_universal_work_mapping",
+    "handoff_to_modelworkpacket_mapping", "handoff_to_qirc_channel_mapping",
+    "handoff_to_trace_receipt_mapping", "dev_mode_handoff_viewer",
+]
+HANDOFF_ACCEPTANCE = [
+    "handoff_first_pre_intake_policy_defined", "handoff_context_schema_defined",
+    "generic_handoff_profile_receipt", "thor_handoff_profile_receipt",
+    "handoff_to_universal_work_mapping_receipt", "handoff_to_modelworkpacket_mapping_receipt",
+    "handoff_to_qirc_channel_mapping_receipt", "handoff_to_trace_receipt_mapping_receipt",
+    "dev_mode_handoff_viewer_visible", "y_handoff_profile_contract_defined",
+    "mjolnir_handoff_profile_contract_defined",
+]
+
+
+def test_final_target_includes_handoff_first_pre_intake_layer() -> None:
+    target = load("registries/final_local_runtime_hub_target_v1.json")
+    assert "Handoff-First Pre-Intake Layer" in target["handoff_first_pre_intake_target"]
+    assert "before Universal Work" in target["handoff_first_pre_intake_target"]
+    assert target["handoff_first_required_formula"] == "Handoff orients. Universal Work bounds. Odin gates. QIRC coordinates. Apps decide. Models work only as bounded workers."
+
+
+def test_gap_audit_includes_handoff_capabilities() -> None:
+    rows = {row["capability_id"]: row for row in load("registries/final_repo_reality_gap_audit_v1.json")["capabilities"]}
+    for capability_id in HANDOFF_GAP_IDS:
+        assert capability_id in rows
+        assert rows[capability_id]["current_status"] in VALID_STATUSES
+        assert rows[capability_id]["claim_boundary"] == "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof"
+        assert rows[capability_id]["recommended_slice"]
+
+
+def test_gap_audit_includes_named_handoff_rows() -> None:
+    rows = {row["capability_id"] for row in load("registries/final_repo_reality_gap_audit_v1.json")["capabilities"]}
+    for capability_id in [
+        "handoff_first_pre_intake_policy", "handoff_context_schema", "generic_handoff_profile",
+        "thor_handoff_profile", "y_handoff_profile", "mjolnir_handoff_profile",
+        "thor_handoff_compiler_discovery", "handoff_to_universal_work_mapping",
+        "handoff_to_modelworkpacket_mapping", "handoff_to_qirc_channel_mapping",
+        "handoff_to_trace_receipt_mapping",
+    ]:
+        assert capability_id in rows
+
+
+def test_q_shabang_matrix_includes_handoff_first_capabilities() -> None:
+    rows = {row["capability_id"]: row for row in load("registries/final_q_shabang_capability_matrix_v1.json")["capabilities"]}
+    for capability_id in HANDOFF_Q_IDS:
+        assert capability_id in rows
+        assert "Handoff-First improves local LLM performance" in rows[capability_id]["effectiveness_notes"]
+        for key, value in rows[capability_id].items():
+            if key.endswith("_score_0_5"):
+                assert isinstance(value, int)
+                assert 0 <= value <= 5
+
+
+def test_roadmap_integrates_handoff_first_without_increasing_final_pr_count() -> None:
+    roadmap = load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")
+    assert roadmap["recommended_pr_count"] == 5
+    blob = json.dumps(roadmap)
+    for required in ["Handoff-First is mandatory for 100%", "Generic profile is mandatory", "Thor profile is mandatory"]:
+        assert required in blob
+
+
+def test_final_pr_02_includes_handoff_to_universal_work_mapping() -> None:
+    pr = next(row for row in load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")["prs"] if row["pr_id"] == "FINAL-PR-02")
+    assert "handoff_to_universal_work_mapping" in pr["slices_absorbed"]
+    assert any("raw demo request → handoff → Universal Work → Candidate" in item for item in pr["success_criteria"])
+
+
+def test_final_pr_03_includes_handoff_to_qirc_trace_receipt_mapping() -> None:
+    pr = next(row for row in load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")["prs"] if row["pr_id"] == "FINAL-PR-03")
+    assert "handoff_to_qirc_channel_mapping" in pr["slices_absorbed"]
+    assert "handoff_to_trace_receipt_mapping" in pr["slices_absorbed"]
+    assert "dev_mode_handoff_viewer" in pr["slices_absorbed"]
+
+
+def test_final_pr_04_includes_thor_y_mjolnir_handoff_profile_contracts() -> None:
+    pr = next(row for row in load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")["prs"] if row["pr_id"] == "FINAL-PR-04")
+    assert "thor_handoff_profile" in pr["slices_absorbed"]
+    assert "y_handoff_profile" in pr["slices_absorbed"]
+    assert "mjolnir_handoff_profile" in pr["slices_absorbed"]
+    assert any("without external runtime proof" in item for item in pr["success_criteria"])
+
+
+def test_final_acceptance_includes_handoff_receipts_and_profile_contracts() -> None:
+    acceptance = load("registries/final_100_percent_acceptance_definition_v1.json")
+    assert set(HANDOFF_ACCEPTANCE) <= set(acceptance["positive_criteria"])
+    assert "external_thor_runtime" in acceptance["non_goals_not_required"]
+    assert "external_ynode_runtime" in acceptance["non_goals_not_required"]
+    assert "external_mjolnir_runtime" in acceptance["non_goals_not_required"]
+
+
+def test_dev_mode_includes_handoff_viewer_and_normal_ui_hides_raw_handoff_internals() -> None:
+    acceptance = load("registries/final_100_percent_acceptance_definition_v1.json")
+    visible = set(acceptance["visible_criteria"])
+    assert "Handoff Context" in visible
+    assert "Handoff → Universal Work mapping" in visible
+    roadmap_blob = json.dumps(load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")).lower()
+    assert "raw handoff internals by default" in roadmap_blob
+    for status in ["prepared", "candidate-ready", "blocked", "needs context"]:
+        assert status in roadmap_blob
+
+
+def test_validator_fails_closed_if_handoff_first_is_missing(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_local_runtime_hub_target_v1.json":
+            data = json.loads(json.dumps(data))
+            data["handoff_first_pre_intake_target"] = ""
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("Handoff-First Pre-Intake Layer" in item for item in report["hard_violations"])
+
+
+def test_validator_fails_closed_if_handoff_bypasses_universal_work(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_local_runtime_hub_target_v1.json":
+            data = json.loads(json.dumps(data))
+            data["handoff_first_hard_boundaries"] = ["Handoff bypasses Universal Work"]
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("does not bypass universal work" in item.lower() or "handoff bypasses universal work" in item.lower() for item in report["hard_violations"])
+
+
+def test_validator_fails_closed_if_handoff_packet_is_app_apply_or_truth(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_local_runtime_hub_target_v1.json":
+            data = json.loads(json.dumps(data))
+            data["handoff_first_pre_intake_target"] += " Handoff Packet is truth and Handoff Packet is app approval."
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("handoff packet is truth" in item.lower() or "handoff packet is app approval" in item.lower() for item in report["hard_violations"])
+
+
+def test_validator_fails_closed_if_y_mjolnir_runtime_proof_is_claimed_without_evidence(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_minimal_road_to_100_pr_roadmap_v1.json":
+            data = json.loads(json.dumps(data))
+            data["handoff_first_mandates"].append("external Y runtime proof claimed and external Mjolnir runtime proof claimed")
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("external y runtime proof claimed" in item.lower() or "external mjolnir runtime proof claimed" in item.lower() for item in report["hard_violations"])

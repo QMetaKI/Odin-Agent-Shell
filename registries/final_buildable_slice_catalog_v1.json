@@ -2,6 +2,19 @@
   "catalog_id": "final_buildable_slice_catalog_v1",
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
   "consolidation_justification": "All required families are retained as explicit slice ids; roadmap later absorbs them into five PRs.",
+  "handoff_first_extension_v2": {
+    "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+    "required_slice_families": [
+      "handoff_first_pre_intake_policy",
+      "handoff_context_schema_and_profiles",
+      "thor_handoff_compiler_adapter",
+      "y_mjolnir_handoff_profiles",
+      "handoff_to_universal_work_mapping",
+      "handoff_to_modelworkpacket_mapping",
+      "handoff_qirc_trace_receipt_mapping",
+      "dev_mode_handoff_viewer"
+    ]
+  },
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",
@@ -34,7 +47,15 @@
     "qirc_file_spool_packet_bridge",
     "qirc_cli_agent_pipe_bridge",
     "qirc_trace_receipt_event_mapping",
-    "qirc_dev_mode_event_viewer"
+    "qirc_dev_mode_event_viewer",
+    "handoff_first_pre_intake_policy",
+    "handoff_context_schema_and_profiles",
+    "thor_handoff_compiler_adapter",
+    "y_mjolnir_handoff_profiles",
+    "handoff_to_universal_work_mapping",
+    "handoff_to_modelworkpacket_mapping",
+    "handoff_qirc_trace_receipt_mapping",
+    "dev_mode_handoff_viewer"
   ],
   "slices": [
     {
@@ -962,6 +983,380 @@
       ],
       "title": "Qirc Dev Mode Event Viewer",
       "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_handoff_first_pre_intake_policy.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [
+        "normal-user handoff status: prepared/candidate-ready/blocked/needs context"
+      ],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "handoff_first_pre_intake_policy",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Handoff-First Pre-Intake Policy",
+      "user_value": "Odin starts every job with a clean handoff context."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_handoff_context_schema_and_profiles.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "handoff_context_schema_and_profiles",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Handoff Context Schema and Profiles",
+      "user_value": "Local models receive better prepared work."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_thor_handoff_compiler_adapter.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "thor_handoff_compiler_adapter",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Thor Handoff Compiler Adapter",
+      "user_value": "Agents get predictable task/return packets."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_y_mjolnir_handoff_profiles.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "y_mjolnir_handoff_profiles",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Y and Mjölnir Handoff Profile Contracts",
+      "user_value": "Apps remain sovereign while build/app/game/space and focused patch workflows get bounded candidate handoffs."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_handoff_to_universal_work_mapping.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "handoff_to_universal_work_mapping",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Handoff to Universal Work Mapping",
+      "user_value": "Dev Mode can show how raw input became Universal Work."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_handoff_to_modelworkpacket_mapping.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "handoff_to_modelworkpacket_mapping",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Handoff to ModelWorkPacket Mapping",
+      "user_value": "Local models receive better prepared work."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_handoff_qirc_trace_receipt_mapping.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "handoff_qirc_trace_receipt_mapping",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Handoff QIRC Trace Receipt Mapping",
+      "user_value": "Apps remain sovereign and receipts show how handoffs moved through local coordination."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "depends_on": [
+        "handoff_first_pre_intake_policy",
+        "handoff_context_schema_and_profiles"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/",
+        "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+        "tests/test_final_road_to_100_rebaseline_audit.py"
+      ],
+      "new_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit"
+      ],
+      "new_tests": [
+        "tests/test_dev_mode_handoff_viewer.py or final audit focused tests"
+      ],
+      "new_ui_surfaces": [
+        "Dev Mode Handoff Viewer"
+      ],
+      "non_goals": [
+        "no runtime/provider/model execution",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no external Thor/Y/YNode/Mjölnir runtime proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "dev_mode_handoff_viewer",
+      "technical_scope": [
+        "define candidate-only Handoff Context orientation before Universal Work",
+        "map handoff outputs into bounded Universal Work/ModelWorkPacket/QIRC/Trace/Receipt as applicable",
+        "preserve app-owned apply/state/external-send and Final Gate boundaries"
+      ],
+      "title": "Dev Mode Handoff Viewer",
+      "user_value": "Dev Mode can show how raw input became Universal Work while normal users see simple status."
     }
   ],
   "source_refs": [

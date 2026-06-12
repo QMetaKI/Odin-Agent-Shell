@@ -2,6 +2,7 @@
   "acceptance_id": "final_100_percent_acceptance_definition_v1",
   "all_non_goals_remain_non_claims": true,
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "handoff_first_acceptance_statement": "Handoff-First receipts are mandatory for 100%; Generic and Thor profiles are mandatory; Y and Mjölnir are structured profile contracts, not external runtime claims.",
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",
@@ -29,7 +30,14 @@
     "federation",
     "matrix_like_platform",
     "activitypub_xmpp_public_network",
-    "external_broker_dependency"
+    "external_broker_dependency",
+    "external_thor_runtime",
+    "external_y_runtime",
+    "external_ynode_runtime",
+    "external_mjolnir_runtime",
+    "godot_target_host_proof",
+    "windows_target_host_proof",
+    "engine_runtime_proof"
   ],
   "positive_criteria": [
     "clone_or_download_path_documented",
@@ -57,7 +65,18 @@
     "qirc_file_spool_packet_bridge_receipt",
     "qirc_cli_agent_pipe_bridge_receipt",
     "qirc_trace_receipt_channel_mapping_receipt",
-    "qirc_dev_mode_event_viewer_visible"
+    "qirc_dev_mode_event_viewer_visible",
+    "handoff_first_pre_intake_policy_defined",
+    "handoff_context_schema_defined",
+    "generic_handoff_profile_receipt",
+    "thor_handoff_profile_receipt",
+    "handoff_to_universal_work_mapping_receipt",
+    "handoff_to_modelworkpacket_mapping_receipt",
+    "handoff_to_qirc_channel_mapping_receipt",
+    "handoff_to_trace_receipt_mapping_receipt",
+    "dev_mode_handoff_viewer_visible",
+    "y_handoff_profile_contract_defined",
+    "mjolnir_handoff_profile_contract_defined"
   ],
   "qirc_acceptance_statement": "QIRC Core and required local substrate rings are mandatory for 100%; optional feed/thread/discovery/pubsub/federation rings remain non-mandatory and non-claims.",
   "source_refs": [
@@ -98,6 +117,16 @@
     "QIRC event status in Dev Mode",
     "QIRC channel/event viewer in Dev Mode",
     "Trace/receipt channel mapping",
-    "App/agent packet flow status"
+    "App/agent packet flow status",
+    "Handoff Context",
+    "Handoff profile",
+    "Handoff → Universal Work mapping",
+    "Handoff → ModelWorkPacket mapping",
+    "Handoff → QIRC channel mapping",
+    "Handoff → Trace/Receipt mapping",
+    "Normal user handoff status: prepared",
+    "Normal user handoff status: candidate-ready",
+    "Normal user handoff status: blocked",
+    "Normal user handoff status: needs context"
   ]
 }

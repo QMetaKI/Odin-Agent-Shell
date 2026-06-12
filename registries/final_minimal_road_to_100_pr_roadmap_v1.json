@@ -1,5 +1,15 @@
 {
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "handoff_first_extension_v2": {
+    "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+    "definition": "Handoff-First is mandatory and absorbed into the existing five final PRs."
+  },
+  "handoff_first_mandates": [
+    "Handoff-First is mandatory for 100%.",
+    "Generic profile is mandatory.",
+    "Thor profile is mandatory.",
+    "Y and Mjölnir profiles are mandatory as structured profile contracts, not runtime claims."
+  ],
   "more_than_five_justification": null,
   "non_claims": [
     "not_runtime_completion_proof",
@@ -41,7 +51,10 @@
         "no app state mutation",
         "no app apply authority",
         "no external-send authority",
-        "no hidden remote fallback"
+        "no hidden remote fallback",
+        "no handoff direct model route",
+        "no handoff apply/send/tool authority",
+        "no handoff artifact treated as truth"
       ],
       "pr_id": "FINAL-PR-01",
       "proof_commands": [
@@ -52,13 +65,15 @@
         "simple_local_hub_start",
         "browser_hub_normal_user_ui",
         "docs_quickstart_polish",
-        "qirc_status_placeholder"
+        "qirc_status_placeholder",
+        "normal_user_handoff_hidden_status"
       ],
       "success_criteria": [
         "simple_local_hub_start has implementation or explicit non-goal proof boundary",
         "browser_hub_normal_user_ui has implementation or explicit non-goal proof boundary",
         "docs_quickstart_polish has implementation or explicit non-goal proof boundary",
-        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
+        "normal-user handoff status remains simple and does not expose raw handoff internals by default"
       ],
       "tests_required": [
         "test coverage for simple_local_hub_start",
@@ -69,7 +84,8 @@
       "ui_surfaces_added": [
         "simple_local_hub_start",
         "browser_hub_normal_user_ui",
-        "docs_quickstart_polish"
+        "docs_quickstart_polish",
+        "simple handoff status: prepared/candidate-ready/blocked/needs context"
       ]
     },
     {
@@ -99,7 +115,10 @@
         "no app state mutation",
         "no app apply authority",
         "no external-send authority",
-        "no hidden remote fallback"
+        "no hidden remote fallback",
+        "no handoff direct model route",
+        "no handoff apply/send/tool authority",
+        "no handoff artifact treated as truth"
       ],
       "pr_id": "FINAL-PR-02",
       "proof_commands": [
@@ -110,18 +129,24 @@
         "model_picker_provider_status",
         "connected_apps_bridge_view",
         "demo_universal_work_flow",
-        "qirc_app_bridge_event_mapping"
+        "qirc_app_bridge_event_mapping",
+        "handoff_first_pre_intake_policy",
+        "generic_handoff_profile",
+        "handoff_to_universal_work_mapping"
       ],
       "success_criteria": [
         "model_picker_provider_status has implementation or explicit non-goal proof boundary",
         "connected_apps_bridge_view has implementation or explicit non-goal proof boundary",
         "demo_universal_work_flow has implementation or explicit non-goal proof boundary",
-        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
+        "demo flow shows raw demo request → handoff → Universal Work → Candidate",
+        "app bridge request becomes Handoff Context before Universal Work"
       ],
       "tests_required": [
         "test coverage for model_picker_provider_status",
         "test coverage for connected_apps_bridge_view",
-        "test coverage for demo_universal_work_flow"
+        "test coverage for demo_universal_work_flow",
+        "FINAL-PR-02 tests prove handoff_to_universal_work_mapping receipt"
       ],
       "title": "Model Picker + Connected Apps + Demo Universal Work",
       "ui_surfaces_added": [
@@ -157,7 +182,10 @@
         "no app state mutation",
         "no app apply authority",
         "no external-send authority",
-        "no hidden remote fallback"
+        "no hidden remote fallback",
+        "no handoff direct model route",
+        "no handoff apply/send/tool authority",
+        "no handoff artifact treated as truth"
       ],
       "pr_id": "FINAL-PR-03",
       "proof_commands": [
@@ -171,12 +199,17 @@
         "qirc_semantic_channel_registry",
         "qirc_browser_event_bridge",
         "qirc_trace_receipt_event_mapping",
-        "qirc_dev_mode_event_viewer"
+        "qirc_dev_mode_event_viewer",
+        "handoff_to_qirc_channel_mapping",
+        "handoff_to_trace_receipt_mapping",
+        "dev_mode_handoff_viewer"
       ],
       "success_criteria": [
         "activity_trace_receipt_view has implementation or explicit non-goal proof boundary",
         "dev_mode_diagnostics has implementation or explicit non-goal proof boundary",
-        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
+        "Dev Mode shows Handoff Context → Universal Work → ModelWorkPacket chain",
+        "handoff_to_qirc_channel_mapping and handoff_to_trace_receipt_mapping preserve QIRC boundaries"
       ],
       "tests_required": [
         "test coverage for activity_trace_receipt_view",
@@ -185,7 +218,8 @@
       "title": "Activity, Trace, Receipt, Dev Mode + Support Bundle",
       "ui_surfaces_added": [
         "activity_trace_receipt_view",
-        "dev_mode_diagnostics"
+        "dev_mode_diagnostics",
+        "Dev Mode Handoff Viewer"
       ]
     },
     {
@@ -216,7 +250,15 @@
         "no app state mutation",
         "no app apply authority",
         "no external-send authority",
-        "no hidden remote fallback"
+        "no hidden remote fallback",
+        "no external Thor runtime proof",
+        "no external Y/YNode runtime proof",
+        "no external Mjölnir runtime proof",
+        "no Godot runtime proof",
+        "no Windows target-host proof from profile contracts",
+        "no handoff direct model route",
+        "no handoff apply/send/tool authority",
+        "no handoff artifact treated as truth"
       ],
       "pr_id": "FINAL-PR-04",
       "proof_commands": [
@@ -228,13 +270,21 @@
         "target_host_smoke",
         "local_provider_probe",
         "qirc_file_spool_packet_bridge",
-        "qirc_cli_agent_pipe_bridge"
+        "qirc_cli_agent_pipe_bridge",
+        "thor_handoff_profile",
+        "y_handoff_profile",
+        "mjolnir_handoff_profile",
+        "thor_handoff_compiler_adapter",
+        "handoff_context_schema_and_profiles"
       ],
       "success_criteria": [
         "runtime_security_smoke has implementation or explicit non-goal proof boundary",
         "target_host_smoke has implementation or explicit non-goal proof boundary",
         "local_provider_probe has implementation or explicit non-goal proof boundary",
-        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
+        "file/spool packets first become Handoff Context",
+        "CLI/agent packets first become Thor/Y/Mjölnir/generic Handoff Context",
+        "Thor/Y/Mjölnir profile contracts are included without external runtime proof"
       ],
       "tests_required": [
         "test coverage for runtime_security_smoke",
@@ -275,7 +325,10 @@
         "no app state mutation",
         "no app apply authority",
         "no external-send authority",
-        "no hidden remote fallback"
+        "no hidden remote fallback",
+        "no handoff direct model route",
+        "no handoff apply/send/tool authority",
+        "no handoff artifact treated as truth"
       ],
       "pr_id": "FINAL-PR-05",
       "proof_commands": [
@@ -288,7 +341,10 @@
       ],
       "success_criteria": [
         "final_acceptance_cleanup has implementation or explicit non-goal proof boundary",
-        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
+        "full acceptance requires Handoff-First receipts",
+        "docs explain Handoff-First for normal users and Dev Mode",
+        "acceptance confirms Handoff-First does not bypass Universal Work, QIRC boundaries, Final Gate, or app-owned apply"
       ],
       "tests_required": [
         "test coverage for final_acceptance_cleanup"
