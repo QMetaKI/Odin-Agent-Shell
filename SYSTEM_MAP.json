@@ -873,6 +873,75 @@
     ],
     "validator": "tools/rebaseline/check_final_pr_03_qirc_devmode.py"
   },
+  "final_pr_04_provider_probe_security": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_04_PROVIDER_PROBE_SECURITY_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_04_THOR_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_04_ODIN_EFFECTIVENESS_AUDIT.md"
+    ],
+    "claim_boundary": "final_pr_04_provider_probe_readiness_not_model_execution_not_security_certification",
+    "cli_commands": [
+      "validate-final-pr-04-provider-probe-security",
+      "prove-final-pr-04-provider-probe-security",
+      "provider-status",
+      "provider-probe",
+      "runtime-security-smoke"
+    ],
+    "examples": [
+      "examples/final_pr_04/provider_probe_security_proof_packet.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_04_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_04_THOR_Y_HANDOFF_REQUEST.md",
+      "docs/codex/handoffs/FINAL_PR_04_COMPILED_THOR_Y_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_04_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "docs/codex/handoffs/FINAL_PR_04_HANDOFF_QUALITY_GATE.md"
+    ],
+    "modules": [
+      "odin/providers/__init__.py",
+      "odin/providers/policy.py",
+      "odin/providers/registry.py",
+      "odin/providers/probe.py",
+      "odin/providers/proof.py",
+      "odin/runtime_security/__init__.py",
+      "odin/runtime_security/smoke.py"
+    ],
+    "provider_ids": [
+      "none",
+      "mock",
+      "ollama_candidate",
+      "llama_cpp_candidate"
+    ],
+    "registries": [
+      "registries/final_pr_04_provider_probe_security_registry.json"
+    ],
+    "reports": [
+      "reports/final_pr_04_provider_probe_security_report.json",
+      "reports/final_pr_04_provider_probe_security_proof_packet.json",
+      "reports/final_pr_04_thor_effectiveness_audit.json",
+      "reports/final_pr_04_odin_effectiveness_audit.json"
+    ],
+    "return_report": "docs/codex/reports/FINAL_PR_04_PROVIDER_PROBE_SECURITY_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/final_pr_04_provider_probe_security_proof_packet.schema.json"
+    ],
+    "security_smoke_endpoints": [
+      "GET /providers.json",
+      "GET /providers/probe.json",
+      "POST /providers/probe",
+      "GET /security/runtime-smoke.json"
+    ],
+    "ui_ids": [
+      "provider-policy-status",
+      "provider-probe-panel",
+      "provider-probe-results",
+      "provider-execution-boundary",
+      "runtime-security-smoke-status",
+      "secret-scan-status",
+      "network-boundary-status",
+      "qirc-provider-events-status"
+    ]
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",

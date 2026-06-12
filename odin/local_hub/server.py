@@ -1,4 +1,4 @@
-"""Simple Local Hub HTTP server — FINAL-PR-01/02/03.
+"""Simple Local Hub HTTP server — FINAL-PR-01/02/03/04.
 
 Claim boundary: simple_local_hub_localhost_only_candidate_no_app_apply_no_external_send_no_provider_execution
 
@@ -19,6 +19,10 @@ Endpoints:
   GET /receipts.json            — receipt events from QIRC bus (FINAL-PR-03)
   GET /dev/status.json          — dev status including surface map (FINAL-PR-03)
   POST /qirc/events             — create local demo event (FINAL-PR-03)
+  GET /providers.json           — provider policy list (FINAL-PR-04)
+  GET /providers/probe.json     — provider probe readiness status (FINAL-PR-04)
+  POST /providers/probe         — safe local provider probe, candidate-only (FINAL-PR-04)
+  GET /security/runtime-smoke.json — runtime security smoke result (FINAL-PR-04)
 """
 from __future__ import annotations
 
@@ -85,6 +89,24 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             from odin.qirc_core.bus import bus_summary
             body = json.dumps({"artifact_kind": "odin_dev_status", "candidate_only": True, "local_only": True, "surface_map": surface_map_summary(), "qirc_bus": bus_summary(), "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
+        elif self.path == "/providers.json":
+            from odin.providers.policy import list_policies
+            body = json.dumps({"artifact_kind": "odin_provider_policy_list", "candidate_only": True, "local_only": True, "provider_execution": False, "model_inference": False, "providers": list_policies(), "claim_boundary": "provider_probe_candidate_only_no_model_execution_no_api_key_no_external_network"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/providers/probe.json":
+            from odin.providers.probe import build_provider_status_packet
+            from odin.qirc_core.bus import append_event
+            packet = build_provider_status_packet()
+            for p in packet.get("providers", []):
+                append_event(channel="#odin.model", kind="provider_probe_status", source="local_hub", payload={k: p.get(k) for k in ("provider_id", "status", "probe_allowed", "execution_allowed", "candidate_only", "local_only", "model_inference", "provider_execution")})
+            body = json.dumps(packet, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/security/runtime-smoke.json":
+            from odin.runtime_security.smoke import run_runtime_security_smoke
+            from pathlib import Path
+            result = run_runtime_security_smoke(Path(__file__).resolve().parents[2])
+            body = json.dumps(result.as_dict(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)
@@ -117,6 +139,14 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                 event_payload = {}
             event = append_event(channel=channel, kind=kind, source=source, payload=event_payload)
             body = json.dumps({"status": "ok", "event": event, "candidate_only": True, "local_only": True, "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/providers/probe":
+            from odin.providers.probe import build_provider_status_packet
+            from odin.qirc_core.bus import append_event
+            packet = build_provider_status_packet()
+            for p in packet.get("providers", []):
+                append_event(channel="#odin.model", kind="provider_probe_status", source="local_hub_post", payload={k: p.get(k) for k in ("provider_id", "status", "probe_allowed", "execution_allowed", "candidate_only", "local_only", "model_inference", "provider_execution")})
+            body = json.dumps(packet, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

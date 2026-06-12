@@ -1,0 +1,63 @@
+{
+  "artifact_kind": "odin_final_pr_04_odin_effectiveness_audit",
+  "audit_id": "final_pr_04_odin_effectiveness_audit",
+  "candidate_only": true,
+  "claim_boundary": "odin_audit_candidate_only_not_runtime_proof",
+  "evaluations": [
+    {
+      "primitive": "provider_policy",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Add runtime policy check in probe dispatch"
+    },
+    {
+      "primitive": "provider_probe",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Model availability probe when execution gate opens"
+    },
+    {
+      "primitive": "qirc_provider_events",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Model loading status events on #odin.model"
+    },
+    {
+      "primitive": "runtime_security_smoke",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Dynamic subprocess allowlist enforcement"
+    },
+    {
+      "primitive": "proof_auto_persistence",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Proof chain cross-reference across PR-01 to PR-04"
+    },
+    {
+      "primitive": "candidate_boundary",
+      "decision": "done",
+      "next_injection": null
+    },
+    {
+      "primitive": "app_owned_apply",
+      "decision": "done",
+      "next_injection": null
+    },
+    {
+      "primitive": "system_map_coverage",
+      "decision": "inject_next_prompt",
+      "next_injection": "FINAL-PR-05: Auto-update SYSTEM_MAP from file creation"
+    },
+    {
+      "primitive": "handoff_quality_gate",
+      "decision": "done",
+      "next_injection": null
+    },
+    {
+      "primitive": "hub_surface_stability",
+      "decision": "done",
+      "next_injection": null
+    },
+    {
+      "primitive": "final_pr_ladder_compiler",
+      "decision": "requires_extra_odin_optimization_pr",
+      "next_injection": "FINAL-PR-05 optimization PR or FINAL-PR-06 closure"
+    }
+  ]
+}

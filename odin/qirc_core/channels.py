@@ -12,6 +12,7 @@ REQUIRED_CHANNELS = [
     "#odin.handoff",
     "#odin.dev",
     "#odin.warning",
+    "#odin.model",  # FINAL-PR-04: provider probe and model status events
 ]
 
 _CHANNEL_SET = set(REQUIRED_CHANNELS)

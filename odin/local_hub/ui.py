@@ -46,6 +46,15 @@ REQUIRED_IDS = [
     "handoff-chain-viewer",
     "surface-map-viewer",
     "proof-gap-viewer",
+    # FINAL-PR-04 Provider Probe + Security Smoke additions
+    "provider-policy-status",
+    "provider-probe-panel",
+    "provider-probe-results",
+    "provider-execution-boundary",
+    "runtime-security-smoke-status",
+    "secret-scan-status",
+    "network-boundary-status",
+    "qirc-provider-events-status",
 ]
 
 REQUIRED_COPY = [
@@ -68,6 +77,12 @@ REQUIRED_COPY = [
     "QIRC coordinates locally. Odin gates. Apps decide.",
     "Activity timeline shows local candidate events.",
     "Dev Mode: QIRC channels, events, traces, receipts, handoff chain.",
+    # FINAL-PR-04 additions
+    "Provider probe checks readiness only.",
+    "No model is executed.",
+    "No API keys are read.",
+    "No external network is used.",
+    "Provider execution remains disabled by default.",
 ]
 
 
@@ -259,6 +274,51 @@ def generate_hub_html() -> str:
   <div class="label">Proof Gap Viewer</div>
   <p>Dev Mode: QIRC channels, events, traces, receipts, handoff chain.</p>
   <p class="note">Not proven: provider_execution, model_inference, public_qirc_network, qirc_federation, app_apply, app_state_mutation, external_send, production_readiness, security_certification.</p>
+</div>
+
+<!-- FINAL-PR-04: Provider Probe + Runtime Security Smoke -->
+<div id="provider-policy-status" class="section">
+  <div class="label">Provider Policy Status</div>
+  <p>Provider probe checks readiness only.</p>
+  <p class="note">Probe does not execute. Policy gates provider readiness. No model is executed. No API keys are read. No external network is used.</p>
+</div>
+
+<div id="provider-probe-panel" class="section">
+  <div class="label">Provider Probe Panel</div>
+  <p>No model is executed.</p>
+  <p class="note">GET /providers.json for policy list. GET /providers/probe.json for readiness status. POST /providers/probe for safe local probe. Candidate-only results.</p>
+</div>
+
+<div id="provider-probe-results" class="section">
+  <div class="label">Provider Probe Results</div>
+  <p class="note">Probe results are candidate-only readiness signals. Provider status is not model quality proof. Local provider discovery does not imply inference.</p>
+</div>
+
+<div id="provider-execution-boundary" class="section">
+  <div class="label">Provider Execution Boundary</div>
+  <p>Provider execution remains disabled by default.</p>
+  <p class="note">execution_allowed=false for all providers. No ollama run/chat/generate. No llama-cli model load. App-owned apply boundary intact.</p>
+</div>
+
+<div id="runtime-security-smoke-status" class="section">
+  <div class="label">Runtime Security Smoke</div>
+  <p class="note">GET /security/runtime-smoke.json. This is a smoke check, not a security certification. Checks provider/model/network/secrets/app-apply boundaries.</p>
+</div>
+
+<div id="secret-scan-status" class="section">
+  <div class="label">Secret Scan Status</div>
+  <p>No API keys are read.</p>
+  <p class="note">No OPENAI_API_KEY. No ANTHROPIC_API_KEY. No provider credentials. Forbidden markers scanned in provider/security source files.</p>
+</div>
+
+<div id="network-boundary-status" class="section">
+  <div class="label">Network Boundary Status</div>
+  <p class="note">No external network. No public bind. No LAN/WAN QIRC. No federation. Localhost-only operation.</p>
+</div>
+
+<div id="qirc-provider-events-status" class="section">
+  <div class="label">QIRC Provider Events</div>
+  <p class="note">Provider probe emits local events on #odin.model channel. Local-only. Candidate-only. No public QIRC transport. No federation.</p>
 </div>
 
 <div id="dev-mode-entry" class="section dev">

@@ -1,0 +1,25 @@
+{
+  "artifact_kind": "odin_final_pr_04_provider_probe_security_proof_packet",
+  "status": "ok_with_known_gaps",
+  "candidate_only": true,
+  "local_only": true,
+  "provider_probe_visible": true,
+  "provider_policy_present": true,
+  "provider_execution": false,
+  "model_inference": false,
+  "api_key_reads": false,
+  "external_network": false,
+  "qirc_provider_events_visible": true,
+  "runtime_security_smoke": "ok",
+  "provider_boundaries_intact": true,
+  "not_proven": [
+    "actual_model_inference",
+    "provider_text_generation",
+    "provider_model_quality",
+    "remote_provider_api",
+    "real_app_integration",
+    "production_readiness",
+    "security_certification"
+  ],
+  "claim_boundary": "final_pr_04_provider_probe_readiness_not_model_execution_not_security_certification"
+}
