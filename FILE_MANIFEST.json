@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1631,
+  "file_count_excluding_manifest": 1650,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -64,6 +64,11 @@
       "size": 2749
     },
     {
+      "path": "FILE_MANIFEST.json",
+      "sha256": "7bea78bff1e9d7f1638c4976187f86371ce321a8e32b95b3f4ea92c460661d4c",
+      "size": 298423
+    },
+    {
       "path": "LICENSE",
       "sha256": "248037b21866a8a62529eae88de7da077edc4d4dbc618fe4bf88e47d97a763c0",
       "size": 241
@@ -100,8 +105,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "cd2fb68131c6b150a73056e8c2654571bfa09dc877d043427c29158c30169652",
-      "size": 81614
+      "sha256": "4c147979ac9184f9e7deb799c196c7d7730a23296795d25010b22557629a81f7",
+      "size": 96368
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1374,6 +1379,21 @@
       "size": 5596
     },
     {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_CODE_REVIEW.md",
+      "sha256": "8335fe98d8ed347a93dc31181db13ae40095f691d03269c23fba0680271032b3",
+      "size": 1239
+    },
+    {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_ROADMAP_AUDIT.md",
+      "sha256": "33fed9fb7161f9315049bca98644b11936216071363c163d88357c66a4132d24",
+      "size": 1121
+    },
+    {
+      "path": "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
+      "sha256": "6895b47b7bd5c508c52d3849e329cb9d645a6dec789fe4954d6a30edbb84f990",
+      "size": 1974
+    },
+    {
       "path": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
       "sha256": "85726ee8171fa5edc4f4feec83a4c0157d1377aaf241559075f77a0b6aaa4487",
       "size": 4639
@@ -1629,6 +1649,11 @@
       "size": 2676
     },
     {
+      "path": "docs/codex/handoffs/PREP_FINAL_PR_06_08_REPO_REALITY_INTAKE.md",
+      "sha256": "9e7d03b99e5ce990278f440410a77d5074f20971c21b22599b316848e997277f",
+      "size": 5741
+    },
+    {
       "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
       "sha256": "c6c62c72f853e2388f7ee6b7a79d4fbc422448e6662d4d1b21d81a9f66f3da22",
       "size": 2015
@@ -1732,6 +1757,31 @@
       "path": "docs/codex/handoffs/PR_32_B6_THOR_COMPACT_HANDOFF_PROMPT.md",
       "sha256": "029ffe971dbe19751e0ce42b694a2ef9e5c893726f8668e27afcea1686111f32",
       "size": 655
+    },
+    {
+      "path": "docs/codex/pattern_mines/PREP_FINAL_PR_06_08_SOURCE_PATTERN_SYNTHESIS.md",
+      "sha256": "a5af4f5ac078fa8bd5524a291d0107c84915468819ccbc60cee06703f0d6a50b",
+      "size": 4140
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_06_OPERATIONAL_SEED_SPINE_CLAUDE_PROMPT.md",
+      "sha256": "569db1e94ead66c9f588d469aa064db2d81b693ccb705ea37330e0f83f7b24d5",
+      "size": 4058
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_07_DFAS_FIELD_SELECTION_CLAUDE_PROMPT.md",
+      "sha256": "3d355db9cac0c299d0eaade676fb960b96ab7f262c4db7dc73f09993853450af",
+      "size": 3652
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_08_PROJECTION_SHADOW_CANDIDATE_CLAUDE_PROMPT.md",
+      "sha256": "c6d2a95d389d4c1c4bb3a9138cb31c32932f3549b35f697013cc690e8fd77051",
+      "size": 3824
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE_CLAUDE_PROMPT.md",
+      "sha256": "a448830a4b874ca92d8bbc1ce99afa96c4e2405a2f4eb61f0c9ee709473ba463",
+      "size": 2045
     },
     {
       "path": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
@@ -1912,6 +1962,11 @@
       "path": "docs/codex/reports/LRH-PR-18_RETURN_REPORT.md",
       "sha256": "ebb43f5bb825e9b998e05e467be04f90a86a56f563d6044fb5cf68dba1a6d823",
       "size": 21713
+    },
+    {
+      "path": "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
+      "sha256": "ff7d6c1e88e65ab34842ea3747cb1ad876bb6452e3ca096156b235e3a91f069e",
+      "size": 962
     },
     {
       "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
@@ -2625,8 +2680,8 @@
     },
     {
       "path": "docs/rebaseline/FINAL_100_PERCENT_ACCEPTANCE_DEFINITION_V1.md",
-      "sha256": "d4678e064948c4ddd7e7d6d9a932eae2b41d5dbb4d33f0c301fdc72bde8f6fea",
-      "size": 2320
+      "sha256": "8bbb1d90c0b4a15ac93855ff782c9f7abc1aed9f0a73560277c3137a33bf8f78",
+      "size": 6515
     },
     {
       "path": "docs/rebaseline/FINAL_BUILDABLE_SLICE_CATALOG_V1.md",
@@ -2640,8 +2695,8 @@
     },
     {
       "path": "docs/rebaseline/FINAL_MINIMAL_ROAD_TO_100_PR_ROADMAP_V1.md",
-      "sha256": "5f1f0de8b5cfa7bf2c93c505d39419dbf1b9ca682af69a39e49f92486b50785d",
-      "size": 6137
+      "sha256": "bba79128c113232b8d8e21ffe5bdf0aea76735987d113785c8be75848c469021",
+      "size": 10674
     },
     {
       "path": "docs/rebaseline/FINAL_PR_01_SIMPLE_LOCAL_HUB.md",
@@ -2692,6 +2747,11 @@
       "path": "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
       "sha256": "81fd91b2b49850e7836eef521e6151692b29e9d038a83b061e6c646e94999d0f",
       "size": 5144
+    },
+    {
+      "path": "docs/rebaseline/PREP_FINAL_PR_06_08_OPERATIONAL_SEED_DFAS_PROJECTION_PLAN.md",
+      "sha256": "486b06b54422fc83484c1d3b4963f80b41cbcf613b04fdcaf378918ba155330c",
+      "size": 3159
     },
     {
       "path": "docs/rebaseline/REBASELINE_DECISION_RECORD_V1.md",
@@ -3950,8 +4010,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "fa6918fbf54656b51e20db41835e762c387b2a8182f857fd53401a40eae9d46e",
-      "size": 171429
+      "sha256": "e9ed8e5fc1e91ecae5e548320f37bf38d7b147058fa67515ad630b9d453d042c",
+      "size": 190647
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -5380,8 +5440,8 @@
     },
     {
       "path": "registries/final_100_percent_acceptance_definition_v1.json",
-      "sha256": "94fb5b01a3b923c94a92a0fafed55236e3ff00a59527688150b86b0aa0885c83",
-      "size": 3923
+      "sha256": "7d83ccf3aeb7e2243ec30b664a74c77dc8b75221647a220f12122e97b9bb8f8a",
+      "size": 6355
     },
     {
       "path": "registries/final_buildable_slice_catalog_v1.json",
@@ -5395,8 +5455,8 @@
     },
     {
       "path": "registries/final_minimal_road_to_100_pr_roadmap_v1.json",
-      "sha256": "b407d278503cc618db9b82babb9d1522e793e29c4d2c80c32d3da19918a281ba",
-      "size": 12315
+      "sha256": "d3fc585228da526f78588dae9f2ff4845ce87654b70174fdbe658f74ab0ca905",
+      "size": 20226
     },
     {
       "path": "registries/final_pr_01_simple_local_hub_registry.json",
@@ -5582,6 +5642,11 @@
       "path": "registries/pre_llm_route_registry.json",
       "sha256": "80f2d7815f8d3835c9b0054e062337202aeec7e638c7f72b9debb9e2489db677",
       "size": 876
+    },
+    {
+      "path": "registries/prep_final_pr_06_08_plan.v1.json",
+      "sha256": "5f53254c7ea53e84f831a69613cc3cddb5455139b1db46f0a73e6f1d46fac45b",
+      "size": 4974
     },
     {
       "path": "registries/public_build_readiness_registry.json",
@@ -6277,6 +6342,26 @@
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
       "sha256": "b674a6c9b91d825748be07b3b856fba325c51e2a2f2bbe7fbf78fd48784df225",
       "size": 73792
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_plan_report.json",
+      "sha256": "f37984228be810bf46bbea5e1d45dd5ecfb67f32b624996c77adf01939e9bbe4",
+      "size": 5024
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_report.json",
+      "sha256": "8b9f9f8a706c9e472c3dec8888e18eb105bd6a76ed30ac5a1f02ed240f0ea05b",
+      "size": 430
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_roadmap_audit.json",
+      "sha256": "6ef9e0829b81ed4f54208638fc0920a9517b710f6d57960d6cacb9a293336e4a",
+      "size": 1140
+    },
+    {
+      "path": "reports/prep_final_pr_06_08_source_pattern_synthesis.json",
+      "sha256": "abfaab6d4c4111d287e4d136aed4a6b2e1af1f35abedb257e21ddd2a729177ba",
+      "size": 5449
     },
     {
       "path": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
@@ -7705,8 +7790,8 @@
     },
     {
       "path": "tests/test_final_road_to_100_rebaseline_audit.py",
-      "sha256": "0e66085519901c6d34bf688627149d4874b92d798326dded345ad3def4932a60",
-      "size": 17119
+      "sha256": "8367fd4e3d759e548b7ea9d478d24cea7441523b53dcddcd8b1739d953f4ef3b",
+      "size": 26855
     },
     {
       "path": "tests/test_forbidden_control_pattern_registry.py",
@@ -7842,6 +7927,11 @@
       "path": "tests/test_pre_llm_intelligence_amplification.py",
       "sha256": "4896c3df2df97a4d5f20d823a63d34d1b35f78f3a35b0a5744771694847d79dd",
       "size": 1387
+    },
+    {
+      "path": "tests/test_prep_final_pr_06_08.py",
+      "sha256": "9c3373cfad97bce65feca22fb9ae2e0667d40faea0c834e6ef656a70d756fa32",
+      "size": 5185
     },
     {
       "path": "tests/test_product_pattern_atom_hub_lock.py",
@@ -8025,8 +8115,13 @@
     },
     {
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
-      "sha256": "281d62ccd7a4740750ed350e78aa36ae95adefd96b531bb16522884b56e8ce9a",
-      "size": 17714
+      "sha256": "f8ef4fb5786a379ed51051e140067e07df17d739c10afbf44a24ed5c09696780",
+      "size": 26803
+    },
+    {
+      "path": "tools/rebaseline/check_prep_final_pr_06_08.py",
+      "sha256": "baf82b817144d8f5f19729dacad52799fa9ca3ec776afe2c84b521a334199477",
+      "size": 9594
     },
     {
       "path": "tools/rebaseline/check_simple_local_hub.py",
@@ -8158,5 +8253,6 @@
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
     }
-  ]
+  ],
+  "generated_by": "prep_final_pr_06_08_manifest_update"
 }

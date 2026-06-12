@@ -2,7 +2,17 @@
   "acceptance_id": "final_100_percent_acceptance_definition_v1",
   "all_non_goals_remain_non_claims": true,
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
-  "handoff_first_acceptance_statement": "Handoff-First receipts are mandatory for 100%; Generic and Thor profiles are mandatory; Y and Mjölnir are structured profile contracts, not external runtime claims.",
+  "final_pr_06_09_preparation_acceptance_items": [
+    "operational_seed_spine_prepared",
+    "field_selection_spine_prepared",
+    "projection_spine_prepared",
+    "final_pr_06_claude_prompt_ready",
+    "final_pr_07_claude_prompt_ready",
+    "final_pr_08_claude_prompt_ready",
+    "final_pr_09_release_prompt_skeleton_ready",
+    "release_closure_shifted_to_final_pr_09"
+  ],
+  "handoff_first_acceptance_statement": "Handoff-First receipts are mandatory for 100%; Generic and Thor profiles are mandatory; Y and Mj\u00f6lnir are structured profile contracts, not external runtime claims.",
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",
@@ -76,9 +86,18 @@
     "handoff_to_trace_receipt_mapping_receipt",
     "dev_mode_handoff_viewer_visible",
     "y_handoff_profile_contract_defined",
-    "mjolnir_handoff_profile_contract_defined"
+    "mjolnir_handoff_profile_contract_defined",
+    "operational_seed_spine_prepared",
+    "field_selection_spine_prepared",
+    "projection_spine_prepared",
+    "final_pr_06_claude_prompt_ready",
+    "final_pr_07_claude_prompt_ready",
+    "final_pr_08_claude_prompt_ready",
+    "final_pr_09_release_prompt_skeleton_ready",
+    "release_closure_shifted_to_final_pr_09"
   ],
   "qirc_acceptance_statement": "QIRC Core and required local substrate rings are mandatory for 100%; optional feed/thread/discovery/pubsub/federation rings remain non-mandatory and non-claims.",
+  "release_closure_shift": "FINAL-PR-09 runs after FINAL-PR-06, FINAL-PR-07, and FINAL-PR-08.",
   "source_refs": [
     "README.md",
     "START_HERE.md",
@@ -120,13 +139,21 @@
     "App/agent packet flow status",
     "Handoff Context",
     "Handoff profile",
-    "Handoff → Universal Work mapping",
-    "Handoff → ModelWorkPacket mapping",
-    "Handoff → QIRC channel mapping",
-    "Handoff → Trace/Receipt mapping",
+    "Handoff \u2192 Universal Work mapping",
+    "Handoff \u2192 ModelWorkPacket mapping",
+    "Handoff \u2192 QIRC channel mapping",
+    "Handoff \u2192 Trace/Receipt mapping",
     "Normal user handoff status: prepared",
     "Normal user handoff status: candidate-ready",
     "Normal user handoff status: blocked",
-    "Normal user handoff status: needs context"
+    "Normal user handoff status: needs context",
+    "operational_seed_spine_prepared",
+    "field_selection_spine_prepared",
+    "projection_spine_prepared",
+    "final_pr_06_claude_prompt_ready",
+    "final_pr_07_claude_prompt_ready",
+    "final_pr_08_claude_prompt_ready",
+    "final_pr_09_release_prompt_skeleton_ready",
+    "release_closure_shifted_to_final_pr_09"
   ]
 }

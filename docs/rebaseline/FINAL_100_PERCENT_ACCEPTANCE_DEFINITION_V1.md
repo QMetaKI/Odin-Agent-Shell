@@ -87,3 +87,20 @@ Repo-reality findings:
 Roadmap placement: FINAL-PR-02 carries Handoff-First policy, generic profile, and handoff-to-Universal-Work mapping. FINAL-PR-03 carries QIRC/Trace/Receipt mapping and Dev Mode Handoff Viewer. FINAL-PR-04 carries Thor/Y/Mjölnir profile contracts and file/spool/CLI/agent handoff intake. FINAL-PR-05 carries final acceptance/docs cleanup. Final PR count remains 5.
 
 Non-claims: this audit amendment does not implement runtime behavior, does not call providers or models, does not execute network/API-key paths, does not grant app apply/state/external-send authority, does not bypass Universal Work or Final Gate, and does not claim external Thor/Y/Y-node/Mjölnir/Godot/Windows/engine runtime proof.
+
+## v1 Amendment: FINAL-PR-06..09 Preparation Acceptance Items
+
+The acceptance definition now recognizes that full Release / Closure moves to FINAL-PR-09, after FINAL-PR-06 Operational Seed Spine, FINAL-PR-07 Field Selection / Coherence / Review Axes, and FINAL-PR-08 Projection Spine / Expression Packet / Shadow Candidate Graph.
+
+Preparation acceptance items added:
+
+- `operational_seed_spine_prepared`
+- `field_selection_spine_prepared`
+- `projection_spine_prepared`
+- `final_pr_06_claude_prompt_ready`
+- `final_pr_07_claude_prompt_ready`
+- `final_pr_08_claude_prompt_ready`
+- `final_pr_09_release_prompt_skeleton_ready`
+- `release_closure_shifted_to_final_pr_09`
+
+These items are preparation criteria only. They do not mark PR06, PR07, PR08, or PR09 complete and do not claim runtime, provider/model, public network, app authority, production readiness, or security certification proof.

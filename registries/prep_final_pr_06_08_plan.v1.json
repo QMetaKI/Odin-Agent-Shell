@@ -1,0 +1,131 @@
+{
+  "allowed_scopes": [
+    "docs",
+    "registries",
+    "reports",
+    "prep validator",
+    "prep tests",
+    "CLI hook for prep validation",
+    "SYSTEM_MAP and FILE_MANIFEST updates"
+  ],
+  "app_owned_apply": true,
+  "candidate_only": true,
+  "claim_boundary": "planning_only_not_runtime_provider_model_network_app_apply_security_or_release_proof",
+  "dependencies": {
+    "FINAL-PR-06": [
+      "prep PR merged",
+      "FINAL-PR-05 baseline present"
+    ],
+    "FINAL-PR-07": [
+      "FINAL-PR-06 merged"
+    ],
+    "FINAL-PR-08": [
+      "FINAL-PR-07 merged"
+    ],
+    "FINAL-PR-09": [
+      "FINAL-PR-06 merged",
+      "FINAL-PR-07 merged",
+      "FINAL-PR-08 merged"
+    ]
+  },
+  "expected_audits": [
+    "senior review audit",
+    "code review audit",
+    "roadmap audit",
+    "return report"
+  ],
+  "expected_cli": [
+    "validate-operational-seed-spine",
+    "explain-seed-route --demo",
+    "prove-operational-seed-spine",
+    "validate-field-selection",
+    "explain-field-route --demo",
+    "prove-field-selection",
+    "validate-projection-spine",
+    "explain-projection --demo",
+    "prove-projection-spine"
+  ],
+  "expected_files": {
+    "FINAL-PR-06": [
+      "odin/operational_seed_spine/__init__.py",
+      "odin/operational_seed_spine/seeds.py",
+      "odin/operational_seed_spine/role_profiles.py",
+      "odin/operational_seed_spine/seed_packs.py",
+      "odin/operational_seed_spine/compiler.py",
+      "odin/operational_seed_spine/proof.py",
+      "tools/rebaseline/check_operational_seed_spine.py",
+      "tests/test_final_pr_06_operational_seed_spine.py",
+      "reports/final_pr_06_operational_seed_spine_proof_packet.json"
+    ],
+    "FINAL-PR-07": [
+      "odin/field_selection/__init__.py",
+      "odin/field_selection/dfas.py",
+      "odin/field_selection/coherence.py",
+      "odin/field_selection/review_axes.py",
+      "odin/field_selection/route_scoring.py",
+      "odin/field_selection/proof.py",
+      "tools/rebaseline/check_field_selection.py",
+      "tests/test_final_pr_07_field_selection.py",
+      "reports/final_pr_07_field_selection_proof_packet.json"
+    ],
+    "FINAL-PR-08": [
+      "odin/projection_spine/__init__.py",
+      "odin/projection_spine/expression_packet.py",
+      "odin/projection_spine/shadow_candidate_graph.py",
+      "odin/projection_spine/materialization_bridge.py",
+      "odin/projection_spine/proof.py",
+      "tools/rebaseline/check_projection_spine.py",
+      "tests/test_final_pr_08_projection_spine.py",
+      "reports/final_pr_08_projection_spine_proof_packet.json"
+    ]
+  },
+  "expected_proof_packets": [
+    "reports/final_pr_06_operational_seed_spine_proof_packet.json",
+    "reports/final_pr_07_field_selection_proof_packet.json",
+    "reports/final_pr_08_projection_spine_proof_packet.json"
+  ],
+  "expected_tests": [
+    "tests/test_final_pr_06_operational_seed_spine.py",
+    "tests/test_final_pr_07_field_selection.py",
+    "tests/test_final_pr_08_projection_spine.py"
+  ],
+  "expected_validators": [
+    "tools/rebaseline/check_operational_seed_spine.py",
+    "tools/rebaseline/check_field_selection.py",
+    "tools/rebaseline/check_projection_spine.py"
+  ],
+  "forbidden_scopes": [
+    "odin/operational_seed_spine runtime implementation in prep PR",
+    "odin/field_selection runtime implementation in prep PR",
+    "odin/projection_spine runtime implementation in prep PR",
+    "remote provider calls",
+    "API key reads",
+    "public QIRC/network/federation",
+    "app mutation or external send"
+  ],
+  "local_only": true,
+  "non_goals": [
+    "do not implement PR06-08 runtime code in prep PR",
+    "no provider execution",
+    "no model inference",
+    "no public network",
+    "no app apply/state/external-send authority",
+    "no production readiness claim",
+    "no security certification claim",
+    "no source-pattern runtime import"
+  ],
+  "objectives": {
+    "FINAL-PR-06": "Implement neutral operational intent seeds, role profiles, seed packs, seed routes, and a seed-to-work-capsule compiler.",
+    "FINAL-PR-07": "Implement deterministic field selection, dominance/suppression metadata, coherence scores, review axes, route scores, hole density, and center-first routing.",
+    "FINAL-PR-08": "Implement projection layers that produce human-clear projection, expression packet, machine projection, shadow candidate graph, materialization bridge, and projection receipt.",
+    "FINAL-PR-09": "Run release / closure / full acceptance after FINAL-PR-06 through FINAL-PR-08 without adding new architecture unless needed to close gaps."
+  },
+  "plan_id": "prep_final_pr_06_08_plan_v1",
+  "roadmap_amendment": {
+    "FINAL-PR-06": "Operational Seed Spine + Role Profiles + Seed-to-Work-Capsule Compiler",
+    "FINAL-PR-07": "DFAS Field Selection + Coherence / Review Axes + Route Scoring",
+    "FINAL-PR-08": "Projection Spine + Expression Packet + Shadow Candidate Graph",
+    "FINAL-PR-09": "Release / Closure / Full Acceptance"
+  },
+  "status": "prepared_not_complete"
+}

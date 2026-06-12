@@ -1,0 +1,205 @@
+{
+  "app_owned_apply": true,
+  "candidate_only": true,
+  "claim_boundary": "source_patterns_advisory_only_not_truth_not_authority_not_runtime_import",
+  "local_only": true,
+  "report_id": "prep_final_pr_06_08_source_pattern_synthesis",
+  "required_note": "Source patterns are inspiration only. They are not truth, not authority, not runtime import, and not product claims.",
+  "source_classes": [
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "source-specific metaphysics"
+      ],
+      "included_for_pr06": true,
+      "included_for_pr07": true,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "operational_seed",
+        "role_profile",
+        "seed_route"
+      ],
+      "rejected": [
+        "authority language"
+      ],
+      "relevant_patterns": [
+        "work intent priors",
+        "route posture",
+        "pre-model compression"
+      ],
+      "source_class": "q_metamodell_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "large pattern libraries"
+      ],
+      "included_for_pr06": true,
+      "included_for_pr07": true,
+      "included_for_pr08": false,
+      "neutralized_names": [
+        "intent_seed",
+        "seed_pack",
+        "token_budget"
+      ],
+      "rejected": [
+        "raw runtime import"
+      ],
+      "relevant_patterns": [
+        "repeatable task shapes",
+        "local worker token economy"
+      ],
+      "source_class": "cutk1_pattern_reserve"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "complex stochastic scoring"
+      ],
+      "included_for_pr06": false,
+      "included_for_pr07": true,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "field_selection",
+        "dominance_field",
+        "suppressed_field",
+        "hole_density"
+      ],
+      "rejected": [
+        "truth claims"
+      ],
+      "relevant_patterns": [
+        "dominance/suppression",
+        "center-first routing",
+        "hole density"
+      ],
+      "source_class": "dfas_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "source labels"
+      ],
+      "included_for_pr06": false,
+      "included_for_pr07": true,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "orchestration_profile",
+        "route_score",
+        "selected_route"
+      ],
+      "rejected": [
+        "Q-style new artifact names"
+      ],
+      "relevant_patterns": [
+        "candidate route orchestration",
+        "selected route explanation"
+      ],
+      "source_class": "qstar_orchestration_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "public network forms"
+      ],
+      "included_for_pr06": true,
+      "included_for_pr07": true,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "event_core",
+        "event_bus",
+        "lineage_trace"
+      ],
+      "rejected": [
+        "public federation"
+      ],
+      "relevant_patterns": [
+        "local event routing hints",
+        "trace receipts"
+      ],
+      "source_class": "qirc_event_spine_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "prose execution"
+      ],
+      "included_for_pr06": false,
+      "included_for_pr07": false,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "projection_spine"
+      ],
+      "rejected": [
+        "narrative authority"
+      ],
+      "relevant_patterns": [
+        "human-clear projection mapping"
+      ],
+      "source_class": "narrative_aorta_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "magical naming"
+      ],
+      "included_for_pr06": false,
+      "included_for_pr07": false,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "expression_packet"
+      ],
+      "rejected": [
+        "religious/mystical framing"
+      ],
+      "relevant_patterns": [
+        "expression-level intermediate packet"
+      ],
+      "source_class": "fairy_dsl_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "executable shadow runtime"
+      ],
+      "included_for_pr06": false,
+      "included_for_pr07": false,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "shadow_candidate_graph",
+        "materialization_bridge"
+      ],
+      "rejected": [
+        "runtime proof claim"
+      ],
+      "relevant_patterns": [
+        "compile-near candidate graph"
+      ],
+      "source_class": "shadow_runtime_memory"
+    },
+    {
+      "claim_boundary": "advisory_only_candidate_only_no_runtime_import",
+      "deferred": [
+        "release closure"
+      ],
+      "included_for_pr06": true,
+      "included_for_pr07": true,
+      "included_for_pr08": true,
+      "neutralized_names": [
+        "work_capsule",
+        "lineage_trace",
+        "proof_packet"
+      ],
+      "rejected": [
+        "authority drift"
+      ],
+      "relevant_patterns": [
+        "Universal Work",
+        "Candidate Artifact",
+        "proof chain",
+        "execution gate"
+      ],
+      "source_class": "current_odin_repo_reality"
+    }
+  ]
+}

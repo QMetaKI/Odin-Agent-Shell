@@ -255,7 +255,7 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
         add(checks, violations, required.lower() in roadmap_blob, f"roadmap includes QIRC required ring: {required}")
     for required in ["handoff_first_pre_intake_policy", "generic_handoff_profile", "thor_handoff_profile", "y_handoff_profile", "mjolnir_handoff_profile", "handoff_to_universal_work_mapping", "handoff_to_qirc_channel_mapping", "handoff_to_trace_receipt_mapping", "dev_mode_handoff_viewer"]:
         add(checks, violations, required in roadmap_blob, f"roadmap integrates handoff capability: {required}")
-    add(checks, violations, pr_count <= 5, "roadmap integrates Handoff-First without increasing final PR count beyond 5")
+    add(checks, violations, pr_count <= 5 or roadmap.get("final_pr_06_09_amendment", {}).get("closure_moves_to") == "FINAL-PR-09", "roadmap integrates Handoff-First without increasing final PR count beyond 5 or documents explicit FINAL-PR-09 closure shift")
     for status in REQUIRED_HANDOFF_NORMAL_STATUSES:
         add(checks, violations, status in roadmap_blob, f"normal-user handoff status planned: {status}")
     add(checks, violations, "raw handoff internals by default" in roadmap_blob, "normal UI does not expose raw handoff internals by default")

@@ -1,5 +1,25 @@
 {
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "final_pr_06_09_amendment": {
+    "closure_moves_to": "FINAL-PR-09",
+    "items": [
+      "operational_seed_spine_prepared",
+      "field_selection_spine_prepared",
+      "projection_spine_prepared",
+      "final_pr_06_claude_prompt_ready",
+      "final_pr_07_claude_prompt_ready",
+      "final_pr_08_claude_prompt_ready",
+      "final_pr_09_release_prompt_skeleton_ready",
+      "release_closure_shifted_to_final_pr_09"
+    ],
+    "roadmap": [
+      "FINAL-PR-06 Operational Seed Spine + Role Profiles + Seed-to-Work-Capsule Compiler",
+      "FINAL-PR-07 DFAS Field Selection + Coherence / Review Axes + Route Scoring",
+      "FINAL-PR-08 Projection Spine + Expression Packet + Shadow Candidate Graph",
+      "FINAL-PR-09 Release / Closure / Full Acceptance"
+    ],
+    "status": "prepared_not_complete"
+  },
   "handoff_first_extension_v2": {
     "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
     "definition": "Handoff-First is mandatory and absorbed into the existing five final PRs."
@@ -8,9 +28,9 @@
     "Handoff-First is mandatory for 100%.",
     "Generic profile is mandatory.",
     "Thor profile is mandatory.",
-    "Y and Mjölnir profiles are mandatory as structured profile contracts, not runtime claims."
+    "Y and Mj\u00f6lnir profiles are mandatory as structured profile contracts, not runtime claims."
   ],
-  "more_than_five_justification": null,
+  "more_than_five_justification": "Release / Closure shifts to FINAL-PR-09 so operational seed, field selection, and projection spines can land as bounded deterministic PRs before full acceptance.",
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",
@@ -22,7 +42,7 @@
     "not_app_state_authority",
     "not_external_send_authority"
   ],
-  "preferred_max": 5,
+  "preferred_max": 9,
   "prs": [
     {
       "commands_added": [
@@ -139,7 +159,7 @@
         "connected_apps_bridge_view has implementation or explicit non-goal proof boundary",
         "demo_universal_work_flow has implementation or explicit non-goal proof boundary",
         "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
-        "demo flow shows raw demo request → handoff → Universal Work → Candidate",
+        "demo flow shows raw demo request \u2192 handoff \u2192 Universal Work \u2192 Candidate",
         "app bridge request becomes Handoff Context before Universal Work"
       ],
       "tests_required": [
@@ -208,7 +228,7 @@
         "activity_trace_receipt_view has implementation or explicit non-goal proof boundary",
         "dev_mode_diagnostics has implementation or explicit non-goal proof boundary",
         "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
-        "Dev Mode shows Handoff Context → Universal Work → ModelWorkPacket chain",
+        "Dev Mode shows Handoff Context \u2192 Universal Work \u2192 ModelWorkPacket chain",
         "handoff_to_qirc_channel_mapping and handoff_to_trace_receipt_mapping preserve QIRC boundaries"
       ],
       "tests_required": [
@@ -253,7 +273,7 @@
         "no hidden remote fallback",
         "no external Thor runtime proof",
         "no external Y/YNode runtime proof",
-        "no external Mjölnir runtime proof",
+        "no external Mj\u00f6lnir runtime proof",
         "no Godot runtime proof",
         "no Windows target-host proof from profile contracts",
         "no handoff direct model route",
@@ -283,8 +303,8 @@
         "local_provider_probe has implementation or explicit non-goal proof boundary",
         "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation",
         "file/spool packets first become Handoff Context",
-        "CLI/agent packets first become Thor/Y/Mjölnir/generic Handoff Context",
-        "Thor/Y/Mjölnir profile contracts are included without external runtime proof"
+        "CLI/agent packets first become Thor/Y/Mj\u00f6lnir/generic Handoff Context",
+        "Thor/Y/Mj\u00f6lnir profile contracts are included without external runtime proof"
       ],
       "tests_required": [
         "test coverage for runtime_security_smoke",
@@ -353,10 +373,126 @@
       "ui_surfaces_added": [
         "final_acceptance_cleanup"
       ]
+    },
+    {
+      "goal": "Operational Seed Spine + Role Profiles + Seed-to-Work-Capsule Compiler",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 6,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-06",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "status": "planned_not_complete",
+      "success_criteria": [
+        "bounded implementation or closure verification with receipts",
+        "candidate-only boundaries preserved"
+      ],
+      "tests_required": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "goal": "DFAS Field Selection + Coherence / Review Axes + Route Scoring",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 7,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-07",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "status": "planned_not_complete",
+      "success_criteria": [
+        "bounded implementation or closure verification with receipts",
+        "candidate-only boundaries preserved"
+      ],
+      "tests_required": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "goal": "Projection Spine + Expression Packet + Shadow Candidate Graph",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 8,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-08",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "status": "planned_not_complete",
+      "success_criteria": [
+        "bounded implementation or closure verification with receipts",
+        "candidate-only boundaries preserved"
+      ],
+      "tests_required": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ]
+    },
+    {
+      "goal": "Release / Closure / Full Acceptance",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 9,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-09",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "status": "planned_not_complete",
+      "success_criteria": [
+        "bounded implementation or closure verification with receipts",
+        "candidate-only boundaries preserved"
+      ],
+      "tests_required": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ]
     }
   ],
   "qirc_roadmap_statement": "QIRC Core is mandatory for 100%. Browser bridge, SDK/App event mapping, File/Spool, CLI/Agent Pipe, Trace/Receipt mapping, and Dev Mode event viewer are mandatory for the final Local Runtime Hub target. Feed/thread/discovery/pubsub/federation rings are optional/deferred.",
-  "recommended_pr_count": 5,
+  "recommended_pr_count": 9,
   "roadmap_id": "final_minimal_road_to_100_pr_roadmap_v1",
   "source_refs": [
     "README.md",

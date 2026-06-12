@@ -2656,6 +2656,29 @@ def validate_final_pr_05_execution_gate() -> list[str]:
     return []
 
 
+
+def validate_prep_final_pr_06_08() -> list[str]:
+    validator = ROOT / "tools" / "rebaseline" / "check_prep_final_pr_06_08.py"
+    spec = importlib.util.spec_from_file_location("check_prep_final_pr_06_08", validator)
+    if spec is None or spec.loader is None:
+        return ["unable to load prep FINAL-PR-06..08 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "prep_final_pr_06_08_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"prep-final-pr-06-08: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"prep FINAL-PR-06..08 validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2715,6 +2738,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_03_qirc_devmode())
     errors.extend(validate_final_pr_04_provider_probe_security())
     errors.extend(validate_final_pr_05_execution_gate())
+    errors.extend(validate_prep_final_pr_06_08())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2883,6 +2907,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("runtime-security-smoke")
     # FINAL-PR-05: Execution Gate + Proof Chain + Ladder Scaffold
     sub.add_parser("validate-final-pr-05-execution-gate")
+    sub.add_parser("validate-prep-final-pr-06-08")
     sub.add_parser("prove-final-pr-05-execution-gate")
     sub.add_parser("prove-final-pr-proof-chain")
     ladder_p = sub.add_parser("prove-final-pr-ladder-scaffold")
@@ -3630,6 +3655,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_04_provider_probe_security()
     elif args.cmd == "validate-final-pr-05-execution-gate":
         errors = validate_final_pr_05_execution_gate()
+    elif args.cmd == "validate-prep-final-pr-06-08":
+        errors = validate_prep_final_pr_06_08()
     else:
         errors = validate_all()
 

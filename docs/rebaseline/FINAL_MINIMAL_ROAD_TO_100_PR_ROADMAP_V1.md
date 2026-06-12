@@ -78,3 +78,25 @@ Repo-reality findings:
 Roadmap placement: FINAL-PR-02 carries Handoff-First policy, generic profile, and handoff-to-Universal-Work mapping. FINAL-PR-03 carries QIRC/Trace/Receipt mapping and Dev Mode Handoff Viewer. FINAL-PR-04 carries Thor/Y/Mjölnir profile contracts and file/spool/CLI/agent handoff intake. FINAL-PR-05 carries final acceptance/docs cleanup. Final PR count remains 5.
 
 Non-claims: this audit amendment does not implement runtime behavior, does not call providers or models, does not execute network/API-key paths, does not grant app apply/state/external-send authority, does not bypass Universal Work or Final Gate, and does not claim external Thor/Y/Y-node/Mjölnir/Godot/Windows/engine runtime proof.
+
+## v1 Amendment: FINAL-PR-06..09 Operational Seed / Field Selection / Projection Shift
+
+This amendment moves Release / Closure from FINAL-PR-05 follow-up framing to FINAL-PR-09 because repo-real review found three deterministic preparation layers that should land before full acceptance.
+
+- FINAL-PR-06: Operational Seed Spine + Role Profiles + Seed-to-Work-Capsule Compiler.
+- FINAL-PR-07: DFAS Field Selection + Coherence / Review Axes + Route Scoring.
+- FINAL-PR-08: Projection Spine + Expression Packet + Shadow Candidate Graph.
+- FINAL-PR-09: Release / Closure / Full Acceptance.
+
+Acceptance items added for preparation, not completion:
+
+- `operational_seed_spine_prepared`
+- `field_selection_spine_prepared`
+- `projection_spine_prepared`
+- `final_pr_06_claude_prompt_ready`
+- `final_pr_07_claude_prompt_ready`
+- `final_pr_08_claude_prompt_ready`
+- `final_pr_09_release_prompt_skeleton_ready`
+- `release_closure_shifted_to_final_pr_09`
+
+Non-claims: PR06..09 are not complete in this prep PR. This amendment does not add provider/model execution, public network, app apply/state/external-send authority, production readiness, security certification, religious interpretation, source-pattern runtime import, or hidden authority.

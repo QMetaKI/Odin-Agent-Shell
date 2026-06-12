@@ -1,0 +1,14 @@
+{
+  "app_owned_apply": true,
+  "candidate_only": true,
+  "claim_boundary": "prep_validator_only_not_runtime_provider_model_network_app_authority_security_or_release_proof",
+  "error_count": 0,
+  "errors": [],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "local_only": true,
+  "repo_root": "/workspace/Odin-Agent-Shell",
+  "report_id": "odin.prep_final_pr_06_08_check",
+  "status": "ok",
+  "warning_count": 0,
+  "warnings": []
+}
