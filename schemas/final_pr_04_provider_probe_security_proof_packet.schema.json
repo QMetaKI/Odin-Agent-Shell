@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-04 Provider Probe Security Proof Packet Schema",
+  "description": "Schema for the FINAL-PR-04 provider probe and runtime security smoke proof packet.",
+  "claim_boundary": "final_pr_04_provider_probe_readiness_not_model_execution_not_security_certification",
+  "candidate_only": true,
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "status",
+    "candidate_only",
+    "local_only",
+    "provider_probe_visible",
+    "provider_policy_present",
+    "provider_execution",
+    "model_inference",
+    "api_key_reads",
+    "external_network",
+    "qirc_provider_events_visible",
+    "runtime_security_smoke",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_final_pr_04_provider_probe_security_proof_packet"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "ok_with_known_gaps", "partial"]
+    },
+    "candidate_only": {"type": "boolean", "const": true},
+    "local_only": {"type": "boolean", "const": true},
+    "provider_probe_visible": {"type": "boolean"},
+    "provider_policy_present": {"type": "boolean"},
+    "provider_execution": {"type": "boolean", "const": false},
+    "model_inference": {"type": "boolean", "const": false},
+    "api_key_reads": {"type": "boolean", "const": false},
+    "external_network": {"type": "boolean", "const": false},
+    "qirc_provider_events_visible": {"type": "boolean"},
+    "runtime_security_smoke": {"type": "string"},
+    "not_proven": {
+      "type": "array",
+      "items": {"type": "string"},
+      "contains": {"enum": ["production_readiness", "security_certification", "actual_model_inference"]}
+    },
+    "claim_boundary": {"type": "string"}
+  }
+}

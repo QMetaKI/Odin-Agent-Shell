@@ -2604,6 +2604,32 @@ def validate_final_pr_03_qirc_devmode() -> list[str]:
     return []
 
 
+def validate_final_pr_04_provider_probe_security() -> list[str]:
+    """Validate FINAL-PR-04 Provider Probe + Runtime Security Smoke."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_04_provider_probe_security.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-04 validator: tools/rebaseline/check_final_pr_04_provider_probe_security.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_04_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-04 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_04_provider_probe_security_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-04: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-04 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2661,6 +2687,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_simple_local_hub())
     errors.extend(validate_final_pr_02_model_apps_demo())
     errors.extend(validate_final_pr_03_qirc_devmode())
+    errors.extend(validate_final_pr_04_provider_probe_security())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2821,6 +2848,12 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-simple-local-hub")
     prove_simple_hub_p = sub.add_parser("prove-simple-local-hub")
     prove_simple_hub_p.add_argument("--host", default="127.0.0.1")
+    # FINAL-PR-04: Provider Probe + Runtime Security Smoke
+    sub.add_parser("validate-final-pr-04-provider-probe-security")
+    sub.add_parser("prove-final-pr-04-provider-probe-security")
+    sub.add_parser("provider-status")
+    sub.add_parser("provider-probe")
+    sub.add_parser("runtime-security-smoke")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3012,6 +3045,54 @@ def main(argv: list[str] | None = None) -> int:
         write_proof_report()
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    # FINAL-PR-04: Provider Probe + Runtime Security Smoke
+    if args.cmd == "validate-final-pr-04-provider-probe-security":
+        errors = validate_final_pr_04_provider_probe_security()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-04-provider-probe-security: OK")
+        return 0
+
+    if args.cmd == "prove-final-pr-04-provider-probe-security":
+        from odin.providers.proof import persist_proof_packet
+        result = persist_proof_packet(ROOT)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    if args.cmd == "provider-status":
+        from odin.providers.probe import build_provider_status_packet
+        result = build_provider_status_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "provider-probe":
+        from odin.providers.probe import probe_all_providers
+        results = probe_all_providers()
+        from odin.qirc_core.bus import append_event
+        for p in results:
+            append_event(channel="#odin.model", kind="provider_probe_status", source="cli_provider_probe",
+                         payload={k: p.get(k) for k in ("provider_id", "status", "probe_allowed", "execution_allowed",
+                                                          "candidate_only", "local_only", "model_inference", "provider_execution")})
+        result = {
+            "artifact_kind": "odin_provider_probe_results",
+            "candidate_only": True,
+            "local_only": True,
+            "provider_execution": False,
+            "model_inference": False,
+            "providers": results,
+            "claim_boundary": "provider_probe_readiness_not_model_execution",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "runtime-security-smoke":
+        from odin.runtime_security.smoke import run_runtime_security_smoke
+        result = run_runtime_security_smoke(ROOT)
+        print(json.dumps(result.as_dict(), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.status in {"ok"} else 1
 
     # Portable Local Runtime Starter commands (LRH-PR-03)
     if args.cmd == "start":
@@ -3460,6 +3541,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_consolidated_proof_governance()
     elif args.cmd == "validate-final-pr-03-qirc-devmode":
         errors = validate_final_pr_03_qirc_devmode()
+    elif args.cmd == "validate-final-pr-04-provider-probe-security":
+        errors = validate_final_pr_04_provider_probe_security()
     else:
         errors = validate_all()
 

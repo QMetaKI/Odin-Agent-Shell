@@ -1,0 +1,58 @@
+{
+  "registry_id": "final_pr_04_provider_probe_security_registry",
+  "artifact_kind": "odin_final_pr_04_provider_probe_security_registry",
+  "candidate_only": true,
+  "local_only": true,
+  "provider_execution": false,
+  "model_inference": false,
+  "claim_boundary": "final_pr_04_provider_probe_readiness_not_model_execution_not_security_certification",
+  "providers": [
+    {
+      "provider_id": "none",
+      "provider_kind": "none",
+      "probe_allowed": true,
+      "execution_allowed": false,
+      "remote": false,
+      "requires_api_key": false,
+      "candidate_only": true,
+      "default_enabled": true
+    },
+    {
+      "provider_id": "mock",
+      "provider_kind": "mock",
+      "probe_allowed": true,
+      "execution_allowed": false,
+      "remote": false,
+      "requires_api_key": false,
+      "candidate_only": true,
+      "default_enabled": true
+    },
+    {
+      "provider_id": "ollama_candidate",
+      "provider_kind": "local_candidate",
+      "probe_allowed": true,
+      "execution_allowed": false,
+      "remote": false,
+      "requires_api_key": false,
+      "candidate_only": true,
+      "default_enabled": false
+    },
+    {
+      "provider_id": "llama_cpp_candidate",
+      "provider_kind": "local_candidate",
+      "probe_allowed": true,
+      "execution_allowed": false,
+      "remote": false,
+      "requires_api_key": false,
+      "candidate_only": true,
+      "default_enabled": false
+    }
+  ],
+  "security_smoke": {
+    "provider_execution_default": false,
+    "model_inference_default": false,
+    "api_key_reads": false,
+    "external_network": false,
+    "public_bind": false
+  }
+}
