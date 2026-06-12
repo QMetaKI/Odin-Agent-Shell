@@ -43,6 +43,19 @@ REQUIRED_SUPPORT_FILES = [
     "tests/test_final_pr_06_operational_seed_spine.py",
 ]
 
+REQUIRED_DOC_FILES = [
+    "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+    "docs/codex/handoffs/FINAL_PR_06_REPO_COGNITION_SUMMARY.md",
+    "docs/codex/handoffs/FINAL_PR_06_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+    "docs/codex/audits/FINAL_PR_06_OPERATIONAL_SEED_SPINE_AUDIT.md",
+    "docs/codex/audits/FINAL_PR_06_SENIOR_REVIEW.md",
+    "docs/codex/audits/FINAL_PR_06_CODE_REVIEW.md",
+    "docs/codex/audits/FINAL_PR_06_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+    "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md",
+    "reports/final_pr_06_operational_seed_spine_report.json",
+    "reports/final_pr_06_operational_seed_spine_proof_packet.json",
+]
+
 REQUIRED_SEED_PACK_IDS = [
     "core_cognition", "implementation", "evidence_audit",
     "runtime_surface", "boundary_closure", "full_spine",
@@ -236,7 +249,7 @@ def check(repo_root: Path, generated_at_utc: str = GENERATED_AT_DEFAULT) -> dict
     else:
         warnings.append("SYSTEM_MAP.json not found")
 
-    # 12. FILE_MANIFEST contains PR06 files
+    # 12. FILE_MANIFEST contains all PR06 files
     manifest_path = repo_root / "FILE_MANIFEST.json"
     if manifest_path.exists():
         ok, manifest, err = _load_json(manifest_path)
@@ -250,7 +263,8 @@ def check(repo_root: Path, generated_at_utc: str = GENERATED_AT_DEFAULT) -> dict
                 listed_paths = set(files_data.keys())
             else:
                 listed_paths = set()
-            for rel in REQUIRED_MODULE_FILES[:3]:  # spot-check first 3
+            all_required = REQUIRED_MODULE_FILES + REQUIRED_SUPPORT_FILES + REQUIRED_DOC_FILES
+            for rel in all_required:
                 if rel not in listed_paths:
                     errors.append(f"FILE_MANIFEST missing PR06 file: {rel}")
 
