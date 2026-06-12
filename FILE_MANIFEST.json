@@ -65,8 +65,8 @@
     },
     {
       "path": "FILE_MANIFEST.json",
-      "sha256": "7bea78bff1e9d7f1638c4976187f86371ce321a8e32b95b3f4ea92c460661d4c",
-      "size": 298423
+      "sha256": "7b862aeaebe504dddb1739eded54bbb41f62037138e35a4e338e8dd2de9c96a0",
+      "size": 298426
     },
     {
       "path": "LICENSE",
@@ -105,8 +105,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "4c147979ac9184f9e7deb799c196c7d7730a23296795d25010b22557629a81f7",
-      "size": 96368
+      "sha256": "962d3378c7f956f18e0be7766ffa09b4c8550ac6064b4dd7afaa9b2386f9481d",
+      "size": 96714
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1965,8 +1965,8 @@
     },
     {
       "path": "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
-      "sha256": "ff7d6c1e88e65ab34842ea3747cb1ad876bb6452e3ca096156b235e3a91f069e",
-      "size": 962
+      "sha256": "4b1c2445bdac906a721eaf1a221e6c5f3544f3a126232b595b2075c1eeab1678",
+      "size": 2924
     },
     {
       "path": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
@@ -6350,8 +6350,8 @@
     },
     {
       "path": "reports/prep_final_pr_06_08_report.json",
-      "sha256": "8b9f9f8a706c9e472c3dec8888e18eb105bd6a76ed30ac5a1f02ed240f0ea05b",
-      "size": 430
+      "sha256": "7513f181cd14644a46505b9bf35c14812f3dbd1c931ed291f804ff5c8d75ef98",
+      "size": 2249
     },
     {
       "path": "reports/prep_final_pr_06_08_roadmap_audit.json",
@@ -7930,8 +7930,8 @@
     },
     {
       "path": "tests/test_prep_final_pr_06_08.py",
-      "sha256": "9c3373cfad97bce65feca22fb9ae2e0667d40faea0c834e6ef656a70d756fa32",
-      "size": 5185
+      "sha256": "12767d76ca92e9dc2815b94e580ce2544004bdf8ce627382cb2cea8e6ecc5bd5",
+      "size": 5823
     },
     {
       "path": "tests/test_product_pattern_atom_hub_lock.py",
@@ -8120,8 +8120,8 @@
     },
     {
       "path": "tools/rebaseline/check_prep_final_pr_06_08.py",
-      "sha256": "baf82b817144d8f5f19729dacad52799fa9ca3ec776afe2c84b521a334199477",
-      "size": 9594
+      "sha256": "645b1192bd674526a5f825884af8234f0ed58b35ca24482f8670630036e4e76d",
+      "size": 12211
     },
     {
       "path": "tools/rebaseline/check_simple_local_hub.py",

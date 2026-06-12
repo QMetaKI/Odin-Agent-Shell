@@ -1343,6 +1343,12 @@
       "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md"
     ],
     "local_only": true,
+    "merge_conflict_repair": {
+      "json_report": "reports/prep_final_pr_06_08_report.json",
+      "return_report": "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
+      "scope": "same_pr_repair_no_pr06_08_runtime_no_release_closure_implementation",
+      "status": "checked_no_local_conflict_markers_origin_main_unavailable"
+    },
     "non_claims": [
       "no_pr06_08_runtime_code",
       "no_provider_execution",

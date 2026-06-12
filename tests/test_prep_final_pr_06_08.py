@@ -128,3 +128,18 @@ def test_full_pytest_command_is_required_in_prep_plan() -> None:
     assert "test_final_pr_06_operational_seed_spine.py" in commands
     assert "test_final_pr_07_field_selection.py" in commands
     assert "test_final_pr_08_projection_spine.py" in commands
+
+
+def test_return_report_contains_merge_conflict_repair_section() -> None:
+    text = read("docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md")
+    assert "## Merge Conflict Repair" in text
+    assert "current main SHA used" in text
+    assert "conflicted files" in text
+    assert "resolution policy" in text
+
+
+def test_generated_report_contains_merge_conflict_repair_object() -> None:
+    data = json.loads(read("reports/prep_final_pr_06_08_report.json"))
+    repair = data.get("merge_conflict_repair", {})
+    assert repair.get("current_main_sha_used")
+    assert repair.get("final_status", "").startswith("prep_repair_bounded")
