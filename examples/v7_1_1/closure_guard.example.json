@@ -1,0 +1,29 @@
+{
+  "applies_to_artifacts": [
+    "acceptance_harness",
+    "scoreboard",
+    "closure_report"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "closure_guard_is_static_no_overclaim_registry_not_release_or_runtime_proof",
+  "closure_guard_id": "no_release_certification",
+  "forbidden_claims": [
+    "release_certification"
+  ],
+  "guard_kind": "no_overclaim",
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "required_non_claims": [
+    "not_release_certification"
+  ],
+  "violation_severity": "blocker"
+}

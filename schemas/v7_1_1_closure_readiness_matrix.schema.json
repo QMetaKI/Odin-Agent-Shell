@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocker_policy": {
+      "type": "object"
+    },
+    "bundle_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "closure_readiness_matrix_id": {
+      "type": "string"
+    },
+    "deferred_policy": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "readiness_mode": {
+      "enum": [
+        "static_closure_prep",
+        "static_review_matrix",
+        "b7_plus_handoff_matrix"
+      ]
+    },
+    "readiness_rows": {
+      "items": {
+        "properties": {
+          "blocking_claim_refs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "deferred_to": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pending_claim_refs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ready_static",
+              "warn_static",
+              "blocked_static",
+              "deferred_to_b7_plus",
+              "requires_human_review",
+              "cannot_safely_complete"
+            ]
+          },
+          "subject_ref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "row_id",
+          "subject_ref",
+          "status",
+          "reason",
+          "evidence_refs",
+          "blocking_claim_refs",
+          "pending_claim_refs",
+          "deferred_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status_policy": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "closure_readiness_matrix_id",
+    "bundle_refs",
+    "readiness_mode",
+    "readiness_rows",
+    "status_policy",
+    "blocker_policy",
+    "deferred_policy",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ClosureReadinessMatrix",
+  "type": "object"
+}

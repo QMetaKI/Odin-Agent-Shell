@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "deferred_items": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_plan_id": {
+      "type": "string"
+    },
+    "local_provider_runtime_evaluation": {
+      "type": "object"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "recommended_next_slices": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_evidence_before_runtime": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_policy_before_provider_runtime": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_receipt_before_provider_runtime": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "security_review_evaluation": {
+      "type": "object"
+    },
+    "source_closure_report_ref": {
+      "type": "string"
+    },
+    "target_host_runtime_evaluation": {
+      "type": "object"
+    },
+    "thor_pack_intake_evaluation": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "handoff_plan_id",
+    "source_closure_report_ref",
+    "deferred_items",
+    "recommended_next_slices",
+    "required_evidence_before_runtime",
+    "required_policy_before_provider_runtime",
+    "required_receipt_before_provider_runtime",
+    "thor_pack_intake_evaluation",
+    "local_provider_runtime_evaluation",
+    "security_review_evaluation",
+    "target_host_runtime_evaluation",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "B7PlusHandoffPlan",
+  "type": "object"
+}

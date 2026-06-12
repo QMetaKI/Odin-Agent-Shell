@@ -1,0 +1,349 @@
+{
+  "claim_boundary": "closure_guard_registry_prevents_overclaim_drift_not_release_or_runtime_proof",
+  "closure_guards": [
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_release_certification",
+      "forbidden_claims": [
+        "release_certification"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_release_certification"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_production_readiness",
+      "forbidden_claims": [
+        "production_readiness"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_production_readiness"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_deployment_proof",
+      "forbidden_claims": [
+        "deployment_proof"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_deployment_proof"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_runtime_proof",
+      "forbidden_claims": [
+        "runtime_proof"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_runtime_proof"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_provider_execution_proof",
+      "forbidden_claims": [
+        "provider_execution_proof"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_provider_execution_proof"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_live_model_quality_proof",
+      "forbidden_claims": [
+        "live_model_quality_proof"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_live_model_quality_proof"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_security_certification",
+      "forbidden_claims": [
+        "security_certification"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_security_certification"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_app_authority",
+      "forbidden_claims": [
+        "app_authority"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_app_authority"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_final_gate_elevation",
+      "forbidden_claims": [
+        "final_gate_elevation"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_final_gate_elevation"
+      ],
+      "violation_severity": "blocker"
+    },
+    {
+      "applies_to_artifacts": [
+        "acceptance_harness",
+        "dojo_session",
+        "scoreboard",
+        "closure_checklist",
+        "closure_readiness_matrix",
+        "road_to_100_closure_report",
+        "b7_plus_handoff_plan"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "closure_guard_entry_is_static_boundary_not_runtime_or_release_proof",
+      "closure_guard_id": "no_receipt_truth_elevation",
+      "forbidden_claims": [
+        "receipt_truth_elevation"
+      ],
+      "guard_kind": "no_overclaim",
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_security_certification",
+        "not_app_apply_or_state_or_external_send_authority"
+      ],
+      "required_non_claims": [
+        "not_receipt_truth_elevation"
+      ],
+      "violation_severity": "blocker"
+    }
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "registry_id": "odin.v7_1_1_closure_guard_registry",
+  "status": "static_closure_guard_registry_not_runtime_or_release_proof",
+  "version": "7.1.1"
+}

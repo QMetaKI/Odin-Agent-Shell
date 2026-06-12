@@ -1,0 +1,85 @@
+{
+  "acceptance_harness_ref": "acceptance_harness.b6.example",
+  "blocked_checks": [],
+  "bundle_refs": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "closure_checklist_is_closure_prep_only_not_ga_readiness_not_release_approval_not_security_certification_not_deployment_proof",
+  "closure_checklist_id": "closure_checklist.b6.example",
+  "completed_checks": [
+    "canonical_ladder_preserved",
+    "actual_bundle_plan_complete",
+    "b1_mapping_preserved",
+    "b2_mapping_preserved",
+    "b3_mapping_preserved",
+    "b4_mapping_preserved",
+    "b5_mapping_preserved",
+    "claim_boundaries_present",
+    "non_claims_present",
+    "no_forbidden_runtime_claims",
+    "no_app_authority_leak",
+    "no_final_gate_elevation",
+    "no_provider_execution",
+    "no_network_default",
+    "no_hidden_remote_fallback",
+    "evidence_substrate_present",
+    "acceptance_harness_present",
+    "scoreboard_present",
+    "closure_report_present",
+    "known_gaps_present",
+    "b7_plus_recommendations_present"
+  ],
+  "deferred_checks": [
+    "target_host_runtime_evaluation",
+    "security_review_evaluation"
+  ],
+  "evidence_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority",
+    "not_ga_readiness",
+    "not_release_approval"
+  ],
+  "pending_checks": [
+    "human_release_review_outside_b6"
+  ],
+  "required_checks": [
+    "canonical_ladder_preserved",
+    "actual_bundle_plan_complete",
+    "b1_mapping_preserved",
+    "b2_mapping_preserved",
+    "b3_mapping_preserved",
+    "b4_mapping_preserved",
+    "b5_mapping_preserved",
+    "claim_boundaries_present",
+    "non_claims_present",
+    "no_forbidden_runtime_claims",
+    "no_app_authority_leak",
+    "no_final_gate_elevation",
+    "no_provider_execution",
+    "no_network_default",
+    "no_hidden_remote_fallback",
+    "evidence_substrate_present",
+    "acceptance_harness_present",
+    "scoreboard_present",
+    "closure_report_present",
+    "known_gaps_present",
+    "b7_plus_recommendations_present"
+  ],
+  "scoreboard_ref": "scoreboard.b6.example"
+}

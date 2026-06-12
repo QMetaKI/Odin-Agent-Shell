@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1415,
+  "file_count_excluding_manifest": 1449,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "2f788b16310a16ac6a51e59bc8bcba719eee90c0e1184e97ff028c5af8ec6b47",
-      "size": 58083
+      "sha256": "34637bb90d27280931328fa8c41b83a89773d636171a9367d4dc8dfa99329d67",
+      "size": 65155
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1349,6 +1349,11 @@
       "size": 2633
     },
     {
+      "path": "docs/codex/audits/PR_32_B6_THOR_ODIN_CODEX_AUDIT.md",
+      "sha256": "f06d39cb252a520f44170e73f7d410590c683ab660bc9fb40d8fb53c94b4b2f3",
+      "size": 2828
+    },
+    {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
       "sha256": "ef95b27f391d8cf9e55425a63d229880b4e941a37a685045ed09e7e5ce1e7a8b",
       "size": 4141
@@ -1574,6 +1579,26 @@
       "size": 1490
     },
     {
+      "path": "docs/codex/handoffs/PR_32_B6_THOR_ACCEPTANCE_REVIEW_PROMPTS.md",
+      "sha256": "6f9af2b1e70983949138dd46e23ac856bb6b940eacd094c68a3f320b688f66c5",
+      "size": 718
+    },
+    {
+      "path": "docs/codex/handoffs/PR_32_B6_THOR_CLOSURE_INTAKE.md",
+      "sha256": "a823d7890e16775951ff0c62d0b70f2f1e3dc66a56a65ec595998fa982ea81e2",
+      "size": 1201
+    },
+    {
+      "path": "docs/codex/handoffs/PR_32_B6_THOR_CLOSURE_RECEIPT_MAPPING.md",
+      "sha256": "db24d096fa3a57ecf25972dd66b41fedac375c997c096590b24588c47a9238fe",
+      "size": 847
+    },
+    {
+      "path": "docs/codex/handoffs/PR_32_B6_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "sha256": "029ffe971dbe19751e0ce42b694a2ef9e5c893726f8668e27afcea1686111f32",
+      "size": 655
+    },
+    {
       "path": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
       "sha256": "bb9f843a93b91bc6ae9145df9c6a2050ac86973861597fbbd062ed48df388d04",
       "size": 4160
@@ -1772,6 +1797,11 @@
       "path": "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md",
       "sha256": "f3b9b09c1f8c7464adbb01a287e45b92c8a51f205536cde9d554854c40a6d758",
       "size": 1911
+    },
+    {
+      "path": "docs/codex/reports/PR_32_B6_ACCEPTANCE_DOJO_SCOREBOARD_CLOSURE_RETURN_REPORT.md",
+      "sha256": "145c6f56264584f041df2264f502f04d1633802fc80e3ac13ef880ec953c0a29",
+      "size": 1362
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -3204,6 +3234,11 @@
       "size": 1943
     },
     {
+      "path": "examples/v7_1_1/acceptance_harness.example.json",
+      "sha256": "8d18a0855e7b3445d91b2de6f7d256c9269c06f21623e5a438cecedcc6780a19",
+      "size": 4321
+    },
+    {
       "path": "examples/v7_1_1/app_manifest.example.json",
       "sha256": "3b2b5cb620d4cf4f45e72ad240baf43118c9a9880962144f27c8faeaf4e64e51",
       "size": 2223
@@ -3217,6 +3252,11 @@
       "path": "examples/v7_1_1/artifact_lens.example.json",
       "sha256": "fe12820c7b1edf781795dd6a4f7275350ee55f976d5a584845223173cfb7bf9d",
       "size": 694
+    },
+    {
+      "path": "examples/v7_1_1/b7_plus_handoff_plan.example.json",
+      "sha256": "34b172dc0645605736fe8160f31e11d6d4368593b69af488d9edd4314189c76a",
+      "size": 1756
     },
     {
       "path": "examples/v7_1_1/binding_contract.example.json",
@@ -3234,6 +3274,21 @@
       "size": 1344
     },
     {
+      "path": "examples/v7_1_1/closure_checklist.example.json",
+      "sha256": "57320e69e90246cdc6b79af5fa9a323e579c08bd76da5b69731ca7fd4b64fbe3",
+      "size": 2413
+    },
+    {
+      "path": "examples/v7_1_1/closure_guard.example.json",
+      "sha256": "92578b94cc2747e4178a95fb3df07e8d2976e7b898f9aa0778148f7c4d9d44bc",
+      "size": 799
+    },
+    {
+      "path": "examples/v7_1_1/closure_readiness_matrix.example.json",
+      "sha256": "0ec3330b201a211c14d0030dc171ea775273411ca10def4582b4d8bd061bfa3e",
+      "size": 1866
+    },
+    {
       "path": "examples/v7_1_1/context_capsule.example.json",
       "sha256": "dec0eb7f0134925de61fd22c0988615edb6e36fb4259af766ebc6f77fefbca70",
       "size": 1321
@@ -3247,6 +3302,11 @@
       "path": "examples/v7_1_1/critic_work_packet.example.json",
       "sha256": "be5ce1448a5d4409934b7c0e482e07df0d2116caf6a41cdd112c790a934422b7",
       "size": 1559
+    },
+    {
+      "path": "examples/v7_1_1/dojo_session.example.json",
+      "sha256": "6b075e477b1668bfcbaf5c83e4619a23c19626c6fca56a8c8842ddbff27dcf02",
+      "size": 1310
     },
     {
       "path": "examples/v7_1_1/final_gate_advisory.example.json",
@@ -3317,6 +3377,16 @@
       "path": "examples/v7_1_1/response_packet.example.json",
       "sha256": "a58ade2ad8f2f9ee515980111c79339ab781c5d0dda950516ad81c0700c81ca8",
       "size": 2396
+    },
+    {
+      "path": "examples/v7_1_1/road_to_100_closure_report.example.json",
+      "sha256": "80bb91b5a01b0ba0b018ba2c81af4b0656474a28da6d40b293bb9aceddabb213",
+      "size": 1965
+    },
+    {
+      "path": "examples/v7_1_1/scoreboard.example.json",
+      "sha256": "78eff663a5b72c3f281da32f27ba411b47dcd6ec4de2754cb0e8ba3df6eaf5af",
+      "size": 3886
     },
     {
       "path": "examples/v7_1_1/sdk_app_bridge_prep.example.json",
@@ -3525,8 +3595,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "cc6151830c5b86d686f5af5c38330175106903cbac49e5f7e8110dbc03d6e2c0",
-      "size": 165546
+      "sha256": "e50cfb6ce0076726678961635167d51fd1b1ee3303c8656ce3098f200bf6ddfb",
+      "size": 167106
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -5194,9 +5264,14 @@
       "size": 417
     },
     {
+      "path": "registries/v7_1_1_acceptance_harness_registry.json",
+      "sha256": "6ff077f0d9ab51b6095cfb5e554bb8b52c36d2bdad29c3eddae81b6406ea6931",
+      "size": 5550
+    },
+    {
       "path": "registries/v7_1_1_actual_codex_bundle_plan.json",
-      "sha256": "2f63f6d64ee13d023d26cafff646faeffeff178bf0df363463e83b33558460ec",
-      "size": 10150
+      "sha256": "72b9caa02b9e52297158ca319257e737da4eec43e441f6cc7634abb3636fd388",
+      "size": 10721
     },
     {
       "path": "registries/v7_1_1_app_manifest_contract.json",
@@ -5212,6 +5287,11 @@
       "path": "registries/v7_1_1_artifact_lens_registry.json",
       "sha256": "2058bd476dd463f9d81a7d41fe4e45cd55a21df3fac9283bd58be98e0c3cce9b",
       "size": 5858
+    },
+    {
+      "path": "registries/v7_1_1_b7_plus_handoff_plan_registry.json",
+      "sha256": "1711364d844d96b29e0fd7e447eb0be9d3172d0038bf8664ba6fc6ea7018296f",
+      "size": 2613
     },
     {
       "path": "registries/v7_1_1_binding_contract_registry.json",
@@ -5234,6 +5314,21 @@
       "size": 3038
     },
     {
+      "path": "registries/v7_1_1_closure_checklist_registry.json",
+      "sha256": "203bccce91df16fb87522691641ed15cc8a11954164dd1aaf887a268fc87de55",
+      "size": 3376
+    },
+    {
+      "path": "registries/v7_1_1_closure_guard_registry.json",
+      "sha256": "53adb628c2bbb264fbdbd47eb9deffa2f5e9d4f160fe8aaa9235e6e117d256c5",
+      "size": 10994
+    },
+    {
+      "path": "registries/v7_1_1_closure_readiness_matrix_registry.json",
+      "sha256": "570d4f98f1de22314dd2448f2be2950046292b1150f1c2138a92c92d01a9715e",
+      "size": 2788
+    },
+    {
       "path": "registries/v7_1_1_context_distillery_contract.json",
       "sha256": "f19e4376872d0fa6d624cbe7723027b21afc14ef5badfb28caaf7097b911ffd2",
       "size": 1209
@@ -5247,6 +5342,11 @@
       "path": "registries/v7_1_1_critic_work_packet_registry.json",
       "sha256": "f8aafe5263f2c4ef68c95ba8dc5cf8ba52e729d66c2f01efbbc61de1ce18c2c8",
       "size": 2007
+    },
+    {
+      "path": "registries/v7_1_1_dojo_session_registry.json",
+      "sha256": "78d3176daac629aba8a148e6e65323a8b486f9f714849d44651c335c576707ec",
+      "size": 2107
     },
     {
       "path": "registries/v7_1_1_final_gate_advisory_registry.json",
@@ -5270,8 +5370,8 @@
     },
     {
       "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
-      "sha256": "78d049fe3f756d5e6dd4fd57bb9b3c41104db8acadad6ab6eb8cd2bb2c458482",
-      "size": 33249
+      "sha256": "708416b1fda569170cfad457cccd3ef13880781e22fc77396cc62e251def3f88",
+      "size": 38124
     },
     {
       "path": "registries/v7_1_1_local_provider_seam_prep_registry.json",
@@ -5334,6 +5434,11 @@
       "size": 1154
     },
     {
+      "path": "registries/v7_1_1_road_to_100_closure_report_registry.json",
+      "sha256": "3ea583d54cc2cb02d4b534536160fe37ce2e10e512bd5af3032e859d9ce72478",
+      "size": 2854
+    },
+    {
       "path": "registries/v7_1_1_road_to_100_coverage_matrix.json",
       "sha256": "1efc56dbe2d0c98e1ab407078dfb0c1567f76d2ce3e271f3ec3189b463b7889e",
       "size": 37716
@@ -5342,6 +5447,11 @@
       "path": "registries/v7_1_1_road_to_100_ladder.json",
       "sha256": "426123d096ec58a93052a0053a548220508a4c98892c8e7fc6fb7c13a5e546c3",
       "size": 639598
+    },
+    {
+      "path": "registries/v7_1_1_scoreboard_registry.json",
+      "sha256": "4e8c12d89bef8dce350e188ae97b6f7bc839ffcef132fbebee125c29ace53bc0",
+      "size": 5079
     },
     {
       "path": "registries/v7_1_1_sdk_app_bridge_prep_registry.json",
@@ -5497,6 +5607,11 @@
       "path": "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
       "sha256": "11e078fd006040daff3df39ba520b9fab30edad0de7b282a9a6addb9e259ab6a",
       "size": 11441
+    },
+    {
+      "path": "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+      "sha256": "c98888ed0572007aeb915c18fcdd13214f017c8a565a3cac44e0afb69716a6c1",
+      "size": 11894
     },
     {
       "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
@@ -6269,6 +6384,11 @@
       "size": 1391
     },
     {
+      "path": "schemas/v7_1_1_acceptance_harness.schema.json",
+      "sha256": "4002ee216d9c08f361e41c60b1e16c00439fc9f3f7b5e2994359584dc0d1bd75",
+      "size": 3033
+    },
+    {
       "path": "schemas/v7_1_1_app_manifest.schema.json",
       "sha256": "2b027abb46d149b4071d6098ea7dd3a8f34b3c37890135fab32de1b33e4cbd96",
       "size": 1022
@@ -6309,6 +6429,16 @@
       "size": 3537
     },
     {
+      "path": "schemas/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.schema.json",
+      "sha256": "71c2b1a184d21fb9216ccbeab4b27c8557e2de39f15ea55507dc26b4c96a292d",
+      "size": 1619
+    },
+    {
+      "path": "schemas/v7_1_1_b7_plus_handoff_plan.schema.json",
+      "sha256": "4cb94e8fca28e40bad8ccb2cf3bb6d1395181fb74fa6eb668baa500355cb589e",
+      "size": 1967
+    },
+    {
       "path": "schemas/v7_1_1_binding_contract.schema.json",
       "sha256": "4acdd44c18c3765ad7e9ffcd703e279e11a2006996ff8c67c2f2fec221be510d",
       "size": 1007
@@ -6329,6 +6459,21 @@
       "size": 4081
     },
     {
+      "path": "schemas/v7_1_1_closure_checklist.schema.json",
+      "sha256": "e98f5ed454f88b4f8d5fc94da089d236cc3c7f233a423bb370a1d994eae10cc0",
+      "size": 2382
+    },
+    {
+      "path": "schemas/v7_1_1_closure_guard.schema.json",
+      "sha256": "1facd44bad6d67c8ce729235f69ce03d53b361717aeedf6b3a0b484576021691",
+      "size": 1250
+    },
+    {
+      "path": "schemas/v7_1_1_closure_readiness_matrix.schema.json",
+      "sha256": "e84413a27f584e919bbb323ed74f9480bfe0a2d025701192a9bd46062cfce757",
+      "size": 2574
+    },
+    {
       "path": "schemas/v7_1_1_context_capsule.schema.json",
       "sha256": "8672f80874d6b1904b9ff566d80e9de29578fd3f8827a94f9d246816487bf50f",
       "size": 1380
@@ -6342,6 +6487,11 @@
       "path": "schemas/v7_1_1_critic_work_packet.schema.json",
       "sha256": "be727b86de56b0822a396044d3f54330faca4e8a777b7f56d691bd8557da77dc",
       "size": 3418
+    },
+    {
+      "path": "schemas/v7_1_1_dojo_session.schema.json",
+      "sha256": "2833a4cf712fef150f5861e5c8935eec360350ea70c4acb2777ebaf350588b44",
+      "size": 1743
     },
     {
       "path": "schemas/v7_1_1_final_gate_advisory.schema.json",
@@ -6417,6 +6567,16 @@
       "path": "schemas/v7_1_1_response_packet.schema.json",
       "sha256": "b91ea41bee7b1d462569e729b5d59b2e21d53adf85e2fbe2e11ac3b89d7fbcf5",
       "size": 3714
+    },
+    {
+      "path": "schemas/v7_1_1_road_to_100_closure_report.schema.json",
+      "sha256": "473d4e6a37aac01984c1aa7c6a04af995990efb026c34da3d7b6176ae47fd35d",
+      "size": 2232
+    },
+    {
+      "path": "schemas/v7_1_1_scoreboard.schema.json",
+      "sha256": "b751e03894ec57462370e7a88c34f7e9fc59bd2dd833c27cecfdde3d64ca0a37",
+      "size": 1976
     },
     {
       "path": "schemas/v7_1_1_sdk_app_bridge_prep.schema.json",
@@ -6939,6 +7099,11 @@
       "size": 13090
     },
     {
+      "path": "tests/test_v7_1_1_b6_acceptance_dojo_scoreboard_closure.py",
+      "sha256": "d7e857ac76055d562ac09290d6c4faa4e4533c4404b9b5712c014401c997ab5b",
+      "size": 13356
+    },
+    {
       "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
       "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
       "size": 10774
@@ -6997,6 +7162,11 @@
       "path": "tools/v7_1_1/check_b5_storage_trace_receipt_provider_bridge.py",
       "sha256": "a9371e5b1ea6f196c1da9d635f459af602890dd8dca50b427a551f11ee1bbcc1",
       "size": 14319
+    },
+    {
+      "path": "tools/v7_1_1/check_b6_acceptance_dojo_scoreboard_closure.py",
+      "sha256": "ced9b42806ecc88de362a18529d5b397a178492604bf097974541ebf2bd94321",
+      "size": 21261
     },
     {
       "path": "tools/v7_1_1/check_canon_boundary_integrity.py",

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_harness_ref": {
+      "type": "string"
+    },
+    "blocked_checks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bundle_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "closure_checklist_id": {
+      "type": "string"
+    },
+    "completed_checks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deferred_checks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "pending_checks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_checks": {
+      "items": {
+        "enum": [
+          "canonical_ladder_preserved",
+          "actual_bundle_plan_complete",
+          "b1_mapping_preserved",
+          "b2_mapping_preserved",
+          "b3_mapping_preserved",
+          "b4_mapping_preserved",
+          "b5_mapping_preserved",
+          "claim_boundaries_present",
+          "non_claims_present",
+          "no_forbidden_runtime_claims",
+          "no_app_authority_leak",
+          "no_final_gate_elevation",
+          "no_provider_execution",
+          "no_network_default",
+          "no_hidden_remote_fallback",
+          "evidence_substrate_present",
+          "acceptance_harness_present",
+          "scoreboard_present",
+          "closure_report_present",
+          "known_gaps_present",
+          "b7_plus_recommendations_present"
+        ]
+      },
+      "type": "array"
+    },
+    "scoreboard_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closure_checklist_id",
+    "bundle_refs",
+    "acceptance_harness_ref",
+    "scoreboard_ref",
+    "required_checks",
+    "completed_checks",
+    "pending_checks",
+    "blocked_checks",
+    "deferred_checks",
+    "evidence_refs",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ClosureChecklist",
+  "type": "object"
+}

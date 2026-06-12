@@ -1,0 +1,62 @@
+{
+  "acceptance_harness_ref": "acceptance_harness.b6.example",
+  "accepted_static_claim_refs": [
+    "claim.b6.static_contracts_present"
+  ],
+  "b7_plus_recommendations": [
+    "evaluate_real_thor_pack_to_odin_intake",
+    "evaluate_local_provider_runtime_under_policy_and_receipt_guard",
+    "perform_b1_to_b6_contract_closure_review",
+    "evaluate_target_host_runtime_separately",
+    "evaluate_security_review_separately"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "road_to_100_closure_report_is_static_closure_prep_only_not_release_runtime_security_or_model_quality_proof",
+  "closure_checklist_ref": "closure_checklist.b6.example",
+  "closure_readiness_matrix_ref": "closure_readiness_matrix.b6.example",
+  "closure_report_id": "road_to_100_closure_report.b6.example",
+  "covered_bundles": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "covered_slice_ranges": [
+    "V711-R100-022..189"
+  ],
+  "deferred_claim_refs": [
+    "claim.provider_runtime_evaluation",
+    "claim.target_host_runtime_evaluation"
+  ],
+  "denied_claim_refs": [
+    "claim.release_certification",
+    "claim.runtime_proof",
+    "claim.security_certification"
+  ],
+  "dojo_session_ref": "dojo_session.b6.example",
+  "known_gaps": [
+    "real_thor_pack_to_odin_intake_not_evaluated",
+    "actual_local_provider_runtime_not_evaluated",
+    "production_deployment_not_proven",
+    "security_certification_not_performed",
+    "live_model_quality_not_measured",
+    "app_owned_apply_gate_not_implemented_by_odin"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_security_certification",
+    "not_app_apply_or_state_or_external_send_authority"
+  ],
+  "pending_claim_refs": [
+    "claim.human_release_review"
+  ],
+  "scoreboard_ref": "scoreboard.b6.example"
+}

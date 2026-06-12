@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_harness_ref": {
+      "type": "string"
+    },
+    "accepted_static_claim_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "b7_plus_recommendations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "closure_checklist_ref": {
+      "type": "string"
+    },
+    "closure_readiness_matrix_ref": {
+      "type": "string"
+    },
+    "closure_report_id": {
+      "type": "string"
+    },
+    "covered_bundles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "covered_slice_ranges": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deferred_claim_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "denied_claim_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dojo_session_ref": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "known_gaps": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "pending_claim_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "scoreboard_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closure_report_id",
+    "covered_bundles",
+    "covered_slice_ranges",
+    "accepted_static_claim_refs",
+    "denied_claim_refs",
+    "pending_claim_refs",
+    "deferred_claim_refs",
+    "acceptance_harness_ref",
+    "dojo_session_ref",
+    "scoreboard_ref",
+    "closure_checklist_ref",
+    "closure_readiness_matrix_ref",
+    "known_gaps",
+    "b7_plus_recommendations",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "RoadTo100ClosureReport",
+  "type": "object"
+}
