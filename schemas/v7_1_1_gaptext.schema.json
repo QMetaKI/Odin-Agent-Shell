@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.gaptext.schema",
+  "title": "Odin v7.1.1 Gaptext Contract",
+  "description": "A structured gap-filling text contract — candidate only, no app state write",
+  "type": "object",
+  "required": ["gaptext_id", "gap_template", "fill_kind", "candidate_only", "claim_boundary"],
+  "properties": {
+    "gaptext_id": {"type": "string"},
+    "gap_template": {"type": "string"},
+    "fill_kind": {"type": "string"},
+    "context_slots": {"type": "array", "items": {"type": "string"}},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean"},
+    "forbidden_shapes": {"type": "array", "items": {"type": "string"}},
+    "description": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

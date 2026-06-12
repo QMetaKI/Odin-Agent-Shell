@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1283,
+  "file_count_excluding_manifest": 1314,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -6417,6 +6417,161 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 3681
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1893
+    },
+    {
+      "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 2015
+    },
+    {
+      "path": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 4639
+    },
+    {
+      "path": "schemas/v7_1_1_artifact_family.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 811
+    },
+    {
+      "path": "schemas/v7_1_1_artifact_lens.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 858
+    },
+    {
+      "path": "schemas/v7_1_1_output_contract.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1098
+    },
+    {
+      "path": "schemas/v7_1_1_context_capsule.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1380
+    },
+    {
+      "path": "schemas/v7_1_1_worklet_graph.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1493
+    },
+    {
+      "path": "schemas/v7_1_1_slot_contract.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1051
+    },
+    {
+      "path": "schemas/v7_1_1_gaptext.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 914
+    },
+    {
+      "path": "schemas/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.schema.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1993
+    },
+    {
+      "path": "registries/v7_1_1_artifact_family_registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 3524
+    },
+    {
+      "path": "registries/v7_1_1_artifact_lens_registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 5858
+    },
+    {
+      "path": "registries/v7_1_1_output_contract_registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1084
+    },
+    {
+      "path": "registries/v7_1_1_context_distillery_contract.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1209
+    },
+    {
+      "path": "registries/v7_1_1_worklet_graph_contract.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 937
+    },
+    {
+      "path": "registries/v7_1_1_slot_forge_contract_registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1986
+    },
+    {
+      "path": "registries/v7_1_1_gaptext_contract.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 797
+    },
+    {
+      "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 10237
+    },
+    {
+      "path": "examples/v7_1_1/artifact_family.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 653
+    },
+    {
+      "path": "examples/v7_1_1/artifact_lens.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 694
+    },
+    {
+      "path": "examples/v7_1_1/output_contract.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 720
+    },
+    {
+      "path": "examples/v7_1_1/context_capsule.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1321
+    },
+    {
+      "path": "examples/v7_1_1/worklet_graph.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 2201
+    },
+    {
+      "path": "examples/v7_1_1/slot_contract.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1152
+    },
+    {
+      "path": "examples/v7_1_1/gaptext.example.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 1390
+    },
+    {
+      "path": "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 23177
+    },
+    {
+      "path": "tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 10575
+    },
+    {
+      "path": "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 6100
+    },
+    {
+      "path": "docs/codex/reports/PR_28_B2_CONTEXT_LENSES_WORKLETS_SLOT_GAPTEXT_RETURN_REPORT.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 4958
     }
   ]
 }

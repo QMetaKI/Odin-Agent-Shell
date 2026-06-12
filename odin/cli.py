@@ -2290,6 +2290,33 @@ def validate_canon_boundary_integrity() -> list[str]:
 
 
 
+def validate_b2_context_lenses_worklets() -> list[str]:
+    import subprocess
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_b2_context_lenses_worklets_slot_gaptext.py"
+    if not tool_path.exists():
+        return ["missing B2 Context / Lenses / Worklets / Slot Forge / Gaptext validator"]
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json"
+        result = subprocess.run(
+            [
+                sys.executable, str(tool_path),
+                "--repo-root", str(ROOT),
+                "--out", str(out),
+                "--generated-at-utc", "2026-01-01T00:00:00Z",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"B2 Context / Lenses / Worklets: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"B2 Context / Lenses / Worklets validator failed: {exc}"]
+    return []
+
+
 def validate_b1_app_boundary_universal_work_qirc_spine() -> list[str]:
     tool_path = ROOT / "tools" / "v7_1_1" / "check_b1_app_boundary_universal_work_qirc_spine.py"
     if not tool_path.exists():
@@ -2364,6 +2391,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_consolidated_proof_governance())
     errors.extend(validate_canon_boundary_integrity())
     errors.extend(validate_b1_app_boundary_universal_work_qirc_spine())
+    errors.extend(validate_b2_context_lenses_worklets())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2399,6 +2427,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
     sub.add_parser("validate-b1-app-boundary-universal-work-qirc-spine")
+    sub.add_parser("validate-b2-context-lenses-worklets")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -2967,6 +2996,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_canon_boundary_integrity()
     elif args.cmd == "validate-b1-app-boundary-universal-work-qirc-spine":
         errors = validate_b1_app_boundary_universal_work_qirc_spine()
+    elif args.cmd == "validate-b2-context-lenses-worklets":
+        errors = validate_b2_context_lenses_worklets()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

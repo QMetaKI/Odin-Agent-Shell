@@ -1,0 +1,36 @@
+{
+  "registry_id": "odin.v7_1_1_worklet_graph_contract",
+  "version": "7.1.1",
+  "claim_boundary": "worklet_graph_contract_is_static_invariant_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not execution authority",
+    "not app state mutation authority",
+    "not provider execution proof",
+    "not live model inference proof"
+  ],
+  "node_types": [
+    "context_compress",
+    "lens_apply",
+    "slot_route",
+    "gaptext_fill",
+    "candidate_emit",
+    "final_gate_check"
+  ],
+  "forbidden_node_actions": [
+    "mutate_app_state",
+    "execute_provider",
+    "execute_live_model",
+    "final_gate_bypass",
+    "send_external_message",
+    "write_project_file",
+    "grant_app_authority"
+  ],
+  "invariants": [
+    "all_nodes_must_be_candidate_only",
+    "no_node_may_bypass_final_gate",
+    "no_node_may_mutate_app_state",
+    "graph_must_have_claim_boundary",
+    "all_edges_must_be_local_coordination"
+  ]
+}

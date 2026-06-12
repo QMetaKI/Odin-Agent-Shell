@@ -1,0 +1,53 @@
+{
+  "registry_id": "odin.v7_1_1_slot_forge_contract_registry",
+  "version": "7.1.1",
+  "claim_boundary": "slot_forge_contract_is_static_routing_contract_not_live_execution",
+  "candidate_only": true,
+  "non_claims": [
+    "not live execution authority",
+    "not provider execution proof",
+    "not app apply authority"
+  ],
+  "route_classes": [
+    {
+      "route_class": "deterministic_no_model",
+      "description": "Route handled deterministically without any model invocation",
+      "requires_model": false,
+      "candidate_only": true,
+      "claim_boundary": "deterministic_no_model_slot_is_candidate_routing_not_execution"
+    },
+    {
+      "route_class": "small_model_candidate",
+      "description": "Route handled by small model — candidate output only",
+      "requires_model": true,
+      "model_size": "small",
+      "candidate_only": true,
+      "claim_boundary": "small_model_candidate_slot_is_candidate_routing_not_execution_proof"
+    },
+    {
+      "route_class": "hybrid_candidate",
+      "description": "Route handled by hybrid small+large model approach — candidate output only",
+      "requires_model": true,
+      "model_size": "hybrid",
+      "candidate_only": true,
+      "claim_boundary": "hybrid_candidate_slot_is_candidate_routing_not_execution_proof"
+    },
+    {
+      "route_class": "remote_explicit_only",
+      "description": "Route requires explicit remote model — only with explicit user consent",
+      "requires_model": true,
+      "model_size": "remote",
+      "requires_explicit_consent": true,
+      "candidate_only": true,
+      "claim_boundary": "remote_explicit_only_slot_requires_explicit_consent_not_automatic"
+    },
+    {
+      "route_class": "cannot_safely_complete",
+      "description": "Route cannot be safely completed — must surface as blocked",
+      "requires_model": false,
+      "status": "blocked",
+      "candidate_only": true,
+      "claim_boundary": "cannot_safely_complete_slot_blocks_not_executes"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "report_id": "odin.v7_1_1_b2_context_lenses_worklets_slot_gaptext_report",
+  "version": "7.1.1",
+  "status": "local_contract_compiler_report_not_runtime_proof",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "claim_boundary": "b2_report_is_static_contract_validation_not_runtime_completion",
+  "bundle": {
+    "bundle_id": "B2",
+    "actual_pr": "PR-28",
+    "slice_range": "V711-R100-048..075",
+    "exact_slice_count": 28,
+    "slice_ids": [
+      "V711-R100-048",
+      "V711-R100-049",
+      "V711-R100-050",
+      "V711-R100-051",
+      "V711-R100-052",
+      "V711-R100-053",
+      "V711-R100-054",
+      "V711-R100-055",
+      "V711-R100-056",
+      "V711-R100-057",
+      "V711-R100-058",
+      "V711-R100-059",
+      "V711-R100-060",
+      "V711-R100-061",
+      "V711-R100-062",
+      "V711-R100-063",
+      "V711-R100-064",
+      "V711-R100-065",
+      "V711-R100-066",
+      "V711-R100-067",
+      "V711-R100-068",
+      "V711-R100-069",
+      "V711-R100-070",
+      "V711-R100-071",
+      "V711-R100-072",
+      "V711-R100-073",
+      "V711-R100-074",
+      "V711-R100-075"
+    ]
+  },
+  "source_refs": [
+    "registries/v7_1_1_road_to_100_ladder.json",
+    "registries/v7_1_1_actual_codex_bundle_plan.json"
+  ],
+  "schema_refs": [
+    "schemas/v7_1_1_artifact_family.schema.json",
+    "schemas/v7_1_1_artifact_lens.schema.json",
+    "schemas/v7_1_1_output_contract.schema.json",
+    "schemas/v7_1_1_context_capsule.schema.json",
+    "schemas/v7_1_1_worklet_graph.schema.json",
+    "schemas/v7_1_1_slot_contract.schema.json",
+    "schemas/v7_1_1_gaptext.schema.json",
+    "schemas/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.schema.json"
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_artifact_family_registry.json",
+    "registries/v7_1_1_artifact_lens_registry.json",
+    "registries/v7_1_1_output_contract_registry.json",
+    "registries/v7_1_1_context_distillery_contract.json",
+    "registries/v7_1_1_worklet_graph_contract.json",
+    "registries/v7_1_1_slot_forge_contract_registry.json",
+    "registries/v7_1_1_gaptext_contract.json"
+  ],
+  "slice_coverage": [
+    "V711-R100-048",
+    "V711-R100-049",
+    "V711-R100-050",
+    "V711-R100-051",
+    "V711-R100-052",
+    "V711-R100-053",
+    "V711-R100-054",
+    "V711-R100-055",
+    "V711-R100-056",
+    "V711-R100-057",
+    "V711-R100-058",
+    "V711-R100-059",
+    "V711-R100-060",
+    "V711-R100-061",
+    "V711-R100-062",
+    "V711-R100-063",
+    "V711-R100-064",
+    "V711-R100-065",
+    "V711-R100-066",
+    "V711-R100-067",
+    "V711-R100-068",
+    "V711-R100-069",
+    "V711-R100-070",
+    "V711-R100-071",
+    "V711-R100-072",
+    "V711-R100-073",
+    "V711-R100-074",
+    "V711-R100-075"
+  ],
+  "absorbed_future_pr_families": [
+    "PR-29-CONTEXT-LENSES",
+    "PR-30-WORKLETS-SLOTS-GAPTEXT"
+  ],
+  "artifact_family_checks": [
+    {
+      "check_id": "b2_slice_range",
+      "status": "ok",
+      "detail": "slice_range='V711-R100-048..075' expected 'V711-R100-048..075'"
+    },
+    {
+      "check_id": "b2_exact_28_slices",
+      "status": "ok",
+      "detail": "slice count=28 expected 28"
+    },
+    {
+      "check_id": "b2_no_out_of_range_slices",
+      "status": "ok",
+      "detail": "out_of_range=[]"
+    },
+    {
+      "check_id": "b2_absorbed_families",
+      "status": "ok",
+      "detail": "missing absorbed families=[]"
+    },
+    {
+      "check_id": "b1_preserved",
+      "status": "ok",
+      "detail": "B1 bundle mapping present"
+    },
+    {
+      "check_id": "artifact_families_complete",
+      "status": "ok",
+      "detail": "missing=[]"
+    }
+  ],
+  "lens_checks": [
+    {
+      "check_id": "artifact_lenses_complete",
+      "status": "ok",
+      "detail": "missing=[]"
+    }
+  ],
+  "output_contract_checks": [
+    {
+      "check_id": "oc_odin.v7_1_1.candidate_only_static_forbidden_shapes",
+      "status": "ok",
+      "detail": "missing forbidden shapes=[]"
+    }
+  ],
+  "context_capsule_checks": [
+    {
+      "check_id": "context_capsule_fields",
+      "status": "ok",
+      "detail": "missing=[]"
+    },
+    {
+      "check_id": "distillery_forbidden_actions",
+      "status": "ok",
+      "detail": "missing=[]"
+    }
+  ],
+  "worklet_graph_checks": [
+    {
+      "check_id": "worklet_node_distill_context_fields",
+      "status": "ok",
+      "detail": "missing=[]"
+    },
+    {
+      "check_id": "worklet_node_distill_context_forbidden",
+      "status": "ok",
+      "detail": "missing forbidden actions=[]"
+    },
+    {
+      "check_id": "worklet_node_prepare_gaptext_fields",
+      "status": "ok",
+      "detail": "missing=[]"
+    },
+    {
+      "check_id": "worklet_node_prepare_gaptext_forbidden",
+      "status": "ok",
+      "detail": "missing forbidden actions=[]"
+    }
+  ],
+  "slot_contract_checks": [
+    {
+      "check_id": "slot_route_classes",
+      "status": "ok",
+      "detail": "missing=[]"
+    },
+    {
+      "check_id": "slot_contract_fields",
+      "status": "ok",
+      "detail": "missing=[]"
+    }
+  ],
+  "gaptext_checks": [
+    {
+      "check_id": "gaptext_fields",
+      "status": "ok",
+      "detail": "missing=[]"
+    },
+    {
+      "check_id": "gaptext_forbidden_outputs",
+      "status": "ok",
+      "detail": "missing=[]"
+    }
+  ],
+  "thor_odin_claude_audit_refs": [
+    "docs/codex/handoffs/PR_28_B2_THOR_REPO_COGNITION_HANDOFF.md",
+    "docs/codex/handoffs/PR_28_B2_THOR_COMPACT_HANDOFF_PROMPT.md",
+    "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md",
+    "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md",
+    "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
+    "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+    "registries/v7_1_1_llm_work_audit_findings_registry.json"
+  ],
+  "hard_violations": [],
+  "non_claims": [
+    "not runtime completion",
+    "not provider execution",
+    "not live model inference",
+    "not QIRC server runtime proof",
+    "not app apply authority",
+    "not production readiness",
+    "not release certification",
+    "not security certification",
+    "not target host proof",
+    "not model quality proof"
+  ],
+  "senior_reviewer_notes": [],
+  "senior_code_reviewer_notes": []
+}

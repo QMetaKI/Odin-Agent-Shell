@@ -1,0 +1,14 @@
+{
+  "family_id": "text_document",
+  "family_name": "Text Document",
+  "description": "Prose, structured text, markdown, and document artifacts intended for human reading or further text processing.",
+  "examples": ["markdown file", "plain text", "HTML document", "LaTeX source", "reStructuredText"],
+  "supported_lenses": ["summarize", "extract", "rewrite", "review", "plan", "classify", "compare", "trace", "contract_check"],
+  "claim_boundary": "artifact_family_is_classification_contract_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not runtime completion",
+    "not live model inference",
+    "not app state authority"
+  ]
+}

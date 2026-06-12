@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.slot_contract.schema",
+  "title": "Odin v7.1.1 Slot Contract",
+  "description": "A slot forge routing contract — candidate only, no live execution",
+  "type": "object",
+  "required": ["slot_id", "route_class", "candidate_only", "claim_boundary"],
+  "properties": {
+    "slot_id": {"type": "string"},
+    "slot_name": {"type": "string"},
+    "route_class": {
+      "type": "string",
+      "enum": ["deterministic_no_model", "small_model_candidate", "hybrid_candidate", "remote_explicit_only", "cannot_safely_complete"]
+    },
+    "artifact_family": {"type": "string"},
+    "artifact_lens": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean"},
+    "forbidden_actions": {"type": "array", "items": {"type": "string"}},
+    "description": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

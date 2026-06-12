@@ -1,0 +1,39 @@
+{
+  "gaptext_id": "odin.v7_1_1.gaptext.markdown_rewrite_intro",
+  "binding_ref": "odin.v7_1_1.binding.markdown_rewrite",
+  "slot_contract_ref": "odin.v7_1_1.slot_contract.small_model_candidate",
+  "context_capsule_ref": "odin.v7_1_1.context_capsule.markdown_rewrite_example",
+  "task_instruction": "Rewrite the Introduction section to be more concise and use active voice. Preserve all headings. Do not add new sections. Output candidate text only.",
+  "facts": [
+    "The target section is the Introduction.",
+    "Style goal: concise, active voice.",
+    "Constraint: preserve heading structure.",
+    "Output format: markdown candidate text."
+  ],
+  "constraints": [
+    "candidate_only",
+    "no_direct_apply",
+    "no_external_send",
+    "no_app_state_mutation",
+    "preserve_heading_structure"
+  ],
+  "forbidden_outputs": [
+    "direct_apply_instruction",
+    "external_api_call",
+    "app_state_write",
+    "runtime_proof_claim",
+    "raw_database_content"
+  ],
+  "required_output_shape": "candidate_text_artifact",
+  "claim_boundary": "gaptext_is_compiled_candidate_instruction_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not raw prompt",
+    "not direct apply request",
+    "not external send request",
+    "not app state mutation request",
+    "not runtime proof claim",
+    "not provider execution request",
+    "not live model execution request"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.artifact_family.schema",
+  "title": "Odin v7.1.1 Artifact Family",
+  "description": "Classifies an artifact into a semantic family for lens selection and routing",
+  "type": "object",
+  "required": ["family_id", "family_name", "description", "claim_boundary", "candidate_only"],
+  "properties": {
+    "family_id": {"type": "string", "description": "Unique identifier for the family"},
+    "family_name": {"type": "string"},
+    "description": {"type": "string"},
+    "examples": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

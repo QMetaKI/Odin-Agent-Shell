@@ -1,0 +1,36 @@
+{
+  "slot_contract_id": "odin.v7_1_1.slot_contract.small_model_candidate",
+  "binding_ref": "odin.v7_1_1.binding.markdown_rewrite",
+  "worklet_ref": "odin.v7_1_1.worklet_graph.markdown_rewrite",
+  "input_kind": "context_capsule_candidate",
+  "output_schema_ref": "schemas/v7_1_1_output_contract.schema.json",
+  "route_class": "small_model_candidate",
+  "allowed_model_route": "small_model_candidate",
+  "token_budget": 2048,
+  "forbidden_claims": [
+    "runtime_verified",
+    "production_ready",
+    "model_inference_verified",
+    "direct_apply_authorized",
+    "app_state_mutation_authorized",
+    "external_send_authorized"
+  ],
+  "retry_policy": {
+    "max_retries": 2,
+    "fallback_route": "cannot_safely_complete",
+    "candidate_only": true
+  },
+  "fallback_policy": {
+    "route": "cannot_safely_complete",
+    "candidate_only": true
+  },
+  "claim_boundary": "slot_contract_is_routing_contract_not_model_execution_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not actual model routing implementation",
+    "not live model execution",
+    "not provider execution",
+    "not production readiness",
+    "not runtime completion"
+  ]
+}

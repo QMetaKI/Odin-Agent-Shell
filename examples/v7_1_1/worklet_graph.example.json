@@ -1,0 +1,60 @@
+{
+  "graph_id": "odin.v7_1_1.worklet_graph.markdown_rewrite",
+  "binding_ref": "odin.v7_1_1.binding.markdown_rewrite",
+  "work_ref": "odin.v7_1_1.universal_work.markdown_rewrite",
+  "nodes": [
+    {
+      "node_id": "distill_context",
+      "node_type": "context_distill",
+      "input_refs": ["examples/v7_1_1/universal_work.example.json"],
+      "output_contract_ref": "odin.v7_1_1.output_contract.context_capsule_candidate",
+      "slot_contract_ref": "odin.v7_1_1.slot_contract.small_model_candidate",
+      "allowed_route": "small_model_candidate",
+      "forbidden_actions": [
+        "direct_apply",
+        "external_send",
+        "app_state_mutation",
+        "provider_execution_without_policy",
+        "live_model_execution_without_policy",
+        "qirc_server_start",
+        "final_gate_bypass"
+      ],
+      "claim_boundary": "worklet_node_is_candidate_transformation_not_app_authority"
+    },
+    {
+      "node_id": "prepare_gaptext",
+      "node_type": "gaptext_prepare",
+      "input_refs": ["distill_context.output"],
+      "output_contract_ref": "odin.v7_1_1.output_contract.gaptext_candidate",
+      "slot_contract_ref": "odin.v7_1_1.slot_contract.small_model_candidate",
+      "allowed_route": "small_model_candidate",
+      "forbidden_actions": [
+        "direct_apply",
+        "external_send",
+        "app_state_mutation",
+        "provider_execution_without_policy",
+        "live_model_execution_without_policy",
+        "qirc_server_start",
+        "final_gate_bypass"
+      ],
+      "claim_boundary": "worklet_node_is_candidate_transformation_not_app_authority"
+    }
+  ],
+  "edges": [
+    {"from": "distill_context", "to": "prepare_gaptext", "edge_type": "data_flow"}
+  ],
+  "dependency_order": ["distill_context", "prepare_gaptext"],
+  "critic_edges": [],
+  "fallback_edges": [
+    {"from": "prepare_gaptext", "to": null, "fallback_route": "cannot_safely_complete"}
+  ],
+  "claim_boundary": "worklet_graph_is_candidate_transformation_contract_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not runtime completion",
+    "not provider execution",
+    "not live model inference",
+    "not app state mutation",
+    "not final gate authority"
+  ]
+}

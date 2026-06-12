@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.b2_context_lenses_worklets_slot_gaptext_report.schema",
+  "title": "Odin v7.1.1 B2 Report Schema",
+  "description": "Schema for the B2 static contract validation report",
+  "type": "object",
+  "required": ["report_id", "version", "status", "claim_boundary", "bundle", "hard_violations"],
+  "properties": {
+    "report_id": {"type": "string"},
+    "version": {"type": "string"},
+    "status": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "bundle": {
+      "type": "object",
+      "required": ["actual_pr", "bundle_id", "slice_range", "slice_count", "claim_boundary"],
+      "properties": {
+        "actual_pr": {"type": "string"},
+        "bundle_id": {"type": "string"},
+        "slice_range": {"type": "string"},
+        "slice_count": {"type": "integer"},
+        "claim_boundary": {"type": "string"}
+      }
+    },
+    "hard_violations": {"type": "array", "items": {"type": "string"}},
+    "non_claims": {"type": "array", "items": {"type": "string"}},
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "schema_refs": {"type": "array", "items": {"type": "string"}},
+    "registry_refs": {"type": "array", "items": {"type": "string"}},
+    "slice_coverage": {"type": "array", "items": {"type": "object"}},
+    "absorbed_future_pr_families": {"type": "array", "items": {"type": "string"}},
+    "artifact_family_checks": {"type": "array", "items": {"type": "object"}},
+    "artifact_lens_checks": {"type": "array", "items": {"type": "object"}},
+    "output_contract_checks": {"type": "array", "items": {"type": "object"}},
+    "context_capsule_checks": {"type": "array", "items": {"type": "object"}},
+    "worklet_graph_checks": {"type": "array", "items": {"type": "object"}},
+    "slot_contract_checks": {"type": "array", "items": {"type": "object"}},
+    "gaptext_checks": {"type": "array", "items": {"type": "object"}}
+  }
+}

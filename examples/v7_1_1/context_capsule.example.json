@@ -1,0 +1,33 @@
+{
+  "capsule_id": "odin.v7_1_1.context_capsule.markdown_rewrite_example",
+  "binding_ref": "odin.v7_1_1.binding.markdown_rewrite",
+  "work_ref": "odin.v7_1_1.universal_work.markdown_rewrite",
+  "task_center": "Rewrite the Introduction section of the provided markdown document to be more concise and use active voice.",
+  "must_use_refs": [
+    "examples/v7_1_1/binding_contract.example.json",
+    "examples/v7_1_1/universal_work.example.json"
+  ],
+  "must_not_use_refs": [
+    "app_database",
+    "user_private_data",
+    "external_api_credentials"
+  ],
+  "style_constraints": ["concise", "active_voice", "markdown_format"],
+  "output_constraints": ["candidate_only", "no_direct_apply", "preserve_heading_structure"],
+  "source_refs": ["examples/v7_1_1/universal_work.example.json"],
+  "omitted_context": ["full document sections beyond Introduction", "author metadata", "version history"],
+  "open_questions": [],
+  "confidence": 0.92,
+  "privacy_class": "internal_development",
+  "claim_boundary": "context_capsule_is_candidate_context_not_app_state_authority",
+  "candidate_only": true,
+  "non_claims": [
+    "not app database mirror",
+    "not secret capture",
+    "not app state ownership",
+    "not external send",
+    "not provider execution",
+    "not live model execution",
+    "not production readiness"
+  ]
+}

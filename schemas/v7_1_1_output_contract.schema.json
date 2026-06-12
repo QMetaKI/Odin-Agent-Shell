@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.output_contract.schema",
+  "title": "Odin v7.1.1 Output Contract",
+  "description": "Contract governing what an Odin output candidate may and may not do",
+  "type": "object",
+  "required": ["contract_id", "contract_type", "candidate_only", "app_owned_apply", "forbidden_shapes", "claim_boundary"],
+  "properties": {
+    "contract_id": {"type": "string"},
+    "contract_type": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "app_owned_state": {"type": "boolean"},
+    "app_owned_external_send": {"type": "boolean"},
+    "forbidden_shapes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "List of forbidden output shapes/actions"
+    },
+    "allowed_shapes": {"type": "array", "items": {"type": "string"}},
+    "description": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
