@@ -1,19 +1,30 @@
-"""Simple Local Hub HTTP server — FINAL-PR-01.
+"""Simple Local Hub HTTP server — FINAL-PR-01/02.
 
 Claim boundary: simple_local_hub_localhost_only_candidate_no_app_apply_no_external_send_no_provider_execution
 
 Python stdlib only — no external dependencies.
 Default: host=127.0.0.1, port=8765
-Endpoints: GET /, GET /status.json, GET /healthz
+Endpoints:
+  GET /             — hub UI
+  GET /status.json  — hub status
+  GET /healthz      — health check
+  GET /models.json  — model picker status (FINAL-PR-02)
+  GET /apps.json    — connected apps status (FINAL-PR-02)
+  GET /demo/universal-work.json — demo universal work info (FINAL-PR-02)
+  POST /demo/universal-work     — deterministic demo response (FINAL-PR-02)
 """
 from __future__ import annotations
 
+import json
 import threading
 import urllib.request
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from odin.local_hub.policy import check_host, CLAIM_BOUNDARY
 from odin.local_hub.ui import generate_hub_html, generate_status_json, REQUIRED_IDS
+from odin.local_hub.model_picker import build_models_json
+from odin.local_hub.connected_apps import build_apps_json
+from odin.local_hub.demo_universal_work import build_demo_universal_work_response, get_demo_universal_work_json
 
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8765
@@ -22,7 +33,7 @@ DEFAULT_PORT = 8765
 class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/healthz":
-            body = b'{"status":"ok","hub":"simple_local_hub"}'
+            body = b'{"status":"ok","hub":"simple_local_hub","version":"final_pr_02"}'
             self._respond(200, "application/json", body)
         elif self.path == "/status.json":
             body = generate_status_json().encode("utf-8")
@@ -30,6 +41,31 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path in ("/", "/index.html"):
             body = generate_hub_html().encode("utf-8")
             self._respond(200, "text/html; charset=utf-8", body)
+        elif self.path == "/models.json":
+            body = json.dumps(build_models_json(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/apps.json":
+            body = json.dumps(build_apps_json(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/demo/universal-work.json":
+            body = json.dumps(get_demo_universal_work_json(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        else:
+            body = b'{"status":"not_found"}'
+            self._respond(404, "application/json", body)
+
+    def do_POST(self):
+        if self.path == "/demo/universal-work":
+            content_length = int(self.headers.get("Content-Length", 0))
+            raw_body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+            try:
+                payload = json.loads(raw_body.decode("utf-8"))
+            except Exception:
+                payload = {}
+            input_text = payload.get("input", "demo input")
+            result = build_demo_universal_work_response(input_text=str(input_text))
+            body = json.dumps(result, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)

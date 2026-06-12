@@ -1,0 +1,68 @@
+{
+  "schema_id": "final_pr_02_demo_universal_work_response_packet",
+  "version": "1.0.0",
+  "description": "Schema for FINAL-PR-02 deterministic demo Universal Work response packet. No model inference. No provider execution. Candidate-only.",
+  "candidate_only": true,
+  "claim_boundary": "demo_universal_work_candidate_response_not_model_or_provider_execution",
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "real_app_bridge_runtime",
+    "external_app_connection",
+    "app_apply",
+    "external_send",
+    "qirc_core_runtime"
+  ],
+  "required_fields": [
+    "artifact_kind",
+    "candidate_only",
+    "local_only",
+    "model_execution",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "external_send",
+    "input",
+    "handoff_context",
+    "universal_work",
+    "candidate_artifact",
+    "response_packet",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "field_contracts": {
+    "candidate_only": {"type": "boolean", "must_be": true},
+    "local_only": {"type": "boolean", "must_be": true},
+    "model_execution": {"type": "boolean", "must_be": false},
+    "model_inference": {"type": "boolean", "must_be": false},
+    "provider_execution": {"type": "boolean", "must_be": false},
+    "app_apply": {"type": "boolean", "must_be": false},
+    "external_send": {"type": "boolean", "must_be": false},
+    "artifact_kind": {"type": "string", "must_equal": "odin_demo_universal_work_response_packet"},
+    "handoff_context": {
+      "type": "object",
+      "required_fields": ["profile", "intent", "forbidden_actions"]
+    },
+    "universal_work": {
+      "type": "object",
+      "required_fields": ["work_id", "kind", "status"]
+    },
+    "candidate_artifact": {
+      "type": "object",
+      "required_fields": ["artifact_kind", "summary"]
+    },
+    "response_packet": {
+      "type": "object",
+      "required_fields": ["status"]
+    },
+    "not_proven": {
+      "type": "array",
+      "must_include": [
+        "model_inference",
+        "provider_execution",
+        "app_apply",
+        "external_send"
+      ]
+    }
+  }
+}

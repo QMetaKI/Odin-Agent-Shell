@@ -1,0 +1,43 @@
+{
+  "artifact_kind": "odin_demo_universal_work_response_packet",
+  "candidate_only": true,
+  "local_only": true,
+  "model_execution": false,
+  "model_inference": false,
+  "provider_execution": false,
+  "app_apply": false,
+  "external_send": false,
+  "input": "example demo input",
+  "handoff_context": {
+    "profile": "generic",
+    "intent": "demo_universal_work",
+    "forbidden_actions": [
+      "provider_execution",
+      "model_inference",
+      "app_apply",
+      "external_send"
+    ]
+  },
+  "universal_work": {
+    "work_id": "demo-uw-example001",
+    "kind": "demo",
+    "status": "compiled"
+  },
+  "candidate_artifact": {
+    "artifact_kind": "demo_candidate",
+    "summary": "This is a deterministic demo candidate. No model was invoked. Odin compiled the work packet and returned this candidate for the app to review and optionally apply."
+  },
+  "response_packet": {
+    "status": "ok_with_known_gaps"
+  },
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "real_app_bridge_runtime",
+    "external_app_connection",
+    "app_apply",
+    "external_send",
+    "qirc_core_runtime"
+  ],
+  "claim_boundary": "demo_universal_work_candidate_response_not_model_or_provider_execution"
+}

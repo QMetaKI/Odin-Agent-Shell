@@ -1,0 +1,130 @@
+{
+  "artifact_kind": "odin_effectiveness_audit",
+  "pr": "FINAL-PR-02",
+  "scores_are_subjective_process_proxies": true,
+  "claim_boundary": "odin_effectiveness_audit_subjective_process_proxies_not_runtime_proof",
+  "scores": {
+    "agent_operator_value": 4,
+    "handoff_first_value": 4,
+    "universal_work_boundary_value": 4,
+    "candidate_boundary_value": 5,
+    "validator_value": 4,
+    "receipt_value": 4,
+    "hub_architecture_fit": 3,
+    "model_picker_policy_clarity": 4,
+    "connected_app_policy_clarity": 4,
+    "qirc_placeholder_clarity": 3,
+    "app_owned_apply_clarity": 5,
+    "next_pr_readiness": 4
+  },
+  "odin_backlog": [
+    {
+      "finding_id": "odin.work_packet_auto_generation",
+      "priority": "high",
+      "derived_from": "work packet manually created from compiled handoff for second time",
+      "recommended_change": "Auto-generate work packet from compiled handoff. Remove manual step.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.handoff_quality_gate",
+      "priority": "medium",
+      "derived_from": "no automated check that all handoff acceptance gates are covered by tests",
+      "recommended_change": "Add handoff quality gate: validate that all compiled handoff acceptance gates are covered by test cases.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.hub_surface_convergence",
+      "priority": "medium",
+      "derived_from": "8765/8877/8878 split still active; normal user confusion risk",
+      "recommended_change": "Create explicit hub surface convergence decision before FINAL-PR-03 implementation starts.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.system_map_coverage_check",
+      "priority": "low",
+      "derived_from": "validator does not check SYSTEM_MAP includes all new files",
+      "recommended_change": "Add SYSTEM_MAP file coverage check to each FINAL-PR validator.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.proof_packet_auto_persistence",
+      "priority": "low",
+      "derived_from": "prove command prints JSON but does not persist to reports/ automatically",
+      "recommended_change": "Add auto-persistence of proof packet to reports/ when prove command is run.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.cross_surface_endpoint_conflict_check",
+      "priority": "medium",
+      "derived_from": "no check that 8765 endpoints don't conflict with 8877/8878",
+      "recommended_change": "Add cross-surface endpoint conflict checker before FINAL-PR-03.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.demo_to_real_uw_kernel_wire",
+      "priority": "high",
+      "derived_from": "demo flow shows Universal Work shape but does not call real kernel",
+      "recommended_change": "Wire demo flow to real Universal Work kernel in FINAL-PR-03.",
+      "routing": "defer_to_final_pr_03"
+    },
+    {
+      "finding_id": "odin.local_provider_activation",
+      "priority": "high",
+      "derived_from": "Local candidate provider listed but cannot be activated",
+      "recommended_change": "Implement local provider probe and activation in FINAL-PR-04.",
+      "routing": "defer_to_final_pr_04"
+    },
+    {
+      "finding_id": "odin.real_app_bridge_interface",
+      "priority": "medium",
+      "derived_from": "Connected app slots are demo only; no real interface contract",
+      "recommended_change": "Define generic app bridge interface contract in FINAL-PR-03.",
+      "routing": "defer_to_final_pr_03"
+    },
+    {
+      "finding_id": "odin.qirc_core_first_slice",
+      "priority": "high",
+      "derived_from": "QIRC placeholder gives no information about what QIRC will do",
+      "recommended_change": "Include QIRC Core first slice scope definition in FINAL-PR-03 handoff.",
+      "routing": "defer_to_final_pr_03"
+    },
+    {
+      "finding_id": "odin.response_packet_viewer_standard",
+      "priority": "medium",
+      "derived_from": "response packet shown in UI but not in a standard viewer component",
+      "recommended_change": "Define response packet viewer standard for FINAL-PR-03 dev mode.",
+      "routing": "defer_to_final_pr_03"
+    },
+    {
+      "finding_id": "odin.proof_packet_registry_standard",
+      "priority": "low",
+      "derived_from": "each FINAL-PR has its own proof packet format; no standard registry",
+      "recommended_change": "Create proof packet registry standard for FINAL-PR ladder.",
+      "routing": "inject_next_prompt"
+    },
+    {
+      "finding_id": "odin.fail_closed_validators_for_authority_claims",
+      "priority": "high",
+      "derived_from": "validator checks forbidden markers but could be more comprehensive",
+      "recommended_change": "Add fail-closed validators for any provider/model/app authority claims in new files.",
+      "routing": "inject_next_prompt"
+    }
+  ],
+  "next_pr_readiness": {
+    "final_pr_03_handoff_items": [
+      "QIRC Core first slice scope",
+      "Hub surface convergence decision",
+      "Real app bridge interface contract",
+      "Demo → real UW kernel wire",
+      "Deep dev mode viewer"
+    ],
+    "final_pr_04_handoff_items": [
+      "Local provider probe",
+      "Local provider activation"
+    ],
+    "possible_pr_05_pr_06_split": {
+      "pr_05": "Hub surface merge (8765/8877/8878 convergence)",
+      "pr_06": "Provider probe integration into unified hub"
+    }
+  }
+}
