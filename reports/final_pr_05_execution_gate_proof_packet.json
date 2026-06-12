@@ -7,7 +7,7 @@
   "claim_boundary": "final_pr_05_execution_gate_mock_only_not_model_quality_not_production",
   "external_network": false,
   "external_send": false,
-  "generated_at": "2026-06-12T19:25:15Z",
+  "generated_at": "2026-06-12T19:34:40Z",
   "ladder_scaffold_present": true,
   "local_candidate_execution_default": false,
   "local_only": true,

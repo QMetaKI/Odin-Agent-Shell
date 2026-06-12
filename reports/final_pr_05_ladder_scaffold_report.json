@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_final_pr_ladder_scaffold_proof",
   "claim_boundary": "final_pr_ladder_scaffold_not_full_prompt_compiler",
-  "generated_at": "2026-06-12T19:25:16Z",
+  "generated_at": "2026-06-12T19:34:40Z",
   "not_proven": [
     "production_readiness",
     "live_model_inference",
