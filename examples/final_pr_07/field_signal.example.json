@@ -1,0 +1,10 @@
+{
+  "candidate_only": true,
+  "evidence_list": [
+    "work_type=repo"
+  ],
+  "field_id": "repo_reality_alignment",
+  "field_name": "Repo Reality Alignment",
+  "signal_weight": 0.9,
+  "suppression_reason": null
+}

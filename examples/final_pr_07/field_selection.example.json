@@ -1,0 +1,119 @@
+{
+  "app_owned_apply": true,
+  "candidate_only": true,
+  "claim_boundary": "field_selection_scores_routes_not_truth",
+  "coherence_score": {
+    "axis_scores": {
+      "app_authority": 0.9,
+      "candidate_integrity": 0.9,
+      "claim_boundary": 0.9,
+      "evidence": 1.0,
+      "locality": 0.9,
+      "release_readiness": 0.85,
+      "repo_reality": 0.9,
+      "runtime_truth": 0.5,
+      "scope": 0.5,
+      "token_efficiency": 0.5
+    },
+    "evidence_requirement_met": true,
+    "hole_density": 0.0,
+    "overall_score": 0.785,
+    "route_confidence": 0.785
+  },
+  "dominant_field": {
+    "confidence": 0.785,
+    "field_id": "repo_reality_alignment",
+    "review_axes_applied": [
+      "scope",
+      "claim_boundary",
+      "repo_reality",
+      "runtime_truth",
+      "locality",
+      "candidate_integrity",
+      "evidence",
+      "token_efficiency",
+      "app_authority",
+      "release_readiness"
+    ],
+    "why_trace_id": "field_trace_042265074a6034d5abc090c4"
+  },
+  "review_axes_applied": [
+    "scope",
+    "claim_boundary",
+    "repo_reality",
+    "runtime_truth",
+    "locality",
+    "candidate_integrity",
+    "evidence",
+    "token_efficiency",
+    "app_authority",
+    "release_readiness"
+  ],
+  "route_recommendation": "route_hint:repo_reality_alignment",
+  "suppressed_fields": [
+    {
+      "field_id": "scope_control",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "claim_boundary_integrity",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "runtime_truth_alignment",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "locality_preservation",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "candidate_integrity",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "evidence_sufficiency",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "token_efficiency",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "app_authority_boundary",
+      "suppression_reason": "lower_priority_candidate_field"
+    },
+    {
+      "field_id": "release_readiness_boundary",
+      "suppression_reason": "lower_priority_candidate_field"
+    }
+  ],
+  "why_trace": {
+    "evidence_items": [
+      "app_owned_apply=True",
+      "candidate_only=True",
+      "local_only=True",
+      "release_deferred=True",
+      "repo_evidence=SYSTEM_MAP.json",
+      "trigger_shape=repo",
+      "work_type=repo"
+    ],
+    "field_id": "repo_reality_alignment",
+    "not_proven": [
+      "autonomous_decision_authority",
+      "final_truth_claim",
+      "model_inference",
+      "provider_execution",
+      "app_apply",
+      "app_state_mutation",
+      "external_send",
+      "production_readiness",
+      "security_certification"
+    ],
+    "reason_tokens": [
+      "work_type_available",
+      "work_type:repo"
+    ],
+    "trace_id": "field_trace_042265074a6034d5abc090c4"
+  }
+}

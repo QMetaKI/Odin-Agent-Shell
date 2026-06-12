@@ -1,0 +1,62 @@
+{
+  "app_owned_apply": true,
+  "candidate_only": true,
+  "claim_boundary": "field_selection_scores_routes_not_truth",
+  "cli_commands": [
+    "validate-field-selection-spine",
+    "explain-field-selection --demo",
+    "prove-field-selection-spine"
+  ],
+  "coherence_score_bounds": [
+    0.0,
+    1.0
+  ],
+  "depends_on": [
+    "FINAL-PR-06 Operational Seed Spine",
+    "PR #45 merged into main"
+  ],
+  "field_ids": [
+    "scope_control",
+    "claim_boundary_integrity",
+    "repo_reality_alignment",
+    "runtime_truth_alignment",
+    "locality_preservation",
+    "candidate_integrity",
+    "evidence_sufficiency",
+    "token_efficiency",
+    "app_authority_boundary",
+    "release_readiness_boundary"
+  ],
+  "hole_density_bounds": [
+    0.0,
+    1.0
+  ],
+  "local_hub_endpoint": "GET /demo/field-selection.json",
+  "not_proven": [
+    "autonomous_decision_authority",
+    "final_truth_claim",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "proof_packet_path": "reports/final_pr_07_field_selection_spine_proof_packet.json",
+  "registry_id": "final_pr_07_field_selection_spine_registry",
+  "review_axis_ids": [
+    "scope",
+    "claim_boundary",
+    "repo_reality",
+    "runtime_truth",
+    "locality",
+    "candidate_integrity",
+    "evidence",
+    "token_efficiency",
+    "app_authority",
+    "release_readiness"
+  ],
+  "validator_command": "python -m odin.cli validate-field-selection-spine",
+  "version": "1.0.0"
+}

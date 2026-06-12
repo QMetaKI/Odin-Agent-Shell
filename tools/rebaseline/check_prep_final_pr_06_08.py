@@ -96,12 +96,15 @@ RUNTIME_MODULE_DIRS_FOR_FUTURE_PRS = [
 # Track implemented PR modules here so the prep validator skips them gracefully.
 IMPLEMENTED_PR_MODULE_DIRS = [
     "odin/operational_seed_spine",  # FINAL-PR-06 implemented
+    "odin/field_selection_spine",  # FINAL-PR-07 implemented
 ]
 
 # JSON artifacts that are expected to exist once the corresponding PR is implemented.
 IMPLEMENTED_PR_JSON_ARTIFACTS = [
     "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
     "registries/final_pr_06_operational_seed_spine_registry.json",
+    "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
+    "registries/final_pr_07_field_selection_spine_registry.json",
 ]
 
 

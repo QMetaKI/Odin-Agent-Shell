@@ -29,6 +29,7 @@ Endpoints:
   GET /final-pr-ladder/scaffold.json   — FINAL-PR ladder scaffold (FINAL-PR-05)
   GET /demo/y-route.json               — Y Pattern Spine route hint demo (Y-PATTERN-SPINE)
   GET /demo/seed-route.json            — Operational Seed Spine demo (FINAL-PR-06)
+  GET /demo/field-selection.json       — Field Selection Spine demo (FINAL-PR-07)
 """
 from __future__ import annotations
 
@@ -133,6 +134,18 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path == "/demo/y-route.json":
             from odin.y_pattern_spine.profiles import build_route_hint_demo
             body = json.dumps(build_route_hint_demo(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/demo/field-selection.json":
+            from odin.field_selection_spine.selector import select_field_route
+            selection = select_field_route({"trigger_shape": "repo", "work_type": "repo", "repo_evidence": "SYSTEM_MAP.json"})
+            payload = {
+                "status": "ok",
+                "candidate_only": True,
+                "claim_boundary": "field_selection_scores_routes_not_truth",
+                "field_selection": selection.to_dict(),
+                "not_proven": selection.why_trace.not_proven,
+            }
+            body = json.dumps(payload, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         elif self.path == "/demo/seed-route.json":
             from odin.operational_seed_spine.selector import select_seed_route

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1715,
+  "file_count_excluding_manifest": 1742,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "cd2fb68131c6b150a73056e8c2654571bfa09dc877d043427c29158c30169652",
-      "size": 81614
+      "sha256": "e9f61ef196525a3bb8edf8a8e5e91c9f158a8f58afd16166579e7594acdf4f0c",
+      "size": 100129
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -3950,8 +3950,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "fa6918fbf54656b51e20db41835e762c387b2a8182f857fd53401a40eae9d46e",
-      "size": 171429
+      "sha256": "a8a987bccc90d14fb9fab7670135ea45b8383c39a30841c38d5fb3fefb1c6b1e",
+      "size": 199490
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4210,8 +4210,8 @@
     },
     {
       "path": "odin/local_hub/server.py",
-      "sha256": "db74e8a6a4d4033fc7157e942680ba47de4d329278060efa3af6df45629151c2",
-      "size": 4702
+      "sha256": "9c725c4b1b695642aa24c9a3831e678dc80685fb325cf7fe95910cf48071b7e9",
+      "size": 17449
     },
     {
       "path": "odin/local_hub/surface_registry.py",
@@ -4220,8 +4220,8 @@
     },
     {
       "path": "odin/local_hub/ui.py",
-      "sha256": "e7de224b3000782d96d4eb5bfa0f38767f390bb9f050059fa5a42950c8e48a0b",
-      "size": 6408
+      "sha256": "d30d5f9ad853fcaab84e87efe86b6b4b6622dfec4f637e9e10497525b7db00ea",
+      "size": 22775
     },
     {
       "path": "odin/local_runtime/__init__.py",
@@ -8323,13 +8323,13 @@
     },
     {
       "path": "tools/rebaseline/check_prep_final_pr_06_08.py",
-      "sha256": "0853445dda262daf314959881b476a511a200121a7f7ea759dfcf98e91ae8eb3",
-      "size": 14716
+      "sha256": "cd5c5c6b23071c01a1416d29954bd8a8c3cce966ecd6c9764edc3f18a55f147a",
+      "size": 16982
     },
     {
       "path": "tests/test_prep_final_pr_06_08.py",
-      "sha256": "a819b5cdf67955b51e3db44e3fc5db138e332364ae998768819f4141bfae95f5",
-      "size": 14766
+      "sha256": "1ba243a8cd1b1e963d7e3c0051939c38a398b4bc4dca59f635d19e6fe0ad8531",
+      "size": 15020
     },
     {
       "path": "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
@@ -8495,6 +8495,141 @@
       "path": "reports/final_pr_06_operational_seed_spine_proof_packet.json",
       "sha256": "ca2b4ce8a1488d475f23fdc6e0d850b33bb55fad7fa7826c15e215ab7ccc0abb",
       "size": 761
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_07_CODE_REVIEW.md",
+      "sha256": "79a93f6e1b85433469c0cb70795e2f3c7c18cd4ddf91d60840fd4a775ddfd086",
+      "size": 888
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_07_FIELD_SELECTION_SPINE_AUDIT.md",
+      "sha256": "d922a923ea32c72bba3124e5ad7c8ac2a4fc2a775c3b674addb8dbc62ec85dc6",
+      "size": 1340
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_07_SENIOR_REVIEW.md",
+      "sha256": "8d2e78aeb9e929c18885c4f9bda44b7442a8df826da5d6dd9b260f49515a79e2",
+      "size": 1498
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_07_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "8d33f436b7bebafeb9355df83ef8307cdd54347e36ace715011df15a16a07e19",
+      "size": 3744
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_07_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "85bafaa2482295d06c68318e676a6066956b9682d28cc9ed87297c7898ab9131",
+      "size": 1271
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_07_REPO_COGNITION_SUMMARY.md",
+      "sha256": "b91ecad95fc0f119b6242b992934efbd9b416e698437cd7966cf1284641df345",
+      "size": 1660
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_07_THOR_STYLE_REPO_FIELD_HANDOFF.md",
+      "sha256": "d29f5ce0919a7e8b4554846ec97bc81a041565f6817287d31e863cc6024854b5",
+      "size": 1646
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_07_FIELD_SELECTION_SPINE_RETURN_REPORT.md",
+      "sha256": "0d7022f955ea9e76cd5369076e729a140a573a090706199d4bd46c045eeb4d00",
+      "size": 5249
+    },
+    {
+      "path": "docs/rebaseline/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "sha256": "d922a923ea32c72bba3124e5ad7c8ac2a4fc2a775c3b674addb8dbc62ec85dc6",
+      "size": 1340
+    },
+    {
+      "path": "examples/final_pr_07/coherence_score.example.json",
+      "sha256": "189354f748783df7075e578e0ea121a6959d29905d313ceb107c588eb521a503",
+      "size": 422
+    },
+    {
+      "path": "examples/final_pr_07/field_selection.example.json",
+      "sha256": "987d606f03c9a2b5ae47c6aa38728d440b4c4cc45098195c195da9504bf9e427",
+      "size": 3074
+    },
+    {
+      "path": "examples/final_pr_07/field_signal.example.json",
+      "sha256": "2a79faac76f8d30ce3513028a71546eb580574d8b31194f94e26cbabe9b61c8c",
+      "size": 212
+    },
+    {
+      "path": "examples/final_pr_07/field_why_trace.example.json",
+      "sha256": "6ac08e0b746bd069d670f03cb17fc6488d30c520848c09025b3866dd035436e6",
+      "size": 670
+    },
+    {
+      "path": "odin/field_selection_spine/__init__.py",
+      "sha256": "29db9ee54cdd1870d5f02c55c0cafd646d2fe3d357b9b577c9be4ea9ae88ba94",
+      "size": 1056
+    },
+    {
+      "path": "odin/field_selection_spine/coherence.py",
+      "sha256": "149354164ac30c1f56b7f1eaf8e4972e09c4ca49c50e1d9994ed53cff4e96401",
+      "size": 2624
+    },
+    {
+      "path": "odin/field_selection_spine/fields.py",
+      "sha256": "457ab2fec0a47dde40bbf50b9680e7a2d2aa3af5e743a223ba4f358177d46fdb",
+      "size": 3989
+    },
+    {
+      "path": "odin/field_selection_spine/hole_density.py",
+      "sha256": "76535d013a6aeac6f99b2b3e0318c199d281070f43998aea6a7531d28d5116a2",
+      "size": 596
+    },
+    {
+      "path": "odin/field_selection_spine/proof.py",
+      "sha256": "e59fbfabcd81623cecdf57296abecb2e5fce0ce1ba91dd738c8675a478cc6c13",
+      "size": 1236
+    },
+    {
+      "path": "odin/field_selection_spine/review_axes.py",
+      "sha256": "3879cafb3c5a08f1cf5fdf5144969a8892359c5a9df56f2e20864b23ca3ff492",
+      "size": 1569
+    },
+    {
+      "path": "odin/field_selection_spine/selector.py",
+      "sha256": "a26c998423a0b5099e6b80e9711686bdbb8723ef37d28c7d1472e9502e8bbb17",
+      "size": 7722
+    },
+    {
+      "path": "odin/field_selection_spine/why_trace.py",
+      "sha256": "bad325eedfb694cc313429707947511d127469fa067271161547f252094426bf",
+      "size": 1412
+    },
+    {
+      "path": "registries/final_pr_07_field_selection_spine_registry.json",
+      "sha256": "82a556b8a701a28f960cbe12132691e4cb9354b312553844d6eedd9b962bb8bc",
+      "size": 1549
+    },
+    {
+      "path": "reports/final_pr_07_field_selection_spine_proof_packet.json",
+      "sha256": "4bbe0eaa8eb0743acadf06fe3da4cf909d20d8289c22db1c18c905100a558aea",
+      "size": 583
+    },
+    {
+      "path": "reports/final_pr_07_field_selection_spine_report.json",
+      "sha256": "14eb46f8dec3d396b55fe3de0f745da9dffa2660d5318729fb59526f383dd5c0",
+      "size": 1183
+    },
+    {
+      "path": "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
+      "sha256": "da603578e08ac5ef222bd828e4ca74f7976baf7aa04fa8edccae143424008391",
+      "size": 823
+    },
+    {
+      "path": "tests/test_final_pr_07_field_selection_spine.py",
+      "sha256": "150aa0678e1f0dd294690bc089d7e53f9d3620d9491bb4c4da0395c1b5b607db",
+      "size": 6213
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_07_field_selection_spine.py",
+      "sha256": "49c04d142e59a2b033b0cefd1ef7d1fc5585fd27e0187f8c524dbe12c9655e7b",
+      "size": 8120
     }
   ]
 }

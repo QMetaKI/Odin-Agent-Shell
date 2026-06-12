@@ -1032,7 +1032,7 @@
       "explain-seed-route --demo",
       "prove-operational-seed-spine"
     ],
-    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "description": "FINAL-PR-06 Operational Seed Spine \u2014 intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
       "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
@@ -1067,6 +1067,44 @@
     "schema": "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
     "tests": "tests/test_final_pr_06_operational_seed_spine.py",
     "validator": "tools/rebaseline/check_final_pr_06_operational_seed_spine.py"
+  },
+  "final_pr_07_field_selection_spine": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_07_FIELD_SELECTION_SPINE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_07_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_07_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_07_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "field_selection_scores_routes_not_truth",
+    "cli_commands": [
+      "validate-field-selection-spine",
+      "explain-field-selection --demo",
+      "prove-field-selection-spine"
+    ],
+    "depends_on": [
+      "FINAL-PR-06"
+    ],
+    "docs": [
+      "docs/rebaseline/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "docs/codex/reports/FINAL_PR_07_FIELD_SELECTION_SPINE_RETURN_REPORT.md"
+    ],
+    "examples_dir": "examples/final_pr_07",
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_07_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_07_THOR_STYLE_REPO_FIELD_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_07_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "local_hub_endpoint": "GET /demo/field-selection.json",
+    "module": "odin/field_selection_spine",
+    "registry": "registries/final_pr_07_field_selection_spine_registry.json",
+    "reports": [
+      "reports/final_pr_07_field_selection_spine_report.json",
+      "reports/final_pr_07_field_selection_spine_proof_packet.json"
+    ],
+    "schema": "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
+    "tests": "tests/test_final_pr_07_field_selection_spine.py",
+    "validator": "tools/rebaseline/check_final_pr_07_field_selection_spine.py"
   },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
@@ -1383,7 +1421,7 @@
     "cli_commands": [
       "validate-prep-final-pr-06-08"
     ],
-    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts \u2014 prepares future operational seed, field selection, and projection spine PRs",
     "future_prs": [
       "final_pr_06_operational_seed_spine",
       "final_pr_07_field_selection_spine",
@@ -1993,7 +2031,7 @@
   "version": "0.8.7",
   "y_pattern_spine": {
     "candidate_only": true,
-    "description": "Y Pattern Spine — neutral operational pattern layer",
+    "description": "Y Pattern Spine \u2014 neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "app_owned_apply": true,
+  "artifact_kind": "odin_field_selection_spine_proof_packet",
+  "candidate_only": true,
+  "claim_boundary": "field_selection_scores_routes_not_truth",
+  "not_proven": [
+    "autonomous_decision_authority",
+    "final_truth_claim",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "proven": [
+    "review_axes_defined",
+    "coherence_scorer_deterministic",
+    "field_selection_candidate_only",
+    "why_trace_recorded"
+  ]
+}
