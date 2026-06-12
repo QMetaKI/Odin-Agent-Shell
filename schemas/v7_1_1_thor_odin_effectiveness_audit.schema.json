@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "combined_contributions": {
+      "items": {},
+      "type": "array"
+    },
+    "effectiveness_audit_id": {
+      "type": "string"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "odin_contributions": {
+      "items": {},
+      "type": "array"
+    },
+    "qualitative_findings": {
+      "items": {},
+      "type": "array"
+    },
+    "quantitative_proxy_scores": {
+      "items": {},
+      "type": "array"
+    },
+    "recommendations_defer": {
+      "items": {},
+      "type": "array"
+    },
+    "recommendations_improve": {
+      "items": {},
+      "type": "array"
+    },
+    "recommendations_keep": {
+      "items": {},
+      "type": "array"
+    },
+    "recommendations_reduce": {
+      "items": {},
+      "type": "array"
+    },
+    "reviewed_bundles": {
+      "items": {},
+      "type": "array"
+    },
+    "reviewed_prs": {
+      "items": {},
+      "type": "array"
+    },
+    "thor_contributions": {
+      "items": {},
+      "type": "array"
+    },
+    "what_was_medium": {
+      "items": {},
+      "type": "array"
+    },
+    "what_was_missing": {
+      "items": {},
+      "type": "array"
+    },
+    "what_was_overbuilt": {
+      "items": {},
+      "type": "array"
+    },
+    "what_was_strong": {
+      "items": {},
+      "type": "array"
+    },
+    "what_was_weak": {
+      "items": {},
+      "type": "array"
+    },
+    "what_worked_well": {
+      "items": {},
+      "type": "array"
+    },
+    "where_combination_helped": {
+      "items": {},
+      "type": "array"
+    },
+    "where_odin_helped": {
+      "items": {},
+      "type": "array"
+    },
+    "where_odin_helped_least": {
+      "items": {},
+      "type": "array"
+    },
+    "where_process_cost_was_high": {
+      "items": {},
+      "type": "array"
+    },
+    "where_process_increased_overhead": {
+      "items": {},
+      "type": "array"
+    },
+    "where_process_reduced_ambiguity": {
+      "items": {},
+      "type": "array"
+    },
+    "where_process_reduced_risk": {
+      "items": {},
+      "type": "array"
+    },
+    "where_thor_helped": {
+      "items": {},
+      "type": "array"
+    },
+    "where_thor_helped_least": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "effectiveness_audit_id",
+    "reviewed_prs",
+    "reviewed_bundles",
+    "thor_contributions",
+    "odin_contributions",
+    "combined_contributions",
+    "what_worked_well",
+    "what_was_strong",
+    "what_was_medium",
+    "what_was_weak",
+    "what_was_overbuilt",
+    "what_was_missing",
+    "where_thor_helped",
+    "where_thor_helped_least",
+    "where_odin_helped",
+    "where_odin_helped_least",
+    "where_combination_helped",
+    "where_process_cost_was_high",
+    "where_process_reduced_risk",
+    "where_process_reduced_ambiguity",
+    "where_process_increased_overhead",
+    "quantitative_proxy_scores",
+    "qualitative_findings",
+    "recommendations_keep",
+    "recommendations_improve",
+    "recommendations_reduce",
+    "recommendations_defer",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ThorOdinEffectivenessAudit",
+  "type": "object"
+}

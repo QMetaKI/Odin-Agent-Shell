@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "impact": {
+      "type": "string"
+    },
+    "likelihood": {
+      "type": "string"
+    },
+    "mitigation_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "owner_track": {
+      "type": "string"
+    },
+    "risk_category": {
+      "type": "string"
+    },
+    "risk_id": {
+      "type": "string"
+    },
+    "risk_rating": {
+      "type": "string"
+    },
+    "risk_source": {
+      "type": "string"
+    },
+    "risk_title": {
+      "type": "string"
+    },
+    "risks": {
+      "items": {},
+      "type": "array"
+    },
+    "security_risk_register_id": {
+      "type": "string"
+    },
+    "status": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "security_risk_register_id",
+    "risks",
+    "risk_id",
+    "risk_title",
+    "risk_category",
+    "risk_source",
+    "likelihood",
+    "impact",
+    "risk_rating",
+    "evidence_refs",
+    "mitigation_refs",
+    "status",
+    "owner_track",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "SecurityRiskRegister",
+  "type": "object"
+}

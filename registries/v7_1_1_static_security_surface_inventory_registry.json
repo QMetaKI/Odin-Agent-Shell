@@ -1,0 +1,137 @@
+{
+  "claim_boundary": "static_security_surface_inventory_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_static_security_surface_inventory_registry",
+  "static_security_surface_inventories": [
+    {
+      "app_authority_surfaces": [
+        "B1 app boundary contract refs",
+        "ODIN_BINDING and Caller Manifest check refs",
+        "no app apply in B8 validator"
+      ],
+      "bridge_surfaces": [
+        "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
+        "examples/v7_1_1/sdk_app_bridge_prep.example.json"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "surface_inventory_is_static_path_classification_not_runtime_security_or_dependency_audit_proof",
+      "cli_surfaces": [
+        "odin/cli.py validate-b8-security-review-track",
+        "odin/cli.py validate-all temp-output integration"
+      ],
+      "excluded_paths": [
+        ".git/",
+        ".thor/",
+        ".venv/",
+        "venv/",
+        "__pycache__/",
+        ".pytest_cache/",
+        "dist/",
+        "build/",
+        "*.egg-info/"
+      ],
+      "non_claims": [
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "provider_surfaces": [
+        "registries/v7_1_1_provider_policy_registry.json",
+        "schemas/v7_1_1_provider_runtime_evaluation_policy.schema.json",
+        "examples/v7_1_1/provider_runtime_evaluation_policy.example.json"
+      ],
+      "receipt_surfaces": [
+        "receipt ledger static refs",
+        "receipt boundary refs",
+        "Final Gate advisory refs"
+      ],
+      "registry_surfaces": [
+        "registries/v7_1_1_b8_security_review_scope_registry.json",
+        "registries/v7_1_1_static_security_surface_inventory_registry.json",
+        "registries/v7_1_1_trust_boundary_matrix_registry.json",
+        "registries/v7_1_1_static_security_flow_map_registry.json",
+        "registries/v7_1_1_static_threat_model_registry.json",
+        "registries/v7_1_1_security_risk_register_registry.json",
+        "registries/v7_1_1_security_control_coverage_matrix_registry.json",
+        "registries/v7_1_1_static_sensitive_pattern_review_registry.json",
+        "registries/v7_1_1_thor_odin_effectiveness_audit_registry.json",
+        "registries/v7_1_1_b8_security_review_report_registry.json"
+      ],
+      "report_surfaces": [
+        "reports/v7_1_1_b8_security_review_report.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "docs/codex/reports/PR_34_B8_SECURITY_REVIEW_RETURN_REPORT.md"
+      ],
+      "reviewed_paths": [
+        "odin/cli.py",
+        "tools/v7_1_1/",
+        "schemas/",
+        "registries/",
+        "reports/",
+        "docs/codex/",
+        "examples/",
+        "pyproject.toml",
+        ".github/workflows/ci.yml"
+      ],
+      "schema_surfaces": [
+        "schemas/v7_1_1_b8_security_review_scope.schema.json",
+        "schemas/v7_1_1_static_security_surface_inventory.schema.json",
+        "schemas/v7_1_1_trust_boundary_matrix.schema.json",
+        "schemas/v7_1_1_static_security_flow_map.schema.json",
+        "schemas/v7_1_1_static_threat_model.schema.json",
+        "schemas/v7_1_1_security_risk_register.schema.json",
+        "schemas/v7_1_1_security_control_coverage_matrix.schema.json",
+        "schemas/v7_1_1_static_sensitive_pattern_review.schema.json",
+        "schemas/v7_1_1_thor_odin_effectiveness_audit.schema.json",
+        "schemas/v7_1_1_b8_security_review_report.schema.json"
+      ],
+      "security_relevant_paths": [
+        "odin/cli.py",
+        "tools/v7_1_1/check_b8_security_review_track.py",
+        "schemas/",
+        "registries/",
+        "reports/",
+        "docs/codex/",
+        "examples/v7_1_1/",
+        "pyproject.toml",
+        ".github/workflows/ci.yml"
+      ],
+      "surface_inventory_id": "static_security_surface_inventory.pr34",
+      "thor_intake_surfaces": [
+        "B7 Thor v4.1.2 intake report",
+        "B7 Thor pack intake evaluation",
+        "B8 Thor/Odin effectiveness audit"
+      ]
+    }
+  ],
+  "status": "static_security_surface_inventory_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "version": "7.1.1"
+}

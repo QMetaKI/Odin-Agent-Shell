@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1481,
+  "file_count_excluding_manifest": 1516,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "465c0edad3226fe30edd87ba4dfe7b104604127e5007fb15cf705bfc2df8e4df",
-      "size": 71101
+      "sha256": "148fe9316f0ac5bd7a914c78103095ce00ee6d65c1cb6ca232040d0766b5cea3",
+      "size": 77766
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1359,6 +1359,11 @@
       "size": 4612
     },
     {
+      "path": "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+      "sha256": "9596ab734d6f83853daaa481363953b64092c6c716135b5a7a0725fd3dad9d35",
+      "size": 7336
+    },
+    {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
       "sha256": "ef95b27f391d8cf9e55425a63d229880b4e941a37a685045ed09e7e5ce1e7a8b",
       "size": 4141
@@ -1812,6 +1817,11 @@
       "path": "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md",
       "sha256": "9a4139207492abf027c12c8bc37044ae93d4e70d8c46f70eea1446afafb3669f",
       "size": 2066
+    },
+    {
+      "path": "docs/codex/reports/PR_34_B8_SECURITY_REVIEW_RETURN_REPORT.md",
+      "sha256": "07b9cc8042739c6857520c15e18a1e923138350459ebdcec19ba1c848ed00fe9",
+      "size": 5070
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -3279,6 +3289,16 @@
       "size": 1756
     },
     {
+      "path": "examples/v7_1_1/b8_security_review_report.example.json",
+      "sha256": "84e7610bc943cb589e894c23a85f83bc6270ced8164da2d5bacbd40456c0928d",
+      "size": 3613
+    },
+    {
+      "path": "examples/v7_1_1/b8_security_review_scope.example.json",
+      "sha256": "a7c40a9ee84f59d3f109ddd0d9d77002e879ccc79a8f9f52c3aca7a8fe40176a",
+      "size": 2507
+    },
+    {
       "path": "examples/v7_1_1/binding_contract.example.json",
       "sha256": "f65a1d06c29116253a40b3b37792dc40addea0ed42fa2c22bb788880fe7a13d6",
       "size": 1103
@@ -3429,9 +3449,19 @@
       "size": 1267
     },
     {
+      "path": "examples/v7_1_1/security_control_coverage_matrix.example.json",
+      "sha256": "a2aadc53a74a584ae04d8d4ee3d23c9c5d772b558ff9dfc24b1c72682fb17b17",
+      "size": 2214
+    },
+    {
       "path": "examples/v7_1_1/security_review_separation.example.json",
       "sha256": "f49eb9f0ab3084bf1b873bfb36a115adf911a561de8849217425f4f17bc385bd",
       "size": 1082
+    },
+    {
+      "path": "examples/v7_1_1/security_risk_register.example.json",
+      "sha256": "9231e7c940616fbdf0985eee5ab47fadc86f073b1f868b6f3df06c4e36d0c07d",
+      "size": 4686
     },
     {
       "path": "examples/v7_1_1/semantic_bus_channel.example.json",
@@ -3454,6 +3484,26 @@
       "size": 1022
     },
     {
+      "path": "examples/v7_1_1/static_security_flow_map.example.json",
+      "sha256": "94a90d4c02063648f77dfe7ddc4ca502dc3c5762beec3180c05c0989644c666e",
+      "size": 4816
+    },
+    {
+      "path": "examples/v7_1_1/static_security_surface_inventory.example.json",
+      "sha256": "900dd62fe6e236658907841fe78c0c61f593871d8b456ec69d29cc01a137e92d",
+      "size": 3848
+    },
+    {
+      "path": "examples/v7_1_1/static_sensitive_pattern_review.example.json",
+      "sha256": "c32e1664b8800d397046eeb9b8ea2c95092e99da60fb5f10877b5946ad896c82",
+      "size": 2669
+    },
+    {
+      "path": "examples/v7_1_1/static_threat_model.example.json",
+      "sha256": "0334c6669ac0a11b73c0f0e2ab80b23d818567407f940e7e91860e72740a9073",
+      "size": 3879
+    },
+    {
       "path": "examples/v7_1_1/storage_record.example.json",
       "sha256": "72061f8c6e0f0d5e058943b2fd9225b4862629559908d0061eba7b19dd866b9d",
       "size": 1122
@@ -3474,6 +3524,11 @@
       "size": 2340
     },
     {
+      "path": "examples/v7_1_1/thor_odin_effectiveness_audit.example.json",
+      "sha256": "32a7edf59bf60a6dd9860b2ac0c1aa088edd53232dbd0bd357a5c550927e71b8",
+      "size": 5517
+    },
+    {
       "path": "examples/v7_1_1/thor_pack_intake_evaluation.example.json",
       "sha256": "87b152cf813e73d58072944f30e4bf58d479f5cd50ad1562b253764e5094c645",
       "size": 2239
@@ -3492,6 +3547,11 @@
       "path": "examples/v7_1_1/trace_record.example.json",
       "sha256": "38f2282854647157aea0e36c3c545f8eb8bfccc2bf572e4042f47c74a746674f",
       "size": 3838
+    },
+    {
+      "path": "examples/v7_1_1/trust_boundary_matrix.example.json",
+      "sha256": "e36f31d050adf9e4be91da908ab949467a8daf22aba393be92ebc9d582c73984",
+      "size": 2137
     },
     {
       "path": "examples/v7_1_1/universal_work.example.json",
@@ -3650,8 +3710,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "bb48b60664287ea708bf3ba2975f71d9aa7351b99ed419e427bc6bd913931473",
-      "size": 168562
+      "sha256": "e3ef25cd0b94fd4d28e74e79dafb828330517645858336424c4315e9b066306c",
+      "size": 169936
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -5359,6 +5419,16 @@
       "size": 2613
     },
     {
+      "path": "registries/v7_1_1_b8_security_review_report_registry.json",
+      "sha256": "1bc540b5e6281fffeb89215c74577f67c06c7727236840a1134f728ca0fc13fb",
+      "size": 4861
+    },
+    {
+      "path": "registries/v7_1_1_b8_security_review_scope_registry.json",
+      "sha256": "740363fa05fc4f84640636f48d2f407b37e5c91702ca7412302860e1272a9ada",
+      "size": 3691
+    },
+    {
       "path": "registries/v7_1_1_binding_contract_registry.json",
       "sha256": "14766e03727849f588bfd93719d07e42590f88279dd832db617f8b994a8fab94",
       "size": 1241
@@ -5435,8 +5505,8 @@
     },
     {
       "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
-      "sha256": "31e0cb37aa49122a6791571675e400fda85d93c06eb1ac435036914e229e3eb3",
-      "size": 46337
+      "sha256": "2f8b4114d6a22ba03b98b1a5d384c22be2d5e80122eb1cb3c9586e23880023e0",
+      "size": 54721
     },
     {
       "path": "registries/v7_1_1_local_provider_runtime_evaluation_prep_registry.json",
@@ -5539,9 +5609,19 @@
       "size": 1843
     },
     {
+      "path": "registries/v7_1_1_security_control_coverage_matrix_registry.json",
+      "sha256": "fd4f47fc77ba3e3a7acadf8183e0560c8faa6a8dfbeac1774ca95c71e272b34d",
+      "size": 3410
+    },
+    {
       "path": "registries/v7_1_1_security_review_separation_registry.json",
       "sha256": "0ef83686632c8cfce8f610eeaf96f4ab669cc8ee1c23e77f987342053783de53",
       "size": 1934
+    },
+    {
+      "path": "registries/v7_1_1_security_risk_register_registry.json",
+      "sha256": "75c43090bf6e8217d00b320efe9da7d4f3aaa5bf41de2801de8b4cc05f536bd5",
+      "size": 6102
     },
     {
       "path": "registries/v7_1_1_semantic_bus_spine_registry.json",
@@ -5564,6 +5644,26 @@
       "size": 1662
     },
     {
+      "path": "registries/v7_1_1_static_security_flow_map_registry.json",
+      "sha256": "a99b49012e672e485c8dd3d01fc6310cbe73c8d9c2c12e595c5c98659cc6e30c",
+      "size": 6148
+    },
+    {
+      "path": "registries/v7_1_1_static_security_surface_inventory_registry.json",
+      "sha256": "a26bba5d3b15a23717e637197b4ae93a4d811e926d721aab18bca339310b644a",
+      "size": 5221
+    },
+    {
+      "path": "registries/v7_1_1_static_sensitive_pattern_review_registry.json",
+      "sha256": "1e242e3456b15b6d3c705acb9cae01acafee07f9f93f10aa51fa806cc4befaec",
+      "size": 3945
+    },
+    {
+      "path": "registries/v7_1_1_static_threat_model_registry.json",
+      "sha256": "2bb3e159534e62c329c35cd56ada526b5a9bf3730434f6dbb96266fe047bdca7",
+      "size": 5267
+    },
+    {
       "path": "registries/v7_1_1_storage_record_registry.json",
       "sha256": "1d32dae42aff163e008d9162372ee27bd6136daaf7e0b046a3b79071daf90ec0",
       "size": 1608
@@ -5584,6 +5684,11 @@
       "size": 3016
     },
     {
+      "path": "registries/v7_1_1_thor_odin_effectiveness_audit_registry.json",
+      "sha256": "632a350b3a10ecffb375dee3e2e8e3f9aa32a2a9b261db5bd9c0fa305395d6bd",
+      "size": 7165
+    },
+    {
       "path": "registries/v7_1_1_thor_pack_intake_evaluation_registry.json",
       "sha256": "0257e121bd94c7cfc8cb9d4b06cb4e504a65277158f7a70b8cdf2e886af7b34e",
       "size": 3237
@@ -5602,6 +5707,11 @@
       "path": "registries/v7_1_1_trace_record_registry.json",
       "sha256": "32547e5ee0500bd293f8d712ab948f4a3026bbb1aee1443cb2702f0348ee8fe0",
       "size": 4704
+    },
+    {
+      "path": "registries/v7_1_1_trust_boundary_matrix_registry.json",
+      "sha256": "2e87fc2ee6591d21f51dc4cb096bb6112d5f3f4082835680242c580d5ab7e190",
+      "size": 3297
     },
     {
       "path": "registries/v7_1_1_universal_work_contract.json",
@@ -5717,6 +5827,11 @@
       "path": "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
       "sha256": "735e73f176956aeb28687c2ac8655199215530ec5f676b46690c1f54231a0fb1",
       "size": 14088
+    },
+    {
+      "path": "reports/v7_1_1_b8_security_review_report.json",
+      "sha256": "dba86edee742f0cfd9c06c00eea930ff93692374bbac8e48ee27197014deddf1",
+      "size": 15170
     },
     {
       "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
@@ -6554,6 +6669,16 @@
       "size": 1967
     },
     {
+      "path": "schemas/v7_1_1_b8_security_review_report.schema.json",
+      "sha256": "45298c739a4b038c4d3bfeb1673228f0898bfd05b35d0359c37e791e3a487e7d",
+      "size": 2268
+    },
+    {
+      "path": "schemas/v7_1_1_b8_security_review_scope.schema.json",
+      "sha256": "05c1adfc7b66acf918b64cc86f38280aafefa09d2bac25f4d473462ba9c616da",
+      "size": 991
+    },
+    {
       "path": "schemas/v7_1_1_binding_contract.schema.json",
       "sha256": "4acdd44c18c3765ad7e9ffcd703e279e11a2006996ff8c67c2f2fec221be510d",
       "size": 1007
@@ -6714,9 +6839,19 @@
       "size": 2601
     },
     {
+      "path": "schemas/v7_1_1_security_control_coverage_matrix.schema.json",
+      "sha256": "fee7471e8630ef91d682c44e15068feb53270f30759842a6e676f4042823d375",
+      "size": 1097
+    },
+    {
       "path": "schemas/v7_1_1_security_review_separation.schema.json",
       "sha256": "11be0bd5d62a1941409e4c744674d1410b7205af02d552168bf840c07fa15f2b",
       "size": 968
+    },
+    {
+      "path": "schemas/v7_1_1_security_risk_register.schema.json",
+      "sha256": "808d8fe4f25b70f6dec274dd51363891c13f57312923ecfbd35bc0984e83eb0b",
+      "size": 1410
     },
     {
       "path": "schemas/v7_1_1_semantic_bus_channel.schema.json",
@@ -6739,6 +6874,26 @@
       "size": 2638
     },
     {
+      "path": "schemas/v7_1_1_static_security_flow_map.schema.json",
+      "sha256": "46826378040576c99d9a0e4826f4b77e4d2c7830450437abe564614a2370abee",
+      "size": 1067
+    },
+    {
+      "path": "schemas/v7_1_1_static_security_surface_inventory.schema.json",
+      "sha256": "5a5485c47bc2253604daa491cd2cebd1542d7ad711cd3c7b6557ce2c76b9346b",
+      "size": 1718
+    },
+    {
+      "path": "schemas/v7_1_1_static_sensitive_pattern_review.schema.json",
+      "sha256": "d255c755daacabc1c399563c445314e64d259d3f3e5d6003b7cb65fe62531dad",
+      "size": 1076
+    },
+    {
+      "path": "schemas/v7_1_1_static_threat_model.schema.json",
+      "sha256": "66a7e51f5c7ab373812b49c1830dbab10115c0b3dc795497047df0f357360bd2",
+      "size": 935
+    },
+    {
       "path": "schemas/v7_1_1_storage_record.schema.json",
       "sha256": "3fb9ec09d872209579bb11a016312d6f296a96f554fa6ed5348e8b6c63836ed9",
       "size": 2901
@@ -6759,6 +6914,11 @@
       "size": 3149
     },
     {
+      "path": "schemas/v7_1_1_thor_odin_effectiveness_audit.schema.json",
+      "sha256": "82efb90f1d129d9bd8d91bdcc7d15f8cd089b5c60039a0024c97e0c4b0c4a192",
+      "size": 3302
+    },
+    {
       "path": "schemas/v7_1_1_thor_pack_intake_evaluation.schema.json",
       "sha256": "12f67737b29c701c4a79187f176d5db601f5d60cf816c362cb284455d4571fa4",
       "size": 1930
@@ -6777,6 +6937,11 @@
       "path": "schemas/v7_1_1_trace_record.schema.json",
       "sha256": "865b06010405b3718071c9314497388fed61bc343bd6752af5cc862e4ddea63c",
       "size": 4157
+    },
+    {
+      "path": "schemas/v7_1_1_trust_boundary_matrix.schema.json",
+      "sha256": "30628c5f08899172e61cf38e602ac4a493ac7ff8e543d052dda2ff713dc945db",
+      "size": 1023
     },
     {
       "path": "schemas/v7_1_1_universal_work.schema.json",
@@ -7259,6 +7424,11 @@
       "size": 10872
     },
     {
+      "path": "tests/test_v7_1_1_b8_security_review_track.py",
+      "sha256": "72500ca083a840ea2cab348b8ad58653a2cdd7198bd34497f4ba5567ce002e3c",
+      "size": 13388
+    },
+    {
       "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
       "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
       "size": 10774
@@ -7327,6 +7497,11 @@
       "path": "tools/v7_1_1/check_b7_closure_thor_provider_eval.py",
       "sha256": "56cd7f4ec32fc8c62757c85e438ff827cf9eedfa2e237314124ef9676097cbc5",
       "size": 13950
+    },
+    {
+      "path": "tools/v7_1_1/check_b8_security_review_track.py",
+      "sha256": "b15bd183e1b209ea77d32bb93d7857af148f1449c5c79bcdfee307d84f7c871b",
+      "size": 15610
     },
     {
       "path": "tools/v7_1_1/check_canon_boundary_integrity.py",

@@ -1,0 +1,96 @@
+{
+  "claim_boundary": "trust_boundary_matrix_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_trust_boundary_matrix_registry",
+  "status": "trust_boundary_matrix_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "trust_boundary_matrixs": [
+    {
+      "allowed_crossings": [
+        "tracked_source_to_static_report_with_claim_boundary",
+        "B7_distilled_Thor_intake_to_B8_process_audit",
+        "schema_registry_refs_to_validator"
+      ],
+      "boundaries": [
+        "app_authority_boundary",
+        "provider_runtime_boundary",
+        "receipt_truth_boundary",
+        "final_gate_advisory_boundary",
+        "thor_intake_boundary",
+        "thor_pack_boundary",
+        "sdk_app_bridge_boundary",
+        "storage_trace_privacy_boundary",
+        "security_review_boundary",
+        "target_host_boundary",
+        "release_boundary"
+      ],
+      "candidate_only": true,
+      "claim_boundary": "trust_matrix_records_static_boundaries_not_authority_or_runtime_proof",
+      "crossings": [
+        {
+          "boundary": "security_review_boundary",
+          "from": "tracked source files",
+          "mode": "static_review_only",
+          "to": "B8 static report"
+        },
+        {
+          "boundary": "thor_intake_boundary",
+          "from": "B7 distilled Thor facts",
+          "mode": "source_safe_summary",
+          "to": "B8 effectiveness audit"
+        }
+      ],
+      "forbidden_crossings": [
+        "environment_to_report",
+        "provider_runtime_to_report",
+        "model_execution_to_report",
+        "network_scan_to_report",
+        "target_host_runtime_to_report",
+        "app_apply_or_external_send",
+        "Final_Gate_elevation",
+        "Receipt_truth_elevation",
+        "Thor_pack_artifact_commit"
+      ],
+      "non_claims": [
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "required_evidence_for_crossing": [
+        "local_file_path_reference",
+        "schema_or_registry_reference",
+        "deterministic_validator_check",
+        "explicit_non_claim_for_deferred_runtime"
+      ],
+      "trust_boundary_matrix_id": "trust_boundary_matrix.pr34"
+    }
+  ],
+  "version": "7.1.1"
+}

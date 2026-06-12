@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "excluded_sources": {
+      "items": {},
+      "type": "array"
+    },
+    "explicit_non_methods": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "review_methods": {
+      "items": {},
+      "type": "array"
+    },
+    "review_type": {
+      "type": "string"
+    },
+    "reviewed_sources": {
+      "items": {},
+      "type": "array"
+    },
+    "security_review_scope_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "security_review_scope_id",
+    "review_type",
+    "reviewed_sources",
+    "excluded_sources",
+    "review_methods",
+    "explicit_non_methods",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "B8SecurityReviewScope",
+  "type": "object"
+}

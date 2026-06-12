@@ -1,0 +1,99 @@
+{
+  "b8_security_review_scopes": [
+    {
+      "candidate_only": true,
+      "claim_boundary": "b8_scope_is_static_security_review_only_not_certification_runtime_target_host_provider_model_release_or_deployment_proof",
+      "excluded_sources": [
+        "environment variables",
+        "API-key stores",
+        "network services",
+        "target hosts",
+        "provider/model runtimes",
+        ".thor/",
+        "external scanner output",
+        "raw Thor generated packs"
+      ],
+      "explicit_non_methods": [
+        "no_penetration_test",
+        "no_dynamic_runtime_test",
+        "no_target_host_test",
+        "no_network_scan",
+        "no_secret_scan_of_environment",
+        "no_external_security_service",
+        "no_provider_execution",
+        "no_model_execution",
+        "no_security_certification"
+      ],
+      "non_claims": [
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "review_methods": [
+        "static_file_pattern_review",
+        "static_schema_registry_review",
+        "static_claim_boundary_review",
+        "static_trust_boundary_review",
+        "static_process_effectiveness_audit"
+      ],
+      "review_type": "static_security_review_track",
+      "reviewed_sources": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "docs/MASTER_SPECS_V7_1.md",
+        "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+        "registries/v7_1_1_claim_boundary_registry.json",
+        "registries/v7_1_1_forbidden_claim_registry.json",
+        "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+        "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+        "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+        "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+        "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+        "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+        "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+        "odin/cli.py",
+        "tools/v7_1_1/",
+        "schemas/",
+        "registries/",
+        "reports/",
+        "docs/codex/",
+        "examples/",
+        "pyproject.toml",
+        ".github/workflows/ci.yml"
+      ],
+      "security_review_scope_id": "b8_security_review_scope.pr34.static"
+    }
+  ],
+  "claim_boundary": "b8_security_review_scope_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_b8_security_review_scope_registry",
+  "status": "b8_security_review_scope_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "version": "7.1.1"
+}

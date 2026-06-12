@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "control_matrix_id": {
+      "type": "string"
+    },
+    "controls": {
+      "items": {},
+      "type": "array"
+    },
+    "covered_controls": {
+      "items": {},
+      "type": "array"
+    },
+    "evidence_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "known_gaps": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "partially_covered_controls": {
+      "items": {},
+      "type": "array"
+    },
+    "uncovered_controls": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "control_matrix_id",
+    "controls",
+    "covered_controls",
+    "partially_covered_controls",
+    "uncovered_controls",
+    "evidence_refs",
+    "known_gaps",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "SecurityControlCoverageMatrix",
+  "type": "object"
+}

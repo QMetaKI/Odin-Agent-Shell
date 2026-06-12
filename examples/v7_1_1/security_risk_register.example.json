@@ -1,0 +1,134 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "risk_register_is_static_review_register_not_risk_elimination_or_security_certification",
+  "evidence_refs": [
+    "reports/v7_1_1_b8_security_review_report.json"
+  ],
+  "impact": "medium",
+  "likelihood": "medium",
+  "mitigation_refs": [
+    "tools/v7_1_1/check_b8_security_review_track.py"
+  ],
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "owner_track": "B8_static_security_review",
+  "risk_category": "static_security_review",
+  "risk_id": "B8-RISK-000",
+  "risk_rating": "medium",
+  "risk_source": "B8 review artifacts",
+  "risk_title": "B8 static aggregate risk register",
+  "risks": [
+    {
+      "evidence_refs": [
+        "examples/v7_1_1/static_threat_model.example.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "impact": "high",
+      "likelihood": "medium",
+      "mitigation_refs": [
+        "examples/v7_1_1/security_control_coverage_matrix.example.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "owner_track": "B8_static_security_review",
+      "risk_category": "claim_overreach",
+      "risk_id": "B8-RISK-001",
+      "risk_rating": "high",
+      "risk_source": "B1-B7 reports and B8 wording",
+      "risk_title": "Claim overreach",
+      "status": "partially_mitigated_static"
+    },
+    {
+      "evidence_refs": [
+        "examples/v7_1_1/static_threat_model.example.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "impact": "high",
+      "likelihood": "medium",
+      "mitigation_refs": [
+        "examples/v7_1_1/security_control_coverage_matrix.example.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "owner_track": "B8_static_security_review",
+      "risk_category": "provider_runtime_leak",
+      "risk_id": "B8-RISK-002",
+      "risk_rating": "high",
+      "risk_source": "B3/B7 provider refs",
+      "risk_title": "Provider runtime boundary confusion",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "evidence_refs": [
+        "examples/v7_1_1/static_threat_model.example.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "impact": "medium",
+      "likelihood": "medium",
+      "mitigation_refs": [
+        "examples/v7_1_1/security_control_coverage_matrix.example.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "owner_track": "B8_static_security_review",
+      "risk_category": "secret_or_token_leak",
+      "risk_id": "B8-RISK-003",
+      "risk_rating": "medium",
+      "risk_source": "static pattern review",
+      "risk_title": "Sensitive term false confidence",
+      "status": "requires_human_review"
+    },
+    {
+      "evidence_refs": [
+        "examples/v7_1_1/static_threat_model.example.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "impact": "medium",
+      "likelihood": "low",
+      "mitigation_refs": [
+        "examples/v7_1_1/security_control_coverage_matrix.example.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "owner_track": "B8_static_security_review",
+      "risk_category": "thor_pack_artifact_commit",
+      "risk_id": "B8-RISK-004",
+      "risk_rating": "low_to_medium",
+      "risk_source": "B7 Thor intake",
+      "risk_title": "Thor pack artifact commit",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "evidence_refs": [
+        "examples/v7_1_1/static_threat_model.example.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "impact": "high",
+      "likelihood": "medium",
+      "mitigation_refs": [
+        "examples/v7_1_1/security_control_coverage_matrix.example.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "owner_track": "B8_static_security_review",
+      "risk_category": "network_or_remote_leak",
+      "risk_id": "B8-RISK-005",
+      "risk_rating": "high",
+      "risk_source": "B8 non-methods",
+      "risk_title": "Runtime-only issue missed by static track",
+      "status": "deferred_to_security_review"
+    }
+  ],
+  "security_risk_register_id": "security_risk_register.pr34",
+  "status": "open_static"
+}

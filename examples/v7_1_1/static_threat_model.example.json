@@ -1,0 +1,130 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "threat_model_is_static_review_not_complete_security_assurance",
+  "known_gaps": [
+    "no_penetration_test_performed",
+    "no_dynamic_runtime_security_test_performed",
+    "no_external_secret_scan_performed",
+    "no_dependency_vulnerability_tool_proof"
+  ],
+  "mitigations": [
+    "explicit non-claims",
+    "candidate-only artifacts",
+    "B8 validator fail-closed checks",
+    "FILE_MANIFEST hygiene",
+    "separate future runtime tracks"
+  ],
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "open_questions": [
+    "runtime-only risks require later dynamic/runtime review",
+    "dependency vulnerability posture requires separate tool receipt",
+    "target-host posture requires separate host-scoped review"
+  ],
+  "risk_rating_policy": {
+    "impact_values": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "likelihood_values": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "rating_rule": "conservative_static_review_rating_not_runtime_measurement"
+  },
+  "threat_model_id": "static_threat_model.pr34",
+  "threats": [
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "medium",
+      "threat_category": "claim_overreach"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "medium",
+      "threat_category": "authority_leak"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "provider_runtime_leak"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "medium",
+      "threat_category": "secret_or_token_leak"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "path_leak"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "unsafe_file_write"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "network_or_remote_leak"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "medium",
+      "threat_category": "receipt_truth_elevation"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "final_gate_elevation"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "thor_pack_artifact_commit"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "medium",
+      "threat_category": "security_certification_overclaim"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "target_host_overclaim"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "release_overclaim"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "audit_theater_risk"
+    },
+    {
+      "mitigation_ref": "claim_boundary_and_validator",
+      "risk_rating": "low_to_medium",
+      "threat_category": "process_overhead_risk"
+    }
+  ]
+}

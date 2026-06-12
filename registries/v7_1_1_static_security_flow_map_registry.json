@@ -1,0 +1,136 @@
+{
+  "claim_boundary": "static_security_flow_map_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_static_security_flow_map_registry",
+  "static_security_flow_maps": [
+    {
+      "boundary_crossed": "security_review_boundary",
+      "candidate_only": true,
+      "claim_boundary": "flow_map_is_static_review_artifact_not_runtime_network_provider_or_target_host_proof",
+      "deferred_runtime_notes": "provider runtime, target host runtime, network runtime and dependency vulnerability tooling deferred",
+      "evidence_required": "local deterministic checks and file references",
+      "flows": [
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "candidate_input_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "schema_validation_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "registry_reference_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "report_generation_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "receipt_evidence_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "provider_policy_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "thor_intake_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "cli_validation_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        },
+        {
+          "boundary_crossed": "security_review_boundary",
+          "deferred_runtime_notes": "runtime activity remains future track",
+          "evidence_required": "path_ref_and_validator_check",
+          "flow_category": "external_runtime_deferred_flow",
+          "risk_notes": "claim overreach if interpreted as runtime proof",
+          "sink": "static_B8_artifact",
+          "source": "tracked_repository_artifact"
+        }
+      ],
+      "non_claims": [
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "risk_notes": "static map can miss runtime-only issues and untracked secrets",
+      "security_flow_map_id": "static_security_flow_map.pr34",
+      "sink": "B8 schemas registries examples report docs validator tests",
+      "source": "tracked repository files only"
+    }
+  ],
+  "status": "static_security_flow_map_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "version": "7.1.1"
+}

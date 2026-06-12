@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "app_authority_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "bridge_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "cli_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "excluded_paths": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "provider_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "receipt_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "registry_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "report_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "reviewed_paths": {
+      "items": {},
+      "type": "array"
+    },
+    "schema_surfaces": {
+      "items": {},
+      "type": "array"
+    },
+    "security_relevant_paths": {
+      "items": {},
+      "type": "array"
+    },
+    "surface_inventory_id": {
+      "type": "string"
+    },
+    "thor_intake_surfaces": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "surface_inventory_id",
+    "reviewed_paths",
+    "security_relevant_paths",
+    "cli_surfaces",
+    "schema_surfaces",
+    "registry_surfaces",
+    "report_surfaces",
+    "provider_surfaces",
+    "bridge_surfaces",
+    "app_authority_surfaces",
+    "receipt_surfaces",
+    "thor_intake_surfaces",
+    "excluded_paths",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "StaticSecuritySurfaceInventory",
+  "type": "object"
+}

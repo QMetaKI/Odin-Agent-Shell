@@ -1,0 +1,94 @@
+{
+  "claim_boundary": "security_control_coverage_matrix_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_security_control_coverage_matrix_registry",
+  "security_control_coverage_matrixs": [
+    {
+      "candidate_only": true,
+      "claim_boundary": "control_matrix_records_static_coverage_not_control_effectiveness_proof",
+      "control_matrix_id": "security_control_coverage_matrix.pr34",
+      "controls": [
+        "claim_boundary_controls",
+        "non_claim_controls",
+        "provider_boundary_controls",
+        "network_boundary_controls",
+        "api_key_boundary_controls",
+        "receipt_boundary_controls",
+        "app_authority_controls",
+        "file_manifest_hygiene_controls",
+        "thor_artifact_hygiene_controls",
+        "target_host_separation_controls",
+        "security_review_separation_controls",
+        "release_boundary_controls",
+        "audit_effectiveness_controls"
+      ],
+      "covered_controls": [
+        "claim_boundary_controls",
+        "non_claim_controls",
+        "provider_boundary_controls",
+        "network_boundary_controls",
+        "api_key_boundary_controls",
+        "receipt_boundary_controls",
+        "app_authority_controls",
+        "file_manifest_hygiene_controls",
+        "thor_artifact_hygiene_controls",
+        "security_review_separation_controls",
+        "release_boundary_controls",
+        "audit_effectiveness_controls"
+      ],
+      "evidence_refs": [
+        "registries/v7_1_1_claim_boundary_registry.json",
+        "registries/v7_1_1_forbidden_claim_registry.json",
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "known_gaps": [
+        "dynamic controls not exercised",
+        "dependency vulnerability tool not run",
+        "target-host controls require future track"
+      ],
+      "non_claims": [
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "partially_covered_controls": [
+        "target_host_separation_controls"
+      ],
+      "uncovered_controls": [
+        "dynamic_runtime_security_controls",
+        "external_dependency_vulnerability_tool_controls",
+        "penetration_test_controls"
+      ]
+    }
+  ],
+  "status": "security_control_coverage_matrix_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "version": "7.1.1"
+}
