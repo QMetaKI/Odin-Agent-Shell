@@ -1,4 +1,4 @@
-"""Simple Local Hub HTTP server — FINAL-PR-01/02.
+"""Simple Local Hub HTTP server — FINAL-PR-01/02/03.
 
 Claim boundary: simple_local_hub_localhost_only_candidate_no_app_apply_no_external_send_no_provider_execution
 
@@ -12,6 +12,13 @@ Endpoints:
   GET /apps.json    — connected apps status (FINAL-PR-02)
   GET /demo/universal-work.json — demo universal work info (FINAL-PR-02)
   POST /demo/universal-work     — deterministic demo response (FINAL-PR-02)
+  GET /activity.json            — local activity events from QIRC bus (FINAL-PR-03)
+  GET /qirc/channels.json       — QIRC channel list (FINAL-PR-03)
+  GET /qirc/events.json         — all QIRC bus events (FINAL-PR-03)
+  GET /traces.json              — trace events from QIRC bus (FINAL-PR-03)
+  GET /receipts.json            — receipt events from QIRC bus (FINAL-PR-03)
+  GET /dev/status.json          — dev status including surface map (FINAL-PR-03)
+  POST /qirc/events             — create local demo event (FINAL-PR-03)
 """
 from __future__ import annotations
 
@@ -50,6 +57,34 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path == "/demo/universal-work.json":
             body = json.dumps(get_demo_universal_work_json(), indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
+        elif self.path == "/activity.json":
+            from odin.qirc_core.bus import list_events
+            events = list_events("#odin.activity")
+            body = json.dumps({"artifact_kind": "odin_activity_list", "candidate_only": True, "local_only": True, "events": events, "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/qirc/channels.json":
+            from odin.qirc_core.channels import list_channels
+            body = json.dumps({"artifact_kind": "odin_qirc_channels", "candidate_only": True, "local_only": True, "channels": list_channels(), "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/qirc/events.json":
+            from odin.qirc_core.bus import list_events
+            body = json.dumps({"artifact_kind": "odin_qirc_events", "candidate_only": True, "local_only": True, "events": list_events(), "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/traces.json":
+            from odin.qirc_core.bus import list_events
+            events = list_events("#odin.trace")
+            body = json.dumps({"artifact_kind": "odin_traces", "candidate_only": True, "local_only": True, "events": events, "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/receipts.json":
+            from odin.qirc_core.bus import list_events
+            events = list_events("#odin.receipt")
+            body = json.dumps({"artifact_kind": "odin_receipts", "candidate_only": True, "local_only": True, "events": events, "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/dev/status.json":
+            from odin.local_hub.surface_registry import surface_map_summary
+            from odin.qirc_core.bus import bus_summary
+            body = json.dumps({"artifact_kind": "odin_dev_status", "candidate_only": True, "local_only": True, "surface_map": surface_map_summary(), "qirc_bus": bus_summary(), "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)
@@ -65,6 +100,23 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             input_text = payload.get("input", "demo input")
             result = build_demo_universal_work_response(input_text=str(input_text))
             body = json.dumps(result, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/qirc/events":
+            content_length = int(self.headers.get("Content-Length", 0))
+            raw_body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+            try:
+                payload = json.loads(raw_body.decode("utf-8"))
+            except Exception:
+                payload = {}
+            from odin.qirc_core.bus import append_event
+            channel = str(payload.get("channel", "#odin.dev"))
+            kind = str(payload.get("kind", "demo"))
+            source = str(payload.get("source", "local_hub"))
+            event_payload = payload.get("payload", {})
+            if not isinstance(event_payload, dict):
+                event_payload = {}
+            event = append_event(channel=channel, kind=kind, source=source, payload=event_payload)
+            body = json.dumps({"status": "ok", "event": event, "candidate_only": True, "local_only": True, "claim_boundary": "final_pr_03_qirc_first_slice_local_only"}, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

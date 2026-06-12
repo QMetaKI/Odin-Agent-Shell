@@ -1,0 +1,38 @@
+{
+  "artifact_kind": "odin_hub_surface_conflict_check",
+  "candidate_only": true,
+  "claim_boundary": "hub_surface_registry_local_only_no_app_apply_no_external_send",
+  "duplicate_ports": [],
+  "local_only": true,
+  "public_bind_risk": [],
+  "status": "ok",
+  "surfaces": [
+    {
+      "candidate_only": true,
+      "description": "Simple Local Runtime Hub — canonical normal-user entry point. FINAL-PR-01+.",
+      "is_canonical_entry": true,
+      "local_only": true,
+      "owner": "odin.local_hub.server",
+      "port": 8765,
+      "role": "canonical_normal_user_entry"
+    },
+    {
+      "candidate_only": true,
+      "description": "Local API daemon / backend capability surface. Existing LRH-PR-05.",
+      "is_canonical_entry": false,
+      "local_only": true,
+      "owner": "odin.daemon.local_api",
+      "port": 8877,
+      "role": "local_api_daemon"
+    },
+    {
+      "candidate_only": true,
+      "description": "Browser hub shell / legacy-or-dev shell surface. Existing LRH-PR-06.",
+      "is_canonical_entry": false,
+      "local_only": true,
+      "owner": "odin.hub.shell",
+      "port": 8878,
+      "role": "browser_hub_shell"
+    }
+  ]
+}

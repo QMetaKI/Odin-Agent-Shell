@@ -1,0 +1,33 @@
+{
+  "artifact_kind": "odin_final_pr_03_qirc_devmode_proof_packet",
+  "status": "ok_with_known_gaps",
+  "candidate_only": true,
+  "local_only": true,
+  "qirc_core_first_slice": true,
+  "qirc_public_network": false,
+  "qirc_federation": false,
+  "activity_timeline_visible": true,
+  "trace_viewer_visible": true,
+  "receipt_viewer_visible": true,
+  "handoff_chain_visible": true,
+  "surface_registry_visible": true,
+  "surface_conflict_check": "ok",
+  "provider_execution": false,
+  "model_inference": false,
+  "app_apply": false,
+  "app_state_mutation": false,
+  "external_send": false,
+  "not_proven": [
+    "provider_execution",
+    "model_inference",
+    "public_qirc_network",
+    "qirc_federation",
+    "real_external_app_integration",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "claim_boundary": "final_pr_03_qirc_first_slice_local_only_not_public_network_not_runtime_completion"
+}

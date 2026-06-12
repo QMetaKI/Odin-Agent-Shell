@@ -1,0 +1,12 @@
+{
+  "report_id": "odin.final_pr_03_qirc_devmode_check",
+  "status": "ok",
+  "generated_at_utc": "2026-06-12T00:00:00Z",
+  "repo_root": "/home/user/Odin-Agent-Shell",
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "candidate_only": true,
+  "claim_boundary": "final_pr_03_validator_candidate_only_no_provider_no_app_apply"
+}

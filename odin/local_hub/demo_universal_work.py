@@ -35,6 +35,20 @@ def build_demo_universal_work_response(input_text: str = "demo input") -> dict:
     """
     work_id = f"demo-uw-{uuid.uuid4().hex[:8]}"
 
+    # Emit local activity event (no app apply, no external send)
+    try:
+        from odin.qirc_core.bus import append_event
+        append_event(
+            channel="#odin.activity",
+            kind="demo_universal_work",
+            source="local_hub",
+            payload={"input_preview": input_text[:50], "candidate_only": True},
+            trace_ref=work_id,
+            receipt_ref=work_id,
+        )
+    except Exception:
+        pass
+
     return {
         "artifact_kind": "odin_demo_universal_work_response_packet",
         "candidate_only": True,
