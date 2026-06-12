@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.worklet_graph.schema",
+  "title": "Odin v7.1.1 Worklet Graph",
+  "description": "A directed graph of worklet nodes for Odin work orchestration — candidate only",
+  "type": "object",
+  "required": ["graph_id", "nodes", "edges", "candidate_only", "claim_boundary"],
+  "properties": {
+    "graph_id": {"type": "string"},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "node_type", "candidate_only"],
+        "properties": {
+          "node_id": {"type": "string"},
+          "node_type": {"type": "string"},
+          "work_atom": {"type": "string"},
+          "candidate_only": {"type": "boolean", "const": true},
+          "forbidden_actions": {"type": "array", "items": {"type": "string"}},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_node", "to_node"],
+        "properties": {
+          "from_node": {"type": "string"},
+          "to_node": {"type": "string"},
+          "condition": {"type": "string"}
+        }
+      }
+    },
+    "candidate_only": {"type": "boolean", "const": true},
+    "forbidden_graph_actions": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

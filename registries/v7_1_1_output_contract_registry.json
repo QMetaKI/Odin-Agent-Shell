@@ -1,0 +1,30 @@
+{
+  "registry_id": "odin.v7_1_1_output_contract_registry",
+  "version": "7.1.1",
+  "claim_boundary": "output_contract_registry_is_static_contract_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": ["not runtime completion", "not app apply authority"],
+  "contracts": [
+    {
+      "contract_id": "odin.v7_1_1.candidate_only_static",
+      "contract_type": "candidate_only_static",
+      "candidate_only": true,
+      "app_owned_apply": true,
+      "app_owned_state": true,
+      "app_owned_external_send": true,
+      "forbidden_shapes": [
+        "direct_apply",
+        "external_send",
+        "app_state_mutation",
+        "provider_execution",
+        "live_model_execution",
+        "qirc_server_claim",
+        "production_readiness_claim",
+        "final_gate_bypass"
+      ],
+      "allowed_shapes": ["candidate_text", "candidate_plan", "candidate_diff", "candidate_context", "candidate_trace"],
+      "description": "Standard candidate-only static output contract",
+      "claim_boundary": "output_contract_is_candidate_only_static_not_runtime_proof"
+    }
+  ]
+}

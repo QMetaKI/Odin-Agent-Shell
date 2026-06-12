@@ -53,7 +53,9 @@
       ],
       "actual_pr": "PR-28",
       "bundle_id": "B2",
-      "claim_boundary": "bundle_plan_only",
+      "claim_boundary": "b2_maps_canonical_slices_to_actual_pr_not_completion_proof",
+      "description": "B2: Context, Artifact Families, Lenses, Output Contracts, Worklets, Slot Forge, Gaptext",
+      "non_claims": ["not runtime completion", "not QIRC server runtime proof", "not app apply authority proof"],
       "slice_ids": [
         "V711-R100-048",
         "V711-R100-049",
@@ -85,7 +87,7 @@
         "V711-R100-075"
       ],
       "slice_range": "V711-R100-048..075",
-      "status": "future_actual_bundle_mapping_not_runtime_proof",
+      "status": "static_contract_evidence_added_not_runtime_complete",
       "title": "Context / Lenses / Worklets / Slot Forge / Gaptext"
     },
     {

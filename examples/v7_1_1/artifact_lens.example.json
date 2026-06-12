@@ -1,0 +1,17 @@
+{
+  "lens_id": "context_distill",
+  "lens_name": "Context Distill",
+  "description": "Distills relevant context from source artifacts into a structured Context Capsule for downstream worklets and gaptext compilation.",
+  "applicable_families": ["text_document", "data_config", "code_repo", "semantic_event"],
+  "input_kind": "source_artifact_with_binding_ref",
+  "output_kind": "context_capsule_candidate",
+  "slot_class": "small_model_candidate",
+  "claim_boundary": "lens_is_transformation_contract_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not live model execution",
+    "not provider execution",
+    "not app state mutation",
+    "not production readiness"
+  ]
+}

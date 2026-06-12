@@ -1,0 +1,129 @@
+{
+  "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",
+  "version": "7.1.1",
+  "status": "llm_work_audit_findings_not_runtime_proof",
+  "claim_boundary": "audit_findings_are_process_observations_not_runtime_capability_claims",
+  "findings": [
+    {
+      "finding_id": "B2-AUDIT-001",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/handoffs/PR_28_B2_THOR_REPO_COGNITION_HANDOFF.md"
+      ],
+      "finding_type": "external_reference_integration",
+      "severity": "informational",
+      "summary": "Thor-Agent-Kit was successfully cloned and used for handoff protocol intake. SHA e9af7a333e4bcb11f2461696e4ebbcde994b98b1 recorded. Thor's agent_profiles/claude-code profile and HANDOFF_PACKS.md conventions shaped the B2 handoff structure, compact prompt, and return receipt.",
+      "recommendation": "Continue using Thor-Agent-Kit as external handoff reference in future bundles. Consider formalizing the Thor intake step in the Claude Code workflow.",
+      "suggested_future_bundle": "B3+",
+      "odin_side_improvement": "Add formal Thor reference intake step to validate-all or a dedicated validate-thor-intake command",
+      "thor_side_improvement": "Thor-Agent-Kit could include an Odin-specific handoff template for v7.1.1 work bundles",
+      "claude_code_workflow_improvement": "The Claude Code worker should read Thor agent_profiles/claude-code at start of each PR to align with handoff discipline",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-002",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md"
+      ],
+      "finding_type": "external_reference_blocked",
+      "severity": "low",
+      "summary": "YNode-prep clone was BLOCKED due to network access restrictions in the execution environment. Y handoff discipline was applied from available Odin-Agent-Shell codebase references instead. The conceptual handoff patterns (candidate-only, authority split, slot-based dispatch, gaptext discipline) were correctly imported.",
+      "recommendation": "Document the BLOCKED status clearly. When network access is available, re-clone YNode-prep and update the intake summary. The Y conceptual patterns were correctly applied even without direct YNode-prep access.",
+      "suggested_future_bundle": "B3+",
+      "odin_side_improvement": "Include a local Y-handoff reference document in docs/ so YNode-prep network dependency is not required",
+      "thor_side_improvement": "Thor could include a Y-handoff patterns reference in Thor-Agent-Kit to reduce external network dependency",
+      "claude_code_workflow_improvement": "When external repos are blocked, Claude Code should explicitly document BLOCKED status and apply available patterns conservatively",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-003",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md"
+      ],
+      "finding_type": "odin_as_work_kernel_fit",
+      "severity": "informational",
+      "summary": "Odin-Agent-Shell contract structure (Universal Work, Binding, Semantic Bus, Claim Boundary, Forbidden Claim registries) provided a strong work-kernel scaffold for Claude Code's local-worker execution. The work packet structure enforced candidate-only discipline, explicit forbidden actions, and non-claims throughout B2.",
+      "recommendation": "The Odin work-kernel structure is effective for disciplining Claude Code output. Continue using work packets for future bundles. Consider making the work packet format more prescriptive with required fields validated by a tool.",
+      "suggested_future_bundle": "B3+",
+      "odin_side_improvement": "Add a formal validate-work-packet CLI command that validates work packet JSON against a schema before work begins",
+      "thor_side_improvement": "Thor could generate work packets from the Claude Code prompt structure to reduce manual work packet creation",
+      "claude_code_workflow_improvement": "Claude Code should validate its own work packet at the start of each PR to catch boundary violations early",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-004",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/handoffs/PR_28_B2_THOR_COMPACT_HANDOFF_PROMPT.md",
+        "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md"
+      ],
+      "finding_type": "thor_compact_handoff_prompt_value",
+      "severity": "informational",
+      "summary": "The compact Thor prompt successfully captured the essential B2 scope in a much shorter format than the master prompt. The four Thor prompt blocks (Repo Cognition, Architecture Review, Senior Code Review, Return/Receipt) provided structured review scaffolding for each phase of B2 development.",
+      "recommendation": "The compact prompt approach is effective. Future bundles should maintain the 4-block Thor prompt structure (Cognition, Architecture, Code Review, Return/Receipt) for consistency.",
+      "suggested_future_bundle": "B3+",
+      "odin_side_improvement": "Add a compact_prompt field to the work packet schema to make the compact prompt a first-class artifact",
+      "thor_side_improvement": "Thor could auto-generate compact prompts from structured bundle specifications",
+      "claude_code_workflow_improvement": "Claude Code should use the compact prompt as a quick reference during implementation, checking each block before moving to the next phase",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-005",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py"
+      ],
+      "finding_type": "missing_native_thor_bridge",
+      "severity": "medium",
+      "summary": "Odin-Agent-Shell currently has no native Thor bridge — no API, protocol, or integration for Thor to send structured handoffs directly to Odin or receive structured receipts. Thor is used only as an external reference, requiring manual reading and interpretation by Claude Code.",
+      "recommendation": "Future work (B7+) should define a Thor-Odin bridge protocol so Thor handoffs can be consumed programmatically. This would enable automated receipt generation and validation.",
+      "suggested_future_bundle": "B7+",
+      "odin_side_improvement": "Define a thor_handoff_intake schema and a validate-thor-handoff command that can parse Thor-generated handoff documents",
+      "thor_side_improvement": "Thor could output structured JSON handoffs in addition to Markdown for programmatic consumption by Odin",
+      "claude_code_workflow_improvement": "Claude Code should note when Thor integration would benefit from a formal bridge and document it as a finding",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-006",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md"
+      ],
+      "finding_type": "missing_formal_claude_as_worker_adapter_contract",
+      "severity": "medium",
+      "summary": "There is no formal Odin schema for Claude-as-worker adapter. The work packet describes Claude Code as a local worker following Odin constraints, but there is no odin_claude_worker_adapter.schema.json or equivalent formal contract. This is structurally analogous to the missing external agent adapter contract.",
+      "recommendation": "Future work (B3+) should define a formal Claude-as-worker adapter contract as part of the ModelWorkPacket and External Agent Adapter work.",
+      "suggested_future_bundle": "B3",
+      "odin_side_improvement": "Add odin_claude_worker_adapter.schema.json as part of B3 ModelWorkPacket work. Reference it from the work packet structure.",
+      "thor_side_improvement": "Thor could define a standard agent-as-worker adapter interface that Odin implements",
+      "claude_code_workflow_improvement": "Until a formal adapter contract exists, Claude Code should reference the work packet as the informal adapter contract",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B2-AUDIT-007",
+      "bundle_id": "B2",
+      "source_pr": "PR-28",
+      "source_refs": [
+        "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md"
+      ],
+      "finding_type": "future_b7_audit_carry_forward",
+      "severity": "informational",
+      "summary": "B2 establishes the semantic work compile layer (Context, Lenses, Output Contracts, Worklets, Slot Forge, Gaptext) as static contracts. These contracts are the foundation for the model routing and provider integration work in B3+. The quality of B2 contracts directly determines B3 implementation correctness.",
+      "recommendation": "B7+ post-Road closure work should review whether B2 contracts adequately captured the full semantic work compile layer, whether Slot Forge route classes need expansion, and whether Context Capsule/Gaptext discipline was maintained through the full implementation ladder.",
+      "suggested_future_bundle": "B7+",
+      "odin_side_improvement": "At B7+ review, validate that actual model routing implementation respects the Slot Forge route class contracts defined in B2",
+      "thor_side_improvement": "Thor post-closure review should verify that B2 contracts were correctly implemented in B3 ModelWorkPacket and B4 Candidate Final Gate",
+      "claude_code_workflow_improvement": "Future Claude Code workers should explicitly reference B2 contracts when implementing B3+ model routing to maintain contract fidelity",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    }
+  ]
+}

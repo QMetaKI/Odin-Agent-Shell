@@ -1,0 +1,76 @@
+{
+  "registry_id": "odin.v7_1_1_artifact_family_registry",
+  "version": "7.1.1",
+  "claim_boundary": "artifact_family_registry_is_static_classification_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": ["not runtime completion", "not provider execution proof", "not app apply authority"],
+  "families": [
+    {
+      "family_id": "text_document",
+      "family_name": "Text Document",
+      "description": "Plain text, markdown, prose, structured text artifacts",
+      "examples": ["markdown files", "plain text", "structured prose"],
+      "claim_boundary": "text_document_family_is_classification_not_runtime_proof",
+      "candidate_only": true
+    },
+    {
+      "family_id": "data_config",
+      "family_name": "Data / Config",
+      "description": "JSON, YAML, TOML, and structured data configuration artifacts",
+      "examples": ["JSON configs", "YAML schemas", "TOML manifests"],
+      "claim_boundary": "data_config_family_is_classification_not_runtime_proof",
+      "candidate_only": true
+    },
+    {
+      "family_id": "code_repo",
+      "family_name": "Code Repository",
+      "description": "Source code files, scripts, and repository artifacts",
+      "examples": ["Python files", "JavaScript", "shell scripts"],
+      "claim_boundary": "code_repo_family_is_classification_not_runtime_proof",
+      "candidate_only": true
+    },
+    {
+      "family_id": "app_runtime",
+      "family_name": "App Runtime",
+      "description": "App runtime state, process data, runtime logs — Odin observes only, does not mutate",
+      "examples": ["runtime logs", "process state snapshots"],
+      "claim_boundary": "app_runtime_family_is_observation_only_not_mutation_authority",
+      "candidate_only": true,
+      "non_claims": ["not app state mutation authority", "not write authority"]
+    },
+    {
+      "family_id": "game_interactive",
+      "family_name": "Game / Interactive",
+      "description": "Game state, interactive application events, player data — Odin observes only",
+      "examples": ["game save data", "interactive event logs"],
+      "claim_boundary": "game_interactive_family_is_observation_only_not_mutation_authority",
+      "candidate_only": true
+    },
+    {
+      "family_id": "media_reference",
+      "family_name": "Media Reference",
+      "description": "References to media artifacts (images, audio, video) — not direct media processing",
+      "examples": ["image path references", "media metadata"],
+      "claim_boundary": "media_reference_family_is_reference_not_processing_authority",
+      "candidate_only": true
+    },
+    {
+      "family_id": "semantic_event",
+      "family_name": "Semantic Event",
+      "description": "Semantic bus events, QIRC events, coordination signals — local only",
+      "examples": ["semantic bus events", "QIRC coordination signals"],
+      "claim_boundary": "semantic_event_family_is_local_coordination_not_external_send",
+      "candidate_only": true,
+      "non_claims": ["not external send authority", "not QIRC server claim"]
+    },
+    {
+      "family_id": "candidate_artifact",
+      "family_name": "Candidate Artifact",
+      "description": "Odin-generated candidate outputs — require app-owned apply to take effect",
+      "examples": ["candidate diffs", "candidate text", "candidate plans"],
+      "claim_boundary": "candidate_artifact_family_requires_app_owned_apply",
+      "candidate_only": true,
+      "non_claims": ["not applied by Odin", "not app state mutation", "requires human review and app apply"]
+    }
+  ]
+}

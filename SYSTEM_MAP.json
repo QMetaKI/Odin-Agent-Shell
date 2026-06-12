@@ -916,5 +916,21 @@
   "v7_1_1_universal_work_contract": "registries/v7_1_1_universal_work_contract.json",
   "v7_1_1_universal_work_example": "examples/v7_1_1/universal_work.example.json",
   "v7_1_1_universal_work_schema": "schemas/v7_1_1_universal_work.schema.json",
-  "version": "0.8.7"
+  "version": "0.8.7",
+  "b2_context_lenses_worklets_slot_gaptext": {
+    "bundle_id": "B2",
+    "actual_pr": "PR-28",
+    "slice_range": "V711-R100-048..075",
+    "schemas": [
+      "schemas/v7_1_1_artifact_family.schema.json",
+      "schemas/v7_1_1_artifact_lens.schema.json",
+      "schemas/v7_1_1_output_contract.schema.json",
+      "schemas/v7_1_1_context_capsule.schema.json",
+      "schemas/v7_1_1_worklet_graph.schema.json",
+      "schemas/v7_1_1_slot_contract.schema.json",
+      "schemas/v7_1_1_gaptext.schema.json"
+    ],
+    "claim_boundary": "b2_system_map_is_static_index_not_runtime_proof",
+    "status": "static_contract_evidence_added_not_runtime_complete"
+  }
 }

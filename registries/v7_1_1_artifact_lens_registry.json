@@ -1,0 +1,139 @@
+{
+  "registry_id": "odin.v7_1_1_artifact_lens_registry",
+  "version": "7.1.1",
+  "claim_boundary": "artifact_lens_registry_is_static_classification_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": ["not runtime completion", "not live model inference proof"],
+  "lenses": [
+    {
+      "lens_id": "summarize",
+      "lens_name": "Summarize",
+      "applicable_families": ["text_document", "data_config", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_summary",
+      "description": "Produces a candidate summary — requires app apply to use",
+      "claim_boundary": "summarize_lens_is_candidate_output_not_authoritative_summary",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "extract",
+      "lens_name": "Extract",
+      "applicable_families": ["text_document", "data_config", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_extraction",
+      "description": "Extracts structured candidate data — candidate only",
+      "claim_boundary": "extract_lens_is_candidate_output_not_authoritative_extraction",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "rewrite",
+      "lens_name": "Rewrite",
+      "applicable_families": ["text_document", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_rewrite",
+      "description": "Produces candidate rewrite — requires app-owned apply",
+      "claim_boundary": "rewrite_lens_is_candidate_output_requires_app_apply",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "review",
+      "lens_name": "Review",
+      "applicable_families": ["text_document", "data_config", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_review",
+      "description": "Produces candidate review notes — candidate only",
+      "claim_boundary": "review_lens_is_candidate_output_not_authoritative_review",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "plan",
+      "lens_name": "Plan",
+      "applicable_families": ["text_document", "data_config", "code_repo", "app_runtime"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_plan",
+      "description": "Produces candidate plan — not execution authority",
+      "claim_boundary": "plan_lens_is_candidate_output_not_execution_authority",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "classify",
+      "lens_name": "Classify",
+      "applicable_families": ["text_document", "data_config", "code_repo", "semantic_event"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_classification",
+      "description": "Produces candidate classification — not authoritative categorization",
+      "claim_boundary": "classify_lens_is_candidate_output_not_authoritative_classification",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "compare",
+      "lens_name": "Compare",
+      "applicable_families": ["text_document", "data_config", "code_repo"],
+      "input_kind": "artifact_pair",
+      "output_kind": "candidate_comparison",
+      "description": "Produces candidate comparison — not diff authority",
+      "claim_boundary": "compare_lens_is_candidate_output_not_diff_authority",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "trace",
+      "lens_name": "Trace",
+      "applicable_families": ["code_repo", "app_runtime", "semantic_event"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_trace",
+      "description": "Produces candidate why-trace — not execution proof",
+      "claim_boundary": "trace_lens_is_candidate_output_not_execution_proof",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "contract_check",
+      "lens_name": "Contract Check",
+      "applicable_families": ["data_config", "code_repo", "candidate_artifact"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_contract_check",
+      "description": "Checks artifact against a contract — candidate finding only",
+      "claim_boundary": "contract_check_lens_is_candidate_finding_not_authoritative_verdict",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "schema_map",
+      "lens_name": "Schema Map",
+      "applicable_families": ["data_config", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_schema_map",
+      "description": "Maps artifact to schema candidates — not authoritative schema",
+      "claim_boundary": "schema_map_lens_is_candidate_output_not_authoritative_schema",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "context_distill",
+      "lens_name": "Context Distill",
+      "applicable_families": ["text_document", "data_config", "code_repo", "semantic_event"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_context_capsule",
+      "description": "Distills context into a candidate capsule — no app state write",
+      "claim_boundary": "context_distill_lens_is_candidate_capsule_not_app_state_write",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "slot_prepare",
+      "lens_name": "Slot Prepare",
+      "applicable_families": ["text_document", "data_config", "code_repo", "candidate_artifact"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_slot_contract",
+      "description": "Prepares candidate slot routing contract — no live execution",
+      "claim_boundary": "slot_prepare_lens_is_candidate_contract_not_live_execution",
+      "candidate_only": true
+    },
+    {
+      "lens_id": "gaptext_prepare",
+      "lens_name": "Gaptext Prepare",
+      "applicable_families": ["text_document", "code_repo"],
+      "input_kind": "artifact",
+      "output_kind": "candidate_gaptext",
+      "description": "Prepares candidate gaptext contract — no app state write",
+      "claim_boundary": "gaptext_prepare_lens_is_candidate_contract_not_app_state_write",
+      "candidate_only": true
+    }
+  ]
+}

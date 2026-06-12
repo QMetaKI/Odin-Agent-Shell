@@ -1,0 +1,23 @@
+{
+  "contract_id": "odin.v7_1_1.output_contract.markdown_rewrite_candidate",
+  "output_kind": "markdown_rewrite_candidate",
+  "schema_ref": "schemas/v7_1_1_output_contract.schema.json",
+  "allowed_shapes": ["candidate_text_artifact", "candidate_patch_plan"],
+  "forbidden_shapes": [
+    "direct_apply",
+    "external_send",
+    "app_state_mutation",
+    "provider_execution",
+    "live_model_execution",
+    "qirc_server_claim",
+    "production_readiness_claim"
+  ],
+  "claim_boundary": "output_contract_is_candidate_boundary_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not runtime completion",
+    "not live model inference",
+    "not app apply authority",
+    "not production readiness"
+  ]
+}

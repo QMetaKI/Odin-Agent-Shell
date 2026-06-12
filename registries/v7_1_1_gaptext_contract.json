@@ -1,0 +1,28 @@
+{
+  "registry_id": "odin.v7_1_1_gaptext_contract",
+  "version": "7.1.1",
+  "claim_boundary": "gaptext_contract_is_static_invariant_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": [
+    "not app state write authority",
+    "not external send authority",
+    "not live model inference proof",
+    "not production readiness"
+  ],
+  "invariants": [
+    "gaptext_must_have_claim_boundary",
+    "gaptext_candidate_only_must_be_true",
+    "gaptext_must_not_write_app_state",
+    "gaptext_must_not_send_externally",
+    "gaptext_fill_is_candidate_not_authoritative",
+    "gaptext_slots_are_read_only_context"
+  ],
+  "forbidden_shapes": [
+    "direct_apply",
+    "external_send",
+    "app_state_mutation",
+    "runtime_proof_claim",
+    "provider_execution",
+    "live_model_execution"
+  ]
+}

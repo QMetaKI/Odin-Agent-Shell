@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1.context_capsule.schema",
+  "title": "Odin v7.1.1 Context Capsule",
+  "description": "A bounded context packet for distillation — candidate only, no app state write",
+  "type": "object",
+  "required": [
+    "capsule_id", "artifact_family", "artifact_lens", "context_window",
+    "distillation_verb", "candidate_only", "app_owned_apply",
+    "app_owned_state", "app_owned_external_send",
+    "claim_boundary", "non_claims"
+  ],
+  "properties": {
+    "capsule_id": {"type": "string"},
+    "artifact_family": {"type": "string"},
+    "artifact_lens": {"type": "string"},
+    "context_window": {"type": "object"},
+    "distillation_verb": {"type": "string"},
+    "output_slot": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean", "const": true},
+    "app_owned_state": {"type": "boolean", "const": true},
+    "app_owned_external_send": {"type": "boolean", "const": true},
+    "forbidden_actions": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"},
+    "non_claims": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Required not-proven list"
+    },
+    "privacy_class": {"type": "string"},
+    "trace_id": {"type": "string"}
+  },
+  "additionalProperties": false
+}
