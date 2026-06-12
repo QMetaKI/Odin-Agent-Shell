@@ -1,0 +1,16 @@
+{
+  "adapter_id": "odin_claude_worker_adapter_example_b3_001",
+  "worker_kind": "external_local_worker",
+  "worker_name": "Claude Code",
+  "input_contract_refs": ["odin_modelworkpacket_example_b3_001"],
+  "output_contract_refs": ["odin_output_contract_example_001"],
+  "binding_ref": "odin_binding_example_001",
+  "modelworkpacket_ref": "odin_modelworkpacket_example_b3_001",
+  "allowed_actions": ["read_allowed_files", "edit_allowed_files", "run_readonly_commands", "run_tests", "write_candidate_output", "return_work_packet"],
+  "forbidden_actions": ["direct_apply", "app_state_mutation", "external_send", "provider_execution_without_policy", "live_model_execution_without_policy", "qirc_server_start", "final_gate_bypass", "claim_test_success_without_evidence", "claim_runtime_proof", "claim_model_quality_proof"],
+  "return_contract": {"shape": "candidate_work_packet", "claim_boundary": "claude_worker_adapter_output_is_candidate_only"},
+  "evidence_requirements": ["test_run_receipt", "command_run_receipt", "no_hard_violation_in_report"],
+  "claim_boundary": "claude_worker_adapter_example_is_static_contract_not_live_execution",
+  "candidate_only": true,
+  "non_claims": ["not_local_llm_runtime_proof", "not_app_apply_authority", "not_external_send_authority", "not_runtime_proof", "not_model_quality_proof"]
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_thor_handoff_intake.schema",
+  "title": "ThorHandoffIntake",
+  "description": "Schema for Thor Handoff Intake — maps Thor-Agent-Kit concepts and protocols to Odin contracts. External reference and local guidance only, not a runtime bridge.",
+  "type": "object",
+  "required": [
+    "intake_id",
+    "thor_source_ref",
+    "thor_commit_sha",
+    "thor_command_refs",
+    "thor_repo_cognition_refs",
+    "thor_y_handoff_refs",
+    "thor_protocol_refs",
+    "odin_bundle_ref",
+    "odin_work_packet_ref",
+    "mapping_summary",
+    "used_concepts",
+    "not_used_concepts",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "intake_id": {
+      "type": "string",
+      "description": "Unique identifier for this Thor handoff intake record"
+    },
+    "thor_source_ref": {
+      "type": "string",
+      "description": "URL or reference to the Thor-Agent-Kit source repository"
+    },
+    "thor_commit_sha": {
+      "type": "string",
+      "description": "Git commit SHA of the Thor-Agent-Kit version used as reference"
+    },
+    "thor_command_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor CLI commands referenced (not executed) during intake"
+    },
+    "thor_repo_cognition_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor repo cognition documents referenced during intake"
+    },
+    "thor_y_handoff_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor Y handoff protocol references"
+    },
+    "thor_protocol_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor protocol documents referenced during intake"
+    },
+    "odin_bundle_ref": {
+      "type": "string",
+      "description": "Odin bundle this intake maps to"
+    },
+    "odin_work_packet_ref": {
+      "type": "string",
+      "description": "Odin work packet or handoff document this intake supports"
+    },
+    "mapping_summary": {
+      "type": "string",
+      "description": "Summary of how Thor concepts map to Odin contracts"
+    },
+    "used_concepts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor concepts adopted and mapped into Odin"
+    },
+    "not_used_concepts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thor concepts not used or not applicable in this intake"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this intake does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — intake is external reference and local guidance, not runtime proof"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this intake does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,11 @@
+{
+  "seam_id": "odin_provider_seam_example_b3_001",
+  "seam_class": "mock_provider",
+  "transport_contract": "local_candidate_only",
+  "execution_policy": "no_execution_this_pr",
+  "forbidden_actions": ["execute_provider", "call_api", "use_api_key", "make_network_call", "hidden_remote_fallback"],
+  "allowed_actions": ["define_contract", "validate_schema", "mock_response_for_test"],
+  "claim_boundary": "provider_seam_example_is_transport_contract_not_provider_execution",
+  "candidate_only": true,
+  "non_claims": ["not_provider_execution", "not_api_key_use", "not_network_call", "not_model_call", "not_live_inference_proof"]
+}

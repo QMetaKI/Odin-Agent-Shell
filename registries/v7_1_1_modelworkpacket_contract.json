@@ -1,0 +1,19 @@
+{
+  "registry_id": "odin.v7_1_1_modelworkpacket_contract",
+  "version": "7.1.1",
+  "status": "modelworkpacket_contract_registry_not_runtime_proof",
+  "claim_boundary": "modelworkpacket_contract_is_local_schema_not_live_inference",
+  "candidate_only": true,
+  "non_claims": ["not_live_model_execution", "not_provider_execution", "not_app_state_mutation", "not_external_send", "not_runtime_proof", "not_model_quality_proof"],
+  "invariants": [
+    "ModelWorkPacket is a local contract not live inference",
+    "No packet may request direct apply",
+    "No packet may request external send",
+    "No packet may mutate app state",
+    "No packet may execute provider without explicit provider policy",
+    "No packet may claim model quality proof",
+    "No packet may claim runtime proof"
+  ],
+  "required_fields": ["packet_id", "binding_ref", "work_id", "slot_contract_ref", "context_capsule_ref", "gaptext_ref", "model_route_ref", "provider_policy_ref", "task", "input_refs", "output_contract_ref", "facts", "constraints", "forbidden_outputs", "return_contract", "claim_boundary", "candidate_only", "non_claims"],
+  "forbidden_outputs": ["direct_apply", "external_send", "app_state_mutation", "provider_execution_without_policy", "live_model_execution_without_policy", "runtime_proof_claim", "model_quality_proof_claim"]
+}

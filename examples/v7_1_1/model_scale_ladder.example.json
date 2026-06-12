@@ -1,0 +1,14 @@
+{
+  "ladder_id": "odin_model_scale_ladder_example_b3_001",
+  "version": "7.1.1",
+  "selected_route_class": "small_model_candidate",
+  "selection_rationale": "Task fits within 3B param budget; deterministic preprocessing available",
+  "route_classes": [
+    {"class_id": "deterministic_no_model", "applicable": false, "reason": "requires language generation"},
+    {"class_id": "small_model_candidate", "applicable": true, "reason": "fits token budget, no quality requirement beyond candidate"}
+  ],
+  "fallback": "cannot_safely_complete",
+  "claim_boundary": "model_scale_ladder_example_is_static_routing_contract_not_live_execution",
+  "candidate_only": true,
+  "non_claims": ["not_live_model_execution", "not_provider_execution", "not_model_quality_proof", "not_runtime_proof"]
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema",
+  "title": "B3ModelWorkPacketScaleHybridReport",
+  "description": "Schema for B3 Report — covers V711-R100-076..105 (ModelWorkPacket, Scale Ladder, Hybrid Director). Candidate only.",
+  "type": "object",
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "claim_boundary",
+    "bundle",
+    "hard_violations"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "Unique identifier for this B3 report"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of this report schema"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of this report (e.g. candidate, reviewed, accepted)"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this report does and does not prove"
+    },
+    "bundle": {
+      "type": "object",
+      "description": "Bundle metadata for B3",
+      "required": ["actual_pr", "bundle_id", "slice_range", "slice_count", "claim_boundary"],
+      "properties": {
+        "actual_pr": {
+          "type": "string",
+          "description": "Actual PR identifier (e.g. PR-29-B3)"
+        },
+        "bundle_id": {
+          "type": "string",
+          "description": "Bundle identifier (e.g. B3)"
+        },
+        "slice_range": {
+          "type": "string",
+          "description": "Slice range covered (e.g. V711-R100-076..105)"
+        },
+        "slice_count": {
+          "type": "integer",
+          "description": "Number of slices covered"
+        },
+        "claim_boundary": {
+          "type": "string",
+          "description": "Claim boundary for the bundle"
+        }
+      }
+    },
+    "hard_violations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Hard violations found during review — must be empty for acceptance"
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "description": "UTC timestamp when this report was generated"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Source files reviewed to produce this report"
+    },
+    "schema_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Schema files referenced in this report"
+    },
+    "registry_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Registry files referenced in this report"
+    },
+    "slice_coverage": {
+      "type": "object",
+      "description": "Coverage status per slice range",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "absorbed_future_pr_families": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Future PR families absorbed into this bundle"
+    },
+    "modelworkpacket_checks": {
+      "type": "object",
+      "description": "Check results for ModelWorkPacket artifacts"
+    },
+    "scale_ladder_checks": {
+      "type": "object",
+      "description": "Check results for Model Scale Ladder artifacts"
+    },
+    "provider_seam_checks": {
+      "type": "object",
+      "description": "Check results for Provider Seam artifacts"
+    },
+    "small_model_power_checks": {
+      "type": "object",
+      "description": "Check results for Small-Model Power Contract artifacts"
+    },
+    "hybrid_director_checks": {
+      "type": "object",
+      "description": "Check results for Hybrid Director artifacts"
+    },
+    "thor_protocol_checks": {
+      "type": "object",
+      "description": "Check results for Thor Handoff Intake artifacts"
+    },
+    "claude_worker_adapter_checks": {
+      "type": "object",
+      "description": "Check results for Odin Claude Worker Adapter artifacts"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this report does not claim or prove"
+    },
+    "senior_reviewer_notes": {
+      "type": "string",
+      "description": "Notes from senior reviewer (Odin / Thor audit)"
+    },
+    "senior_code_reviewer_notes": {
+      "type": "string",
+      "description": "Notes from senior code reviewer"
+    }
+  },
+  "additionalProperties": true
+}

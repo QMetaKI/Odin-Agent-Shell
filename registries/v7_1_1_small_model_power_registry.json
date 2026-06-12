@@ -1,0 +1,22 @@
+{
+  "registry_id": "odin.v7_1_1_small_model_power_registry",
+  "version": "7.1.1",
+  "status": "small_model_power_registry_static_contract_not_runtime",
+  "claim_boundary": "small_model_power_is_static_module_contract_not_measured_improvement",
+  "candidate_only": true,
+  "non_claims": ["not_measured_small_model_improvement", "not_model_quality_proof", "not_live_inference_proof", "not_provider_execution", "not_runtime_completion"],
+  "modules": [
+    {"module_id": "context_distillery", "description": "Distill context to minimal sufficient capsule"},
+    {"module_id": "worklet_graph", "description": "Decompose work into minimal worklet graph"},
+    {"module_id": "slot_forge", "description": "Forge typed slots with route class constraints"},
+    {"module_id": "gaptext", "description": "Generate gaptext instructions for slot filling"},
+    {"module_id": "modelworkpacket", "description": "Compose model work packets from slots and capsules"},
+    {"module_id": "scale_ladder", "description": "Route work to smallest sufficient model class"},
+    {"module_id": "critic_precheck", "description": "Pre-check candidate output before acceptance"},
+    {"module_id": "schema_repair", "description": "Repair schema violations in candidate output"},
+    {"module_id": "candidate_compose", "description": "Compose final candidate from slot outputs"},
+    {"module_id": "final_gate_precheck", "description": "Pre-check before final gate submission"},
+    {"module_id": "semantic_cache_hint", "description": "Generate semantic cache hints for slot reuse"},
+    {"module_id": "work_memory_hint", "description": "Generate work memory hints for context reuse"}
+  ]
+}

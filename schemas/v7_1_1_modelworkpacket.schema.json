@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_modelworkpacket.schema",
+  "title": "ModelWorkPacket",
+  "description": "Schema for a ModelWorkPacket — a local contract for routing work to a model worker. Candidate only, no live inference.",
+  "type": "object",
+  "required": [
+    "packet_id",
+    "binding_ref",
+    "work_id",
+    "slot_contract_ref",
+    "context_capsule_ref",
+    "gaptext_ref",
+    "model_route_ref",
+    "provider_policy_ref",
+    "task",
+    "input_refs",
+    "output_contract_ref",
+    "facts",
+    "constraints",
+    "forbidden_outputs",
+    "return_contract",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "packet_id": {
+      "type": "string",
+      "description": "Unique identifier for this ModelWorkPacket"
+    },
+    "binding_ref": {
+      "type": "string",
+      "description": "Reference to the binding contract governing this packet"
+    },
+    "work_id": {
+      "type": "string",
+      "description": "Reference to the universal work unit this packet serves"
+    },
+    "slot_contract_ref": {
+      "type": "string",
+      "description": "Reference to the slot contract defining input/output slots"
+    },
+    "context_capsule_ref": {
+      "type": "string",
+      "description": "Reference to the context capsule for this work unit"
+    },
+    "gaptext_ref": {
+      "type": "string",
+      "description": "Reference to the gaptext instructions for slot filling"
+    },
+    "model_route_ref": {
+      "type": "string",
+      "description": "Route class identifier from the model scale ladder"
+    },
+    "provider_policy_ref": {
+      "type": "string",
+      "description": "Reference to the provider seam / policy governing execution"
+    },
+    "task": {
+      "type": "string",
+      "description": "Human-readable description of the task to be performed"
+    },
+    "input_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to input artifacts for this work packet"
+    },
+    "output_contract_ref": {
+      "type": "string",
+      "description": "Reference to the output contract defining expected output shape"
+    },
+    "facts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known facts about the task context"
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Constraints the worker must honor"
+    },
+    "forbidden_outputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Output types that are forbidden for this packet"
+    },
+    "return_contract": {
+      "type": "object",
+      "description": "Contract defining the shape and claim boundary of the returned candidate",
+      "required": ["shape", "claim_boundary"],
+      "properties": {
+        "shape": { "type": "string" },
+        "claim_boundary": { "type": "string" }
+      }
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary for this packet — what this packet does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — packet output is candidate only, never applied directly"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this packet does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_provider_seam.schema",
+  "title": "ProviderSeam",
+  "description": "Schema for a Provider Seam — defines the transport contract between Odin and a model provider. No provider execution in this contract.",
+  "type": "object",
+  "required": [
+    "seam_id",
+    "seam_class",
+    "transport_contract",
+    "execution_policy",
+    "forbidden_actions",
+    "allowed_actions",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "seam_id": {
+      "type": "string",
+      "description": "Unique identifier for this provider seam"
+    },
+    "seam_class": {
+      "type": "string",
+      "description": "Class of the provider seam (e.g. mock_provider, local_ollama_candidate)"
+    },
+    "transport_contract": {
+      "type": "string",
+      "description": "Transport contract identifier governing this seam"
+    },
+    "execution_policy": {
+      "type": "string",
+      "description": "Execution policy for this seam (e.g. no_execution_this_pr)"
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions forbidden through this seam"
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions allowed through this seam"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this seam does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — provider seam is a transport contract, not provider execution"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this seam does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}
