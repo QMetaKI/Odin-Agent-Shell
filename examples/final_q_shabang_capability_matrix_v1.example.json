@@ -289,6 +289,96 @@
       "repo_artifact_coverage_score_0_5": 2,
       "runtime_proof_score_0_5": 0,
       "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_core_local_irc_server",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_core_local_irc_server through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_semantic_channel_registry",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_semantic_channel_registry through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_browser_event_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_browser_event_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_sdk_app_event_mapping",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_sdk_app_event_mapping through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_file_spool_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_file_spool_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 1,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_cli_agent_pipe_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_cli_agent_pipe_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_trace_receipt_channel_mapping",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_trace_receipt_channel_mapping through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_dev_mode_event_viewer",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_dev_mode_event_viewer through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 1,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_cognitive_substrate_cluster",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_cognitive_substrate_cluster through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
     }
   ],
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",

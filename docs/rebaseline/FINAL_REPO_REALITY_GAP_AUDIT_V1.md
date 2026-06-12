@@ -9,10 +9,14 @@ Supersedes and source references are machine-readable in the matching registry.
 ## Summary
 
 - implemented_without_recent_local_proof: 8
-- partially_implemented: 18
-- schema_or_doc_only: 5
-- missing: 6
-- deferred_non_goal: 1
+- partially_implemented: 21
+- schema_or_doc_only: 7
+- missing: 10
+- deferred_non_goal: 6
+
+## QIRC Cognitive Substrate Cluster
+
+QIRC is mandatory for the final target as the local IRC-centered coordination core. The surrounding lightweight substrates are KI-ohne-KI support systems. They improve local LLM performance by producing cleaner, bounded, persistent, traceable work packets. They do not replace LLMs and do not gain authority.
 
 ## Capability Rows
 
@@ -56,7 +60,17 @@ Supersedes and source references are machine-readable in the matching registry.
 | `release_package` | `partially_implemented` | `docs_quickstart_polish` | Build or finish release_package in the mapped final slice and attach scoped receipts. |
 | `windows_convenience` | `deferred_non_goal` | `target_host_smoke` | Build or finish windows_convenience in the mapped final slice and attach scoped receipts. |
 | `normal_user_docs` | `partially_implemented` | `docs_quickstart_polish` | Build or finish normal_user_docs in the mapped final slice and attach scoped receipts. |
-
-## Plain Answer
-
-Architecture and contracts are broad; normal-user runtime hub completion is not yet fully visible. Missing blockers are the unified normal-user Hub path, activity/dev diagnostics integration, local provider probe receipts, and final acceptance receipts.
+| `qirc_core_local_irc_server` | `missing` | `qirc_core_local_irc_runtime` | Build or finish qirc_core_local_irc_server in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_semantic_channel_registry` | `partially_implemented` | `qirc_semantic_channel_registry` | Build or finish qirc_semantic_channel_registry in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_browser_event_bridge` | `missing` | `qirc_browser_event_bridge` | Build or finish qirc_browser_event_bridge in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_sdk_app_event_mapping` | `partially_implemented` | `qirc_app_bridge_event_mapping` | Build or finish qirc_sdk_app_event_mapping in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_file_spool_bridge` | `missing` | `qirc_file_spool_packet_bridge` | Build or finish qirc_file_spool_bridge in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_cli_agent_pipe_bridge` | `partially_implemented` | `qirc_cli_agent_pipe_bridge` | Build or finish qirc_cli_agent_pipe_bridge in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_trace_receipt_channel_mapping` | `schema_or_doc_only` | `qirc_trace_receipt_event_mapping` | Build or finish qirc_trace_receipt_channel_mapping in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_dev_mode_event_viewer` | `missing` | `qirc_dev_mode_event_viewer` | Build or finish qirc_dev_mode_event_viewer in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_cognitive_substrate_cluster` | `schema_or_doc_only` | `qirc_core_local_irc_runtime` | Build or finish qirc_cognitive_substrate_cluster in the mapped QIRC slice and attach scoped local receipts. |
+| `qirc_feed_source_intake` | `deferred_non_goal` | `qirc_optional_future_rings` | Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries. |
+| `qirc_thread_archive` | `deferred_non_goal` | `qirc_optional_future_rings` | Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries. |
+| `qirc_local_discovery` | `deferred_non_goal` | `qirc_optional_future_rings` | Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries. |
+| `qirc_lightweight_pubsub_adapter` | `deferred_non_goal` | `qirc_optional_future_rings` | Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries. |
+| `qirc_federation_future` | `deferred_non_goal` | `qirc_optional_future_rings` | Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries. |

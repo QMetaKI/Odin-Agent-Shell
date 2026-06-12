@@ -615,6 +615,236 @@
       ],
       "recommended_slice": "docs_quickstart_polish",
       "target_requirement": "normal_user_docs must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "qirc_core_local_irc_server",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_core_local_irc_server; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish qirc_core_local_irc_server in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_core_local_irc_runtime"
+      ],
+      "recommended_slice": "qirc_core_local_irc_runtime",
+      "target_requirement": "qirc_core_local_irc_server is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_semantic_channel_registry",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "registries/qirc_channel_registry.json",
+        "registries/semantic_bus_channels.json",
+        "docs/INTERNAL_SEMANTIC_BUS.md"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish qirc_semantic_channel_registry in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_semantic_channel_registry"
+      ],
+      "recommended_slice": "qirc_semantic_channel_registry",
+      "target_requirement": "qirc_semantic_channel_registry is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_browser_event_bridge",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_browser_event_bridge; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish qirc_browser_event_bridge in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_browser_event_bridge"
+      ],
+      "recommended_slice": "qirc_browser_event_bridge",
+      "target_requirement": "qirc_browser_event_bridge is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_sdk_app_event_mapping",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "sdk/python/odin_client.py",
+        "sdk/typescript/odinClient.ts",
+        "tests/test_lrh_pr_05_localhost_api_sdk_bridge.py"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish qirc_sdk_app_event_mapping in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_app_bridge_event_mapping"
+      ],
+      "recommended_slice": "qirc_app_bridge_event_mapping",
+      "target_requirement": "qirc_sdk_app_event_mapping is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_file_spool_bridge",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_file_spool_bridge; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish qirc_file_spool_bridge in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_file_spool_packet_bridge"
+      ],
+      "recommended_slice": "qirc_file_spool_packet_bridge",
+      "target_requirement": "qirc_file_spool_bridge is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_cli_agent_pipe_bridge",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "odin/cli.py agent-handoff/agent-plan/agent-proof commands",
+        "tests/test_lrh_pr_02_agent_operator_mode.py"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish qirc_cli_agent_pipe_bridge in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_cli_agent_pipe_bridge"
+      ],
+      "recommended_slice": "qirc_cli_agent_pipe_bridge",
+      "target_requirement": "qirc_cli_agent_pipe_bridge is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_trace_receipt_channel_mapping",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "docs/INTERNAL_SEMANTIC_BUS.md",
+        "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish qirc_trace_receipt_channel_mapping in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_trace_receipt_event_mapping"
+      ],
+      "recommended_slice": "qirc_trace_receipt_event_mapping",
+      "target_requirement": "qirc_trace_receipt_channel_mapping is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_dev_mode_event_viewer",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_dev_mode_event_viewer; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish qirc_dev_mode_event_viewer in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_dev_mode_event_viewer"
+      ],
+      "recommended_slice": "qirc_dev_mode_event_viewer",
+      "target_requirement": "qirc_dev_mode_event_viewer is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_cognitive_substrate_cluster",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_cognitive_substrate_cluster; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish qirc_cognitive_substrate_cluster in the mapped QIRC slice and attach scoped local receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_core_local_irc_runtime"
+      ],
+      "recommended_slice": "qirc_core_local_irc_runtime",
+      "target_requirement": "qirc_cognitive_substrate_cluster is required for the final QIRC Cognitive Substrate Cluster target while preserving localhost-only, candidate-only, app-sovereign boundaries."
+    },
+    {
+      "capability_id": "qirc_feed_source_intake",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_feed_source_intake; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_optional_future_rings"
+      ],
+      "recommended_slice": "qirc_optional_future_rings",
+      "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
+    },
+    {
+      "capability_id": "qirc_thread_archive",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_thread_archive; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_optional_future_rings"
+      ],
+      "recommended_slice": "qirc_optional_future_rings",
+      "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
+    },
+    {
+      "capability_id": "qirc_local_discovery",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_local_discovery; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_optional_future_rings"
+      ],
+      "recommended_slice": "qirc_optional_future_rings",
+      "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
+    },
+    {
+      "capability_id": "qirc_lightweight_pubsub_adapter",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_lightweight_pubsub_adapter; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_optional_future_rings"
+      ],
+      "recommended_slice": "qirc_optional_future_rings",
+      "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
+    },
+    {
+      "capability_id": "qirc_federation_future",
+      "claim_boundary": "qirc audit classification only; no local IRC server/runtime, public network, provider/model execution, app apply/state/external-send, Final Gate bypass, or Receipt truth claim inferred",
+      "current_repo_evidence": [
+        "repo-real audit found no completed local IRC/QIRC runtime receipt for qirc_federation_future; classification is evidence-bound and not inferred from architecture text alone"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Keep optional/deferred unless a future scoped PR explicitly promotes it with receipts and boundaries.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for qirc_optional_future_rings"
+      ],
+      "recommended_slice": "qirc_optional_future_rings",
+      "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
     }
   ],
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",

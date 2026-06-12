@@ -688,6 +688,34 @@
       "examples/final_minimal_road_to_100_pr_roadmap_v1.example.json",
       "examples/final_100_percent_acceptance_definition_v1.example.json"
     ],
+    "qirc_boundaries": [
+      "localhost_only_by_default",
+      "no_public_rooms_by_default",
+      "no_lan_wan_federation_by_default",
+      "no_app_apply_state_external_send_authority",
+      "no_final_gate_bypass",
+      "no_receipt_truth_elevation",
+      "no_provider_model_authority"
+    ],
+    "qirc_cognitive_substrate_cluster": "first_class_same_pr_extension_v2",
+    "qirc_optional_deferred_capabilities": [
+      "qirc_feed_source_intake",
+      "qirc_thread_archive",
+      "qirc_local_discovery",
+      "qirc_lightweight_pubsub_adapter",
+      "qirc_federation_future"
+    ],
+    "qirc_required_capabilities": [
+      "qirc_core_local_irc_server",
+      "qirc_semantic_channel_registry",
+      "qirc_browser_event_bridge",
+      "qirc_sdk_app_event_mapping",
+      "qirc_file_spool_bridge",
+      "qirc_cli_agent_pipe_bridge",
+      "qirc_trace_receipt_channel_mapping",
+      "qirc_dev_mode_event_viewer",
+      "qirc_cognitive_substrate_cluster"
+    ],
     "registries": [
       "registries/final_local_runtime_hub_target_v1.json",
       "registries/final_repo_reality_gap_audit_v1.json",

@@ -6,6 +6,10 @@ Claim boundary: `planning_audit_only_not_runtime_provider_network_target_host_se
 
 Supersedes and source references are machine-readable in the matching registry.
 
+## QIRC Slice Integration
+
+QIRC slices are explicit but absorbed into the existing five final PRs: core/browser/trace/dev viewer in FINAL-PR-03, SDK mapping in FINAL-PR-02, file/spool and CLI/agent pipe in FINAL-PR-04.
+
 ## Slices
 
 ### simple_local_hub_start
@@ -91,3 +95,59 @@ Supersedes and source references are machine-readable in the matching registry.
 - Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
 - Risk: low
 - Non-goals: no app apply, no app state mutation, no external send, no hidden remote fallback, no model quality proof
+
+### qirc_core_local_irc_runtime
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: medium
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_semantic_channel_registry
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: low
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_browser_event_bridge
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: low
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_app_bridge_event_mapping
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: low
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_file_spool_packet_bridge
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: medium
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_cli_agent_pipe_bridge
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: medium
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_trace_receipt_event_mapping
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: low
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority
+
+### qirc_dev_mode_event_viewer
+
+- User value: Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow.
+- Proof commands: python -m odin.cli validate-all, PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+- Risk: low
+- Non-goals: no public rooms by default, no LAN/WAN/federation by default, no public network API, no app apply, no app state mutation, no external send, no Final Gate bypass, no Receipt truth elevation, no provider/model authority

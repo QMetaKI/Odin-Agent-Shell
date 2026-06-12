@@ -13,6 +13,7 @@
     "not_app_state_authority",
     "not_external_send_authority"
   ],
+  "qirc_consolidation_justification": "QIRC slices are explicit but absorbed into the existing five final PRs: core/browser/trace/dev viewer in FINAL-PR-03, SDK mapping in FINAL-PR-02, file/spool and CLI/agent pipe in FINAL-PR-04.",
   "required_slice_families": [
     "simple_local_hub_start",
     "browser_hub_normal_user_ui",
@@ -25,7 +26,15 @@
     "target_host_smoke",
     "local_provider_probe",
     "final_acceptance_cleanup",
-    "docs_quickstart_polish"
+    "docs_quickstart_polish",
+    "qirc_core_local_irc_runtime",
+    "qirc_semantic_channel_registry",
+    "qirc_browser_event_bridge",
+    "qirc_app_bridge_event_mapping",
+    "qirc_file_spool_packet_bridge",
+    "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_event_mapping",
+    "qirc_dev_mode_event_viewer"
   ],
   "slices": [
     {
@@ -549,6 +558,410 @@
       ],
       "title": "Docs Quickstart Polish",
       "user_value": "Closes final-target value for docs quickstart polish."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-core-local-irc-runtime"
+      ],
+      "new_tests": [
+        "tests/test_qirc_core_local_irc_runtime.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "qirc_core_local_irc_runtime",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Core Local Irc Runtime",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-semantic-channel-registry"
+      ],
+      "new_tests": [
+        "tests/test_qirc_semantic_channel_registry.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "qirc_semantic_channel_registry",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Semantic Channel Registry",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-browser-event-bridge"
+      ],
+      "new_tests": [
+        "tests/test_qirc_browser_event_bridge.py"
+      ],
+      "new_ui_surfaces": [
+        "Dev Mode QIRC event/channel/status viewer"
+      ],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "qirc_browser_event_bridge",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Browser Event Bridge",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-app-bridge-event-mapping"
+      ],
+      "new_tests": [
+        "tests/test_qirc_app_bridge_event_mapping.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "qirc_app_bridge_event_mapping",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc App Bridge Event Mapping",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-file-spool-packet-bridge"
+      ],
+      "new_tests": [
+        "tests/test_qirc_file_spool_packet_bridge.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "qirc_file_spool_packet_bridge",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc File Spool Packet Bridge",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-cli-agent-pipe-bridge"
+      ],
+      "new_tests": [
+        "tests/test_qirc_cli_agent_pipe_bridge.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "qirc_cli_agent_pipe_bridge",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Cli Agent Pipe Bridge",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-trace-receipt-event-mapping"
+      ],
+      "new_tests": [
+        "tests/test_qirc_trace_receipt_event_mapping.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "qirc_trace_receipt_event_mapping",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Trace Receipt Event Mapping",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
+    },
+    {
+      "can_merge_independently": false,
+      "claim_boundary": "future QIRC slice target only; no runtime/server/network/provider execution proof claimed by this audit PR",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/qirc/",
+        "odin/bus/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-qirc-dev-mode-event-viewer"
+      ],
+      "new_tests": [
+        "tests/test_qirc_dev_mode_event_viewer.py"
+      ],
+      "new_ui_surfaces": [
+        "Dev Mode QIRC event/channel/status viewer"
+      ],
+      "non_goals": [
+        "no public rooms by default",
+        "no LAN/WAN/federation by default",
+        "no public network API",
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no Final Gate bypass",
+        "no Receipt truth elevation",
+        "no provider/model authority"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "qirc_dev_mode_event_viewer",
+      "technical_scope": [
+        "planning target for a future QIRC implementation slice only in this PR",
+        "localhost-only QIRC/event substrate boundaries",
+        "bounded packet/event mapping without app apply/state/external-send authority"
+      ],
+      "title": "Qirc Dev Mode Event Viewer",
+      "user_value": "Odin activity becomes live and explainable; apps and agents can exchange bounded packets with Odin; local LLMs receive cleaner ModelWorkPackets from structured events instead of raw chaos; Dev Mode can inspect event, trace, and receipt flow."
     }
   ],
   "source_refs": [

@@ -20,6 +20,9 @@
     "normal_user_target": {},
     "proof_gap_target": {},
     "q_shabang_target": {},
+    "qirc_cognitive_substrate_cluster_target": {},
+    "qirc_hard_boundaries": {},
+    "qirc_required_formula": {},
     "runtime_target": {},
     "source_refs": {},
     "supersedes": {},
@@ -48,7 +51,10 @@
     "local_only",
     "app_owned_apply",
     "app_owned_state",
-    "app_owned_external_send"
+    "app_owned_external_send",
+    "qirc_cognitive_substrate_cluster_target",
+    "qirc_required_formula",
+    "qirc_hard_boundaries"
   ],
   "title": "final_local_runtime_hub_target_v1.schema",
   "type": "object"

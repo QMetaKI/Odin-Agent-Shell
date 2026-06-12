@@ -30,7 +30,7 @@
         "examples/",
         "reports/"
       ],
-      "goal": "Absorb simple_local_hub_start, browser_hub_normal_user_ui, docs_quickstart_polish into a reviewable final follow-up PR.",
+      "goal": "Absorb simple_local_hub_start, browser_hub_normal_user_ui, docs_quickstart_polish into a reviewable final follow-up PR. Include low-risk static affordance for QIRC status only.",
       "known_risks": [
         "scope creep",
         "overclaim risk"
@@ -51,12 +51,14 @@
       "slices_absorbed": [
         "simple_local_hub_start",
         "browser_hub_normal_user_ui",
-        "docs_quickstart_polish"
+        "docs_quickstart_polish",
+        "qirc_status_placeholder"
       ],
       "success_criteria": [
         "simple_local_hub_start has implementation or explicit non-goal proof boundary",
         "browser_hub_normal_user_ui has implementation or explicit non-goal proof boundary",
-        "docs_quickstart_polish has implementation or explicit non-goal proof boundary"
+        "docs_quickstart_polish has implementation or explicit non-goal proof boundary",
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
       ],
       "tests_required": [
         "test coverage for simple_local_hub_start",
@@ -107,12 +109,14 @@
       "slices_absorbed": [
         "model_picker_provider_status",
         "connected_apps_bridge_view",
-        "demo_universal_work_flow"
+        "demo_universal_work_flow",
+        "qirc_app_bridge_event_mapping"
       ],
       "success_criteria": [
         "model_picker_provider_status has implementation or explicit non-goal proof boundary",
         "connected_apps_bridge_view has implementation or explicit non-goal proof boundary",
-        "demo_universal_work_flow has implementation or explicit non-goal proof boundary"
+        "demo_universal_work_flow has implementation or explicit non-goal proof boundary",
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
       ],
       "tests_required": [
         "test coverage for model_picker_provider_status",
@@ -162,11 +166,17 @@
       ],
       "slices_absorbed": [
         "activity_trace_receipt_view",
-        "dev_mode_diagnostics"
+        "dev_mode_diagnostics",
+        "qirc_core_local_irc_runtime",
+        "qirc_semantic_channel_registry",
+        "qirc_browser_event_bridge",
+        "qirc_trace_receipt_event_mapping",
+        "qirc_dev_mode_event_viewer"
       ],
       "success_criteria": [
         "activity_trace_receipt_view has implementation or explicit non-goal proof boundary",
-        "dev_mode_diagnostics has implementation or explicit non-goal proof boundary"
+        "dev_mode_diagnostics has implementation or explicit non-goal proof boundary",
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
       ],
       "tests_required": [
         "test coverage for activity_trace_receipt_view",
@@ -216,12 +226,15 @@
       "slices_absorbed": [
         "runtime_security_smoke",
         "target_host_smoke",
-        "local_provider_probe"
+        "local_provider_probe",
+        "qirc_file_spool_packet_bridge",
+        "qirc_cli_agent_pipe_bridge"
       ],
       "success_criteria": [
         "runtime_security_smoke has implementation or explicit non-goal proof boundary",
         "target_host_smoke has implementation or explicit non-goal proof boundary",
-        "local_provider_probe has implementation or explicit non-goal proof boundary"
+        "local_provider_probe has implementation or explicit non-goal proof boundary",
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
       ],
       "tests_required": [
         "test coverage for runtime_security_smoke",
@@ -270,10 +283,12 @@
         "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
       ],
       "slices_absorbed": [
-        "final_acceptance_cleanup"
+        "final_acceptance_cleanup",
+        "final_qirc_cluster_receipts"
       ],
       "success_criteria": [
-        "final_acceptance_cleanup has implementation or explicit non-goal proof boundary"
+        "final_acceptance_cleanup has implementation or explicit non-goal proof boundary",
+        "QIRC boundaries preserved: localhost-only default, no public rooms/network/federation, no app apply/state/external-send, no Final Gate bypass, no Receipt truth elevation"
       ],
       "tests_required": [
         "test coverage for final_acceptance_cleanup"
@@ -284,6 +299,7 @@
       ]
     }
   ],
+  "qirc_roadmap_statement": "QIRC Core is mandatory for 100%. Browser bridge, SDK/App event mapping, File/Spool, CLI/Agent Pipe, Trace/Receipt mapping, and Dev Mode event viewer are mandatory for the final Local Runtime Hub target. Feed/thread/discovery/pubsub/federation rings are optional/deferred.",
   "recommended_pr_count": 5,
   "roadmap_id": "final_minimal_road_to_100_pr_roadmap_v1",
   "source_refs": [

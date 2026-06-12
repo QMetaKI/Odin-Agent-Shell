@@ -6,62 +6,15 @@ Claim boundary: `planning_audit_only_not_runtime_provider_network_target_host_se
 
 Supersedes and source references are machine-readable in the matching registry.
 
-## Repo reality intake
+## QIRC Cognitive Substrate Cluster
 
-Read current canon, v7.1.1 target docs, Road-to-100 registries, B1-B8 reports, B7/B8 audit docs, CLI, tests, schemas, registries, examples, reports, and searched runtime/UI surfaces.
+QIRC is the local IRC-centered coordination core of Odin. In the narrow technical sense, QIRC Core means a localhost-only IRC/QIRC-compatible server/runtime, a semantic Odin channel registry, local event routing, and worker/model/app/candidate/trace/receipt/proof-gap channels. In the broader Odin sense, QIRC means QIRC Core plus a local cognitive substrate cluster: File/Spool, CLI/Pipe, Browser Events, SDK/App Bridge, Trace/Receipt channels, and Dev Mode visibility. These surrounding systems are KI-ohne-KI support substrates, not LLMs. They support local LLMs indirectly by providing context structure, durable work queues, thread/history continuity, source intake, handoff packet flow, event routing, replay, traceability, receipts, proof gaps, and app/agent bridge packet exchange. Required formula: QIRC coordinates. Odin gates. Apps decide. Models work only as bounded workers.
 
-## Clarified final target
+Plain answer: QIRC is mandatory for the final target as the local IRC-centered coordination core. The surrounding lightweight substrates are KI-ohne-KI support systems. They improve local LLM performance by producing cleaner, bounded, persistent, traceable work packets. They do not replace LLMs and do not gain authority. QIRC Core is not currently proven as a local IRC/QIRC-compatible server runtime; semantic channel evidence is partial; Browser events, File/Spool, and Dev Mode event viewer are missing; SDK/App and CLI/Agent surfaces are partial but not mapped to QIRC receipts. FINAL-PR-03 should build QIRC Core, semantic channels, browser bridge, trace/receipt mapping, and Dev Mode event viewer. FINAL-PR-04 should build File/Spool and CLI/Agent Pipe rings. Feed/thread/discovery/pubsub/federation rings remain optional after 100%.
 
-Odin is a local background engine / Local Runtime Hub. Normal users clone or download it, run one simple start command, open or are given a localhost Browser Hub, see status, choose model/provider modes, connect apps, submit demo Universal Work, receive Candidate Artifacts / Response Packets, read plain-language activity, and stop cleanly.
+## Roadmap
 
-## Current implementation status
-
-Summary: implemented_without_recent_local_proof=8, partially_implemented=18, schema_or_doc_only=5, missing=6, deferred_non_goal=1.
-
-## Q-Shabang / KI-ohne-KI / LLM-agent effect status
-
-Architecture coverage is strong; repo artifacts and validators exist for many contracts; runtime proof and normal-user visibility lag the target.
-
-## Normal-user Local Hub UX status
-
-The repo has static Hub and runtime/SDK surfaces, but a unified normal-user path with model picker, app connection view, activity, Dev Mode, and current receipts remains partial or missing.
-
-## Missing capabilities
-
-Hard missing items are activity feed, Dev Mode toggle, local provider probe, runtime security smoke, target-host smoke, dependency tooling receipt, and unified final acceptance closure.
-
-## Buildable slice catalog
-
-12 slices are defined and mapped to final PRs.
-
-## Minimal final PR roadmap
-
-Five follow-up PRs are recommended: FINAL-PR-01, FINAL-PR-02, FINAL-PR-03, FINAL-PR-04, FINAL-PR-05.
-
-## Final 100% acceptance definition
-
-100% means scoped local usability and receipts for the clarified Local Runtime Hub target, with all non-goals remaining non-claims.
-
-## What is not required for 100%
-
-windows_service_tray_installer, signed_release, store_distribution, production_readiness, security_certification, public_network_api, live_model_quality_proof, specific_external_app_integration, external_sends, app_state_mutation.
-
-## Hard blockers
-
-- normal_user_browser_hub_not_end_to_end
-- activity_dev_mode_receipts_not_fully_integrated
-- local_provider_probe_missing
-- final_acceptance_receipt_not_currently_complete
-
-## Soft blockers
-
-- docs_quickstart_needs_polish
-- dependency_tooling_receipt_missing
-- target_host_review_future_scoped
-
-## Recommended next PR
-
-Build FINAL-PR-01 first: Simple Local Hub Start + Normal User Browser UI.
+QIRC Core is mandatory for 100%. Browser bridge, SDK/App event mapping, File/Spool, CLI/Agent Pipe, Trace/Receipt mapping, and Dev Mode event viewer are mandatory for the final Local Runtime Hub target. Feed/thread/discovery/pubsub/federation rings are optional/deferred.
 
 ## Non-claims
 

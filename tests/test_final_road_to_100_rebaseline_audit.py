@@ -74,6 +74,31 @@ SLICE_FAMILIES = [
     "dev_mode_diagnostics", "runtime_security_smoke", "target_host_smoke", "local_provider_probe",
     "final_acceptance_cleanup", "docs_quickstart_polish",
 ]
+
+QIRC_REQUIRED_IDS = [
+    "qirc_core_local_irc_server", "qirc_semantic_channel_registry", "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping", "qirc_file_spool_bridge", "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping", "qirc_dev_mode_event_viewer", "qirc_cognitive_substrate_cluster",
+]
+QIRC_OPTIONAL_IDS = [
+    "qirc_feed_source_intake", "qirc_thread_archive", "qirc_local_discovery",
+    "qirc_lightweight_pubsub_adapter", "qirc_federation_future",
+]
+QIRC_SLICE_FAMILIES = [
+    "qirc_core_local_irc_runtime", "qirc_semantic_channel_registry", "qirc_browser_event_bridge",
+    "qirc_app_bridge_event_mapping", "qirc_file_spool_packet_bridge", "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_event_mapping", "qirc_dev_mode_event_viewer",
+]
+QIRC_ACCEPTANCE = [
+    "qirc_core_localhost_only_receipt", "qirc_browser_event_bridge_receipt",
+    "qirc_app_bridge_event_mapping_receipt", "qirc_file_spool_packet_bridge_receipt",
+    "qirc_cli_agent_pipe_bridge_receipt", "qirc_trace_receipt_channel_mapping_receipt",
+]
+QIRC_NON_MANDATORY = [
+    "public_irc_network", "lan_wan_qirc", "federation", "matrix_like_platform",
+    "activitypub_xmpp_public_network", "external_broker_dependency",
+]
+
 POSITIVE_CRITERIA = [
     "clone_or_download_path_documented", "install_path_documented_and_tested",
     "one_start_command_works_with_local_receipt", "localhost_runtime_starts_with_receipt",
@@ -215,3 +240,119 @@ def test_validator_runs_deterministically(tmp_path: Path) -> None:
     assert module.main([*args, "--out", str(out1)]) == 0
     assert module.main([*args, "--out", str(out2)]) == 0
     assert out1.read_text(encoding="utf-8") == out2.read_text(encoding="utf-8")
+
+
+def _validator_module():
+    validator = ROOT / "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py"
+    spec = importlib.util.spec_from_file_location("final_audit_validator_for_qirc", validator)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_final_target_includes_qirc_cognitive_substrate_cluster_definition() -> None:
+    target = load("registries/final_local_runtime_hub_target_v1.json")
+    definition = target["qirc_cognitive_substrate_cluster_target"]
+    assert "local IRC-centered coordination core" in definition
+    assert "QIRC Core" in definition
+    assert "KI-ohne-KI support substrates" in definition
+    assert target["qirc_required_formula"] == "QIRC coordinates. Odin gates. Apps decide. Models work only as bounded workers."
+
+
+def test_gap_audit_includes_required_qirc_capabilities() -> None:
+    rows = {row["capability_id"]: row for row in load("registries/final_repo_reality_gap_audit_v1.json")["capabilities"]}
+    for capability_id in QIRC_REQUIRED_IDS:
+        assert capability_id in rows
+        assert rows[capability_id]["current_status"] in VALID_STATUSES
+        assert rows[capability_id]["recommended_slice"]
+
+
+def test_optional_qirc_rings_are_present_and_deferred() -> None:
+    rows = {row["capability_id"]: row for row in load("registries/final_repo_reality_gap_audit_v1.json")["capabilities"]}
+    for capability_id in QIRC_OPTIONAL_IDS:
+        assert capability_id in rows
+        assert rows[capability_id]["current_status"] in {"deferred_non_goal", "blocked_pending_decision"}
+
+
+def test_q_shabang_matrix_includes_qirc_capabilities_and_scores() -> None:
+    rows = {row["capability_id"]: row for row in load("registries/final_q_shabang_capability_matrix_v1.json")["capabilities"]}
+    for capability_id in QIRC_REQUIRED_IDS:
+        assert capability_id in rows
+        for key, value in rows[capability_id].items():
+            if key.endswith("_score_0_5"):
+                assert isinstance(value, int)
+                assert 0 <= value <= 5
+        assert "bounded, traceable, replayable" in rows[capability_id]["effectiveness_notes"]
+
+
+def test_required_qirc_slices_exist_or_are_consolidated() -> None:
+    catalog = load("registries/final_buildable_slice_catalog_v1.json")
+    slice_ids = {row["slice_id"] for row in catalog["slices"]}
+    for slice_id in QIRC_SLICE_FAMILIES:
+        assert slice_id in slice_ids or catalog.get("qirc_consolidation_justification")
+
+
+def test_roadmap_integrates_qirc_without_increasing_pr_count() -> None:
+    roadmap = load("registries/final_minimal_road_to_100_pr_roadmap_v1.json")
+    assert roadmap["recommended_pr_count"] <= 5
+    blob = json.dumps(roadmap).lower()
+    for required in ["qirc core", "qirc_core_local_irc_runtime", "qirc_file_spool_packet_bridge", "qirc_cli_agent_pipe_bridge"]:
+        assert required in blob
+
+
+def test_acceptance_includes_qirc_receipts_and_excludes_public_network_federation() -> None:
+    acceptance = load("registries/final_100_percent_acceptance_definition_v1.json")
+    positives = set(acceptance["positive_criteria"])
+    for criterion in QIRC_ACCEPTANCE:
+        assert criterion in positives
+    assert "qirc_core_localhost_only_receipt" in positives
+    assert "qirc_dev_mode_event_viewer_visible" in positives
+    nongoals = set(acceptance["non_goals_not_required"])
+    for item in QIRC_NON_MANDATORY:
+        assert item in nongoals
+
+
+def test_validator_fails_closed_if_qirc_core_is_omitted(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_repo_reality_gap_audit_v1.json":
+            data = json.loads(json.dumps(data))
+            data["capabilities"] = [row for row in data["capabilities"] if row.get("capability_id") != "qirc_core_local_irc_server"]
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("qirc_core_local_irc_server" in item for item in report["hard_violations"])
+
+
+def test_validator_fails_closed_if_qirc_is_public_network_by_default(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_local_runtime_hub_target_v1.json":
+            data = json.loads(json.dumps(data))
+            data["qirc_cognitive_substrate_cluster_target"] += " Public by default federation by default."
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("public network/federation" in item for item in report["hard_violations"])
+
+
+def test_validator_fails_closed_if_qirc_gains_app_authority(monkeypatch) -> None:
+    module = _validator_module()
+    original = module.load_json
+    def fake_load(root: Path, rel: str):
+        data = original(root, rel)
+        if rel == "registries/final_local_runtime_hub_target_v1.json":
+            data = json.loads(json.dumps(data))
+            data["qirc_cognitive_substrate_cluster_target"] += " QIRC mutates app state and QIRC sends externally."
+        return data
+    monkeypatch.setattr(module, "load_json", fake_load)
+    report = module.validate(ROOT, "2026-01-01T00:00:00Z")
+    assert report["status"] == "failed"
+    assert any("QIRC forbidden authority" in item for item in report["hard_violations"])

@@ -26,6 +26,14 @@ Supersedes and source references are machine-readable in the matching registry.
 - `golden_flow_passes`
 - `full_acceptance_local_receipt_passes`
 - `non_goals_remain_non_claims`
+- `qirc_core_localhost_only_receipt`
+- `qirc_semantic_channels_registered`
+- `qirc_browser_event_bridge_receipt`
+- `qirc_app_bridge_event_mapping_receipt`
+- `qirc_file_spool_packet_bridge_receipt`
+- `qirc_cli_agent_pipe_bridge_receipt`
+- `qirc_trace_receipt_channel_mapping_receipt`
+- `qirc_dev_mode_event_viewer_visible`
 
 ## Must Be Visible
 
@@ -34,6 +42,10 @@ Supersedes and source references are machine-readable in the matching registry.
 - Apps connections
 - Activity timeline
 - Dev Mode traces receipts proof gaps validators support bundle raw JSON
+- QIRC event status in Dev Mode
+- QIRC channel/event viewer in Dev Mode
+- Trace/receipt channel mapping
+- App/agent packet flow status
 
 ## Not Mandatory For 100 Percent
 
@@ -47,3 +59,9 @@ Supersedes and source references are machine-readable in the matching registry.
 - `specific_external_app_integration`
 - `external_sends`
 - `app_state_mutation`
+- `public_irc_network`
+- `lan_wan_qirc`
+- `federation`
+- `matrix_like_platform`
+- `activitypub_xmpp_public_network`
+- `external_broker_dependency`

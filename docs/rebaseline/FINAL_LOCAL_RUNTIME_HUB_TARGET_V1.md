@@ -8,11 +8,27 @@ Supersedes and source references are machine-readable in the matching registry.
 
 ## Target
 
-Odin is a local background engine / Local Runtime Hub. Normal users start Odin, choose model(s), connect apps, and see status. Apps do the real app UX. Odin handles candidate work, routing, precompute, traces, receipts, proof gaps, and local API/bridge behavior. Dev Mode exposes diagnostics and raw evidence.
-
-## Normal User Path
-
 Odin is a local background engine / Local Runtime Hub. Normal users clone or download it, run one simple start command, open or are given a localhost Browser Hub, see status, choose model/provider modes, connect apps, submit demo Universal Work, receive Candidate Artifacts / Response Packets, read plain-language activity, and stop cleanly.
+
+## QIRC Cognitive Substrate Cluster
+
+QIRC is the local IRC-centered coordination core of Odin. In the narrow technical sense, QIRC Core means a localhost-only IRC/QIRC-compatible server/runtime, a semantic Odin channel registry, local event routing, and worker/model/app/candidate/trace/receipt/proof-gap channels. In the broader Odin sense, QIRC means QIRC Core plus a local cognitive substrate cluster: File/Spool, CLI/Pipe, Browser Events, SDK/App Bridge, Trace/Receipt channels, and Dev Mode visibility. These surrounding systems are KI-ohne-KI support substrates, not LLMs. They support local LLMs indirectly by providing context structure, durable work queues, thread/history continuity, source intake, handoff packet flow, event routing, replay, traceability, receipts, proof gaps, and app/agent bridge packet exchange. Required formula: QIRC coordinates. Odin gates. Apps decide. Models work only as bounded workers.
+
+### Hard Boundaries
+
+- localhost-only by default
+- no public rooms by default
+- no LAN/WAN/federation by default
+- no public network API claim
+- no app apply authority
+- no app-state mutation authority
+- no external-send authority
+- no Final Gate bypass
+- no Receipt truth elevation
+- no provider/model authority
+- no hidden remote fallback
+- no security certification
+- no production network claim
 
 ## Dev Mode
 
@@ -37,3 +53,8 @@ LLMs and agents should receive bounded ModelWorkPackets, context capsules, route
 - external sends
 - app state mutation
 - live model quality proof
+- public IRC networks by default
+- LAN/WAN/federation as mandatory target
+- Matrix-like platform behavior
+- ActivityPub/XMPP public network behavior
+- external broker dependency

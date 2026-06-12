@@ -96,6 +96,35 @@ REQUIRED_NON_GOALS = [
 ]
 FORBIDDEN_MANIFEST_PARTS = [".thor/", ".odin_runtime/", "__pycache__", ".pytest_cache", "dist/", "build/", "egg-info", ".pyc"]
 
+REQUIRED_QIRC_GAP_IDS = [
+    "qirc_core_local_irc_server", "qirc_semantic_channel_registry", "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping", "qirc_file_spool_bridge", "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping", "qirc_dev_mode_event_viewer", "qirc_cognitive_substrate_cluster",
+]
+OPTIONAL_QIRC_GAP_IDS = [
+    "qirc_feed_source_intake", "qirc_thread_archive", "qirc_local_discovery",
+    "qirc_lightweight_pubsub_adapter", "qirc_federation_future",
+]
+REQUIRED_QIRC_SLICE_FAMILIES = [
+    "qirc_core_local_irc_runtime", "qirc_semantic_channel_registry", "qirc_browser_event_bridge",
+    "qirc_app_bridge_event_mapping", "qirc_file_spool_packet_bridge", "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_event_mapping", "qirc_dev_mode_event_viewer",
+]
+REQUIRED_QIRC_POSITIVE = [
+    "qirc_core_localhost_only_receipt", "qirc_semantic_channels_registered",
+    "qirc_browser_event_bridge_receipt", "qirc_app_bridge_event_mapping_receipt",
+    "qirc_file_spool_packet_bridge_receipt", "qirc_cli_agent_pipe_bridge_receipt",
+    "qirc_trace_receipt_channel_mapping_receipt", "qirc_dev_mode_event_viewer_visible",
+]
+REQUIRED_QIRC_VISIBLE = [
+    "QIRC event status in Dev Mode", "QIRC channel/event viewer in Dev Mode",
+    "Trace/receipt channel mapping", "App/agent packet flow status",
+]
+REQUIRED_QIRC_NON_GOALS = [
+    "public_irc_network", "lan_wan_qirc", "federation", "matrix_like_platform",
+    "activitypub_xmpp_public_network", "external_broker_dependency",
+]
+
 
 def load_json(root: Path, rel: str) -> dict[str, Any]:
     return json.loads((root / rel).read_text(encoding="utf-8"))
@@ -120,10 +149,17 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
     add(checks, violations, target.get("local_only") is True, "target is local_only")
     for key in ["app_owned_apply", "app_owned_state", "app_owned_external_send"]:
         add(checks, violations, target.get(key) is True, f"target preserves {key}")
+    qirc_target = target.get("qirc_cognitive_substrate_cluster_target", "")
+    add(checks, violations, bool(qirc_target), "target includes QIRC Cognitive Substrate Cluster definition")
+    add(checks, violations, "local IRC-centered coordination core" in qirc_target, "QIRC is local IRC-centered coordination core")
+    add(checks, violations, "QIRC coordinates. Odin gates. Apps decide. Models work only as bounded workers." in target.get("qirc_required_formula", ""), "QIRC required formula present")
+    qirc_boundaries = " ".join(target.get("qirc_hard_boundaries", [])).lower()
+    for phrase in ["localhost-only", "no public rooms", "no lan/wan/federation", "no app apply", "no app-state mutation", "no external-send", "no final gate bypass", "no receipt truth", "no provider/model authority"]:
+        add(checks, violations, phrase in qirc_boundaries, f"QIRC boundary present: {phrase}")
 
     gap = load_json(repo_root, "registries/final_repo_reality_gap_audit_v1.json")
     rows = {row.get("capability_id"): row for row in gap.get("capabilities", [])}
-    for cid in REQUIRED_GAP_IDS:
+    for cid in REQUIRED_GAP_IDS + REQUIRED_QIRC_GAP_IDS + OPTIONAL_QIRC_GAP_IDS:
         add(checks, violations, cid in rows, f"gap audit covers {cid}")
         if cid in rows:
             row = rows[cid]
@@ -132,10 +168,12 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
                 add(checks, violations, bool(row.get(key)), f"{cid} has {key}")
             if row.get("current_status") in {"missing", "partially_implemented", "schema_or_doc_only", "blocked_pending_decision", "cannot_determine_from_repo"}:
                 add(checks, violations, bool(row.get("recommended_slice")), f"{cid} partial/missing maps to slice")
+            if cid in OPTIONAL_QIRC_GAP_IDS:
+                add(checks, violations, row.get("current_status") in {"deferred_non_goal", "blocked_pending_decision"}, f"optional QIRC ring deferred/non-goal: {cid}")
 
     qmat = load_json(repo_root, "registries/final_q_shabang_capability_matrix_v1.json")
     qrows = {row.get("capability_id"): row for row in qmat.get("capabilities", [])}
-    for cid in REQUIRED_Q_IDS:
+    for cid in REQUIRED_Q_IDS + REQUIRED_QIRC_GAP_IDS:
         add(checks, violations, cid in qrows, f"Q-Shabang matrix covers {cid}")
         if cid in qrows:
             for key in ["architecture_coverage_score_0_5", "repo_artifact_coverage_score_0_5", "validator_coverage_score_0_5", "runtime_proof_score_0_5", "normal_user_visibility_score_0_5"]:
@@ -144,12 +182,15 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
 
     catalog = load_json(repo_root, "registries/final_buildable_slice_catalog_v1.json")
     slice_ids = {row.get("slice_id") for row in catalog.get("slices", [])}
-    for fam in REQUIRED_SLICE_FAMILIES:
-        add(checks, violations, fam in slice_ids or bool(catalog.get("consolidation_justification")), f"slice family covered: {fam}")
+    for fam in REQUIRED_SLICE_FAMILIES + REQUIRED_QIRC_SLICE_FAMILIES:
+        add(checks, violations, fam in slice_ids or bool(catalog.get("consolidation_justification")) or bool(catalog.get("qirc_consolidation_justification")), f"slice family covered: {fam}")
 
     roadmap = load_json(repo_root, "registries/final_minimal_road_to_100_pr_roadmap_v1.json")
     pr_count = int(roadmap.get("recommended_pr_count", 0))
     add(checks, violations, 3 <= pr_count <= 5 or bool(roadmap.get("more_than_five_justification")), "roadmap has 3-5 PRs or justification")
+    roadmap_blob = json.dumps(roadmap, sort_keys=True).lower()
+    for required in ["qirc core", "qirc_core_local_irc_runtime", "qirc_browser_event_bridge", "qirc_app_bridge_event_mapping", "qirc_file_spool_packet_bridge", "qirc_cli_agent_pipe_bridge", "qirc_trace_receipt_event_mapping", "qirc_dev_mode_event_viewer"]:
+        add(checks, violations, required.lower() in roadmap_blob, f"roadmap includes QIRC required ring: {required}")
     for pr in roadmap.get("prs", []):
         pid = pr.get("pr_id", "<unknown>")
         for key in ["success_criteria", "tests_required", "proof_commands", "non_goals", "known_risks", "merge_order"]:
@@ -158,9 +199,12 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
     acceptance = load_json(repo_root, "registries/final_100_percent_acceptance_definition_v1.json")
     positives = set(acceptance.get("positive_criteria", []))
     nongoals = set(acceptance.get("non_goals_not_required", []))
-    for item in REQUIRED_POSITIVE:
+    for item in REQUIRED_POSITIVE + REQUIRED_QIRC_POSITIVE:
         add(checks, violations, item in positives, f"acceptance includes positive {item}")
-    for item in REQUIRED_NON_GOALS:
+    visible = set(acceptance.get("visible_criteria", []))
+    for item in REQUIRED_QIRC_VISIBLE:
+        add(checks, violations, item in visible, f"acceptance includes QIRC visible surface {item}")
+    for item in REQUIRED_NON_GOALS + REQUIRED_QIRC_NON_GOALS:
         add(checks, violations, item in nongoals, f"acceptance excludes mandatory {item}")
 
     report = load_json(repo_root, "reports/final_road_to_100_rebaseline_audit_v1.json")
@@ -171,6 +215,10 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
     serialized = json.dumps({"target": target, "gap": gap, "qmat": qmat, "catalog": catalog, "roadmap": roadmap, "acceptance": acceptance, "report": report_for_scan}, sort_keys=True).lower()
     for claim in forbidden_claims:
         add(checks, violations, claim not in serialized, f"forbidden unreceipted claim token absent: {claim}")
+    forbidden_qirc_authority = ["qirc may apply", "qirc can apply", "qirc mutates app state", "qirc may mutate app state", "qirc sends externally", "qirc may send externally", "qirc bypasses final gate", "receipt is truth"]
+    for phrase in forbidden_qirc_authority:
+        add(checks, violations, phrase not in serialized, f"QIRC forbidden authority absent: {phrase}")
+    add(checks, violations, "public by default" not in serialized and " federation by default" not in serialized and "lan/wan by default" not in serialized, "QIRC is not public network/federation by default")
     add(checks, violations, "api_key" not in serialized and "read environment" not in serialized, "no API-key/env execution claim in final artifacts")
 
     manifest = load_json(repo_root, "FILE_MANIFEST.json")
@@ -194,6 +242,10 @@ def validate(repo_root: Path, generated_at_utc: str) -> dict[str, Any]:
         "llm_agent_effectiveness_score": report.get("llm_agent_effectiveness_score"),
         "clone_start_readiness_score": report.get("clone_start_readiness_score"),
         "app_connection_readiness_score": report.get("app_connection_readiness_score"),
+        "qirc_cognitive_substrate_score": report.get("qirc_cognitive_substrate_score"),
+        "qirc_core_status": report.get("qirc_core_status"),
+        "qirc_required_rings": report.get("qirc_required_rings"),
+        "qirc_optional_rings": report.get("qirc_optional_rings"),
         "missing_capabilities": report.get("missing_capabilities"),
         "slice_count": report.get("slice_count"),
         "recommended_final_pr_count": report.get("recommended_final_pr_count"),

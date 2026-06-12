@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "1438945b67c41509afe7806c9ed7a16704b156afbff7661e6af7f5946af11f20",
-      "size": 80644
+      "sha256": "cd2fb68131c6b150a73056e8c2654571bfa09dc877d043427c29158c30169652",
+      "size": 81614
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1365,8 +1365,8 @@
     },
     {
       "path": "docs/codex/audits/PR_35_B9_FINAL_ROAD_TO_100_AUDIT.md",
-      "sha256": "bae324a12fe008c78253d69ff6581a7c088d64f72822fbde391c890961533da1",
-      "size": 3244
+      "sha256": "bee6f819063c7eea1a1f912f3d2455a959e7b6bc83fe99e9b24b172b94025cdd",
+      "size": 2860
     },
     {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
@@ -1830,8 +1830,8 @@
     },
     {
       "path": "docs/codex/reports/PR_35_B9_FINAL_ROAD_TO_100_RETURN_REPORT.md",
-      "sha256": "51d9f079cc33e47a2cc8c3b998be462e982294b26ee7916b6b636198e3838e14",
-      "size": 1265
+      "sha256": "2cffd71e48e0f003c6e5155a41b1f065b3664525f1ad840033f4cf0f0dc9dfa0",
+      "size": 2589
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -2490,33 +2490,33 @@
     },
     {
       "path": "docs/rebaseline/FINAL_100_PERCENT_ACCEPTANCE_DEFINITION_V1.md",
-      "sha256": "1312e6e2f32fa18a29b11f3599042458be06e0b80f88353e9bf3111d9f7e8960",
-      "size": 1716
+      "sha256": "d4678e064948c4ddd7e7d6d9a932eae2b41d5dbb4d33f0c301fdc72bde8f6fea",
+      "size": 2320
     },
     {
       "path": "docs/rebaseline/FINAL_BUILDABLE_SLICE_CATALOG_V1.md",
-      "sha256": "59e6e7ee7304baabe527c3db1c96740234f92b4076ce4689aea0091b5c5dd691",
-      "size": 4714
+      "sha256": "21762138177b5955f504d19371d734ef20b54df0f78c348d64840d26d43c2ee1",
+      "size": 10151
     },
     {
       "path": "docs/rebaseline/FINAL_LOCAL_RUNTIME_HUB_TARGET_V1.md",
-      "sha256": "08ff9ee3b24909e027e76612379cf590ed17dfcfa609d26987293aa7e1c545cf",
-      "size": 2427
+      "sha256": "dbc076d3fcdcbc23bfd1b5299ddf4fc5d8d50ced546012cd6fe08a1e700f3457",
+      "size": 3599
     },
     {
       "path": "docs/rebaseline/FINAL_MINIMAL_ROAD_TO_100_PR_ROADMAP_V1.md",
-      "sha256": "2f171eab87ab119b3f2527f7a5e27f353e6f5112709506d41f732ae309c5778b",
-      "size": 4631
+      "sha256": "5f1f0de8b5cfa7bf2c93c505d39419dbf1b9ca682af69a39e49f92486b50785d",
+      "size": 6137
     },
     {
       "path": "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
-      "sha256": "02d1f69b466eed05fc760291306ad65ecc985d6c7fc2c9a3ebef33e7677d2943",
-      "size": 2187
+      "sha256": "41da550f0fc9de58e617609f767c79b8659b8017ebb900bde2d17a489c580827",
+      "size": 2694
     },
     {
       "path": "docs/rebaseline/FINAL_REPO_REALITY_GAP_AUDIT_V1.md",
-      "sha256": "e04dc3dcd7915cb846c826dee96e24d66b67af319c69facc5654a71076327e0a",
-      "size": 7141
+      "sha256": "fa452cc7a3ca5b39218ed6f384ba825422663a896397e3e68d1ed2302ed348e3",
+      "size": 9879
     },
     {
       "path": "docs/rebaseline/FULL_SYSTEM_AUDIT_AFTER_LRH_PR_18.md",
@@ -2795,33 +2795,33 @@
     },
     {
       "path": "examples/final_100_percent_acceptance_definition_v1.example.json",
-      "sha256": "380b9e524b5e150a2de326a221c6501e1fc1f5bca4f67ed67f0518351f28f9f2",
-      "size": 3062
+      "sha256": "94fb5b01a3b923c94a92a0fafed55236e3ff00a59527688150b86b0aa0885c83",
+      "size": 3923
     },
     {
       "path": "examples/final_buildable_slice_catalog_v1.example.json",
-      "sha256": "708eb1b0a4b32b8dfc9e18a1b9cc5755d41a391eb1753942bbc23fc4f29ec71a",
-      "size": 18563
+      "sha256": "0c138c4c16ddb97eaa0d0f20a2bea241aa990d8abc81bd28a9f941f7e2b2c880",
+      "size": 34051
     },
     {
       "path": "examples/final_local_runtime_hub_target_v1.example.json",
-      "sha256": "8d2c01b5e8e18e0bf8f6a5f6d93e6bd5bc7ba7f0db3eeaa1308f8c21ce8d467c",
-      "size": 4545
+      "sha256": "427dad78f51e9dcc7a47402ddba3837c584abf4a7f1bff56b7fae1b79b97d9ac",
+      "size": 6269
     },
     {
       "path": "examples/final_minimal_road_to_100_pr_roadmap_v1.example.json",
-      "sha256": "7881ab60e0f83453f31a2c070769d60997dbb4c1b69fd96eccebe518a140882d",
-      "size": 10656
+      "sha256": "b407d278503cc618db9b82babb9d1522e793e29c4d2c80c32d3da19918a281ba",
+      "size": 12315
     },
     {
       "path": "examples/final_q_shabang_capability_matrix_v1.example.json",
-      "sha256": "b55d3256cfbf9701e45d7bd0539c3a6d8842e5cd85b2987a4702c3c80a9e4757",
-      "size": 16898
+      "sha256": "c6018289f8d3e1426b22d90b2156c61b3f1617ab76d68920400b30bfe50c8793",
+      "size": 23503
     },
     {
       "path": "examples/final_repo_reality_gap_audit_v1.example.json",
-      "sha256": "cf1ae51c3183c83ee9b37168faecef57a83b8aadd6e075471c7e508bae4fcc07",
-      "size": 38049
+      "sha256": "6ad7b0765db44b43171d79ab3574df2275736e0447b6ecf8ddb241f463eadf0c",
+      "size": 53717
     },
     {
       "path": "examples/full_acceptance/e2e_golden_flow_receipt.example.json",
@@ -5080,33 +5080,33 @@
     },
     {
       "path": "registries/final_100_percent_acceptance_definition_v1.json",
-      "sha256": "380b9e524b5e150a2de326a221c6501e1fc1f5bca4f67ed67f0518351f28f9f2",
-      "size": 3062
+      "sha256": "94fb5b01a3b923c94a92a0fafed55236e3ff00a59527688150b86b0aa0885c83",
+      "size": 3923
     },
     {
       "path": "registries/final_buildable_slice_catalog_v1.json",
-      "sha256": "708eb1b0a4b32b8dfc9e18a1b9cc5755d41a391eb1753942bbc23fc4f29ec71a",
-      "size": 18563
+      "sha256": "0c138c4c16ddb97eaa0d0f20a2bea241aa990d8abc81bd28a9f941f7e2b2c880",
+      "size": 34051
     },
     {
       "path": "registries/final_local_runtime_hub_target_v1.json",
-      "sha256": "8d2c01b5e8e18e0bf8f6a5f6d93e6bd5bc7ba7f0db3eeaa1308f8c21ce8d467c",
-      "size": 4545
+      "sha256": "427dad78f51e9dcc7a47402ddba3837c584abf4a7f1bff56b7fae1b79b97d9ac",
+      "size": 6269
     },
     {
       "path": "registries/final_minimal_road_to_100_pr_roadmap_v1.json",
-      "sha256": "7881ab60e0f83453f31a2c070769d60997dbb4c1b69fd96eccebe518a140882d",
-      "size": 10656
+      "sha256": "b407d278503cc618db9b82babb9d1522e793e29c4d2c80c32d3da19918a281ba",
+      "size": 12315
     },
     {
       "path": "registries/final_q_shabang_capability_matrix_v1.json",
-      "sha256": "b55d3256cfbf9701e45d7bd0539c3a6d8842e5cd85b2987a4702c3c80a9e4757",
-      "size": 16898
+      "sha256": "c6018289f8d3e1426b22d90b2156c61b3f1617ab76d68920400b30bfe50c8793",
+      "size": 23503
     },
     {
       "path": "registries/final_repo_reality_gap_audit_v1.json",
-      "sha256": "cf1ae51c3183c83ee9b37168faecef57a83b8aadd6e075471c7e508bae4fcc07",
-      "size": 38049
+      "sha256": "6ad7b0765db44b43171d79ab3574df2275736e0447b6ecf8ddb241f463eadf0c",
+      "size": 53717
     },
     {
       "path": "registries/flow_pack_registry.json",
@@ -5895,8 +5895,8 @@
     },
     {
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
-      "sha256": "1939bae07f8d017b7aff7ed785708cefc8caa4ec2e91330cfd20a52502ca112e",
-      "size": 52611
+      "sha256": "b674a6c9b91d825748be07b3b856fba325c51e2a2f2bbe7fbf78fd48784df225",
+      "size": 73792
     },
     {
       "path": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
@@ -5980,33 +5980,33 @@
     },
     {
       "path": "schemas/final_100_percent_acceptance_definition_v1.schema.json",
-      "sha256": "e9bdd016d8ae82079f4966ed22534be0d7bd0596750420d8505894e8756d6911",
-      "size": 643
+      "sha256": "b5129e655a0c30ab8c46533cfea34a2d18144ed86874c924a00924de23c5beb2",
+      "size": 672
     },
     {
       "path": "schemas/final_buildable_slice_catalog_v1.schema.json",
-      "sha256": "2ca4f7682d9db173d586219d0dd8df2877c212838311da7475b09a1c3bf1de6e",
-      "size": 545
+      "sha256": "844c4721b424a2a8478981c8eded591c558aab08b3864a1fd744129dc5137945",
+      "size": 574
     },
     {
       "path": "schemas/final_local_runtime_hub_target_v1.schema.json",
-      "sha256": "bf4e0a532c0685aa7428602db054aafa6036de08b4cb657ebd950562159c944b",
-      "size": 1385
+      "sha256": "bc58cae92138ece07292ca1ce6f53e4df8feca89275b58803f0e3b842ae8b91d",
+      "size": 1605
     },
     {
       "path": "schemas/final_minimal_road_to_100_pr_roadmap_v1.schema.json",
-      "sha256": "56fed604212f177ec1d793d6fbf87c817f09eef165162132d8e1c6968eebb775",
-      "size": 547
+      "sha256": "8abd7575519403245cfaf057e4ad95f2f4aad276ae37c4b746bc737838d40ad4",
+      "size": 576
     },
     {
       "path": "schemas/final_q_shabang_capability_matrix_v1.schema.json",
-      "sha256": "9a79ec8ee94c3b80b2109088c1de94aa5c532c68b0ee5144d7fdb085d0d52865",
-      "size": 497
+      "sha256": "1c20ff9b1b8cb4cc42d5cb852416caa4d1757624e209d4e103874848808fbfa9",
+      "size": 526
     },
     {
       "path": "schemas/final_repo_reality_gap_audit_v1.schema.json",
-      "sha256": "bd20d49080b2dce3455231996c2d8c61f67dfc65a4f0b0ebf959bc0e30640085",
-      "size": 543
+      "sha256": "1b361f89a6d637138308b788044f2814956dc6ed401e3952abec70ff833ace0d",
+      "size": 572
     },
     {
       "path": "schemas/v7_1/localhost_api_candidate.schema.json",
@@ -7295,8 +7295,8 @@
     },
     {
       "path": "tests/test_final_road_to_100_rebaseline_audit.py",
-      "sha256": "41257d80e8d55a1df3e80179c4a6c9b5e2728bcafced6d31a87278f347602ea9",
-      "size": 10226
+      "sha256": "0e66085519901c6d34bf688627149d4874b92d798326dded345ad3def4932a60",
+      "size": 17119
     },
     {
       "path": "tests/test_forbidden_control_pattern_registry.py",
@@ -7600,8 +7600,8 @@
     },
     {
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
-      "sha256": "f5278f6c3bf321d43af85dcd619cc42158299962741f275b274011f9a6f4e8a5",
-      "size": 13386
+      "sha256": "281d62ccd7a4740750ed350e78aa36ae95adefd96b531bb16522884b56e8ce9a",
+      "size": 17714
     },
     {
       "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",

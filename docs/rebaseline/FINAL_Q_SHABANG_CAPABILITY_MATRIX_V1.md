@@ -8,6 +8,10 @@ Supersedes and source references are machine-readable in the matching registry.
 
 Scores are subjective repo-audit proxies, not scientific measurements.
 
+## QIRC Cognitive Substrate Cluster
+
+These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.
+
 | capability | architecture | artifact | validator | runtime proof | normal user visibility |
 |---|---:|---:|---:|---:|---:|
 | `ki_ohne_ki` | 4 | 4 | 3 | 1 | 1 |
@@ -39,7 +43,12 @@ Scores are subjective repo-audit proxies, not scientific measurements.
 | `local_runtime_hub_ui` | 4 | 3 | 3 | 1 | 2 |
 | `app_connections` | 4 | 2 | 2 | 0 | 1 |
 | `dev_mode` | 4 | 2 | 2 | 0 | 0 |
-
-## Effect Status
-
-The Q-Shabang is mostly architecture/artifact-rich, but its brett an Wirkung for normal users depends on completing the Local Runtime Hub UI, demo work path, activity/proof surfaces, and provider probe receipts.
+| `qirc_core_local_irc_server` | 5 | 2 | 1 | 0 | 0 |
+| `qirc_semantic_channel_registry` | 5 | 3 | 2 | 1 | 1 |
+| `qirc_browser_event_bridge` | 5 | 2 | 1 | 0 | 0 |
+| `qirc_sdk_app_event_mapping` | 5 | 3 | 2 | 0 | 1 |
+| `qirc_file_spool_bridge` | 5 | 1 | 1 | 0 | 0 |
+| `qirc_cli_agent_pipe_bridge` | 5 | 3 | 2 | 0 | 1 |
+| `qirc_trace_receipt_channel_mapping` | 5 | 3 | 2 | 0 | 1 |
+| `qirc_dev_mode_event_viewer` | 5 | 1 | 1 | 0 | 0 |
+| `qirc_cognitive_substrate_cluster` | 5 | 2 | 1 | 0 | 0 |

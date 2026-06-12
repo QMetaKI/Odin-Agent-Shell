@@ -179,6 +179,54 @@
       "ok": true
     },
     {
+      "name": "target includes QIRC Cognitive Substrate Cluster definition",
+      "ok": true
+    },
+    {
+      "name": "QIRC is local IRC-centered coordination core",
+      "ok": true
+    },
+    {
+      "name": "QIRC required formula present",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: localhost-only",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no public rooms",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no lan/wan/federation",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no app apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no app-state mutation",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no external-send",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no final gate bypass",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no receipt truth",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no provider/model authority",
+      "ok": true
+    },
+    {
       "name": "gap audit covers clone_install_path",
       "ok": true
     },
@@ -1055,6 +1103,342 @@
       "ok": true
     },
     {
+      "name": "gap audit covers qirc_core_local_irc_server",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_sdk_app_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_file_spool_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_trace_receipt_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_cognitive_substrate_cluster",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_feed_source_intake",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_feed_source_intake",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_thread_archive",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_thread_archive",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_local_discovery",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_local_discovery",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_lightweight_pubsub_adapter",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_lightweight_pubsub_adapter",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_federation_future",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_federation_future",
+      "ok": true
+    },
+    {
       "name": "Q-Shabang matrix covers ki_ohne_ki",
       "ok": true
     },
@@ -1751,6 +2135,222 @@
       "ok": true
     },
     {
+      "name": "Q-Shabang matrix covers qirc_core_local_irc_server",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_sdk_app_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_file_spool_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_trace_receipt_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_cognitive_substrate_cluster",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
       "name": "slice family covered: simple_local_hub_start",
       "ok": true
     },
@@ -1799,7 +2399,71 @@
       "ok": true
     },
     {
+      "name": "slice family covered: qirc_core_local_irc_runtime",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_app_bridge_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_file_spool_packet_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_trace_receipt_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
       "name": "roadmap has 3-5 PRs or justification",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc core",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_core_local_irc_runtime",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_app_bridge_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_file_spool_packet_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_trace_receipt_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_dev_mode_event_viewer",
       "ok": true
     },
     {
@@ -1995,6 +2659,54 @@
       "ok": true
     },
     {
+      "name": "acceptance includes positive qirc_core_localhost_only_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_semantic_channels_registered",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_browser_event_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_app_bridge_event_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_file_spool_packet_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_cli_agent_pipe_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_trace_receipt_channel_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_dev_mode_event_viewer_visible",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface QIRC event status in Dev Mode",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface QIRC channel/event viewer in Dev Mode",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Trace/receipt channel mapping",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface App/agent packet flow status",
+      "ok": true
+    },
+    {
       "name": "acceptance excludes mandatory windows_service_tray_installer",
       "ok": true
     },
@@ -2032,6 +2744,30 @@
     },
     {
       "name": "acceptance excludes mandatory app_state_mutation",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory public_irc_network",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory lan_wan_qirc",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory federation",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory matrix_like_platform",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory activitypub_xmpp_public_network",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_broker_dependency",
       "ok": true
     },
     {
@@ -2099,6 +2835,42 @@
       "ok": true
     },
     {
+      "name": "QIRC forbidden authority absent: qirc may apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc can apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc mutates app state",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc may mutate app state",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc sends externally",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc may send externally",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc bypasses final gate",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: receipt is truth",
+      "ok": true
+    },
+    {
+      "name": "QIRC is not public network/federation by default",
+      "ok": true
+    },
+    {
       "name": "no API-key/env execution claim in final artifacts",
       "ok": true
     },
@@ -2114,10 +2886,20 @@
     "signed_release",
     "store_distribution",
     "public_network_api",
-    "specific_external_app_integration"
+    "specific_external_app_integration",
+    "public_irc_network",
+    "lan_wan_qirc",
+    "federation",
+    "matrix_like_platform",
+    "activitypub_xmpp_public_network",
+    "external_broker_dependency"
   ],
   "generated_at_utc": "2026-01-01T00:00:00Z",
   "hard_blockers": [
+    "qirc_core_local_irc_server_missing",
+    "qirc_browser_event_bridge_missing",
+    "qirc_file_spool_bridge_missing",
+    "qirc_dev_mode_event_viewer_missing",
     "normal_user_browser_hub_not_end_to_end",
     "activity_dev_mode_receipts_not_fully_integrated",
     "local_provider_probe_missing",
@@ -2155,9 +2937,18 @@
     "target_host_review",
     "dependency_tooling",
     "release_package",
-    "normal_user_docs"
+    "normal_user_docs",
+    "qirc_core_local_irc_server",
+    "qirc_semantic_channel_registry",
+    "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping",
+    "qirc_file_spool_bridge",
+    "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping",
+    "qirc_dev_mode_event_viewer",
+    "qirc_cognitive_substrate_cluster"
   ],
-  "next_action": "Build FINAL-PR-01 first: Simple Local Hub Start + Normal User Browser UI.",
+  "next_action": "Build FINAL-PR-01 first, then implement QIRC Core in FINAL-PR-03 and File/Spool plus CLI/Agent Pipe rings in FINAL-PR-04.",
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",
@@ -2171,6 +2962,26 @@
   ],
   "normal_user_ux_score": 2,
   "q_shabang_score": 4,
+  "qirc_cognitive_substrate_score": 2,
+  "qirc_core_status": "missing",
+  "qirc_optional_rings": [
+    "qirc_feed_source_intake",
+    "qirc_thread_archive",
+    "qirc_local_discovery",
+    "qirc_lightweight_pubsub_adapter",
+    "qirc_federation_future"
+  ],
+  "qirc_required_rings": [
+    "qirc_core_local_irc_server",
+    "qirc_semantic_channel_registry",
+    "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping",
+    "qirc_file_spool_bridge",
+    "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping",
+    "qirc_dev_mode_event_viewer",
+    "qirc_cognitive_substrate_cluster"
+  ],
   "recommended_final_pr_count": 5,
   "recommended_prs": [
     "FINAL-PR-01",
@@ -2182,21 +2993,22 @@
   "repo_reality_summary": {
     "blocked_pending_decision": 0,
     "cannot_determine_from_repo": 0,
-    "deferred_non_goal": 1,
+    "deferred_non_goal": 6,
     "implemented_and_locally_proven": 0,
     "implemented_without_recent_local_proof": 8,
-    "missing": 6,
-    "partially_implemented": 18,
-    "schema_or_doc_only": 5
+    "missing": 10,
+    "partially_implemented": 21,
+    "schema_or_doc_only": 7
   },
   "report_id": "final_road_to_100_rebaseline_audit_v1",
   "runtime_score": 2,
-  "slice_count": 12,
+  "slice_count": 20,
   "soft_blockers": [
     "docs_quickstart_needs_polish",
     "dependency_tooling_receipt_missing",
-    "target_host_review_future_scoped"
+    "target_host_review_future_scoped",
+    "optional_qirc_feed_thread_discovery_pubsub_federation_deferred"
   ],
   "status": "ok",
-  "target_summary": "Odin Local Runtime Hub: local background engine with simple Browser Hub, model/provider choice, connected apps, Candidate Workflow, activity, Dev Mode, receipts and proof gaps."
+  "target_summary": "Odin Local Runtime Hub with first-class QIRC Cognitive Substrate Cluster: localhost-only IRC/QIRC-compatible coordination core plus local KI-ohne-KI substrates for bounded events, traces, receipts, and work packets."
 }
