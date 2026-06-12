@@ -8,6 +8,36 @@
   "connected_apps_target": "Show connected apps, app permissions, last request, disconnect/add app bridge status; app sovereignty remains mandatory.",
   "dev_mode_target": "Dev Mode exposes traces, receipts, proof gaps, validators, support bundle output, and raw JSON without granting apply, app-state, external-send, provider, or model authority.",
   "final_target_id": "final_local_runtime_hub_target_v1",
+  "handoff_first_flow": [
+    "Raw request / file packet / agent packet / app event / QIRC event / demo trigger",
+    "Intake Envelope",
+    "Handoff-First Pre-Intake",
+    "Handoff Context / Handoff Packet Candidate",
+    "Universal Work compile",
+    "ModelWorkPacket",
+    "Candidate Artifact / Response Packet",
+    "Trace / Receipt / app-owned decision"
+  ],
+  "handoff_first_hard_boundaries": [
+    "Handoff-First does not bypass Universal Work",
+    "Handoff-First does not bypass Final Gate",
+    "handoff artifacts are candidate-only and evidence-bound",
+    "no app truth elevation",
+    "no app apply authority",
+    "no app-state mutation authority",
+    "no external-send authority",
+    "no direct provider/model/network/API-key execution",
+    "no QIRC event treated as truth",
+    "no external Thor/Y/YNode/Mjölnir runtime proof claimed"
+  ],
+  "handoff_first_pre_intake_target": "Handoff-First Pre-Intake Layer is Odin's first orientation layer for every raw app/user/file/agent/QIRC/demo input. It derives or ingests a structured Handoff Context before Universal Work compilation, then Universal Work bounds the request before Context Distillery, Worklets, Slots, Gaptext, ModelWorkPacket creation, smallest sufficient worker routing, critics/gates, Candidate Artifact/Response Packet return, Trace/Receipt capture, and app-owned decision. Handoff Context captures intent, task shape, source context, relevant artifacts, constraints, allowed outputs, forbidden actions, privacy boundary, model policy hints, expected candidate shape, proof/receipt expectations, return contract, known gaps, and handoff profile. It improves local LLM performance by reducing prompt chaos and producing better Universal Work and ModelWorkPackets. Handoff-First is mandatory for 100%; Generic and Thor profiles are mandatory; Y and Mjölnir profiles are mandatory structured profile contracts, not external runtime proof.",
+  "handoff_first_profiles": {
+    "generic_handoff_profile": "mandatory neutral fallback profile for ordinary user/app/file/QIRC/demo work",
+    "mjolnir_handoff_profile": "mandatory structured Mjölnir/Mjolnir-style focused patch/build/engine-prep profile contract; not target-host, Godot, Windows, or external Mjölnir runtime proof",
+    "thor_handoff_profile": "mandatory advisory handoff/review/guard/expected/return discipline profile for agents and code work; repo evidence is docs/schema/shadow candidate only unless locally proven later",
+    "y_handoff_profile": "mandatory structured Y-family app/game/web/space/build handoff profile contract; not YNode runtime proof and not external product integration proof"
+  },
+  "handoff_first_required_formula": "Handoff orients. Universal Work bounds. Odin gates. QIRC coordinates. Apps decide. Models work only as bounded workers.",
   "ki_ohne_ki_target": "Deterministic precompute, cache, rules, slots, contracts, validators, critics, and gates should shape work before model execution and remain visible enough that normal users and developers can see why model work was avoided or bounded.",
   "llm_agent_target": "LLMs and agents should receive bounded ModelWorkPackets, context capsules, route decisions, receipt boundaries, and candidate-only response contracts so 3B/7B/8B local models and advisory agents have more useful leverage without authority creep.",
   "local_only": true,
@@ -21,7 +51,14 @@
     "not_model_quality_proof",
     "not_app_apply_authority",
     "not_app_state_authority",
-    "not_external_send_authority"
+    "not_external_send_authority",
+    "not_external_thor_runtime_proof",
+    "not_external_y_runtime_proof",
+    "not_external_ynode_runtime_proof",
+    "not_external_mjolnir_runtime_proof",
+    "not_godot_target_host_proof",
+    "not_windows_target_host_proof",
+    "not_engine_runtime_proof"
   ],
   "non_goals": [
     "complex app builder",
@@ -37,7 +74,14 @@
     "LAN/WAN/federation as mandatory target",
     "Matrix-like platform behavior",
     "ActivityPub/XMPP public network behavior",
-    "external broker dependency"
+    "external broker dependency",
+    "external Thor runtime proof",
+    "external Y/YNode runtime proof",
+    "external Mjölnir runtime proof",
+    "Godot target host proof",
+    "Windows target host proof for handoff profiles",
+    "engine runtime proof",
+    "handoff raw internals exposed to normal users by default"
   ],
   "normal_user_target": "Odin is a local background engine / Local Runtime Hub. Normal users clone or download it, run one simple start command, open or are given a localhost Browser Hub, see status, choose model/provider modes, connect apps, submit demo Universal Work, receive Candidate Artifacts / Response Packets, read plain-language activity, and stop cleanly.",
   "proof_gap_target": "Proof gaps are first-class UI and Dev Mode objects; claims require scoped receipts.",

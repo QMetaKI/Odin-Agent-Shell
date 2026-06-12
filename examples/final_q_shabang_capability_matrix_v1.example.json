@@ -379,9 +379,133 @@
       "repo_artifact_coverage_score_0_5": 2,
       "runtime_proof_score_0_5": 0,
       "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_first_pre_intake_policy",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_first_pre_intake_policy in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_context_schema",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_context_schema_and_profiles in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "generic_handoff_profile",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_context_schema_and_profiles in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "thor_handoff_profile",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove thor_handoff_compiler_adapter in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "y_handoff_profile",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove y_mjolnir_handoff_profiles in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "mjolnir_handoff_profile",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove y_mjolnir_handoff_profiles in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "thor_handoff_compiler_discovery",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove thor_handoff_compiler_adapter in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_to_universal_work_mapping",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_to_universal_work_mapping in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_to_modelworkpacket_mapping",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_to_modelworkpacket_mapping in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_to_qirc_channel_mapping",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_qirc_trace_receipt_mapping in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "handoff_to_trace_receipt_mapping",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove handoff_qirc_trace_receipt_mapping in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "dev_mode_handoff_viewer",
+      "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries.",
+      "missing_work": "Implement or prove dev_mode_handoff_viewer in the mapped final PR; preserve Universal Work, Final Gate, QIRC, trace/receipt, and app-owned apply boundaries.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 4
     }
   ],
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "handoff_first_extension_v2": {
+    "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+    "effectiveness_notes": "Handoff-First improves local LLM performance by converting raw app/user/agent/file/QIRC/demo inputs into structured Handoff Context before Universal Work and ModelWorkPacket creation, reducing prompt chaos, preserving intent, and strengthening candidate-only boundaries."
+  },
   "matrix_id": "final_q_shabang_capability_matrix_v1",
   "non_claims": [
     "not_runtime_completion_proof",

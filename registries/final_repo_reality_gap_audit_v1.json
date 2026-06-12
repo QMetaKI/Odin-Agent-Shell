@@ -845,9 +845,284 @@
       ],
       "recommended_slice": "qirc_optional_future_rings",
       "target_requirement": "Optional/deferred QIRC ring; not mandatory for 100% and must not introduce public network/federation/default broker requirements."
+    },
+    {
+      "capability_id": "handoff_first_pre_intake_policy",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_first_pre_intake_policy and attach scoped receipts for handoff_first_pre_intake_policy; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_first_pre_intake_policy",
+      "target_requirement": "handoff_first_pre_intake_policy must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_context_schema",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_context_schema_and_profiles and attach scoped receipts for handoff_context_schema; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_context_schema_and_profiles",
+      "target_requirement": "handoff_context_schema must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_packet_candidate_shape",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_context_schema_and_profiles and attach scoped receipts for handoff_packet_candidate_shape; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_context_schema_and_profiles",
+      "target_requirement": "handoff_packet_candidate_shape must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "generic_handoff_profile",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_context_schema_and_profiles and attach scoped receipts for generic_handoff_profile; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_context_schema_and_profiles",
+      "target_requirement": "generic_handoff_profile is mandatory as the neutral fallback for ordinary user/app/file/QIRC/demo work."
+    },
+    {
+      "capability_id": "thor_handoff_profile",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+        "schemas/v7_1/odin_thor_handoff_request.schema.json",
+        "schemas/v7_1_1_thor_handoff_intake.schema.json",
+        "registries/v7_1_1_thor_handoff_intake_registry.json",
+        "examples/v7_1_1/thor_handoff_intake.example.json",
+        "odin/shadow_runtime/thor_handoff_compiler_shadow.py"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build thor_handoff_compiler_adapter and attach scoped receipts for thor_handoff_profile; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "thor_handoff_compiler_adapter",
+      "target_requirement": "thor_handoff_profile is mandatory as advisory handoff/review/guard/expected/return discipline for agents and code work, without external Thor runtime proof."
+    },
+    {
+      "capability_id": "y_handoff_profile",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+        "schemas/v7_1/odin_y_handoff_packet.schema.json",
+        "registries/y_handoff_bridge_registry.json",
+        "odin/shadow_runtime/y_handoff_bridge_shadow.py"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build y_mjolnir_handoff_profiles and attach scoped receipts for y_handoff_profile; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "y_mjolnir_handoff_profiles",
+      "target_requirement": "y_handoff_profile is mandatory as a structured Y-family app/game/web/space/build handoff profile contract, not YNode runtime proof."
+    },
+    {
+      "capability_id": "mjolnir_handoff_profile",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+        "schemas/v7_1/odin_mjolnir_strike_candidate.schema.json",
+        "registries/mjolnir_bridge_registry.json",
+        "odin/shadow_runtime/mjolnir_strike_bridge_shadow.py"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build y_mjolnir_handoff_profiles and attach scoped receipts for mjolnir_handoff_profile; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "y_mjolnir_handoff_profiles",
+      "target_requirement": "mjolnir_handoff_profile is mandatory as a structured Mjölnir/Mjolnir focused patch/build/engine-prep profile contract, not Godot/Windows/external Mjölnir runtime proof."
+    },
+    {
+      "capability_id": "thor_handoff_compiler_discovery",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "docs/HANDOFF_POSTPROCESSING_CANDIDATE_PIPELINE_V7_1.md",
+        "odin/shadow_runtime/thor_handoff_compiler_shadow.py",
+        "registries/thor_handoff_mode_registry.json",
+        "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build thor_handoff_compiler_adapter and attach scoped receipts for thor_handoff_compiler_discovery; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "thor_handoff_compiler_adapter",
+      "target_requirement": "thor_handoff_compiler_discovery must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_universal_work_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_to_universal_work_mapping and attach scoped receipts for handoff_to_universal_work_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_to_universal_work_mapping",
+      "target_requirement": "handoff_to_universal_work_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_context_capsule_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_to_universal_work_mapping and attach scoped receipts for handoff_to_context_capsule_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_to_universal_work_mapping",
+      "target_requirement": "handoff_to_context_capsule_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_modelworkpacket_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_to_modelworkpacket_mapping and attach scoped receipts for handoff_to_modelworkpacket_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_to_modelworkpacket_mapping",
+      "target_requirement": "handoff_to_modelworkpacket_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_qirc_channel_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_qirc_trace_receipt_mapping and attach scoped receipts for handoff_to_qirc_channel_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_qirc_trace_receipt_mapping",
+      "target_requirement": "handoff_to_qirc_channel_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_trace_receipt_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_qirc_trace_receipt_mapping and attach scoped receipts for handoff_to_trace_receipt_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_qirc_trace_receipt_mapping",
+      "target_requirement": "handoff_to_trace_receipt_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "handoff_to_final_gate_expectation_mapping",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build handoff_to_modelworkpacket_mapping and attach scoped receipts for handoff_to_final_gate_expectation_mapping; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "handoff_to_modelworkpacket_mapping",
+      "target_requirement": "handoff_to_final_gate_expectation_mapping must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "dev_mode_handoff_viewer",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "missing",
+      "missing_work": "Build dev_mode_handoff_viewer and attach scoped receipts for dev_mode_handoff_viewer; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "dev_mode_handoff_viewer",
+      "target_requirement": "dev_mode_handoff_viewer must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
+    },
+    {
+      "capability_id": "normal_user_handoff_hidden_status",
+      "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+      "current_repo_evidence": [
+        "No dedicated final Handoff-First implementation artifact found in repo; current PR records target/slice/validator coverage only."
+      ],
+      "current_status": "missing",
+      "missing_work": "Build dev_mode_handoff_viewer and attach scoped receipts for normal_user_handoff_hidden_status; keep Handoff Context candidate-only and before Universal Work.",
+      "proof_needed": [
+        "python -m odin.cli validate-final-road-to-100-rebaseline-audit",
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_road_to_100_rebaseline_audit.py -p no:cacheprovider"
+      ],
+      "recommended_slice": "dev_mode_handoff_viewer",
+      "target_requirement": "normal_user_handoff_hidden_status must be represented in the Handoff-First Pre-Intake Layer so raw inputs become candidate-only Handoff Context before Universal Work, without apply/send/truth/provider authority."
     }
   ],
   "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "handoff_first_extension_v2": {
+    "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+    "definition": "Handoff-First Pre-Intake Layer is Odin first orientation layer for every raw input; it creates Handoff Context before Universal Work and ModelWorkPacket creation.",
+    "formula": "Handoff orients. Universal Work bounds. Odin gates. QIRC coordinates. Apps decide. Models work only as bounded workers."
+  },
   "non_claims": [
     "not_runtime_completion_proof",
     "not_security_certification",

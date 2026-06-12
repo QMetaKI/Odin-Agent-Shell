@@ -227,6 +227,74 @@
       "ok": true
     },
     {
+      "name": "target includes Handoff-First Pre-Intake Layer",
+      "ok": true
+    },
+    {
+      "name": "Handoff-First precedes Universal Work",
+      "ok": true
+    },
+    {
+      "name": "Handoff-First maps toward ModelWorkPacket creation",
+      "ok": true
+    },
+    {
+      "name": "Handoff required formula present",
+      "ok": true
+    },
+    {
+      "name": "target includes generic_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "target includes thor_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "target includes y_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "target includes mjolnir_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "Y profile is contract not YNode runtime proof",
+      "ok": true
+    },
+    {
+      "name": "Mjölnir profile is contract not target-host runtime proof",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: does not bypass universal work",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: does not bypass final gate",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: no app truth",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: no app apply",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: no app-state mutation",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: no external-send",
+      "ok": true
+    },
+    {
+      "name": "Handoff boundary present: no direct provider/model/network/api-key execution",
+      "ok": true
+    },
+    {
       "name": "gap audit covers clone_install_path",
       "ok": true
     },
@@ -1439,6 +1507,454 @@
       "ok": true
     },
     {
+      "name": "gap audit covers handoff_first_pre_intake_policy",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_context_schema",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_packet_candidate_shape",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_packet_candidate_shape has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers generic_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has valid status",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has missing_work",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers thor_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has valid status",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has missing_work",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers y_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has valid status",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has missing_work",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers mjolnir_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has valid status",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has missing_work",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers thor_handoff_compiler_discovery",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has valid status",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has missing_work",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_universal_work_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_context_capsule_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_context_capsule_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_modelworkpacket_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_qirc_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_trace_receipt_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers handoff_to_final_gate_expectation_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_final_gate_expectation_mapping has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers dev_mode_handoff_viewer",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has handoff claim boundary",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers normal_user_handoff_hidden_status",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status has valid status",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status has missing_work",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "normal_user_handoff_hidden_status has handoff claim boundary",
+      "ok": true
+    },
+    {
       "name": "Q-Shabang matrix covers ki_ohne_ki",
       "ok": true
     },
@@ -2351,6 +2867,342 @@
       "ok": true
     },
     {
+      "name": "Q-Shabang matrix covers handoff_first_pre_intake_policy",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_first_pre_intake_policy has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers handoff_context_schema",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_context_schema has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers generic_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "generic_handoff_profile has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers thor_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_profile has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers y_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "y_handoff_profile has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers mjolnir_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "mjolnir_handoff_profile has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers thor_handoff_compiler_discovery",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff_compiler_discovery has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers handoff_to_universal_work_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_universal_work_mapping has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers handoff_to_modelworkpacket_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_modelworkpacket_mapping has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers handoff_to_qirc_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_qirc_channel_mapping has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers handoff_to_trace_receipt_mapping",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "handoff_to_trace_receipt_mapping has Handoff effectiveness note",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers dev_mode_handoff_viewer",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_handoff_viewer has Handoff effectiveness note",
+      "ok": true
+    },
+    {
       "name": "slice family covered: simple_local_hub_start",
       "ok": true
     },
@@ -2431,6 +3283,38 @@
       "ok": true
     },
     {
+      "name": "slice family covered: handoff_first_pre_intake_policy",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: handoff_context_schema_and_profiles",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: thor_handoff_compiler_adapter",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: y_mjolnir_handoff_profiles",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: handoff_to_universal_work_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: handoff_to_modelworkpacket_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: handoff_qirc_trace_receipt_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: dev_mode_handoff_viewer",
+      "ok": true
+    },
+    {
       "name": "roadmap has 3-5 PRs or justification",
       "ok": true
     },
@@ -2464,6 +3348,66 @@
     },
     {
       "name": "roadmap includes QIRC required ring: qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: handoff_first_pre_intake_policy",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: generic_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: thor_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: y_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: mjolnir_handoff_profile",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: handoff_to_universal_work_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: handoff_to_qirc_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: handoff_to_trace_receipt_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates handoff capability: dev_mode_handoff_viewer",
+      "ok": true
+    },
+    {
+      "name": "roadmap integrates Handoff-First without increasing final PR count beyond 5",
+      "ok": true
+    },
+    {
+      "name": "normal-user handoff status planned: prepared",
+      "ok": true
+    },
+    {
+      "name": "normal-user handoff status planned: candidate-ready",
+      "ok": true
+    },
+    {
+      "name": "normal-user handoff status planned: blocked",
+      "ok": true
+    },
+    {
+      "name": "normal-user handoff status planned: needs context",
+      "ok": true
+    },
+    {
+      "name": "normal UI does not expose raw handoff internals by default",
       "ok": true
     },
     {
@@ -2691,6 +3635,50 @@
       "ok": true
     },
     {
+      "name": "acceptance includes positive handoff_first_pre_intake_policy_defined",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive handoff_context_schema_defined",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive generic_handoff_profile_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive thor_handoff_profile_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive handoff_to_universal_work_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive handoff_to_modelworkpacket_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive handoff_to_qirc_channel_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive handoff_to_trace_receipt_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive dev_mode_handoff_viewer_visible",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive y_handoff_profile_contract_defined",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive mjolnir_handoff_profile_contract_defined",
+      "ok": true
+    },
+    {
       "name": "acceptance includes QIRC visible surface QIRC event status in Dev Mode",
       "ok": true
     },
@@ -2704,6 +3692,30 @@
     },
     {
       "name": "acceptance includes QIRC visible surface App/agent packet flow status",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff Context",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff profile",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff → Universal Work mapping",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff → ModelWorkPacket mapping",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff → QIRC channel mapping",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Handoff → Trace/Receipt mapping",
       "ok": true
     },
     {
@@ -2768,6 +3780,34 @@
     },
     {
       "name": "acceptance excludes mandatory external_broker_dependency",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_thor_runtime",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_y_runtime",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_ynode_runtime",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_mjolnir_runtime",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory godot_target_host_proof",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory windows_target_host_proof",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory engine_runtime_proof",
       "ok": true
     },
     {
@@ -2867,11 +3907,75 @@
       "ok": true
     },
     {
+      "name": "Handoff forbidden authority/proof absent: handoff bypasses universal work",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff bypasses final gate",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff grants apply",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff grants send",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff grants tool authority",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff packet is truth",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff packet is app approval",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff is app approval",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: handoff treats qirc event as truth",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: external thor runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: external y runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: external ynode runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: external mjolnir runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: godot runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff forbidden authority/proof absent: windows runtime proof claimed",
+      "ok": true
+    },
+    {
+      "name": "Handoff does not route raw input directly to model",
+      "ok": true
+    },
+    {
       "name": "QIRC is not public network/federation by default",
       "ok": true
     },
     {
-      "name": "no API-key/env execution claim in final artifacts",
+      "name": "no API-key/env/provider/model/network execution claim in final artifacts",
       "ok": true
     },
     {
@@ -2895,6 +3999,40 @@
     "external_broker_dependency"
   ],
   "generated_at_utc": "2026-01-01T00:00:00Z",
+  "handoff_first_pre_intake_layer": {
+    "claim_boundary": "handoff_is_orientation_not_truth_not_apply_not_send_not_runtime_proof",
+    "dev_mode_visibility": "planned Dev Mode Handoff Viewer for Handoff Context/profile and Handoff to Universal Work/ModelWorkPacket/QIRC/Trace/Receipt chain",
+    "flow": [
+      "Raw request / file packet / agent packet / app event / QIRC event / demo trigger",
+      "Intake Envelope",
+      "Handoff-First Pre-Intake",
+      "Handoff Context / Handoff Packet Candidate",
+      "Universal Work compile",
+      "ModelWorkPacket",
+      "Candidate Artifact / Response Packet",
+      "Trace / Receipt / app-owned decision"
+    ],
+    "formula": "Handoff orients. Universal Work bounds. Odin gates. QIRC coordinates. Apps decide. Models work only as bounded workers.",
+    "generic_profile": "mandatory target profile; schema/doc/roadmap coverage in this PR; implementation receipt mapped to buildable slice",
+    "mandatory_for_final_target": true,
+    "mjolnir_profile": "mandatory structured profile contract; not Godot/Windows/engine/external Mjölnir runtime proof",
+    "normal_user_visibility": [
+      "prepared",
+      "candidate-ready",
+      "blocked",
+      "needs context"
+    ],
+    "plain_answer": "Handoff-First is mandatory for the final target. It is the first normalization layer before Universal Work and ModelWorkPacket creation. It supports local LLM performance by reducing prompt chaos and producing structured, bounded work packets. Thor profile is mandatory. Generic profile is mandatory. Y and Mjölnir profiles are structured handoff dialect targets, not external runtime claims.",
+    "profiles": {
+      "generic_handoff_profile": "mandatory neutral fallback profile for ordinary user/app/file/QIRC/demo work",
+      "mjolnir_handoff_profile": "mandatory structured Mjölnir/Mjolnir-style focused patch/build/engine-prep profile contract; not target-host, Godot, Windows, or external Mjölnir runtime proof",
+      "thor_handoff_profile": "mandatory advisory handoff/review/guard/expected/return discipline profile for agents and code work; repo evidence is docs/schema/shadow candidate only unless locally proven later",
+      "y_handoff_profile": "mandatory structured Y-family app/game/web/space/build handoff profile contract; not YNode runtime proof and not external product integration proof"
+    },
+    "thor_compiler_adapter": "partial/candidate-only repo evidence in docs, schemas, registries and shadow_runtime; no external Thor runtime proof claimed",
+    "thor_profile": "mandatory target profile; partial candidate-only repo evidence; implementation receipt mapped to buildable slice",
+    "y_profile": "mandatory structured profile contract; not YNode runtime proof"
+  },
   "hard_blockers": [
     "qirc_core_local_irc_server_missing",
     "qirc_browser_event_bridge_missing",
@@ -3010,5 +4148,5 @@
     "optional_qirc_feed_thread_discovery_pubsub_federation_deferred"
   ],
   "status": "ok",
-  "target_summary": "Odin Local Runtime Hub with first-class QIRC Cognitive Substrate Cluster: localhost-only IRC/QIRC-compatible coordination core plus local KI-ohne-KI substrates for bounded events, traces, receipts, and work packets."
+  "target_summary": "Odin Local Runtime Hub with first-class QIRC Cognitive Substrate Cluster and mandatory Handoff-First Pre-Intake Layer before Universal Work and ModelWorkPacket creation."
 }
