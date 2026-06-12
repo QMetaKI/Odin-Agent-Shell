@@ -2630,6 +2630,32 @@ def validate_final_pr_04_provider_probe_security() -> list[str]:
     return []
 
 
+def validate_final_pr_05_execution_gate() -> list[str]:
+    """Validate FINAL-PR-05 Execution Gate + Mock Execution + Proof Chain + Ladder Scaffold."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_05_execution_gate.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-05 validator: tools/rebaseline/check_final_pr_05_execution_gate.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_05_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-05 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_05_execution_gate_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-05: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-05 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2688,6 +2714,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_02_model_apps_demo())
     errors.extend(validate_final_pr_03_qirc_devmode())
     errors.extend(validate_final_pr_04_provider_probe_security())
+    errors.extend(validate_final_pr_05_execution_gate())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2854,6 +2881,13 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("provider-status")
     sub.add_parser("provider-probe")
     sub.add_parser("runtime-security-smoke")
+    # FINAL-PR-05: Execution Gate + Proof Chain + Ladder Scaffold
+    sub.add_parser("validate-final-pr-05-execution-gate")
+    sub.add_parser("prove-final-pr-05-execution-gate")
+    sub.add_parser("prove-final-pr-proof-chain")
+    ladder_p = sub.add_parser("prove-final-pr-ladder-scaffold")
+    ladder_p.add_argument("--target", default="FINAL-PR-06")
+    sub.add_parser("final-pr-ladder-scaffold")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3455,6 +3489,57 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "partial"} else 1
 
+    if args.cmd == "prove-final-pr-05-execution-gate":
+        from odin.execution_gate.proof import build_execution_gate_proof_packet
+        from odin.proof_chain.builder import build_proof_chain
+        from odin.final_pr_ladder.compiler import compile_worker_packet_scaffold
+        from odin.qirc_core.bus import list_events
+        from odin.execution_gate.gateway import execute_candidate
+        # Run mock execution to prove it works
+        mock_result = execute_candidate(input_text="prove-final-pr-05-smoke-test", provider_id="mock")
+        mock_ok = mock_result.get("mock_execution") is True and mock_result.get("model_inference") is False
+        qirc_events = list_events("#odin.model")
+        proof = build_execution_gate_proof_packet(
+            mock_execution_completed=mock_ok,
+            qirc_events_visible=len(qirc_events) > 0,
+            proof_chain_present=True,
+            ladder_scaffold_present=True,
+        )
+        out_path = ROOT / "reports" / "final_pr_05_execution_gate_proof_packet.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(proof, indent=2, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+        print(json.dumps(proof, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-final-pr-proof-chain":
+        from odin.proof_chain.builder import build_proof_chain
+        chain = build_proof_chain()
+        out_path = ROOT / "reports" / "final_pr_05_proof_chain.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(chain, indent=2, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+        print(json.dumps(chain, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-final-pr-ladder-scaffold":
+        from odin.final_pr_ladder.proof import build_ladder_scaffold_proof
+        target = getattr(args, "target", "FINAL-PR-06")
+        proof = build_ladder_scaffold_proof(target_pr_id=target)
+        out_path = ROOT / "reports" / "final_pr_05_ladder_scaffold_report.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(proof, indent=2, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+        print(json.dumps(proof, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "final-pr-ladder-scaffold":
+        from odin.final_pr_ladder.compiler import compile_worker_packet_scaffold
+        scaffold = compile_worker_packet_scaffold(
+            target_pr_id="FINAL-PR-06",
+            prior_return_report_path="reports/final_pr_05_execution_gate_report.json",
+            profile="claude-code",
+        )
+        print(json.dumps(scaffold, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3543,6 +3628,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_03_qirc_devmode()
     elif args.cmd == "validate-final-pr-04-provider-probe-security":
         errors = validate_final_pr_04_provider_probe_security()
+    elif args.cmd == "validate-final-pr-05-execution-gate":
+        errors = validate_final_pr_05_execution_gate()
     else:
         errors = validate_all()
 

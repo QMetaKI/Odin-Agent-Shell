@@ -1,0 +1,30 @@
+{
+  "artifact_kind": "odin_final_pr_worker_packet_scaffold",
+  "target_pr_id": "FINAL-PR-06",
+  "source_return_report": "reports/final_pr_05_execution_gate_report.json",
+  "prior_report_exists": true,
+  "profile": "claude-code",
+  "candidate_only": true,
+  "local_only": true,
+  "sections": [
+    "repo_cognition",
+    "handoff_request",
+    "compiled_handoff",
+    "work_packet",
+    "acceptance_gates",
+    "proof_commands",
+    "return_report_contract"
+  ],
+  "not_proven": [
+    "complete_prompt_generation",
+    "thor_runtime_replacement",
+    "production_readiness"
+  ],
+  "generated_at": "2026-01-01T00:00:00Z",
+  "warnings": [
+    "This scaffold is not a Thor replacement.",
+    "This scaffold does not generate full prompts.",
+    "Sections are templates only — fill in with actual PR scope."
+  ],
+  "claim_boundary": "final_pr_ladder_scaffold_not_full_prompt_compiler"
+}

@@ -1,0 +1,102 @@
+{
+  "artifact_kind": "odin_final_pr_05_odin_effectiveness_audit",
+  "status": "ok",
+  "candidate_only": true,
+  "local_only": true,
+  "primitive_count": 9,
+  "primitives": [
+    {
+      "primitive": "execution_gate_policy_enforcement",
+      "where": "odin/execution_gate/policy.py",
+      "effect": "Gateway checks policy before any execution path",
+      "evidence": "DEFAULT_EXECUTION_GATE_POLICY.mock_execution_allowed=True, all others False",
+      "missing_capability": "No runtime policy override",
+      "next_injection": "FINAL-PR-06: LocalCandidateGateToken",
+      "decision": "inject_next_prompt"
+    },
+    {
+      "primitive": "mock_execution_deterministic_candidate",
+      "where": "odin/execution_gate/mock_provider.py",
+      "effect": "Deterministic candidate packet, no model, no subprocess",
+      "evidence": "MockProvider.execute() is deterministic — verified in test",
+      "missing_capability": "No candidate quality scoring",
+      "next_injection": "FINAL-PR-06: real provider execution behind gate",
+      "decision": "done"
+    },
+    {
+      "primitive": "local_candidate_policy_blocked_by_default",
+      "where": "odin/execution_gate/local_candidate_policy.py + gateway.py",
+      "effect": "ollama_candidate and llama_cpp_candidate blocked, QIRC warning emitted",
+      "evidence": "execute('test', 'ollama_candidate') returns gate_decision: blocked",
+      "missing_capability": "No future gate token yet",
+      "next_injection": "FINAL-PR-06: explicit enablement contract",
+      "decision": "inject_next_prompt"
+    },
+    {
+      "primitive": "qirc_execution_events",
+      "where": "odin/execution_gate/gateway.py",
+      "effect": "execution_gate_checked, mock_execution_allowed, mock_execution_completed, local_candidate_execution_blocked emitted",
+      "evidence": "list_events('#odin.model') returns events after gateway execution",
+      "missing_capability": "No QIRC UI viewer for execution gate events",
+      "next_injection": "FINAL-PR-06: execution gate event viewer in dev mode",
+      "decision": "inject_next_prompt"
+    },
+    {
+      "primitive": "proof_chain_cross_reference",
+      "where": "odin/proof_chain/registry.py + builder.py",
+      "effect": "Unified proof chain for FINAL-PR-01..05 with existence checks",
+      "evidence": "build_proof_chain() returns 5 entries with not_proven list",
+      "missing_capability": "No cryptographic binding",
+      "next_injection": "FINAL-PR-06: extend chain with PR-06 entry",
+      "decision": "done"
+    },
+    {
+      "primitive": "runtime_security_smoke_extension",
+      "where": "odin/runtime_security/smoke.py",
+      "effect": "Scans odin/execution_gate/ and checks DEFAULT_EXECUTION_GATE_POLICY flags",
+      "evidence": "run_runtime_security_smoke() returns ok with 0 findings",
+      "missing_capability": "No subprocess allowlist for execution gate (not needed)",
+      "next_injection": "FINAL-PR-06: extend smoke for local candidate gate token",
+      "decision": "done"
+    },
+    {
+      "primitive": "final_pr_ladder_scaffold",
+      "where": "odin/final_pr_ladder/compiler.py + templates.py",
+      "effect": "7-section worker packet scaffold for FINAL-PR-06",
+      "evidence": "compile_worker_packet_scaffold('FINAL-PR-06') returns sections list",
+      "missing_capability": "Full prompt generation, Thor vNext API",
+      "next_injection": "Thor vNext: full prompt compiler",
+      "decision": "requires_thor_vnext"
+    },
+    {
+      "primitive": "system_map_coverage",
+      "where": "SYSTEM_MAP.json + FILE_MANIFEST.json",
+      "effect": "New modules registered in system map",
+      "evidence": "Updated after implementation",
+      "missing_capability": "Auto-generation from module metadata",
+      "next_injection": "FINAL-PR-06: auto-coverage check",
+      "decision": "done"
+    },
+    {
+      "primitive": "candidate_boundary",
+      "where": "All artifacts produced by execution gate",
+      "effect": "candidate_only: true on all packets, policies, chains, scaffolds",
+      "evidence": "All artifacts verified in validator and tests",
+      "missing_capability": "None",
+      "next_injection": "None needed",
+      "decision": "done"
+    }
+  ],
+  "final_pr_06_required": true,
+  "final_pr_06_scope": "Real local candidate execution (Ollama/llama.cpp) behind LocalCandidateGateToken",
+  "thor_vnext_required": true,
+  "thor_vnext_scope": "Full prompt compiler from proof chain + return reports",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ],
+  "generated_at": "2026-06-12T19:00:00Z",
+  "claim_boundary": "final_pr_05_odin_audit_candidate_only_not_runtime_proof"
+}

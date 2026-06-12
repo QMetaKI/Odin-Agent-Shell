@@ -1,0 +1,64 @@
+{
+  "artifact_kind": "odin_final_pr_proof_chain",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_05_proof_chain_cross_reference_not_production_proof",
+  "entries": [
+    {
+      "candidate_only": true,
+      "description": "Simple local hub with localhost-only HTTP server.",
+      "label": "Simple Local Hub",
+      "pr_id": "FINAL-PR-01",
+      "proof_exists": null,
+      "report_exists": true,
+      "report_path": "reports/final_pr_01_simple_local_hub_report.json"
+    },
+    {
+      "candidate_only": true,
+      "description": "Model picker, connected apps, demo universal work.",
+      "label": "Model / Apps / Demo",
+      "pr_id": "FINAL-PR-02",
+      "proof_exists": null,
+      "report_exists": true,
+      "report_path": "reports/final_pr_02_model_apps_demo_report.json"
+    },
+    {
+      "candidate_only": true,
+      "description": "QIRC event bus, dev mode, trace/receipt viewers.",
+      "label": "QIRC Core / Dev Mode",
+      "pr_id": "FINAL-PR-03",
+      "proof_exists": true,
+      "proof_path": "reports/final_pr_03_qirc_devmode_proof_packet.json",
+      "report_exists": true,
+      "report_path": "reports/final_pr_03_qirc_devmode_report.json"
+    },
+    {
+      "candidate_only": true,
+      "description": "Provider probe, runtime security smoke, provider policy.",
+      "label": "Provider Probe + Security Smoke",
+      "pr_id": "FINAL-PR-04",
+      "proof_exists": true,
+      "proof_path": "reports/final_pr_04_provider_probe_security_proof_packet.json",
+      "report_exists": true,
+      "report_path": "reports/final_pr_04_provider_probe_security_report.json"
+    },
+    {
+      "candidate_only": true,
+      "description": "Execution gate, mock execution, local candidate policy, proof chain, ladder scaffold.",
+      "label": "Execution Gate + Ladder Scaffold",
+      "pr_id": "FINAL-PR-05",
+      "proof_exists": true,
+      "proof_path": "reports/final_pr_05_execution_gate_proof_packet.json",
+      "report_exists": true,
+      "report_path": "reports/final_pr_05_execution_gate_report.json"
+    }
+  ],
+  "generated_at": "2026-06-12T19:34:40Z",
+  "local_only": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ],
+  "pr_count": 5
+}

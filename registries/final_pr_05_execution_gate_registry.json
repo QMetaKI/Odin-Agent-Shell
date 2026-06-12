@@ -1,0 +1,76 @@
+{
+  "registry_id": "final_pr_05_execution_gate_registry",
+  "artifact_kind": "odin_final_pr_05_execution_gate_registry",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_05_execution_gate_mock_only_not_model_quality_not_production",
+  "entries": {
+    "execution_gate": {
+      "module": "odin.execution_gate",
+      "policy_class": "ExecutionGatePolicy",
+      "gateway_class": "ExecutionGateway",
+      "mock_provider_class": "MockProvider",
+      "local_candidate_policy_class": "LocalCandidatePolicy",
+      "default_policy": {
+        "execution_gate_enabled": true,
+        "mock_execution_allowed": true,
+        "local_candidate_execution_allowed": false,
+        "remote_execution_allowed": false,
+        "api_key_required": false,
+        "api_key_reads_allowed": false,
+        "external_network_allowed": false,
+        "app_apply_allowed": false,
+        "app_state_mutation_allowed": false,
+        "external_send_allowed": false,
+        "candidate_only": true,
+        "local_only": true
+      }
+    },
+    "proof_chain": {
+      "module": "odin.proof_chain",
+      "pr_ids": ["FINAL-PR-01", "FINAL-PR-02", "FINAL-PR-03", "FINAL-PR-04", "FINAL-PR-05"]
+    },
+    "final_pr_ladder": {
+      "module": "odin.final_pr_ladder",
+      "compiler_class": "LadderCompiler",
+      "is_thor_replacement": false,
+      "sections": [
+        "repo_cognition",
+        "handoff_request",
+        "compiled_handoff",
+        "work_packet",
+        "acceptance_gates",
+        "proof_commands",
+        "return_report_contract"
+      ]
+    },
+    "local_candidate_providers": {
+      "ollama_candidate": {
+        "execution_allowed": false,
+        "requires_explicit_future_gate": true,
+        "ci_must_not_require_binary": true
+      },
+      "llama_cpp_candidate": {
+        "execution_allowed": false,
+        "requires_explicit_future_gate": true,
+        "ci_must_not_require_binary": true
+      }
+    },
+    "endpoints": {
+      "GET /execution-gate/status.json": "execution gate policy status",
+      "POST /execution-gate/mock": "deterministic mock execution",
+      "GET /execution-gate/proof-chain.json": "proof chain cross-references",
+      "GET /final-pr-ladder/scaffold.json": "FINAL-PR ladder scaffold"
+    },
+    "ui_ids": [
+      "execution-gate-status",
+      "mock-execution-panel",
+      "mock-execution-result",
+      "local-candidate-policy-status",
+      "execution-boundary-status",
+      "proof-chain-status",
+      "final-pr-ladder-scaffold-status",
+      "model-execution-warning"
+    ]
+  }
+}

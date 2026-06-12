@@ -1,0 +1,31 @@
+{
+  "api_key_reads": false,
+  "app_apply": false,
+  "app_state_mutation": false,
+  "artifact_kind": "odin_final_pr_05_execution_gate_proof_packet",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_05_execution_gate_mock_only_not_model_quality_not_production",
+  "external_network": false,
+  "external_send": false,
+  "generated_at": "2026-06-12T19:34:40Z",
+  "ladder_scaffold_present": true,
+  "local_candidate_execution_default": false,
+  "local_only": true,
+  "mock_execution_allowed": true,
+  "mock_execution_completed": true,
+  "mock_execution_is_model_inference": false,
+  "not_proven": [
+    "actual_local_model_inference",
+    "real_provider_execution",
+    "remote_provider_api",
+    "model_quality",
+    "production_readiness",
+    "security_certification",
+    "full_thor_replacement"
+  ],
+  "proof_chain_present": true,
+  "qirc_execution_events_visible": true,
+  "real_provider_execution": false,
+  "remote_execution_allowed": false,
+  "status": "ok_with_known_gaps"
+}

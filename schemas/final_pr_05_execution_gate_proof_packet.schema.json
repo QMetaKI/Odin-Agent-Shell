@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-05 Execution Gate Proof Packet",
+  "description": "Schema for the FINAL-PR-05 execution gate proof packet. candidate_only: true.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "status",
+    "candidate_only",
+    "local_only",
+    "mock_execution_allowed",
+    "mock_execution_completed",
+    "mock_execution_is_model_inference",
+    "real_provider_execution",
+    "local_candidate_execution_default",
+    "remote_execution_allowed",
+    "api_key_reads",
+    "external_network",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_final_pr_05_execution_gate_proof_packet"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "ok_with_known_gaps", "fail"]
+    },
+    "candidate_only": { "type": "boolean", "const": true },
+    "local_only": { "type": "boolean", "const": true },
+    "mock_execution_allowed": { "type": "boolean" },
+    "mock_execution_completed": { "type": "boolean" },
+    "mock_execution_is_model_inference": { "type": "boolean", "const": false },
+    "real_provider_execution": { "type": "boolean", "const": false },
+    "local_candidate_execution_default": { "type": "boolean", "const": false },
+    "remote_execution_allowed": { "type": "boolean", "const": false },
+    "api_key_reads": { "type": "boolean", "const": false },
+    "external_network": { "type": "boolean", "const": false },
+    "app_apply": { "type": "boolean", "const": false },
+    "app_state_mutation": { "type": "boolean", "const": false },
+    "external_send": { "type": "boolean", "const": false },
+    "qirc_execution_events_visible": { "type": "boolean" },
+    "proof_chain_present": { "type": "boolean" },
+    "ladder_scaffold_present": { "type": "boolean" },
+    "not_proven": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "generated_at": { "type": "string" },
+    "claim_boundary": {
+      "type": "string",
+      "const": "final_pr_05_execution_gate_mock_only_not_model_quality_not_production"
+    }
+  },
+  "additionalProperties": true
+}

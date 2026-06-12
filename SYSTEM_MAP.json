@@ -942,6 +942,82 @@
       "qirc-provider-events-status"
     ]
   },
+  "final_pr_05_execution_gate_ladder": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_05_EXECUTION_GATE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_05_THOR_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_05_ODIN_EFFECTIVENESS_AUDIT.md"
+    ],
+    "claim_boundary": "final_pr_05_execution_gate_mock_only_not_model_quality_not_production",
+    "cli_commands": [
+      "validate-final-pr-05-execution-gate",
+      "prove-final-pr-05-execution-gate",
+      "prove-final-pr-proof-chain",
+      "prove-final-pr-ladder-scaffold",
+      "final-pr-ladder-scaffold"
+    ],
+    "endpoints": [
+      "GET /execution-gate/status.json",
+      "POST /execution-gate/mock",
+      "GET /execution-gate/proof-chain.json",
+      "GET /final-pr-ladder/scaffold.json"
+    ],
+    "examples": [
+      "examples/final_pr_05/execution_gate_proof_packet.example.json",
+      "examples/final_pr_05/final_pr_ladder_worker_packet_scaffold.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_05_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_05_THOR_Y_HANDOFF_REQUEST.md",
+      "docs/codex/handoffs/FINAL_PR_05_COMPILED_THOR_Y_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_05_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "docs/codex/handoffs/FINAL_PR_05_HANDOFF_QUALITY_GATE.md"
+    ],
+    "modules": [
+      "odin/execution_gate/__init__.py",
+      "odin/execution_gate/policy.py",
+      "odin/execution_gate/gateway.py",
+      "odin/execution_gate/mock_provider.py",
+      "odin/execution_gate/local_candidate_policy.py",
+      "odin/execution_gate/proof.py",
+      "odin/proof_chain/__init__.py",
+      "odin/proof_chain/registry.py",
+      "odin/proof_chain/builder.py",
+      "odin/final_pr_ladder/__init__.py",
+      "odin/final_pr_ladder/compiler.py",
+      "odin/final_pr_ladder/templates.py",
+      "odin/final_pr_ladder/proof.py"
+    ],
+    "rebaseline_doc": "docs/rebaseline/FINAL_PR_05_EXECUTION_GATE_LADDER.md",
+    "registries": [
+      "registries/final_pr_05_execution_gate_registry.json"
+    ],
+    "reports": [
+      "reports/final_pr_05_execution_gate_report.json",
+      "reports/final_pr_05_execution_gate_proof_packet.json",
+      "reports/final_pr_05_proof_chain.json",
+      "reports/final_pr_05_ladder_scaffold_report.json",
+      "reports/final_pr_05_thor_effectiveness_audit.json",
+      "reports/final_pr_05_odin_effectiveness_audit.json"
+    ],
+    "return_report": "docs/codex/reports/FINAL_PR_05_EXECUTION_GATE_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/final_pr_05_execution_gate_proof_packet.schema.json",
+      "schemas/final_pr_ladder_worker_packet_scaffold.schema.json"
+    ],
+    "tests": "tests/test_final_pr_05_execution_gate.py",
+    "ui_ids": [
+      "execution-gate-status",
+      "mock-execution-panel",
+      "mock-execution-result",
+      "local-candidate-policy-status",
+      "execution-boundary-status",
+      "proof-chain-status",
+      "final-pr-ladder-scaffold-status",
+      "model-execution-warning"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_05_execution_gate.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",
