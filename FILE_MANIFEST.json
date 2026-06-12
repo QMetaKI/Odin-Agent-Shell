@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1631,
+  "file_count_excluding_manifest": 1672,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
