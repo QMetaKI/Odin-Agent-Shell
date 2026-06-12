@@ -1,0 +1,55 @@
+{
+  "actual_provider_execution_allowed_in_this_pr": false,
+  "allowed_execution_modes": [
+    "static_policy_evaluation",
+    "receipt_guard_validation",
+    "local_only_precondition_shape",
+    "dry_run_contract_documentation",
+    "deferred_runtime_action_plan"
+  ],
+  "allowed_probe_types": [
+    "static_config_probe",
+    "binary_presence_probe",
+    "local_endpoint_presence_probe_without_request",
+    "dry_run_contract_probe",
+    "cannot_safely_complete"
+  ],
+  "allowed_provider_classes": [
+    "mock_provider",
+    "local_ollama_candidate",
+    "local_llama_cpp_candidate",
+    "cannot_safely_complete"
+  ],
+  "api_key_allowed": false,
+  "candidate_only": true,
+  "claim_boundary": "provider_runtime_policy_is_static_gate_stack_prep_not_provider_execution_authority",
+  "forbidden_probe_types": [
+    "remote_network_request",
+    "api_key_lookup",
+    "model_inference_call",
+    "benchmark_run",
+    "hidden_provider_selection",
+    "provider_auto_fallback"
+  ],
+  "hidden_remote_fallback_allowed": false,
+  "network_allowed": false,
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "provider_runtime_evaluation_policy_id": "provider_runtime_evaluation_policy.pr33.default_block",
+  "remote_allowed": false,
+  "requires_explicit_user_or_repo_policy": true,
+  "requires_local_only": true,
+  "requires_receipt_guard": true,
+  "source_local_provider_seam_prep_ref": "local_provider_seam_prep.b5.static",
+  "source_provider_policy_ref": "provider_policy.b5.local_first_disabled_defaults"
+}

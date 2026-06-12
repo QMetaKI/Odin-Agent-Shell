@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "accepted_static_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "b7_recommendations": {
+      "items": {},
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "closure_review_id": {
+      "type": "string"
+    },
+    "deferred_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "denied_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "hard_blockers": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "pending_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "review_rows": {
+      "items": {},
+      "type": "array"
+    },
+    "soft_warnings": {
+      "items": {},
+      "type": "array"
+    },
+    "source_bundles": {
+      "items": {},
+      "type": "array"
+    },
+    "source_registry_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "source_reports": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "closure_review_id",
+    "source_bundles",
+    "source_reports",
+    "source_registry_refs",
+    "review_rows",
+    "accepted_static_claim_refs",
+    "denied_claim_refs",
+    "pending_claim_refs",
+    "deferred_claim_refs",
+    "hard_blockers",
+    "soft_warnings",
+    "b7_recommendations",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "B7ClosureReview",
+  "type": "object"
+}

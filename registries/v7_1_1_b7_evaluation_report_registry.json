@@ -1,0 +1,87 @@
+{
+  "b7_evaluation_reports": [
+    {
+      "accepted_static_findings": [
+        "B1-B6 static refs reviewed",
+        "Thor v4.1.2 source intake completed",
+        "Thor pack shape observed externally",
+        "provider runtime gate stack defaults block execution"
+      ],
+      "b7_evaluation_report_id": "b7_evaluation_report.pr33",
+      "candidate_only": true,
+      "claim_boundary": "b7_evaluation_is_static_eval_not_runtime_release_security_target_host_deployment_model_quality_or_benchmark_proof",
+      "closure_review_ref": "b7_closure_review.pr33.static",
+      "deferred_items": [
+        "security review separately",
+        "target-host runtime separately",
+        "production/release readiness separately",
+        "actual provider runtime execution separately"
+      ],
+      "denied_claims": [
+        "provider_execution_proof",
+        "release_approval",
+        "production_readiness",
+        "security_certification",
+        "target_host_runtime_proof",
+        "deployment_proof",
+        "model_quality_proof",
+        "benchmark_proof"
+      ],
+      "known_gaps": [
+        "real_thor_pack_intake_not_runtime_integrated",
+        "actual_provider_inference_not_run",
+        "security_review_not_performed",
+        "target_host_runtime_not_proven",
+        "production_deployment_not_proven",
+        "release_approval_not_granted",
+        "thor_v4_1_2_external_release_not_verified"
+      ],
+      "local_provider_runtime_evaluation_prep_ref": "local_provider_runtime_evaluation_prep.pr33.static",
+      "next_recommendations": [
+        "run dedicated security review in a separate PR",
+        "run target-host runtime verification separately with receipts",
+        "only evaluate provider runtime after explicit local-only policy and receipt guard",
+        "keep Thor-Odin bridge static until a future runtime contract exists"
+      ],
+      "non_claims": [
+        "not_release_certification",
+        "not_production_readiness",
+        "not_security_certification",
+        "not_target_host_runtime_proof",
+        "not_deployment_proof",
+        "not_provider_execution_proof",
+        "not_live_model_inference_proof",
+        "not_model_quality_proof",
+        "not_benchmark_proof",
+        "not_app_apply_state_or_external_send_authority"
+      ],
+      "pending_claims": [
+        "future security evidence",
+        "future target-host runtime receipts",
+        "future actual provider runtime receipts under explicit policy"
+      ],
+      "provider_runtime_evaluation_policy_ref": "provider_runtime_evaluation_policy.pr33.default_block",
+      "provider_runtime_receipt_guard_ref": "provider_runtime_receipt_guard.pr33.static",
+      "security_review_separation_ref": "security_review_separation.pr33",
+      "target_host_runtime_separation_ref": "target_host_runtime_separation.pr33",
+      "thor_pack_intake_evaluation_ref": "thor_pack_intake_evaluation.pr33.shape",
+      "thor_v4_1_2_intake_report_ref": "thor_v4_1_2_intake_report.pr33.source_truth"
+    }
+  ],
+  "claim_boundary": "registry_records_static_b7_contracts_not_runtime_release_security_or_target_host_proof",
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "registry_id": "odin.v7_1_1_b7_evaluation_report_registry",
+  "status": "b7_static_contract_registry_not_runtime_release_security_or_target_host_proof",
+  "version": "7.1.1"
+}

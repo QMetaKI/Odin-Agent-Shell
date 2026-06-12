@@ -1,0 +1,36 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "b7_does_not_prove_target_host_runtime_target_host_verification_is_separate_future_work",
+  "excluded_from_b7_claims": [
+    "target_host_runtime_proof",
+    "host_validation",
+    "deployment_proof"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "required_future_target_host_evidence": [
+    "target host command receipts",
+    "host environment description",
+    "local-only provider guard receipt",
+    "no remote fallback receipt"
+  ],
+  "runtime_scope": [
+    "target_host_install",
+    "target_host_process_runtime",
+    "local_provider_presence",
+    "host_specific_permissions",
+    "host_specific_receipts"
+  ],
+  "target_host_runtime_separation_id": "target_host_runtime_separation.pr33",
+  "target_host_status": "separate_future_work_not_performed_in_b7"
+}

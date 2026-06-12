@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "actual_benchmark_run": {
+      "type": "boolean"
+    },
+    "actual_inference_run": {
+      "type": "boolean"
+    },
+    "allowed_probe_type": {
+      "type": "string"
+    },
+    "api_key_read": {
+      "type": "boolean"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "deferred_runtime_actions": {
+      "type": "string"
+    },
+    "local_provider_runtime_evaluation_prep_id": {
+      "type": "string"
+    },
+    "local_provider_seam_prep_ref": {
+      "type": "string"
+    },
+    "network_used": {
+      "type": "boolean"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "probe_result_ref": {
+      "type": "string"
+    },
+    "probe_status": {
+      "enum": [
+        "not_run",
+        "static_contract_only",
+        "dry_run_only",
+        "local_presence_check_deferred",
+        "blocked_by_missing_policy",
+        "blocked_by_missing_receipt",
+        "blocked_by_missing_local_only_guard",
+        "requires_human_review",
+        "cannot_safely_complete"
+      ]
+    },
+    "provider_class": {
+      "enum": [
+        "mock_provider",
+        "local_ollama_candidate",
+        "local_llama_cpp_candidate",
+        "cannot_safely_complete"
+      ]
+    },
+    "provider_runtime_evaluation_policy_ref": {
+      "type": "string"
+    },
+    "provider_runtime_receipt_guard_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "local_provider_runtime_evaluation_prep_id",
+    "provider_class",
+    "provider_runtime_evaluation_policy_ref",
+    "provider_runtime_receipt_guard_ref",
+    "local_provider_seam_prep_ref",
+    "allowed_probe_type",
+    "probe_status",
+    "probe_result_ref",
+    "actual_inference_run",
+    "actual_benchmark_run",
+    "network_used",
+    "api_key_read",
+    "deferred_runtime_actions",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "LocalProviderRuntimeEvaluationPrep",
+  "type": "object"
+}

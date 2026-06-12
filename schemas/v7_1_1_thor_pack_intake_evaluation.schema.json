@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "expected_thor_pack_files": {
+      "items": {},
+      "type": "array"
+    },
+    "intake_status": {
+      "enum": [
+        "not_run",
+        "shape_valid_static",
+        "shape_invalid_static",
+        "requires_review",
+        "deferred_to_manual_thor_session",
+        "cannot_safely_complete"
+      ]
+    },
+    "mapped_odin_artifacts": {
+      "items": {},
+      "type": "array"
+    },
+    "missing_fields": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "observed_thor_pack_files": {
+      "items": {},
+      "type": "array"
+    },
+    "pack_artifacts_committed": {
+      "type": "boolean"
+    },
+    "pack_generation_attempted": {
+      "type": "boolean"
+    },
+    "pack_generation_status": {
+      "type": "string"
+    },
+    "receipt_requirements": {
+      "items": {},
+      "type": "array"
+    },
+    "thor_intake_report_ref": {
+      "type": "string"
+    },
+    "thor_pack_intake_evaluation_id": {
+      "type": "string"
+    },
+    "thor_session_artifacts_committed": {
+      "type": "boolean"
+    },
+    "unsupported_fields": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "thor_pack_intake_evaluation_id",
+    "thor_intake_report_ref",
+    "expected_thor_pack_files",
+    "observed_thor_pack_files",
+    "mapped_odin_artifacts",
+    "unsupported_fields",
+    "missing_fields",
+    "intake_status",
+    "pack_generation_attempted",
+    "pack_generation_status",
+    "pack_artifacts_committed",
+    "thor_session_artifacts_committed",
+    "receipt_requirements",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ThorPackIntakeEvaluation",
+  "type": "object"
+}

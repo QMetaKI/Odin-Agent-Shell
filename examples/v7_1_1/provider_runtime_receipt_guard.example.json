@@ -1,0 +1,40 @@
+{
+  "blocking_reasons": [
+    "actual_provider_execution_forbidden_in_this_pr",
+    "future_runtime_requires_explicit_policy_and_receipts"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "receipt_guard_is_prerequisite_evidence_only_authorizes_nothing_and_runs_no_provider_runtime",
+  "guard_status": "guard_block_static",
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority",
+    "does_not_authorize_provider_runtime"
+  ],
+  "provider_policy_ref": "provider_policy.b5.local_first_disabled_defaults",
+  "provider_runtime_receipt_guard_id": "provider_runtime_receipt_guard.pr33.static",
+  "receipt_boundary_ref": "receipt_boundary.b5.static",
+  "receipt_ledger_ref": "receipt_ledger.b5.static",
+  "required_accepted_claim_refs": [
+    "provider_policy_defaults_present",
+    "receipt_boundary_present"
+  ],
+  "required_denied_claim_refs": [
+    "provider_execution_in_b7",
+    "remote_fallback_allowed",
+    "api_key_lookup_allowed"
+  ],
+  "required_pending_claim_refs": [
+    "future_explicit_runtime_receipt",
+    "future_human_owned_local_provider_policy"
+  ],
+  "runtime_policy_ref": "provider_runtime_evaluation_policy.pr33.default_block"
+}

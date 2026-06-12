@@ -1,0 +1,99 @@
+{
+  "accepted_static_claim_refs": [
+    "b1.static_contracts_present",
+    "b2.static_contracts_present",
+    "b3.provider_seam_static_prep_present",
+    "b4.final_gate_advisory_static",
+    "b5.receipt_policy_static",
+    "b6.closure_guard_static"
+  ],
+  "b7_recommendations": [
+    "keep security review separate",
+    "keep target-host runtime separate",
+    "gate provider runtime behind explicit policy and receipt guard"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "closure_review_is_static_cross_bundle_review_only_not_release_security_deployment_or_target_host_proof",
+  "closure_review_id": "b7_closure_review.pr33.static",
+  "deferred_claim_refs": [
+    "actual_provider_runtime",
+    "real_thor_pack_runtime_integration"
+  ],
+  "denied_claim_refs": [
+    "release_approval",
+    "production_readiness",
+    "security_certification",
+    "deployment_proof",
+    "target_host_runtime_proof"
+  ],
+  "hard_blockers": [],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "pending_claim_refs": [
+    "future_runtime_execution_receipts",
+    "future_security_evidence",
+    "future_target_host_evidence"
+  ],
+  "review_rows": [
+    {
+      "bundle": "B1",
+      "finding": "app_boundary_universal_work_qirc_spine_refs_consumed"
+    },
+    {
+      "bundle": "B2",
+      "finding": "context_lenses_worklets_slot_gaptext_refs_consumed"
+    },
+    {
+      "bundle": "B3",
+      "finding": "modelworkpacket_scale_provider_seam_refs_consumed"
+    },
+    {
+      "bundle": "B4",
+      "finding": "candidate_evaluation_refs_consumed"
+    },
+    {
+      "bundle": "B5",
+      "finding": "storage_trace_receipt_provider_policy_refs_consumed"
+    },
+    {
+      "bundle": "B6",
+      "finding": "acceptance_closure_refs_consumed"
+    }
+  ],
+  "soft_warnings": [
+    "B7 is static review only",
+    "external release facts remain unverified"
+  ],
+  "source_bundles": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "source_registry_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_road_to_100_coverage_matrix.json",
+    "registries/v7_1_1_provider_policy_registry.json",
+    "registries/v7_1_1_closure_guard_registry.json"
+  ],
+  "source_reports": [
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
+  ]
+}
