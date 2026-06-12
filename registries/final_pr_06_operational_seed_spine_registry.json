@@ -1,0 +1,92 @@
+{
+  "registry_id": "final_pr_06_operational_seed_spine",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Operational Seed Spine registry — intent seeds, role profiles, seed packs, token budgets, QIRC hints, and CLI commands for FINAL-PR-06.",
+  "seed_pack_ids": [
+    "core_cognition",
+    "implementation",
+    "evidence_audit",
+    "runtime_surface",
+    "boundary_closure",
+    "full_spine"
+  ],
+  "seed_ids": [
+    "repo_cognition",
+    "prompt_to_work",
+    "code_change",
+    "review_audit",
+    "proof_receipt",
+    "local_hub_ui",
+    "provider_probe",
+    "execution_gate",
+    "qirc_event",
+    "release_closure",
+    "doc_architecture",
+    "debug_error_triage"
+  ],
+  "role_profile_ids": [
+    "builder",
+    "reviewer",
+    "guard",
+    "router",
+    "materializer",
+    "proof_binder",
+    "scope_compressor",
+    "lineage_tracker",
+    "devmode_explainer",
+    "risk_scanner"
+  ],
+  "forbidden_role_profile_ids": [
+    "thor",
+    "odin",
+    "loki",
+    "maria",
+    "michael",
+    "y",
+    "mjolnir",
+    "q",
+    "qstar"
+  ],
+  "token_budget_keys": [
+    "tiny",
+    "small",
+    "medium",
+    "large",
+    "audit"
+  ],
+  "qirc_hint_types": [
+    "work_seed_selected",
+    "repo_cognition_started",
+    "prompt_routed",
+    "code_change_scoped",
+    "review_audit_started",
+    "proof_receipt_bound",
+    "hub_ui_prepared",
+    "provider_probe_initiated",
+    "execution_gate_checked",
+    "release_closure_scoped",
+    "doc_architecture_scoped",
+    "debug_triage_started"
+  ],
+  "local_hub_endpoint": "GET /demo/seed-route.json",
+  "cli_commands": [
+    "validate-operational-seed-spine",
+    "explain-seed-route --demo",
+    "prove-operational-seed-spine"
+  ],
+  "validator_command": "python -m odin.cli validate-operational-seed-spine",
+  "module_path": "odin/operational_seed_spine/",
+  "not_proven": [
+    "autonomous_reasoning",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ]
+}

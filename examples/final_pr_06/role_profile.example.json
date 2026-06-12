@@ -1,0 +1,10 @@
+{
+  "role_profile_id": "router",
+  "family": "route",
+  "allowed_use": ["select_seed_route", "map_work_context", "deterministic_routing"],
+  "forbidden_use": ["app_apply", "external_send", "model_inference", "autonomous_routing"],
+  "review_axes": ["determinism", "fallback_visibility", "selection_priority_clarity"],
+  "output_shape": "seed_route",
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+  "candidate_only": true
+}

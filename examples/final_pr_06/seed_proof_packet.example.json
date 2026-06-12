@@ -1,0 +1,29 @@
+{
+  "artifact_kind": "odin_operational_seed_spine_proof_packet",
+  "proven": [
+    "seed_packs_defined",
+    "role_profiles_defined",
+    "selector_deterministic",
+    "work_capsule_compiled",
+    "qirc_hints_are_hint_only",
+    "token_budget_per_seed",
+    "capsule_ids_deterministic",
+    "candidate_only_preserved",
+    "app_owned_apply_preserved"
+  ],
+  "not_proven": [
+    "autonomous_reasoning",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification",
+    "live_model_inference",
+    "external_send_authority"
+  ],
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+  "candidate_only": true,
+  "app_owned_apply": true
+}

@@ -66,6 +66,8 @@ REQUIRED_IDS = [
     "model-execution-warning",
     # Y Pattern Spine
     "y-pattern-spine-status",
+    # FINAL-PR-06 Operational Seed Spine
+    "operational-seed-spine-status",
 ]
 
 REQUIRED_COPY = [
@@ -106,6 +108,8 @@ REQUIRED_COPY = [
     # Y Pattern Spine
     "Odin prepares work with compact route hints.",
     "Y Pattern Spine explains why a route/capsule was selected.",
+    # FINAL-PR-06 Operational Seed Spine
+    "Operational Seed Spine explains why a seed route and work capsule were selected.",
 ]
 
 
@@ -400,6 +404,14 @@ def generate_hub_html() -> str:
   <p class="note">GET /demo/y-route.json for demo route explanation. Dev Mode: Y Pattern Spine explains why a route/capsule was selected.</p>
 </div>
 
+<div id="operational-seed-spine-status" class="section">
+  <div class="label">Operational Seed Spine</div>
+  <p>Odin prepares work with compact route hints.</p>
+  <p><span class="chip ok">available</span> Operational Seed Spine: available</p>
+  <p>Operational Seed Spine explains why a seed route and work capsule were selected.</p>
+  <p class="note">GET /demo/seed-route.json for deterministic seed route demo. Seeds are routing signals, not agents. Role profiles are contracts, not personas. QIRC hints are hint-only.</p>
+</div>
+
 <div id="dev-mode-entry" class="section dev">
   <div class="label">Dev Mode</div>
   <p>Dev Mode contains traces, receipts, proof gaps, validators, and handoff details.</p>
@@ -413,6 +425,7 @@ def generate_hub_html() -> str:
     <div class="dev-row" id="dev-support-bundle">Support bundle: placeholder &#8212; run <code>python -m odin.cli emit-support-bundle</code></div>
     <div class="dev-row" id="dev-handoff-viewer">Handoff viewer: placeholder &#8212; deep viewer deferred to FINAL-PR-03</div>
     <div class="dev-row" id="dev-y-pattern-spine">Y Pattern Spine: available. <code>python -m odin.cli explain-y-route --demo</code> returns route hint. <code>python -m odin.cli validate-y-pattern-spine</code>. GET /demo/y-route.json. candidate_only: true. Pattern = hint/route/capsule, not authority.</div>
+    <div class="dev-row" id="dev-operational-seed-spine">Operational Seed Spine: available. <code>python -m odin.cli explain-seed-route --demo</code> returns seed route. <code>python -m odin.cli validate-operational-seed-spine</code>. GET /demo/seed-route.json. candidate_only: true. Seeds are routing signals, not agents.</div>
     <div class="dev-row" id="dev-demo-flow">Demo flow: Raw demo input &#8594; Handoff Context &#8594; Universal Work &#8594; Candidate Artifact &#8594; Response Packet. No provider execution. No model inference. No app apply. No external send.</div>
   </details>
 </div>

@@ -1,0 +1,40 @@
+{
+  "report_id": "final_pr_06_operational_seed_spine_validator",
+  "status": "ok",
+  "error_count": 0,
+  "warning_count": 0,
+  "candidate_only": true,
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "checked_files": [
+    "odin/operational_seed_spine/__init__.py",
+    "odin/operational_seed_spine/intent_seeds.py",
+    "odin/operational_seed_spine/role_profiles.py",
+    "odin/operational_seed_spine/seed_packs.py",
+    "odin/operational_seed_spine/selector.py",
+    "odin/operational_seed_spine/work_capsule.py",
+    "odin/operational_seed_spine/qirc_hints.py",
+    "odin/operational_seed_spine/token_budget.py",
+    "odin/operational_seed_spine/proof.py",
+    "registries/final_pr_06_operational_seed_spine_registry.json",
+    "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
+    "examples/final_pr_06/intent_seed.example.json",
+    "examples/final_pr_06/role_profile.example.json",
+    "examples/final_pr_06/seed_work_capsule.example.json",
+    "examples/final_pr_06/seed_proof_packet.example.json",
+    "tools/rebaseline/check_final_pr_06_operational_seed_spine.py",
+    "tests/test_final_pr_06_operational_seed_spine.py"
+  ],
+  "errors": [],
+  "warnings": [],
+  "not_proven": [
+    "autonomous_reasoning",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ]
+}
