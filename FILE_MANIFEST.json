@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1314,
+  "file_count_excluding_manifest": 1345,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -6572,6 +6572,161 @@
       "path": "docs/codex/reports/PR_28_B2_CONTEXT_LENSES_WORKLETS_SLOT_GAPTEXT_RETURN_REPORT.md",
       "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
       "size": 4958
+    },
+    {
+      "path": "schemas/v7_1_1_modelworkpacket.schema.json",
+      "sha256": "d8bd07f25a66062f821974436c6615b44dc4793072e02aae4dd76bf25f865d78",
+      "size": 3488
+    },
+    {
+      "path": "schemas/v7_1_1_model_scale_ladder.schema.json",
+      "sha256": "2b0ecf1c015c893beda7897a30bc2f4e2656a6ba699bb685b88824b7e4020dee",
+      "size": 3116
+    },
+    {
+      "path": "schemas/v7_1_1_provider_seam.schema.json",
+      "sha256": "36f8b6c79188f4eb0b04e8c9a0f1818d3661c827c3c66d6873cce90174e0a4ad",
+      "size": 1889
+    },
+    {
+      "path": "schemas/v7_1_1_small_model_power_contract.schema.json",
+      "sha256": "c7754029e359c7d0158a50914719c25d73ea4ac400e1c33dbd3c2a5700e34126",
+      "size": 2638
+    },
+    {
+      "path": "schemas/v7_1_1_hybrid_director.schema.json",
+      "sha256": "f77bdf6f8039c6018c5cb2ed2ba323ae07bd5c735af8a3b1eaf32e1b5dff9359",
+      "size": 3054
+    },
+    {
+      "path": "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
+      "sha256": "d29bf75815e6995f1005b990fcf6bf534370a0e99bbf00999793a3c25911535c",
+      "size": 3070
+    },
+    {
+      "path": "schemas/v7_1_1_thor_handoff_intake.schema.json",
+      "sha256": "c4f58718db527aa312bca03a1b820afc98e83ae3facf652688fc0ca6784d1fc4",
+      "size": 3058
+    },
+    {
+      "path": "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json",
+      "sha256": "505ff3eb42b88a808886f4a9c278e43ee21037a77b81f57fd95d4dfe5ecc0446",
+      "size": 4309
+    },
+    {
+      "path": "registries/v7_1_1_modelworkpacket_contract.json",
+      "sha256": "15515da3c8c93e5afe05f3f748b26e700f60ec6864b4983a289089c0b5d63255",
+      "size": 1321
+    },
+    {
+      "path": "registries/v7_1_1_model_scale_ladder_registry.json",
+      "sha256": "e02500fdfa1dbcc8803cf94582e594fce0482d926501ecb7da16043a4913a051",
+      "size": 2285
+    },
+    {
+      "path": "registries/v7_1_1_provider_seam_registry.json",
+      "sha256": "cca4242bb11ae5b585a978d2efd9e7ec61ab73917575d910f6c795a69ac1e11d",
+      "size": 1433
+    },
+    {
+      "path": "registries/v7_1_1_small_model_power_registry.json",
+      "sha256": "113ef536f1ec0af12ae7fc1fc6f47591acd918b7eae54786569dd4b18f83c4eb",
+      "size": 1662
+    },
+    {
+      "path": "registries/v7_1_1_hybrid_director_registry.json",
+      "sha256": "7eb0aa78d2276137a7415ad49cfa52d22749b08b6f02348ccdfd068cecde2480",
+      "size": 1290
+    },
+    {
+      "path": "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
+      "sha256": "9d05c5cba928e9225caba64a64771060c36cbc90ae4cdec6fec4a70f28250bf1",
+      "size": 1170
+    },
+    {
+      "path": "registries/v7_1_1_thor_handoff_intake_registry.json",
+      "sha256": "e3a40c16a76a8db281cf731db54bd07e5de2fde1682b39b2db659337fed32f9a",
+      "size": 1050
+    },
+    {
+      "path": "examples/v7_1_1/modelworkpacket.example.json",
+      "sha256": "284ca1873f5895d78e91e27e1aca4335c29bc00feda851364eaaed747bf7e747",
+      "size": 1302
+    },
+    {
+      "path": "examples/v7_1_1/model_scale_ladder.example.json",
+      "sha256": "234a9549fce1a56dc23007d877abbb4a8f3e01fb68a9a5aafce3e1645e3fb82d",
+      "size": 782
+    },
+    {
+      "path": "examples/v7_1_1/provider_seam.example.json",
+      "sha256": "1d3108c38ac8b3fd0c8be24ec838a1304e363f7c301b60655bfb0c0e6ebb1f86",
+      "size": 631
+    },
+    {
+      "path": "examples/v7_1_1/small_model_power.example.json",
+      "sha256": "5b7999cb30bc86e98a4bc1074ebb4e01b41b8954910277a3cf635c3e3a62924e",
+      "size": 1022
+    },
+    {
+      "path": "examples/v7_1_1/hybrid_director.example.json",
+      "sha256": "8f3b57444c4e21ccf7a746a6e8a6488affe62f6e0b7c57e965b5dbe4e2629d3d",
+      "size": 779
+    },
+    {
+      "path": "examples/v7_1_1/odin_claude_worker_adapter.example.json",
+      "sha256": "fcede1cfe727cba095688414cfc25a7d46f18dfc64bef5983f4377046d6139b7",
+      "size": 1319
+    },
+    {
+      "path": "examples/v7_1_1/thor_handoff_intake.example.json",
+      "sha256": "9eb4f4163b99ac28ad67da8341d281661a92877f9997202950ffbf980c4af04d",
+      "size": 1360
+    },
+    {
+      "path": "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py",
+      "sha256": "3b7930fc2d87bbcae379f2860cd263e195b87ab9020ef28486649c91f56ad6b6",
+      "size": 22321
+    },
+    {
+      "path": "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+      "sha256": "ebc28f20c8a3ba3d5f31ea2d718629b09f0ec2e752c5879d8868429928c1ee6f",
+      "size": 5331
+    },
+    {
+      "path": "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py",
+      "sha256": "0fb926e3797d21b7ff528a8032146dace37b49992758b751291b01b8595ef99a",
+      "size": 24283
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
+      "sha256": "fea2abcbe1c05a38efba93cee02ef3bd847e4baaae35a472966c2f634361363a",
+      "size": 6146
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "sha256": "0c133867c2a6639ceb05d1583f0b0467003f68101ce81c03998ea7847766e7e8",
+      "size": 2459
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
+      "sha256": "ff8e4617025d79c585e369a274211bdf08a77f6bae1bf30cec40e5ee44870504",
+      "size": 7347
+    },
+    {
+      "path": "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md",
+      "sha256": "f227ac3f35b614cf11a6df67f85a96f4f0b9c55679046667ffd3ba70645e7d4b",
+      "size": 5513
+    },
+    {
+      "path": "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "sha256": "6b56675b1c581c16ec21cc518ac3565282b0ae7cb64ac86b0b345b026427b58f",
+      "size": 6696
+    },
+    {
+      "path": "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md",
+      "sha256": "9c1a9288e4ecf073524662b4edc27551a90df9703ac19e411c9606f3c9757342",
+      "size": 8159
     }
   ]
 }

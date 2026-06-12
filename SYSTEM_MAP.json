@@ -965,5 +965,59 @@
   "v7_1_1_worklet_graph_contract": "registries/v7_1_1_worklet_graph_contract.json",
   "v7_1_1_worklet_graph_example": "examples/v7_1_1/worklet_graph.example.json",
   "v7_1_1_worklet_graph_schema": "schemas/v7_1_1_worklet_graph.schema.json",
-  "version": "0.8.7"
+  "version": "0.8.7",
+  "b3_modelworkpacket_scale_hybrid": {
+    "actual_pr": "PR-29",
+    "bundle_id": "B3",
+    "claim_boundary": "b3_system_map_is_static_index_not_runtime_proof",
+    "slice_range": "V711-R100-076..105",
+    "status": "static_contract_evidence_added_not_runtime_complete",
+    "schemas": [
+      "schemas/v7_1_1_modelworkpacket.schema.json",
+      "schemas/v7_1_1_model_scale_ladder.schema.json",
+      "schemas/v7_1_1_provider_seam.schema.json",
+      "schemas/v7_1_1_small_model_power_contract.schema.json",
+      "schemas/v7_1_1_hybrid_director.schema.json",
+      "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
+      "schemas/v7_1_1_thor_handoff_intake.schema.json",
+      "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json"
+    ],
+    "registries": [
+      "registries/v7_1_1_modelworkpacket_contract.json",
+      "registries/v7_1_1_model_scale_ladder_registry.json",
+      "registries/v7_1_1_provider_seam_registry.json",
+      "registries/v7_1_1_small_model_power_registry.json",
+      "registries/v7_1_1_hybrid_director_registry.json",
+      "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
+      "registries/v7_1_1_thor_handoff_intake_registry.json"
+    ],
+    "examples": [
+      "examples/v7_1_1/modelworkpacket.example.json",
+      "examples/v7_1_1/model_scale_ladder.example.json",
+      "examples/v7_1_1/provider_seam.example.json",
+      "examples/v7_1_1/small_model_power.example.json",
+      "examples/v7_1_1/hybrid_director.example.json",
+      "examples/v7_1_1/odin_claude_worker_adapter.example.json",
+      "examples/v7_1_1/thor_handoff_intake.example.json"
+    ],
+    "tools": [
+      "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py"
+    ],
+    "reports": [
+      "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json"
+    ],
+    "tests": [
+      "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md"
+    ],
+    "audits": [
+      "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md"
+    ]
+  }
 }

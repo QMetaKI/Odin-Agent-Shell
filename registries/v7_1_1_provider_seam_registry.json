@@ -1,0 +1,26 @@
+{
+  "registry_id": "odin.v7_1_1_provider_seam_registry",
+  "version": "7.1.1",
+  "status": "provider_seam_registry_transport_contract_only_not_execution",
+  "claim_boundary": "provider_seam_is_transport_contract_not_provider_execution",
+  "candidate_only": true,
+  "non_claims": ["not_provider_execution", "not_api_key_use", "not_network_call", "not_model_call", "not_live_inference_proof", "not_hidden_remote_fallback"],
+  "invariants": [
+    "provider seam is transport contract only",
+    "no provider execution in this PR",
+    "no API keys",
+    "no network calls",
+    "no model calls",
+    "no live inference proof",
+    "no hidden remote fallback",
+    "remote requires explicit policy and receipt"
+  ],
+  "seam_classes": [
+    {"class_id": "mock_provider", "description": "Mock/test provider for deterministic testing"},
+    {"class_id": "local_ollama_candidate", "description": "Local Ollama endpoint candidate, requires explicit policy"},
+    {"class_id": "local_llama_cpp_candidate", "description": "Local llama.cpp candidate, requires explicit policy"},
+    {"class_id": "openai_compatible_remote_explicit", "description": "OpenAI-compatible remote, requires explicit policy and receipt"},
+    {"class_id": "external_agent_worker", "description": "External agent as worker, e.g. Claude Code local worker"},
+    {"class_id": "cannot_safely_complete", "description": "Cannot safely route to any available provider"}
+  ]
+}

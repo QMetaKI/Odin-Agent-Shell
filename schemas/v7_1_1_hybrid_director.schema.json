@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_hybrid_director.schema",
+  "title": "HybridDirector",
+  "description": "Schema for the Hybrid Director — defines roles for routing and composing work across model classes. Static routing contract, not model execution.",
+  "type": "object",
+  "required": [
+    "director_id",
+    "roles",
+    "routing_policy",
+    "forbidden_claims",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "director_id": {
+      "type": "string",
+      "description": "Unique identifier for this hybrid director instance"
+    },
+    "roles": {
+      "type": "array",
+      "description": "Roles available in the hybrid director",
+      "items": {
+        "type": "object",
+        "required": ["role_id", "description"],
+        "properties": {
+          "role_id": {
+            "type": "string",
+            "description": "Unique identifier for this role"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of this role's function"
+          }
+        }
+      }
+    },
+    "active_roles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of active role ids for a specific director instance"
+    },
+    "routing_policy": {
+      "description": "Routing policy for this director — may be a string identifier or a routing decision object",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "properties": {
+            "input_work_ref": { "type": "string" },
+            "selected_route_class": { "type": "string" },
+            "compressor_applied": { "type": "boolean" },
+            "writer_role": { "type": "string" },
+            "reviewer_role": { "type": "string" },
+            "critic_role": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "routing_decision": {
+      "type": "object",
+      "description": "Specific routing decision made by this director instance",
+      "properties": {
+        "input_work_ref": { "type": "string" },
+        "selected_route_class": { "type": "string" },
+        "compressor_applied": { "type": "boolean" },
+        "writer_role": { "type": "string" },
+        "reviewer_role": { "type": "string" },
+        "critic_role": { "type": "string" }
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Claims explicitly forbidden by this director"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this director does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — hybrid director is a static routing contract, not model execution"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this director does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

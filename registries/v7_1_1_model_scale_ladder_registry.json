@@ -1,0 +1,29 @@
+{
+  "registry_id": "odin.v7_1_1_model_scale_ladder_registry",
+  "version": "7.1.1",
+  "status": "model_scale_ladder_registry_not_runtime_proof",
+  "claim_boundary": "scale_ladder_is_routing_contract_not_live_model_execution",
+  "candidate_only": true,
+  "non_claims": ["not_live_model_execution", "not_provider_execution", "not_model_quality_proof", "not_runtime_proof"],
+  "invariants": [
+    "smallest sufficient worker first",
+    "remote explicit only",
+    "no hidden provider execution",
+    "no live inference proof",
+    "no model quality proof",
+    "candidate-only outputs",
+    "fallback to cannot_safely_complete when unsafe"
+  ],
+  "route_classes": [
+    {"class_id": "deterministic_no_model", "description": "Deterministic logic only, no model needed", "smallest_sufficient": true, "remote_explicit_only": false},
+    {"class_id": "tiny_local_candidate", "description": "Tiny local model candidate, under 1B params", "smallest_sufficient": true, "remote_explicit_only": false},
+    {"class_id": "small_model_candidate", "description": "Small model candidate, 1B-3B params", "smallest_sufficient": true, "remote_explicit_only": false},
+    {"class_id": "small_model_multi_slot_candidate", "description": "Small model with multi-slot composition", "smallest_sufficient": true, "remote_explicit_only": false},
+    {"class_id": "local_7b_8b_candidate", "description": "Local 7B-8B model candidate", "smallest_sufficient": false, "remote_explicit_only": false},
+    {"class_id": "hybrid_3b_7b_candidate", "description": "Hybrid 3B+7B composition candidate", "smallest_sufficient": false, "remote_explicit_only": false},
+    {"class_id": "quality_hybrid_candidate", "description": "Quality-optimized hybrid candidate", "smallest_sufficient": false, "remote_explicit_only": false},
+    {"class_id": "heavy_local_candidate", "description": "Heavy local model, 13B+", "smallest_sufficient": false, "remote_explicit_only": false},
+    {"class_id": "remote_explicit_only", "description": "Remote provider, requires explicit policy and receipt", "smallest_sufficient": false, "remote_explicit_only": true},
+    {"class_id": "cannot_safely_complete", "description": "Cannot safely complete with available resources", "smallest_sufficient": false, "remote_explicit_only": false}
+  ]
+}

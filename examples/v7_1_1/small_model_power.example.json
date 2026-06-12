@@ -1,0 +1,16 @@
+{
+  "contract_id": "odin_small_model_power_example_b3_001",
+  "active_modules": ["context_distillery", "worklet_graph", "slot_forge", "gaptext", "modelworkpacket", "scale_ladder"],
+  "module_chain": [
+    {"step": 1, "module": "context_distillery", "output": "distilled_capsule"},
+    {"step": 2, "module": "worklet_graph", "output": "worklet_nodes"},
+    {"step": 3, "module": "slot_forge", "output": "typed_slots"},
+    {"step": 4, "module": "gaptext", "output": "gaptext_instructions"},
+    {"step": 5, "module": "modelworkpacket", "output": "work_packets"},
+    {"step": 6, "module": "scale_ladder", "output": "routed_packets"}
+  ],
+  "forbidden_claims": ["not_measured_small_model_improvement", "not_model_quality_proof", "not_live_inference_proof"],
+  "claim_boundary": "small_model_power_example_is_static_module_contract_not_measured_improvement",
+  "candidate_only": true,
+  "non_claims": ["not_measured_small_model_improvement", "not_model_quality_proof", "not_live_inference_proof", "not_provider_execution"]
+}

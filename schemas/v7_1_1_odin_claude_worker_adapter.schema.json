@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_odin_claude_worker_adapter.schema",
+  "title": "OdinClaudeWorkerAdapter",
+  "description": "Schema for the Odin Claude Worker Adapter — defines the contract for Claude Code acting as an external local worker within the Odin system. Static contract, not live execution proof.",
+  "type": "object",
+  "required": [
+    "adapter_id",
+    "worker_kind",
+    "worker_name",
+    "input_contract_refs",
+    "output_contract_refs",
+    "binding_ref",
+    "modelworkpacket_ref",
+    "allowed_actions",
+    "forbidden_actions",
+    "return_contract",
+    "evidence_requirements",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "adapter_id": {
+      "type": "string",
+      "description": "Unique identifier for this adapter instance"
+    },
+    "worker_kind": {
+      "type": "string",
+      "description": "Kind of worker (e.g. external_local_worker)"
+    },
+    "worker_name": {
+      "type": "string",
+      "description": "Human-readable name of the worker (e.g. Claude Code)"
+    },
+    "input_contract_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to input contracts this adapter accepts"
+    },
+    "output_contract_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to output contracts this adapter produces"
+    },
+    "binding_ref": {
+      "type": "string",
+      "description": "Reference to the binding contract governing this adapter"
+    },
+    "modelworkpacket_ref": {
+      "type": "string",
+      "description": "Reference to the ModelWorkPacket this adapter processes"
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions this adapter is allowed to perform"
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions this adapter is forbidden from performing"
+    },
+    "return_contract": {
+      "type": "object",
+      "description": "Contract defining the shape and claim boundary of returned candidate work",
+      "required": ["shape", "claim_boundary"],
+      "properties": {
+        "shape": { "type": "string" },
+        "claim_boundary": { "type": "string" }
+      }
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Evidence artifacts required to be submitted with the returned work"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this adapter does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — adapter output is candidate only, not a live execution proof"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this adapter does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

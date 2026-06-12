@@ -55,7 +55,11 @@
       "bundle_id": "B2",
       "claim_boundary": "b2_maps_canonical_slices_to_actual_pr_not_completion_proof",
       "description": "B2: Context, Artifact Families, Lenses, Output Contracts, Worklets, Slot Forge, Gaptext",
-      "non_claims": ["not runtime completion", "not QIRC server runtime proof", "not app apply authority proof"],
+      "non_claims": [
+        "not runtime completion",
+        "not QIRC server runtime proof",
+        "not app apply authority proof"
+      ],
       "slice_ids": [
         "V711-R100-048",
         "V711-R100-049",
@@ -97,7 +101,7 @@
       ],
       "actual_pr": "PR-29",
       "bundle_id": "B3",
-      "claim_boundary": "bundle_plan_only",
+      "claim_boundary": "b3_maps_canonical_slices_to_actual_pr_not_completion_proof",
       "slice_ids": [
         "V711-R100-076",
         "V711-R100-077",
@@ -131,8 +135,16 @@
         "V711-R100-105"
       ],
       "slice_range": "V711-R100-076..105",
-      "status": "future_actual_bundle_mapping_not_runtime_proof",
-      "title": "ModelWorkPacket / Scale Ladder / Hybrid Director"
+      "status": "static_contract_evidence_added_not_runtime_complete",
+      "title": "ModelWorkPacket / Scale Ladder / Hybrid Director",
+      "description": "B3: ModelWorkPacket / Model Scale Ladder / Provider Seams / Small-Model Power / Hybrid Director",
+      "non_claims": [
+        "not runtime completion",
+        "not provider execution proof",
+        "not live model inference proof",
+        "not model quality proof",
+        "not app apply authority proof"
+      ]
     },
     {
       "absorbed_future_pr_families": [

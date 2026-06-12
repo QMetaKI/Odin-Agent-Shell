@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_small_model_power_contract.schema",
+  "title": "SmallModelPowerContract",
+  "description": "Schema for the Small-Model Power Contract — defines modules for maximizing small-model effectiveness. Static contract only, not measured improvement proof.",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "modules",
+    "forbidden_claims",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "description": "Unique identifier for this small-model power contract"
+    },
+    "modules": {
+      "type": "array",
+      "description": "Modules available in the small-model power contract",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "Module identifier (simple form)"
+          },
+          {
+            "type": "object",
+            "description": "Module definition (full form)",
+            "required": ["module_id", "description"],
+            "properties": {
+              "module_id": {
+                "type": "string",
+                "description": "Unique identifier for this module"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of this module's role"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "active_modules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of active module ids for a specific contract instance"
+    },
+    "module_chain": {
+      "type": "array",
+      "description": "Ordered chain of module activations for a specific instance",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step": { "type": "integer" },
+          "module": { "type": "string" },
+          "output": { "type": "string" }
+        }
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Claims explicitly forbidden by this contract"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this contract does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — small model power contract is static, not runtime proof"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this contract does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

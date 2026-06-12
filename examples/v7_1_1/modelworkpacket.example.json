@@ -1,0 +1,20 @@
+{
+  "packet_id": "odin_modelworkpacket_example_b3_001",
+  "binding_ref": "odin_binding_example_001",
+  "work_id": "odin_work_example_b3_001",
+  "slot_contract_ref": "odin_slot_contract_example_001",
+  "context_capsule_ref": "odin_context_capsule_example_001",
+  "gaptext_ref": "odin_gaptext_example_001",
+  "model_route_ref": "small_model_candidate",
+  "provider_policy_ref": "mock_provider",
+  "task": "Summarize the input document in three sentences under the candidate boundary",
+  "input_refs": ["odin_input_example_001"],
+  "output_contract_ref": "odin_output_contract_example_001",
+  "facts": ["document is text", "max 3 sentences", "candidate only"],
+  "constraints": ["no direct apply", "no external send", "candidate_only"],
+  "forbidden_outputs": ["direct_apply", "external_send", "app_state_mutation", "provider_execution_without_policy", "runtime_proof_claim", "model_quality_proof_claim"],
+  "return_contract": {"shape": "candidate_text", "claim_boundary": "modelworkpacket_example_output_is_candidate_only"},
+  "claim_boundary": "modelworkpacket_example_is_static_contract_not_live_inference",
+  "candidate_only": true,
+  "non_claims": ["not_live_model_execution", "not_provider_execution", "not_app_state_mutation", "not_external_send", "not_runtime_proof", "not_model_quality_proof"]
+}

@@ -1,0 +1,25 @@
+{
+  "registry_id": "odin.v7_1_1_thor_handoff_intake_registry",
+  "version": "7.1.1",
+  "status": "thor_handoff_intake_registry_external_reference_not_runtime_bridge",
+  "claim_boundary": "thor_intake_is_external_reference_and_local_guidance_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": ["not_thor_runtime_execution_inside_odin", "not_odin_runtime_bridge", "not_model_execution", "not_claim_acceptance"],
+  "invariants": [
+    "Thor handoff intake is external guidance and protocol mapping",
+    "It is not an Odin runtime bridge",
+    "It is not Thor runtime execution inside Odin",
+    "It is not model execution",
+    "It is not claim acceptance"
+  ],
+  "intake_records": [
+    {
+      "intake_id": "thor_intake_pr29_b3",
+      "thor_source_ref": "https://github.com/QMetaKI/Thor-Agent-Kit",
+      "thor_commit_sha": "e9af7a333e4bcb11f2461696e4ebbcde994b98b1",
+      "odin_bundle_ref": "B3",
+      "claim_boundary": "thor_intake_is_external_reference_and_local_guidance_not_runtime_proof",
+      "candidate_only": true
+    }
+  ]
+}

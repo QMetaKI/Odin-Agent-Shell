@@ -1,0 +1,16 @@
+{
+  "director_id": "odin_hybrid_director_example_b3_001",
+  "active_roles": ["router", "compressor", "writer", "reviewer", "critic"],
+  "routing_decision": {
+    "input_work_ref": "odin_work_example_b3_001",
+    "selected_route_class": "small_model_candidate",
+    "compressor_applied": true,
+    "writer_role": "small_model_candidate",
+    "reviewer_role": "deterministic_no_model",
+    "critic_role": "deterministic_no_model"
+  },
+  "forbidden_claims": ["not_measured_improvement", "not_model_quality_proof", "not_live_inference_proof"],
+  "claim_boundary": "hybrid_director_example_is_static_routing_not_model_execution",
+  "candidate_only": true,
+  "non_claims": ["not_measured_improvement", "not_model_quality_proof", "not_live_inference_proof", "not_provider_execution"]
+}

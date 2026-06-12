@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_model_scale_ladder.schema",
+  "title": "ModelScaleLadder",
+  "description": "Schema for a Model Scale Ladder — defines route classes for routing work to the smallest sufficient model. Candidate only, no live inference.",
+  "type": "object",
+  "required": [
+    "ladder_id",
+    "version",
+    "route_classes",
+    "invariants",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "ladder_id": {
+      "type": "string",
+      "description": "Unique identifier for this scale ladder instance"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the scale ladder schema"
+    },
+    "route_classes": {
+      "type": "array",
+      "description": "Ordered list of route classes from smallest to largest",
+      "items": {
+        "type": "object",
+        "required": ["class_id", "description", "smallest_sufficient", "remote_explicit_only"],
+        "properties": {
+          "class_id": {
+            "type": "string",
+            "description": "Identifier for this route class"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of this route class"
+          },
+          "smallest_sufficient": {
+            "type": "boolean",
+            "description": "Whether this class is the smallest sufficient for most tasks in its tier"
+          },
+          "remote_explicit_only": {
+            "type": "boolean",
+            "description": "Whether this class requires an explicit remote provider policy and receipt"
+          },
+          "applicable": {
+            "type": "boolean",
+            "description": "Whether this class is applicable for the current task (used in instance documents)"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for applicability decision (used in instance documents)"
+          }
+        }
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Invariants the scale ladder must enforce"
+    },
+    "fallback": {
+      "type": "string",
+      "description": "Route class to use when no class is sufficient"
+    },
+    "selected_route_class": {
+      "type": "string",
+      "description": "Selected route class for a specific routing decision (used in instance documents)"
+    },
+    "selection_rationale": {
+      "type": "string",
+      "description": "Rationale for the selected route class (used in instance documents)"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this ladder does and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — scale ladder is a routing contract, not live execution"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this ladder does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

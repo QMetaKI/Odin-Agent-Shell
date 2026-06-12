@@ -1,0 +1,19 @@
+{
+  "registry_id": "odin.v7_1_1_hybrid_director_registry",
+  "version": "7.1.1",
+  "status": "hybrid_director_registry_static_contract_not_runtime",
+  "claim_boundary": "hybrid_director_is_static_routing_contract_not_model_execution",
+  "candidate_only": true,
+  "non_claims": ["not_measured_improvement", "not_model_quality_proof", "not_live_inference_proof", "not_provider_execution", "not_runtime_completion"],
+  "roles": [
+    {"role_id": "router", "description": "Route work packets to appropriate scale ladder class"},
+    {"role_id": "compressor", "description": "Compress context to fit small-model token budget"},
+    {"role_id": "extractor", "description": "Extract structured output from model candidate"},
+    {"role_id": "writer", "description": "Write candidate text/code output"},
+    {"role_id": "reviewer", "description": "Review candidate output for quality and claim boundaries"},
+    {"role_id": "critic", "description": "Criticize candidate output, flag violations"},
+    {"role_id": "schema_repair", "description": "Repair schema violations in candidate"},
+    {"role_id": "composer", "description": "Compose final candidate from partial slot outputs"},
+    {"role_id": "final_gate_advisor", "description": "Advise on final gate acceptance, not gate authority"}
+  ]
+}

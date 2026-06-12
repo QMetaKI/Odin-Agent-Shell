@@ -1,0 +1,17 @@
+{
+  "intake_id": "thor_handoff_intake_example_b3_001",
+  "thor_source_ref": "https://github.com/QMetaKI/Thor-Agent-Kit",
+  "thor_commit_sha": "e9af7a333e4bcb11f2461696e4ebbcde994b98b1",
+  "thor_command_refs": ["thor handoff-summary", "thor pr-section", "thor doctor"],
+  "thor_repo_cognition_refs": ["docs/HANDOFF_PACKS.md", "agent_profiles/claude-code.json", "docs/RETURN_MANIFEST.md"],
+  "thor_y_handoff_refs": ["not_available_in_this_version"],
+  "thor_protocol_refs": ["HANDOFF_PACKS.md", "RECEIPTS.md", "RETURN_MANIFEST.md"],
+  "odin_bundle_ref": "B3",
+  "odin_work_packet_ref": "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
+  "mapping_summary": "Thor HANDOFF_PACKS shape mapped to Odin handoff docs. Claude-code agent profile shapes Odin worker adapter contract. Thor return manifest shapes Odin return report requirements.",
+  "used_concepts": ["handoff_pack_shape", "return_manifest", "claim_boundary", "candidate_only", "agent_profile", "receipt_discipline"],
+  "not_used_concepts": ["thor_y_compose_cli", "thor_repo_cognition_cli", "thor_handoff_pack_generation"],
+  "claim_boundary": "thor_intake_is_external_reference_and_local_guidance_not_runtime_proof",
+  "candidate_only": true,
+  "non_claims": ["not_thor_runtime_execution_inside_odin", "not_odin_runtime_bridge", "not_model_execution", "not_claim_acceptance"]
+}

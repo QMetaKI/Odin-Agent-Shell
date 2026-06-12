@@ -1,0 +1,16 @@
+{
+  "registry_id": "odin.v7_1_1_odin_claude_worker_adapter_registry",
+  "version": "7.1.1",
+  "status": "claude_worker_adapter_registry_static_contract_not_runtime_proof",
+  "claim_boundary": "claude_worker_adapter_is_static_contract_not_live_execution_proof",
+  "candidate_only": true,
+  "non_claims": ["not_local_llm_runtime_proof", "not_app_apply_authority", "not_external_send_authority", "not_runtime_proof", "not_model_quality_proof"],
+  "invariants": [
+    "Claude Code may act as an external local worker following Odin contracts",
+    "This does not prove a local LLM runtime",
+    "This does not grant Odin or Claude app apply/state/external-send authority",
+    "Returned work remains candidate until reviewed"
+  ],
+  "allowed_actions": ["read_allowed_files", "edit_allowed_files", "run_readonly_commands", "run_tests", "write_candidate_output", "return_work_packet"],
+  "forbidden_actions": ["direct_apply", "app_state_mutation", "external_send", "provider_execution_without_policy", "live_model_execution_without_policy", "qirc_server_start", "final_gate_bypass", "claim_test_success_without_evidence", "claim_runtime_proof", "claim_model_quality_proof"]
+}

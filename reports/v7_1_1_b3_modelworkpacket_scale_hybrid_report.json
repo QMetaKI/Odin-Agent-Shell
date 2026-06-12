@@ -1,0 +1,199 @@
+{
+  "report_id": "odin.v7_1_1_b3_modelworkpacket_scale_hybrid_report",
+  "version": "7.1.1",
+  "status": "local_modelworkpacket_scale_hybrid_contract_report_not_runtime_proof",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "claim_boundary": "b3_report_is_static_contract_validation_not_model_or_provider_execution",
+  "bundle": {
+    "actual_pr": "PR-29",
+    "bundle_id": "B3",
+    "slice_range": "V711-R100-076..105",
+    "slice_count": 30,
+    "claim_boundary": "b3_maps_canonical_slices_to_actual_pr_not_completion_proof"
+  },
+  "source_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_road_to_100_ladder.json"
+  ],
+  "schema_refs": [
+    "schemas/v7_1_1_modelworkpacket.schema.json",
+    "schemas/v7_1_1_model_scale_ladder.schema.json",
+    "schemas/v7_1_1_provider_seam.schema.json",
+    "schemas/v7_1_1_small_model_power_contract.schema.json",
+    "schemas/v7_1_1_hybrid_director.schema.json",
+    "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
+    "schemas/v7_1_1_thor_handoff_intake.schema.json",
+    "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json"
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_modelworkpacket_contract.json",
+    "registries/v7_1_1_model_scale_ladder_registry.json",
+    "registries/v7_1_1_provider_seam_registry.json",
+    "registries/v7_1_1_small_model_power_registry.json",
+    "registries/v7_1_1_hybrid_director_registry.json",
+    "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
+    "registries/v7_1_1_thor_handoff_intake_registry.json"
+  ],
+  "slice_coverage": [
+    {
+      "slice_id": "V711-R100-076",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-077",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-078",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-079",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-080",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-081",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-082",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-083",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-084",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-085",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-086",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-087",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-088",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-089",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-090",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-091",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-092",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-093",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-094",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-095",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-096",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-097",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-098",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-099",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-100",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-101",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-102",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-103",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-104",
+      "bundle_id": "B3"
+    },
+    {
+      "slice_id": "V711-R100-105",
+      "bundle_id": "B3"
+    }
+  ],
+  "absorbed_future_pr_families": [
+    "PR-31-MODELWORKPACKET-SCALE-LADDER",
+    "PR-32-SMALL-MODEL-HYBRID-DIRECTOR"
+  ],
+  "modelworkpacket_checks": [],
+  "scale_ladder_checks": [],
+  "provider_seam_checks": [],
+  "small_model_power_checks": [],
+  "hybrid_director_checks": [],
+  "thor_protocol_checks": [],
+  "claude_worker_adapter_checks": [],
+  "hard_violations": [],
+  "non_claims": [
+    "not_runtime_completion",
+    "not_production_readiness",
+    "not_release_certification",
+    "not_security_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_measured_small_model_improvement",
+    "not_qirc_server_runtime_proof",
+    "not_provider_execution_proof",
+    "not_app_apply_authority",
+    "not_external_send_authority"
+  ],
+  "senior_reviewer_notes": [
+    "B3 scope is static contract only \u2014 no runtime behavior added",
+    "B3 bundle mapping correct: V711-R100-076..105, 30 slices, PR-31 + PR-32 absorbed",
+    "B1/B2 mappings preserved; canonical ladder not modified",
+    "Thor intake documented; no Thor files committed",
+    "Claude worker adapter and Thor handoff intake formalize B2 audit findings"
+  ],
+  "senior_code_reviewer_notes": [
+    "Validator tool: no provider SDK imports; deterministic; writes only to --out",
+    "Tests cover all 45 required test cases including negative tests",
+    "Schema files: valid JSON; required fields present",
+    "Registry files: valid JSON; registry_id, version, claim_boundary, candidate_only present",
+    "No absolute local paths in report"
+  ]
+}
