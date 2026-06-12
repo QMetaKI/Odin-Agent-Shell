@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "boundary_crossed": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "deferred_runtime_notes": {
+      "items": {},
+      "type": "array"
+    },
+    "evidence_required": {
+      "type": "string"
+    },
+    "flows": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "risk_notes": {
+      "items": {},
+      "type": "array"
+    },
+    "security_flow_map_id": {
+      "type": "string"
+    },
+    "sink": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "security_flow_map_id",
+    "flows",
+    "source",
+    "sink",
+    "boundary_crossed",
+    "evidence_required",
+    "risk_notes",
+    "deferred_runtime_notes",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "StaticSecurityFlowMap",
+  "type": "object"
+}

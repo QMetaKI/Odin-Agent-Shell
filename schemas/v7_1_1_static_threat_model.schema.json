@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "known_gaps": {
+      "items": {},
+      "type": "array"
+    },
+    "mitigations": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "open_questions": {
+      "items": {},
+      "type": "array"
+    },
+    "risk_rating_policy": {
+      "type": "string"
+    },
+    "threat_model_id": {
+      "type": "string"
+    },
+    "threats": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "threat_model_id",
+    "threats",
+    "risk_rating_policy",
+    "mitigations",
+    "open_questions",
+    "known_gaps",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "StaticThreatModel",
+  "type": "object"
+}

@@ -716,6 +716,186 @@
       "suggested_future_bundle": "B8+",
       "summary": "Local provider runtime future work requires local-only guard and no remote fallback",
       "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-001",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "B8 security review track completed as static review only"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-002",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "No security certification claimed"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-003",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "No vulnerability-free claim made"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-004",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Security gaps recorded"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-005",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Threat model added"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-006",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Trust boundary matrix added"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-007",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Static security flow map added"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-008",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Thor/Odin effectiveness audit added"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-009",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Thor improved handoff discipline and claim boundaries"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-010",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Odin improved deterministic evidence structure"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-011",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Combined Thor/Odin improved review clarity but increased process overhead"
+    },
+    {
+      "bundle_id": "B8",
+      "claim_boundary": "finding_is_process_observation_not_runtime_security_or_quality_proof",
+      "finding_id": "B8-AUDIT-012",
+      "finding_type": "static_security_review_process_audit",
+      "recommendation": "Keep B8 findings claim-bound and defer dynamic/runtime/target-host/provider review to explicit future tracks with receipts.",
+      "severity": "informational",
+      "source_pr": "PR-34",
+      "source_refs": [
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "suggested_future_bundle": "B9+",
+      "summary": "Future security work requires dynamic/runtime/target-host review separately"
     }
   ],
   "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",

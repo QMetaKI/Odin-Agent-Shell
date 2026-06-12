@@ -1,0 +1,89 @@
+{
+  "accepted_static_findings": [
+    "static security review scope recorded",
+    "static surface inventory recorded",
+    "trust boundary matrix recorded",
+    "static security flow map recorded",
+    "static threat model recorded",
+    "security risk register recorded",
+    "control coverage matrix recorded",
+    "static sensitive pattern review recorded",
+    "Thor/Odin effectiveness audit recorded"
+  ],
+  "b8_security_review_report_id": "b8_security_review_report.pr34",
+  "candidate_only": true,
+  "claim_boundary": "b8_report_is_static_security_review_track_not_security_certification_vulnerability_free_runtime_target_host_provider_model_release_or_deployment_proof",
+  "deferred_items": [
+    "B9 dynamic/runtime security review",
+    "target-host security review",
+    "local provider runtime probe only after explicit policy and receipt",
+    "dependency vulnerability tool run with committed evidence"
+  ],
+  "denied_claims": [
+    "security_certification",
+    "vulnerability_free_claim",
+    "penetration_test_completion",
+    "dynamic_runtime_security_test_completion",
+    "target_host_security_test_completion",
+    "external_secret_scan_completion",
+    "dependency_vulnerability_tool_proof",
+    "SAST_completion_claim",
+    "production_readiness",
+    "release_approval",
+    "deployment_proof",
+    "runtime_proof",
+    "provider_execution_proof",
+    "model_execution_proof",
+    "app_apply_state_or_external_send_authority"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_violations": [],
+  "known_security_gaps": [
+    "no_penetration_test_performed",
+    "no_dynamic_runtime_security_test_performed",
+    "no_target_host_security_test_performed",
+    "no_external_secret_scan_performed",
+    "no_dependency_vulnerability_tool_proof",
+    "no_provider_runtime_security_review",
+    "no_network_runtime_security_review",
+    "no_security_certification"
+  ],
+  "next_security_recommendations": [
+    "run dynamic/runtime security review only in a separate explicit track",
+    "run target-host review only with host-scoped receipts",
+    "run dependency vulnerability tooling separately if required",
+    "keep provider/model execution blocked until policy and receipt guard exist"
+  ],
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "pending_claims": [
+    "future dynamic runtime security review",
+    "future target-host security review",
+    "future dependency vulnerability tool receipt",
+    "future provider runtime security review"
+  ],
+  "security_control_coverage_matrix_ref": "security_control_coverage_matrix.pr34",
+  "security_review_scope_ref": "b8_security_review_scope.pr34.static",
+  "security_risk_register_ref": "security_risk_register.pr34",
+  "static_security_flow_map_ref": "static_security_flow_map.pr34",
+  "static_sensitive_pattern_review_ref": "static_sensitive_pattern_review.pr34",
+  "static_threat_model_ref": "static_threat_model.pr34",
+  "surface_inventory_ref": "static_security_surface_inventory.pr34",
+  "thor_odin_effectiveness_audit_ref": "thor_odin_effectiveness_audit.pr34",
+  "trust_boundary_matrix_ref": "trust_boundary_matrix.pr34"
+}

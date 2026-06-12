@@ -2476,6 +2476,31 @@ def validate_b7_closure_thor_provider_eval() -> list[str]:
                 return [f"B7 Closure / Thor / Provider Eval validator failed: {exc}"]
     return []
 
+
+def validate_b8_security_review_track() -> list[str]:
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_b8_security_review_track.py"
+    if not tool_path.exists():
+        return ["missing B8 Security Review Track validator"]
+    spec = importlib.util.spec_from_file_location("odin_b8_security_review_track_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load B8 Security Review Track validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "v7_1_1_b8_security_review_report.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"B8 Security Review Track: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"B8 Security Review Track validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2528,6 +2553,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b5_storage_trace_receipt_provider_bridge())
     errors.extend(validate_b6_acceptance_dojo_scoreboard_closure())
     errors.extend(validate_b7_closure_thor_provider_eval())
+    errors.extend(validate_b8_security_review_track())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2569,6 +2595,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-b5-storage-trace-receipt-provider-bridge")
     sub.add_parser("validate-b6-acceptance-dojo-scoreboard-closure")
     sub.add_parser("validate-b7-closure-thor-provider-eval")
+    sub.add_parser("validate-b8-security-review-track")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -3149,6 +3176,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_b6_acceptance_dojo_scoreboard_closure()
     elif args.cmd == "validate-b7-closure-thor-provider-eval":
         errors = validate_b7_closure_thor_provider_eval()
+    elif args.cmd == "validate-b8-security-review-track":
+        errors = validate_b8_security_review_track()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

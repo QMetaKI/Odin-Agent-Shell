@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "false_positive_policy": {
+      "type": "string"
+    },
+    "findings": {
+      "items": {},
+      "type": "array"
+    },
+    "known_gaps": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "redactions": {
+      "items": {},
+      "type": "array"
+    },
+    "reviewed_paths": {
+      "items": {},
+      "type": "array"
+    },
+    "reviewed_patterns": {
+      "items": {},
+      "type": "array"
+    },
+    "sensitive_pattern_review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sensitive_pattern_review_id",
+    "reviewed_patterns",
+    "reviewed_paths",
+    "findings",
+    "redactions",
+    "false_positive_policy",
+    "known_gaps",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "StaticSensitivePatternReview",
+  "type": "object"
+}

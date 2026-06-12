@@ -1,0 +1,210 @@
+{
+  "claim_boundary": "thor_odin_effectiveness_audit_registry_records_static_B8_contract_not_runtime_proof",
+  "non_claims": [
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_thor_odin_effectiveness_audit_registry",
+  "status": "thor_odin_effectiveness_audit_static_registry_not_runtime_security_certification_or_deployment_proof",
+  "thor_odin_effectiveness_audits": [
+    {
+      "candidate_only": true,
+      "claim_boundary": "effectiveness_audit_is_subjective_static_process_assessment_not_productivity_quality_security_or_correctness_proof",
+      "combined_contributions": [
+        "clearer handoffs",
+        "more explicit non-claims",
+        "better deferred-track separation",
+        "higher review consistency"
+      ],
+      "effectiveness_audit_id": "thor_odin_effectiveness_audit.pr34",
+      "non_claims": [
+        "scores_are_subjective_process_assessment_proxies",
+        "scores_are_not_scientific_measurements",
+        "scores_are_not_productivity_proof",
+        "scores_are_not_quality_proof",
+        "scores_are_not_security_proof",
+        "scores_are_not_correctness_proof",
+        "not_security_certification",
+        "not_vulnerability_free_claim",
+        "not_penetration_test",
+        "not_dynamic_runtime_security_test",
+        "not_target_host_security_test",
+        "not_external_secret_scan",
+        "not_dependency_vulnerability_tool_proof",
+        "not_provider_runtime_security_review",
+        "not_network_runtime_security_review",
+        "not_production_readiness",
+        "not_release_approval",
+        "not_deployment_proof",
+        "not_runtime_proof",
+        "not_provider_execution_proof",
+        "not_model_execution_proof"
+      ],
+      "odin_contributions": [
+        "deterministic schema/registry/example structure",
+        "claim-bound validators",
+        "candidate-only architecture boundaries",
+        "receipt and Final Gate separation",
+        "Road-to-100 traceability"
+      ],
+      "qualitative_findings": [
+        "Thor effectively brought process shape and handoff discipline",
+        "Thor helped most where task ambiguity and source intake risk were high",
+        "Thor helped least where deterministic local code had to be written",
+        "Odin effectively brought static evidence structure and fail-closed validation",
+        "Odin helped most in claim-bound report generation",
+        "Odin helped least in proving anything outside static repository artifacts",
+        "Combination improved clarity while increasing overhead"
+      ],
+      "quantitative_proxy_scores": {
+        "audit_quality_improvement": 4,
+        "claim_boundary_control": 5,
+        "complexity_cost": 4,
+        "evidence_traceability": 4,
+        "false_confidence_reduction": 4,
+        "implementation_speed_support": 3,
+        "maintainer_clarity": 4,
+        "merge_confidence_support": 3,
+        "overhead_cost": 4,
+        "prompt_quality_improvement": 4,
+        "repo_cognition_helpfulness": 3,
+        "scope_control": 4,
+        "security_review_helpfulness": 4
+      },
+      "recommendations_defer": [
+        "dynamic/runtime security review",
+        "target-host security review",
+        "local provider runtime probe under explicit policy",
+        "dependency vulnerability tooling with committed receipt"
+      ],
+      "recommendations_improve": [
+        "reduce repeated boilerplate",
+        "centralize shared non-claim vocabulary",
+        "separate subjective scoring from hard validation"
+      ],
+      "recommendations_keep": [
+        "explicit non-claims",
+        "deterministic validators",
+        "small bundle identity",
+        "Thor source-truth intake summary"
+      ],
+      "recommendations_reduce": [
+        "parallel artifact multiplication where a single registry can suffice",
+        "long repeated prompt fragments in future docs"
+      ],
+      "reviewed_bundles": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7"
+      ],
+      "reviewed_prs": [
+        "PR-27/B1",
+        "PR-28/B2",
+        "PR-29/B3",
+        "PR-30/B4",
+        "PR-31/B5",
+        "PR-32/B6",
+        "PR-33/B7"
+      ],
+      "thor_contributions": [
+        "handoff packet discipline",
+        "repo cognition framing",
+        "pack-shape vocabulary",
+        "review checklist pressure",
+        "source-truth intake cues"
+      ],
+      "what_was_medium": [
+        "implementation_speed_support",
+        "merge_confidence_support",
+        "repo_cognition_helpfulness"
+      ],
+      "what_was_missing": [
+        "dynamic runtime review",
+        "target-host review",
+        "dependency vulnerability tool receipt",
+        "human security reviewer signoff"
+      ],
+      "what_was_overbuilt": [
+        "large repeated non-claim lists",
+        "many parallel registry/example/schema files for static-only facts"
+      ],
+      "what_was_strong": [
+        "claim_boundary_control",
+        "evidence_traceability",
+        "maintainer_clarity",
+        "security_review_helpfulness"
+      ],
+      "what_was_weak": [
+        "runtime evidence",
+        "target-host evidence",
+        "dependency tool evidence"
+      ],
+      "what_worked_well": [
+        "small contract-bound artifacts",
+        "deterministic validators",
+        "explicit non-methods",
+        "separate B7/B8 posture"
+      ],
+      "where_combination_helped": [
+        "reducing ambiguity",
+        "making non-claims explicit",
+        "separating runtime tracks"
+      ],
+      "where_odin_helped": [
+        "schema/registry/report discipline",
+        "claim boundaries",
+        "validation checks"
+      ],
+      "where_odin_helped_least": [
+        "external repo cognition freshness",
+        "subjective process scoring"
+      ],
+      "where_process_cost_was_high": [
+        "artifact count",
+        "repeated boundary wording",
+        "validator/test maintenance"
+      ],
+      "where_process_increased_overhead": [
+        "schema plus registry plus example per review concept",
+        "long prompt-to-artifact mapping"
+      ],
+      "where_process_reduced_ambiguity": [
+        "what was reviewed",
+        "what was excluded",
+        "what is deferred"
+      ],
+      "where_process_reduced_risk": [
+        "claim overreach",
+        "artifact hygiene",
+        "Thor pack artifact commit risk"
+      ],
+      "where_thor_helped": [
+        "handoff structure",
+        "source-truth intake",
+        "process review prompts"
+      ],
+      "where_thor_helped_least": [
+        "deterministic local validation",
+        "repo-specific schema details"
+      ]
+    }
+  ],
+  "version": "7.1.1"
+}

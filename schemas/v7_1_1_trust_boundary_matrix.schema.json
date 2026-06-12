@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_crossings": {
+      "items": {},
+      "type": "array"
+    },
+    "boundaries": {
+      "items": {},
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "crossings": {
+      "items": {},
+      "type": "array"
+    },
+    "forbidden_crossings": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "required_evidence_for_crossing": {
+      "items": {},
+      "type": "array"
+    },
+    "trust_boundary_matrix_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trust_boundary_matrix_id",
+    "boundaries",
+    "crossings",
+    "allowed_crossings",
+    "forbidden_crossings",
+    "required_evidence_for_crossing",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "TrustBoundaryMatrix",
+  "type": "object"
+}

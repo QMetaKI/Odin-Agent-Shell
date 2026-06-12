@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "accepted_static_findings": {
+      "items": {},
+      "type": "array"
+    },
+    "b8_security_review_report_id": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "deferred_items": {
+      "items": {},
+      "type": "array"
+    },
+    "denied_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "hard_violations": {
+      "items": {},
+      "type": "array"
+    },
+    "known_security_gaps": {
+      "items": {},
+      "type": "array"
+    },
+    "next_security_recommendations": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "pending_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "security_control_coverage_matrix_ref": {
+      "type": "string"
+    },
+    "security_review_scope_ref": {
+      "type": "string"
+    },
+    "security_risk_register_ref": {
+      "type": "string"
+    },
+    "static_security_flow_map_ref": {
+      "type": "string"
+    },
+    "static_sensitive_pattern_review_ref": {
+      "type": "string"
+    },
+    "static_threat_model_ref": {
+      "type": "string"
+    },
+    "surface_inventory_ref": {
+      "type": "string"
+    },
+    "thor_odin_effectiveness_audit_ref": {
+      "type": "string"
+    },
+    "trust_boundary_matrix_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "b8_security_review_report_id",
+    "security_review_scope_ref",
+    "surface_inventory_ref",
+    "trust_boundary_matrix_ref",
+    "static_security_flow_map_ref",
+    "static_threat_model_ref",
+    "security_risk_register_ref",
+    "security_control_coverage_matrix_ref",
+    "static_sensitive_pattern_review_ref",
+    "thor_odin_effectiveness_audit_ref",
+    "accepted_static_findings",
+    "denied_claims",
+    "pending_claims",
+    "deferred_items",
+    "known_security_gaps",
+    "next_security_recommendations",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims",
+    "hard_violations",
+    "generated_at_utc"
+  ],
+  "title": "B8SecurityReviewReport",
+  "type": "object"
+}

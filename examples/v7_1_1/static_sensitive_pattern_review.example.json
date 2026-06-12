@@ -1,0 +1,90 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "sensitive_pattern_review_is_static_source_pattern_review_not_complete_secret_scan",
+  "false_positive_policy": "classify documentation terms, schema field names, test fixture markers, possible false positives, confirmed static risk, and requires-human-review separately",
+  "findings": [
+    {
+      "finding_type": "documentation_term",
+      "pattern": "token",
+      "summary": "terms appear in docs/schemas as boundary vocabulary"
+    },
+    {
+      "finding_type": "schema_field_name",
+      "pattern": "api_key",
+      "summary": "API-key boundary fields appear in provider policy artifacts"
+    },
+    {
+      "finding_type": "possible_false_positive",
+      "pattern": "subprocess",
+      "summary": "existing CLI validators invoke local Python tools; not provider execution"
+    },
+    {
+      "finding_type": "requires_human_review",
+      "pattern": "credential",
+      "summary": "static source-only review cannot rule out untracked or environment-resident material"
+    }
+  ],
+  "known_gaps": [
+    "not_a_complete_secret_scan",
+    "does_not_read_environment_variables",
+    "does_not_contact_external_secret_scanning_service",
+    "does_not_certify_absence_of_secrets"
+  ],
+  "non_claims": [
+    "not_a_complete_secret_scan",
+    "does_not_read_environment_variables",
+    "does_not_contact_external_secret_scanning_service",
+    "does_not_certify_absence_of_secrets",
+    "not_security_certification",
+    "not_vulnerability_free_claim",
+    "not_penetration_test",
+    "not_dynamic_runtime_security_test",
+    "not_target_host_security_test",
+    "not_external_secret_scan",
+    "not_dependency_vulnerability_tool_proof",
+    "not_provider_runtime_security_review",
+    "not_network_runtime_security_review",
+    "not_production_readiness",
+    "not_release_approval",
+    "not_deployment_proof",
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_execution_proof"
+  ],
+  "redactions": [
+    "no secret values recorded",
+    "no environment variables read",
+    "no raw external scanner output committed"
+  ],
+  "reviewed_paths": [
+    "tracked source files except .git .thor venv cache dist build"
+  ],
+  "reviewed_patterns": [
+    "secret",
+    "token",
+    "api_key",
+    "apikey",
+    "password",
+    "credential",
+    "private_key",
+    "auth",
+    "bearer",
+    "network",
+    "http",
+    "requests",
+    "httpx",
+    "openai",
+    "ollama",
+    "llama_cpp",
+    "subprocess",
+    "shell",
+    "eval",
+    "exec",
+    "pickle",
+    "yaml.load",
+    "tempfile",
+    "path traversal",
+    "../"
+  ],
+  "sensitive_pattern_review_id": "static_sensitive_pattern_review.pr34"
+}
