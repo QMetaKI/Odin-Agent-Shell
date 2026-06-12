@@ -1,0 +1,61 @@
+{
+  "candidate_only_odin_authorities": true,
+  "claim_boundary": "registry_defines_manifest_contract_not_runtime_validation_proof",
+  "non_claims": [
+    "not app state ownership by Odin",
+    "not external send authority by Odin"
+  ],
+  "registry_id": "odin.v7_1_1_app_manifest_contract",
+  "required_app_owned_authorities": [
+    "app_state",
+    "domain_truth",
+    "domain_database",
+    "project_files",
+    "persistence",
+    "apply_gate",
+    "external_send",
+    "user_permissions",
+    "domain_business_rules"
+  ],
+  "required_fields": [
+    "manifest_id",
+    "app_id",
+    "app_name",
+    "app_version",
+    "declared_surfaces",
+    "allowed_artifact_families",
+    "allowed_transformation_verbs",
+    "allowed_output_contracts",
+    "allowed_privacy_classes",
+    "allowed_qirc_channels",
+    "forbidden_actions",
+    "app_owned_authorities",
+    "odin_owned_authorities",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "required_forbidden_actions": [
+    "mutate_app_state",
+    "write_app_storage",
+    "write_project_file",
+    "send_external_message",
+    "send_network_request",
+    "publish_public_room",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate",
+    "grant_app_authority"
+  ],
+  "required_odin_owned_authorities": [
+    "work_intake_validation",
+    "manifest_validation",
+    "binding_validation",
+    "universal_work_validation",
+    "candidate_generation",
+    "semantic_event_coordination_contracts",
+    "claim_boundary_validation",
+    "final_gate_recommendation"
+  ],
+  "status": "contract_registry_not_runtime_proof",
+  "version": "7.1.1"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_artifact_refs": {},
+    "allowed_output_contracts": {},
+    "allowed_qirc_channels": {},
+    "app_owned_apply": {},
+    "app_owned_external_send": {},
+    "app_owned_state": {},
+    "binding_id": {},
+    "caller_app_id": {},
+    "candidate_only": {},
+    "claim_boundary": {},
+    "created_at_utc": {},
+    "forbidden_actions": {},
+    "manifest_ref": {},
+    "non_claims": {},
+    "privacy_class": {},
+    "work_id": {}
+  },
+  "required": [
+    "binding_id",
+    "manifest_ref",
+    "work_id",
+    "caller_app_id",
+    "privacy_class",
+    "allowed_artifact_refs",
+    "allowed_output_contracts",
+    "allowed_qirc_channels",
+    "forbidden_actions",
+    "claim_boundary",
+    "candidate_only",
+    "app_owned_apply",
+    "app_owned_state",
+    "app_owned_external_send",
+    "created_at_utc",
+    "non_claims"
+  ],
+  "title": "Odin v7.1.1 Binding Contract",
+  "type": "object"
+}

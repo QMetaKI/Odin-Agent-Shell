@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+import tempfile
 import importlib.util
 
 from odin.runtime.engine import run_universal_work_file
@@ -2288,6 +2289,35 @@ def validate_canon_boundary_integrity() -> list[str]:
     return errors
 
 
+
+def validate_b1_app_boundary_universal_work_qirc_spine() -> list[str]:
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_b1_app_boundary_universal_work_qirc_spine.py"
+    if not tool_path.exists():
+        return ["missing B1 App Boundary / Universal Work / QIRC Spine validator"]
+    spec = importlib.util.spec_from_file_location("odin_b1_app_boundary_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load B1 App Boundary / Universal Work / QIRC Spine validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"
+        argv = [
+            "--repo-root",
+            str(ROOT),
+            "--out",
+            str(out),
+            "--generated-at-utc",
+            "2026-01-01T00:00:00Z",
+        ]
+        code = module.main(argv)
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"B1 App Boundary / Universal Work / QIRC Spine: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"B1 App Boundary / Universal Work / QIRC Spine validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2333,6 +2363,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_full_acceptance())
     errors.extend(validate_consolidated_proof_governance())
     errors.extend(validate_canon_boundary_integrity())
+    errors.extend(validate_b1_app_boundary_universal_work_qirc_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2367,6 +2398,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-runtime-bus-worklets")
     sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
+    sub.add_parser("validate-b1-app-boundary-universal-work-qirc-spine")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -2933,6 +2965,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_current_public_canon()
     elif args.cmd == "validate-canon-boundary-integrity":
         errors = validate_canon_boundary_integrity()
+    elif args.cmd == "validate-b1-app-boundary-universal-work-qirc-spine":
+        errors = validate_b1_app_boundary_universal_work_qirc_spine()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

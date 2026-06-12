@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_ref": {},
+    "candidate_only": {},
+    "causality_refs": {},
+    "channel": {},
+    "claim_boundary": {},
+    "event_id": {},
+    "event_type": {},
+    "non_claims": {},
+    "payload_ref": {},
+    "privacy_class": {},
+    "replay_key": {},
+    "work_ref": {}
+  },
+  "required": [
+    "event_id",
+    "channel",
+    "event_type",
+    "binding_ref",
+    "work_ref",
+    "payload_ref",
+    "privacy_class",
+    "candidate_only",
+    "causality_refs",
+    "replay_key",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "Odin v7.1.1 Semantic Bus Event",
+  "type": "object"
+}

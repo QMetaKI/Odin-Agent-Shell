@@ -1,0 +1,27 @@
+{
+  "allowed_event_types": [
+    "work.received",
+    "work.blocked",
+    "work.candidate_ready"
+  ],
+  "candidate_only": true,
+  "channel": "#odin.work",
+  "claim_boundary": "semantic_bus_channel_is_local_coordination_contract_not_network_room",
+  "family": "odin.work",
+  "forbidden_event_intents": [
+    "apply_app_change",
+    "mutate_app_state",
+    "write_project_file",
+    "send_external_message",
+    "publish_public_channel",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate"
+  ],
+  "local_only": true,
+  "non_claims": [
+    "not public room",
+    "not network channel",
+    "not app state authority"
+  ]
+}

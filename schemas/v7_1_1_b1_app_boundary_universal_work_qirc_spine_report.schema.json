@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "absorbed_future_pr_families": {},
+    "bundle": {},
+    "claim_boundary": {},
+    "hard_violations": {},
+    "non_claims": {},
+    "report_id": {},
+    "slice_coverage": {},
+    "status": {},
+    "version": {}
+  },
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "claim_boundary",
+    "bundle",
+    "slice_coverage",
+    "absorbed_future_pr_families",
+    "hard_violations",
+    "non_claims"
+  ],
+  "title": "Odin v7.1.1 B1 Static Contract Report",
+  "type": "object"
+}

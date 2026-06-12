@@ -1,0 +1,101 @@
+{
+  "binding_ref": "binding.example.v711.b1",
+  "candidate_only": true,
+  "claim_boundary": "universal_work_is_bounded_candidate_request_not_apply_authority",
+  "constraints": {
+    "max_tokens": 512,
+    "preserve_meaning": true
+  },
+  "failure_reasons": [
+    "missing_manifest",
+    "missing_binding",
+    "unknown_artifact_family",
+    "forbidden_transformation_verb",
+    "forbidden_output_contract",
+    "privacy_class_denied",
+    "candidate_only_false",
+    "direct_apply_requested",
+    "external_send_requested",
+    "app_state_mutation_requested",
+    "project_file_write_requested",
+    "provider_execution_requested",
+    "live_model_execution_requested",
+    "qirc_channel_denied",
+    "missing_claim_boundary"
+  ],
+  "forbidden_actions": [
+    "mutate_app_state",
+    "write_app_storage",
+    "write_project_file",
+    "send_external_message",
+    "send_network_request",
+    "publish_public_room",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate",
+    "grant_app_authority"
+  ],
+  "input_artifacts": [
+    {
+      "artifact_family": "markdown",
+      "artifact_ref": "artifact://example/input-1",
+      "privacy_class": "internal"
+    }
+  ],
+  "invalid_states": [
+    "missing_manifest",
+    "missing_binding",
+    "unknown_artifact_family",
+    "forbidden_transformation_verb",
+    "forbidden_output_contract",
+    "privacy_class_denied",
+    "candidate_only_false",
+    "direct_apply_requested",
+    "external_send_requested",
+    "app_state_mutation_requested",
+    "project_file_write_requested",
+    "provider_execution_requested",
+    "live_model_execution_requested",
+    "qirc_channel_denied",
+    "missing_claim_boundary"
+  ],
+  "lifecycle_states": [
+    "received",
+    "manifest_checked",
+    "binding_checked",
+    "artifact_validated",
+    "verb_resolved",
+    "output_contract_checked",
+    "privacy_checked",
+    "model_policy_checked",
+    "qirc_policy_checked",
+    "compiled",
+    "ready_for_context",
+    "blocked",
+    "needs_context",
+    "cannot_safely_complete"
+  ],
+  "model_policy": {
+    "no_live_execution_in_b1": true,
+    "route": "deterministic_or_small_model_first"
+  },
+  "non_claims": [
+    "not provider execution",
+    "not live model execution",
+    "not app mutation"
+  ],
+  "output_contract": "candidate_artifact",
+  "privacy_class": "internal",
+  "qirc_event_policy": {
+    "allowed_channels": [
+      "#odin.work",
+      "#odin.candidate"
+    ],
+    "forbidden_event_intents": [
+      "send_external_message",
+      "bypass_final_gate"
+    ]
+  },
+  "transformation_verb": "rewrite",
+  "work_id": "work.example.v711.b1"
+}

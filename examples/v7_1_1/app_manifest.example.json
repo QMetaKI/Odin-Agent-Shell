@@ -1,0 +1,103 @@
+{
+  "allowed_artifact_families": [
+    "text",
+    "markdown",
+    "json_contract"
+  ],
+  "allowed_output_contracts": [
+    "candidate_artifact",
+    "review_note",
+    "semantic_event"
+  ],
+  "allowed_privacy_classes": [
+    "public",
+    "internal",
+    "confidential",
+    "restricted"
+  ],
+  "allowed_qirc_channels": [
+    "#odin.work",
+    "#odin.context",
+    "#odin.candidate",
+    "#app.digest",
+    "#app.boundary"
+  ],
+  "allowed_transformation_verbs": [
+    "summarize",
+    "rewrite",
+    "classify",
+    "draft_candidate"
+  ],
+  "app_id": "example.app",
+  "app_name": "Example App",
+  "app_owned_authorities": [
+    "app_state",
+    "domain_truth",
+    "domain_database",
+    "project_files",
+    "persistence",
+    "apply_gate",
+    "external_send",
+    "user_permissions",
+    "domain_business_rules"
+  ],
+  "app_version": "0.0.1",
+  "claim_boundary": "app_manifest_declares_allowed_requests_not_app_authority_transfer",
+  "declared_surfaces": [
+    "editor_panel",
+    "review_panel"
+  ],
+  "forbidden_actions": [
+    "mutate_app_state",
+    "write_app_storage",
+    "write_project_file",
+    "send_external_message",
+    "send_network_request",
+    "publish_public_room",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate",
+    "grant_app_authority"
+  ],
+  "manifest_id": "manifest.example.v711.b1",
+  "non_claims": [
+    "not runtime proof",
+    "not permission grant",
+    "not apply authority",
+    "not external send authority"
+  ],
+  "odin_owned_authorities": [
+    {
+      "authority": "work_intake_validation",
+      "candidate_only": true
+    },
+    {
+      "authority": "manifest_validation",
+      "candidate_only": true
+    },
+    {
+      "authority": "binding_validation",
+      "candidate_only": true
+    },
+    {
+      "authority": "universal_work_validation",
+      "candidate_only": true
+    },
+    {
+      "authority": "candidate_generation",
+      "candidate_only": true
+    },
+    {
+      "authority": "semantic_event_coordination_contracts",
+      "candidate_only": true
+    },
+    {
+      "authority": "claim_boundary_validation",
+      "candidate_only": true
+    },
+    {
+      "authority": "final_gate_recommendation",
+      "candidate_only": true
+    }
+  ]
+}

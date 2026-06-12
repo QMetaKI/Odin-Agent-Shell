@@ -1,0 +1,57 @@
+{
+  "claim_boundary": "registry_defines_universal_work_contract_not_kernel_runtime_proof",
+  "non_claims": [
+    "not Universal Work kernel runtime proof",
+    "not provider execution proof"
+  ],
+  "registry_id": "odin.v7_1_1_universal_work_contract",
+  "required_failure_reasons": [
+    "missing_manifest",
+    "missing_binding",
+    "unknown_artifact_family",
+    "forbidden_transformation_verb",
+    "forbidden_output_contract",
+    "privacy_class_denied",
+    "candidate_only_false",
+    "direct_apply_requested",
+    "external_send_requested",
+    "app_state_mutation_requested",
+    "project_file_write_requested",
+    "provider_execution_requested",
+    "live_model_execution_requested",
+    "qirc_channel_denied",
+    "missing_claim_boundary"
+  ],
+  "required_fields": [
+    "work_id",
+    "binding_ref",
+    "input_artifacts",
+    "transformation_verb",
+    "output_contract",
+    "constraints",
+    "privacy_class",
+    "model_policy",
+    "qirc_event_policy",
+    "candidate_only",
+    "forbidden_actions",
+    "claim_boundary"
+  ],
+  "required_lifecycle_states": [
+    "received",
+    "manifest_checked",
+    "binding_checked",
+    "artifact_validated",
+    "verb_resolved",
+    "output_contract_checked",
+    "privacy_checked",
+    "model_policy_checked",
+    "qirc_policy_checked",
+    "compiled",
+    "ready_for_context",
+    "blocked",
+    "needs_context",
+    "cannot_safely_complete"
+  ],
+  "status": "universal_work_contract_not_runtime_proof",
+  "version": "7.1.1"
+}

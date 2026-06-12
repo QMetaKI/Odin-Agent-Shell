@@ -1,0 +1,20 @@
+{
+  "binding_ref": "binding.example.v711.b1",
+  "candidate_only": true,
+  "causality_refs": [],
+  "channel": "#odin.work",
+  "claim_boundary": "semantic_bus_event_coordinates_local_semantics_not_app_authority",
+  "event_id": "event.example.v711.b1",
+  "event_type": "work.received",
+  "intent": "coordinate_semantic_event",
+  "non_claims": [
+    "not app state ownership",
+    "not apply action",
+    "not external send",
+    "not QIRC server runtime proof"
+  ],
+  "payload_ref": "payload://example/semantic-digest-1",
+  "privacy_class": "internal",
+  "replay_key": "replay.example.v711.b1",
+  "work_ref": "work.example.v711.b1"
+}
