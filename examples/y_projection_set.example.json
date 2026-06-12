@@ -1,0 +1,22 @@
+{
+  "projection_id": "demo_projection_set",
+  "human_clear_projection": "Odin prepared a work capsule using center-first routing and minimal token budget.",
+  "expression_projection": "Route 'work_capsule_then_response_packet' selected via evidence: repo_route_identified, pattern_selected.",
+  "machine_projection": {
+    "artifact_kind": "y_projection_set_machine",
+    "candidate_only": true,
+    "route_id": "work_capsule_then_response_packet",
+    "materialization_level": "M7",
+    "token_budget": "minimal",
+    "claim_boundary": "y_pattern_spine_candidate_only_no_app_apply_no_provider_no_runtime_authority"
+  },
+  "lineage_trace": "y_center_first_routing + y_candidate_set_routing + evidence: [repo_route_identified, pattern_selected]",
+  "work_state_ref": "demo_universal_work_capsule",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ],
+  "claim_boundary": "y_pattern_spine_candidate_only_no_app_apply_no_provider_no_runtime_authority"
+}

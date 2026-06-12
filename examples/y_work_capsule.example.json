@@ -1,0 +1,32 @@
+{
+  "capsule_id": "demo_universal_work_capsule",
+  "task_intent": "Demonstrate Y Pattern Spine route hint and work capsule preparation",
+  "allowed_files": [
+    "odin/local_hub/demo_universal_work.py",
+    "odin/local_hub/ui.py",
+    "odin/y_pattern_spine/profiles.py"
+  ],
+  "forbidden_files": [
+    "provider runtime files",
+    "external app runtime files"
+  ],
+  "required_evidence": [
+    "repo_route_identified",
+    "pattern_selected"
+  ],
+  "expected_outputs": [
+    "response packet",
+    "proof packet"
+  ],
+  "validators": [
+    "validate-y-pattern-spine",
+    "validate-all"
+  ],
+  "proof_commands": [
+    "python -m odin.cli prove-y-pattern-spine",
+    "python -m odin.cli validate-y-pattern-spine"
+  ],
+  "token_budget": "minimal",
+  "compile_near_hint": "y_shadow_candidate_graph",
+  "claim_boundary": "work_capsule_is_context_not_authority"
+}

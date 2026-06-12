@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_work_capsule.schema.json",
+  "title": "YWorkCapsule",
+  "description": "Compact work context capsule. candidate_only: true. Not authority.",
+  "type": "object",
+  "required": ["capsule_id", "task_intent", "allowed_files", "forbidden_files", "required_evidence", "expected_outputs", "validators", "proof_commands", "token_budget", "claim_boundary"],
+  "properties": {
+    "capsule_id": {"type": "string"},
+    "task_intent": {"type": "string"},
+    "allowed_files": {"type": "array", "items": {"type": "string"}},
+    "forbidden_files": {"type": "array", "items": {"type": "string"}},
+    "required_evidence": {"type": "array", "items": {"type": "string"}},
+    "expected_outputs": {"type": "array", "items": {"type": "string"}},
+    "validators": {"type": "array", "items": {"type": "string"}},
+    "proof_commands": {"type": "array", "items": {"type": "string"}},
+    "token_budget": {"type": "string", "enum": ["minimal", "normal", "deep"]},
+    "compile_near_hint": {"type": ["string", "null"]},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": false
+}

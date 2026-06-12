@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_pattern_spine.schema.json",
+  "title": "YPattern",
+  "description": "A single Y Pattern Spine pattern definition. candidate_only: true",
+  "type": "object",
+  "required": ["pattern_id", "neutral_name", "family", "intent_seed", "role_profile", "route_hint", "allowed_use", "forbidden_use", "source_class", "normal_user_visible", "dev_mode_visible", "claim_boundary"],
+  "properties": {
+    "pattern_id": {"type": "string"},
+    "neutral_name": {"type": "string"},
+    "family": {"type": "string"},
+    "intent_seed": {"type": "string"},
+    "role_profile": {"type": "string"},
+    "route_hint": {"type": "string"},
+    "allowed_use": {"type": "array", "items": {"type": "string"}},
+    "forbidden_use": {"type": "array", "items": {"type": "string"}},
+    "source_class": {"type": "string"},
+    "normal_user_visible": {"type": "boolean"},
+    "dev_mode_visible": {"type": "boolean"},
+    "claim_boundary": {"type": "string"},
+    "odin_target_surface": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_materialization_ladder.schema.json",
+  "title": "YMaterializationLadder",
+  "description": "M0–M9 readiness levels. candidate_only: true.",
+  "type": "object",
+  "required": ["ladder_id", "candidate_only", "claim_boundary", "levels"],
+  "properties": {
+    "ladder_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "levels": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["level", "label", "description", "allowed_claims", "forbidden_claims"],
+        "properties": {
+          "level": {"type": "string", "pattern": "^M[0-9]$"},
+          "label": {"type": "string"},
+          "description": {"type": "string"},
+          "allowed_claims": {"type": "array", "items": {"type": "string"}},
+          "forbidden_claims": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

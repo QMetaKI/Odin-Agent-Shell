@@ -64,6 +64,8 @@ REQUIRED_IDS = [
     "proof-chain-status",
     "final-pr-ladder-scaffold-status",
     "model-execution-warning",
+    # Y Pattern Spine
+    "y-pattern-spine-status",
 ]
 
 REQUIRED_COPY = [
@@ -101,6 +103,9 @@ REQUIRED_COPY = [
     "Remote providers and API keys are not used.",
     "Proof chain links receipts but does not prove production readiness.",
     "FINAL-PR Ladder scaffold is not a full Thor replacement.",
+    # Y Pattern Spine
+    "Odin prepares work with compact route hints.",
+    "Y Pattern Spine explains why a route/capsule was selected.",
 ]
 
 
@@ -388,6 +393,13 @@ def generate_hub_html() -> str:
   <p class="note">This hub does not perform real model inference. All execution is deterministic mock only. Real local model execution requires explicit future gate (FINAL-PR-06+). Remote providers are permanently forbidden in this PR.</p>
 </div>
 
+<div id="y-pattern-spine-status" class="section">
+  <div class="label">Y Pattern Spine</div>
+  <p>Odin prepares work with compact route hints.</p>
+  <p><span class="chip ok">available</span> Y Pattern Spine: route hints, work capsules, token budgets, materialization levels.</p>
+  <p class="note">GET /demo/y-route.json for demo route explanation. Dev Mode: Y Pattern Spine explains why a route/capsule was selected.</p>
+</div>
+
 <div id="dev-mode-entry" class="section dev">
   <div class="label">Dev Mode</div>
   <p>Dev Mode contains traces, receipts, proof gaps, validators, and handoff details.</p>
@@ -400,6 +412,7 @@ def generate_hub_html() -> str:
     <div class="dev-row" id="dev-proof-gaps">Proof gaps: provider_execution, model_inference, qirc_core_runtime, handoff_compiler_runtime, app_bridge_runtime, app_apply, app_state_mutation, external_send, public_network, production_readiness, security_certification</div>
     <div class="dev-row" id="dev-support-bundle">Support bundle: placeholder &#8212; run <code>python -m odin.cli emit-support-bundle</code></div>
     <div class="dev-row" id="dev-handoff-viewer">Handoff viewer: placeholder &#8212; deep viewer deferred to FINAL-PR-03</div>
+    <div class="dev-row" id="dev-y-pattern-spine">Y Pattern Spine: available. <code>python -m odin.cli explain-y-route --demo</code> returns route hint. <code>python -m odin.cli validate-y-pattern-spine</code>. GET /demo/y-route.json. candidate_only: true. Pattern = hint/route/capsule, not authority.</div>
     <div class="dev-row" id="dev-demo-flow">Demo flow: Raw demo input &#8594; Handoff Context &#8594; Universal Work &#8594; Candidate Artifact &#8594; Response Packet. No provider execution. No model inference. No app apply. No external send.</div>
   </details>
 </div>

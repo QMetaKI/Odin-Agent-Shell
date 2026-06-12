@@ -1,0 +1,29 @@
+{
+  "registry_id": "y_token_budget_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_spine_candidate_only_no_app_apply_no_provider_no_runtime_authority",
+  "modes": {
+    "minimal": {
+      "mode": "minimal",
+      "description": "Route hint + work capsule + required files only",
+      "includes": ["route_hint", "work_capsule", "required_files", "validators"],
+      "excludes": ["source_summaries", "pattern_mine_audit", "full_repo_context"],
+      "typical_token_range": "500–2000"
+    },
+    "normal": {
+      "mode": "normal",
+      "description": "Minimal + source summaries + validators",
+      "includes": ["route_hint", "work_capsule", "required_files", "validators", "source_summaries"],
+      "excludes": ["pattern_mine_audit_background", "full_repo_context"],
+      "typical_token_range": "2000–6000"
+    },
+    "deep": {
+      "mode": "deep",
+      "description": "Normal + pattern mine audit background",
+      "includes": ["route_hint", "work_capsule", "required_files", "validators", "source_summaries", "pattern_mine_audit"],
+      "excludes": ["full_repo_context"],
+      "typical_token_range": "6000–15000"
+    }
+  }
+}

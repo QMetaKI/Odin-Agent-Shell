@@ -1,0 +1,124 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_spine_source_mine_advisory_only_no_runtime_import",
+  "no_raw_source_files_committed": true,
+  "no_source_runtime_import": true,
+  "registry_id": "y_source_pattern_mine",
+  "source_classes": [
+    {
+      "claim_boundary": "metamodel_source_advisory_only",
+      "deferred_families": [],
+      "high_value_patterns": [
+        "intent_seeds",
+        "role_profiles",
+        "coherence_scores",
+        "expression_packet",
+        "projection_spine"
+      ],
+      "included_families": [
+        "orientation",
+        "review",
+        "projection"
+      ],
+      "neutralized_names": {
+        "selection_math": "selection_math_replaces_old_math_name",
+        "y_pattern_spine": "neutral_spine_replaces_old_pattern_name"
+      },
+      "rejected_patterns": [
+        "religious_interpretation",
+        "persona_injection"
+      ],
+      "source_class": "metamodel_source"
+    },
+    {
+      "claim_boundary": "foundation_source_advisory_only",
+      "deferred_families": [],
+      "high_value_patterns": [
+        "center_first_routing",
+        "candidate_set_routing",
+        "work_state_spine",
+        "materialization_ladder",
+        "ai_without_ai_precompute",
+        "pareto_scope_policy",
+        "care_force_axis",
+        "local_worker_efficiency"
+      ],
+      "included_families": [
+        "center_first",
+        "candidate_set",
+        "work_state",
+        "ai_without_ai",
+        "scope_compression",
+        "balance_axis",
+        "token_efficiency"
+      ],
+      "neutralized_names": {
+        "ai_without_ai_precompute": "ai_without_ai_precompute_from_prep_pattern",
+        "pareto_scope_policy": "pareto_scope_policy_from_scope_pattern",
+        "work_state_spine": "work_state_spine_from_state_pattern"
+      },
+      "rejected_patterns": [
+        "app_state_authority",
+        "hidden_controller"
+      ],
+      "source_class": "foundation_source"
+    },
+    {
+      "claim_boundary": "ynet_source_advisory_only",
+      "deferred_families": [],
+      "high_value_patterns": [
+        "shadow_candidate_graph"
+      ],
+      "included_families": [
+        "compile_near"
+      ],
+      "neutralized_names": {
+        "Shadow Runtime": "shadow_candidate_graph"
+      },
+      "rejected_patterns": [
+        "runtime_execution_authority"
+      ],
+      "source_class": "ynet_source"
+    },
+    {
+      "claim_boundary": "operator_pattern_source_advisory_only",
+      "deferred_families": [],
+      "high_value_patterns": [
+        "operator_pattern_mine"
+      ],
+      "included_families": [
+        "operator_pattern"
+      ],
+      "neutralized_names": {
+        "BibleOS": "operator_pattern_mine"
+      },
+      "rejected_patterns": [
+        "religious_interpretation",
+        "source_specific_labels"
+      ],
+      "source_class": "operator_pattern_source"
+    },
+    {
+      "claim_boundary": "current_odin_repo_advisory_only",
+      "deferred_families": [],
+      "high_value_patterns": [
+        "lineage_trace",
+        "selection_math",
+        "token_capsules"
+      ],
+      "included_families": [
+        "lineage",
+        "route_selection",
+        "token_efficiency"
+      ],
+      "neutralized_names": {
+        "code_intelligence_prep": "code_intelligence_prep_from_code_surface",
+        "lineage_trace": "lineage_trace_from_lineage_trace_pattern",
+        "local_interface": "local_interface_from_operator_surface"
+      },
+      "rejected_patterns": [],
+      "source_class": "current_odin_repo_reality"
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1631,
+  "file_count_excluding_manifest": 1672,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -8157,6 +8157,129 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
+    },
+    {
+      "path": "odin/y_pattern_spine/__init__.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/patterns.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/profiles.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/materialization.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/scoring.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/explain.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/proof.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/token_budget.py"
+    },
+    {
+      "path": "odin/y_pattern_spine/capsules.py"
+    },
+    {
+      "path": "schemas/y_pattern_spine.schema.json"
+    },
+    {
+      "path": "schemas/y_route_hint.schema.json"
+    },
+    {
+      "path": "schemas/y_work_capsule.schema.json"
+    },
+    {
+      "path": "schemas/y_materialization_ladder.schema.json"
+    },
+    {
+      "path": "schemas/y_projection_set.schema.json"
+    },
+    {
+      "path": "schemas/y_pattern_receipt.schema.json"
+    },
+    {
+      "path": "schemas/y_token_budget.schema.json"
+    },
+    {
+      "path": "registries/y_pattern_spine.v1.json"
+    },
+    {
+      "path": "registries/y_profile_registry.v1.json"
+    },
+    {
+      "path": "registries/y_materialization_ladder.v1.json"
+    },
+    {
+      "path": "registries/y_source_pattern_mine.v1.json"
+    },
+    {
+      "path": "registries/y_token_budget_registry.v1.json"
+    },
+    {
+      "path": "examples/y_pattern_spine.example.json"
+    },
+    {
+      "path": "examples/y_route_hint.example.json"
+    },
+    {
+      "path": "examples/y_work_capsule.example.json"
+    },
+    {
+      "path": "examples/y_projection_set.example.json"
+    },
+    {
+      "path": "examples/y_pattern_receipt.example.json"
+    },
+    {
+      "path": "examples/y_token_budget.example.json"
+    },
+    {
+      "path": "tools/rebaseline/check_y_pattern_spine.py"
+    },
+    {
+      "path": "tests/test_y_pattern_spine.py"
+    },
+    {
+      "path": "reports/y_pattern_spine_proof_packet.json"
+    },
+    {
+      "path": "reports/insert_y_pattern_spine_report.json"
+    },
+    {
+      "path": "reports/insert_y_pattern_spine_source_pattern_mine_audit.json"
+    },
+    {
+      "path": "docs/codex/handoffs/INSERT_Y_PATTERN_SPINE_REPO_REALITY_INTAKE.md"
+    },
+    {
+      "path": "docs/codex/pattern_mines/INSERT_Y_PATTERN_SPINE_SOURCE_PATTERN_MINE_INTAKE.md"
+    },
+    {
+      "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_BASELINE_FIT_MATRIX.md"
+    },
+    {
+      "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_PATTERN_HARMONY_MATRIX.md"
+    },
+    {
+      "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_SENIOR_REVIEW.md"
+    },
+    {
+      "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_SOURCE_PATTERN_MINE_AUDIT.md"
+    },
+    {
+      "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_AUDIT.md"
+    },
+    {
+      "path": "docs/codex/reports/INSERT_Y_PATTERN_SPINE_RETURN_REPORT.md"
+    },
+    {
+      "path": "docs/rebaseline/INSERT_Y_PATTERN_SPINE.md"
     }
   ]
 }

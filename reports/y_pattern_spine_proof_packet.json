@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "y_pattern_spine_proof_packet",
+  "baseline_fit_matrix_validated": true,
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_spine_operational_hint_not_runtime_authority",
+  "forbidden_names_absent_from_new_artifacts": true,
+  "harmony_matrix_validated": true,
+  "local_only": true,
+  "materialization_ladder_loaded": true,
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "event_core_runtime",
+    "runtime_authority",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "pattern_spine_loaded": true,
+  "projection_set_demo_ok": true,
+  "route_hint_demo_ok": true,
+  "token_budget_modes_loaded": true,
+  "work_capsule_demo_ok": true
+}
