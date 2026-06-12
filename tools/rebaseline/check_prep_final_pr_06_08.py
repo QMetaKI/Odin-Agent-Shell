@@ -92,6 +92,18 @@ RUNTIME_MODULE_DIRS_FOR_FUTURE_PRS = [
     "odin/projection_candidate_spine",
 ]
 
+# When a future PR has been implemented, its module dir is no longer "leakage".
+# Track implemented PR modules here so the prep validator skips them gracefully.
+IMPLEMENTED_PR_MODULE_DIRS = [
+    "odin/operational_seed_spine",  # FINAL-PR-06 implemented
+]
+
+# JSON artifacts that are expected to exist once the corresponding PR is implemented.
+IMPLEMENTED_PR_JSON_ARTIFACTS = [
+    "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
+    "registries/final_pr_06_operational_seed_spine_registry.json",
+]
+
 
 def load_json(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
@@ -204,6 +216,9 @@ def check_no_forbidden_names(repo_root: Path) -> list[str]:
     ]
 
     for dir_rel, glob_pattern in runtime_artifact_patterns:
+        # Skip dirs that are now implemented by their respective PR
+        if dir_rel in IMPLEMENTED_PR_MODULE_DIRS:
+            continue
         d = repo_root / dir_rel
         if not d.exists():
             continue
@@ -221,13 +236,14 @@ def check_no_forbidden_names(repo_root: Path) -> list[str]:
 
     # Check new JSON artifacts for future PRs (schemas, registries, examples)
     for json_rel in [
-        "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
         "schemas/final_pr_07_field_selection_spine_proof_packet.schema.json",
         "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
-        "registries/final_pr_06_operational_seed_spine_registry.json",
         "registries/final_pr_07_field_selection_spine_registry.json",
         "registries/final_pr_08_projection_candidate_spine_registry.json",
     ]:
+        # Skip JSON artifacts from implemented PRs
+        if json_rel in IMPLEMENTED_PR_JSON_ARTIFACTS:
+            continue
         p = repo_root / json_rel
         if not p.exists():
             continue
@@ -247,6 +263,9 @@ def check_no_forbidden_names(repo_root: Path) -> list[str]:
 def check_no_runtime_module_leakage(repo_root: Path) -> list[str]:
     errors = []
     for module_dir in RUNTIME_MODULE_DIRS_FOR_FUTURE_PRS:
+        # Skip dirs that are legitimately implemented by their PR
+        if module_dir in IMPLEMENTED_PR_MODULE_DIRS:
+            continue
         p = repo_root / module_dir
         if p.exists() and p.is_dir():
             py_files = list(p.glob("*.py"))

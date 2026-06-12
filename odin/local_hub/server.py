@@ -1,4 +1,4 @@
-"""Simple Local Hub HTTP server — FINAL-PR-01/02/03/04/05.
+"""Simple Local Hub HTTP server — FINAL-PR-01/02/03/04/05/06.
 
 Claim boundary: simple_local_hub_localhost_only_candidate_no_app_apply_no_external_send_no_provider_execution
 
@@ -28,6 +28,7 @@ Endpoints:
   GET /execution-gate/proof-chain.json — proof chain cross-references (FINAL-PR-05)
   GET /final-pr-ladder/scaffold.json   — FINAL-PR ladder scaffold (FINAL-PR-05)
   GET /demo/y-route.json               — Y Pattern Spine route hint demo (Y-PATTERN-SPINE)
+  GET /demo/seed-route.json            — Operational Seed Spine demo (FINAL-PR-06)
 """
 from __future__ import annotations
 
@@ -132,6 +133,21 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path == "/demo/y-route.json":
             from odin.y_pattern_spine.profiles import build_route_hint_demo
             body = json.dumps(build_route_hint_demo(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/demo/seed-route.json":
+            from odin.operational_seed_spine.selector import select_seed_route
+            from odin.operational_seed_spine.work_capsule import compile_work_capsule
+            route = select_seed_route({"trigger_shape": "repo", "work_type": "repo"})
+            capsule = compile_work_capsule(route)
+            payload = {
+                "status": "ok",
+                "candidate_only": True,
+                "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+                "seed_route": route.to_dict(),
+                "work_capsule": capsule.to_dict(),
+                "not_proven": capsule.not_proven,
+            }
+            body = json.dumps(payload, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

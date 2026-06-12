@@ -1018,6 +1018,56 @@
     ],
     "validator": "tools/rebaseline/check_final_pr_05_execution_gate.py"
   },
+  "final_pr_06_operational_seed_spine": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_06_OPERATIONAL_SEED_SPINE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_06_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_06_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_06_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+    "cli_commands": [
+      "validate-operational-seed-spine",
+      "explain-seed-route --demo",
+      "prove-operational-seed-spine"
+    ],
+    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "docs": [
+      "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
+    ],
+    "examples": [
+      "examples/final_pr_06/intent_seed.example.json",
+      "examples/final_pr_06/role_profile.example.json",
+      "examples/final_pr_06/seed_work_capsule.example.json",
+      "examples/final_pr_06/seed_proof_packet.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_06_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_06_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "local_hub_endpoint": "GET /demo/seed-route.json",
+    "module_files": [
+      "odin/operational_seed_spine/__init__.py",
+      "odin/operational_seed_spine/intent_seeds.py",
+      "odin/operational_seed_spine/role_profiles.py",
+      "odin/operational_seed_spine/seed_packs.py",
+      "odin/operational_seed_spine/selector.py",
+      "odin/operational_seed_spine/work_capsule.py",
+      "odin/operational_seed_spine/qirc_hints.py",
+      "odin/operational_seed_spine/token_budget.py",
+      "odin/operational_seed_spine/proof.py"
+    ],
+    "registry": "registries/final_pr_06_operational_seed_spine_registry.json",
+    "reports": [
+      "reports/final_pr_06_operational_seed_spine_report.json",
+      "reports/final_pr_06_operational_seed_spine_proof_packet.json"
+    ],
+    "schema": "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
+    "tests": "tests/test_final_pr_06_operational_seed_spine.py",
+    "validator": "tools/rebaseline/check_final_pr_06_operational_seed_spine.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",

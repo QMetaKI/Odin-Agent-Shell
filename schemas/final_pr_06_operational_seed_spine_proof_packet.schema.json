@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "final_pr_06_operational_seed_spine_proof_packet.schema.json",
+  "title": "FINAL-PR-06 Operational Seed Spine Proof Packet",
+  "description": "JSON schema for the operational seed spine proof packet. Claim boundary: operational_seed_spine_routes_work_not_authority",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "proven",
+    "not_proven",
+    "claim_boundary",
+    "candidate_only",
+    "app_owned_apply"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "description": "Must be odin_operational_seed_spine_proof_packet"
+    },
+    "proven": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "List of proven claims"
+    },
+    "not_proven": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "List of explicitly not-proven claims"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Must be operational_seed_spine_routes_work_not_authority"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "description": "Must be true"
+    },
+    "app_owned_apply": {
+      "type": "boolean",
+      "description": "Must be true"
+    }
+  },
+  "additionalProperties": false
+}

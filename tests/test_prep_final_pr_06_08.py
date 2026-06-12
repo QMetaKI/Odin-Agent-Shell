@@ -223,12 +223,18 @@ def test_no_forbidden_q_names_in_disallowed_sections():
     Only checks runtime artifact locations (future PR module dirs).
     Documentation, validator, and test files may reference these names
     in order to document what is forbidden.
+
+    NOTE: odin/operational_seed_spine is skipped here because FINAL-PR-06 has
+    been implemented. That PR's own tests verify its naming conventions.
     """
+    import re
     forbidden = [
         "q_shabang", "qshabang", "qmath", "q_math",
         "q_state", "qstate", "qgit", "q_git", "qcode", "q_code",
         "qli", "q_li", "qstar", "q_star",
     ]
+    # Modules now implemented by their respective PRs — checked by those PRs' own tests
+    implemented_dirs = ["odin/operational_seed_spine"]
     future_runtime_dirs = [
         "odin/operational_seed_spine",
         "odin/field_selection_spine",
@@ -236,6 +242,8 @@ def test_no_forbidden_q_names_in_disallowed_sections():
     ]
     violations = []
     for rel_dir in future_runtime_dirs:
+        if rel_dir in implemented_dirs:
+            continue  # Now implemented; naming checked by its own PR test
         d = ROOT / rel_dir
         if not d.exists():
             continue
@@ -323,12 +331,16 @@ def test_handoff_covers_existing_surfaces():
 # ---------- Test 19: No runtime module dirs for future PRs exist in prep PR ----------
 
 def test_no_future_pr_runtime_modules_exist():
+    # Modules now legitimately implemented by their respective PRs — skip them
+    implemented_dirs = ["odin/operational_seed_spine"]  # Implemented by FINAL-PR-06
     future_module_dirs = [
         "odin/operational_seed_spine",
         "odin/field_selection_spine",
         "odin/projection_candidate_spine",
     ]
     for rel in future_module_dirs:
+        if rel in implemented_dirs:
+            continue  # Legitimately implemented; no longer "future" leakage
         p = ROOT / rel
         if p.exists() and p.is_dir():
             py_files = list(p.glob("*.py"))

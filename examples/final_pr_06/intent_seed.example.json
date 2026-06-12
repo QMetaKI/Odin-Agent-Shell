@@ -1,0 +1,17 @@
+{
+  "seed_id": "repo_cognition",
+  "family": "context",
+  "trigger_shapes": ["repo", "codebase", "repo_cognition", "repo_intake"],
+  "input_requirements": ["repo_context"],
+  "output_shape": "repo_cognition_summary",
+  "preferred_surfaces": ["handoff", "dev_mode"],
+  "allowed_use": ["explore_repo", "summarize_structure", "identify_patterns"],
+  "forbidden_use": ["app_apply", "external_send", "model_inference", "provider_execution"],
+  "qirc_event_hints": ["work_seed_selected", "repo_cognition_started"],
+  "validator_expectations": ["validate-operational-seed-spine"],
+  "proof_boundary": "operational_seed_spine_routes_work_not_authority",
+  "token_budget_key": "medium",
+  "fallback_behavior": "return_empty_cognition_summary",
+  "candidate_only": true,
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority"
+}

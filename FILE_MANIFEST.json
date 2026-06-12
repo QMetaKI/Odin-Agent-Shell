@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1688,
+  "file_count_excluding_manifest": 1715,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -8360,6 +8360,141 @@
       "path": "reports/prep_final_pr_06_08_prompt_quality_matrix.json",
       "sha256": "b3c89f8cc5c1ce7cd3d628a5a6ef92a41982b3e0a54134935a6de505141fd808",
       "size": 3484
+    },
+    {
+      "path": "odin/operational_seed_spine/__init__.py",
+      "sha256": "65d18e8cc725edf9d7c6fabd6a4034dc5bfcd8b60748d27983a0634a9463e5a6",
+      "size": 1501
+    },
+    {
+      "path": "odin/operational_seed_spine/intent_seeds.py",
+      "sha256": "b59058d4a25207646495b99276d37f0df5ec6a8467cb302e4aa50feeb4987d4f",
+      "size": 11264
+    },
+    {
+      "path": "odin/operational_seed_spine/role_profiles.py",
+      "sha256": "48149c801f7531dce8916da652a52bd87184e2861843ac1c21232584b2547fc9",
+      "size": 6280
+    },
+    {
+      "path": "odin/operational_seed_spine/seed_packs.py",
+      "sha256": "fd168fa7bbf80e7a899b824232168f0809964651a3f3805564a41b4fb5ce8e4e",
+      "size": 4198
+    },
+    {
+      "path": "odin/operational_seed_spine/selector.py",
+      "sha256": "2348582abb425b4b13abec384b8125d441d194e701761be921f8daf335b8214d",
+      "size": 6708
+    },
+    {
+      "path": "odin/operational_seed_spine/work_capsule.py",
+      "sha256": "252e95063f723a8f6c94c37b56bff9f58b8d26a8050f7a98dd0ec65f81039f81",
+      "size": 4048
+    },
+    {
+      "path": "odin/operational_seed_spine/qirc_hints.py",
+      "sha256": "1470f2003fa28e4bfe0549cea8de472682de10da0113978c8b3560ce9e9f1588",
+      "size": 1589
+    },
+    {
+      "path": "odin/operational_seed_spine/token_budget.py",
+      "sha256": "3c452cf6cdf7e9bc93d4d3561425fdb5b180bb91879dcedc3d9a3c96dfe59f47",
+      "size": 1983
+    },
+    {
+      "path": "odin/operational_seed_spine/proof.py",
+      "sha256": "e8939cef8c2fd468a750223afa7cc381394f248ad85b1ea1044a175c5f481825",
+      "size": 1515
+    },
+    {
+      "path": "registries/final_pr_06_operational_seed_spine_registry.json",
+      "sha256": "98ac416a57c717ce8581c705e5caa3f810a6d4f11eb2c620766d8a3a62573d52",
+      "size": 2168
+    },
+    {
+      "path": "schemas/final_pr_06_operational_seed_spine_proof_packet.schema.json",
+      "sha256": "12e44ed610ad08f8fd7a82ccf5d2cf302b17e3d7167f9cdcaa781a7bfc15ac86",
+      "size": 1267
+    },
+    {
+      "path": "examples/final_pr_06/intent_seed.example.json",
+      "sha256": "37630eba6227786734cb50cd53002f1275969db532d321c1b1bf73f8abcb25fc",
+      "size": 834
+    },
+    {
+      "path": "examples/final_pr_06/role_profile.example.json",
+      "sha256": "e962e30c67425e1c3493e296daf1e8cbc5e502ae4d412b77c3cca86ec2f5d8c4",
+      "size": 449
+    },
+    {
+      "path": "examples/final_pr_06/seed_work_capsule.example.json",
+      "sha256": "28bb45b2e6c57bd4cb716190e2f2d0906389dd8379b56ad6ce4f0dae2ac49fdf",
+      "size": 1263
+    },
+    {
+      "path": "examples/final_pr_06/seed_proof_packet.example.json",
+      "sha256": "947a117beb0f86b6da20953d5e9dcf50b8f0b16724532332ba2aac39a37490ac",
+      "size": 762
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_06_operational_seed_spine.py",
+      "sha256": "5672182ef4a58e551e223581495aa9ed0b3d7b25da547232a2109e04ea7a3a0f",
+      "size": 11929
+    },
+    {
+      "path": "tests/test_final_pr_06_operational_seed_spine.py",
+      "sha256": "75db9b84d92e7f3146024902bf89e570c545e6023e1622d218270378b4531ab5",
+      "size": 15103
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_06_REPO_COGNITION_SUMMARY.md",
+      "sha256": "53870d2dc9c971d48073b4b10c05fca652423adcff83404167c9153722e66442",
+      "size": 5108
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_06_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "1470f8b021052f2d146779136e5f93ed4331a265480ce3df929353c60219a001",
+      "size": 4962
+    },
+    {
+      "path": "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "sha256": "a0cce51c1fcfa7b404724fcb321265538766f14b1eaed72f553137b88667aa9f",
+      "size": 4536
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_06_SENIOR_REVIEW.md",
+      "sha256": "f32d305eb251f1a6b56821fe88eab0547d4b9b381c53070a6a12326e9722abc7",
+      "size": 3254
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_06_CODE_REVIEW.md",
+      "sha256": "87ac777a762a39cd3adb34af24df30e073ad85750c0a99828afb8af159e35fe9",
+      "size": 2784
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_06_OPERATIONAL_SEED_SPINE_AUDIT.md",
+      "sha256": "ae0553f490cd53ce65c333b9675230cfc01c9452f9ea6625dd9831a0c7e73527",
+      "size": 3425
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_06_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "b9af479c585f652636c0e942e54d02ad31d32a291ced6e8f0a17ba91dce36e5f",
+      "size": 6700
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md",
+      "sha256": "3567d7d9ee2f07b5be9e47a2576d5a1e1f67981962edcd9cfd893fb1a4aba15d",
+      "size": 6904
+    },
+    {
+      "path": "reports/final_pr_06_operational_seed_spine_report.json",
+      "sha256": "cd2e9e65fd5f1abf8b4e0230dba9662978a4ecdeaae0961391d720f954a64f4b",
+      "size": 1482
+    },
+    {
+      "path": "reports/final_pr_06_operational_seed_spine_proof_packet.json",
+      "sha256": "ca2b4ce8a1488d475f23fdc6e0d850b33bb55fad7fa7826c15e215ab7ccc0abb",
+      "size": 761
     }
   ]
 }

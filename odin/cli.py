@@ -2710,6 +2710,33 @@ def validate_prep_final_pr_06_08() -> list[str]:
     return []
 
 
+def validate_operational_seed_spine() -> list[str]:
+    """Validate FINAL-PR-06 Operational Seed Spine module, registries, examples, and proof."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_06_operational_seed_spine.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-06 validator: tools/rebaseline/check_final_pr_06_operational_seed_spine.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_06_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-06 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    import tempfile as _tempfile
+    with _tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_06_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-06: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-06 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2771,6 +2798,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_05_execution_gate())
     errors.extend(validate_y_pattern_spine())
     errors.extend(validate_prep_final_pr_06_08())
+    errors.extend(validate_operational_seed_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2951,6 +2979,11 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prove-y-pattern-spine")
     # Prep FINAL-PR-06..08
     sub.add_parser("validate-prep-final-pr-06-08")
+    # FINAL-PR-06: Operational Seed Spine
+    sub.add_parser("validate-operational-seed-spine")
+    explain_seed_route_p = sub.add_parser("explain-seed-route")
+    explain_seed_route_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("prove-operational-seed-spine")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3635,6 +3668,42 @@ def main(argv: list[str] | None = None) -> int:
         print("validate-prep-final-pr-06-08: OK")
         return 0
 
+    # FINAL-PR-06: Operational Seed Spine commands
+    if args.cmd == "validate-operational-seed-spine":
+        errors = validate_operational_seed_spine()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-operational-seed-spine: OK")
+        return 0
+
+    if args.cmd == "explain-seed-route":
+        from odin.operational_seed_spine.selector import select_seed_route
+        from odin.operational_seed_spine.work_capsule import compile_work_capsule
+        demo_ctx = {"trigger_shape": "repo", "work_type": "repo"}
+        route = select_seed_route(demo_ctx)
+        capsule = compile_work_capsule(route)
+        result = {
+            "candidate_only": True,
+            "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+            "selected_seed_id": route.selected_seed_id,
+            "selected_role_profile_id": route.selected_role_profile_id,
+            "matched_trigger_shapes": route.matched_trigger_shapes,
+            "fallback_used": route.fallback_used,
+            "selection_priority": route.selection_priority,
+            "seed_route": route.to_dict(),
+            "work_capsule": capsule.to_dict(),
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-operational-seed-spine":
+        from odin.operational_seed_spine.proof import persist_proof_packet
+        result = persist_proof_packet(ROOT)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3729,6 +3798,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_y_pattern_spine()
     elif args.cmd == "validate-prep-final-pr-06-08":
         errors = validate_prep_final_pr_06_08()
+    elif args.cmd == "validate-operational-seed-spine":
+        errors = validate_operational_seed_spine()
     else:
         errors = validate_all()
 

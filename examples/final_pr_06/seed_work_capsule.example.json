@@ -1,0 +1,41 @@
+{
+  "capsule_id": "seed_capsule_a1b2c3d4e5f6a7b8",
+  "seed_id": "repo_cognition",
+  "seed_family": "context",
+  "role_profile_id": "router",
+  "input_requirements": ["repo_context"],
+  "output_shape": "repo_cognition_summary",
+  "preferred_surfaces": ["handoff", "dev_mode"],
+  "qirc_hints": [
+    {
+      "event_type": "work_seed_selected",
+      "channel": "dev_mode",
+      "authority": "hint_only",
+      "candidate_only": true,
+      "claim_boundary": "operational_seed_spine_routes_work_not_authority"
+    }
+  ],
+  "token_budget": {
+    "budget_key": "medium",
+    "max_input_tokens_hint": 6000,
+    "max_output_tokens_hint": 3000,
+    "compression_required": false,
+    "candidate_only": true,
+    "claim_boundary": "operational_seed_spine_routes_work_not_authority"
+  },
+  "validator_expectations": ["validate-operational-seed-spine"],
+  "proof_boundary": "operational_seed_spine_routes_work_not_authority",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "operational_seed_spine_routes_work_not_authority",
+  "not_proven": [
+    "autonomous_reasoning",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ]
+}
