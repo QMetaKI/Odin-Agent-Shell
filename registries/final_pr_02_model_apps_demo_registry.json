@@ -1,0 +1,65 @@
+{
+  "registry_id": "final_pr_02_model_apps_demo_registry",
+  "version": "1.0.0",
+  "description": "Registry for FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work artifacts.",
+  "candidate_only": true,
+  "claim_boundary": "demo_registry_not_runtime_proof_not_app_approval",
+  "entries": [
+    {
+      "entry_id": "final_pr_02_model_picker",
+      "kind": "model_picker",
+      "module": "odin/local_hub/model_picker.py",
+      "endpoints": ["/models.json"],
+      "status": "demo_placeholder_no_model_execution",
+      "candidate_only": true,
+      "model_execution": false,
+      "provider_execution": false
+    },
+    {
+      "entry_id": "final_pr_02_connected_apps",
+      "kind": "connected_apps",
+      "module": "odin/local_hub/connected_apps.py",
+      "endpoints": ["/apps.json"],
+      "status": "demo_placeholder_no_real_app",
+      "candidate_only": true,
+      "real_app_connected": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "entry_id": "final_pr_02_demo_universal_work",
+      "kind": "demo_universal_work",
+      "module": "odin/local_hub/demo_universal_work.py",
+      "endpoints": ["/demo/universal-work.json", "/demo/universal-work"],
+      "status": "deterministic_demo_not_model_execution",
+      "candidate_only": true,
+      "model_execution": false,
+      "provider_execution": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "entry_id": "final_pr_02_proof_packet",
+      "kind": "proof_packet",
+      "module": "odin/local_hub/proof_pr02.py",
+      "cli_command": "prove-final-pr-02-demo-universal-work",
+      "status": "candidate_only_proof"
+    },
+    {
+      "entry_id": "final_pr_02_validator",
+      "kind": "validator",
+      "tool": "tools/rebaseline/check_final_pr_02_model_apps_demo.py",
+      "cli_command": "validate-final-pr-02-model-apps-demo",
+      "included_in_validate_all": true
+    }
+  ],
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "real_app_bridge_runtime",
+    "external_app_connection",
+    "app_apply",
+    "external_send",
+    "qirc_core_runtime"
+  ]
+}

@@ -1,4 +1,4 @@
-"""Simple Local Hub browser UI generator — FINAL-PR-01.
+"""Simple Local Hub browser UI generator — FINAL-PR-01/02.
 
 Claim boundary: simple_local_hub_ui_candidate_only_no_provider_execution_no_app_apply
 """
@@ -18,6 +18,25 @@ REQUIRED_IDS = [
     "handoff-first-status",
     "dev-mode-entry",
     "normal-user-help",
+    # FINAL-PR-02 additions
+    "model-picker-section",
+    "model-option-none",
+    "model-option-mock",
+    "model-option-local-candidate",
+    "provider-status-panel",
+    "connected-apps-section",
+    "connected-app-slot-generic",
+    "connected-app-slot-browser",
+    "connected-app-slot-file",
+    "app-bridge-status",
+    "demo-universal-work-section",
+    "demo-work-input",
+    "demo-submit-placeholder",
+    "demo-response-packet",
+    "demo-candidate-artifact",
+    "demo-handoff-context",
+    "demo-universal-work-packet",
+    "demo-proof-gap-status",
 ]
 
 REQUIRED_COPY = [
@@ -28,6 +47,14 @@ REQUIRED_COPY = [
     "QIRC core is planned for a later final slice.",
     "Handoff-First prepares work before Universal Work.",
     "Dev Mode contains traces, receipts, proof gaps, validators, and handoff details.",
+    # FINAL-PR-02 additions
+    "Choose how Odin should prepare work.",
+    "No model inference runs in this PR.",
+    "Mock mode returns deterministic demo candidates.",
+    "Local candidate provider is listed but not executed yet.",
+    "Connected apps are demo slots only.",
+    "Odin can accept a demo Universal Work request and return a candidate response packet.",
+    "Apps still decide what to apply.",
 ]
 
 
@@ -112,6 +139,71 @@ def generate_hub_html() -> str:
   <p class="note">Deep handoff viewer deferred to FINAL-PR-03. This is a non-authoritative placeholder.</p>
 </div>
 
+<!-- FINAL-PR-02: Model Picker -->
+<div id="model-picker-section" class="section">
+  <div class="label">Model Picker</div>
+  <p>Choose how Odin should prepare work.</p>
+  <p class="note">No model inference runs in this PR. All options are placeholder/candidate-only.</p>
+  <div id="model-option-none" class="dev-row">
+    <span class="chip ok">None</span> &#8212; No model selected. Odin returns deterministic candidates only.
+  </div>
+  <div id="model-option-mock" class="dev-row">
+    <span class="chip pending">Mock</span> &#8212; Mock mode returns deterministic demo candidates. No model binary is called.
+  </div>
+  <div id="model-option-local-candidate" class="dev-row">
+    <span class="chip deferred">Local candidate</span> &#8212; Local candidate provider is listed but not executed yet. Deferred to FINAL-PR-04.
+  </div>
+  <div id="provider-status-panel" class="dev-row">
+    <span class="chip deferred">Provider status</span> &#8212; No provider active. No API key in use. No binary running.
+  </div>
+</div>
+
+<!-- FINAL-PR-02: Connected Apps -->
+<div id="connected-apps-section" class="section">
+  <div class="label">Connected Apps</div>
+  <p>Connected apps are demo slots only. No real app is connected.</p>
+  <div id="connected-app-slot-generic" class="dev-row">
+    <span class="chip deferred">Generic App Slot</span> &#8212; Placeholder. Not connected. No app apply. No external send.
+  </div>
+  <div id="connected-app-slot-browser" class="dev-row">
+    <span class="chip deferred">Browser Slot</span> &#8212; Placeholder. Not connected.
+  </div>
+  <div id="connected-app-slot-file" class="dev-row">
+    <span class="chip deferred">File Slot</span> &#8212; Placeholder. Not connected.
+  </div>
+  <div id="app-bridge-status" class="dev-row">
+    <span class="chip deferred">App Bridge</span> &#8212; Demo placeholder only. No real app bridge runtime. Apps still decide what to apply.
+  </div>
+</div>
+
+<!-- FINAL-PR-02: Demo Universal Work -->
+<div id="demo-universal-work-section" class="section">
+  <div class="label">Demo Universal Work</div>
+  <p>Odin can accept a demo Universal Work request and return a candidate response packet.</p>
+  <p class="note">This is a deterministic demo. No model is called. No provider is executed. No app apply.</p>
+  <div id="demo-work-input" class="dev-row">
+    <span class="chip ok">Input</span> &#8212; Raw demo input accepted (GET/POST /demo/universal-work.json).
+  </div>
+  <div id="demo-submit-placeholder" class="dev-row">
+    <span class="chip pending">Submit</span> &#8212; POST to /demo/universal-work or GET /demo/universal-work.json for demo response.
+  </div>
+  <div id="demo-handoff-context" class="dev-row">
+    <span class="chip ok">Handoff Context</span> &#8212; Profile: generic. Intent: demo_universal_work. Forbidden: provider, model, apply, send.
+  </div>
+  <div id="demo-universal-work-packet" class="dev-row">
+    <span class="chip ok">Universal Work Packet</span> &#8212; Kind: demo. Status: compiled. No model execution.
+  </div>
+  <div id="demo-candidate-artifact" class="dev-row">
+    <span class="chip ok">Candidate Artifact</span> &#8212; Deterministic demo candidate. App reviews and optionally applies.
+  </div>
+  <div id="demo-response-packet" class="dev-row">
+    <span class="chip ok">Response Packet</span> &#8212; Status: ok_with_known_gaps. Candidate-only. Not final truth.
+  </div>
+  <div id="demo-proof-gap-status" class="dev-row">
+    <span class="chip pending">Proof Gaps</span> &#8212; Not proven: model_inference, provider_execution, real_app_bridge_runtime, app_apply, external_send, qirc_core_runtime.
+  </div>
+</div>
+
 <div id="dev-mode-entry" class="section dev">
   <div class="label">Dev Mode</div>
   <p>Dev Mode contains traces, receipts, proof gaps, validators, and handoff details.</p>
@@ -120,10 +212,11 @@ def generate_hub_html() -> str:
     <div class="dev-row" id="dev-qirc-status">QIRC status: placeholder &#8212; not running</div>
     <div class="dev-row" id="dev-handoff-first-status">Handoff-First status: placeholder &#8212; not running</div>
     <div class="dev-row" id="dev-trace-status">Trace/Receipt status: placeholder &#8212; viewer deferred to FINAL-PR-03</div>
-    <div class="dev-row" id="dev-validator-status">Validator status: run <code>python -m odin.cli validate-simple-local-hub</code></div>
+    <div class="dev-row" id="dev-validator-status">Validator status: run <code>python -m odin.cli validate-simple-local-hub</code> or <code>python -m odin.cli validate-final-pr-02-model-apps-demo</code></div>
     <div class="dev-row" id="dev-proof-gaps">Proof gaps: provider_execution, model_inference, qirc_core_runtime, handoff_compiler_runtime, app_bridge_runtime, app_apply, app_state_mutation, external_send, public_network, production_readiness, security_certification</div>
     <div class="dev-row" id="dev-support-bundle">Support bundle: placeholder &#8212; run <code>python -m odin.cli emit-support-bundle</code></div>
     <div class="dev-row" id="dev-handoff-viewer">Handoff viewer: placeholder &#8212; deep viewer deferred to FINAL-PR-03</div>
+    <div class="dev-row" id="dev-demo-flow">Demo flow: Raw demo input &#8594; Handoff Context &#8594; Universal Work &#8594; Candidate Artifact &#8594; Response Packet. No provider execution. No model inference. No app apply. No external send.</div>
   </details>
 </div>
 

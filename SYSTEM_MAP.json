@@ -698,6 +698,74 @@
     "tests": "tests/test_simple_local_hub.py",
     "validator": "tools/rebaseline/check_simple_local_hub.py"
   },
+  "final_pr_02_model_apps_demo": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_02_MODEL_APPS_DEMO_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_02_THOR_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_02_ODIN_EFFECTIVENESS_AUDIT.md"
+    ],
+    "claim_boundary": "final_pr_02_system_map_is_static_index_not_runtime_proof",
+    "cli_commands": [
+      "validate-final-pr-02-model-apps-demo",
+      "prove-final-pr-02-demo-universal-work"
+    ],
+    "examples": [
+      "examples/final_pr_02/demo_universal_work_response_packet.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_02_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_02_HUB_SURFACE_DECISION.md",
+      "docs/codex/handoffs/FINAL_PR_02_THOR_Y_HANDOFF_REQUEST.md",
+      "docs/codex/handoffs/FINAL_PR_02_COMPILED_THOR_Y_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_02_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "hub_surface_decision": "extend_simple_local_hub_8765_minimal",
+    "modified_modules": [
+      "odin/local_hub/ui.py",
+      "odin/local_hub/server.py",
+      "odin/local_hub/__init__.py",
+      "odin/cli.py"
+    ],
+    "new_endpoints": [
+      "GET /models.json (port 8765)",
+      "GET /apps.json (port 8765)",
+      "GET /demo/universal-work.json (port 8765)",
+      "POST /demo/universal-work (port 8765)"
+    ],
+    "new_modules": [
+      "odin/local_hub/model_picker.py",
+      "odin/local_hub/connected_apps.py",
+      "odin/local_hub/demo_universal_work.py",
+      "odin/local_hub/proof_pr02.py"
+    ],
+    "not_proven": [
+      "model_inference",
+      "provider_execution",
+      "real_app_bridge_runtime",
+      "external_app_connection",
+      "app_apply",
+      "external_send",
+      "qirc_core_runtime",
+      "production_readiness",
+      "security_certification"
+    ],
+    "pr": "FINAL-PR-02",
+    "registries": [
+      "registries/final_pr_02_model_apps_demo_registry.json"
+    ],
+    "reports": [
+      "docs/codex/reports/FINAL_PR_02_MODEL_APPS_DEMO_RETURN_REPORT.md",
+      "reports/final_pr_02_model_apps_demo_report.json",
+      "reports/final_pr_02_thor_effectiveness_audit.json",
+      "reports/final_pr_02_odin_effectiveness_audit.json"
+    ],
+    "schemas": [
+      "schemas/final_pr_02_demo_universal_work_response_packet.schema.json"
+    ],
+    "status": "demo_ui_candidate_only_no_model_execution_no_app_apply",
+    "tests": "tests/test_final_pr_02_model_apps_demo.py",
+    "validator": "tools/rebaseline/check_final_pr_02_model_apps_demo.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",

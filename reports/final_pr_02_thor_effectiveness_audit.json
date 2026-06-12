@@ -1,0 +1,76 @@
+{
+  "artifact_kind": "thor_effectiveness_audit",
+  "pr": "FINAL-PR-02",
+  "scores_are_subjective_process_proxies": true,
+  "claim_boundary": "thor_effectiveness_audit_subjective_process_proxies_not_runtime_proof",
+  "scores": {
+    "repo_cognition_precision": 4,
+    "repo_cognition_noise_reduction": 4,
+    "handoff_compression_quality": 3,
+    "scope_control": 5,
+    "overclaim_prevention": 4,
+    "worker_usefulness": 4,
+    "validator_expectation_quality": 4,
+    "profile_contract_quality": 3,
+    "token_efficiency": 3,
+    "thor_backlog_value": 5
+  },
+  "thor_backlog": [
+    {
+      "finding_id": "thor.final_pr_ladder_compiler",
+      "priority": "high",
+      "derived_from": "manual compiled handoff needed again for FINAL-PR-02",
+      "recommended_change": "Add compiler that emits repo cognition summary, handoff request, compiled handoff, validator expectations, return contract, and next-worker packet for each FINAL-PR."
+    },
+    {
+      "finding_id": "thor.ui_contract_in_handoff",
+      "priority": "medium",
+      "derived_from": "UI IDs had to be listed manually in compiled handoff",
+      "recommended_change": "Add UI contract section to compiled handoffs for UI-touching PRs. List required IDs and copy verbatim."
+    },
+    {
+      "finding_id": "thor.fail_closed_scope_markers",
+      "priority": "high",
+      "derived_from": "Scope control is working but relies on worker knowing rules",
+      "recommended_change": "Emit scope violation markers as validator checks in compiled handoff. Scope drift fails validator, not just code review."
+    },
+    {
+      "finding_id": "thor.forbidden_claim_phrases",
+      "priority": "medium",
+      "derived_from": "Worker must know claim boundary rules; no automatic reminder",
+      "recommended_change": "Thor emits forbidden_claim_phrases_for_this_pr section in compiled handoff. Worker checks before finalizing docs."
+    },
+    {
+      "finding_id": "thor.profile_specific_output_contracts",
+      "priority": "medium",
+      "derived_from": "Y and Mjolnir profiles not useful for UI/demo PRs",
+      "recommended_change": "Add profile-specific output contracts: Generic for UI/demo, Y for model selection, Mjolnir for security review."
+    },
+    {
+      "finding_id": "thor.auto_generate_validator_stubs",
+      "priority": "high",
+      "derived_from": "Validator acceptance gates match compiled handoff gates exactly",
+      "recommended_change": "Thor auto-generates validator stub code from acceptance gate list in compiled handoff."
+    },
+    {
+      "finding_id": "thor.next_worker_packet_from_return_report",
+      "priority": "high",
+      "derived_from": "Worker packet manually created each time",
+      "recommended_change": "Thor produces next worker packet automatically from prior return report."
+    },
+    {
+      "finding_id": "thor.cognition_budget_reporting",
+      "priority": "low",
+      "derived_from": "Token economy improvement potential not quantified",
+      "recommended_change": "Add repo-cognition budget reporting: files read, files avoided, why. Track across FINAL-PR ladder."
+    }
+  ],
+  "counterfactual_risks_without_handoff": [
+    "scope_creep_into_final_pr_03_04",
+    "provider_model_overclaim",
+    "real_app_integration_drift",
+    "large_prompt_repeated_parsing",
+    "non_standard_ui_ids",
+    "missing_hub_surface_decision"
+  ]
+}

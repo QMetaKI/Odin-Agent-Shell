@@ -2552,6 +2552,32 @@ def validate_simple_local_hub() -> list[str]:
     return []
 
 
+def validate_final_pr_02_model_apps_demo() -> list[str]:
+    """Validate FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_02_model_apps_demo.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-02 validator: tools/rebaseline/check_final_pr_02_model_apps_demo.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_02_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-02 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_02_model_apps_demo_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-02: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-02 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2607,6 +2633,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b8_security_review_track())
     errors.extend(validate_final_road_to_100_rebaseline_audit())
     errors.extend(validate_simple_local_hub())
+    errors.extend(validate_final_pr_02_model_apps_demo())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2655,6 +2682,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-runtime-doctor-bootstrap")
     sub.add_parser("validate-localhost-api-sdk-bridge")
     sub.add_parser("validate-browser-hub-shell")
+    sub.add_parser("validate-final-pr-02-model-apps-demo")
+    sub.add_parser("prove-final-pr-02-demo-universal-work")
     prove_browser_hub_p = sub.add_parser("prove-browser-hub")
     prove_browser_hub_p.add_argument("--shell-only", action="store_true", default=False)
     prove_browser_hub_p.add_argument("--dashboard", action="store_true", default=False)
@@ -2919,6 +2948,22 @@ def main(argv: list[str] | None = None) -> int:
         from odin.local_hub.proof import build_simple_local_hub_proof_packet
         host = getattr(args, "host", "127.0.0.1")
         result = build_simple_local_hub_proof_packet(host=host)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
+
+    # FINAL-PR-02: Model Picker + Connected Apps + Demo Universal Work
+    if args.cmd == "validate-final-pr-02-model-apps-demo":
+        errors = validate_final_pr_02_model_apps_demo()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-02-model-apps-demo: OK")
+        return 0
+
+    if args.cmd == "prove-final-pr-02-demo-universal-work":
+        from odin.local_hub.proof_pr02 import build_final_pr_02_proof_packet
+        result = build_final_pr_02_proof_packet()
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
 
