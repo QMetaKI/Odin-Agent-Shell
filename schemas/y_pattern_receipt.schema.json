@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_pattern_receipt.schema.json",
+  "title": "YPatternReceipt",
+  "description": "Pattern receipt for trace/proof chain. candidate_only: true.",
+  "type": "object",
+  "required": ["receipt_id", "pattern_id", "route_hint_id", "materialization_level", "evidence_basis", "not_proven", "claim_boundary"],
+  "properties": {
+    "receipt_id": {"type": "string"},
+    "pattern_id": {"type": "string"},
+    "route_hint_id": {"type": "string"},
+    "materialization_level": {"type": "string"},
+    "evidence_basis": {"type": "array", "items": {"type": "string"}},
+    "not_proven": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": false
+}

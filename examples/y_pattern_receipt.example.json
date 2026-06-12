@@ -1,0 +1,19 @@
+{
+  "receipt_id": "y_receipt_demo_001",
+  "pattern_id": "y_center_first_routing",
+  "route_hint_id": "demo_route_hint_001",
+  "materialization_level": "M7",
+  "evidence_basis": ["repo_route_identified", "pattern_selected", "depth_mode_selected"],
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "event_core_runtime",
+    "runtime_authority",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "production_readiness",
+    "security_certification"
+  ],
+  "claim_boundary": "y_pattern_spine_operational_hint_not_runtime_authority"
+}

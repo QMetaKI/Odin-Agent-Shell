@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_route_hint.schema.json",
+  "title": "YRouteHint",
+  "description": "Candidate route hint. candidate_only: true. Not authority.",
+  "type": "object",
+  "required": ["route_hint_id", "input_kind", "candidate_routes", "evidence_required", "selected_route", "selection_reason", "confidence", "hole_density", "center_first_posture", "token_budget_hint", "claim_boundary"],
+  "properties": {
+    "route_hint_id": {"type": "string"},
+    "input_kind": {"type": "string"},
+    "candidate_routes": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evidence_required": {"type": "array", "items": {"type": "string"}},
+    "selected_route": {"type": "string"},
+    "selection_reason": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "hole_density": {"type": "number", "minimum": 0, "maximum": 1},
+    "center_first_posture": {"type": "boolean"},
+    "token_budget_hint": {"type": "string", "enum": ["minimal", "normal", "deep"]},
+    "materialization_level": {"type": ["string", "null"]},
+    "not_proven": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": false
+}

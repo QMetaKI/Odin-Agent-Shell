@@ -1892,5 +1892,10 @@
   "v7_1_1_worklet_graph_contract": "registries/v7_1_1_worklet_graph_contract.json",
   "v7_1_1_worklet_graph_example": "examples/v7_1_1/worklet_graph.example.json",
   "v7_1_1_worklet_graph_schema": "schemas/v7_1_1_worklet_graph.schema.json",
-  "version": "0.8.7"
+  "version": "0.8.7",
+  "y_pattern_spine": {
+    "candidate_only": true,
+    "description": "Y Pattern Spine — neutral operational pattern layer",
+    "path": "odin/y_pattern_spine/"
+  }
 }

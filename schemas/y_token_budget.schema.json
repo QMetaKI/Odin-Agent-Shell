@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_token_budget.schema.json",
+  "title": "YTokenBudget",
+  "description": "Token budget mode definition. candidate_only: true.",
+  "type": "object",
+  "required": ["registry_id", "candidate_only", "claim_boundary", "modes"],
+  "properties": {
+    "registry_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "modes": {
+      "type": "object",
+      "properties": {
+        "minimal": {"$ref": "#/definitions/BudgetMode"},
+        "normal": {"$ref": "#/definitions/BudgetMode"},
+        "deep": {"$ref": "#/definitions/BudgetMode"}
+      },
+      "required": ["minimal", "normal", "deep"]
+    }
+  },
+  "definitions": {
+    "BudgetMode": {
+      "type": "object",
+      "required": ["mode", "description", "includes", "excludes", "typical_token_range"],
+      "properties": {
+        "mode": {"type": "string"},
+        "description": {"type": "string"},
+        "includes": {"type": "array", "items": {"type": "string"}},
+        "excludes": {"type": "array", "items": {"type": "string"}},
+        "typical_token_range": {"type": "string"}
+      }
+    }
+  }
+}

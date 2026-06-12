@@ -27,6 +27,7 @@ Endpoints:
   POST /execution-gate/mock        — deterministic mock execution (FINAL-PR-05)
   GET /execution-gate/proof-chain.json — proof chain cross-references (FINAL-PR-05)
   GET /final-pr-ladder/scaffold.json   — FINAL-PR ladder scaffold (FINAL-PR-05)
+  GET /demo/y-route.json               — Y Pattern Spine route hint demo (Y-PATTERN-SPINE)
 """
 from __future__ import annotations
 
@@ -127,6 +128,10 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                 profile="claude-code",
             )
             body = json.dumps(scaffold, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/demo/y-route.json":
+            from odin.y_pattern_spine.profiles import build_route_hint_demo
+            body = json.dumps(build_route_hint_demo(), indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

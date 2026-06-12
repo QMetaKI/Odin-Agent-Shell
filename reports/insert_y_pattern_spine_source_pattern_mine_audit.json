@@ -1,0 +1,41 @@
+{
+  "report_id": "odin.y_pattern_spine_source_pattern_mine_audit",
+  "candidate_only": true,
+  "local_only": true,
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "claim_boundary": "y_pattern_spine_source_mine_advisory_only_no_runtime_import",
+  "source_classes_used": [
+    "metamodel_source",
+    "foundation_source",
+    "ynet_source",
+    "operator_pattern_source",
+    "current_odin_repo_reality"
+  ],
+  "neutralized_patterns": [
+    {"source": "y_pattern_spine_concept", "neutral": "y_pattern_spine"},
+    {"source": "selection_math_concept", "neutral": "selection_math"},
+    {"source": "state_pattern", "neutral": "work_state_spine"},
+    {"source": "prep_pattern", "neutral": "ai_without_ai_precompute"},
+    {"source": "scope_pattern", "neutral": "pareto_scope_policy"},
+    {"source": "shadow_runtime_concept", "neutral": "shadow_candidate_graph"},
+    {"source": "operator_pattern_concept", "neutral": "operator_pattern_mine"}
+  ],
+  "included_patterns": [
+    "y_intent_seeds", "y_role_profiles", "y_coherence_scores", "y_review_axes",
+    "y_center_first_routing", "y_candidate_set_routing", "y_selection_math",
+    "y_work_state_spine", "y_lineage_trace", "y_expression_packet",
+    "y_shadow_candidate_graph", "y_projection_spine", "y_materialization_ladder",
+    "y_token_capsules", "y_operator_pattern_mine", "y_ai_without_ai_precompute",
+    "y_pareto_scope_policy", "y_care_force_axis", "y_local_worker_efficiency"
+  ],
+  "rejected_patterns": [
+    "religious_interpretation",
+    "persona_injection",
+    "app_state_authority",
+    "hidden_controller",
+    "runtime_execution_authority",
+    "source_specific_labels_in_runtime"
+  ],
+  "no_source_runtime_import": true,
+  "no_raw_source_files_committed": true
+}

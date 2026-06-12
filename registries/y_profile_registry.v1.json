@@ -1,0 +1,122 @@
+{
+  "registry_id": "y_profile_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_spine_candidate_only_no_app_apply_no_provider_no_runtime_authority",
+  "profiles": [
+    {
+      "profile_id": "context_shaper",
+      "description": "Shapes Handoff Context and Work Capsule task_intent",
+      "allowed_surfaces": ["handoff_context", "work_capsule"],
+      "forbidden_surfaces": ["app_state", "model_authority"]
+    },
+    {
+      "profile_id": "posture_hint",
+      "description": "Worker/reviewer posture hint only, not authority",
+      "allowed_surfaces": ["model_work_packet", "dev_mode"],
+      "forbidden_surfaces": ["decision_authority", "model_command"]
+    },
+    {
+      "profile_id": "ranking_explainer",
+      "description": "Ranks candidates for explanation purposes, not decision",
+      "allowed_surfaces": ["dev_mode", "candidate_artifact"],
+      "forbidden_surfaces": ["selection_authority"]
+    },
+    {
+      "profile_id": "senior_reviewer",
+      "description": "Senior reviewer lens for audit and proof work",
+      "allowed_surfaces": ["validator", "proof_packet", "audit_doc"],
+      "forbidden_surfaces": ["blocking_gate_without_evidence"]
+    },
+    {
+      "profile_id": "route_orderer",
+      "description": "Orders routes center-first before expansion",
+      "allowed_surfaces": ["route_hint", "handoff_context"],
+      "forbidden_surfaces": ["forced_route", "hidden_controller"]
+    },
+    {
+      "profile_id": "route_candidate_holder",
+      "description": "Holds multiple candidate routes until evidence selects",
+      "allowed_surfaces": ["route_hint"],
+      "forbidden_surfaces": ["forcing_single_route"]
+    },
+    {
+      "profile_id": "score_calculator",
+      "description": "Calculates bounded route scores 0–1",
+      "allowed_surfaces": ["route_hint", "trace_receipt"],
+      "forbidden_surfaces": ["proof_claim", "authority"]
+    },
+    {
+      "profile_id": "work_state_tracker",
+      "description": "Tracks task/work/session state only",
+      "allowed_surfaces": ["work_capsule", "model_work_packet"],
+      "forbidden_surfaces": ["app_state", "db_write"]
+    },
+    {
+      "profile_id": "trace_recorder",
+      "description": "Records why-this-route lineage",
+      "allowed_surfaces": ["trace_receipt", "proof_packet"],
+      "forbidden_surfaces": ["git_apply", "commit_authority"]
+    },
+    {
+      "profile_id": "expression_projector",
+      "description": "Projects human-friendly explanations",
+      "allowed_surfaces": ["candidate_artifact", "dev_mode", "normal_user_summary"],
+      "forbidden_surfaces": ["code_truth", "apply_authority"]
+    },
+    {
+      "profile_id": "compile_near_tracer",
+      "description": "Traces compile-near shape of candidate work",
+      "allowed_surfaces": ["candidate_artifact", "dev_mode"],
+      "forbidden_surfaces": ["runtime_execution", "app_apply"]
+    },
+    {
+      "profile_id": "projection_correlator",
+      "description": "Correlates human, expression, and machine projections",
+      "allowed_surfaces": ["candidate_artifact", "response_packet"],
+      "forbidden_surfaces": ["authority", "truth_claim"]
+    },
+    {
+      "profile_id": "readiness_tracker",
+      "description": "Tracks M0–M9 materialization levels",
+      "allowed_surfaces": ["work_capsule", "handoff_context"],
+      "forbidden_surfaces": ["completion_claim", "deploy_authority"]
+    },
+    {
+      "profile_id": "token_optimizer",
+      "description": "Minimizes token use for worker prompts",
+      "allowed_surfaces": ["model_work_packet", "work_capsule"],
+      "forbidden_surfaces": ["full_repo_claim", "authority"]
+    },
+    {
+      "profile_id": "pattern_miner",
+      "description": "Retrieves patterns from advisory source mines",
+      "allowed_surfaces": ["trace_receipt", "dev_mode"],
+      "forbidden_surfaces": ["runtime_import", "religious_interpretation"]
+    },
+    {
+      "profile_id": "precompute_preparer",
+      "description": "Prepares deterministic pre-model fields",
+      "allowed_surfaces": ["universal_work", "route_hint", "capsule"],
+      "forbidden_surfaces": ["model_execution", "provider_call"]
+    },
+    {
+      "profile_id": "scope_limiter",
+      "description": "Limits scope to smallest useful path first",
+      "allowed_surfaces": ["route_hint", "work_capsule"],
+      "forbidden_surfaces": ["broad_mining_without_evidence"]
+    },
+    {
+      "profile_id": "balance_heuristic",
+      "description": "Balance heuristic for clarity/care vs force/edge",
+      "allowed_surfaces": ["review_axes", "dev_mode"],
+      "forbidden_surfaces": ["persona_injection", "authority"]
+    },
+    {
+      "profile_id": "efficiency_optimizer",
+      "description": "Optimizes worker packets for lower token use",
+      "allowed_surfaces": ["model_work_packet", "work_capsule"],
+      "forbidden_surfaces": ["authority", "omit_validators"]
+    }
+  ]
+}

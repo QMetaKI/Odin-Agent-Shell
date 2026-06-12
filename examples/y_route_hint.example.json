@@ -1,0 +1,26 @@
+{
+  "route_hint_id": "demo_route_hint_001",
+  "input_kind": "demo_universal_work",
+  "candidate_routes": [
+    "direct_response_packet",
+    "work_capsule_then_response_packet",
+    "defer_for_missing_evidence"
+  ],
+  "evidence_required": ["repo_route_identified", "pattern_selected"],
+  "selected_route": "work_capsule_then_response_packet",
+  "selection_reason": "center_first_route_with_low_overclaim_risk",
+  "confidence": 0.78,
+  "hole_density": 0.15,
+  "center_first_posture": true,
+  "token_budget_hint": "minimal",
+  "materialization_level": "M7",
+  "not_proven": [
+    "model_inference",
+    "provider_execution",
+    "event_core_runtime",
+    "app_apply",
+    "external_send",
+    "production_readiness"
+  ],
+  "claim_boundary": "y_pattern_route_hint_candidate_only_not_authority"
+}

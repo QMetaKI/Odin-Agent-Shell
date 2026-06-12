@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "y_projection_set.schema.json",
+  "title": "YProjectionSet",
+  "description": "Human/expression/machine projection set. candidate_only: true. Not authority.",
+  "type": "object",
+  "required": ["projection_id", "human_clear_projection", "expression_projection", "machine_projection", "lineage_trace", "claim_boundary"],
+  "properties": {
+    "projection_id": {"type": "string"},
+    "human_clear_projection": {"type": "string"},
+    "expression_projection": {"type": "string"},
+    "machine_projection": {"type": "object"},
+    "lineage_trace": {"type": "string"},
+    "work_state_ref": {"type": ["string", "null"]},
+    "not_proven": {"type": "array", "items": {"type": "string"}},
+    "claim_boundary": {"type": "string"}
+  },
+  "additionalProperties": false
+}

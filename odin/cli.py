@@ -2656,6 +2656,33 @@ def validate_final_pr_05_execution_gate() -> list[str]:
     return []
 
 
+
+def validate_y_pattern_spine() -> list[str]:
+    """Validate Y Pattern Spine modules, schemas, registries, examples, and proof packet."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_y_pattern_spine.py"
+    if not tool_path.exists():
+        return ["missing Y Pattern Spine validator: tools/rebaseline/check_y_pattern_spine.py"]
+    spec = importlib.util.spec_from_file_location("odin_y_pattern_spine_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load Y Pattern Spine validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    import tempfile as _tempfile
+    with _tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "y_pattern_spine_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"y-pattern-spine: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"y-pattern-spine validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2715,6 +2742,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_03_qirc_devmode())
     errors.extend(validate_final_pr_04_provider_probe_security())
     errors.extend(validate_final_pr_05_execution_gate())
+    errors.extend(validate_y_pattern_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2888,6 +2916,11 @@ def main(argv: list[str] | None = None) -> int:
     ladder_p = sub.add_parser("prove-final-pr-ladder-scaffold")
     ladder_p.add_argument("--target", default="FINAL-PR-06")
     sub.add_parser("final-pr-ladder-scaffold")
+    # Y Pattern Spine
+    sub.add_parser("validate-y-pattern-spine")
+    explain_y_route_p = sub.add_parser("explain-y-route")
+    explain_y_route_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("prove-y-pattern-spine")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3540,6 +3573,28 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(scaffold, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # Y Pattern Spine commands
+    if args.cmd == "validate-y-pattern-spine":
+        errors = validate_y_pattern_spine()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-y-pattern-spine: OK")
+        return 0
+
+    if args.cmd == "explain-y-route":
+        from odin.y_pattern_spine.profiles import build_route_hint_demo
+        result = build_route_hint_demo()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-y-pattern-spine":
+        from odin.y_pattern_spine.proof import persist_proof_packet
+        result = persist_proof_packet(ROOT)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3630,6 +3685,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_04_provider_probe_security()
     elif args.cmd == "validate-final-pr-05-execution-gate":
         errors = validate_final_pr_05_execution_gate()
+    elif args.cmd == "validate-y-pattern-spine":
+        errors = validate_y_pattern_spine()
     else:
         errors = validate_all()
 

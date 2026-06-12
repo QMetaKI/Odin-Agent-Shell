@@ -1,0 +1,15 @@
+{
+  "pattern_id": "y_intent_seeds",
+  "neutral_name": "intent_seeds",
+  "family": "orientation",
+  "intent_seed": "small task-intent primitives shaping Handoff Context",
+  "role_profile": "context_shaper",
+  "route_hint": "inject into handoff_context.task_intent and work capsule task_intent",
+  "allowed_use": ["handoff_context", "work_capsule_task_intent", "universal_work_prep"],
+  "forbidden_use": ["app_state_mutation", "model_authority", "apply_permission"],
+  "source_class": "metamodel_source",
+  "normal_user_visible": false,
+  "dev_mode_visible": true,
+  "claim_boundary": "y_pattern_spine_candidate_only_no_app_apply_no_provider_no_runtime_authority",
+  "odin_target_surface": "handoff_context"
+}
