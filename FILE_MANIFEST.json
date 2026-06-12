@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1263,
+  "file_count_excluding_manifest": 1283,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "2f1027fba1eab9a4217a3ef45260eb2afabee0be40f848a052457c5c4edd99e0",
-      "size": 38211
+      "sha256": "7aa1f956c3ec16c70e8cdd36b4a9a704cf9791e464bca3eb33b128229c950911",
+      "size": 40182
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1644,6 +1644,11 @@
       "size": 8105
     },
     {
+      "path": "docs/codex/reports/PR_27_B1_APP_BOUNDARY_UNIVERSAL_WORK_QIRC_SPINE_RETURN_REPORT.md",
+      "sha256": "291ac4eda6c0753867c605b4f8bec7181a27018e97d68d9b8874016249c13c6a",
+      "size": 9021
+    },
+    {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
       "sha256": "5ebd2aaab892ae776f233fdf96636161abbb9542a9f9161ea50cc45288342411",
       "size": 2940
@@ -3074,6 +3079,31 @@
       "size": 1943
     },
     {
+      "path": "examples/v7_1_1/app_manifest.example.json",
+      "sha256": "3b2b5cb620d4cf4f45e72ad240baf43118c9a9880962144f27c8faeaf4e64e51",
+      "size": 2223
+    },
+    {
+      "path": "examples/v7_1_1/binding_contract.example.json",
+      "sha256": "f65a1d06c29116253a40b3b37792dc40addea0ed42fa2c22bb788880fe7a13d6",
+      "size": 1103
+    },
+    {
+      "path": "examples/v7_1_1/semantic_bus_channel.example.json",
+      "sha256": "9faea5f0cb41fa5654b60ff49e786adfa68685de3eb29772cc18b564bef42219",
+      "size": 641
+    },
+    {
+      "path": "examples/v7_1_1/semantic_bus_event.example.json",
+      "sha256": "6d7bac96b845414e88ad43553c49c7c0c558fb0882226304f5aca8c55f97b8df",
+      "size": 631
+    },
+    {
+      "path": "examples/v7_1_1/universal_work.example.json",
+      "sha256": "cff38f50b2f468bbea902c2ba1091ffb99bdf924b308bbc9473047bd3cd9e58d",
+      "size": 2602
+    },
+    {
       "path": "examples/windows/windows_build_ready_manifest.valid.json",
       "sha256": "14a74b2d263ea73dd51dde177a8941ccb0b1116beef96ba74e69942de8376289",
       "size": 293
@@ -3220,8 +3250,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "958f67fb339f39c05a89c936cecacbf2eaae73e632c0740d87719c60e9b70fd1",
-      "size": 158341
+      "sha256": "73a90fe856ec2645ee420d1ba12bae4758c90171430c6416f450002217273230",
+      "size": 159987
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4889,6 +4919,21 @@
       "size": 417
     },
     {
+      "path": "registries/v7_1_1_actual_codex_bundle_plan.json",
+      "sha256": "3d5e43bc7e95db8b4a59ef27d20d816aa07caf47f0add35450121de8e9f76030",
+      "size": 8455
+    },
+    {
+      "path": "registries/v7_1_1_app_manifest_contract.json",
+      "sha256": "d2b8dd6c3f29d4f869a2f70b39ed72a3400f47adac7dd25bb55abdbf292278b9",
+      "size": 1600
+    },
+    {
+      "path": "registries/v7_1_1_binding_contract_registry.json",
+      "sha256": "14766e03727849f588bfd93719d07e42590f88279dd832db617f8b994a8fab94",
+      "size": 1241
+    },
+    {
       "path": "registries/v7_1_1_claim_boundary_registry.json",
       "sha256": "0d4844c4f1bd3c9b816d24055f95033308746fdecdcafb3a8f466fb8a0b21259",
       "size": 3038
@@ -4914,9 +4959,19 @@
       "size": 639598
     },
     {
+      "path": "registries/v7_1_1_semantic_bus_spine_registry.json",
+      "sha256": "4caab435c5199b334f08b93e6f1e898cd5cd075376cf24893335e84c2070e87e",
+      "size": 8939
+    },
+    {
       "path": "registries/v7_1_1_slice_absorption_map.json",
       "sha256": "061fd58c6aaf2bae209c0613b3c5449ee9285df57a5d4d973e70ae4bb95f22d6",
       "size": 13724
+    },
+    {
+      "path": "registries/v7_1_1_universal_work_contract.json",
+      "sha256": "658b3af3a765b2bd10e09156fa12ce7dd887accd1bc8a1dc60f59a926276c317",
+      "size": 1487
     },
     {
       "path": "registries/verb_registry.json",
@@ -4987,6 +5042,11 @@
       "path": "registries/ystar_stage_registry.json",
       "sha256": "05af2b2aaf5825041522ee4fdff66cd224a66aa9ae8b0c800f623c1aba5e80d4",
       "size": 423
+    },
+    {
+      "path": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+      "sha256": "2762ea556e5dbe4a79fef25d4fc276d680cd3c5952b1ffdb77a27dcb7cf7c6bd",
+      "size": 7554
     },
     {
       "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
@@ -5759,6 +5819,21 @@
       "size": 1391
     },
     {
+      "path": "schemas/v7_1_1_app_manifest.schema.json",
+      "sha256": "2b027abb46d149b4071d6098ea7dd3a8f34b3c37890135fab32de1b33e4cbd96",
+      "size": 1022
+    },
+    {
+      "path": "schemas/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.schema.json",
+      "sha256": "e117b5a3dd2cdf0888fc41690d709c0fddfa01849f669b6da49d4a999fe6fe60",
+      "size": 606
+    },
+    {
+      "path": "schemas/v7_1_1_binding_contract.schema.json",
+      "sha256": "4acdd44c18c3765ad7e9ffcd703e279e11a2006996ff8c67c2f2fec221be510d",
+      "size": 1007
+    },
+    {
       "path": "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
       "sha256": "255491523a4856fab366c376bab59fff767b2801c668896bd57217d2b762d775",
       "size": 4081
@@ -5767,6 +5842,21 @@
       "path": "schemas/v7_1_1_operational_coverage_gap_report.schema.json",
       "sha256": "d0b962fc11af98e5cd574205445ceede95e4ba2dcb1e60a20a44ed0f922caf03",
       "size": 8920
+    },
+    {
+      "path": "schemas/v7_1_1_semantic_bus_channel.schema.json",
+      "sha256": "74387591705c3134f5671007feed0619d814225c9cebe98ba76b1f7d33f5a440",
+      "size": 571
+    },
+    {
+      "path": "schemas/v7_1_1_semantic_bus_event.schema.json",
+      "sha256": "d7e60b3450fef104fe5c1c63afef361712ce24dc5de76a68ca2b64bc228d80fd",
+      "size": 703
+    },
+    {
+      "path": "schemas/v7_1_1_universal_work.schema.json",
+      "sha256": "d6b95656d8b4ecccb1e26c5ef6e7e39714c7aa81ceb94f880f276f4eb72d4bcd",
+      "size": 778
     },
     {
       "path": "scripts/build_portable_package.py",
@@ -6204,6 +6294,11 @@
       "size": 575
     },
     {
+      "path": "tests/test_v7_1_1_b1_app_boundary_universal_work_qirc_spine.py",
+      "sha256": "aca09a04857c9e82c3bcf29351a4a5ef994dbac26cf4bb7d7cf2d2fc0849286c",
+      "size": 10966
+    },
+    {
       "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
       "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
       "size": 10774
@@ -6237,6 +6332,11 @@
       "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",
       "sha256": "faecde8855f75fd90ac2d84cb8c6b142b9ef9257d56b5fc348ae7cb94bc863bd",
       "size": 30427
+    },
+    {
+      "path": "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
+      "sha256": "a37b27f0fa2f92da3889c7cc4411c957934987f7a3a384a55e21756a9944679c",
+      "size": 16277
     },
     {
       "path": "tools/v7_1_1/check_canon_boundary_integrity.py",

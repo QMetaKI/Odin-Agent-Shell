@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_ref": {},
+    "candidate_only": {},
+    "claim_boundary": {},
+    "constraints": {},
+    "forbidden_actions": {},
+    "input_artifacts": {},
+    "model_policy": {},
+    "output_contract": {},
+    "privacy_class": {},
+    "qirc_event_policy": {},
+    "transformation_verb": {},
+    "work_id": {}
+  },
+  "required": [
+    "work_id",
+    "binding_ref",
+    "input_artifacts",
+    "transformation_verb",
+    "output_contract",
+    "constraints",
+    "privacy_class",
+    "model_policy",
+    "qirc_event_policy",
+    "candidate_only",
+    "forbidden_actions",
+    "claim_boundary"
+  ],
+  "title": "Odin v7.1.1 Universal Work Contract",
+  "type": "object"
+}

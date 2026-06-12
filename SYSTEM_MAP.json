@@ -484,6 +484,7 @@
   },
   "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
   "pr_26_v7_1_1_canon_boundary_integrity_return_report": "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
+  "pr_27_b1_app_boundary_universal_work_qirc_spine_return_report": "docs/codex/reports/PR_27_B1_APP_BOUNDARY_UNIVERSAL_WORK_QIRC_SPINE_RETURN_REPORT.md",
   "python_package": "odin",
   "real_gh_pr_03_provider_worker_boundary": {
     "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
@@ -866,6 +867,17 @@
     "plan": "docs/codex/REAL_GITHUB_PR_EXECUTION_PLAN_V0_8_7.md",
     "registry": "registries/codex_real_pr_handoff_registry.json"
   },
+  "v7_1_1_actual_codex_bundle_plan": "registries/v7_1_1_actual_codex_bundle_plan.json",
+  "v7_1_1_app_manifest_contract": "registries/v7_1_1_app_manifest_contract.json",
+  "v7_1_1_app_manifest_example": "examples/v7_1_1/app_manifest.example.json",
+  "v7_1_1_app_manifest_schema": "schemas/v7_1_1_app_manifest.schema.json",
+  "v7_1_1_b1_app_boundary_universal_work_qirc_spine_report": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+  "v7_1_1_b1_app_boundary_universal_work_qirc_spine_report_schema": "schemas/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.schema.json",
+  "v7_1_1_b1_app_boundary_universal_work_qirc_spine_tests": "tests/test_v7_1_1_b1_app_boundary_universal_work_qirc_spine.py",
+  "v7_1_1_b1_app_boundary_universal_work_qirc_spine_tool": "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
+  "v7_1_1_binding_contract_example": "examples/v7_1_1/binding_contract.example.json",
+  "v7_1_1_binding_contract_registry": "registries/v7_1_1_binding_contract_registry.json",
+  "v7_1_1_binding_contract_schema": "schemas/v7_1_1_binding_contract.schema.json",
   "v7_1_1_canon_boundary_integrity_report": "reports/v7_1_1_canon_boundary_integrity_report.json",
   "v7_1_1_canon_boundary_integrity_report_schema": "schemas/v7_1_1_canon_boundary_integrity_report.schema.json",
   "v7_1_1_canon_boundary_integrity_tests": "tests/test_v7_1_1_canon_boundary_integrity.py",
@@ -883,6 +895,11 @@
   "v7_1_1_road_to_100_coverage_matrix": "registries/v7_1_1_road_to_100_coverage_matrix.json",
   "v7_1_1_road_to_100_ladder_registry": "registries/v7_1_1_road_to_100_ladder.json",
   "v7_1_1_road_to_100_ladder_return_report": "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
+  "v7_1_1_semantic_bus_channel_example": "examples/v7_1_1/semantic_bus_channel.example.json",
+  "v7_1_1_semantic_bus_channel_schema": "schemas/v7_1_1_semantic_bus_channel.schema.json",
+  "v7_1_1_semantic_bus_event_example": "examples/v7_1_1/semantic_bus_event.example.json",
+  "v7_1_1_semantic_bus_event_schema": "schemas/v7_1_1_semantic_bus_event.schema.json",
+  "v7_1_1_semantic_bus_spine_registry": "registries/v7_1_1_semantic_bus_spine_registry.json",
   "v7_1_1_slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
   "v7_1_1_target_canon": {
     "baseline": "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -896,5 +913,8 @@
     "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
     "status": "target_canon_not_runtime_completion"
   },
+  "v7_1_1_universal_work_contract": "registries/v7_1_1_universal_work_contract.json",
+  "v7_1_1_universal_work_example": "examples/v7_1_1/universal_work.example.json",
+  "v7_1_1_universal_work_schema": "schemas/v7_1_1_universal_work.schema.json",
   "version": "0.8.7"
 }

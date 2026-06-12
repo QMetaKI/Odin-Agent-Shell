@@ -1,0 +1,317 @@
+{
+  "channels": [
+    {
+      "candidate_only": true,
+      "channel": "#odin.work",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.work",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.context",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.context",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.lens",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.lens",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.precompute",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.precompute",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.worklet",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.worklet",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.slot",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.slot",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.gaptext",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.gaptext",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.model_packet",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.model_packet",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.critic",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.critic",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.candidate",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.candidate",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.final_gate",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.final_gate",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.trace",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.trace",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#odin.receipt",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "odin.receipt",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#app.digest",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "app.digest",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    },
+    {
+      "candidate_only": true,
+      "channel": "#app.boundary",
+      "claim_boundary": "channel_coordinates_local_semantic_events_only",
+      "family": "app.boundary",
+      "forbidden_event_intents": [
+        "apply_app_change",
+        "mutate_app_state",
+        "write_project_file",
+        "send_external_message",
+        "publish_public_channel",
+        "execute_provider",
+        "execute_live_model",
+        "bypass_final_gate"
+      ],
+      "local_only": true
+    }
+  ],
+  "claim_boundary": "semantic_bus_spine_registry_is_contract_not_qirc_server_runtime_proof",
+  "invariants": [
+    "Semantic Bus coordinates local semantic events only",
+    "Semantic Bus does not own app state",
+    "Semantic Bus does not apply changes",
+    "Semantic Bus does not send externally",
+    "Semantic Bus does not prove QIRC server runtime",
+    "Semantic Bus does not create public rooms or network channels"
+  ],
+  "non_claims": [
+    "not QIRC server runtime proof",
+    "not public channel proof",
+    "not networking proof"
+  ],
+  "registry_id": "odin.v7_1_1_semantic_bus_spine_registry",
+  "required_channel_families": [
+    "#odin.work",
+    "#odin.context",
+    "#odin.lens",
+    "#odin.precompute",
+    "#odin.worklet",
+    "#odin.slot",
+    "#odin.gaptext",
+    "#odin.model_packet",
+    "#odin.critic",
+    "#odin.candidate",
+    "#odin.final_gate",
+    "#odin.trace",
+    "#odin.receipt",
+    "#app.digest",
+    "#app.boundary"
+  ],
+  "required_event_fields": [
+    "event_id",
+    "channel",
+    "event_type",
+    "binding_ref",
+    "work_ref",
+    "payload_ref",
+    "privacy_class",
+    "candidate_only",
+    "causality_refs",
+    "replay_key",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "required_forbidden_event_intents": [
+    "apply_app_change",
+    "mutate_app_state",
+    "write_project_file",
+    "send_external_message",
+    "publish_public_channel",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate"
+  ],
+  "status": "semantic_bus_spine_contract_not_runtime_proof",
+  "version": "7.1.1"
+}

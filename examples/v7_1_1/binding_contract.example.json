@@ -1,0 +1,41 @@
+{
+  "allowed_artifact_refs": [
+    "artifact://example/input-1"
+  ],
+  "allowed_output_contracts": [
+    "candidate_artifact"
+  ],
+  "allowed_qirc_channels": [
+    "#odin.work",
+    "#odin.candidate",
+    "#app.boundary"
+  ],
+  "app_owned_apply": true,
+  "app_owned_external_send": true,
+  "app_owned_state": true,
+  "binding_id": "binding.example.v711.b1",
+  "caller_app_id": "example.app",
+  "candidate_only": true,
+  "claim_boundary": "binding_freezes_work_request_as_candidate_only_not_app_authority",
+  "created_at_utc": "2026-01-01T00:00:00Z",
+  "forbidden_actions": [
+    "mutate_app_state",
+    "write_app_storage",
+    "write_project_file",
+    "send_external_message",
+    "send_network_request",
+    "publish_public_room",
+    "execute_provider",
+    "execute_live_model",
+    "bypass_final_gate",
+    "grant_app_authority"
+  ],
+  "manifest_ref": "manifest.example.v711.b1",
+  "non_claims": [
+    "no Odin apply authorization",
+    "no Odin app state mutation authorization",
+    "no Odin external send authorization"
+  ],
+  "privacy_class": "internal",
+  "work_id": "work.example.v711.b1"
+}

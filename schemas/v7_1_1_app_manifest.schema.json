@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_artifact_families": {},
+    "allowed_output_contracts": {},
+    "allowed_privacy_classes": {},
+    "allowed_qirc_channels": {},
+    "allowed_transformation_verbs": {},
+    "app_id": {},
+    "app_name": {},
+    "app_owned_authorities": {},
+    "app_version": {},
+    "claim_boundary": {},
+    "declared_surfaces": {},
+    "forbidden_actions": {},
+    "manifest_id": {},
+    "non_claims": {},
+    "odin_owned_authorities": {}
+  },
+  "required": [
+    "manifest_id",
+    "app_id",
+    "app_name",
+    "app_version",
+    "declared_surfaces",
+    "allowed_artifact_families",
+    "allowed_transformation_verbs",
+    "allowed_output_contracts",
+    "allowed_privacy_classes",
+    "allowed_qirc_channels",
+    "forbidden_actions",
+    "app_owned_authorities",
+    "odin_owned_authorities",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "Odin v7.1.1 App Manifest Contract",
+  "type": "object"
+}

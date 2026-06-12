@@ -1,0 +1,266 @@
+{
+  "absorbed_future_pr_families": [
+    "PR-27-APP-BOUNDARY-UNIVERSAL-WORK",
+    "PR-28-QIRC-SEMANTIC-BUS"
+  ],
+  "app_manifest_checks": [
+    {
+      "check_id": "manifest_forbidden_actions",
+      "detail": "missing=[]",
+      "status": "ok"
+    },
+    {
+      "check_id": "manifest_app_owned_authorities",
+      "detail": "missing=[]",
+      "status": "ok"
+    },
+    {
+      "check_id": "manifest_odin_owned_candidate_authorities",
+      "detail": "missing=[]",
+      "status": "ok"
+    }
+  ],
+  "binding_contract_checks": [
+    {
+      "check_id": "binding_candidate_only",
+      "detail": "candidate_only must be true",
+      "status": "ok"
+    },
+    {
+      "check_id": "binding_app_owned_apply",
+      "detail": "app_owned_apply must remain true",
+      "status": "ok"
+    },
+    {
+      "check_id": "binding_app_owned_state",
+      "detail": "app_owned_state must remain true",
+      "status": "ok"
+    },
+    {
+      "check_id": "binding_app_owned_external_send",
+      "detail": "app_owned_external_send must remain true",
+      "status": "ok"
+    }
+  ],
+  "bundle": {
+    "actual_pr": "PR-27",
+    "bundle_id": "B1",
+    "claim_boundary": "bundle_report_maps_contract_spine_not_runtime_completion",
+    "slice_count": 26,
+    "slice_range": "V711-R100-022..047"
+  },
+  "claim_boundary": "b1_report_is_static_contract_validation_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_violations": [],
+  "hidden_authority_checks": [
+    {
+      "check_id": "semantic_event_intent_not_forbidden",
+      "detail": "intent=coordinate_semantic_event",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_write_project_file_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_send_external_message_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_execute_provider_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_execute_live_model_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_bypass_final_gate_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    },
+    {
+      "check_id": "hidden_authority_publish_public_room_forbidden",
+      "detail": "manifest forbids hidden authority intent",
+      "status": "ok"
+    }
+  ],
+  "non_claims": [
+    "no runtime completion claim",
+    "no production readiness claim",
+    "no release certification claim",
+    "no security certification claim",
+    "no target-host proof claim",
+    "no live model inference proof claim",
+    "no model quality proof claim",
+    "no QIRC server runtime proof claim",
+    "no provider execution proof claim",
+    "no app-owned apply/state/external-send authority claim"
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_app_manifest_contract.json",
+    "registries/v7_1_1_binding_contract_registry.json",
+    "registries/v7_1_1_universal_work_contract.json",
+    "registries/v7_1_1_semantic_bus_spine_registry.json"
+  ],
+  "report_id": "odin.v7_1_1_b1_app_boundary_universal_work_qirc_spine_report",
+  "schema_refs": [
+    "schemas/v7_1_1_app_manifest.schema.json",
+    "schemas/v7_1_1_binding_contract.schema.json",
+    "schemas/v7_1_1_universal_work.schema.json",
+    "schemas/v7_1_1_semantic_bus_event.schema.json",
+    "schemas/v7_1_1_semantic_bus_channel.schema.json",
+    "schemas/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.schema.json"
+  ],
+  "semantic_bus_checks": [
+    {
+      "check_id": "semantic_bus_channels",
+      "detail": "required channel families present",
+      "status": "ok"
+    },
+    {
+      "check_id": "semantic_bus_forbidden_intents",
+      "detail": "required forbidden intents present",
+      "status": "ok"
+    }
+  ],
+  "senior_code_reviewer_notes": [
+    "Validator is deterministic for a supplied timestamp and writes only the requested report path.",
+    "Negative hidden-authority checks fail closed on forbidden manifest, binding, and event inputs.",
+    "No provider, live model, network, or QIRC server behavior is executed."
+  ],
+  "senior_reviewer_notes": [
+    "B1 maps canonical slices while preserving the canonical ladder as source input.",
+    "Contracts keep app state, apply, persistence, and external send app-owned.",
+    "QIRC/Semantic Bus entries are local coordination contracts only."
+  ],
+  "slice_coverage": [
+    {
+      "slice_id": "V711-R100-022",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-023",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-024",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-025",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-026",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-027",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-028",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-029",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-030",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-031",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-032",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-033",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-034",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-035",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-036",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-037",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-038",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-039",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-040",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-041",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-042",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-043",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-044",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-045",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-046",
+      "status": "mapped_not_runtime_proof"
+    },
+    {
+      "slice_id": "V711-R100-047",
+      "status": "mapped_not_runtime_proof"
+    }
+  ],
+  "source_refs": [
+    "registries/v7_1_1_road_to_100_ladder.json",
+    "registries/v7_1_1_actual_codex_bundle_plan.json"
+  ],
+  "status": "local_contract_spine_report_not_runtime_proof",
+  "universal_work_checks": [
+    {
+      "check_id": "universal_work_lifecycle",
+      "detail": "required lifecycle states present",
+      "status": "ok"
+    },
+    {
+      "check_id": "universal_work_failure_reasons",
+      "detail": "required failure reasons present",
+      "status": "ok"
+    }
+  ],
+  "version": "7.1.1"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_event_types": {},
+    "candidate_only": {},
+    "channel": {},
+    "claim_boundary": {},
+    "family": {},
+    "forbidden_event_intents": {},
+    "local_only": {},
+    "non_claims": {}
+  },
+  "required": [
+    "channel",
+    "family",
+    "local_only",
+    "candidate_only",
+    "allowed_event_types",
+    "forbidden_event_intents",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "Odin v7.1.1 Semantic Bus Channel",
+  "type": "object"
+}
