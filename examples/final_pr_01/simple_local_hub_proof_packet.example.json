@@ -1,0 +1,29 @@
+{
+  "artifact_kind": "odin_simple_local_hub_proof_packet",
+  "status": "ok_with_known_gaps",
+  "candidate_only": true,
+  "local_only": true,
+  "host": "127.0.0.1",
+  "browser_hub_visible": true,
+  "normal_user_status_visible": true,
+  "model_picker_placeholder_visible": true,
+  "connected_apps_placeholder_visible": true,
+  "activity_placeholder_visible": true,
+  "qirc_status_placeholder_visible": true,
+  "handoff_first_placeholder_visible": true,
+  "dev_mode_placeholder_visible": true,
+  "not_proven": [
+    "provider_execution",
+    "model_inference",
+    "qirc_core_runtime",
+    "handoff_compiler_runtime",
+    "app_bridge_runtime",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "production_readiness",
+    "security_certification"
+  ],
+  "claim_boundary": "simple_local_hub_local_receipt_not_runtime_completion_not_production"
+}
