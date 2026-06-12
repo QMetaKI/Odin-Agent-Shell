@@ -43,6 +43,7 @@ EXTERNAL_NETWORK_PATTERNS = [
 SCAN_DIRS = [
     "odin/providers",
     "odin/runtime_security",
+    "odin/execution_gate",
 ]
 
 # Files exempt from scanning: scanner itself (defines marker strings as data),
@@ -158,6 +159,56 @@ def _check_provider_policy_boundaries() -> list[dict]:
     return findings
 
 
+def _check_execution_gate_policy_boundaries() -> list[dict]:
+    """Verify execution gate policy does not enable forbidden execution by default."""
+    findings = []
+    try:
+        from odin.execution_gate.policy import DEFAULT_EXECUTION_GATE_POLICY as p
+        if p.local_candidate_execution_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "local_candidate_execution_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has local_candidate_execution_allowed=True",
+            })
+        if p.remote_execution_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "remote_execution_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has remote_execution_allowed=True",
+            })
+        if p.api_key_reads_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "api_key_reads_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has api_key_reads_allowed=True",
+            })
+        if p.external_network_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "external_network_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has external_network_allowed=True",
+            })
+        if p.app_apply_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "app_apply_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has app_apply_allowed=True",
+            })
+        if p.external_send_allowed:
+            findings.append({
+                "source": "execution_gate_policy",
+                "marker": "external_send_allowed=True",
+                "excerpt": "DEFAULT_EXECUTION_GATE_POLICY has external_send_allowed=True",
+            })
+    except Exception as exc:
+        findings.append({
+            "source": "execution_gate_policy",
+            "marker": "import_error",
+            "excerpt": str(exc)[:120],
+        })
+    return findings
+
+
 def scan_content(content: str, source: str = "synthetic") -> list[dict]:
     """Public API: scan arbitrary content for forbidden markers. Used in tests."""
     return _scan_content_for_forbidden(content, source)
@@ -177,6 +228,10 @@ def run_runtime_security_smoke(repo_root: Path | None = None) -> RuntimeSecurity
     # 2. Policy boundary check — all providers must have execution_allowed=False
     policy_findings = _check_provider_policy_boundaries()
     all_findings.extend(policy_findings)
+
+    # 3. Execution gate policy boundary check — FINAL-PR-05
+    gate_findings = _check_execution_gate_policy_boundaries()
+    all_findings.extend(gate_findings)
 
     result.forbidden_findings = all_findings
     result.api_key_reads = any(

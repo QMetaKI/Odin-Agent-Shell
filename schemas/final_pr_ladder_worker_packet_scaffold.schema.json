@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR Ladder Worker Packet Scaffold",
+  "description": "Schema for the FINAL-PR ladder worker packet scaffold. Not a Thor replacement. candidate_only: true.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "target_pr_id",
+    "candidate_only",
+    "sections",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_final_pr_worker_packet_scaffold"
+    },
+    "target_pr_id": { "type": "string" },
+    "source_return_report": { "type": "string" },
+    "prior_report_exists": { "type": "boolean" },
+    "profile": {
+      "type": "string",
+      "enum": ["claude-code", "codex", "generic"]
+    },
+    "candidate_only": { "type": "boolean", "const": true },
+    "local_only": { "type": "boolean", "const": true },
+    "sections": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "not_proven": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "generated_at": { "type": "string" },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claim_boundary": {
+      "type": "string",
+      "const": "final_pr_ladder_scaffold_not_full_prompt_compiler"
+    }
+  },
+  "additionalProperties": true
+}

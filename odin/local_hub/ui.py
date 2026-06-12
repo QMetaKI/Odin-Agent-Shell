@@ -55,6 +55,15 @@ REQUIRED_IDS = [
     "secret-scan-status",
     "network-boundary-status",
     "qirc-provider-events-status",
+    # FINAL-PR-05 Execution Gate + Ladder Scaffold additions
+    "execution-gate-status",
+    "mock-execution-panel",
+    "mock-execution-result",
+    "local-candidate-policy-status",
+    "execution-boundary-status",
+    "proof-chain-status",
+    "final-pr-ladder-scaffold-status",
+    "model-execution-warning",
 ]
 
 REQUIRED_COPY = [
@@ -83,6 +92,15 @@ REQUIRED_COPY = [
     "No API keys are read.",
     "No external network is used.",
     "Provider execution remains disabled by default.",
+    # FINAL-PR-05 additions
+    "Mock execution is local and deterministic.",
+    "Mock execution is not model inference.",
+    "No real model is executed by default.",
+    "Local candidate execution is disabled by default.",
+    "Apps still decide what to apply.",
+    "Remote providers and API keys are not used.",
+    "Proof chain links receipts but does not prove production readiness.",
+    "FINAL-PR Ladder scaffold is not a full Thor replacement.",
 ]
 
 
@@ -319,6 +337,55 @@ def generate_hub_html() -> str:
 <div id="qirc-provider-events-status" class="section">
   <div class="label">QIRC Provider Events</div>
   <p class="note">Provider probe emits local events on #odin.model channel. Local-only. Candidate-only. No public QIRC transport. No federation.</p>
+</div>
+
+<div id="execution-gate-status" class="section">
+  <div class="label">Execution Gate Status</div>
+  <p>No real model is executed by default.</p>
+  <p class="note">GET /execution-gate/status.json. mock_execution_allowed=true. local_candidate_execution_allowed=false. remote_execution_allowed=false. api_key_reads_allowed=false.</p>
+</div>
+
+<div id="mock-execution-panel" class="section">
+  <div class="label">Mock Execution Panel</div>
+  <p>Mock execution is local and deterministic.</p>
+  <p>Mock execution is not model inference.</p>
+  <p class="note">POST /execution-gate/mock. Sends a deterministic candidate response. No model, no subprocess, no inference. Apps still decide what to apply.</p>
+</div>
+
+<div id="mock-execution-result" class="section">
+  <div class="label">Mock Execution Result</div>
+  <p class="note">Mock execution result is a candidate packet. artifact_kind: odin_mock_execution_response_packet. candidate_only: true. local_only: true. app_apply: false.</p>
+</div>
+
+<div id="local-candidate-policy-status" class="section">
+  <div class="label">Local Candidate Policy Status</div>
+  <p>Local candidate execution is disabled by default.</p>
+  <p class="note">ollama_candidate and llama_cpp_candidate require explicit future gate. ci_must_not_require_binary: true. No Ollama generate/chat/embed/run. No llama.cpp model run.</p>
+</div>
+
+<div id="execution-boundary-status" class="section">
+  <div class="label">Execution Boundary Status</div>
+  <p>Remote providers and API keys are not used.</p>
+  <p class="note">remote_execution_allowed=false. api_key_reads_allowed=false. external_network_allowed=false. external_send_allowed=false. app_apply_allowed=false.</p>
+</div>
+
+<div id="proof-chain-status" class="section">
+  <div class="label">Proof Chain Status</div>
+  <p>Proof chain links receipts but does not prove production readiness.</p>
+  <p class="note">GET /execution-gate/proof-chain.json. References FINAL-PR-01 through FINAL-PR-05. candidate_only: true. not_proven includes production_readiness, live_model_inference.</p>
+</div>
+
+<div id="final-pr-ladder-scaffold-status" class="section">
+  <div class="label">FINAL-PR Ladder Scaffold Status</div>
+  <p>FINAL-PR Ladder scaffold is not a full Thor replacement.</p>
+  <p class="note">GET /final-pr-ladder/scaffold.json. Scaffold only — does not generate full prompts. claim_boundary: final_pr_ladder_scaffold_not_full_prompt_compiler.</p>
+</div>
+
+<div id="model-execution-warning" class="section">
+  <div class="label">Model Execution Warning</div>
+  <p>No real model is executed by default.</p>
+  <p>Mock execution is not model inference.</p>
+  <p class="note">This hub does not perform real model inference. All execution is deterministic mock only. Real local model execution requires explicit future gate (FINAL-PR-06+). Remote providers are permanently forbidden in this PR.</p>
 </div>
 
 <div id="dev-mode-entry" class="section dev">

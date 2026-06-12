@@ -1,4 +1,4 @@
-"""Simple Local Hub HTTP server — FINAL-PR-01/02/03/04.
+"""Simple Local Hub HTTP server — FINAL-PR-01/02/03/04/05.
 
 Claim boundary: simple_local_hub_localhost_only_candidate_no_app_apply_no_external_send_no_provider_execution
 
@@ -23,6 +23,10 @@ Endpoints:
   GET /providers/probe.json     — provider probe readiness status (FINAL-PR-04)
   POST /providers/probe         — safe local provider probe, candidate-only (FINAL-PR-04)
   GET /security/runtime-smoke.json — runtime security smoke result (FINAL-PR-04)
+  GET /execution-gate/status.json  — execution gate policy status (FINAL-PR-05)
+  POST /execution-gate/mock        — deterministic mock execution (FINAL-PR-05)
+  GET /execution-gate/proof-chain.json — proof chain cross-references (FINAL-PR-05)
+  GET /final-pr-ladder/scaffold.json   — FINAL-PR ladder scaffold (FINAL-PR-05)
 """
 from __future__ import annotations
 
@@ -107,6 +111,23 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             result = run_runtime_security_smoke(Path(__file__).resolve().parents[2])
             body = json.dumps(result.as_dict(), indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
+        elif self.path == "/execution-gate/status.json":
+            from odin.execution_gate.policy import DEFAULT_EXECUTION_GATE_POLICY
+            body = json.dumps(DEFAULT_EXECUTION_GATE_POLICY.as_dict(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/execution-gate/proof-chain.json":
+            from odin.proof_chain.builder import build_proof_chain
+            body = json.dumps(build_proof_chain(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/final-pr-ladder/scaffold.json":
+            from odin.final_pr_ladder.compiler import compile_worker_packet_scaffold
+            scaffold = compile_worker_packet_scaffold(
+                target_pr_id="FINAL-PR-06",
+                prior_return_report_path="reports/final_pr_05_execution_gate_report.json",
+                profile="claude-code",
+            )
+            body = json.dumps(scaffold, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)
@@ -147,6 +168,18 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             for p in packet.get("providers", []):
                 append_event(channel="#odin.model", kind="provider_probe_status", source="local_hub_post", payload={k: p.get(k) for k in ("provider_id", "status", "probe_allowed", "execution_allowed", "candidate_only", "local_only", "model_inference", "provider_execution")})
             body = json.dumps(packet, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/execution-gate/mock":
+            content_length = int(self.headers.get("Content-Length", 0))
+            raw_body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+            try:
+                payload = json.loads(raw_body.decode("utf-8"))
+            except Exception:
+                payload = {}
+            input_text = str(payload.get("input", "demo mock input"))
+            from odin.execution_gate.gateway import execute_candidate
+            result = execute_candidate(input_text=input_text, provider_id="mock")
+            body = json.dumps(result, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

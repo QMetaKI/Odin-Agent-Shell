@@ -1,0 +1,80 @@
+{
+  "artifact_kind": "odin_final_pr_05_thor_effectiveness_audit",
+  "status": "ok",
+  "candidate_only": true,
+  "local_only": true,
+  "finding_count": 7,
+  "findings": [
+    {
+      "id": "thor_f01",
+      "observation": "Execution gate policy contract complete with all required fields",
+      "cause": "Prior PR-04 provider policy contract used as template",
+      "finding": "Policy contract is complete with correct default values",
+      "improvement": "Future gate opening could use LocalCandidateGateToken",
+      "priority": "low",
+      "status": "done"
+    },
+    {
+      "id": "thor_f02",
+      "observation": "Mock execution contract clarity — explicit triad mock_execution/real_provider_execution/model_inference",
+      "cause": "Ambiguous mock_only terminology replaced with explicit triad",
+      "finding": "Terminology is unambiguous in all response packets",
+      "improvement": "execution_kind: mock_deterministic field added",
+      "priority": "high",
+      "status": "done"
+    },
+    {
+      "id": "thor_f03",
+      "observation": "Local candidate blocked-by-default contract with ci_must_not_require_binary",
+      "cause": "CI environments may not have Ollama or llama.cpp",
+      "finding": "LocalCandidatePolicy.ci_must_not_require_binary added",
+      "improvement": "Add ci_skip_reason field",
+      "priority": "medium",
+      "status": "done"
+    },
+    {
+      "id": "thor_f04",
+      "observation": "Proof chain cross-reference gap — no unified chain existed before this PR",
+      "cause": "Each PR was a standalone deliverable",
+      "finding": "Proof chain registry maps all 5 FINAL-PRs",
+      "improvement": "Add proof_chain_version field",
+      "priority": "medium",
+      "status": "done"
+    },
+    {
+      "id": "thor_f05",
+      "observation": "FINAL-PR ladder compiler scaffold scope correctly bounded",
+      "cause": "Full Thor replacement out of scope",
+      "finding": "Scaffold claimed correctly as final_pr_ladder_scaffold_not_full_prompt_compiler",
+      "improvement": "Thor vNext generates full handoff prompts",
+      "priority": "medium",
+      "status": "defer_to_thor_vnext"
+    },
+    {
+      "id": "thor_f06",
+      "observation": "Warning block generation — all 8 required copy items included",
+      "cause": "Prior PR audits showed ambiguous boundaries lead to overclaims",
+      "finding": "UI warning copy is explicit and complete",
+      "improvement": "None needed",
+      "priority": "done",
+      "status": "done"
+    },
+    {
+      "id": "thor_f07",
+      "observation": "Thor vNext handoff material accumulated across PR-01..05",
+      "cause": "5 complete return reports + proof chain + ladder scaffold form Thor vNext seed",
+      "finding": "Thor vNext should receive proof chain registry, ladder sections, and validator expectations",
+      "improvement": "Create THOR_VNEXT_HANDOFF_SEED.md in FINAL-PR-06",
+      "priority": "low",
+      "status": "defer_to_final_pr_06"
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ],
+  "generated_at": "2026-06-12T19:00:00Z",
+  "claim_boundary": "final_pr_05_thor_audit_candidate_only_not_runtime_proof"
+}

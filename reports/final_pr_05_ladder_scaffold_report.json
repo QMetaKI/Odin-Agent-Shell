@@ -1,0 +1,19 @@
+{
+  "artifact_kind": "odin_final_pr_ladder_scaffold_proof",
+  "claim_boundary": "final_pr_ladder_scaffold_not_full_prompt_compiler",
+  "generated_at": "2026-06-12T19:25:16Z",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "complete_prompt_generation",
+    "thor_runtime_replacement"
+  ],
+  "scaffold_candidate_only": true,
+  "scaffold_not_thor_replacement": true,
+  "scaffold_present": true,
+  "sections_count": 7,
+  "status": "ok",
+  "target_pr_id": "FINAL-PR-06"
+}
