@@ -1,0 +1,56 @@
+{
+  "absolute_path_redaction_policy": "commit only repo-relative paths, command names, and distilled statuses; omit raw absolute scan output",
+  "candidate_only": true,
+  "capability_report_ref": "python -m thor capabilities --json observed available local CLI surfaces",
+  "claim_boundary": "thor_intake_is_source_truth_intake_only_not_external_release_or_runtime_bridge_proof",
+  "handoff_summary_status": "succeeded_markdown_candidate_only",
+  "known_gaps": [
+    "v4.1.2 tag not verified",
+    "GitHub Release not verified",
+    "PyPI publication not verified",
+    "release assets not verified",
+    "Thor-Odin runtime bridge not real; static design/source-safe surfaces only"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority",
+    "not_thor_release_proof",
+    "not_pypi_proof",
+    "not_odin_runtime_bridge_proof"
+  ],
+  "pr_section_status": "succeeded_markdown_candidate_only",
+  "release_status": {
+    "assets": "assets_not_verified",
+    "github_release": "github_release_not_verified",
+    "pypi": "pypi_not_verified",
+    "state": "prepared_not_released",
+    "tag": "tag_not_verified"
+  },
+  "source_safe_exports": [
+    "distilled command statuses",
+    "version and release posture summary",
+    "capability surface names",
+    "redacted target repo cognition status"
+  ],
+  "target_repo_cognition_ref": "/tmp/odin_b7_thor_repo_cognition.json distilled only; absolute paths redacted from committed artifacts",
+  "thor_commit": "23ef7fa38e774426e9ae47f7392894098ad21831",
+  "thor_intake_report_id": "thor_v4_1_2_intake_report.pr33.source_truth",
+  "thor_repo_ref": "github.com/QMetaKI/Thor-Agent-Kit temporary external checkout",
+  "version_sources": [
+    "README.md:4.1.2 prepared_not_released",
+    "docs/RELEASE_STATUS.md:4.1.2 prepared_not_released",
+    "pyproject.toml:version 4.1.2",
+    "src/thor/__init__.py:4.1.2",
+    "src/thor/capabilities.py:version 4.1.2 release_posture prepared_not_released"
+  ],
+  "y_compose_dry_run_status": "succeeded_json_dry_run_no_files_written",
+  "y_handoff_dry_run_status": "succeeded_json_dry_run_no_files_written"
+}

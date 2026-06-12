@@ -1,0 +1,498 @@
+{
+  "claim_boundary": "b7_report_is_static_eval_not_runtime_release_security_or_target_host_proof",
+  "closure_review_checks": [
+    {
+      "check": "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_provider_policy_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_local_provider_seam_prep_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_receipt_ledger_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_receipt_boundary_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_closure_guard_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_b7_plus_handoff_plan_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "schemas/v7_1_1_b7_closure_review.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_b7_closure_review_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/b7_closure_review.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "b7_closure_review candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "b7_closure_review boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "b7_closure_review registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "schemas/v7_1_1_b7_evaluation_report.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_b7_evaluation_report_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/b7_evaluation_report.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "b7_evaluation_report candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "b7_evaluation_report boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "b7_evaluation_report registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "closure review consumes B1-B6",
+      "status": "pass"
+    },
+    {
+      "check": "closure review has no hard blockers",
+      "status": "pass"
+    },
+    {
+      "check": "B7 evaluation report known gaps non-empty",
+      "status": "pass"
+    },
+    {
+      "check": "B7 evaluation report deferred items non-empty",
+      "status": "pass"
+    },
+    {
+      "check": "B7 evaluation report next recommendations non-empty",
+      "status": "pass"
+    },
+    {
+      "check": "no final gate/apply gate elevation",
+      "status": "pass"
+    },
+    {
+      "check": "no receipt ledger/absolute truth elevation",
+      "status": "pass"
+    },
+    {
+      "check": "no receipt ledger/as absolute truth elevation",
+      "status": "pass"
+    }
+  ],
+  "deferred_items": [
+    "security review separately",
+    "target-host runtime separately",
+    "production/release readiness separately",
+    "actual provider runtime execution separately"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_violations": [],
+  "known_gaps": [
+    "real_thor_pack_intake_not_runtime_integrated",
+    "actual_provider_inference_not_run",
+    "security_review_not_performed",
+    "target_host_runtime_not_proven",
+    "production_deployment_not_proven",
+    "release_approval_not_granted",
+    "thor_v4_1_2_external_release_not_verified"
+  ],
+  "local_provider_runtime_prep_checks": [
+    {
+      "check": "schemas/v7_1_1_local_provider_runtime_evaluation_prep.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_local_provider_runtime_evaluation_prep_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/local_provider_runtime_evaluation_prep.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "local_provider_runtime_evaluation_prep candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "local_provider_runtime_evaluation_prep boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "local_provider_runtime_evaluation_prep registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "local provider runtime prep actual_inference_run false",
+      "status": "pass"
+    },
+    {
+      "check": "local provider runtime prep actual_benchmark_run false",
+      "status": "pass"
+    },
+    {
+      "check": "local provider runtime prep network_used false",
+      "status": "pass"
+    },
+    {
+      "check": "local provider runtime prep api_key_read false",
+      "status": "pass"
+    },
+    {
+      "check": "local provider runtime prep status allowed",
+      "status": "pass"
+    }
+  ],
+  "next_recommendations": [
+    "run dedicated security review in a separate PR",
+    "run target-host runtime verification separately with receipts",
+    "only evaluate provider runtime after explicit local-only policy and receipt guard",
+    "keep Thor-Odin bridge static until a future runtime contract exists"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_provider_execution_proof",
+    "no_provider_runtime_execution",
+    "no_model_inference",
+    "no_api_key_read",
+    "no_network_provider_call"
+  ],
+  "provider_runtime_policy_checks": [
+    {
+      "check": "schemas/v7_1_1_provider_runtime_evaluation_policy.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_provider_runtime_evaluation_policy_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/provider_runtime_evaluation_policy.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_evaluation_policy candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_evaluation_policy boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_evaluation_policy registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy network_allowed false",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy remote_allowed false",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy api_key_allowed false",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy hidden_remote_fallback_allowed false",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy actual_provider_execution_allowed_in_this_pr false",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy requires_receipt_guard true",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy requires_local_only true",
+      "status": "pass"
+    },
+    {
+      "check": "provider runtime policy requires_explicit_user_or_repo_policy true",
+      "status": "pass"
+    },
+    {
+      "check": "remote network request forbidden",
+      "status": "pass"
+    }
+  ],
+  "provider_runtime_receipt_guard_checks": [
+    {
+      "check": "schemas/v7_1_1_provider_runtime_receipt_guard.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_provider_runtime_receipt_guard_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/provider_runtime_receipt_guard.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_receipt_guard candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_receipt_guard boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "provider_runtime_receipt_guard registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "receipt guard status allowed",
+      "status": "pass"
+    },
+    {
+      "check": "receipt guard authorizes nothing by itself",
+      "status": "pass"
+    }
+  ],
+  "report_id": "odin.v7_1_1_b7_closure_thor_provider_eval_report",
+  "security_separation_checks": [
+    {
+      "check": "schemas/v7_1_1_security_review_separation.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_security_review_separation_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/security_review_separation.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "security_review_separation candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "security_review_separation boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "security_review_separation registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "security certification separated",
+      "status": "pass"
+    }
+  ],
+  "source_refs": [
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+    "registries/v7_1_1_provider_policy_registry.json",
+    "registries/v7_1_1_local_provider_seam_prep_registry.json",
+    "registries/v7_1_1_receipt_ledger_registry.json",
+    "registries/v7_1_1_receipt_boundary_registry.json",
+    "registries/v7_1_1_closure_guard_registry.json",
+    "registries/v7_1_1_b7_plus_handoff_plan_registry.json"
+  ],
+  "status": "b7_static_eval_not_runtime_release_security_or_target_host_proof",
+  "target_host_separation_checks": [
+    {
+      "check": "schemas/v7_1_1_target_host_runtime_separation.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_target_host_runtime_separation_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/target_host_runtime_separation.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "target_host_runtime_separation candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "target_host_runtime_separation boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "target_host_runtime_separation registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "target-host proof separated",
+      "status": "pass"
+    }
+  ],
+  "thor_pack_intake_checks": [
+    {
+      "check": "schemas/v7_1_1_thor_pack_intake_evaluation.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_thor_pack_intake_evaluation_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/thor_pack_intake_evaluation.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "thor_pack_intake_evaluation candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "thor_pack_intake_evaluation boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "thor_pack_intake_evaluation registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "Thor pack status is allowed",
+      "status": "pass"
+    },
+    {
+      "check": "Thor expected pack files listed",
+      "status": "pass"
+    },
+    {
+      "check": "no Thor pack artifacts committed by contract",
+      "status": "pass"
+    },
+    {
+      "check": "no .thor artifacts committed by contract",
+      "status": "pass"
+    }
+  ],
+  "thor_v4_1_2_intake_checks": [
+    {
+      "check": "schemas/v7_1_1_thor_v4_1_2_intake_report.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "registries/v7_1_1_thor_v4_1_2_intake_report_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "examples/v7_1_1/thor_v4_1_2_intake_report.example.json exists",
+      "status": "pass"
+    },
+    {
+      "check": "thor_v4_1_2_intake_report candidate_only true",
+      "status": "pass"
+    },
+    {
+      "check": "thor_v4_1_2_intake_report boundary and non_claims present",
+      "status": "pass"
+    },
+    {
+      "check": "thor_v4_1_2_intake_report registry has item",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes README.md",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes docs/RELEASE_STATUS.md",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes pyproject.toml",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes src/thor/__init__.py",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes src/thor/capabilities.py",
+      "status": "pass"
+    },
+    {
+      "check": "Thor version source includes 4.1.2",
+      "status": "pass"
+    },
+    {
+      "check": "Thor treated as prepared_not_released",
+      "status": "pass"
+    },
+    {
+      "check": "Thor external tag is not verified",
+      "status": "pass"
+    },
+    {
+      "check": "Thor external github_release is not verified",
+      "status": "pass"
+    },
+    {
+      "check": "Thor external pypi is not verified",
+      "status": "pass"
+    },
+    {
+      "check": "Thor external assets is not verified",
+      "status": "pass"
+    }
+  ],
+  "version": "7.1.1"
+}

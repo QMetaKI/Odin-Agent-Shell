@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "actual_provider_execution_allowed_in_this_pr": {
+      "type": "boolean"
+    },
+    "allowed_execution_modes": {
+      "items": {},
+      "type": "array"
+    },
+    "allowed_probe_types": {
+      "items": {},
+      "type": "array"
+    },
+    "allowed_provider_classes": {
+      "items": {},
+      "type": "array"
+    },
+    "api_key_allowed": {
+      "type": "boolean"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "forbidden_probe_types": {
+      "items": {},
+      "type": "array"
+    },
+    "hidden_remote_fallback_allowed": {
+      "type": "boolean"
+    },
+    "network_allowed": {
+      "type": "boolean"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "provider_runtime_evaluation_policy_id": {
+      "type": "string"
+    },
+    "remote_allowed": {
+      "type": "boolean"
+    },
+    "requires_explicit_user_or_repo_policy": {
+      "type": "boolean"
+    },
+    "requires_local_only": {
+      "type": "boolean"
+    },
+    "requires_receipt_guard": {
+      "type": "boolean"
+    },
+    "source_local_provider_seam_prep_ref": {
+      "type": "string"
+    },
+    "source_provider_policy_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider_runtime_evaluation_policy_id",
+    "source_provider_policy_ref",
+    "source_local_provider_seam_prep_ref",
+    "allowed_provider_classes",
+    "allowed_execution_modes",
+    "network_allowed",
+    "remote_allowed",
+    "api_key_allowed",
+    "hidden_remote_fallback_allowed",
+    "requires_receipt_guard",
+    "requires_local_only",
+    "requires_explicit_user_or_repo_policy",
+    "actual_provider_execution_allowed_in_this_pr",
+    "allowed_probe_types",
+    "forbidden_probe_types",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ProviderRuntimeEvaluationPolicy",
+  "type": "object"
+}

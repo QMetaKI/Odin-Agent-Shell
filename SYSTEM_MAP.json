@@ -268,6 +268,50 @@
     "slice_range": "V711-R100-170..189",
     "status": "static_acceptance_dojo_scoreboard_closure_prep_added_not_release_or_runtime_complete"
   },
+  "b7_closure_review_example": "examples/v7_1_1/b7_closure_review.example.json",
+  "b7_closure_thor_provider_eval": {
+    "audit": "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+    "examples": [
+      "examples/v7_1_1/b7_closure_review.example.json",
+      "examples/v7_1_1/thor_v4_1_2_intake_report.example.json",
+      "examples/v7_1_1/thor_pack_intake_evaluation.example.json",
+      "examples/v7_1_1/provider_runtime_evaluation_policy.example.json",
+      "examples/v7_1_1/provider_runtime_receipt_guard.example.json",
+      "examples/v7_1_1/local_provider_runtime_evaluation_prep.example.json",
+      "examples/v7_1_1/security_review_separation.example.json",
+      "examples/v7_1_1/target_host_runtime_separation.example.json",
+      "examples/v7_1_1/b7_evaluation_report.example.json"
+    ],
+    "non_claim": "no provider runtime, model inference, security certification, target-host proof, release approval, or production readiness claim",
+    "registries": [
+      "registries/v7_1_1_b7_closure_review_registry.json",
+      "registries/v7_1_1_thor_v4_1_2_intake_report_registry.json",
+      "registries/v7_1_1_thor_pack_intake_evaluation_registry.json",
+      "registries/v7_1_1_provider_runtime_evaluation_policy_registry.json",
+      "registries/v7_1_1_provider_runtime_receipt_guard_registry.json",
+      "registries/v7_1_1_local_provider_runtime_evaluation_prep_registry.json",
+      "registries/v7_1_1_security_review_separation_registry.json",
+      "registries/v7_1_1_target_host_runtime_separation_registry.json",
+      "registries/v7_1_1_b7_evaluation_report_registry.json"
+    ],
+    "report": "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+    "return_report": "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/v7_1_1_b7_closure_review.schema.json",
+      "schemas/v7_1_1_thor_v4_1_2_intake_report.schema.json",
+      "schemas/v7_1_1_thor_pack_intake_evaluation.schema.json",
+      "schemas/v7_1_1_provider_runtime_evaluation_policy.schema.json",
+      "schemas/v7_1_1_provider_runtime_receipt_guard.schema.json",
+      "schemas/v7_1_1_local_provider_runtime_evaluation_prep.schema.json",
+      "schemas/v7_1_1_security_review_separation.schema.json",
+      "schemas/v7_1_1_target_host_runtime_separation.schema.json",
+      "schemas/v7_1_1_b7_evaluation_report.schema.json"
+    ],
+    "status": "static_eval_not_runtime_release_security_or_target_host_proof",
+    "tests": "tests/test_v7_1_1_b7_closure_thor_provider_eval.py",
+    "tool": "tools/v7_1_1/check_b7_closure_thor_provider_eval.py"
+  },
+  "b7_evaluation_report_example": "examples/v7_1_1/b7_evaluation_report.example.json",
   "canonical_docs": [
     "docs/MASTER_ARCHITECTURE_V7_1.md",
     "docs/MASTER_SPECS_V7_1.md",
@@ -555,6 +599,7 @@
     "pre_llm_intelligence": "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md"
   },
   "license": "GPL-2.0-only",
+  "local_provider_runtime_evaluation_prep_example": "examples/v7_1_1/local_provider_runtime_evaluation_prep.example.json",
   "local_runtime_hub_rebaseline": {
     "agent_operator_mode": {
       "claim_boundary": "planning_pointer_only_no_runtime_behavior",
@@ -772,6 +817,10 @@
   "pr_32_b6_thor_closure_receipt_mapping": "docs/codex/handoffs/PR_32_B6_THOR_CLOSURE_RECEIPT_MAPPING.md",
   "pr_32_b6_thor_compact_handoff_prompt": "docs/codex/handoffs/PR_32_B6_THOR_COMPACT_HANDOFF_PROMPT.md",
   "pr_32_b6_thor_odin_codex_audit": "docs/codex/audits/PR_32_B6_THOR_ODIN_CODEX_AUDIT.md",
+  "pr_33_b7_closure_thor_provider_eval_return_report": "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md",
+  "pr_33_b7_thor_provider_eval_audit": "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+  "provider_runtime_evaluation_policy_example": "examples/v7_1_1/provider_runtime_evaluation_policy.example.json",
+  "provider_runtime_receipt_guard_example": "examples/v7_1_1/provider_runtime_receipt_guard.example.json",
   "python_package": "odin",
   "real_gh_pr_03_provider_worker_boundary": {
     "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
@@ -835,6 +884,7 @@
     ]
   },
   "schemas_dir": "schemas/v7_1",
+  "security_review_separation_example": "examples/v7_1_1/security_review_separation.example.json",
   "shadow_runtime_lock": {
     "bundle": "REAL-PR-09",
     "coverage_docs": [
@@ -856,7 +906,10 @@
     "task": "PR-23"
   },
   "status": "v0.8.7 Codex Real PR Handoff Ladder Lock",
+  "target_host_runtime_separation_example": "examples/v7_1_1/target_host_runtime_separation.example.json",
   "tests_dir": "tests",
+  "thor_pack_intake_evaluation_example": "examples/v7_1_1/thor_pack_intake_evaluation.example.json",
+  "thor_v4_1_2_intake_report_example": "examples/v7_1_1/thor_v4_1_2_intake_report.example.json",
   "v0_6_1_odin_core_qli_dfas_seed_economy": {
     "bundle": "REAL-PR-14",
     "docs": [
@@ -1183,6 +1236,13 @@
   "v7_1_1_b6_acceptance_dojo_scoreboard_closure_report_schema": "schemas/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.schema.json",
   "v7_1_1_b6_acceptance_dojo_scoreboard_closure_tests": "tests/test_v7_1_1_b6_acceptance_dojo_scoreboard_closure.py",
   "v7_1_1_b6_acceptance_dojo_scoreboard_closure_tool": "tools/v7_1_1/check_b6_acceptance_dojo_scoreboard_closure.py",
+  "v7_1_1_b7_closure_review_registry": "registries/v7_1_1_b7_closure_review_registry.json",
+  "v7_1_1_b7_closure_review_schema": "schemas/v7_1_1_b7_closure_review.schema.json",
+  "v7_1_1_b7_closure_thor_provider_eval_report": "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+  "v7_1_1_b7_closure_thor_provider_eval_tests": "tests/test_v7_1_1_b7_closure_thor_provider_eval.py",
+  "v7_1_1_b7_closure_thor_provider_eval_tool": "tools/v7_1_1/check_b7_closure_thor_provider_eval.py",
+  "v7_1_1_b7_evaluation_report_registry": "registries/v7_1_1_b7_evaluation_report_registry.json",
+  "v7_1_1_b7_evaluation_report_schema": "schemas/v7_1_1_b7_evaluation_report.schema.json",
   "v7_1_1_b7_plus_handoff_plan_example": "examples/v7_1_1/b7_plus_handoff_plan.example.json",
   "v7_1_1_b7_plus_handoff_plan_registry": "registries/v7_1_1_b7_plus_handoff_plan_registry.json",
   "v7_1_1_b7_plus_handoff_plan_schema": "schemas/v7_1_1_b7_plus_handoff_plan.schema.json",
@@ -1214,6 +1274,8 @@
   "v7_1_1_gaptext_example": "examples/v7_1_1/gaptext.example.json",
   "v7_1_1_gaptext_schema": "schemas/v7_1_1_gaptext.schema.json",
   "v7_1_1_llm_work_audit_findings_registry": "registries/v7_1_1_llm_work_audit_findings_registry.json",
+  "v7_1_1_local_provider_runtime_evaluation_prep_registry": "registries/v7_1_1_local_provider_runtime_evaluation_prep_registry.json",
+  "v7_1_1_local_provider_runtime_evaluation_prep_schema": "schemas/v7_1_1_local_provider_runtime_evaluation_prep.schema.json",
   "v7_1_1_local_provider_seam_prep_example": "examples/v7_1_1/local_provider_seam_prep.example.json",
   "v7_1_1_local_provider_seam_prep_registry": "registries/v7_1_1_local_provider_seam_prep_registry.json",
   "v7_1_1_local_provider_seam_prep_schema": "schemas/v7_1_1_local_provider_seam_prep.schema.json",
@@ -1230,6 +1292,10 @@
   "v7_1_1_provider_policy_example": "examples/v7_1_1/provider_policy.example.json",
   "v7_1_1_provider_policy_registry": "registries/v7_1_1_provider_policy_registry.json",
   "v7_1_1_provider_policy_schema": "schemas/v7_1_1_provider_policy.schema.json",
+  "v7_1_1_provider_runtime_evaluation_policy_registry": "registries/v7_1_1_provider_runtime_evaluation_policy_registry.json",
+  "v7_1_1_provider_runtime_evaluation_policy_schema": "schemas/v7_1_1_provider_runtime_evaluation_policy.schema.json",
+  "v7_1_1_provider_runtime_receipt_guard_registry": "registries/v7_1_1_provider_runtime_receipt_guard_registry.json",
+  "v7_1_1_provider_runtime_receipt_guard_schema": "schemas/v7_1_1_provider_runtime_receipt_guard.schema.json",
   "v7_1_1_receipt_ledger_example": "examples/v7_1_1/receipt_ledger.example.json",
   "v7_1_1_receipt_ledger_registry": "registries/v7_1_1_receipt_ledger_registry.json",
   "v7_1_1_receipt_ledger_schema": "schemas/v7_1_1_receipt_ledger.schema.json",
@@ -1246,6 +1312,8 @@
   "v7_1_1_sdk_app_bridge_prep_example": "examples/v7_1_1/sdk_app_bridge_prep.example.json",
   "v7_1_1_sdk_app_bridge_prep_registry": "registries/v7_1_1_sdk_app_bridge_prep_registry.json",
   "v7_1_1_sdk_app_bridge_prep_schema": "schemas/v7_1_1_sdk_app_bridge_prep.schema.json",
+  "v7_1_1_security_review_separation_registry": "registries/v7_1_1_security_review_separation_registry.json",
+  "v7_1_1_security_review_separation_schema": "schemas/v7_1_1_security_review_separation.schema.json",
   "v7_1_1_semantic_bus_channel_example": "examples/v7_1_1/semantic_bus_channel.example.json",
   "v7_1_1_semantic_bus_channel_schema": "schemas/v7_1_1_semantic_bus_channel.schema.json",
   "v7_1_1_semantic_bus_event_example": "examples/v7_1_1/semantic_bus_event.example.json",
@@ -1270,9 +1338,15 @@
     "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
     "status": "target_canon_not_runtime_completion"
   },
+  "v7_1_1_target_host_runtime_separation_registry": "registries/v7_1_1_target_host_runtime_separation_registry.json",
+  "v7_1_1_target_host_runtime_separation_schema": "schemas/v7_1_1_target_host_runtime_separation.schema.json",
   "v7_1_1_thor_odin_bridge_prep_example": "examples/v7_1_1/thor_odin_bridge_prep.example.json",
   "v7_1_1_thor_odin_bridge_prep_registry": "registries/v7_1_1_thor_odin_bridge_prep_registry.json",
   "v7_1_1_thor_odin_bridge_prep_schema": "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
+  "v7_1_1_thor_pack_intake_evaluation_registry": "registries/v7_1_1_thor_pack_intake_evaluation_registry.json",
+  "v7_1_1_thor_pack_intake_evaluation_schema": "schemas/v7_1_1_thor_pack_intake_evaluation.schema.json",
+  "v7_1_1_thor_v4_1_2_intake_report_registry": "registries/v7_1_1_thor_v4_1_2_intake_report_registry.json",
+  "v7_1_1_thor_v4_1_2_intake_report_schema": "schemas/v7_1_1_thor_v4_1_2_intake_report.schema.json",
   "v7_1_1_trace_record_example": "examples/v7_1_1/trace_record.example.json",
   "v7_1_1_trace_record_registry": "registries/v7_1_1_trace_record_registry.json",
   "v7_1_1_trace_record_schema": "schemas/v7_1_1_trace_record.schema.json",

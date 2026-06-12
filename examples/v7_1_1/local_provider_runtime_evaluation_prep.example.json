@@ -1,0 +1,33 @@
+{
+  "actual_benchmark_run": false,
+  "actual_inference_run": false,
+  "allowed_probe_type": "dry_run_contract_probe",
+  "api_key_read": false,
+  "candidate_only": true,
+  "claim_boundary": "local_provider_runtime_evaluation_remains_prep_only_no_inference_benchmark_provider_call_network_or_api_key_read",
+  "deferred_runtime_actions": [
+    "future explicit local-only runtime policy",
+    "future receipt ledger entry for any attempted runtime probe",
+    "future no-remote-fallback guard"
+  ],
+  "local_provider_runtime_evaluation_prep_id": "local_provider_runtime_evaluation_prep.pr33.static",
+  "local_provider_seam_prep_ref": "local_provider_seam_prep.b5.static",
+  "network_used": false,
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "probe_result_ref": "no local runtime probe executed; prep record only",
+  "probe_status": "static_contract_only",
+  "provider_class": "cannot_safely_complete",
+  "provider_runtime_evaluation_policy_ref": "provider_runtime_evaluation_policy.pr33.default_block",
+  "provider_runtime_receipt_guard_ref": "provider_runtime_receipt_guard.pr33.static"
+}

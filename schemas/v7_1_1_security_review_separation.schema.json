@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "excluded_from_b7_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "required_future_security_evidence": {
+      "items": {},
+      "type": "array"
+    },
+    "security_review_separation_id": {
+      "type": "string"
+    },
+    "security_review_status": {
+      "type": "string"
+    },
+    "security_scope": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "security_review_separation_id",
+    "security_review_status",
+    "security_scope",
+    "excluded_from_b7_claims",
+    "required_future_security_evidence",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "SecurityReviewSeparation",
+  "type": "object"
+}

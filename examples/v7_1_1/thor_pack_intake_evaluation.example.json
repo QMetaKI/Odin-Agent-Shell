@@ -1,0 +1,72 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "thor_pack_intake_is_static_file_shape_evaluation_only_not_session_runtime_claim_acceptance_patch_apply_or_correctness_proof",
+  "expected_thor_pack_files": [
+    "README.md",
+    "HANDOFF.md",
+    "PATCHPLAN.md",
+    "GUARD.md",
+    "EXPECTED_OUTPUT.md",
+    "RETURN_CONTRACT.md",
+    "REPO_CONTEXT.md",
+    "READ_ORDER.md",
+    "CHECKLIST.md",
+    "RETURN_MANIFEST_TEMPLATE.json",
+    "PACK_MANIFEST.json"
+  ],
+  "intake_status": "shape_valid_static",
+  "mapped_odin_artifacts": [
+    "README.md->source context",
+    "HANDOFF.md->candidate handoff context",
+    "PATCHPLAN.md->bounded plan context",
+    "GUARD.md->guard context",
+    "EXPECTED_OUTPUT.md->output contract context",
+    "RETURN_CONTRACT.md->return contract context",
+    "PACK_MANIFEST.json->manifest context"
+  ],
+  "missing_fields": [],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority",
+    "no_pack_content_committed",
+    "no_thor_session_artifacts_committed"
+  ],
+  "observed_thor_pack_files": [
+    "README.md",
+    "HANDOFF.md",
+    "PATCHPLAN.md",
+    "GUARD.md",
+    "EXPECTED_OUTPUT.md",
+    "RETURN_CONTRACT.md",
+    "REPO_CONTEXT.md",
+    "READ_ORDER.md",
+    "CHECKLIST.md",
+    "RETURN_MANIFEST_TEMPLATE.json",
+    "PACK_MANIFEST.json",
+    "WORK_CENTER.json"
+  ],
+  "pack_artifacts_committed": false,
+  "pack_generation_attempted": true,
+  "pack_generation_status": "succeeded_external_temp_only",
+  "receipt_requirements": [
+    "pack command attempted",
+    "pack command status recorded",
+    "expected file names checked",
+    "claim boundary preserved",
+    "absolute paths redacted"
+  ],
+  "thor_intake_report_ref": "thor_v4_1_2_intake_report.pr33.source_truth",
+  "thor_pack_intake_evaluation_id": "thor_pack_intake_evaluation.pr33.shape",
+  "thor_session_artifacts_committed": false,
+  "unsupported_fields": [
+    "WORK_CENTER.json not part of required B7 Odin intake shape"
+  ]
+}

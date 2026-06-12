@@ -572,6 +572,150 @@
       "recommendation": "carry_forward_to_b7_plus_static_or_explicitly_guarded_runtime_review",
       "suggested_future_bundle": "B7+",
       "summary": "B7+ must perform closure review against B1-B6 contracts"
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-001",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "B1-B6 closure review completed as static review only",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-002",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Thor v4.1.2 intake completed as source-truth prepared_not_released review",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-003",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Thor pack intake evaluated as static shape mapping only",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-004",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Provider runtime evaluation remains blocked without explicit policy plus receipt guard",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-005",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "No actual provider execution performed in B7",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-006",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Security review remains separate",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-007",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Target-host runtime remains separate",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
+    },
+    {
+      "bundle_id": "B7",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Record exact commands and non-claims for each external intake.",
+      "finding_id": "B7-AUDIT-008",
+      "finding_type": "b7_static_evaluation_boundary",
+      "odin_side_improvement": "Keep provider runtime gates explicit and fail-closed.",
+      "recommendation": "Preserve B7 as static evaluation and require separate receipts for runtime, security, target-host, release, and provider execution claims.",
+      "severity": "informational",
+      "source_pr": "PR-33",
+      "source_refs": [
+        "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+        "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B8+",
+      "summary": "Local provider runtime future work requires local-only guard and no remote fallback",
+      "thor_side_improvement": "Keep Thor pack intake source-safe and candidate-only."
     }
   ],
   "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",

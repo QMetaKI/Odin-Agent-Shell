@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "absolute_path_redaction_policy": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "capability_report_ref": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "handoff_summary_status": {
+      "type": "string"
+    },
+    "known_gaps": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "pr_section_status": {
+      "type": "string"
+    },
+    "release_status": {
+      "type": "string"
+    },
+    "source_safe_exports": {
+      "items": {},
+      "type": "array"
+    },
+    "target_repo_cognition_ref": {
+      "type": "string"
+    },
+    "thor_commit": {
+      "type": "string"
+    },
+    "thor_intake_report_id": {
+      "type": "string"
+    },
+    "thor_repo_ref": {
+      "type": "string"
+    },
+    "version_sources": {
+      "items": {},
+      "type": "array"
+    },
+    "y_compose_dry_run_status": {
+      "type": "string"
+    },
+    "y_handoff_dry_run_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "thor_intake_report_id",
+    "thor_repo_ref",
+    "thor_commit",
+    "version_sources",
+    "release_status",
+    "capability_report_ref",
+    "target_repo_cognition_ref",
+    "handoff_summary_status",
+    "pr_section_status",
+    "y_compose_dry_run_status",
+    "y_handoff_dry_run_status",
+    "source_safe_exports",
+    "absolute_path_redaction_policy",
+    "known_gaps",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ThorV412IntakeReport",
+  "type": "object"
+}

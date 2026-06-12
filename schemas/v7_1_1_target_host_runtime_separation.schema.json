@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "excluded_from_b7_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "required_future_target_host_evidence": {
+      "items": {},
+      "type": "array"
+    },
+    "runtime_scope": {
+      "items": {},
+      "type": "array"
+    },
+    "target_host_runtime_separation_id": {
+      "type": "string"
+    },
+    "target_host_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_host_runtime_separation_id",
+    "target_host_status",
+    "runtime_scope",
+    "excluded_from_b7_claims",
+    "required_future_target_host_evidence",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "TargetHostRuntimeSeparation",
+  "type": "object"
+}

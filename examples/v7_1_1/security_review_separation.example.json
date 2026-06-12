@@ -1,0 +1,36 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "b7_does_not_certify_security_security_review_is_separate_future_work",
+  "excluded_from_b7_claims": [
+    "security_certification",
+    "security_approval",
+    "security_completeness"
+  ],
+  "non_claims": [
+    "not_release_certification",
+    "not_production_readiness",
+    "not_security_certification",
+    "not_target_host_runtime_proof",
+    "not_deployment_proof",
+    "not_provider_execution_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_benchmark_proof",
+    "not_app_apply_state_or_external_send_authority"
+  ],
+  "required_future_security_evidence": [
+    "dedicated security review plan",
+    "threat model receipts",
+    "negative tests",
+    "maintainer review receipts"
+  ],
+  "security_review_separation_id": "security_review_separation.pr33",
+  "security_review_status": "separate_future_work_not_performed_in_b7",
+  "security_scope": [
+    "threat_model",
+    "secret_handling",
+    "provider_runtime_security",
+    "target_host_controls",
+    "external_send_controls"
+  ]
+}

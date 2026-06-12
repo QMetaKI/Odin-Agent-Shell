@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1449,
+  "file_count_excluding_manifest": 1481,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "34637bb90d27280931328fa8c41b83a89773d636171a9367d4dc8dfa99329d67",
-      "size": 65155
+      "sha256": "465c0edad3226fe30edd87ba4dfe7b104604127e5007fb15cf705bfc2df8e4df",
+      "size": 71101
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1354,6 +1354,11 @@
       "size": 2828
     },
     {
+      "path": "docs/codex/audits/PR_33_B7_THOR_PROVIDER_EVAL_AUDIT.md",
+      "sha256": "553735cf11aa9e423d69b23ab3fd75e7390568a9db71e8569815034b153c5d30",
+      "size": 4612
+    },
+    {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
       "sha256": "ef95b27f391d8cf9e55425a63d229880b4e941a37a685045ed09e7e5ce1e7a8b",
       "size": 4141
@@ -1802,6 +1807,11 @@
       "path": "docs/codex/reports/PR_32_B6_ACCEPTANCE_DOJO_SCOREBOARD_CLOSURE_RETURN_REPORT.md",
       "sha256": "145c6f56264584f041df2264f502f04d1633802fc80e3ac13ef880ec953c0a29",
       "size": 1362
+    },
+    {
+      "path": "docs/codex/reports/PR_33_B7_CLOSURE_THOR_PROVIDER_EVAL_RETURN_REPORT.md",
+      "sha256": "9a4139207492abf027c12c8bc37044ae93d4e70d8c46f70eea1446afafb3669f",
+      "size": 2066
     },
     {
       "path": "docs/codex/reports/REAL-GH-PR-01_RETURN_REPORT.md",
@@ -3254,6 +3264,16 @@
       "size": 694
     },
     {
+      "path": "examples/v7_1_1/b7_closure_review.example.json",
+      "sha256": "4db5f949ce9c9a57a5d2bc3f67efa0c90f649bd74a5b20bb3c7dcd2b4c5c1bd5",
+      "size": 2966
+    },
+    {
+      "path": "examples/v7_1_1/b7_evaluation_report.example.json",
+      "sha256": "a4d996a9014e82de22292fd91353b509945bb92b39fc64812df83981c5545966",
+      "size": 2716
+    },
+    {
       "path": "examples/v7_1_1/b7_plus_handoff_plan.example.json",
       "sha256": "34b172dc0645605736fe8160f31e11d6d4368593b69af488d9edd4314189c76a",
       "size": 1756
@@ -3324,6 +3344,11 @@
       "size": 779
     },
     {
+      "path": "examples/v7_1_1/local_provider_runtime_evaluation_prep.example.json",
+      "sha256": "24002dafd5237c05e7eb6073e8463ad7f20b34b677b539f417a890e7a0fa8b81",
+      "size": 1417
+    },
+    {
       "path": "examples/v7_1_1/local_provider_seam_prep.example.json",
       "sha256": "0d2028fbf8a975fd66a7eee19b46dc0edc9b021d3d7d4c0ada3905e40be7ce49",
       "size": 910
@@ -3357,6 +3382,16 @@
       "path": "examples/v7_1_1/provider_policy.example.json",
       "sha256": "ec1088d799888af1d83e1126db22bb183daada4b82aa7b2dbd700cf632bde6f8",
       "size": 1095
+    },
+    {
+      "path": "examples/v7_1_1/provider_runtime_evaluation_policy.example.json",
+      "sha256": "f086168c73f705328b927182e56fa9ce3b2fa11f61ed82b67511adcc1ae90858",
+      "size": 1824
+    },
+    {
+      "path": "examples/v7_1_1/provider_runtime_receipt_guard.example.json",
+      "sha256": "499bee05cc45dd54e1763d84005afb62060bb8f7fc8b5cb77b26a538ec5f2253",
+      "size": 1461
     },
     {
       "path": "examples/v7_1_1/provider_seam.example.json",
@@ -3394,6 +3429,11 @@
       "size": 1267
     },
     {
+      "path": "examples/v7_1_1/security_review_separation.example.json",
+      "sha256": "f49eb9f0ab3084bf1b873bfb36a115adf911a561de8849217425f4f17bc385bd",
+      "size": 1082
+    },
+    {
       "path": "examples/v7_1_1/semantic_bus_channel.example.json",
       "sha256": "9faea5f0cb41fa5654b60ff49e786adfa68685de3eb29772cc18b564bef42219",
       "size": 641
@@ -3419,6 +3459,11 @@
       "size": 1122
     },
     {
+      "path": "examples/v7_1_1/target_host_runtime_separation.example.json",
+      "sha256": "63a481076f2c7d06d799503f9f562362df1e4bf44beeb63098af42c68f3b8ae3",
+      "size": 1148
+    },
+    {
       "path": "examples/v7_1_1/thor_handoff_intake.example.json",
       "sha256": "9eb4f4163b99ac28ad67da8341d281661a92877f9997202950ffbf980c4af04d",
       "size": 1360
@@ -3427,6 +3472,16 @@
       "path": "examples/v7_1_1/thor_odin_bridge_prep.example.json",
       "sha256": "06d183ed6c316d5a8ed15005bdd60b767727c2f98caebd5ed3c0478b5b1c2ac1",
       "size": 2340
+    },
+    {
+      "path": "examples/v7_1_1/thor_pack_intake_evaluation.example.json",
+      "sha256": "87b152cf813e73d58072944f30e4bf58d479f5cd50ad1562b253764e5094c645",
+      "size": 2239
+    },
+    {
+      "path": "examples/v7_1_1/thor_v4_1_2_intake_report.example.json",
+      "sha256": "38783870f625e8eb040c211ec94e8845d8f5f53265932416941821f4e2288ba1",
+      "size": 2398
     },
     {
       "path": "examples/v7_1_1/tournament_selection.example.json",
@@ -3595,8 +3650,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "e50cfb6ce0076726678961635167d51fd1b1ee3303c8656ce3098f200bf6ddfb",
-      "size": 167106
+      "sha256": "bb48b60664287ea708bf3ba2975f71d9aa7351b99ed419e427bc6bd913931473",
+      "size": 168562
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -5289,6 +5344,16 @@
       "size": 5858
     },
     {
+      "path": "registries/v7_1_1_b7_closure_review_registry.json",
+      "sha256": "90b204836ce67ef727a09e9b05966da8fc50acabb7140b4cfd993a705cabb843",
+      "size": 4052
+    },
+    {
+      "path": "registries/v7_1_1_b7_evaluation_report_registry.json",
+      "sha256": "4b0253a9bcc65a08c6b6cb0c0c23fda39caecc1a91a36c355e6ce1450c55a2f2",
+      "size": 3680
+    },
+    {
       "path": "registries/v7_1_1_b7_plus_handoff_plan_registry.json",
       "sha256": "1711364d844d96b29e0fd7e447eb0be9d3172d0038bf8664ba6fc6ea7018296f",
       "size": 2613
@@ -5370,8 +5435,13 @@
     },
     {
       "path": "registries/v7_1_1_llm_work_audit_findings_registry.json",
-      "sha256": "708416b1fda569170cfad457cccd3ef13880781e22fc77396cc62e251def3f88",
-      "size": 38124
+      "sha256": "31e0cb37aa49122a6791571675e400fda85d93c06eb1ac435036914e229e3eb3",
+      "size": 46337
+    },
+    {
+      "path": "registries/v7_1_1_local_provider_runtime_evaluation_prep_registry.json",
+      "sha256": "e78d895c6ee2195032577819ad05a5e9bc467626fbd87af39a281f0bec6c0fe9",
+      "size": 2281
     },
     {
       "path": "registries/v7_1_1_local_provider_seam_prep_registry.json",
@@ -5412,6 +5482,16 @@
       "path": "registries/v7_1_1_provider_policy_registry.json",
       "sha256": "6f22f3f8b4c5c155affebfc25febfe31fdda494c313f0c8e2f41fd0dcd1ffae3",
       "size": 1632
+    },
+    {
+      "path": "registries/v7_1_1_provider_runtime_evaluation_policy_registry.json",
+      "sha256": "aad3c57ab54e9f081fe85c04a3fc872e62d4008f06803ff037cacba3b63872b0",
+      "size": 2768
+    },
+    {
+      "path": "registries/v7_1_1_provider_runtime_receipt_guard_registry.json",
+      "sha256": "bf411910ca2ad5da8a583b30335f0b4be81accae5aa4d96120962f9126b4e854",
+      "size": 2337
     },
     {
       "path": "registries/v7_1_1_provider_seam_registry.json",
@@ -5459,6 +5539,11 @@
       "size": 1843
     },
     {
+      "path": "registries/v7_1_1_security_review_separation_registry.json",
+      "sha256": "0ef83686632c8cfce8f610eeaf96f4ab669cc8ee1c23e77f987342053783de53",
+      "size": 1934
+    },
+    {
       "path": "registries/v7_1_1_semantic_bus_spine_registry.json",
       "sha256": "4caab435c5199b334f08b93e6f1e898cd5cd075376cf24893335e84c2070e87e",
       "size": 8939
@@ -5484,6 +5569,11 @@
       "size": 1608
     },
     {
+      "path": "registries/v7_1_1_target_host_runtime_separation_registry.json",
+      "sha256": "8b6104a2a6fd597c763519a8f4f0bed6a7147e0376fe1fcf8901c28163a378e7",
+      "size": 2008
+    },
+    {
       "path": "registries/v7_1_1_thor_handoff_intake_registry.json",
       "sha256": "e3a40c16a76a8db281cf731db54bd07e5de2fde1682b39b2db659337fed32f9a",
       "size": 1050
@@ -5492,6 +5582,16 @@
       "path": "registries/v7_1_1_thor_odin_bridge_prep_registry.json",
       "sha256": "ac77211b56efa85c01606f8489bc237db76f460b8d760ca00ac8f5a3174d5d05",
       "size": 3016
+    },
+    {
+      "path": "registries/v7_1_1_thor_pack_intake_evaluation_registry.json",
+      "sha256": "0257e121bd94c7cfc8cb9d4b06cb4e504a65277158f7a70b8cdf2e886af7b34e",
+      "size": 3237
+    },
+    {
+      "path": "registries/v7_1_1_thor_v4_1_2_intake_report_registry.json",
+      "sha256": "7718755e9c84e8639118b27ee0a06d5ca2cea6fe5c02ffcddd3c79a1f3228742",
+      "size": 3328
     },
     {
       "path": "registries/v7_1_1_tournament_selection_registry.json",
@@ -5612,6 +5712,11 @@
       "path": "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
       "sha256": "c98888ed0572007aeb915c18fcdd13214f017c8a565a3cac44e0afb69716a6c1",
       "size": 11894
+    },
+    {
+      "path": "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+      "sha256": "735e73f176956aeb28687c2ac8655199215530ec5f676b46690c1f54231a0fb1",
+      "size": 14088
     },
     {
       "path": "reports/v7_1_1_canon_boundary_integrity_report.json",
@@ -6434,6 +6539,16 @@
       "size": 1619
     },
     {
+      "path": "schemas/v7_1_1_b7_closure_review.schema.json",
+      "sha256": "ea679501aefbd508966c67644d8ceb56659d769a38224b5ccc9dff683e79c90a",
+      "size": 1597
+    },
+    {
+      "path": "schemas/v7_1_1_b7_evaluation_report.schema.json",
+      "sha256": "b05bed2934acaa6ff94bfd73eca8e5b12d3dd8464425752e20745ea3bdcdd2b8",
+      "size": 2002
+    },
+    {
       "path": "schemas/v7_1_1_b7_plus_handoff_plan.schema.json",
       "sha256": "4cb94e8fca28e40bad8ccb2cf3bb6d1395181fb74fa6eb668baa500355cb589e",
       "size": 1967
@@ -6509,6 +6624,11 @@
       "size": 3054
     },
     {
+      "path": "schemas/v7_1_1_local_provider_runtime_evaluation_prep.schema.json",
+      "sha256": "396e47131a8c55eee8b1444eccca53ae72d998ab7260d59ab4280c2835545ef2",
+      "size": 2083
+    },
+    {
       "path": "schemas/v7_1_1_local_provider_seam_prep.schema.json",
       "sha256": "76ff5123f43c5e9e0bb2d984e669a08ff0ed5a5a9edf9b854cd27f7dd60e5e06",
       "size": 2772
@@ -6549,6 +6669,16 @@
       "size": 2727
     },
     {
+      "path": "schemas/v7_1_1_provider_runtime_evaluation_policy.schema.json",
+      "sha256": "7380d039231700d854e27936bec40940f79820bec2ac84211c99c203879341da",
+      "size": 2001
+    },
+    {
+      "path": "schemas/v7_1_1_provider_runtime_receipt_guard.schema.json",
+      "sha256": "1a10edc95d1d0ece79f19f567d3b57406dab592b4974401db669cbc483a445fa",
+      "size": 1576
+    },
+    {
       "path": "schemas/v7_1_1_provider_seam.schema.json",
       "sha256": "36f8b6c79188f4eb0b04e8c9a0f1818d3661c827c3c66d6873cce90174e0a4ad",
       "size": 1889
@@ -6584,6 +6714,11 @@
       "size": 2601
     },
     {
+      "path": "schemas/v7_1_1_security_review_separation.schema.json",
+      "sha256": "11be0bd5d62a1941409e4c744674d1410b7205af02d552168bf840c07fa15f2b",
+      "size": 968
+    },
+    {
       "path": "schemas/v7_1_1_semantic_bus_channel.schema.json",
       "sha256": "74387591705c3134f5671007feed0619d814225c9cebe98ba76b1f7d33f5a440",
       "size": 571
@@ -6609,6 +6744,11 @@
       "size": 2901
     },
     {
+      "path": "schemas/v7_1_1_target_host_runtime_separation.schema.json",
+      "sha256": "398b5463f44c8f63292954de31744c7389376e1baad4f83a9ce7f1d14bff006c",
+      "size": 975
+    },
+    {
       "path": "schemas/v7_1_1_thor_handoff_intake.schema.json",
       "sha256": "c4f58718db527aa312bca03a1b820afc98e83ae3facf652688fc0ca6784d1fc4",
       "size": 3058
@@ -6617,6 +6757,16 @@
       "path": "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
       "sha256": "be79843655d3c3dbdf519f575238991376bb698bf216a7f94e0a644174de973d",
       "size": 3149
+    },
+    {
+      "path": "schemas/v7_1_1_thor_pack_intake_evaluation.schema.json",
+      "sha256": "12f67737b29c701c4a79187f176d5db601f5d60cf816c362cb284455d4571fa4",
+      "size": 1930
+    },
+    {
+      "path": "schemas/v7_1_1_thor_v4_1_2_intake_report.schema.json",
+      "sha256": "71bfbeea0ab82f8aef8e9d21527b327954efe7a6333b1d57378e2aa950471456",
+      "size": 1686
     },
     {
       "path": "schemas/v7_1_1_tournament_selection.schema.json",
@@ -7104,6 +7254,11 @@
       "size": 13356
     },
     {
+      "path": "tests/test_v7_1_1_b7_closure_thor_provider_eval.py",
+      "sha256": "9a2f4e8689a9aa6e8fabfade9ab8f5909da200dd18fdcede4e29ec4aabd1973f",
+      "size": 10872
+    },
+    {
       "path": "tests/test_v7_1_1_canon_boundary_integrity.py",
       "sha256": "344e58ed428843613874f08297f87b96599c1ba063c4bd3ca6dd80c9aab3525d",
       "size": 10774
@@ -7167,6 +7322,11 @@
       "path": "tools/v7_1_1/check_b6_acceptance_dojo_scoreboard_closure.py",
       "sha256": "ced9b42806ecc88de362a18529d5b397a178492604bf097974541ebf2bd94321",
       "size": 21261
+    },
+    {
+      "path": "tools/v7_1_1/check_b7_closure_thor_provider_eval.py",
+      "sha256": "56cd7f4ec32fc8c62757c85e438ff827cf9eedfa2e237314124ef9676097cbc5",
+      "size": 13950
     },
     {
       "path": "tools/v7_1_1/check_canon_boundary_integrity.py",

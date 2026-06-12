@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocking_reasons": {
+      "items": {},
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "guard_status": {
+      "enum": [
+        "guard_pass_static",
+        "guard_warn_static",
+        "guard_block_static",
+        "requires_human_review",
+        "cannot_safely_complete"
+      ]
+    },
+    "non_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "provider_policy_ref": {
+      "type": "string"
+    },
+    "provider_runtime_receipt_guard_id": {
+      "type": "string"
+    },
+    "receipt_boundary_ref": {
+      "type": "string"
+    },
+    "receipt_ledger_ref": {
+      "type": "string"
+    },
+    "required_accepted_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "required_denied_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "required_pending_claim_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "runtime_policy_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider_runtime_receipt_guard_id",
+    "provider_policy_ref",
+    "runtime_policy_ref",
+    "receipt_ledger_ref",
+    "receipt_boundary_ref",
+    "required_accepted_claim_refs",
+    "required_denied_claim_refs",
+    "required_pending_claim_refs",
+    "guard_status",
+    "blocking_reasons",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ProviderRuntimeReceiptGuard",
+  "type": "object"
+}
