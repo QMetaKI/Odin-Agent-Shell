@@ -1,0 +1,72 @@
+{
+  "registry_id": "final_pr_03_qirc_devmode_registry",
+  "version": "1.0.0",
+  "description": "FINAL-PR-03 QIRC Core Dev Mode artifact registry",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_03_qirc_first_slice_local_only_not_public_network_not_runtime_completion",
+  "entries": [
+    {
+      "id": "qirc_core_first_slice",
+      "kind": "implementation",
+      "status": "implemented",
+      "files": [
+        "odin/qirc_core/__init__.py",
+        "odin/qirc_core/policy.py",
+        "odin/qirc_core/channels.py",
+        "odin/qirc_core/events.py",
+        "odin/qirc_core/bus.py",
+        "odin/qirc_core/proof.py"
+      ],
+      "scope": "local_only",
+      "not_proven": ["public_qirc_network", "qirc_federation", "provider_execution"]
+    },
+    {
+      "id": "hub_surface_registry",
+      "kind": "implementation",
+      "status": "implemented",
+      "files": ["odin/local_hub/surface_registry.py"],
+      "surfaces": [8765, 8877, 8878],
+      "canonical_entry": 8765
+    },
+    {
+      "id": "activity_trace_receipt_endpoints",
+      "kind": "implementation",
+      "status": "implemented",
+      "endpoints": [
+        "/activity.json",
+        "/qirc/channels.json",
+        "/qirc/events.json",
+        "/traces.json",
+        "/receipts.json",
+        "/dev/status.json"
+      ]
+    },
+    {
+      "id": "dev_mode_ui_viewers",
+      "kind": "ui",
+      "status": "implemented",
+      "ids": [
+        "qirc-channel-viewer",
+        "qirc-event-viewer",
+        "activity-timeline",
+        "trace-viewer",
+        "receipt-viewer",
+        "handoff-chain-viewer",
+        "surface-map-viewer",
+        "proof-gap-viewer"
+      ]
+    },
+    {
+      "id": "final_pr_03_proof_packet",
+      "kind": "proof",
+      "status": "implemented",
+      "files": [
+        "odin/local_hub/proof_pr03.py",
+        "reports/final_pr_03_qirc_devmode_proof_packet.json",
+        "schemas/final_pr_03_qirc_devmode_proof_packet.schema.json",
+        "examples/final_pr_03/qirc_devmode_proof_packet.example.json"
+      ]
+    }
+  ]
+}

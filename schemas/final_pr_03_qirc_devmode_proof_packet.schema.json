@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-03 QIRC Dev Mode Proof Packet",
+  "description": "Schema for the FINAL-PR-03 QIRC Core Dev Mode proof packet. Candidate-only, local-only.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "status",
+    "candidate_only",
+    "local_only",
+    "qirc_core_first_slice",
+    "qirc_public_network",
+    "qirc_federation",
+    "provider_execution",
+    "model_inference",
+    "app_apply",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_final_pr_03_qirc_devmode_proof_packet"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "ok_with_known_gaps", "failed"]
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "local_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "qirc_core_first_slice": {
+      "type": "boolean"
+    },
+    "qirc_public_network": {
+      "type": "boolean",
+      "const": false
+    },
+    "qirc_federation": {
+      "type": "boolean",
+      "const": false
+    },
+    "activity_timeline_visible": {
+      "type": "boolean"
+    },
+    "trace_viewer_visible": {
+      "type": "boolean"
+    },
+    "receipt_viewer_visible": {
+      "type": "boolean"
+    },
+    "handoff_chain_visible": {
+      "type": "boolean"
+    },
+    "surface_registry_visible": {
+      "type": "boolean"
+    },
+    "surface_conflict_check": {
+      "type": "string"
+    },
+    "provider_execution": {
+      "type": "boolean",
+      "const": false
+    },
+    "model_inference": {
+      "type": "boolean",
+      "const": false
+    },
+    "app_apply": {
+      "type": "boolean",
+      "const": false
+    },
+    "app_state_mutation": {
+      "type": "boolean"
+    },
+    "external_send": {
+      "type": "boolean"
+    },
+    "not_proven": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

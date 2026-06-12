@@ -37,6 +37,15 @@ REQUIRED_IDS = [
     "demo-handoff-context",
     "demo-universal-work-packet",
     "demo-proof-gap-status",
+    # FINAL-PR-03 Dev Mode additions
+    "qirc-channel-viewer",
+    "qirc-event-viewer",
+    "activity-timeline",
+    "trace-viewer",
+    "receipt-viewer",
+    "handoff-chain-viewer",
+    "surface-map-viewer",
+    "proof-gap-viewer",
 ]
 
 REQUIRED_COPY = [
@@ -55,6 +64,10 @@ REQUIRED_COPY = [
     "Connected apps are demo slots only.",
     "Odin can accept a demo Universal Work request and return a candidate response packet.",
     "Apps still decide what to apply.",
+    # FINAL-PR-03 additions
+    "QIRC coordinates locally. Odin gates. Apps decide.",
+    "Activity timeline shows local candidate events.",
+    "Dev Mode: QIRC channels, events, traces, receipts, handoff chain.",
 ]
 
 
@@ -202,6 +215,50 @@ def generate_hub_html() -> str:
   <div id="demo-proof-gap-status" class="dev-row">
     <span class="chip pending">Proof Gaps</span> &#8212; Not proven: model_inference, provider_execution, real_app_bridge_runtime, app_apply, external_send, qirc_core_runtime.
   </div>
+</div>
+
+<!-- FINAL-PR-03: QIRC Dev Mode viewers -->
+<div id="qirc-channel-viewer" class="section">
+  <div class="label">QIRC Channel Viewer</div>
+  <p>QIRC coordinates locally. Odin gates. Apps decide.</p>
+  <p class="note">Local-only channels: GET /qirc/channels.json. Candidate-only. No public network. No federation.</p>
+</div>
+
+<div id="qirc-event-viewer" class="section">
+  <div class="label">QIRC Event Viewer</div>
+  <p class="note">All local QIRC bus events: GET /qirc/events.json. Candidate-only. No app apply. No external send.</p>
+</div>
+
+<div id="activity-timeline" class="section">
+  <div class="label">Activity Timeline</div>
+  <p>Activity timeline shows local candidate events.</p>
+  <p class="note">GET /activity.json returns local activity events from #odin.activity channel. Candidate-only.</p>
+</div>
+
+<div id="trace-viewer" class="section">
+  <div class="label">Trace Viewer</div>
+  <p class="note">GET /traces.json returns trace events from #odin.trace. Local-only. Candidate-only.</p>
+</div>
+
+<div id="receipt-viewer" class="section">
+  <div class="label">Receipt Viewer</div>
+  <p class="note">GET /receipts.json returns receipt events from #odin.receipt. Local-only. Candidate-only.</p>
+</div>
+
+<div id="handoff-chain-viewer" class="section">
+  <div class="label">Handoff Chain Viewer</div>
+  <p class="note">Handoff chain events from #odin.handoff. Local-only. Candidate-only.</p>
+</div>
+
+<div id="surface-map-viewer" class="section">
+  <div class="label">Surface Map Viewer</div>
+  <p class="note">Surface map: 8765 (canonical entry), 8877 (local API), 8878 (browser shell). GET /dev/status.json.</p>
+</div>
+
+<div id="proof-gap-viewer" class="section">
+  <div class="label">Proof Gap Viewer</div>
+  <p>Dev Mode: QIRC channels, events, traces, receipts, handoff chain.</p>
+  <p class="note">Not proven: provider_execution, model_inference, public_qirc_network, qirc_federation, app_apply, app_state_mutation, external_send, production_readiness, security_certification.</p>
 </div>
 
 <div id="dev-mode-entry" class="section dev">

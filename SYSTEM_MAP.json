@@ -766,6 +766,113 @@
     "tests": "tests/test_final_pr_02_model_apps_demo.py",
     "validator": "tools/rebaseline/check_final_pr_02_model_apps_demo.py"
   },
+  "final_pr_03_qirc_core_devmode": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_03_QIRC_CORE_DEVMODE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_03_THOR_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_03_ODIN_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_03_HUB_SURFACE_CONFLICT_AUDIT.md"
+    ],
+    "claim_boundary": "final_pr_03_system_map_is_static_index_not_runtime_proof",
+    "cli_commands": [
+      "validate-final-pr-03-qirc-devmode",
+      "prove-final-pr-03-qirc-devmode"
+    ],
+    "dev_mode_ids": [
+      "qirc-channel-viewer",
+      "qirc-event-viewer",
+      "activity-timeline",
+      "trace-viewer",
+      "receipt-viewer",
+      "handoff-chain-viewer",
+      "surface-map-viewer",
+      "proof-gap-viewer"
+    ],
+    "examples": [
+      "examples/final_pr_03/qirc_devmode_proof_packet.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_03_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_03_THOR_Y_HANDOFF_REQUEST.md",
+      "docs/codex/handoffs/FINAL_PR_03_COMPILED_THOR_Y_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_03_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "docs/codex/handoffs/FINAL_PR_03_HUB_SURFACE_CONVERGENCE_DECISION.md"
+    ],
+    "hub_surfaces": [
+      {
+        "port": 8765,
+        "role": "canonical_normal_user_entry"
+      },
+      {
+        "port": 8877,
+        "role": "local_api_daemon"
+      },
+      {
+        "port": 8878,
+        "role": "browser_hub_shell"
+      }
+    ],
+    "implementation_packages": [
+      "odin/qirc_core/",
+      "odin/local_hub/surface_registry.py",
+      "odin/local_hub/proof_pr03.py"
+    ],
+    "modified_files": [
+      "odin/local_hub/server.py",
+      "odin/local_hub/ui.py",
+      "odin/local_hub/demo_universal_work.py",
+      "odin/cli.py"
+    ],
+    "new_endpoints": [
+      "GET /activity.json",
+      "GET /qirc/channels.json",
+      "GET /qirc/events.json",
+      "GET /traces.json",
+      "GET /receipts.json",
+      "GET /dev/status.json",
+      "POST /qirc/events"
+    ],
+    "not_proven": [
+      "provider_execution",
+      "model_inference",
+      "public_qirc_network",
+      "qirc_federation",
+      "real_external_app_integration",
+      "app_apply",
+      "app_state_mutation",
+      "external_send",
+      "production_readiness",
+      "security_certification"
+    ],
+    "qirc_channels": [
+      "#odin.runtime",
+      "#odin.activity",
+      "#odin.trace",
+      "#odin.receipt",
+      "#odin.handoff",
+      "#odin.dev",
+      "#odin.warning"
+    ],
+    "rebaseline_doc": "docs/rebaseline/FINAL_PR_03_QIRC_CORE_DEVMODE.md",
+    "registries": [
+      "registries/final_pr_03_qirc_devmode_registry.json"
+    ],
+    "reports": [
+      "reports/final_pr_03_qirc_devmode_report.json",
+      "reports/final_pr_03_qirc_devmode_proof_packet.json",
+      "reports/final_pr_03_hub_surface_conflict_report.json",
+      "reports/final_pr_03_thor_effectiveness_audit.json",
+      "reports/final_pr_03_odin_effectiveness_audit.json"
+    ],
+    "return_report": "docs/codex/reports/FINAL_PR_03_QIRC_CORE_DEVMODE_RETURN_REPORT.md",
+    "schemas": [
+      "schemas/final_pr_03_qirc_devmode_proof_packet.schema.json"
+    ],
+    "tests": [
+      "tests/test_final_pr_03_qirc_devmode.py"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_03_qirc_devmode.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",

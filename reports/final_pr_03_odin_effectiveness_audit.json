@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "odin_final_pr_03_odin_effectiveness_audit",
+  "pr": "FINAL-PR-03",
+  "status": "ok",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_03_qirc_first_slice_local_only_not_public_network_not_runtime_completion",
+  "odin_effectiveness": {
+    "work_packet_scoped_correctly": true,
+    "candidate_boundaries_enforced": true,
+    "all_deliverables_specified": true,
+    "proof_packet_shape_correct": true,
+    "return_report_generated": true
+  },
+  "odin_boundary_compliance": {
+    "candidate_only": true,
+    "app_owned_apply": true,
+    "no_forbidden_actions": true
+  },
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}
