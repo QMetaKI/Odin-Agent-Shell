@@ -1,0 +1,69 @@
+{
+  "claim_boundary": "registry_is_static_contract_not_runtime_or_apply_proof",
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_provider_execution_proof"
+  ],
+  "receipt_ledgers": [
+    {
+      "accepted_claim_refs": [
+        "claim.static_schema_added"
+      ],
+      "allowed_statuses": [
+        "accepted",
+        "denied",
+        "pending",
+        "deferred",
+        "requires_human_review",
+        "cannot_safely_complete"
+      ],
+      "candidate_artifact_id": "candidate_artifact.b4.example",
+      "candidate_dna_id": "candidate_dna.b4.example",
+      "candidate_only": true,
+      "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+      "denied_claim_refs": [
+        "claim.runtime_complete"
+      ],
+      "does_not_apply_changes": true,
+      "does_not_send_externally": true,
+      "evidence_refs": [
+        "report.b5.static"
+      ],
+      "is_absolute_truth": false,
+      "is_runtime_proof": false,
+      "ledger_entries": [
+        {
+          "claim_ref": "claim.static_schema_added",
+          "created_at_utc": "2026-01-01T00:00:00Z",
+          "entry_id": "entry.accepted.1",
+          "entry_kind": "static_review",
+          "evidence_ref": "schemas/v7_1_1_storage_record.schema.json",
+          "reason": "schema artifact exists in local tree",
+          "reviewer_ref": "senior_reviewer_simulated",
+          "status": "accepted"
+        }
+      ],
+      "ledger_id": "ledger.b5.example",
+      "non_claims": [
+        "not_runtime_proof",
+        "not_app_apply",
+        "not_external_send",
+        "not_security_certification"
+      ],
+      "not_security_certification": true,
+      "pending_claim_refs": [
+        "claim.future_provider_runtime"
+      ],
+      "receipt_boundary_id": "receipt_boundary.b4.example",
+      "response_packet_id": "response.b4.example",
+      "review_refs": [
+        "review.b5.static"
+      ]
+    }
+  ],
+  "registry_id": "odin.v7_1_1_receipt_ledger_registry",
+  "status": "static_contract_registry_not_runtime_proof",
+  "version": "7.1.1"
+}

@@ -1,0 +1,138 @@
+{
+  "$id": "odin.v7_1_1_thor_odin_bridge_prep.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Static Thor/Odin mapping only; not runtime bridge.",
+  "properties": {
+    "bridge_prep_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "does_not_accept_claims": {
+      "const": true,
+      "description": "Does not accept claims.",
+      "type": "boolean"
+    },
+    "does_not_apply_changes": {
+      "const": true,
+      "description": "Does not apply changes.",
+      "type": "boolean"
+    },
+    "does_not_execute_thor": {
+      "const": true,
+      "description": "Does not execute Thor.",
+      "type": "boolean"
+    },
+    "future_bridge_requirements": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "is_runtime_bridge": {
+      "const": false,
+      "type": "boolean"
+    },
+    "is_static_mapping_only": {
+      "const": true,
+      "description": "Static mapping only.",
+      "type": "boolean"
+    },
+    "mapping_rules": {
+      "description": "Thor to Odin mappings.",
+      "items": {
+        "properties": {
+          "mapping_kind": {
+            "description": "",
+            "type": "string"
+          },
+          "odin_target": {
+            "description": "",
+            "type": "string"
+          },
+          "thor_field": {
+            "description": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "thor_field",
+          "odin_target",
+          "mapping_kind"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "odin_receipt_boundary_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "odin_response_packet_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "odin_work_packet_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "thor_handoff_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "thor_receipt_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "thor_return_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "thor_review_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "unsupported_fields": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "bridge_prep_id",
+    "thor_handoff_ref",
+    "thor_return_ref",
+    "thor_review_ref",
+    "thor_receipt_ref",
+    "odin_work_packet_ref",
+    "odin_response_packet_ref",
+    "odin_receipt_boundary_ref",
+    "mapping_rules",
+    "unsupported_fields",
+    "future_bridge_requirements",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ThorOdinBridgePrep",
+  "type": "object"
+}

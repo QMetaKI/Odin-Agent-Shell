@@ -1,0 +1,171 @@
+{
+  "$id": "odin.v7_1_1_b5_storage_trace_receipt_provider_bridge_report.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "B5 deterministic static validation report; not runtime or apply proof.",
+  "properties": {
+    "absorbed_future_pr_families": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bundle": {
+      "type": "object"
+    },
+    "claim_boundary": {
+      "description": "",
+      "type": "string"
+    },
+    "final_gate_boundary_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generated_at_utc": {
+      "description": "",
+      "type": "string"
+    },
+    "hard_violations": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "local_provider_seam_prep_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "provider_policy_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "receipt_ledger_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "registry_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "report_id": {
+      "description": "",
+      "type": "string"
+    },
+    "schema_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sdk_app_bridge_prep_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "senior_code_reviewer_notes": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "senior_reviewer_notes": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "slice_coverage": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "description": "",
+      "type": "string"
+    },
+    "storage_record_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "thor_odin_bridge_prep_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trace_record_checks": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "version",
+    "status",
+    "claim_boundary",
+    "bundle",
+    "slice_coverage",
+    "absorbed_future_pr_families",
+    "storage_record_checks",
+    "trace_record_checks",
+    "receipt_ledger_checks",
+    "provider_policy_checks",
+    "local_provider_seam_prep_checks",
+    "thor_odin_bridge_prep_checks",
+    "sdk_app_bridge_prep_checks",
+    "final_gate_boundary_checks",
+    "hard_violations",
+    "non_claims"
+  ],
+  "title": "B5StorageTraceReceiptProviderBridgeReport",
+  "type": "object"
+}

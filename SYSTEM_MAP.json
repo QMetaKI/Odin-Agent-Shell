@@ -16,6 +16,215 @@
     "slice_range": "V711-R100-048..075",
     "status": "static_contract_evidence_added_not_runtime_complete"
   },
+  "b3_modelworkpacket_scale_hybrid": {
+    "actual_pr": "PR-29",
+    "audits": [
+      "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md"
+    ],
+    "bundle_id": "B3",
+    "claim_boundary": "b3_system_map_is_static_index_not_runtime_proof",
+    "examples": [
+      "examples/v7_1_1/modelworkpacket.example.json",
+      "examples/v7_1_1/model_scale_ladder.example.json",
+      "examples/v7_1_1/provider_seam.example.json",
+      "examples/v7_1_1/small_model_power.example.json",
+      "examples/v7_1_1/hybrid_director.example.json",
+      "examples/v7_1_1/odin_claude_worker_adapter.example.json",
+      "examples/v7_1_1/thor_handoff_intake.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
+      "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md"
+    ],
+    "registries": [
+      "registries/v7_1_1_modelworkpacket_contract.json",
+      "registries/v7_1_1_model_scale_ladder_registry.json",
+      "registries/v7_1_1_provider_seam_registry.json",
+      "registries/v7_1_1_small_model_power_registry.json",
+      "registries/v7_1_1_hybrid_director_registry.json",
+      "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
+      "registries/v7_1_1_thor_handoff_intake_registry.json"
+    ],
+    "reports": [
+      "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json"
+    ],
+    "schemas": [
+      "schemas/v7_1_1_modelworkpacket.schema.json",
+      "schemas/v7_1_1_model_scale_ladder.schema.json",
+      "schemas/v7_1_1_provider_seam.schema.json",
+      "schemas/v7_1_1_small_model_power_contract.schema.json",
+      "schemas/v7_1_1_hybrid_director.schema.json",
+      "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
+      "schemas/v7_1_1_thor_handoff_intake.schema.json",
+      "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json"
+    ],
+    "slice_range": "V711-R100-076..105",
+    "status": "static_contract_evidence_added_not_runtime_complete",
+    "tests": [
+      "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py"
+    ],
+    "tools": [
+      "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py"
+    ]
+  },
+  "b4_minicheck_critics_final_gate": {
+    "actual_pr": "PR-30",
+    "audits": [
+      "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
+    ],
+    "bundle_id": "B4",
+    "claim_boundary": "b4_system_map_is_static_index_not_runtime_proof",
+    "examples": [
+      "examples/v7_1_1/minicheck.example.json",
+      "examples/v7_1_1/critic_work_packet.example.json",
+      "examples/v7_1_1/critic_cascade.example.json",
+      "examples/v7_1_1/tournament_selection.example.json",
+      "examples/v7_1_1/candidate_dna.example.json",
+      "examples/v7_1_1/candidate_artifact.example.json",
+      "examples/v7_1_1/response_packet.example.json",
+      "examples/v7_1_1/final_gate_advisory.example.json",
+      "examples/v7_1_1/receipt_boundary.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
+      "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md"
+    ],
+    "individual_artifacts": {
+      "pr_30_b4_minicheck_critics_final_gate_return_report": "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md",
+      "pr_30_b4_thor_compact_handoff_prompt": "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "pr_30_b4_thor_odin_claude_audit": "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+      "pr_30_b4_thor_protocol_review_receipt_mapping": "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md",
+      "pr_30_b4_thor_repo_y_protocol_intake": "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
+      "pr_30_b4_thor_y_critic_final_gate_prompts": "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
+      "v7_1_1_b4_minicheck_critics_final_gate_report": "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+      "v7_1_1_b4_minicheck_critics_final_gate_report_schema": "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json",
+      "v7_1_1_b4_minicheck_critics_final_gate_tests": "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py",
+      "v7_1_1_b4_minicheck_critics_final_gate_tool": "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py",
+      "v7_1_1_candidate_artifact_example": "examples/v7_1_1/candidate_artifact.example.json",
+      "v7_1_1_candidate_artifact_registry": "registries/v7_1_1_candidate_artifact_registry.json",
+      "v7_1_1_candidate_artifact_schema": "schemas/v7_1_1_candidate_artifact.schema.json",
+      "v7_1_1_candidate_dna_example": "examples/v7_1_1/candidate_dna.example.json",
+      "v7_1_1_candidate_dna_registry": "registries/v7_1_1_candidate_dna_registry.json",
+      "v7_1_1_candidate_dna_schema": "schemas/v7_1_1_candidate_dna.schema.json",
+      "v7_1_1_critic_cascade_example": "examples/v7_1_1/critic_cascade.example.json",
+      "v7_1_1_critic_cascade_registry": "registries/v7_1_1_critic_cascade_registry.json",
+      "v7_1_1_critic_cascade_schema": "schemas/v7_1_1_critic_cascade.schema.json",
+      "v7_1_1_critic_work_packet_example": "examples/v7_1_1/critic_work_packet.example.json",
+      "v7_1_1_critic_work_packet_registry": "registries/v7_1_1_critic_work_packet_registry.json",
+      "v7_1_1_critic_work_packet_schema": "schemas/v7_1_1_critic_work_packet.schema.json",
+      "v7_1_1_final_gate_advisory_example": "examples/v7_1_1/final_gate_advisory.example.json",
+      "v7_1_1_final_gate_advisory_registry": "registries/v7_1_1_final_gate_advisory_registry.json",
+      "v7_1_1_final_gate_advisory_schema": "schemas/v7_1_1_final_gate_advisory.schema.json",
+      "v7_1_1_minicheck_example": "examples/v7_1_1/minicheck.example.json",
+      "v7_1_1_minicheck_registry": "registries/v7_1_1_minicheck_registry.json",
+      "v7_1_1_minicheck_schema": "schemas/v7_1_1_minicheck.schema.json",
+      "v7_1_1_receipt_boundary_example": "examples/v7_1_1/receipt_boundary.example.json",
+      "v7_1_1_receipt_boundary_registry": "registries/v7_1_1_receipt_boundary_registry.json",
+      "v7_1_1_receipt_boundary_schema": "schemas/v7_1_1_receipt_boundary.schema.json",
+      "v7_1_1_response_packet_example": "examples/v7_1_1/response_packet.example.json",
+      "v7_1_1_response_packet_registry": "registries/v7_1_1_response_packet_registry.json",
+      "v7_1_1_response_packet_schema": "schemas/v7_1_1_response_packet.schema.json",
+      "v7_1_1_tournament_selection_example": "examples/v7_1_1/tournament_selection.example.json",
+      "v7_1_1_tournament_selection_registry": "registries/v7_1_1_tournament_selection_registry.json",
+      "v7_1_1_tournament_selection_schema": "schemas/v7_1_1_tournament_selection.schema.json"
+    },
+    "registries": [
+      "registries/v7_1_1_minicheck_registry.json",
+      "registries/v7_1_1_critic_work_packet_registry.json",
+      "registries/v7_1_1_critic_cascade_registry.json",
+      "registries/v7_1_1_tournament_selection_registry.json",
+      "registries/v7_1_1_candidate_dna_registry.json",
+      "registries/v7_1_1_candidate_artifact_registry.json",
+      "registries/v7_1_1_response_packet_registry.json",
+      "registries/v7_1_1_final_gate_advisory_registry.json",
+      "registries/v7_1_1_receipt_boundary_registry.json"
+    ],
+    "reports": [
+      "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json"
+    ],
+    "schemas": [
+      "schemas/v7_1_1_minicheck.schema.json",
+      "schemas/v7_1_1_critic_work_packet.schema.json",
+      "schemas/v7_1_1_critic_cascade.schema.json",
+      "schemas/v7_1_1_tournament_selection.schema.json",
+      "schemas/v7_1_1_candidate_dna.schema.json",
+      "schemas/v7_1_1_candidate_artifact.schema.json",
+      "schemas/v7_1_1_response_packet.schema.json",
+      "schemas/v7_1_1_final_gate_advisory.schema.json",
+      "schemas/v7_1_1_receipt_boundary.schema.json",
+      "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json"
+    ],
+    "slice_range": "V711-R100-106..137",
+    "status": "static_contract_evaluation_spine_added_not_runtime_complete",
+    "tests": [
+      "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py"
+    ],
+    "tools": [
+      "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
+    ]
+  },
+  "b5_storage_trace_receipt_provider_bridge": {
+    "actual_pr": "PR-31",
+    "audits": [
+      "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md"
+    ],
+    "bundle_id": "B5",
+    "claim_boundary": "b5_system_map_is_static_index_not_runtime_or_apply_proof",
+    "examples": [
+      "examples/v7_1_1/storage_record.example.json",
+      "examples/v7_1_1/trace_record.example.json",
+      "examples/v7_1_1/receipt_ledger.example.json",
+      "examples/v7_1_1/provider_policy.example.json",
+      "examples/v7_1_1/local_provider_seam_prep.example.json",
+      "examples/v7_1_1/thor_odin_bridge_prep.example.json",
+      "examples/v7_1_1/sdk_app_bridge_prep.example.json"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/PR_31_B5_THOR_PROTOCOL_RECEIPT_INTAKE.md",
+      "docs/codex/handoffs/PR_31_B5_THOR_COMPACT_HANDOFF_PROMPT.md",
+      "docs/codex/handoffs/PR_31_B5_THOR_RECEIPT_BRIDGE_PROMPTS.md",
+      "docs/codex/handoffs/PR_31_B5_THOR_ODIN_BRIDGE_PREP_MAPPING.md"
+    ],
+    "registries": [
+      "registries/v7_1_1_storage_record_registry.json",
+      "registries/v7_1_1_trace_record_registry.json",
+      "registries/v7_1_1_receipt_ledger_registry.json",
+      "registries/v7_1_1_provider_policy_registry.json",
+      "registries/v7_1_1_local_provider_seam_prep_registry.json",
+      "registries/v7_1_1_thor_odin_bridge_prep_registry.json",
+      "registries/v7_1_1_sdk_app_bridge_prep_registry.json"
+    ],
+    "reports": [
+      "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+    ],
+    "return_reports": [
+      "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+    ],
+    "schemas": [
+      "schemas/v7_1_1_storage_record.schema.json",
+      "schemas/v7_1_1_trace_record.schema.json",
+      "schemas/v7_1_1_receipt_ledger.schema.json",
+      "schemas/v7_1_1_provider_policy.schema.json",
+      "schemas/v7_1_1_local_provider_seam_prep.schema.json",
+      "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
+      "schemas/v7_1_1_sdk_app_bridge_prep.schema.json",
+      "schemas/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.schema.json"
+    ],
+    "slice_range": "V711-R100-138..169",
+    "status": "static_storage_trace_receipt_provider_bridge_prep_added_not_runtime_complete",
+    "tests": [
+      "tests/test_v7_1_1_b5_storage_trace_receipt_provider_bridge.py"
+    ],
+    "tools": [
+      "tools/v7_1_1/check_b5_storage_trace_receipt_provider_bridge.py"
+    ]
+  },
   "canonical_docs": [
     "docs/MASTER_ARCHITECTURE_V7_1.md",
     "docs/MASTER_SPECS_V7_1.md",
@@ -508,6 +717,12 @@
   "pr_28_b2_thor_odin_claude_audit": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
   "pr_28_b2_thor_repo_cognition_handoff": "docs/codex/handoffs/PR_28_B2_THOR_REPO_COGNITION_HANDOFF.md",
   "pr_28_b2_y_handoff_intake_summary": "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md",
+  "pr_31_b5_storage_trace_receipt_provider_bridge_return_report": "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md",
+  "pr_31_b5_thor_compact_handoff_prompt": "docs/codex/handoffs/PR_31_B5_THOR_COMPACT_HANDOFF_PROMPT.md",
+  "pr_31_b5_thor_odin_bridge_prep_mapping": "docs/codex/handoffs/PR_31_B5_THOR_ODIN_BRIDGE_PREP_MAPPING.md",
+  "pr_31_b5_thor_odin_claude_audit": "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+  "pr_31_b5_thor_protocol_receipt_intake": "docs/codex/handoffs/PR_31_B5_THOR_PROTOCOL_RECEIPT_INTAKE.md",
+  "pr_31_b5_thor_receipt_bridge_prompts": "docs/codex/handoffs/PR_31_B5_THOR_RECEIPT_BRIDGE_PROMPTS.md",
   "python_package": "odin",
   "real_gh_pr_03_provider_worker_boundary": {
     "claim_boundary": "provider_worker_boundary_candidate_only_no_live_model_or_provider_proof",
@@ -908,6 +1123,10 @@
   "v7_1_1_b2_context_lenses_worklets_slot_gaptext_report_schema": "schemas/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.schema.json",
   "v7_1_1_b2_context_lenses_worklets_slot_gaptext_tests": "tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py",
   "v7_1_1_b2_context_lenses_worklets_slot_gaptext_tool": "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py",
+  "v7_1_1_b5_storage_trace_receipt_provider_bridge_report": "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+  "v7_1_1_b5_storage_trace_receipt_provider_bridge_report_schema": "schemas/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.schema.json",
+  "v7_1_1_b5_storage_trace_receipt_provider_bridge_tests": "tests/test_v7_1_1_b5_storage_trace_receipt_provider_bridge.py",
+  "v7_1_1_b5_storage_trace_receipt_provider_bridge_tool": "tools/v7_1_1/check_b5_storage_trace_receipt_provider_bridge.py",
   "v7_1_1_binding_contract_example": "examples/v7_1_1/binding_contract.example.json",
   "v7_1_1_binding_contract_registry": "registries/v7_1_1_binding_contract_registry.json",
   "v7_1_1_binding_contract_schema": "schemas/v7_1_1_binding_contract.schema.json",
@@ -924,6 +1143,9 @@
   "v7_1_1_gaptext_example": "examples/v7_1_1/gaptext.example.json",
   "v7_1_1_gaptext_schema": "schemas/v7_1_1_gaptext.schema.json",
   "v7_1_1_llm_work_audit_findings_registry": "registries/v7_1_1_llm_work_audit_findings_registry.json",
+  "v7_1_1_local_provider_seam_prep_example": "examples/v7_1_1/local_provider_seam_prep.example.json",
+  "v7_1_1_local_provider_seam_prep_registry": "registries/v7_1_1_local_provider_seam_prep_registry.json",
+  "v7_1_1_local_provider_seam_prep_schema": "schemas/v7_1_1_local_provider_seam_prep.schema.json",
   "v7_1_1_master_architecture_return_report": "docs/codex/reports/V7_1_1_MASTER_ARCHITECTURE_CANON_RETURN_REPORT.md",
   "v7_1_1_operational_coverage_gap_compiler": "tools/v7_1_1/build_operational_coverage_gap_report.py",
   "v7_1_1_operational_coverage_gap_compiler_tests": "tests/test_v7_1_1_operational_coverage_gap_compiler.py",
@@ -934,10 +1156,19 @@
   "v7_1_1_output_contract_example": "examples/v7_1_1/output_contract.example.json",
   "v7_1_1_output_contract_registry": "registries/v7_1_1_output_contract_registry.json",
   "v7_1_1_output_contract_schema": "schemas/v7_1_1_output_contract.schema.json",
+  "v7_1_1_provider_policy_example": "examples/v7_1_1/provider_policy.example.json",
+  "v7_1_1_provider_policy_registry": "registries/v7_1_1_provider_policy_registry.json",
+  "v7_1_1_provider_policy_schema": "schemas/v7_1_1_provider_policy.schema.json",
+  "v7_1_1_receipt_ledger_example": "examples/v7_1_1/receipt_ledger.example.json",
+  "v7_1_1_receipt_ledger_registry": "registries/v7_1_1_receipt_ledger_registry.json",
+  "v7_1_1_receipt_ledger_schema": "schemas/v7_1_1_receipt_ledger.schema.json",
   "v7_1_1_road_to_100_build_ladder": "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
   "v7_1_1_road_to_100_coverage_matrix": "registries/v7_1_1_road_to_100_coverage_matrix.json",
   "v7_1_1_road_to_100_ladder_registry": "registries/v7_1_1_road_to_100_ladder.json",
   "v7_1_1_road_to_100_ladder_return_report": "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
+  "v7_1_1_sdk_app_bridge_prep_example": "examples/v7_1_1/sdk_app_bridge_prep.example.json",
+  "v7_1_1_sdk_app_bridge_prep_registry": "registries/v7_1_1_sdk_app_bridge_prep_registry.json",
+  "v7_1_1_sdk_app_bridge_prep_schema": "schemas/v7_1_1_sdk_app_bridge_prep.schema.json",
   "v7_1_1_semantic_bus_channel_example": "examples/v7_1_1/semantic_bus_channel.example.json",
   "v7_1_1_semantic_bus_channel_schema": "schemas/v7_1_1_semantic_bus_channel.schema.json",
   "v7_1_1_semantic_bus_event_example": "examples/v7_1_1/semantic_bus_event.example.json",
@@ -947,6 +1178,9 @@
   "v7_1_1_slot_contract_example": "examples/v7_1_1/slot_contract.example.json",
   "v7_1_1_slot_contract_schema": "schemas/v7_1_1_slot_contract.schema.json",
   "v7_1_1_slot_forge_contract_registry": "registries/v7_1_1_slot_forge_contract_registry.json",
+  "v7_1_1_storage_record_example": "examples/v7_1_1/storage_record.example.json",
+  "v7_1_1_storage_record_registry": "registries/v7_1_1_storage_record_registry.json",
+  "v7_1_1_storage_record_schema": "schemas/v7_1_1_storage_record.schema.json",
   "v7_1_1_target_canon": {
     "baseline": "docs/MASTER_ARCHITECTURE_V7_1.md",
     "claim_boundary": "v7_1_1_target_canon_no_runtime_completion_claim",
@@ -959,164 +1193,17 @@
     "slice_absorption_map": "registries/v7_1_1_slice_absorption_map.json",
     "status": "target_canon_not_runtime_completion"
   },
+  "v7_1_1_thor_odin_bridge_prep_example": "examples/v7_1_1/thor_odin_bridge_prep.example.json",
+  "v7_1_1_thor_odin_bridge_prep_registry": "registries/v7_1_1_thor_odin_bridge_prep_registry.json",
+  "v7_1_1_thor_odin_bridge_prep_schema": "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
+  "v7_1_1_trace_record_example": "examples/v7_1_1/trace_record.example.json",
+  "v7_1_1_trace_record_registry": "registries/v7_1_1_trace_record_registry.json",
+  "v7_1_1_trace_record_schema": "schemas/v7_1_1_trace_record.schema.json",
   "v7_1_1_universal_work_contract": "registries/v7_1_1_universal_work_contract.json",
   "v7_1_1_universal_work_example": "examples/v7_1_1/universal_work.example.json",
   "v7_1_1_universal_work_schema": "schemas/v7_1_1_universal_work.schema.json",
   "v7_1_1_worklet_graph_contract": "registries/v7_1_1_worklet_graph_contract.json",
   "v7_1_1_worklet_graph_example": "examples/v7_1_1/worklet_graph.example.json",
   "v7_1_1_worklet_graph_schema": "schemas/v7_1_1_worklet_graph.schema.json",
-  "version": "0.8.7",
-  "b3_modelworkpacket_scale_hybrid": {
-    "actual_pr": "PR-29",
-    "bundle_id": "B3",
-    "claim_boundary": "b3_system_map_is_static_index_not_runtime_proof",
-    "slice_range": "V711-R100-076..105",
-    "status": "static_contract_evidence_added_not_runtime_complete",
-    "schemas": [
-      "schemas/v7_1_1_modelworkpacket.schema.json",
-      "schemas/v7_1_1_model_scale_ladder.schema.json",
-      "schemas/v7_1_1_provider_seam.schema.json",
-      "schemas/v7_1_1_small_model_power_contract.schema.json",
-      "schemas/v7_1_1_hybrid_director.schema.json",
-      "schemas/v7_1_1_odin_claude_worker_adapter.schema.json",
-      "schemas/v7_1_1_thor_handoff_intake.schema.json",
-      "schemas/v7_1_1_b3_modelworkpacket_scale_hybrid_report.schema.json"
-    ],
-    "registries": [
-      "registries/v7_1_1_modelworkpacket_contract.json",
-      "registries/v7_1_1_model_scale_ladder_registry.json",
-      "registries/v7_1_1_provider_seam_registry.json",
-      "registries/v7_1_1_small_model_power_registry.json",
-      "registries/v7_1_1_hybrid_director_registry.json",
-      "registries/v7_1_1_odin_claude_worker_adapter_registry.json",
-      "registries/v7_1_1_thor_handoff_intake_registry.json"
-    ],
-    "examples": [
-      "examples/v7_1_1/modelworkpacket.example.json",
-      "examples/v7_1_1/model_scale_ladder.example.json",
-      "examples/v7_1_1/provider_seam.example.json",
-      "examples/v7_1_1/small_model_power.example.json",
-      "examples/v7_1_1/hybrid_director.example.json",
-      "examples/v7_1_1/odin_claude_worker_adapter.example.json",
-      "examples/v7_1_1/thor_handoff_intake.example.json"
-    ],
-    "tools": [
-      "tools/v7_1_1/check_b3_modelworkpacket_scale_hybrid.py"
-    ],
-    "reports": [
-      "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json"
-    ],
-    "tests": [
-      "tests/test_v7_1_1_b3_modelworkpacket_scale_hybrid.py"
-    ],
-    "handoffs": [
-      "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
-      "docs/codex/handoffs/PR_29_B3_THOR_COMPACT_HANDOFF_PROMPT.md",
-      "docs/codex/handoffs/PR_29_B3_THOR_Y_HANDOFF_PROMPTS.md",
-      "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md"
-    ],
-    "audits": [
-      "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
-      "docs/codex/reports/PR_29_B3_MODELWORKPACKET_SCALE_HYBRID_RETURN_REPORT.md"
-    ]
-  },
-  "b4_minicheck_critics_final_gate": {
-    "actual_pr": "PR-30",
-    "bundle_id": "B4",
-    "claim_boundary": "b4_system_map_is_static_index_not_runtime_proof",
-    "slice_range": "V711-R100-106..137",
-    "status": "static_contract_evaluation_spine_added_not_runtime_complete",
-    "schemas": [
-      "schemas/v7_1_1_minicheck.schema.json",
-      "schemas/v7_1_1_critic_work_packet.schema.json",
-      "schemas/v7_1_1_critic_cascade.schema.json",
-      "schemas/v7_1_1_tournament_selection.schema.json",
-      "schemas/v7_1_1_candidate_dna.schema.json",
-      "schemas/v7_1_1_candidate_artifact.schema.json",
-      "schemas/v7_1_1_response_packet.schema.json",
-      "schemas/v7_1_1_final_gate_advisory.schema.json",
-      "schemas/v7_1_1_receipt_boundary.schema.json",
-      "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json"
-    ],
-    "registries": [
-      "registries/v7_1_1_minicheck_registry.json",
-      "registries/v7_1_1_critic_work_packet_registry.json",
-      "registries/v7_1_1_critic_cascade_registry.json",
-      "registries/v7_1_1_tournament_selection_registry.json",
-      "registries/v7_1_1_candidate_dna_registry.json",
-      "registries/v7_1_1_candidate_artifact_registry.json",
-      "registries/v7_1_1_response_packet_registry.json",
-      "registries/v7_1_1_final_gate_advisory_registry.json",
-      "registries/v7_1_1_receipt_boundary_registry.json"
-    ],
-    "examples": [
-      "examples/v7_1_1/minicheck.example.json",
-      "examples/v7_1_1/critic_work_packet.example.json",
-      "examples/v7_1_1/critic_cascade.example.json",
-      "examples/v7_1_1/tournament_selection.example.json",
-      "examples/v7_1_1/candidate_dna.example.json",
-      "examples/v7_1_1/candidate_artifact.example.json",
-      "examples/v7_1_1/response_packet.example.json",
-      "examples/v7_1_1/final_gate_advisory.example.json",
-      "examples/v7_1_1/receipt_boundary.example.json"
-    ],
-    "tools": [
-      "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py"
-    ],
-    "reports": [
-      "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json"
-    ],
-    "tests": [
-      "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py"
-    ],
-    "handoffs": [
-      "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
-      "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
-      "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
-      "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md"
-    ],
-    "audits": [
-      "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
-      "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
-    ],
-    "individual_artifacts": {
-      "v7_1_1_minicheck_schema": "schemas/v7_1_1_minicheck.schema.json",
-      "v7_1_1_minicheck_registry": "registries/v7_1_1_minicheck_registry.json",
-      "v7_1_1_minicheck_example": "examples/v7_1_1/minicheck.example.json",
-      "v7_1_1_critic_work_packet_schema": "schemas/v7_1_1_critic_work_packet.schema.json",
-      "v7_1_1_critic_work_packet_registry": "registries/v7_1_1_critic_work_packet_registry.json",
-      "v7_1_1_critic_work_packet_example": "examples/v7_1_1/critic_work_packet.example.json",
-      "v7_1_1_critic_cascade_schema": "schemas/v7_1_1_critic_cascade.schema.json",
-      "v7_1_1_critic_cascade_registry": "registries/v7_1_1_critic_cascade_registry.json",
-      "v7_1_1_critic_cascade_example": "examples/v7_1_1/critic_cascade.example.json",
-      "v7_1_1_tournament_selection_schema": "schemas/v7_1_1_tournament_selection.schema.json",
-      "v7_1_1_tournament_selection_registry": "registries/v7_1_1_tournament_selection_registry.json",
-      "v7_1_1_tournament_selection_example": "examples/v7_1_1/tournament_selection.example.json",
-      "v7_1_1_candidate_dna_schema": "schemas/v7_1_1_candidate_dna.schema.json",
-      "v7_1_1_candidate_dna_registry": "registries/v7_1_1_candidate_dna_registry.json",
-      "v7_1_1_candidate_dna_example": "examples/v7_1_1/candidate_dna.example.json",
-      "v7_1_1_candidate_artifact_schema": "schemas/v7_1_1_candidate_artifact.schema.json",
-      "v7_1_1_candidate_artifact_registry": "registries/v7_1_1_candidate_artifact_registry.json",
-      "v7_1_1_candidate_artifact_example": "examples/v7_1_1/candidate_artifact.example.json",
-      "v7_1_1_response_packet_schema": "schemas/v7_1_1_response_packet.schema.json",
-      "v7_1_1_response_packet_registry": "registries/v7_1_1_response_packet_registry.json",
-      "v7_1_1_response_packet_example": "examples/v7_1_1/response_packet.example.json",
-      "v7_1_1_final_gate_advisory_schema": "schemas/v7_1_1_final_gate_advisory.schema.json",
-      "v7_1_1_final_gate_advisory_registry": "registries/v7_1_1_final_gate_advisory_registry.json",
-      "v7_1_1_final_gate_advisory_example": "examples/v7_1_1/final_gate_advisory.example.json",
-      "v7_1_1_receipt_boundary_schema": "schemas/v7_1_1_receipt_boundary.schema.json",
-      "v7_1_1_receipt_boundary_registry": "registries/v7_1_1_receipt_boundary_registry.json",
-      "v7_1_1_receipt_boundary_example": "examples/v7_1_1/receipt_boundary.example.json",
-      "v7_1_1_b4_minicheck_critics_final_gate_tool": "tools/v7_1_1/check_b4_minicheck_critics_final_gate.py",
-      "v7_1_1_b4_minicheck_critics_final_gate_report_schema": "schemas/v7_1_1_b4_minicheck_critics_final_gate_report.schema.json",
-      "v7_1_1_b4_minicheck_critics_final_gate_report": "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
-      "v7_1_1_b4_minicheck_critics_final_gate_tests": "tests/test_v7_1_1_b4_minicheck_critics_final_gate.py",
-      "pr_30_b4_thor_repo_y_protocol_intake": "docs/codex/handoffs/PR_30_B4_THOR_REPO_Y_PROTOCOL_INTAKE.md",
-      "pr_30_b4_thor_compact_handoff_prompt": "docs/codex/handoffs/PR_30_B4_THOR_COMPACT_HANDOFF_PROMPT.md",
-      "pr_30_b4_thor_y_critic_final_gate_prompts": "docs/codex/handoffs/PR_30_B4_THOR_Y_CRITIC_FINAL_GATE_PROMPTS.md",
-      "pr_30_b4_thor_protocol_review_receipt_mapping": "docs/codex/handoffs/PR_30_B4_THOR_PROTOCOL_REVIEW_RECEIPT_MAPPING.md",
-      "pr_30_b4_thor_odin_claude_audit": "docs/codex/audits/PR_30_B4_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
-      "pr_30_b4_minicheck_critics_final_gate_return_report": "docs/codex/reports/PR_30_B4_MINICHECK_CRITICS_FINAL_GATE_RETURN_REPORT.md"
-    }
-  }
+  "version": "0.8.7"
 }

@@ -1,0 +1,192 @@
+{
+  "$id": "odin.v7_1_1_receipt_ledger.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Scoped claim review evidence ledger; not truth, runtime proof, certification, apply, or external send.",
+  "properties": {
+    "accepted_claim_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowed_statuses": {
+      "items": {
+        "enum": [
+          "accepted",
+          "denied",
+          "pending",
+          "deferred",
+          "requires_human_review",
+          "cannot_safely_complete"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_artifact_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_dna_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "denied_claim_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "does_not_apply_changes": {
+      "const": true,
+      "description": "Does not apply changes.",
+      "type": "boolean"
+    },
+    "does_not_send_externally": {
+      "const": true,
+      "description": "Does not send externally.",
+      "type": "boolean"
+    },
+    "evidence_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "is_absolute_truth": {
+      "const": false,
+      "type": "boolean"
+    },
+    "is_runtime_proof": {
+      "const": false,
+      "type": "boolean"
+    },
+    "ledger_entries": {
+      "description": "Ledger entries.",
+      "items": {
+        "properties": {
+          "claim_ref": {
+            "description": "",
+            "type": "string"
+          },
+          "created_at_utc": {
+            "description": "",
+            "type": "string"
+          },
+          "entry_id": {
+            "description": "",
+            "type": "string"
+          },
+          "entry_kind": {
+            "description": "",
+            "type": "string"
+          },
+          "evidence_ref": {
+            "description": "",
+            "type": "string"
+          },
+          "reason": {
+            "description": "",
+            "type": "string"
+          },
+          "reviewer_ref": {
+            "description": "",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "accepted",
+              "denied",
+              "pending",
+              "deferred",
+              "requires_human_review",
+              "cannot_safely_complete"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "entry_id",
+          "entry_kind",
+          "claim_ref",
+          "status",
+          "reason",
+          "evidence_ref",
+          "created_at_utc",
+          "reviewer_ref"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_id": {
+      "description": "",
+      "type": "string"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "not_security_certification": {
+      "const": true,
+      "description": "Not security certification.",
+      "type": "boolean"
+    },
+    "pending_claim_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "receipt_boundary_id": {
+      "description": "",
+      "type": "string"
+    },
+    "response_packet_id": {
+      "description": "",
+      "type": "string"
+    },
+    "review_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ledger_id",
+    "receipt_boundary_id",
+    "response_packet_id",
+    "candidate_artifact_id",
+    "candidate_dna_id",
+    "accepted_claim_refs",
+    "denied_claim_refs",
+    "pending_claim_refs",
+    "review_refs",
+    "evidence_refs",
+    "ledger_entries",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ReceiptLedger",
+  "type": "object"
+}

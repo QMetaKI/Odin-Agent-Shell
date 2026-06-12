@@ -1,0 +1,126 @@
+{
+  "$id": "odin.v7_1_1_storage_record.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Stores refs and hashes by default; not app state, apply, external send, or persistence proof.",
+  "properties": {
+    "candidate_artifact_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_dna_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "content_hash": {
+      "description": "",
+      "type": "string"
+    },
+    "content_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "created_at_utc": {
+      "description": "",
+      "type": "string"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "not_app_state_ownership": {
+      "const": true,
+      "description": "Not app state ownership.",
+      "type": "boolean"
+    },
+    "not_apply": {
+      "const": true,
+      "description": "Not apply.",
+      "type": "boolean"
+    },
+    "not_external_send": {
+      "const": true,
+      "description": "Not external send.",
+      "type": "boolean"
+    },
+    "not_production_persistence_proof": {
+      "const": true,
+      "description": "Not persistence proof.",
+      "type": "boolean"
+    },
+    "privacy_class": {
+      "enum": [
+        "public",
+        "internal",
+        "private",
+        "sensitive",
+        "redacted"
+      ],
+      "type": "string"
+    },
+    "raw_content_requires_explicit_storage_policy": {
+      "const": true,
+      "description": "Raw content requires explicit storage policy.",
+      "type": "boolean"
+    },
+    "raw_content_storage_default": {
+      "const": "disabled",
+      "type": "string"
+    },
+    "receipt_boundary_id": {
+      "description": "",
+      "type": "string"
+    },
+    "redaction_policy_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "response_packet_id": {
+      "description": "",
+      "type": "string"
+    },
+    "retention_policy_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "storage_policy_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "storage_record_id": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "storage_record_id",
+    "response_packet_id",
+    "candidate_artifact_id",
+    "candidate_dna_id",
+    "receipt_boundary_id",
+    "privacy_class",
+    "content_ref",
+    "content_hash",
+    "storage_policy_ref",
+    "retention_policy_ref",
+    "redaction_policy_ref",
+    "created_at_utc",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "StorageRecord",
+  "type": "object"
+}

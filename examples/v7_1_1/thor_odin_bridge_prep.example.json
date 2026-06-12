@@ -1,0 +1,72 @@
+{
+  "bridge_prep_id": "thor_odin_bridge_prep.b5.example",
+  "candidate_only": true,
+  "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+  "does_not_accept_claims": true,
+  "does_not_apply_changes": true,
+  "does_not_execute_thor": true,
+  "future_bridge_requirements": [
+    "evaluate real Thor pack to Odin intake in B7+"
+  ],
+  "is_runtime_bridge": false,
+  "is_static_mapping_only": true,
+  "mapping_rules": [
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin Binding / Work Packet refs",
+      "thor_field": "THOR_HANDOFF.kernel_binding"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ResponsePacket evidence refs",
+      "thor_field": "THOR_RETURN.files_changed"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ResponsePacket commands_run",
+      "thor_field": "THOR_RETURN.commands_run"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ResponsePacket commands_not_run",
+      "thor_field": "THOR_RETURN.commands_not_run"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ReceiptLedger ledger_entries",
+      "thor_field": "THOR_REVIEW.claim_findings"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ReceiptBoundary accepted_claim_refs",
+      "thor_field": "THOR_RECEIPT.accepted_claim_refs"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ReceiptBoundary denied_claim_refs",
+      "thor_field": "THOR_RECEIPT.denied_claim_refs"
+    },
+    {
+      "mapping_kind": "static_ref_mapping",
+      "odin_target": "Odin ReceiptBoundary pending_claim_refs",
+      "thor_field": "THOR_RECEIPT.pending_claim_refs"
+    }
+  ],
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_security_certification"
+  ],
+  "odin_receipt_boundary_ref": "odin.receipt_boundary.b4",
+  "odin_response_packet_ref": "odin.response_packet.b4",
+  "odin_work_packet_ref": "odin.work_packet.future",
+  "thor_handoff_ref": "THOR_HANDOFF",
+  "thor_receipt_ref": "THOR_RECEIPT",
+  "thor_return_ref": "THOR_RETURN",
+  "thor_review_ref": "THOR_REVIEW",
+  "unsupported_fields": [
+    "thor_runtime_session_artifacts",
+    ".thor generated artifacts"
+  ]
+}

@@ -1,301 +1,481 @@
 {
-  "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",
-  "version": "7.1.1",
-  "status": "llm_work_audit_findings_not_runtime_proof",
   "claim_boundary": "audit_findings_are_process_observations_not_runtime_capability_claims",
   "findings": [
     {
-      "finding_id": "B2-AUDIT-001",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "The Claude Code worker should read Thor agent_profiles/claude-code at start of each PR to align with handoff discipline",
+      "finding_id": "B2-AUDIT-001",
+      "finding_type": "external_reference_integration",
+      "odin_side_improvement": "Add formal Thor reference intake step to validate-all or a dedicated validate-thor-intake command",
+      "recommendation": "Continue using Thor-Agent-Kit as external handoff reference in future bundles. Consider formalizing the Thor intake step in the Claude Code workflow.",
+      "severity": "informational",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
         "docs/codex/handoffs/PR_28_B2_THOR_REPO_COGNITION_HANDOFF.md"
       ],
-      "finding_type": "external_reference_integration",
-      "severity": "informational",
-      "summary": "Thor-Agent-Kit was successfully cloned and used for handoff protocol intake. SHA e9af7a333e4bcb11f2461696e4ebbcde994b98b1 recorded. Thor's agent_profiles/claude-code profile and HANDOFF_PACKS.md conventions shaped the B2 handoff structure, compact prompt, and return receipt.",
-      "recommendation": "Continue using Thor-Agent-Kit as external handoff reference in future bundles. Consider formalizing the Thor intake step in the Claude Code workflow.",
       "suggested_future_bundle": "B3+",
-      "odin_side_improvement": "Add formal Thor reference intake step to validate-all or a dedicated validate-thor-intake command",
-      "thor_side_improvement": "Thor-Agent-Kit could include an Odin-specific handoff template for v7.1.1 work bundles",
-      "claude_code_workflow_improvement": "The Claude Code worker should read Thor agent_profiles/claude-code at start of each PR to align with handoff discipline",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Thor-Agent-Kit was successfully cloned and used for handoff protocol intake. SHA e9af7a333e4bcb11f2461696e4ebbcde994b98b1 recorded. Thor's agent_profiles/claude-code profile and HANDOFF_PACKS.md conventions shaped the B2 handoff structure, compact prompt, and return receipt.",
+      "thor_side_improvement": "Thor-Agent-Kit could include an Odin-specific handoff template for v7.1.1 work bundles"
     },
     {
-      "finding_id": "B2-AUDIT-002",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "When external repos are blocked, Claude Code should explicitly document BLOCKED status and apply available patterns conservatively",
+      "finding_id": "B2-AUDIT-002",
+      "finding_type": "external_reference_blocked",
+      "odin_side_improvement": "Include a local Y-handoff reference document in docs/ so YNode-prep network dependency is not required",
+      "recommendation": "Document the BLOCKED status clearly. When network access is available, re-clone YNode-prep and update the intake summary. The Y conceptual patterns were correctly applied even without direct YNode-prep access.",
+      "severity": "low",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/handoffs/PR_28_B2_Y_HANDOFF_INTAKE_SUMMARY.md"
       ],
-      "finding_type": "external_reference_blocked",
-      "severity": "low",
-      "summary": "YNode-prep clone was BLOCKED due to network access restrictions in the execution environment. Y handoff discipline was applied from available Odin-Agent-Shell codebase references instead. The conceptual handoff patterns (candidate-only, authority split, slot-based dispatch, gaptext discipline) were correctly imported.",
-      "recommendation": "Document the BLOCKED status clearly. When network access is available, re-clone YNode-prep and update the intake summary. The Y conceptual patterns were correctly applied even without direct YNode-prep access.",
       "suggested_future_bundle": "B3+",
-      "odin_side_improvement": "Include a local Y-handoff reference document in docs/ so YNode-prep network dependency is not required",
-      "thor_side_improvement": "Thor could include a Y-handoff patterns reference in Thor-Agent-Kit to reduce external network dependency",
-      "claude_code_workflow_improvement": "When external repos are blocked, Claude Code should explicitly document BLOCKED status and apply available patterns conservatively",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "YNode-prep clone was BLOCKED due to network access restrictions in the execution environment. Y handoff discipline was applied from available Odin-Agent-Shell codebase references instead. The conceptual handoff patterns (candidate-only, authority split, slot-based dispatch, gaptext discipline) were correctly imported.",
+      "thor_side_improvement": "Thor could include a Y-handoff patterns reference in Thor-Agent-Kit to reduce external network dependency"
     },
     {
-      "finding_id": "B2-AUDIT-003",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should validate its own work packet at the start of each PR to catch boundary violations early",
+      "finding_id": "B2-AUDIT-003",
+      "finding_type": "odin_as_work_kernel_fit",
+      "odin_side_improvement": "Add a formal validate-work-packet CLI command that validates work packet JSON against a schema before work begins",
+      "recommendation": "The Odin work-kernel structure is effective for disciplining Claude Code output. Continue using work packets for future bundles. Consider making the work packet format more prescriptive with required fields validated by a tool.",
+      "severity": "informational",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md"
       ],
-      "finding_type": "odin_as_work_kernel_fit",
-      "severity": "informational",
-      "summary": "Odin-Agent-Shell contract structure (Universal Work, Binding, Semantic Bus, Claim Boundary, Forbidden Claim registries) provided a strong work-kernel scaffold for Claude Code's local-worker execution. The work packet structure enforced candidate-only discipline, explicit forbidden actions, and non-claims throughout B2.",
-      "recommendation": "The Odin work-kernel structure is effective for disciplining Claude Code output. Continue using work packets for future bundles. Consider making the work packet format more prescriptive with required fields validated by a tool.",
       "suggested_future_bundle": "B3+",
-      "odin_side_improvement": "Add a formal validate-work-packet CLI command that validates work packet JSON against a schema before work begins",
-      "thor_side_improvement": "Thor could generate work packets from the Claude Code prompt structure to reduce manual work packet creation",
-      "claude_code_workflow_improvement": "Claude Code should validate its own work packet at the start of each PR to catch boundary violations early",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Odin-Agent-Shell contract structure (Universal Work, Binding, Semantic Bus, Claim Boundary, Forbidden Claim registries) provided a strong work-kernel scaffold for Claude Code's local-worker execution. The work packet structure enforced candidate-only discipline, explicit forbidden actions, and non-claims throughout B2.",
+      "thor_side_improvement": "Thor could generate work packets from the Claude Code prompt structure to reduce manual work packet creation"
     },
     {
-      "finding_id": "B2-AUDIT-004",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should use the compact prompt as a quick reference during implementation, checking each block before moving to the next phase",
+      "finding_id": "B2-AUDIT-004",
+      "finding_type": "thor_compact_handoff_prompt_value",
+      "odin_side_improvement": "Add a compact_prompt field to the work packet schema to make the compact prompt a first-class artifact",
+      "recommendation": "The compact prompt approach is effective. Future bundles should maintain the 4-block Thor prompt structure (Cognition, Architecture, Code Review, Return/Receipt) for consistency.",
+      "severity": "informational",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/handoffs/PR_28_B2_THOR_COMPACT_HANDOFF_PROMPT.md",
         "docs/codex/handoffs/PR_28_B2_THOR_HANDOFF_PROMPTS.md"
       ],
-      "finding_type": "thor_compact_handoff_prompt_value",
-      "severity": "informational",
-      "summary": "The compact Thor prompt successfully captured the essential B2 scope in a much shorter format than the master prompt. The four Thor prompt blocks (Repo Cognition, Architecture Review, Senior Code Review, Return/Receipt) provided structured review scaffolding for each phase of B2 development.",
-      "recommendation": "The compact prompt approach is effective. Future bundles should maintain the 4-block Thor prompt structure (Cognition, Architecture, Code Review, Return/Receipt) for consistency.",
       "suggested_future_bundle": "B3+",
-      "odin_side_improvement": "Add a compact_prompt field to the work packet schema to make the compact prompt a first-class artifact",
-      "thor_side_improvement": "Thor could auto-generate compact prompts from structured bundle specifications",
-      "claude_code_workflow_improvement": "Claude Code should use the compact prompt as a quick reference during implementation, checking each block before moving to the next phase",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "The compact Thor prompt successfully captured the essential B2 scope in a much shorter format than the master prompt. The four Thor prompt blocks (Repo Cognition, Architecture Review, Senior Code Review, Return/Receipt) provided structured review scaffolding for each phase of B2 development.",
+      "thor_side_improvement": "Thor could auto-generate compact prompts from structured bundle specifications"
     },
     {
-      "finding_id": "B2-AUDIT-005",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should note when Thor integration would benefit from a formal bridge and document it as a finding",
+      "finding_id": "B2-AUDIT-005",
+      "finding_type": "missing_native_thor_bridge",
+      "odin_side_improvement": "Define a thor_handoff_intake schema and a validate-thor-handoff command that can parse Thor-generated handoff documents",
+      "recommendation": "Future work (B7+) should define a Thor-Odin bridge protocol so Thor handoffs can be consumed programmatically. This would enable automated receipt generation and validation.",
+      "severity": "medium",
       "source_pr": "PR-28",
       "source_refs": [
         "tools/v7_1_1/check_b2_context_lenses_worklets_slot_gaptext.py"
       ],
-      "finding_type": "missing_native_thor_bridge",
-      "severity": "medium",
-      "summary": "Odin-Agent-Shell currently has no native Thor bridge \u2014 no API, protocol, or integration for Thor to send structured handoffs directly to Odin or receive structured receipts. Thor is used only as an external reference, requiring manual reading and interpretation by Claude Code.",
-      "recommendation": "Future work (B7+) should define a Thor-Odin bridge protocol so Thor handoffs can be consumed programmatically. This would enable automated receipt generation and validation.",
       "suggested_future_bundle": "B7+",
-      "odin_side_improvement": "Define a thor_handoff_intake schema and a validate-thor-handoff command that can parse Thor-generated handoff documents",
-      "thor_side_improvement": "Thor could output structured JSON handoffs in addition to Markdown for programmatic consumption by Odin",
-      "claude_code_workflow_improvement": "Claude Code should note when Thor integration would benefit from a formal bridge and document it as a finding",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Odin-Agent-Shell currently has no native Thor bridge \u2014 no API, protocol, or integration for Thor to send structured handoffs directly to Odin or receive structured receipts. Thor is used only as an external reference, requiring manual reading and interpretation by Claude Code.",
+      "thor_side_improvement": "Thor could output structured JSON handoffs in addition to Markdown for programmatic consumption by Odin"
     },
     {
-      "finding_id": "B2-AUDIT-006",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Until a formal adapter contract exists, Claude Code should reference the work packet as the informal adapter contract",
+      "finding_id": "B2-AUDIT-006",
+      "finding_type": "missing_formal_claude_as_worker_adapter_contract",
+      "odin_side_improvement": "Add odin_claude_worker_adapter.schema.json as part of B3 ModelWorkPacket work. Reference it from the work packet structure.",
+      "recommendation": "Future work (B3+) should define a formal Claude-as-worker adapter contract as part of the ModelWorkPacket and External Agent Adapter work.",
+      "severity": "medium",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md"
       ],
-      "finding_type": "missing_formal_claude_as_worker_adapter_contract",
-      "severity": "medium",
-      "summary": "There is no formal Odin schema for Claude-as-worker adapter. The work packet describes Claude Code as a local worker following Odin constraints, but there is no odin_claude_worker_adapter.schema.json or equivalent formal contract. This is structurally analogous to the missing external agent adapter contract.",
-      "recommendation": "Future work (B3+) should define a formal Claude-as-worker adapter contract as part of the ModelWorkPacket and External Agent Adapter work.",
       "suggested_future_bundle": "B3",
-      "odin_side_improvement": "Add odin_claude_worker_adapter.schema.json as part of B3 ModelWorkPacket work. Reference it from the work packet structure.",
-      "thor_side_improvement": "Thor could define a standard agent-as-worker adapter interface that Odin implements",
-      "claude_code_workflow_improvement": "Until a formal adapter contract exists, Claude Code should reference the work packet as the informal adapter contract",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "There is no formal Odin schema for Claude-as-worker adapter. The work packet describes Claude Code as a local worker following Odin constraints, but there is no odin_claude_worker_adapter.schema.json or equivalent formal contract. This is structurally analogous to the missing external agent adapter contract.",
+      "thor_side_improvement": "Thor could define a standard agent-as-worker adapter interface that Odin implements"
     },
     {
-      "finding_id": "B2-AUDIT-007",
       "bundle_id": "B2",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Future Claude Code workers should explicitly reference B2 contracts when implementing B3+ model routing to maintain contract fidelity",
+      "finding_id": "B2-AUDIT-007",
+      "finding_type": "future_b7_audit_carry_forward",
+      "odin_side_improvement": "At B7+ review, validate that actual model routing implementation respects the Slot Forge route class contracts defined in B2",
+      "recommendation": "B7+ post-Road closure work should review whether B2 contracts adequately captured the full semantic work compile layer, whether Slot Forge route classes need expansion, and whether Context Capsule/Gaptext discipline was maintained through the full implementation ladder.",
+      "severity": "informational",
       "source_pr": "PR-28",
       "source_refs": [
         "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md"
       ],
-      "finding_type": "future_b7_audit_carry_forward",
-      "severity": "informational",
-      "summary": "B2 establishes the semantic work compile layer (Context, Lenses, Output Contracts, Worklets, Slot Forge, Gaptext) as static contracts. These contracts are the foundation for the model routing and provider integration work in B3+. The quality of B2 contracts directly determines B3 implementation correctness.",
-      "recommendation": "B7+ post-Road closure work should review whether B2 contracts adequately captured the full semantic work compile layer, whether Slot Forge route classes need expansion, and whether Context Capsule/Gaptext discipline was maintained through the full implementation ladder.",
       "suggested_future_bundle": "B7+",
-      "odin_side_improvement": "At B7+ review, validate that actual model routing implementation respects the Slot Forge route class contracts defined in B2",
-      "thor_side_improvement": "Thor post-closure review should verify that B2 contracts were correctly implemented in B3 ModelWorkPacket and B4 Candidate Final Gate",
-      "claude_code_workflow_improvement": "Future Claude Code workers should explicitly reference B2 contracts when implementing B3+ model routing to maintain contract fidelity",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "B2 establishes the semantic work compile layer (Context, Lenses, Output Contracts, Worklets, Slot Forge, Gaptext) as static contracts. These contracts are the foundation for the model routing and provider integration work in B3+. The quality of B2 contracts directly determines B3 implementation correctness.",
+      "thor_side_improvement": "Thor post-closure review should verify that B2 contracts were correctly implemented in B3 ModelWorkPacket and B4 Candidate Final Gate"
     },
     {
-      "finding_id": "B3-AUDIT-001",
       "bundle_id": "B3",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should check worker adapter forbidden_actions at start of each PR to enforce boundaries",
+      "finding_id": "B3-AUDIT-001",
+      "finding_type": "formal_contract_added",
+      "odin_side_improvement": "B4 critic layer should reference claude_worker_adapter allowed_actions to define what critic can request of worker",
+      "recommendation": "Continue using this adapter contract as the formal boundary for all future Claude Code worker interactions with Odin.",
+      "severity": "informational",
       "source_pr": "PR-29",
       "source_refs": [
         "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
         "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md"
       ],
-      "finding_type": "formal_contract_added",
-      "severity": "informational",
-      "summary": "Formal Claude-as-worker adapter contract added (schemas/v7_1_1_odin_claude_worker_adapter.schema.json). B2 audit finding B2-AUDIT-004 addressed. Contract invariants: Claude Code is external local worker; does not prove local LLM runtime; no app apply/state/external-send authority; returned work is candidate until reviewed.",
-      "recommendation": "Continue using this adapter contract as the formal boundary for all future Claude Code worker interactions with Odin.",
       "suggested_future_bundle": "B4+",
-      "odin_side_improvement": "B4 critic layer should reference claude_worker_adapter allowed_actions to define what critic can request of worker",
-      "claude_code_workflow_improvement": "Claude Code should check worker adapter forbidden_actions at start of each PR to enforce boundaries",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Formal Claude-as-worker adapter contract added (schemas/v7_1_1_odin_claude_worker_adapter.schema.json). B2 audit finding B2-AUDIT-004 addressed. Contract invariants: Claude Code is external local worker; does not prove local LLM runtime; no app apply/state/external-send authority; returned work is candidate until reviewed."
     },
     {
-      "finding_id": "B3-AUDIT-002",
       "bundle_id": "B3",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "finding_id": "B3-AUDIT-002",
+      "finding_type": "formal_schema_added",
+      "odin_side_improvement": "Add a formal validate-thor-intake subcommand that checks thor_handoff_intake registry entries for completeness",
+      "recommendation": "B7+ should evaluate whether a runtime Thor-Odin bridge is feasible using actual Thor pack generation targeting Odin work packets.",
+      "severity": "informational",
       "source_pr": "PR-29",
       "source_refs": [
         "docs/codex/handoffs/PR_29_B3_THOR_REPO_COGNITION_AND_Y_HANDOFF_INTAKE.md",
         "schemas/v7_1_1_thor_handoff_intake.schema.json"
       ],
-      "finding_type": "formal_schema_added",
-      "severity": "informational",
-      "summary": "Thor handoff intake schema added (schemas/v7_1_1_thor_handoff_intake.schema.json). B2 audit finding B2-AUDIT-001 follow-up. Static intake schema formalizes Thor protocol shape mapping into Odin. Not a runtime bridge.",
-      "recommendation": "B7+ should evaluate whether a runtime Thor-Odin bridge is feasible using actual Thor pack generation targeting Odin work packets.",
       "suggested_future_bundle": "B7+",
-      "odin_side_improvement": "Add a formal validate-thor-intake subcommand that checks thor_handoff_intake registry entries for completeness",
-      "thor_side_improvement": "Thor could add an Odin-specific work packet template to its HANDOFF_PACKS variants",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Thor handoff intake schema added (schemas/v7_1_1_thor_handoff_intake.schema.json). B2 audit finding B2-AUDIT-001 follow-up. Static intake schema formalizes Thor protocol shape mapping into Odin. Not a runtime bridge.",
+      "thor_side_improvement": "Thor could add an Odin-specific work packet template to its HANDOFF_PACKS variants"
     },
     {
-      "finding_id": "B3-AUDIT-003",
       "bundle_id": "B3",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "finding_id": "B3-AUDIT-003",
+      "finding_type": "architecture_binding",
+      "odin_side_improvement": "B4 should add CriticWorkPacket that references ModelWorkPacket.model_route_ref to select critic tier",
+      "recommendation": "B4 critic should reference scale_ladder route_class to select appropriate critic tier. Critic for deterministic_no_model route needs no model. Critic for small_model_candidate route may use deterministic schema check.",
+      "severity": "informational",
       "source_pr": "PR-29",
       "source_refs": [
         "docs/codex/handoffs/PR_29_B3_THOR_PROTOCOL_SHAPE_MAPPING.md",
         "registries/v7_1_1_model_scale_ladder_registry.json"
       ],
-      "finding_type": "architecture_binding",
-      "severity": "informational",
-      "summary": "B2 Slot Forge route classes (deterministic_no_model, small_model_candidate, hybrid_candidate, remote_explicit_only, cannot_safely_complete) bound into B3 Scale Ladder as the core of a 10-class routing hierarchy. B4 must consume ModelWorkPacket outputs in Candidate/Critic/Final Gate layer.",
-      "recommendation": "B4 critic should reference scale_ladder route_class to select appropriate critic tier. Critic for deterministic_no_model route needs no model. Critic for small_model_candidate route may use deterministic schema check.",
       "suggested_future_bundle": "B4",
-      "odin_side_improvement": "B4 should add CriticWorkPacket that references ModelWorkPacket.model_route_ref to select critic tier",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "B2 Slot Forge route classes (deterministic_no_model, small_model_candidate, hybrid_candidate, remote_explicit_only, cannot_safely_complete) bound into B3 Scale Ladder as the core of a 10-class routing hierarchy. B4 must consume ModelWorkPacket outputs in Candidate/Critic/Final Gate layer."
     },
     {
-      "finding_id": "B3-AUDIT-004",
       "bundle_id": "B3",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "finding_id": "B3-AUDIT-004",
+      "finding_type": "deferred_integration",
+      "odin_side_improvement": "B5 provider seam integration must include: explicit policy file, receipt log, no hidden remote fallback guard",
+      "recommendation": "B5 should implement local_ollama_candidate seam as first runtime provider integration. Require explicit policy and receipt before any remote provider.",
+      "severity": "low",
       "source_pr": "PR-29",
       "source_refs": [
         "registries/v7_1_1_provider_seam_registry.json",
         "docs/codex/audits/PR_29_B3_THOR_ODIN_CLAUDE_CODE_AUDIT.md"
       ],
-      "finding_type": "deferred_integration",
-      "severity": "low",
-      "summary": "Provider seams remain static transport contracts in B3. No runtime provider integration. B5 should add the first actual provider seam runtime integration, preferring local Ollama candidate over remote explicit-only.",
-      "recommendation": "B5 should implement local_ollama_candidate seam as first runtime provider integration. Require explicit policy and receipt before any remote provider.",
       "suggested_future_bundle": "B5",
-      "odin_side_improvement": "B5 provider seam integration must include: explicit policy file, receipt log, no hidden remote fallback guard",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Provider seams remain static transport contracts in B3. No runtime provider integration. B5 should add the first actual provider seam runtime integration, preferring local Ollama candidate over remote explicit-only."
     },
     {
-      "finding_id": "B3-AUDIT-005",
       "bundle_id": "B3",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "finding_id": "B3-AUDIT-005",
+      "finding_type": "architecture_finding",
+      "odin_side_improvement": "Create a dedicated thor-bridge intake command that reads thor pack output without committing .thor/ artifacts",
+      "recommendation": "B7+ evaluation: attempt thor pack --agent claude-code from Odin repo root with initialized session; extract HANDOFF.md and RETURN_CONTRACT.md into Odin handoff docs.",
+      "severity": "informational",
       "source_pr": "PR-29",
       "source_refs": [
         "registries/v7_1_1_hybrid_director_registry.json",
         "registries/v7_1_1_small_model_power_registry.json"
       ],
-      "finding_type": "architecture_finding",
-      "severity": "informational",
-      "summary": "B7+ should evaluate actual Thor-Odin bridge feasibility. Thor pack generation (thor pack --agent claude-code) can generate HANDOFF.md targeting Odin B5+ work packets. Current block: .thor/ artifact commitment not appropriate; session initialization required.",
-      "recommendation": "B7+ evaluation: attempt thor pack --agent claude-code from Odin repo root with initialized session; extract HANDOFF.md and RETURN_CONTRACT.md into Odin handoff docs.",
       "suggested_future_bundle": "B7+",
-      "odin_side_improvement": "Create a dedicated thor-bridge intake command that reads thor pack output without committing .thor/ artifacts",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "B7+ should evaluate actual Thor-Odin bridge feasibility. Thor pack generation (thor pack --agent claude-code) can generate HANDOFF.md targeting Odin B5+ work packets. Current block: .thor/ artifact commitment not appropriate; session initialization required."
     },
     {
-      "finding_id": "B4-AUDIT-001",
       "bundle_id": "B4",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should verify route-to-critic mapping is complete before B5 provider integration",
+      "finding_id": "B4-AUDIT-001",
+      "finding_type": "formal_contract_added",
+      "odin_side_improvement": "B5 should add runtime CriticWorkPacket instantiation consuming ModelWorkPacket.model_route_ref",
+      "recommendation": "B5 critic integration should reference CriticWorkPacket.scale_ladder_route_class to select appropriate critic tier at runtime. Minicheck must validate provider_policy_present before critic cascade entry.",
+      "severity": "informational",
       "source_pr": "PR-30",
       "source_refs": [
         "registries/v7_1_1_critic_work_packet_registry.json",
         "registries/v7_1_1_model_scale_ladder_registry.json"
       ],
-      "finding_type": "formal_contract_added",
-      "severity": "informational",
-      "summary": "CriticWorkPacket added and formally bound to ModelWorkPacket via route_to_critic_mapping. All 10 B3 scale ladder route classes are covered. Critic tiers are static contract roles in B4 — no live model execution. B3 audit finding B3-AUDIT-003 addressed.",
-      "recommendation": "B5 critic integration should reference CriticWorkPacket.scale_ladder_route_class to select appropriate critic tier at runtime. Minicheck must validate provider_policy_present before critic cascade entry.",
       "suggested_future_bundle": "B5",
-      "odin_side_improvement": "B5 should add runtime CriticWorkPacket instantiation consuming ModelWorkPacket.model_route_ref",
-      "thor_side_improvement": "Thor could generate critic work packet templates from route class specifications",
-      "claude_code_workflow_improvement": "Claude Code should verify route-to-critic mapping is complete before B5 provider integration",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "CriticWorkPacket added and formally bound to ModelWorkPacket via route_to_critic_mapping. All 10 B3 scale ladder route classes are covered. Critic tiers are static contract roles in B4 \u2014 no live model execution. B3 audit finding B3-AUDIT-003 addressed.",
+      "thor_side_improvement": "Thor could generate critic work packet templates from route class specifications"
     },
     {
-      "finding_id": "B4-AUDIT-002",
       "bundle_id": "B4",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code must check is_apply_gate constraint at start of each B5+ PR before implementing any gate logic",
+      "finding_id": "B4-AUDIT-002",
+      "finding_type": "boundary_enforcement",
+      "odin_side_improvement": "Add validate-final-gate-boundary subcommand that verifies is_apply_gate=false across all artifacts in validate-all",
+      "recommendation": "B5 and all future bundles must NOT elevate Final Gate Advisory to Apply Gate. App-owned apply logic must remain entirely separate from Odin Final Gate Advisory.",
+      "severity": "critical",
       "source_pr": "PR-30",
       "source_refs": [
         "registries/v7_1_1_final_gate_advisory_registry.json",
         "schemas/v7_1_1_final_gate_advisory.schema.json"
       ],
-      "finding_type": "boundary_enforcement",
-      "severity": "critical",
-      "summary": "Final Gate Advisory added with is_apply_gate=false enforced as JSON Schema const. Named 'Advisory' not 'Authority' or 'Gate'. App-owned Apply Gate remains entirely separate. This is the critical B4 boundary invariant — it must be preserved in all future bundles.",
-      "recommendation": "B5 and all future bundles must NOT elevate Final Gate Advisory to Apply Gate. App-owned apply logic must remain entirely separate from Odin Final Gate Advisory.",
       "suggested_future_bundle": "B5+",
-      "odin_side_improvement": "Add validate-final-gate-boundary subcommand that verifies is_apply_gate=false across all artifacts in validate-all",
-      "thor_side_improvement": "Thor could add a 'final gate boundary' check to its protocol review checklist",
-      "claude_code_workflow_improvement": "Claude Code must check is_apply_gate constraint at start of each B5+ PR before implementing any gate logic",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Final Gate Advisory added with is_apply_gate=false enforced as JSON Schema const. Named 'Advisory' not 'Authority' or 'Gate'. App-owned Apply Gate remains entirely separate. This is the critical B4 boundary invariant \u2014 it must be preserved in all future bundles.",
+      "thor_side_improvement": "Thor could add a 'final gate boundary' check to its protocol review checklist"
     },
     {
-      "finding_id": "B4-AUDIT-003",
       "bundle_id": "B4",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should populate claims_made and claims_not_made in every return report going forward",
+      "finding_id": "B4-AUDIT-003",
+      "finding_type": "architecture_contribution",
+      "odin_side_improvement": "B5 storage schema must include response_packet_id field and validate it references a known ResponsePacket",
+      "recommendation": "B5 storage/trace artifacts must include response_packet_id reference field for end-to-end traceability. The claims_made/claims_not_made discipline should be enforced by validate-all.",
+      "severity": "informational",
       "source_pr": "PR-30",
       "source_refs": [
         "registries/v7_1_1_response_packet_registry.json",
         "schemas/v7_1_1_response_packet.schema.json"
       ],
-      "finding_type": "architecture_contribution",
-      "severity": "informational",
-      "summary": "Response Packet introduces claims_made / claims_not_made and commands_run / commands_not_run and tests_run / tests_not_run distinctions. This enables honest return material that distinguishes what was done from what was not done. B5 must reference response_packet_id from storage receipts.",
-      "recommendation": "B5 storage/trace artifacts must include response_packet_id reference field for end-to-end traceability. The claims_made/claims_not_made discipline should be enforced by validate-all.",
       "suggested_future_bundle": "B5",
-      "odin_side_improvement": "B5 storage schema must include response_packet_id field and validate it references a known ResponsePacket",
-      "thor_side_improvement": "Thor receipt artifacts could map to Odin Response Packet claims_made for automated receipt generation",
-      "claude_code_workflow_improvement": "Claude Code should populate claims_made and claims_not_made in every return report going forward",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Response Packet introduces claims_made / claims_not_made and commands_run / commands_not_run and tests_run / tests_not_run distinctions. This enables honest return material that distinguishes what was done from what was not done. B5 must reference response_packet_id from storage receipts.",
+      "thor_side_improvement": "Thor receipt artifacts could map to Odin Response Packet claims_made for automated receipt generation"
     },
     {
-      "finding_id": "B4-AUDIT-004",
       "bundle_id": "B4",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should populate receipt boundary records with explicit pending_claim_refs for deferred items",
+      "finding_id": "B4-AUDIT-004",
+      "finding_type": "boundary_enforcement",
+      "odin_side_improvement": "B7+ should add a validate-receipt-boundary command that checks accepted/denied/pending claim refs for consistency",
+      "recommendation": "B7+ evaluation: map Thor THOR_RECEIPT.accepted_claim_refs to Odin Receipt Boundary accepted_claim_refs. Determine if automated receipt generation from Thor protocol artifacts is feasible.",
+      "severity": "informational",
       "source_pr": "PR-30",
       "source_refs": [
         "registries/v7_1_1_receipt_boundary_registry.json",
         "schemas/v7_1_1_receipt_boundary.schema.json"
       ],
-      "finding_type": "boundary_enforcement",
-      "severity": "informational",
-      "summary": "Receipt Boundary introduced with scoped claim state (accepted/denied/pending). is_absolute_truth=false and is_runtime_proof=false enforced as JSON Schema const. B7+ should evaluate Thor Protocol receipt integration with Odin Receipt Boundary.",
-      "recommendation": "B7+ evaluation: map Thor THOR_RECEIPT.accepted_claim_refs to Odin Receipt Boundary accepted_claim_refs. Determine if automated receipt generation from Thor protocol artifacts is feasible.",
       "suggested_future_bundle": "B7+",
-      "odin_side_improvement": "B7+ should add a validate-receipt-boundary command that checks accepted/denied/pending claim refs for consistency",
-      "thor_side_improvement": "Thor could output structured receipt JSON that maps directly to Odin Receipt Boundary schema",
-      "claude_code_workflow_improvement": "Claude Code should populate receipt boundary records with explicit pending_claim_refs for deferred items",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Receipt Boundary introduced with scoped claim state (accepted/denied/pending). is_absolute_truth=false and is_runtime_proof=false enforced as JSON Schema const. B7+ should evaluate Thor Protocol receipt integration with Odin Receipt Boundary.",
+      "thor_side_improvement": "Thor could output structured receipt JSON that maps directly to Odin Receipt Boundary schema"
     },
     {
-      "finding_id": "B4-AUDIT-005",
       "bundle_id": "B4",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Claude Code should set privacy_class conservatively (internal or sensitive) for all non-trivial candidates",
+      "finding_id": "B4-AUDIT-005",
+      "finding_type": "architecture_contribution",
+      "odin_side_improvement": "B5 storage must include privacy_class filtering before logging candidate content",
+      "recommendation": "B5 storage schema must include candidate_dna_id field. Privacy class must be validated before content is logged or stored.",
+      "severity": "informational",
       "source_pr": "PR-30",
       "source_refs": [
         "registries/v7_1_1_candidate_dna_registry.json",
         "schemas/v7_1_1_candidate_dna.schema.json"
       ],
-      "finding_type": "architecture_contribution",
-      "severity": "informational",
-      "summary": "Candidate DNA added with privacy_class (public/internal/sensitive/redacted) and content_hash discipline. Does not expose raw sensitive content. B5 must reference candidate_dna_id in storage/trace receipts for lineage traceability.",
-      "recommendation": "B5 storage schema must include candidate_dna_id field. Privacy class must be validated before content is logged or stored.",
       "suggested_future_bundle": "B5",
-      "odin_side_improvement": "B5 storage must include privacy_class filtering before logging candidate content",
-      "thor_side_improvement": "Thor could include a privacy classification step in the handoff prep phase",
-      "claude_code_workflow_improvement": "Claude Code should set privacy_class conservatively (internal or sensitive) for all non-trivial candidates",
-      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+      "summary": "Candidate DNA added with privacy_class (public/internal/sensitive/redacted) and content_hash discipline. Does not expose raw sensitive content. B5 must reference candidate_dna_id in storage/trace receipts for lineage traceability.",
+      "thor_side_improvement": "Thor could include a privacy classification step in the handoff prep phase"
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-001",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B6",
+      "summary": "Storage Record added and references response_packet_id / candidate_artifact_id / candidate_dna_id / receipt_boundary_id",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-002",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B6",
+      "summary": "Trace Record added and preserves candidate lineage",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-003",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B6",
+      "summary": "Receipt Ledger added and partitions accepted/denied/pending claim refs",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-004",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B6",
+      "summary": "Provider Policy hard defaults added",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-005",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B7+",
+      "summary": "Local Provider Seam Prep added but no provider execution in CI",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-006",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B7+",
+      "summary": "Thor-Odin Bridge Prep added as static mapping only",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-007",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B7+",
+      "summary": "SDK/App Bridge Prep added without app authority",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-008",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B6",
+      "summary": "B6 must build Acceptance Harness / Dojo / Scoreboard / Closure Prep",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-009",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ must evaluate real Thor pack to Odin intake",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
+    },
+    {
+      "bundle_id": "B5",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim",
+      "claude_code_workflow_improvement": "Continue listing commands, evidence refs, gaps, and non-claims in returned work.",
+      "finding_id": "B5-AUDIT-010",
+      "finding_type": "static_contract_observation",
+      "odin_side_improvement": "Use B5 evidence substrate as input to acceptance and future bridge work.",
+      "recommendation": "Carry this boundary forward without upgrading static evidence into runtime/provider/model/app-authority proof.",
+      "severity": "informational",
+      "source_pr": "PR-31",
+      "source_refs": [
+        "docs/codex/audits/PR_31_B5_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
+        "docs/codex/reports/PR_31_B5_STORAGE_TRACE_RECEIPT_PROVIDER_BRIDGE_RETURN_REPORT.md"
+      ],
+      "suggested_future_bundle": "B7+",
+      "summary": "B7+ must evaluate actual local provider runtime only after explicit policy/receipt guard",
+      "thor_side_improvement": "Keep Thor/Odin intake explicit, receipt-bound, and candidate-only."
     }
-  ]
+  ],
+  "registry_id": "odin.v7_1_1_llm_work_audit_findings_registry",
+  "status": "llm_work_audit_findings_not_runtime_proof",
+  "version": "7.1.1"
 }
