@@ -1,0 +1,3014 @@
+{
+  "app_connection_readiness_score": 2,
+  "architecture_score": 4,
+  "checks": [
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_REPO_REALITY_GAP_AUDIT_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_BUILDABLE_SLICE_CATALOG_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_MINIMAL_ROAD_TO_100_PR_ROADMAP_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/rebaseline/FINAL_100_PERCENT_ACCEPTANCE_DEFINITION_V1.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/codex/audits/PR_35_B9_FINAL_ROAD_TO_100_AUDIT.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: docs/codex/reports/PR_35_B9_FINAL_ROAD_TO_100_RETURN_REPORT.md",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_local_runtime_hub_target_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_repo_reality_gap_audit_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_q_shabang_capability_matrix_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_buildable_slice_catalog_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_minimal_road_to_100_pr_roadmap_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: schemas/final_100_percent_acceptance_definition_v1.schema.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_local_runtime_hub_target_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_repo_reality_gap_audit_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_q_shabang_capability_matrix_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_buildable_slice_catalog_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_minimal_road_to_100_pr_roadmap_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: registries/final_100_percent_acceptance_definition_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_local_runtime_hub_target_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_repo_reality_gap_audit_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_q_shabang_capability_matrix_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_buildable_slice_catalog_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_minimal_road_to_100_pr_roadmap_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: examples/final_100_percent_acceptance_definition_v1.example.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: reports/final_road_to_100_rebaseline_audit_v1.json",
+      "ok": true
+    },
+    {
+      "name": "required artifact exists: tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
+      "ok": true
+    },
+    {
+      "name": "target includes normal_user_target",
+      "ok": true
+    },
+    {
+      "name": "target includes dev_mode_target",
+      "ok": true
+    },
+    {
+      "name": "target includes q_shabang_target",
+      "ok": true
+    },
+    {
+      "name": "target includes ki_ohne_ki_target",
+      "ok": true
+    },
+    {
+      "name": "target includes llm_agent_target",
+      "ok": true
+    },
+    {
+      "name": "target includes runtime_target",
+      "ok": true
+    },
+    {
+      "name": "target includes ui_target",
+      "ok": true
+    },
+    {
+      "name": "target includes model_picker_target",
+      "ok": true
+    },
+    {
+      "name": "target includes connected_apps_target",
+      "ok": true
+    },
+    {
+      "name": "target includes candidate_workflow_target",
+      "ok": true
+    },
+    {
+      "name": "target includes proof_gap_target",
+      "ok": true
+    },
+    {
+      "name": "target is candidate_only",
+      "ok": true
+    },
+    {
+      "name": "target is local_only",
+      "ok": true
+    },
+    {
+      "name": "target preserves app_owned_apply",
+      "ok": true
+    },
+    {
+      "name": "target preserves app_owned_state",
+      "ok": true
+    },
+    {
+      "name": "target preserves app_owned_external_send",
+      "ok": true
+    },
+    {
+      "name": "target includes QIRC Cognitive Substrate Cluster definition",
+      "ok": true
+    },
+    {
+      "name": "QIRC is local IRC-centered coordination core",
+      "ok": true
+    },
+    {
+      "name": "QIRC required formula present",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: localhost-only",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no public rooms",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no lan/wan/federation",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no app apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no app-state mutation",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no external-send",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no final gate bypass",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no receipt truth",
+      "ok": true
+    },
+    {
+      "name": "QIRC boundary present: no provider/model authority",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers clone_install_path",
+      "ok": true
+    },
+    {
+      "name": "clone_install_path has valid status",
+      "ok": true
+    },
+    {
+      "name": "clone_install_path has missing_work",
+      "ok": true
+    },
+    {
+      "name": "clone_install_path has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "clone_install_path has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "clone_install_path partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers one_command_start",
+      "ok": true
+    },
+    {
+      "name": "one_command_start has valid status",
+      "ok": true
+    },
+    {
+      "name": "one_command_start has missing_work",
+      "ok": true
+    },
+    {
+      "name": "one_command_start has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "one_command_start has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers localhost_runtime_api",
+      "ok": true
+    },
+    {
+      "name": "localhost_runtime_api has valid status",
+      "ok": true
+    },
+    {
+      "name": "localhost_runtime_api has missing_work",
+      "ok": true
+    },
+    {
+      "name": "localhost_runtime_api has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "localhost_runtime_api has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers browser_hub_ui",
+      "ok": true
+    },
+    {
+      "name": "browser_hub_ui has valid status",
+      "ok": true
+    },
+    {
+      "name": "browser_hub_ui has missing_work",
+      "ok": true
+    },
+    {
+      "name": "browser_hub_ui has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "browser_hub_ui has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "browser_hub_ui partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers model_picker",
+      "ok": true
+    },
+    {
+      "name": "model_picker has valid status",
+      "ok": true
+    },
+    {
+      "name": "model_picker has missing_work",
+      "ok": true
+    },
+    {
+      "name": "model_picker has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "model_picker has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "model_picker partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers multiple_models",
+      "ok": true
+    },
+    {
+      "name": "multiple_models has valid status",
+      "ok": true
+    },
+    {
+      "name": "multiple_models has missing_work",
+      "ok": true
+    },
+    {
+      "name": "multiple_models has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "multiple_models has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "multiple_models partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers provider_status",
+      "ok": true
+    },
+    {
+      "name": "provider_status has valid status",
+      "ok": true
+    },
+    {
+      "name": "provider_status has missing_work",
+      "ok": true
+    },
+    {
+      "name": "provider_status has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "provider_status has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "provider_status partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers connected_apps_view",
+      "ok": true
+    },
+    {
+      "name": "connected_apps_view has valid status",
+      "ok": true
+    },
+    {
+      "name": "connected_apps_view has missing_work",
+      "ok": true
+    },
+    {
+      "name": "connected_apps_view has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "connected_apps_view has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "connected_apps_view partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers app_bridge",
+      "ok": true
+    },
+    {
+      "name": "app_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "app_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "app_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "app_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "app_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers sdk_bridge",
+      "ok": true
+    },
+    {
+      "name": "sdk_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "sdk_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "sdk_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "sdk_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers universal_work_submit",
+      "ok": true
+    },
+    {
+      "name": "universal_work_submit has valid status",
+      "ok": true
+    },
+    {
+      "name": "universal_work_submit has missing_work",
+      "ok": true
+    },
+    {
+      "name": "universal_work_submit has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "universal_work_submit has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers candidate_artifact_response",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifact_response has valid status",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifact_response has missing_work",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifact_response has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifact_response has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers response_packet_view",
+      "ok": true
+    },
+    {
+      "name": "response_packet_view has valid status",
+      "ok": true
+    },
+    {
+      "name": "response_packet_view has missing_work",
+      "ok": true
+    },
+    {
+      "name": "response_packet_view has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "response_packet_view has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "response_packet_view partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers activity_feed",
+      "ok": true
+    },
+    {
+      "name": "activity_feed has valid status",
+      "ok": true
+    },
+    {
+      "name": "activity_feed has missing_work",
+      "ok": true
+    },
+    {
+      "name": "activity_feed has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "activity_feed has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "activity_feed partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers trace_viewer",
+      "ok": true
+    },
+    {
+      "name": "trace_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "trace_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "trace_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "trace_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "trace_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers receipt_viewer",
+      "ok": true
+    },
+    {
+      "name": "receipt_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "receipt_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "receipt_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "receipt_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "receipt_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers proof_gap_viewer",
+      "ok": true
+    },
+    {
+      "name": "proof_gap_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "proof_gap_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "proof_gap_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "proof_gap_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "proof_gap_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers support_bundle",
+      "ok": true
+    },
+    {
+      "name": "support_bundle has valid status",
+      "ok": true
+    },
+    {
+      "name": "support_bundle has missing_work",
+      "ok": true
+    },
+    {
+      "name": "support_bundle has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "support_bundle has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers dev_mode_toggle",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_toggle has valid status",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_toggle has missing_work",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_toggle has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_toggle has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "dev_mode_toggle partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers local_provider_probe",
+      "ok": true
+    },
+    {
+      "name": "local_provider_probe has valid status",
+      "ok": true
+    },
+    {
+      "name": "local_provider_probe has missing_work",
+      "ok": true
+    },
+    {
+      "name": "local_provider_probe has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "local_provider_probe has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "local_provider_probe partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers mock_provider",
+      "ok": true
+    },
+    {
+      "name": "mock_provider has valid status",
+      "ok": true
+    },
+    {
+      "name": "mock_provider has missing_work",
+      "ok": true
+    },
+    {
+      "name": "mock_provider has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "mock_provider has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "mock_provider partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers ollama_candidate",
+      "ok": true
+    },
+    {
+      "name": "ollama_candidate has valid status",
+      "ok": true
+    },
+    {
+      "name": "ollama_candidate has missing_work",
+      "ok": true
+    },
+    {
+      "name": "ollama_candidate has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "ollama_candidate has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "ollama_candidate partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers llama_cpp_candidate",
+      "ok": true
+    },
+    {
+      "name": "llama_cpp_candidate has valid status",
+      "ok": true
+    },
+    {
+      "name": "llama_cpp_candidate has missing_work",
+      "ok": true
+    },
+    {
+      "name": "llama_cpp_candidate has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "llama_cpp_candidate has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "llama_cpp_candidate partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers no_remote_fallback",
+      "ok": true
+    },
+    {
+      "name": "no_remote_fallback has valid status",
+      "ok": true
+    },
+    {
+      "name": "no_remote_fallback has missing_work",
+      "ok": true
+    },
+    {
+      "name": "no_remote_fallback has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "no_remote_fallback has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "no_remote_fallback partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_semantic_bus",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers worklet_slot_gaptext_visibility",
+      "ok": true
+    },
+    {
+      "name": "worklet_slot_gaptext_visibility has valid status",
+      "ok": true
+    },
+    {
+      "name": "worklet_slot_gaptext_visibility has missing_work",
+      "ok": true
+    },
+    {
+      "name": "worklet_slot_gaptext_visibility has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "worklet_slot_gaptext_visibility has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "worklet_slot_gaptext_visibility partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers ki_ohne_ki_precompute_visibility",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki_precompute_visibility has valid status",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki_precompute_visibility has missing_work",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki_precompute_visibility has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki_precompute_visibility has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki_precompute_visibility partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers agent_operator_mode",
+      "ok": true
+    },
+    {
+      "name": "agent_operator_mode has valid status",
+      "ok": true
+    },
+    {
+      "name": "agent_operator_mode has missing_work",
+      "ok": true
+    },
+    {
+      "name": "agent_operator_mode has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "agent_operator_mode has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers thor_compatibility",
+      "ok": true
+    },
+    {
+      "name": "thor_compatibility has valid status",
+      "ok": true
+    },
+    {
+      "name": "thor_compatibility has missing_work",
+      "ok": true
+    },
+    {
+      "name": "thor_compatibility has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "thor_compatibility has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "thor_compatibility partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers golden_flow",
+      "ok": true
+    },
+    {
+      "name": "golden_flow has valid status",
+      "ok": true
+    },
+    {
+      "name": "golden_flow has missing_work",
+      "ok": true
+    },
+    {
+      "name": "golden_flow has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "golden_flow has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "golden_flow partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers full_acceptance_local_receipt",
+      "ok": true
+    },
+    {
+      "name": "full_acceptance_local_receipt has valid status",
+      "ok": true
+    },
+    {
+      "name": "full_acceptance_local_receipt has missing_work",
+      "ok": true
+    },
+    {
+      "name": "full_acceptance_local_receipt has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "full_acceptance_local_receipt has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "full_acceptance_local_receipt partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers security_static_review",
+      "ok": true
+    },
+    {
+      "name": "security_static_review has valid status",
+      "ok": true
+    },
+    {
+      "name": "security_static_review has missing_work",
+      "ok": true
+    },
+    {
+      "name": "security_static_review has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "security_static_review has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers runtime_security_review",
+      "ok": true
+    },
+    {
+      "name": "runtime_security_review has valid status",
+      "ok": true
+    },
+    {
+      "name": "runtime_security_review has missing_work",
+      "ok": true
+    },
+    {
+      "name": "runtime_security_review has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "runtime_security_review has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "runtime_security_review partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers target_host_review",
+      "ok": true
+    },
+    {
+      "name": "target_host_review has valid status",
+      "ok": true
+    },
+    {
+      "name": "target_host_review has missing_work",
+      "ok": true
+    },
+    {
+      "name": "target_host_review has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "target_host_review has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "target_host_review partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers dependency_tooling",
+      "ok": true
+    },
+    {
+      "name": "dependency_tooling has valid status",
+      "ok": true
+    },
+    {
+      "name": "dependency_tooling has missing_work",
+      "ok": true
+    },
+    {
+      "name": "dependency_tooling has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "dependency_tooling has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "dependency_tooling partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers release_package",
+      "ok": true
+    },
+    {
+      "name": "release_package has valid status",
+      "ok": true
+    },
+    {
+      "name": "release_package has missing_work",
+      "ok": true
+    },
+    {
+      "name": "release_package has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "release_package has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "release_package partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers windows_convenience",
+      "ok": true
+    },
+    {
+      "name": "windows_convenience has valid status",
+      "ok": true
+    },
+    {
+      "name": "windows_convenience has missing_work",
+      "ok": true
+    },
+    {
+      "name": "windows_convenience has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "windows_convenience has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers normal_user_docs",
+      "ok": true
+    },
+    {
+      "name": "normal_user_docs has valid status",
+      "ok": true
+    },
+    {
+      "name": "normal_user_docs has missing_work",
+      "ok": true
+    },
+    {
+      "name": "normal_user_docs has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "normal_user_docs has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "normal_user_docs partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_core_local_irc_server",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_sdk_app_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_file_spool_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_trace_receipt_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_cognitive_substrate_cluster",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster partial/missing maps to slice",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_feed_source_intake",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_feed_source_intake has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_feed_source_intake",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_thread_archive",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_thread_archive has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_thread_archive",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_local_discovery",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_local_discovery has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_local_discovery",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_lightweight_pubsub_adapter",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_lightweight_pubsub_adapter has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_lightweight_pubsub_adapter",
+      "ok": true
+    },
+    {
+      "name": "gap audit covers qirc_federation_future",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has valid status",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has missing_work",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has proof_needed",
+      "ok": true
+    },
+    {
+      "name": "qirc_federation_future has recommended_slice",
+      "ok": true
+    },
+    {
+      "name": "optional QIRC ring deferred/non-goal: qirc_federation_future",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers ki_ohne_ki",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "ki_ohne_ki normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers universal_work",
+      "ok": true
+    },
+    {
+      "name": "universal_work architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "universal_work repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "universal_work validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "universal_work runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "universal_work normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers candidate_artifacts",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifacts architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifacts repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifacts validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifacts runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_artifacts normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers response_packets",
+      "ok": true
+    },
+    {
+      "name": "response_packets architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "response_packets repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "response_packets validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "response_packets runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "response_packets normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_semantic_bus",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_bus normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers context_distillery",
+      "ok": true
+    },
+    {
+      "name": "context_distillery architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "context_distillery repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "context_distillery validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "context_distillery runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "context_distillery normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers lenses",
+      "ok": true
+    },
+    {
+      "name": "lenses architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "lenses repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "lenses validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "lenses runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "lenses normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers worklets",
+      "ok": true
+    },
+    {
+      "name": "worklets architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "worklets repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "worklets validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "worklets runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "worklets normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers slot_forge",
+      "ok": true
+    },
+    {
+      "name": "slot_forge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "slot_forge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "slot_forge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "slot_forge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "slot_forge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers gaptext",
+      "ok": true
+    },
+    {
+      "name": "gaptext architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "gaptext repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "gaptext validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "gaptext runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "gaptext normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers modelworkpacket",
+      "ok": true
+    },
+    {
+      "name": "modelworkpacket architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "modelworkpacket repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "modelworkpacket validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "modelworkpacket runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "modelworkpacket normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers smallest_sufficient_worker",
+      "ok": true
+    },
+    {
+      "name": "smallest_sufficient_worker architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "smallest_sufficient_worker repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "smallest_sufficient_worker validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "smallest_sufficient_worker runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "smallest_sufficient_worker normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers 3b_7b_hybrid_route_roles",
+      "ok": true
+    },
+    {
+      "name": "3b_7b_hybrid_route_roles architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "3b_7b_hybrid_route_roles repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "3b_7b_hybrid_route_roles validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "3b_7b_hybrid_route_roles runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "3b_7b_hybrid_route_roles normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers critic_cascade",
+      "ok": true
+    },
+    {
+      "name": "critic_cascade architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "critic_cascade repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "critic_cascade validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "critic_cascade runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "critic_cascade normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers tournament",
+      "ok": true
+    },
+    {
+      "name": "tournament architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "tournament repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "tournament validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "tournament runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "tournament normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers candidate_dna",
+      "ok": true
+    },
+    {
+      "name": "candidate_dna architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_dna repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_dna validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_dna runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "candidate_dna normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers final_gate_advisory",
+      "ok": true
+    },
+    {
+      "name": "final_gate_advisory architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "final_gate_advisory repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "final_gate_advisory validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "final_gate_advisory runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "final_gate_advisory normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers receipt_boundary",
+      "ok": true
+    },
+    {
+      "name": "receipt_boundary architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_boundary repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_boundary validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_boundary runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_boundary normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers receipt_ledger",
+      "ok": true
+    },
+    {
+      "name": "receipt_ledger architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_ledger repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_ledger validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_ledger runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "receipt_ledger normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers trace_records",
+      "ok": true
+    },
+    {
+      "name": "trace_records architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "trace_records repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "trace_records validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "trace_records runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "trace_records normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers provider_policy",
+      "ok": true
+    },
+    {
+      "name": "provider_policy architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "provider_policy repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "provider_policy validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "provider_policy runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "provider_policy normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers local_provider_seam",
+      "ok": true
+    },
+    {
+      "name": "local_provider_seam architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_provider_seam repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_provider_seam validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_provider_seam runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_provider_seam normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers thor_handoff",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_handoff normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers thor_pack_intake",
+      "ok": true
+    },
+    {
+      "name": "thor_pack_intake architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_pack_intake repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_pack_intake validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_pack_intake runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "thor_pack_intake normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers sdk_app_bridge",
+      "ok": true
+    },
+    {
+      "name": "sdk_app_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "sdk_app_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "sdk_app_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "sdk_app_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "sdk_app_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers security_review_track",
+      "ok": true
+    },
+    {
+      "name": "security_review_track architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "security_review_track repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "security_review_track validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "security_review_track runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "security_review_track normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers local_runtime_hub_ui",
+      "ok": true
+    },
+    {
+      "name": "local_runtime_hub_ui architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_runtime_hub_ui repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_runtime_hub_ui validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_runtime_hub_ui runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "local_runtime_hub_ui normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers app_connections",
+      "ok": true
+    },
+    {
+      "name": "app_connections architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "app_connections repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "app_connections validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "app_connections runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "app_connections normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers dev_mode",
+      "ok": true
+    },
+    {
+      "name": "dev_mode architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "dev_mode normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_core_local_irc_server",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_core_local_irc_server normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_semantic_channel_registry normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_browser_event_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_sdk_app_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_sdk_app_event_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_file_spool_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_file_spool_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cli_agent_pipe_bridge normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_trace_receipt_channel_mapping",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_trace_receipt_channel_mapping normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_dev_mode_event_viewer normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "Q-Shabang matrix covers qirc_cognitive_substrate_cluster",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster architecture_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster repo_artifact_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster validator_coverage_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster runtime_proof_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "qirc_cognitive_substrate_cluster normal_user_visibility_score_0_5 score is 0-5",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: simple_local_hub_start",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: browser_hub_normal_user_ui",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: model_picker_provider_status",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: connected_apps_bridge_view",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: demo_universal_work_flow",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: activity_trace_receipt_view",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: dev_mode_diagnostics",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: runtime_security_smoke",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: target_host_smoke",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: local_provider_probe",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: final_acceptance_cleanup",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: docs_quickstart_polish",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_core_local_irc_runtime",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_semantic_channel_registry",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_app_bridge_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_file_spool_packet_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_trace_receipt_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "slice family covered: qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "roadmap has 3-5 PRs or justification",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc core",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_core_local_irc_runtime",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_browser_event_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_app_bridge_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_file_spool_packet_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_cli_agent_pipe_bridge",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_trace_receipt_event_mapping",
+      "ok": true
+    },
+    {
+      "name": "roadmap includes QIRC required ring: qirc_dev_mode_event_viewer",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has success_criteria",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has tests_required",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has proof_commands",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has non_goals",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has known_risks",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-01 has merge_order",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has success_criteria",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has tests_required",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has proof_commands",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has non_goals",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has known_risks",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-02 has merge_order",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has success_criteria",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has tests_required",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has proof_commands",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has non_goals",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has known_risks",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-03 has merge_order",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has success_criteria",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has tests_required",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has proof_commands",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has non_goals",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has known_risks",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-04 has merge_order",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has success_criteria",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has tests_required",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has proof_commands",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has non_goals",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has known_risks",
+      "ok": true
+    },
+    {
+      "name": "FINAL-PR-05 has merge_order",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive clone_or_download_path_documented",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive install_path_documented_and_tested",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive one_start_command_works_with_local_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive localhost_runtime_starts_with_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive browser_hub_opens_or_is_reachable_with_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive normal_user_status_understandable",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive model_picker_works_with_mock_and_local_candidate_providers",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive connected_apps_panel_works",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive demo_generic_app_bridge_works",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive universal_work_demo_works",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive candidate_artifact_and_response_packet_visible",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive activity_feed_visible",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive trace_receipt_proof_gaps_visible_in_dev_mode",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive support_bundle_works",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive validate_all_passes",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive golden_flow_passes",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive full_acceptance_local_receipt_passes",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive non_goals_remain_non_claims",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_core_localhost_only_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_semantic_channels_registered",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_browser_event_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_app_bridge_event_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_file_spool_packet_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_cli_agent_pipe_bridge_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_trace_receipt_channel_mapping_receipt",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes positive qirc_dev_mode_event_viewer_visible",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface QIRC event status in Dev Mode",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface QIRC channel/event viewer in Dev Mode",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface Trace/receipt channel mapping",
+      "ok": true
+    },
+    {
+      "name": "acceptance includes QIRC visible surface App/agent packet flow status",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory windows_service_tray_installer",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory signed_release",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory store_distribution",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory production_readiness",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory security_certification",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory public_network_api",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory live_model_quality_proof",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory specific_external_app_integration",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_sends",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory app_state_mutation",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory public_irc_network",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory lan_wan_qirc",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory federation",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory matrix_like_platform",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory activitypub_xmpp_public_network",
+      "ok": true
+    },
+    {
+      "name": "acceptance excludes mandatory external_broker_dependency",
+      "ok": true
+    },
+    {
+      "name": "report includes architecture_score",
+      "ok": true
+    },
+    {
+      "name": "report includes runtime_score",
+      "ok": true
+    },
+    {
+      "name": "report includes normal_user_ux_score",
+      "ok": true
+    },
+    {
+      "name": "report includes q_shabang_score",
+      "ok": true
+    },
+    {
+      "name": "report includes ki_ohne_ki_score",
+      "ok": true
+    },
+    {
+      "name": "report includes llm_agent_effectiveness_score",
+      "ok": true
+    },
+    {
+      "name": "report includes hard_blockers",
+      "ok": true
+    },
+    {
+      "name": "report includes soft_blockers",
+      "ok": true
+    },
+    {
+      "name": "report includes recommended_final_pr_count",
+      "ok": true
+    },
+    {
+      "name": "report includes next_action",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: runtime proof completed",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: security certification completed",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: release certification completed",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: target host proof completed",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: live model inference proof completed",
+      "ok": true
+    },
+    {
+      "name": "forbidden unreceipted claim token absent: model quality proof completed",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc may apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc can apply",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc mutates app state",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc may mutate app state",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc sends externally",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc may send externally",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: qirc bypasses final gate",
+      "ok": true
+    },
+    {
+      "name": "QIRC forbidden authority absent: receipt is truth",
+      "ok": true
+    },
+    {
+      "name": "QIRC is not public network/federation by default",
+      "ok": true
+    },
+    {
+      "name": "no API-key/env execution claim in final artifacts",
+      "ok": true
+    },
+    {
+      "name": "FILE_MANIFEST excludes forbidden temp/build/cache artifacts",
+      "ok": true
+    }
+  ],
+  "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "clone_start_readiness_score": 2,
+  "deferred_non_goals": [
+    "windows_service_tray_installer",
+    "signed_release",
+    "store_distribution",
+    "public_network_api",
+    "specific_external_app_integration",
+    "public_irc_network",
+    "lan_wan_qirc",
+    "federation",
+    "matrix_like_platform",
+    "activitypub_xmpp_public_network",
+    "external_broker_dependency"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_blockers": [
+    "qirc_core_local_irc_server_missing",
+    "qirc_browser_event_bridge_missing",
+    "qirc_file_spool_bridge_missing",
+    "qirc_dev_mode_event_viewer_missing",
+    "normal_user_browser_hub_not_end_to_end",
+    "activity_dev_mode_receipts_not_fully_integrated",
+    "local_provider_probe_missing",
+    "final_acceptance_receipt_not_currently_complete"
+  ],
+  "hard_violations": [],
+  "ki_ohne_ki_score": 3,
+  "llm_agent_effectiveness_score": 3,
+  "missing_capabilities": [
+    "clone_install_path",
+    "browser_hub_ui",
+    "model_picker",
+    "multiple_models",
+    "provider_status",
+    "connected_apps_view",
+    "app_bridge",
+    "response_packet_view",
+    "activity_feed",
+    "trace_viewer",
+    "receipt_viewer",
+    "proof_gap_viewer",
+    "dev_mode_toggle",
+    "local_provider_probe",
+    "mock_provider",
+    "ollama_candidate",
+    "llama_cpp_candidate",
+    "no_remote_fallback",
+    "qirc_semantic_bus",
+    "worklet_slot_gaptext_visibility",
+    "ki_ohne_ki_precompute_visibility",
+    "thor_compatibility",
+    "golden_flow",
+    "full_acceptance_local_receipt",
+    "runtime_security_review",
+    "target_host_review",
+    "dependency_tooling",
+    "release_package",
+    "normal_user_docs",
+    "qirc_core_local_irc_server",
+    "qirc_semantic_channel_registry",
+    "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping",
+    "qirc_file_spool_bridge",
+    "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping",
+    "qirc_dev_mode_event_viewer",
+    "qirc_cognitive_substrate_cluster"
+  ],
+  "next_action": "Build FINAL-PR-01 first, then implement QIRC Core in FINAL-PR-03 and File/Spool plus CLI/Agent Pipe rings in FINAL-PR-04.",
+  "non_claims": [
+    "not_runtime_completion_proof",
+    "not_security_certification",
+    "not_release_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_app_state_authority",
+    "not_external_send_authority"
+  ],
+  "normal_user_ux_score": 2,
+  "q_shabang_score": 4,
+  "qirc_cognitive_substrate_score": 2,
+  "qirc_core_status": "missing",
+  "qirc_optional_rings": [
+    "qirc_feed_source_intake",
+    "qirc_thread_archive",
+    "qirc_local_discovery",
+    "qirc_lightweight_pubsub_adapter",
+    "qirc_federation_future"
+  ],
+  "qirc_required_rings": [
+    "qirc_core_local_irc_server",
+    "qirc_semantic_channel_registry",
+    "qirc_browser_event_bridge",
+    "qirc_sdk_app_event_mapping",
+    "qirc_file_spool_bridge",
+    "qirc_cli_agent_pipe_bridge",
+    "qirc_trace_receipt_channel_mapping",
+    "qirc_dev_mode_event_viewer",
+    "qirc_cognitive_substrate_cluster"
+  ],
+  "recommended_final_pr_count": 5,
+  "recommended_prs": [
+    "FINAL-PR-01",
+    "FINAL-PR-02",
+    "FINAL-PR-03",
+    "FINAL-PR-04",
+    "FINAL-PR-05"
+  ],
+  "repo_reality_summary": {
+    "blocked_pending_decision": 0,
+    "cannot_determine_from_repo": 0,
+    "deferred_non_goal": 6,
+    "implemented_and_locally_proven": 0,
+    "implemented_without_recent_local_proof": 8,
+    "missing": 10,
+    "partially_implemented": 21,
+    "schema_or_doc_only": 7
+  },
+  "report_id": "final_road_to_100_rebaseline_audit_v1",
+  "runtime_score": 2,
+  "slice_count": 20,
+  "soft_blockers": [
+    "docs_quickstart_needs_polish",
+    "dependency_tooling_receipt_missing",
+    "target_host_review_future_scoped",
+    "optional_qirc_feed_thread_discovery_pubsub_federation_deferred"
+  ],
+  "status": "ok",
+  "target_summary": "Odin Local Runtime Hub with first-class QIRC Cognitive Substrate Cluster: localhost-only IRC/QIRC-compatible coordination core plus local KI-ohne-KI substrates for bounded events, traces, receipts, and work packets."
+}

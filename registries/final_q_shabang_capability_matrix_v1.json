@@ -1,0 +1,426 @@
+{
+  "capabilities": [
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "ki_ohne_ki",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "universal_work",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 2,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "candidate_artifacts",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 2,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "response_packets",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 2,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_semantic_bus",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "context_distillery",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "lenses",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "worklets",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "slot_forge",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "gaptext",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "modelworkpacket",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "smallest_sufficient_worker",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "3b_7b_hybrid_route_roles",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "critic_cascade",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "tournament",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "candidate_dna",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "final_gate_advisory",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "receipt_boundary",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "receipt_ledger",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "trace_records",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "provider_policy",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "local_provider_seam",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "thor_handoff",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "thor_pack_intake",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "sdk_app_bridge",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "security_review_track",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 4,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 4
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "local_runtime_hub_ui",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 2,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 3
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "app_connections",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 4,
+      "capability_id": "dev_mode",
+      "effectiveness_notes": "Strong architecture coverage, but final user-visible leverage requires Hub and proof-path consolidation.",
+      "missing_work": "Expose or prove this capability through final Local Runtime Hub slices with claim boundaries.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_core_local_irc_server",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_core_local_irc_server through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_semantic_channel_registry",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_semantic_channel_registry through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 1,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_browser_event_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_browser_event_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_sdk_app_event_mapping",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_sdk_app_event_mapping through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_file_spool_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_file_spool_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 1,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_cli_agent_pipe_bridge",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_cli_agent_pipe_bridge through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_trace_receipt_channel_mapping",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_trace_receipt_channel_mapping through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 1,
+      "repo_artifact_coverage_score_0_5": 3,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 2
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_dev_mode_event_viewer",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_dev_mode_event_viewer through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 1,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    },
+    {
+      "architecture_coverage_score_0_5": 5,
+      "capability_id": "qirc_cognitive_substrate_cluster",
+      "effectiveness_notes": "These QIRC cluster capabilities improve local LLM performance by turning raw app/tool/feed/file/agent events into bounded, traceable, replayable, receipt-backed context and work packets before model execution.",
+      "missing_work": "Implement and receipt qirc_cognitive_substrate_cluster through the final QIRC roadmap slices without adding public network, provider/model authority, or app apply/state/external-send authority.",
+      "normal_user_visibility_score_0_5": 0,
+      "repo_artifact_coverage_score_0_5": 2,
+      "runtime_proof_score_0_5": 0,
+      "validator_coverage_score_0_5": 1
+    }
+  ],
+  "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "matrix_id": "final_q_shabang_capability_matrix_v1",
+  "non_claims": [
+    "not_runtime_completion_proof",
+    "not_security_certification",
+    "not_release_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_app_state_authority",
+    "not_external_send_authority"
+  ],
+  "score_meaning": "0 none, 5 strong repo-audit proxy; subjective process estimate, not scientific measurement",
+  "source_refs": [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json",
+    "pyproject.toml",
+    "odin/cli.py",
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/MASTER_SPECS_V7_1.md",
+    "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+    "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+    "reports/v7_1_1_b8_security_review_report.json"
+  ],
+  "superseded_by": null,
+  "supersedes": [
+    "registries/v7_1_1_llm_work_audit_findings_registry.json"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$id": "schemas/final_100_percent_acceptance_definition_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_id": {},
+    "claim_boundary": {},
+    "non_claims": {},
+    "non_goals_not_required": {},
+    "positive_criteria": {},
+    "qirc_extension_v2": {},
+    "source_refs": {},
+    "visible_criteria": {}
+  },
+  "required": [
+    "acceptance_id",
+    "positive_criteria",
+    "visible_criteria",
+    "non_goals_not_required",
+    "source_refs",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "final_100_percent_acceptance_definition_v1.schema",
+  "type": "object"
+}

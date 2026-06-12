@@ -2501,6 +2501,31 @@ def validate_b8_security_review_track() -> list[str]:
                 return [f"B8 Security Review Track validator failed: {exc}"]
     return []
 
+
+def validate_final_road_to_100_rebaseline_audit() -> list[str]:
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_road_to_100_rebaseline_audit.py"
+    if not tool_path.exists():
+        return ["missing Final Road-to-100 Rebaseline Audit validator"]
+    spec = importlib.util.spec_from_file_location("odin_final_road_to_100_rebaseline_audit_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load Final Road-to-100 Rebaseline Audit validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_road_to_100_rebaseline_audit_v1.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"Final Road-to-100 Rebaseline Audit: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"Final Road-to-100 Rebaseline Audit validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2554,6 +2579,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b6_acceptance_dojo_scoreboard_closure())
     errors.extend(validate_b7_closure_thor_provider_eval())
     errors.extend(validate_b8_security_review_track())
+    errors.extend(validate_final_road_to_100_rebaseline_audit())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2596,6 +2622,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-b6-acceptance-dojo-scoreboard-closure")
     sub.add_parser("validate-b7-closure-thor-provider-eval")
     sub.add_parser("validate-b8-security-review-track")
+    sub.add_parser("validate-final-road-to-100-rebaseline-audit")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -3178,6 +3205,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_b7_closure_thor_provider_eval()
     elif args.cmd == "validate-b8-security-review-track":
         errors = validate_b8_security_review_track()
+    elif args.cmd == "validate-final-road-to-100-rebaseline-audit":
+        errors = validate_final_road_to_100_rebaseline_audit()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":
