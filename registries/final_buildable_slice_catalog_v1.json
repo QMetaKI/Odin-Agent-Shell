@@ -1,0 +1,583 @@
+{
+  "catalog_id": "final_buildable_slice_catalog_v1",
+  "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "consolidation_justification": "All required families are retained as explicit slice ids; roadmap later absorbs them into five PRs.",
+  "non_claims": [
+    "not_runtime_completion_proof",
+    "not_security_certification",
+    "not_release_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_app_state_authority",
+    "not_external_send_authority"
+  ],
+  "required_slice_families": [
+    "simple_local_hub_start",
+    "browser_hub_normal_user_ui",
+    "model_picker_provider_status",
+    "connected_apps_bridge_view",
+    "demo_universal_work_flow",
+    "activity_trace_receipt_view",
+    "dev_mode_diagnostics",
+    "runtime_security_smoke",
+    "target_host_smoke",
+    "local_provider_probe",
+    "final_acceptance_cleanup",
+    "docs_quickstart_polish"
+  ],
+  "slices": [
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-simple-local-hub-start"
+      ],
+      "new_tests": [
+        "tests/test_simple_local_hub_start.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "simple_local_hub_start",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Simple Local Hub Start",
+      "user_value": "Closes final-target value for simple local hub start."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-browser-hub-normal-user-ui"
+      ],
+      "new_tests": [
+        "tests/test_browser_hub_normal_user_ui.py"
+      ],
+      "new_ui_surfaces": [
+        "browser_hub_normal_user_ui"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "browser_hub_normal_user_ui",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Browser Hub Normal User Ui",
+      "user_value": "Closes final-target value for browser hub normal user ui."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-model-picker-provider-status"
+      ],
+      "new_tests": [
+        "tests/test_model_picker_provider_status.py"
+      ],
+      "new_ui_surfaces": [
+        "model_picker_provider_status"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "model_picker_provider_status",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Model Picker Provider Status",
+      "user_value": "Closes final-target value for model picker provider status."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-connected-apps-bridge-view"
+      ],
+      "new_tests": [
+        "tests/test_connected_apps_bridge_view.py"
+      ],
+      "new_ui_surfaces": [
+        "connected_apps_bridge_view"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "connected_apps_bridge_view",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Connected Apps Bridge View",
+      "user_value": "Closes final-target value for connected apps bridge view."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-demo-universal-work-flow"
+      ],
+      "new_tests": [
+        "tests/test_demo_universal_work_flow.py"
+      ],
+      "new_ui_surfaces": [
+        "demo_universal_work_flow"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "demo_universal_work_flow",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Demo Universal Work Flow",
+      "user_value": "Closes final-target value for demo universal work flow."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-activity-trace-receipt-view"
+      ],
+      "new_tests": [
+        "tests/test_activity_trace_receipt_view.py"
+      ],
+      "new_ui_surfaces": [
+        "activity_trace_receipt_view"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "activity_trace_receipt_view",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Activity Trace Receipt View",
+      "user_value": "Closes final-target value for activity trace receipt view."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-dev-mode-diagnostics"
+      ],
+      "new_tests": [
+        "tests/test_dev_mode_diagnostics.py"
+      ],
+      "new_ui_surfaces": [
+        "dev_mode_diagnostics"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "dev_mode_diagnostics",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Dev Mode Diagnostics",
+      "user_value": "Closes final-target value for dev mode diagnostics."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-runtime-security-smoke"
+      ],
+      "new_tests": [
+        "tests/test_runtime_security_smoke.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "runtime_security_smoke",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Runtime Security Smoke",
+      "user_value": "Closes final-target value for runtime security smoke."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [],
+      "new_tests": [
+        "tests/test_target_host_smoke.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "target_host_smoke",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Target Host Smoke",
+      "user_value": "Closes final-target value for target host smoke."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-local-provider-probe"
+      ],
+      "new_tests": [
+        "tests/test_local_provider_probe.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "medium",
+      "slice_id": "local_provider_probe",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Local Provider Probe",
+      "user_value": "Closes final-target value for local provider probe."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [
+        "simple_local_hub_start"
+      ],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [
+        "python -m odin.cli prove-final-acceptance-cleanup"
+      ],
+      "new_tests": [
+        "tests/test_final_acceptance_cleanup.py"
+      ],
+      "new_ui_surfaces": [],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "final_acceptance_cleanup",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Final Acceptance Cleanup",
+      "user_value": "Closes final-target value for final acceptance cleanup."
+    },
+    {
+      "can_merge_independently": true,
+      "claim_boundary": "slice completion requires explicit scoped local receipts; planning entry is not implementation proof",
+      "depends_on": [],
+      "estimated_size": "S",
+      "files_likely_touched": [
+        "odin/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "new_commands": [],
+      "new_tests": [
+        "tests/test_docs_quickstart_polish.py"
+      ],
+      "new_ui_surfaces": [
+        "docs_quickstart_polish"
+      ],
+      "non_goals": [
+        "no app apply",
+        "no app state mutation",
+        "no external send",
+        "no hidden remote fallback",
+        "no model quality proof"
+      ],
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "risk": "low",
+      "slice_id": "docs_quickstart_polish",
+      "technical_scope": [
+        "bounded implementation or proof refresh only for this family",
+        "preserve candidate-only and app-owned authority"
+      ],
+      "title": "Docs Quickstart Polish",
+      "user_value": "Closes final-target value for docs quickstart polish."
+    }
+  ],
+  "source_refs": [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json",
+    "pyproject.toml",
+    "odin/cli.py",
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/MASTER_SPECS_V7_1.md",
+    "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+    "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+    "reports/v7_1_1_b8_security_review_report.json"
+  ],
+  "superseded_by": null,
+  "supersedes": [
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_BUILD_LADDER_V1.md"
+  ]
+}

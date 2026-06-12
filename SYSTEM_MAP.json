@@ -560,7 +560,15 @@
     "registries/v7_1_1_road_to_100_ladder.json",
     "registries/v7_1_1_road_to_100_coverage_matrix.json",
     "docs/codex/reports/V7_1_1_ROAD_TO_100_LADDER_RETURN_REPORT.md",
-    "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md"
+    "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
+    "docs/rebaseline/FINAL_LOCAL_RUNTIME_HUB_TARGET_V1.md",
+    "docs/rebaseline/FINAL_REPO_REALITY_GAP_AUDIT_V1.md",
+    "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
+    "docs/rebaseline/FINAL_BUILDABLE_SLICE_CATALOG_V1.md",
+    "docs/rebaseline/FINAL_MINIMAL_ROAD_TO_100_PR_ROADMAP_V1.md",
+    "docs/rebaseline/FINAL_100_PERCENT_ACCEPTANCE_DEFINITION_V1.md",
+    "docs/codex/audits/PR_35_B9_FINAL_ROAD_TO_100_AUDIT.md",
+    "docs/codex/reports/PR_35_B9_FINAL_ROAD_TO_100_RETURN_REPORT.md"
   ],
   "canonical_entrypoints": [
     "README.md",
@@ -658,6 +666,56 @@
     "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md"
   ],
   "default_model_strategy": "3b_7b_8b_hybrid",
+  "final_road_to_100_rebaseline_audit": {
+    "actual_pr": "PR-35",
+    "bundle_id": "B9",
+    "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+    "docs": [
+      "docs/rebaseline/FINAL_LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "docs/rebaseline/FINAL_REPO_REALITY_GAP_AUDIT_V1.md",
+      "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
+      "docs/rebaseline/FINAL_BUILDABLE_SLICE_CATALOG_V1.md",
+      "docs/rebaseline/FINAL_MINIMAL_ROAD_TO_100_PR_ROADMAP_V1.md",
+      "docs/rebaseline/FINAL_100_PERCENT_ACCEPTANCE_DEFINITION_V1.md",
+      "docs/codex/audits/PR_35_B9_FINAL_ROAD_TO_100_AUDIT.md",
+      "docs/codex/reports/PR_35_B9_FINAL_ROAD_TO_100_RETURN_REPORT.md"
+    ],
+    "examples": [
+      "examples/final_local_runtime_hub_target_v1.example.json",
+      "examples/final_repo_reality_gap_audit_v1.example.json",
+      "examples/final_q_shabang_capability_matrix_v1.example.json",
+      "examples/final_buildable_slice_catalog_v1.example.json",
+      "examples/final_minimal_road_to_100_pr_roadmap_v1.example.json",
+      "examples/final_100_percent_acceptance_definition_v1.example.json"
+    ],
+    "registries": [
+      "registries/final_local_runtime_hub_target_v1.json",
+      "registries/final_repo_reality_gap_audit_v1.json",
+      "registries/final_q_shabang_capability_matrix_v1.json",
+      "registries/final_buildable_slice_catalog_v1.json",
+      "registries/final_minimal_road_to_100_pr_roadmap_v1.json",
+      "registries/final_100_percent_acceptance_definition_v1.json"
+    ],
+    "reports": [
+      "reports/final_road_to_100_rebaseline_audit_v1.json"
+    ],
+    "schemas": [
+      "schemas/final_local_runtime_hub_target_v1.schema.json",
+      "schemas/final_repo_reality_gap_audit_v1.schema.json",
+      "schemas/final_q_shabang_capability_matrix_v1.schema.json",
+      "schemas/final_buildable_slice_catalog_v1.schema.json",
+      "schemas/final_minimal_road_to_100_pr_roadmap_v1.schema.json",
+      "schemas/final_100_percent_acceptance_definition_v1.schema.json"
+    ],
+    "status": "planning_audit_and_roadmap_only_not_runtime_implementation",
+    "target": "Odin Local Runtime Hub",
+    "tests": [
+      "tests/test_final_road_to_100_rebaseline_audit.py"
+    ],
+    "tools": [
+      "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py"
+    ]
+  },
   "layers": {
     "pre_llm_intelligence": "docs/PRE_LLM_INTELLIGENCE_LAYER_V7_1.md"
   },

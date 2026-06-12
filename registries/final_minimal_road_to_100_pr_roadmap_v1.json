@@ -1,0 +1,318 @@
+{
+  "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "more_than_five_justification": null,
+  "non_claims": [
+    "not_runtime_completion_proof",
+    "not_security_certification",
+    "not_release_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_app_state_authority",
+    "not_external_send_authority"
+  ],
+  "preferred_max": 5,
+  "prs": [
+    {
+      "commands_added": [
+        "bounded proof commands only; exact names finalized in PR scope"
+      ],
+      "estimated_size": "L",
+      "files_likely_touched": [
+        "odin/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "goal": "Absorb simple_local_hub_start, browser_hub_normal_user_ui, docs_quickstart_polish into a reviewable final follow-up PR.",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 1,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-01",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "slices_absorbed": [
+        "simple_local_hub_start",
+        "browser_hub_normal_user_ui",
+        "docs_quickstart_polish"
+      ],
+      "success_criteria": [
+        "simple_local_hub_start has implementation or explicit non-goal proof boundary",
+        "browser_hub_normal_user_ui has implementation or explicit non-goal proof boundary",
+        "docs_quickstart_polish has implementation or explicit non-goal proof boundary"
+      ],
+      "tests_required": [
+        "test coverage for simple_local_hub_start",
+        "test coverage for browser_hub_normal_user_ui",
+        "test coverage for docs_quickstart_polish"
+      ],
+      "title": "Simple Local Hub Start + Normal User Browser UI",
+      "ui_surfaces_added": [
+        "simple_local_hub_start",
+        "browser_hub_normal_user_ui",
+        "docs_quickstart_polish"
+      ]
+    },
+    {
+      "commands_added": [
+        "bounded proof commands only; exact names finalized in PR scope"
+      ],
+      "estimated_size": "L",
+      "files_likely_touched": [
+        "odin/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "goal": "Absorb model_picker_provider_status, connected_apps_bridge_view, demo_universal_work_flow into a reviewable final follow-up PR.",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 2,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-02",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "slices_absorbed": [
+        "model_picker_provider_status",
+        "connected_apps_bridge_view",
+        "demo_universal_work_flow"
+      ],
+      "success_criteria": [
+        "model_picker_provider_status has implementation or explicit non-goal proof boundary",
+        "connected_apps_bridge_view has implementation or explicit non-goal proof boundary",
+        "demo_universal_work_flow has implementation or explicit non-goal proof boundary"
+      ],
+      "tests_required": [
+        "test coverage for model_picker_provider_status",
+        "test coverage for connected_apps_bridge_view",
+        "test coverage for demo_universal_work_flow"
+      ],
+      "title": "Model Picker + Connected Apps + Demo Universal Work",
+      "ui_surfaces_added": [
+        "model_picker_provider_status",
+        "connected_apps_bridge_view",
+        "demo_universal_work_flow"
+      ]
+    },
+    {
+      "commands_added": [
+        "bounded proof commands only; exact names finalized in PR scope"
+      ],
+      "estimated_size": "L",
+      "files_likely_touched": [
+        "odin/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "goal": "Absorb activity_trace_receipt_view, dev_mode_diagnostics into a reviewable final follow-up PR.",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 3,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-03",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "slices_absorbed": [
+        "activity_trace_receipt_view",
+        "dev_mode_diagnostics"
+      ],
+      "success_criteria": [
+        "activity_trace_receipt_view has implementation or explicit non-goal proof boundary",
+        "dev_mode_diagnostics has implementation or explicit non-goal proof boundary"
+      ],
+      "tests_required": [
+        "test coverage for activity_trace_receipt_view",
+        "test coverage for dev_mode_diagnostics"
+      ],
+      "title": "Activity, Trace, Receipt, Dev Mode + Support Bundle",
+      "ui_surfaces_added": [
+        "activity_trace_receipt_view",
+        "dev_mode_diagnostics"
+      ]
+    },
+    {
+      "commands_added": [
+        "bounded proof commands only; exact names finalized in PR scope"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "goal": "Absorb runtime_security_smoke, target_host_smoke, local_provider_probe into a reviewable final follow-up PR.",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk",
+        "host/environment variance"
+      ],
+      "merge_order": 4,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-04",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "slices_absorbed": [
+        "runtime_security_smoke",
+        "target_host_smoke",
+        "local_provider_probe"
+      ],
+      "success_criteria": [
+        "runtime_security_smoke has implementation or explicit non-goal proof boundary",
+        "target_host_smoke has implementation or explicit non-goal proof boundary",
+        "local_provider_probe has implementation or explicit non-goal proof boundary"
+      ],
+      "tests_required": [
+        "test coverage for runtime_security_smoke",
+        "test coverage for target_host_smoke",
+        "test coverage for local_provider_probe"
+      ],
+      "title": "Runtime Security Smoke + Target Host Smoke + Local Provider Probe",
+      "ui_surfaces_added": [
+        "runtime_security_smoke",
+        "target_host_smoke",
+        "local_provider_probe"
+      ]
+    },
+    {
+      "commands_added": [
+        "bounded proof commands only; exact names finalized in PR scope"
+      ],
+      "estimated_size": "M",
+      "files_likely_touched": [
+        "odin/",
+        "odin/hub/",
+        "sdk/",
+        "tests/",
+        "docs/rebaseline/",
+        "registries/",
+        "schemas/",
+        "examples/",
+        "reports/"
+      ],
+      "goal": "Absorb final_acceptance_cleanup into a reviewable final follow-up PR.",
+      "known_risks": [
+        "scope creep",
+        "overclaim risk"
+      ],
+      "merge_order": 5,
+      "non_goals": [
+        "no provider/model execution unless explicitly configured and receipted",
+        "no app state mutation",
+        "no app apply authority",
+        "no external-send authority",
+        "no hidden remote fallback"
+      ],
+      "pr_id": "FINAL-PR-05",
+      "proof_commands": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider"
+      ],
+      "slices_absorbed": [
+        "final_acceptance_cleanup"
+      ],
+      "success_criteria": [
+        "final_acceptance_cleanup has implementation or explicit non-goal proof boundary"
+      ],
+      "tests_required": [
+        "test coverage for final_acceptance_cleanup"
+      ],
+      "title": "Final Acceptance Cleanup, Docs, Packaging Polish",
+      "ui_surfaces_added": [
+        "final_acceptance_cleanup"
+      ]
+    }
+  ],
+  "recommended_pr_count": 5,
+  "roadmap_id": "final_minimal_road_to_100_pr_roadmap_v1",
+  "source_refs": [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json",
+    "pyproject.toml",
+    "odin/cli.py",
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/MASTER_SPECS_V7_1.md",
+    "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+    "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+    "reports/v7_1_1_b8_security_review_report.json"
+  ],
+  "superseded_by": null,
+  "supersedes": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_slice_absorption_map.json"
+  ]
+}

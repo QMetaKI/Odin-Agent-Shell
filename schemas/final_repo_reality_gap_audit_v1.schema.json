@@ -1,0 +1,23 @@
+{
+  "$id": "schemas/final_repo_reality_gap_audit_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "audit_id": {},
+    "capabilities": {},
+    "claim_boundary": {},
+    "non_claims": {},
+    "source_refs": {},
+    "valid_status_values": {}
+  },
+  "required": [
+    "audit_id",
+    "capabilities",
+    "valid_status_values",
+    "source_refs",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "final_repo_reality_gap_audit_v1.schema",
+  "type": "object"
+}

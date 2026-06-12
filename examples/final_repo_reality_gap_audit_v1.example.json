@@ -1,0 +1,671 @@
+{
+  "audit_id": "final_repo_reality_gap_audit_v1",
+  "capabilities": [
+    {
+      "capability_id": "clone_install_path",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current clone_install_path evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish clone_install_path in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for docs_quickstart_polish"
+      ],
+      "recommended_slice": "docs_quickstart_polish",
+      "target_requirement": "clone_install_path must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "one_command_start",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "odin/cli.py start/check/stop commands",
+        "tests/test_lrh_pr_03_portable_local_runtime_starter.py"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for simple_local_hub_start"
+      ],
+      "recommended_slice": "simple_local_hub_start",
+      "target_requirement": "one_command_start must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "localhost_runtime_api",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "odin/daemon/local_api.py",
+        "sdk/python/odin_client.py",
+        "tests/test_lrh_pr_05_localhost_api_sdk_bridge.py"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for simple_local_hub_start"
+      ],
+      "recommended_slice": "simple_local_hub_start",
+      "target_requirement": "localhost_runtime_api must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "browser_hub_ui",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "odin/hub/static/index.html",
+        "odin/hub/shell.py",
+        "tests/test_lrh_pr_06_browser_hub_shell.py"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish browser_hub_ui in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for browser_hub_normal_user_ui"
+      ],
+      "recommended_slice": "browser_hub_normal_user_ui",
+      "target_requirement": "browser_hub_ui must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "model_picker",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current model_picker evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish model_picker in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for model_picker_provider_status"
+      ],
+      "recommended_slice": "model_picker_provider_status",
+      "target_requirement": "model_picker must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "multiple_models",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current multiple_models evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish multiple_models in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for model_picker_provider_status"
+      ],
+      "recommended_slice": "model_picker_provider_status",
+      "target_requirement": "multiple_models must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "provider_status",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current provider_status evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish provider_status in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for model_picker_provider_status"
+      ],
+      "recommended_slice": "model_picker_provider_status",
+      "target_requirement": "provider_status must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "connected_apps_view",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current connected_apps_view evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish connected_apps_view in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for connected_apps_bridge_view"
+      ],
+      "recommended_slice": "connected_apps_bridge_view",
+      "target_requirement": "connected_apps_view must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "app_bridge",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current app_bridge evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish app_bridge in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for connected_apps_bridge_view"
+      ],
+      "recommended_slice": "connected_apps_bridge_view",
+      "target_requirement": "app_bridge must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "sdk_bridge",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current sdk_bridge evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for connected_apps_bridge_view"
+      ],
+      "recommended_slice": "connected_apps_bridge_view",
+      "target_requirement": "sdk_bridge must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "universal_work_submit",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current universal_work_submit evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for demo_universal_work_flow"
+      ],
+      "recommended_slice": "demo_universal_work_flow",
+      "target_requirement": "universal_work_submit must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "candidate_artifact_response",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current candidate_artifact_response evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for demo_universal_work_flow"
+      ],
+      "recommended_slice": "demo_universal_work_flow",
+      "target_requirement": "candidate_artifact_response must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "response_packet_view",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current response_packet_view evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish response_packet_view in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for demo_universal_work_flow"
+      ],
+      "recommended_slice": "demo_universal_work_flow",
+      "target_requirement": "response_packet_view must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "activity_feed",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current activity_feed evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish activity_feed in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for activity_trace_receipt_view"
+      ],
+      "recommended_slice": "activity_trace_receipt_view",
+      "target_requirement": "activity_feed must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "trace_viewer",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current trace_viewer evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish trace_viewer in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for activity_trace_receipt_view"
+      ],
+      "recommended_slice": "activity_trace_receipt_view",
+      "target_requirement": "trace_viewer must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "receipt_viewer",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current receipt_viewer evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish receipt_viewer in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for activity_trace_receipt_view"
+      ],
+      "recommended_slice": "activity_trace_receipt_view",
+      "target_requirement": "receipt_viewer must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "proof_gap_viewer",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current proof_gap_viewer evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish proof_gap_viewer in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for dev_mode_diagnostics"
+      ],
+      "recommended_slice": "dev_mode_diagnostics",
+      "target_requirement": "proof_gap_viewer must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "support_bundle",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current support_bundle evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for dev_mode_diagnostics"
+      ],
+      "recommended_slice": "dev_mode_diagnostics",
+      "target_requirement": "support_bundle must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "dev_mode_toggle",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current dev_mode_toggle evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish dev_mode_toggle in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for dev_mode_diagnostics"
+      ],
+      "recommended_slice": "dev_mode_diagnostics",
+      "target_requirement": "dev_mode_toggle must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "local_provider_probe",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current local_provider_probe evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish local_provider_probe in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for local_provider_probe"
+      ],
+      "recommended_slice": "local_provider_probe",
+      "target_requirement": "local_provider_probe must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "mock_provider",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current mock_provider evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish mock_provider in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for model_picker_provider_status"
+      ],
+      "recommended_slice": "model_picker_provider_status",
+      "target_requirement": "mock_provider must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "ollama_candidate",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current ollama_candidate evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish ollama_candidate in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for local_provider_probe"
+      ],
+      "recommended_slice": "local_provider_probe",
+      "target_requirement": "ollama_candidate must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "llama_cpp_candidate",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current llama_cpp_candidate evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish llama_cpp_candidate in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for local_provider_probe"
+      ],
+      "recommended_slice": "local_provider_probe",
+      "target_requirement": "llama_cpp_candidate must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "no_remote_fallback",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current no_remote_fallback evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish no_remote_fallback in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for runtime_security_smoke"
+      ],
+      "recommended_slice": "runtime_security_smoke",
+      "target_requirement": "no_remote_fallback must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "qirc_semantic_bus",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "odin/qirc/ledger.py",
+        "docs/INTERNAL_SEMANTIC_BUS.md"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish qirc_semantic_bus in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for activity_trace_receipt_view"
+      ],
+      "recommended_slice": "activity_trace_receipt_view",
+      "target_requirement": "qirc_semantic_bus must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "worklet_slot_gaptext_visibility",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current worklet_slot_gaptext_visibility evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "schema_or_doc_only",
+      "missing_work": "Build or finish worklet_slot_gaptext_visibility in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for dev_mode_diagnostics"
+      ],
+      "recommended_slice": "dev_mode_diagnostics",
+      "target_requirement": "worklet_slot_gaptext_visibility must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "ki_ohne_ki_precompute_visibility",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current ki_ohne_ki_precompute_visibility evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish ki_ohne_ki_precompute_visibility in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for dev_mode_diagnostics"
+      ],
+      "recommended_slice": "dev_mode_diagnostics",
+      "target_requirement": "ki_ohne_ki_precompute_visibility must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "agent_operator_mode",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current agent_operator_mode evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for final_acceptance_cleanup"
+      ],
+      "recommended_slice": "final_acceptance_cleanup",
+      "target_requirement": "agent_operator_mode must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "thor_compatibility",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current thor_compatibility evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish thor_compatibility in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for final_acceptance_cleanup"
+      ],
+      "recommended_slice": "final_acceptance_cleanup",
+      "target_requirement": "thor_compatibility must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "golden_flow",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current golden_flow evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish golden_flow in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for final_acceptance_cleanup"
+      ],
+      "recommended_slice": "final_acceptance_cleanup",
+      "target_requirement": "golden_flow must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "full_acceptance_local_receipt",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current full_acceptance_local_receipt evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish full_acceptance_local_receipt in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for final_acceptance_cleanup"
+      ],
+      "recommended_slice": "final_acceptance_cleanup",
+      "target_requirement": "full_acceptance_local_receipt must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "security_static_review",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "reports/v7_1_1_b8_security_review_report.json",
+        "docs/codex/audits/PR_34_B8_SECURITY_REVIEW_AUDIT.md"
+      ],
+      "current_status": "implemented_without_recent_local_proof",
+      "missing_work": "No missing work beyond receipt refresh.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for runtime_security_smoke"
+      ],
+      "recommended_slice": "runtime_security_smoke",
+      "target_requirement": "security_static_review must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "runtime_security_review",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current runtime_security_review evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish runtime_security_review in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for runtime_security_smoke"
+      ],
+      "recommended_slice": "runtime_security_smoke",
+      "target_requirement": "runtime_security_review must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "target_host_review",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current target_host_review evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish target_host_review in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for target_host_smoke"
+      ],
+      "recommended_slice": "target_host_smoke",
+      "target_requirement": "target_host_review must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "dependency_tooling",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current dependency_tooling evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "missing",
+      "missing_work": "Build or finish dependency_tooling in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for runtime_security_smoke"
+      ],
+      "recommended_slice": "runtime_security_smoke",
+      "target_requirement": "dependency_tooling must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "release_package",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current release_package evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish release_package in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for docs_quickstart_polish"
+      ],
+      "recommended_slice": "docs_quickstart_polish",
+      "target_requirement": "release_package must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "windows_convenience",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current windows_convenience evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "deferred_non_goal",
+      "missing_work": "Build or finish windows_convenience in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for target_host_smoke"
+      ],
+      "recommended_slice": "target_host_smoke",
+      "target_requirement": "windows_convenience must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    },
+    {
+      "capability_id": "normal_user_docs",
+      "claim_boundary": "status is repo-audit classification only; no runtime/provider/network/target-host/live-model proof inferred",
+      "current_repo_evidence": [
+        "repo search/intake found current normal_user_docs evidence or gap classification in docs, registries, tests, or reports"
+      ],
+      "current_status": "partially_implemented",
+      "missing_work": "Build or finish normal_user_docs in the mapped final slice and attach scoped receipts.",
+      "proof_needed": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider",
+        "slice proof command for docs_quickstart_polish"
+      ],
+      "recommended_slice": "docs_quickstart_polish",
+      "target_requirement": "normal_user_docs must be present, bounded, local-first where applicable, and visible/provable for the final Local Runtime Hub target."
+    }
+  ],
+  "claim_boundary": "planning_audit_only_not_runtime_provider_network_target_host_security_release_or_model_quality_proof",
+  "non_claims": [
+    "not_runtime_completion_proof",
+    "not_security_certification",
+    "not_release_certification",
+    "not_target_host_proof",
+    "not_live_model_inference_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_app_state_authority",
+    "not_external_send_authority"
+  ],
+  "source_refs": [
+    "README.md",
+    "START_HERE.md",
+    "CANON_ENTRY.md",
+    "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json",
+    "pyproject.toml",
+    "odin/cli.py",
+    "docs/MASTER_ARCHITECTURE_V7_1.md",
+    "docs/MASTER_SPECS_V7_1.md",
+    "docs/MASTER_ARCHITECTURE_V7_1_1.md",
+    "docs/V7_1_1_OPERATIONAL_TARGET_SYNTHESIS.md",
+    "docs/V7_1_1_ROAD_TO_100_BUILD_LADDER.md",
+    "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+    "docs/rebaseline/ROAD_TO_100_ACCEPTANCE_HARNESS_V1.md",
+    "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json",
+    "reports/v7_1_1_b2_context_lenses_worklets_slot_gaptext_report.json",
+    "reports/v7_1_1_b3_modelworkpacket_scale_hybrid_report.json",
+    "reports/v7_1_1_b4_minicheck_critics_final_gate_report.json",
+    "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json",
+    "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json",
+    "reports/v7_1_1_b7_closure_thor_provider_eval_report.json",
+    "reports/v7_1_1_b8_security_review_report.json"
+  ],
+  "superseded_by": null,
+  "supersedes": [
+    "docs/rebaseline/CURRENT_STATE_AUDIT_LOCAL_RUNTIME_HUB.md",
+    "registries/v7_1_1_road_to_100_coverage_matrix.json"
+  ],
+  "valid_status_values": [
+    "implemented_and_locally_proven",
+    "implemented_without_recent_local_proof",
+    "partially_implemented",
+    "schema_or_doc_only",
+    "missing",
+    "deferred_non_goal",
+    "blocked_pending_decision",
+    "cannot_determine_from_repo"
+  ]
+}

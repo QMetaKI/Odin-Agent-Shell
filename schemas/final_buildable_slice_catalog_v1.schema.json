@@ -1,0 +1,23 @@
+{
+  "$id": "schemas/final_buildable_slice_catalog_v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "catalog_id": {},
+    "claim_boundary": {},
+    "non_claims": {},
+    "required_slice_families": {},
+    "slices": {},
+    "source_refs": {}
+  },
+  "required": [
+    "catalog_id",
+    "slices",
+    "required_slice_families",
+    "source_refs",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "title": "final_buildable_slice_catalog_v1.schema",
+  "type": "object"
+}
