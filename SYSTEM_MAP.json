@@ -666,6 +666,38 @@
     "docs/SHADOW_SUBSYSTEM_COVERAGE_MATRIX_V7_1.md"
   ],
   "default_model_strategy": "3b_7b_8b_hybrid",
+  "final_pr_01_simple_local_hub": {
+    "candidate_only": true,
+    "claim_boundary": "simple_local_hub_local_receipt_not_runtime_completion_not_production",
+    "cli_commands": [
+      "start-local-hub",
+      "status-local-hub",
+      "open-hub",
+      "validate-simple-local-hub",
+      "prove-simple-local-hub"
+    ],
+    "default_host": "127.0.0.1",
+    "default_port": 8765,
+    "description": "Simple Local Hub Start + Normal User Browser UI",
+    "implementation_package": "odin/local_hub/",
+    "not_proven": [
+      "provider_execution",
+      "model_inference",
+      "qirc_core_runtime",
+      "handoff_compiler_runtime",
+      "app_bridge_runtime",
+      "app_apply",
+      "app_state_mutation",
+      "external_send",
+      "public_network",
+      "production_readiness",
+      "security_certification"
+    ],
+    "pr": "FINAL-PR-01",
+    "status": "implemented",
+    "tests": "tests/test_simple_local_hub.py",
+    "validator": "tools/rebaseline/check_simple_local_hub.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",

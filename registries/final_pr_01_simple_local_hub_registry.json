@@ -1,0 +1,43 @@
+{
+  "registry_id": "final_pr_01_simple_local_hub_registry",
+  "description": "FINAL-PR-01 Simple Local Hub implementation registry.",
+  "claim_boundary": "simple_local_hub_registry_candidate_only_no_app_apply_no_external_send",
+  "candidate_only": true,
+  "pr": "FINAL-PR-01",
+  "status": "implemented",
+  "cli_commands": [
+    "start-local-hub",
+    "start-local-hub --once-smoke",
+    "status-local-hub",
+    "open-hub",
+    "validate-simple-local-hub",
+    "prove-simple-local-hub"
+  ],
+  "implementation_files": [
+    "odin/local_hub/__init__.py",
+    "odin/local_hub/policy.py",
+    "odin/local_hub/ui.py",
+    "odin/local_hub/server.py",
+    "odin/local_hub/proof.py"
+  ],
+  "validator": "tools/rebaseline/check_simple_local_hub.py",
+  "tests": "tests/test_simple_local_hub.py",
+  "proof_schema": "schemas/final_pr_01_simple_local_hub_proof_packet.schema.json",
+  "proof_example": "examples/final_pr_01/simple_local_hub_proof_packet.example.json",
+  "default_host": "127.0.0.1",
+  "default_port": 8765,
+  "endpoints": ["/", "/status.json", "/healthz"],
+  "not_proven": [
+    "provider_execution",
+    "model_inference",
+    "qirc_core_runtime",
+    "handoff_compiler_runtime",
+    "app_bridge_runtime",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "production_readiness",
+    "security_certification"
+  ]
+}

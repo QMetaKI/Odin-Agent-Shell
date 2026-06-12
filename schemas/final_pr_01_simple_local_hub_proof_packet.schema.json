@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OdinSimpleLocalHubProofPacket",
+  "description": "FINAL-PR-01 Simple Local Hub proof packet schema. Claim boundary: simple_local_hub_local_receipt_not_runtime_completion_not_production",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "status",
+    "candidate_only",
+    "local_only",
+    "host",
+    "not_proven",
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_simple_local_hub_proof_packet"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "ok_with_known_gaps", "partial", "failed"]
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "local_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "host": {
+      "type": "string"
+    },
+    "browser_hub_visible": { "type": "boolean" },
+    "normal_user_status_visible": { "type": "boolean" },
+    "model_picker_placeholder_visible": { "type": "boolean" },
+    "connected_apps_placeholder_visible": { "type": "boolean" },
+    "activity_placeholder_visible": { "type": "boolean" },
+    "qirc_status_placeholder_visible": { "type": "boolean" },
+    "handoff_first_placeholder_visible": { "type": "boolean" },
+    "dev_mode_placeholder_visible": { "type": "boolean" },
+    "not_proven": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

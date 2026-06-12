@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1545,
+  "file_count_excluding_manifest": 1566,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -1329,6 +1329,16 @@
       "size": 4379
     },
     {
+      "path": "docs/codex/audits/FINAL_PR_01_SIMPLE_LOCAL_HUB_AUDIT.md",
+      "sha256": "ceb98eeb4679d7b259aa7985ad62e8a87226140361ba40a5e729011e9918dc14",
+      "size": 6237
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_01_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "5275235cfc2272575509dfe1e786299c6067c31da05338168b54b39abe9f2930",
+      "size": 5843
+    },
+    {
       "path": "docs/codex/audits/PR_28_B2_THOR_ODIN_CLAUDE_CODE_AUDIT.md",
       "sha256": "85726ee8171fa5edc4f4feec83a4c0157d1377aaf241559075f77a0b6aaa4487",
       "size": 4639
@@ -1507,6 +1517,31 @@
       "path": "docs/codex/bundles/REAL-PR-28_PUBLIC_REPO_CANON_AND_WINDOWS_BUILD_READY_LOCK.md",
       "sha256": "d273afe095dc8573ff8a5b3640eddded815f83ed41ce8ac0ab4169827461c1e7",
       "size": 3787
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_01_COMPILED_THOR_Y_HANDOFF.md",
+      "sha256": "af2debc08af0409c20851dbd3df276ae7c8763d57196ba91bd2d973514de5178",
+      "size": 6062
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_01_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "11457f95c1ee1a2dcf8664a025f87422f325fd95b2dd1bd8141168592907266e",
+      "size": 3883
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_01_REPO_COGNITION_SUMMARY.md",
+      "sha256": "a4add79a6d6579bfc838529b6f6b69d2212d5730c08ef8cb6852674f36c5def4",
+      "size": 4645
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_01_THOR_Y_HANDOFF_REQUEST.md",
+      "sha256": "bdbb6d13af122b40923db860d7dc2f38b574422a2f7b7b6aae79a37573d66993",
+      "size": 3343
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_01_Y_MJOLNIR_PROFILE_NOTES.md",
+      "sha256": "3b32b8a30f5233307ec3479e970b9c3281a9017ab4883e38bb371a07f6f91dd7",
+      "size": 1975
     },
     {
       "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
@@ -1692,6 +1727,11 @@
       "path": "docs/codex/real_execution_prs/REAL-GH-PR-08_APP_SDKS_APP_QIRC_DIGEST_GOLDEN_FLOWS_RELEASE_HYGIENE_AND_PUBLIC_BUILD.md",
       "sha256": "de0185cb9f4d8427081c0e70636e9416b75d6a63c146cea2458d2a0051589ea6",
       "size": 6094
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_01_SIMPLE_LOCAL_HUB_RETURN_REPORT.md",
+      "sha256": "12aa792fd673623370feca914fdf7fc549117985e705a7146cb92269607c6903",
+      "size": 5643
     },
     {
       "path": "docs/codex/reports/LRH-PR-02_RETURN_REPORT.md",
@@ -2509,6 +2549,11 @@
       "size": 6137
     },
     {
+      "path": "docs/rebaseline/FINAL_PR_01_SIMPLE_LOCAL_HUB.md",
+      "sha256": "d38360f9b83ae2480d70a1454ff4b6a5064a3387ad65369949779587322f7774",
+      "size": 4795
+    },
+    {
       "path": "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
       "sha256": "41da550f0fc9de58e617609f767c79b8659b8017ebb900bde2d17a489c580827",
       "size": 2694
@@ -2812,6 +2857,11 @@
       "path": "examples/final_minimal_road_to_100_pr_roadmap_v1.example.json",
       "sha256": "b407d278503cc618db9b82babb9d1522e793e29c4d2c80c32d3da19918a281ba",
       "size": 12315
+    },
+    {
+      "path": "examples/final_pr_01/simple_local_hub_proof_packet.example.json",
+      "sha256": "23c3f9f6cb72069941baf1f2b59bdd41aa3839c5c4eed71500f9d3de96471a38",
+      "size": 882
     },
     {
       "path": "examples/final_q_shabang_capability_matrix_v1.example.json",
@@ -3969,6 +4019,31 @@
       "size": 1951
     },
     {
+      "path": "odin/local_hub/__init__.py",
+      "sha256": "ad5cd1bf9551802c869ae7cf119f07db75a7f2c5df24545b6ca40095cc35af35",
+      "size": 436
+    },
+    {
+      "path": "odin/local_hub/policy.py",
+      "sha256": "7b15deb284ee61a8f89e70662b3529691573b0002b9b30194c62b7fe4a02fb61",
+      "size": 806
+    },
+    {
+      "path": "odin/local_hub/proof.py",
+      "sha256": "bb88a6ec650425e0416e81d4c71f7773fbf15b45ad1fad9cbd4c329d862807e1",
+      "size": 1371
+    },
+    {
+      "path": "odin/local_hub/server.py",
+      "sha256": "db74e8a6a4d4033fc7157e942680ba47de4d329278060efa3af6df45629151c2",
+      "size": 4702
+    },
+    {
+      "path": "odin/local_hub/ui.py",
+      "sha256": "e7de224b3000782d96d4eb5bfa0f38767f390bb9f050059fa5a42950c8e48a0b",
+      "size": 6408
+    },
+    {
       "path": "odin/local_runtime/__init__.py",
       "sha256": "91715c89ada533e0097687ec0a55814b8ad43d8c9a588d09c8e69167a5f76dbd",
       "size": 869
@@ -5099,6 +5174,11 @@
       "size": 12315
     },
     {
+      "path": "registries/final_pr_01_simple_local_hub_registry.json",
+      "sha256": "091ae5b12e3f1a0ee3c212ae4468fdc5ce16d22baa3600aa3009cd55e60f9428",
+      "size": 1358
+    },
+    {
       "path": "registries/final_q_shabang_capability_matrix_v1.json",
       "sha256": "c6018289f8d3e1426b22d90b2156c61b3f1617ab76d68920400b30bfe50c8793",
       "size": 23503
@@ -5894,6 +5974,16 @@
       "size": 423
     },
     {
+      "path": "reports/final_pr_01_simple_local_hub_report.json",
+      "sha256": "56dc09c5287aed787278213518ba5ff1d22711e52c3302104f517e2365937f96",
+      "size": 1013
+    },
+    {
+      "path": "reports/final_pr_01_thor_odin_y_effectiveness_audit.json",
+      "sha256": "813e7117f1a6285167eceea427e18e9857699b3885295e52df25f5e57cb6f9e2",
+      "size": 1592
+    },
+    {
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
       "sha256": "b674a6c9b91d825748be07b3b856fba325c51e2a2f2bbe7fbf78fd48784df225",
       "size": 73792
@@ -5997,6 +6087,11 @@
       "path": "schemas/final_minimal_road_to_100_pr_roadmap_v1.schema.json",
       "sha256": "8abd7575519403245cfaf057e4ad95f2f4aad276ae37c4b746bc737838d40ad4",
       "size": 576
+    },
+    {
+      "path": "schemas/final_pr_01_simple_local_hub_proof_packet.schema.json",
+      "sha256": "da66602be84a5f57ebab82384b569d602aa95700aa99176f157ba33a6688f16a",
+      "size": 1528
     },
     {
       "path": "schemas/final_q_shabang_capability_matrix_v1.schema.json",
@@ -7509,6 +7604,11 @@
       "size": 3272
     },
     {
+      "path": "tests/test_simple_local_hub.py",
+      "sha256": "bf22fc45d7b12610473e06eea87b1f22357c2c0d2e6a306644a7cfae4881335b",
+      "size": 7754
+    },
+    {
       "path": "tests/test_thor_y_handoff_compiler.py",
       "sha256": "ae7e03518a5c521a523f34103085e5e49eee993529bac222e83cea928b275d12",
       "size": 2746
@@ -7602,6 +7702,11 @@
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
       "sha256": "281d62ccd7a4740750ed350e78aa36ae95adefd96b531bb16522884b56e8ce9a",
       "size": 17714
+    },
+    {
+      "path": "tools/rebaseline/check_simple_local_hub.py",
+      "sha256": "571e7371002a05c317874f04b8686226ac14b07df8ad61b8718a786f3aff3554",
+      "size": 10337
     },
     {
       "path": "tools/v7_1_1/build_operational_coverage_gap_report.py",

@@ -2526,6 +2526,32 @@ def validate_final_road_to_100_rebaseline_audit() -> list[str]:
                 return [f"Final Road-to-100 Rebaseline Audit validator failed: {exc}"]
     return []
 
+def validate_simple_local_hub() -> list[str]:
+    """Validate FINAL-PR-01 Simple Local Hub implementation."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_simple_local_hub.py"
+    if not tool_path.exists():
+        return ["missing Simple Local Hub validator: tools/rebaseline/check_simple_local_hub.py"]
+    spec = importlib.util.spec_from_file_location("odin_simple_local_hub_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load Simple Local Hub validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_01_simple_local_hub_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"simple-local-hub: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"simple-local-hub validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2580,6 +2606,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b7_closure_thor_provider_eval())
     errors.extend(validate_b8_security_review_track())
     errors.extend(validate_final_road_to_100_rebaseline_audit())
+    errors.extend(validate_simple_local_hub())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2722,6 +2749,20 @@ def main(argv: list[str] | None = None) -> int:
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
     serve.add_argument("--once-smoke", action="store_true")
+    # FINAL-PR-01: Simple Local Hub commands
+    start_hub_p = sub.add_parser("start-local-hub")
+    start_hub_p.add_argument("--host", default="127.0.0.1")
+    start_hub_p.add_argument("--port", type=int, default=8765)
+    start_hub_p.add_argument("--once-smoke", action="store_true", default=False)
+    status_hub_p = sub.add_parser("status-local-hub")
+    status_hub_p.add_argument("--host", default="127.0.0.1")
+    status_hub_p.add_argument("--port", type=int, default=8765)
+    open_hub_p = sub.add_parser("open-hub")
+    open_hub_p.add_argument("--host", default="127.0.0.1")
+    open_hub_p.add_argument("--port", type=int, default=8765)
+    sub.add_parser("validate-simple-local-hub")
+    prove_simple_hub_p = sub.add_parser("prove-simple-local-hub")
+    prove_simple_hub_p.add_argument("--host", default="127.0.0.1")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -2815,6 +2856,71 @@ def main(argv: list[str] | None = None) -> int:
         if args.once_smoke:
             print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
+
+    # FINAL-PR-01: Simple Local Hub commands
+    if args.cmd == "start-local-hub":
+        from odin.local_hub.server import run_once_smoke as hub_once_smoke
+        from odin.local_hub.policy import check_host
+        host = getattr(args, "host", "127.0.0.1")
+        port = getattr(args, "port", 8765)
+        once_smoke = getattr(args, "once_smoke", False)
+        ok, reason = check_host(host)
+        if not ok:
+            print(json.dumps({"status": "blocked", "error": reason,
+                              "candidate_only": True,
+                              "claim_boundary": "simple_local_hub_localhost_only"}, indent=2))
+            return 1
+        if once_smoke:
+            result = hub_once_smoke(host=host, port=port)
+            print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0 if result.get("status") in {"ok", "partial"} else 1
+        print(json.dumps({
+            "status": "scaffold",
+            "note": "start-local-hub starts a localhost HTTP server; use --once-smoke for a deterministic smoke proof",
+            "host": host,
+            "port": port,
+            "candidate_only": True,
+            "claim_boundary": "simple_local_hub_localhost_only_candidate",
+            "hint": "python -m odin.cli start-local-hub --once-smoke",
+        }, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "status-local-hub":
+        from odin.local_hub.server import get_hub_status
+        host = getattr(args, "host", "127.0.0.1")
+        port = getattr(args, "port", 8765)
+        result = get_hub_status(host=host, port=port)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "open-hub":
+        host = getattr(args, "host", "127.0.0.1")
+        port = getattr(args, "port", 8765)
+        url = f"http://{host}:{port}/"
+        print(json.dumps({
+            "status": "ok",
+            "hub_url": url,
+            "note": "Open this URL in your browser after starting the hub with start-local-hub",
+            "candidate_only": True,
+            "claim_boundary": "open_hub_url_candidate_not_browser_launch",
+        }, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-simple-local-hub":
+        errors = validate_simple_local_hub()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-simple-local-hub: OK")
+        return 0
+
+    if args.cmd == "prove-simple-local-hub":
+        from odin.local_hub.proof import build_simple_local_hub_proof_packet
+        host = getattr(args, "host", "127.0.0.1")
+        result = build_simple_local_hub_proof_packet(host=host)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0 if result.get("status") in {"ok", "ok_with_known_gaps"} else 1
 
     # Portable Local Runtime Starter commands (LRH-PR-03)
     if args.cmd == "start":

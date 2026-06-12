@@ -1,0 +1,12 @@
+{
+  "candidate_only": true,
+  "claim_boundary": "simple_local_hub_validator_candidate_only_no_app_apply_no_external_send",
+  "error_count": 0,
+  "errors": [],
+  "generated_at_utc": "2026-06-12T00:00:00Z",
+  "repo_root": "/home/user/Odin-Agent-Shell",
+  "report_id": "odin.final_pr_01_simple_local_hub_check",
+  "status": "ok",
+  "warning_count": 0,
+  "warnings": []
+}
