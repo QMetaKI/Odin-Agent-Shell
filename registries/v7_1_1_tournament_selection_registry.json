@@ -1,0 +1,38 @@
+{
+  "registry_id": "odin.v7_1_1_tournament_selection_registry",
+  "version": "7.1.1",
+  "status": "tournament_selection_registry_not_runtime_proof",
+  "claim_boundary": "tournament_ranks_candidates_not_applies_not_proves_correctness",
+  "candidate_only": true,
+  "non_claims": [
+    "not_app_apply",
+    "not_correctness_proof",
+    "not_quality_certification",
+    "not_human_review_bypass",
+    "not_live_model_execution",
+    "not_external_send",
+    "not_app_state_mutation"
+  ],
+  "invariants": [
+    "tournament ranks candidate artifacts",
+    "tournament does not apply",
+    "tournament does not prove correctness",
+    "tournament does not certify quality",
+    "tournament does not bypass human review"
+  ],
+  "scoring_dimensions": [
+    "schema_validity",
+    "contract_compliance",
+    "claim_boundary_compliance",
+    "context_fidelity",
+    "gaptext_compliance",
+    "forbidden_action_absence",
+    "route_class_fit",
+    "evidence_completeness",
+    "receipt_readiness",
+    "human_review_need"
+  ],
+  "schema_ref": "schemas/v7_1_1_tournament_selection.schema.json",
+  "example_ref": "examples/v7_1_1/tournament_selection.example.json",
+  "b3_scale_ladder_ref": "registries/v7_1_1_model_scale_ladder_registry.json"
+}

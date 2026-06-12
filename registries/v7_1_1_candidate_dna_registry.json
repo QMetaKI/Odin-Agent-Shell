@@ -1,0 +1,43 @@
+{
+  "registry_id": "odin.v7_1_1_candidate_dna_registry",
+  "version": "7.1.1",
+  "status": "candidate_dna_registry_not_runtime_proof",
+  "claim_boundary": "candidate_dna_traces_lineage_not_proves_correctness_not_authorship_truth_not_app_acceptance",
+  "candidate_only": true,
+  "non_claims": [
+    "not_correctness_proof",
+    "not_authorship_truth",
+    "not_model_quality_proof",
+    "not_app_acceptance",
+    "not_sensitive_content_exposure",
+    "not_live_model_execution",
+    "not_external_send"
+  ],
+  "invariants": [
+    "candidate DNA traces candidate lineage",
+    "does not prove correctness",
+    "does not prove authorship truth",
+    "does not expose raw sensitive content when content_ref/hash can be used",
+    "does not prove model quality",
+    "does not imply app acceptance"
+  ],
+  "required_lineage_fields": [
+    "candidate_dna_id",
+    "candidate_artifact_ref",
+    "source_modelworkpacket_ref",
+    "source_context_capsule_ref",
+    "source_gaptext_ref",
+    "source_slot_contract_ref",
+    "source_route_class",
+    "generation_path",
+    "constraint_refs",
+    "evidence_refs",
+    "privacy_class",
+    "content_hash"
+  ],
+  "privacy_classes": ["public", "internal", "sensitive", "redacted"],
+  "schema_ref": "schemas/v7_1_1_candidate_dna.schema.json",
+  "example_ref": "examples/v7_1_1/candidate_dna.example.json",
+  "b3_modelworkpacket_ref": "registries/v7_1_1_modelworkpacket_contract.json",
+  "b3_scale_ladder_ref": "registries/v7_1_1_model_scale_ladder_registry.json"
+}

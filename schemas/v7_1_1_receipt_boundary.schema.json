@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_receipt_boundary.schema",
+  "title": "ReceiptBoundary",
+  "description": "Schema for a ReceiptBoundary — records scoped review state with accepted/denied/pending claim refs. Not absolute truth, not runtime proof, not security certification.",
+  "type": "object",
+  "required": [
+    "receipt_boundary_id",
+    "response_packet_ref",
+    "final_gate_advisory_ref",
+    "accepted_claim_refs",
+    "denied_claim_refs",
+    "pending_claim_refs",
+    "evidence_refs",
+    "review_refs",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "receipt_boundary_id": {
+      "type": "string",
+      "description": "Unique identifier for this ReceiptBoundary record"
+    },
+    "response_packet_ref": {
+      "type": "string",
+      "description": "Reference to the ResponsePacket this receipt covers"
+    },
+    "final_gate_advisory_ref": {
+      "type": "string",
+      "description": "Reference to the FinalGateAdvisory for this response"
+    },
+    "accepted_claim_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to claims accepted in scoped review (not absolute truth)"
+    },
+    "denied_claim_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to claims denied in scoped review"
+    },
+    "pending_claim_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to claims pending review or human decision"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to evidence supporting this receipt boundary"
+    },
+    "review_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to review records contributing to this boundary"
+    },
+    "is_absolute_truth": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — receipt boundary is scoped review state, not absolute truth"
+    },
+    "is_runtime_proof": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — receipt boundary is not runtime proof"
+    },
+    "is_security_certification": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — receipt boundary is not security certification"
+    },
+    "is_deployment_proof": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false — receipt boundary is not deployment proof"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this receipt records and does not certify"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — receipt boundary is scoped record, not app acceptance"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this receipt does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

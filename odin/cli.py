@@ -2317,6 +2317,33 @@ def validate_b2_context_lenses_worklets() -> list[str]:
     return []
 
 
+def validate_b4_minicheck_critics_final_gate() -> list[str]:
+    import subprocess
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_b4_minicheck_critics_final_gate.py"
+    if not tool_path.exists():
+        return ["missing B4 Minicheck / Critics / Final Gate validator"]
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "v7_1_1_b4_minicheck_critics_final_gate_report.json"
+        result = subprocess.run(
+            [
+                sys.executable, str(tool_path),
+                "--repo-root", str(ROOT),
+                "--out", str(out),
+                "--generated-at-utc", "2026-01-01T00:00:00Z",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"B4 Minicheck / Critics / Final Gate: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"B4 Minicheck / Critics / Final Gate validator failed: {exc}"]
+    return []
+
+
 def validate_b3_modelworkpacket_scale_hybrid() -> list[str]:
     import subprocess
     tool_path = ROOT / "tools" / "v7_1_1" / "check_b3_modelworkpacket_scale_hybrid.py"
@@ -2420,6 +2447,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b1_app_boundary_universal_work_qirc_spine())
     errors.extend(validate_b2_context_lenses_worklets())
     errors.extend(validate_b3_modelworkpacket_scale_hybrid())
+    errors.extend(validate_b4_minicheck_critics_final_gate())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2457,6 +2485,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-b1-app-boundary-universal-work-qirc-spine")
     sub.add_parser("validate-b2-context-lenses-worklets")
     sub.add_parser("validate-b3-modelworkpacket-scale-hybrid")
+    sub.add_parser("validate-b4-minicheck-critics-final-gate")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -3029,6 +3058,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_b2_context_lenses_worklets()
     elif args.cmd == "validate-b3-modelworkpacket-scale-hybrid":
         errors = validate_b3_modelworkpacket_scale_hybrid()
+    elif args.cmd == "validate-b4-minicheck-critics-final-gate":
+        errors = validate_b4_minicheck_critics_final_gate()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

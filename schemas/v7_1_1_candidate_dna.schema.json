@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin.v7_1_1_candidate_dna.schema",
+  "title": "CandidateDNA",
+  "description": "Schema for a CandidateDNA — traces candidate lineage without proving authorship truth, correctness, or model quality.",
+  "type": "object",
+  "required": [
+    "candidate_dna_id",
+    "candidate_artifact_ref",
+    "source_modelworkpacket_ref",
+    "source_context_capsule_ref",
+    "source_gaptext_ref",
+    "source_slot_contract_ref",
+    "source_route_class",
+    "generation_path",
+    "constraint_refs",
+    "evidence_refs",
+    "privacy_class",
+    "content_hash",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "properties": {
+    "candidate_dna_id": {
+      "type": "string",
+      "description": "Unique identifier for this CandidateDNA record"
+    },
+    "candidate_artifact_ref": {
+      "type": "string",
+      "description": "Reference to the candidate artifact whose lineage this records"
+    },
+    "source_modelworkpacket_ref": {
+      "type": "string",
+      "description": "Reference to the ModelWorkPacket that produced the candidate"
+    },
+    "source_context_capsule_ref": {
+      "type": "string",
+      "description": "Reference to the context capsule used during generation"
+    },
+    "source_gaptext_ref": {
+      "type": "string",
+      "description": "Reference to the gaptext instructions used during generation"
+    },
+    "source_slot_contract_ref": {
+      "type": "string",
+      "description": "Reference to the slot contract that shaped the generation"
+    },
+    "source_route_class": {
+      "type": "string",
+      "enum": [
+        "deterministic_no_model",
+        "tiny_local_candidate",
+        "small_model_candidate",
+        "small_model_multi_slot_candidate",
+        "local_7b_8b_candidate",
+        "hybrid_3b_7b_candidate",
+        "quality_hybrid_candidate",
+        "heavy_local_candidate",
+        "remote_explicit_only",
+        "cannot_safely_complete"
+      ],
+      "description": "Scale ladder route class used for generation"
+    },
+    "generation_path": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ordered list of processing steps that produced this candidate"
+    },
+    "constraint_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to constraints applied during generation"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to evidence supporting the generation trace"
+    },
+    "privacy_class": {
+      "type": "string",
+      "enum": ["public", "internal", "sensitive", "redacted"],
+      "description": "Privacy classification of the candidate content"
+    },
+    "content_hash": {
+      "type": "string",
+      "description": "Hash of the candidate content for integrity reference (not authorship proof)"
+    },
+    "content_ref": {
+      "type": "string",
+      "description": "Optional reference to candidate content instead of raw content"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "description": "Claim boundary — what this DNA traces and does not prove"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true — DNA is lineage trace, not acceptance proof"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit list of things this DNA does not claim or prove"
+    }
+  },
+  "additionalProperties": true
+}

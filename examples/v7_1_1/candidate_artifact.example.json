@@ -1,0 +1,26 @@
+{
+  "candidate_artifact_id": "odin_candidate_artifact_example_b4_001",
+  "modelworkpacket_ref": "odin_modelworkpacket_example_b3_001",
+  "candidate_dna_ref": "odin_candidate_dna_example_b4_001",
+  "artifact_family_ref": "odin_artifact_family_text_summary",
+  "output_contract_ref": "odin_output_contract_example_001",
+  "content_ref": "odin_candidate_content_example_b4_001",
+  "content_hash": "sha256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+  "evidence_refs": [
+    "odin_modelworkpacket_example_b3_001",
+    "odin_minicheck_example_b4_001"
+  ],
+  "critic_status": "critic_passed",
+  "tournament_status": "selected",
+  "final_gate_status": "advisory_passed",
+  "claim_boundary": "candidate_artifact_example_is_evaluated_candidate_not_applied_not_accepted",
+  "candidate_only": true,
+  "non_claims": [
+    "not_app_acceptance",
+    "not_correctness_proof",
+    "not_live_model_execution",
+    "not_external_send",
+    "not_app_state_mutation",
+    "not_production_proof"
+  ]
+}

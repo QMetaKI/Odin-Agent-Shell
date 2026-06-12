@@ -1,0 +1,33 @@
+{
+  "registry_id": "odin.v7_1_1_receipt_boundary_registry",
+  "version": "7.1.1",
+  "status": "receipt_boundary_registry_not_runtime_proof",
+  "claim_boundary": "receipt_boundary_is_scoped_review_state_not_absolute_truth_not_runtime_proof_not_security_certification",
+  "candidate_only": true,
+  "non_claims": [
+    "not_absolute_truth",
+    "not_runtime_proof",
+    "not_security_certification",
+    "not_deployment_proof",
+    "not_production_readiness",
+    "not_app_acceptance_unless_app_owned_process_accepts_separately",
+    "not_live_model_execution",
+    "not_external_send"
+  ],
+  "invariants": [
+    "Receipt Boundary records scoped review state",
+    "it is not absolute truth",
+    "it is not runtime proof",
+    "it is not security certification",
+    "it is not deployment proof",
+    "it is not production readiness",
+    "it is not app acceptance unless an app-owned process accepts separately"
+  ],
+  "required_partition_fields": [
+    "accepted_claim_refs",
+    "denied_claim_refs",
+    "pending_claim_refs"
+  ],
+  "schema_ref": "schemas/v7_1_1_receipt_boundary.schema.json",
+  "example_ref": "examples/v7_1_1/receipt_boundary.example.json"
+}

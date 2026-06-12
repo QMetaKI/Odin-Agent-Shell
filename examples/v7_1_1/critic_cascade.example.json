@@ -1,0 +1,47 @@
+{
+  "cascade_id": "odin_critic_cascade_example_b4_001",
+  "modelworkpacket_ref": "odin_modelworkpacket_example_b3_001",
+  "critic_packet_refs": [
+    "odin_critic_work_packet_example_b4_001"
+  ],
+  "stage_order": [
+    "minicheck",
+    "schema_critic",
+    "contract_critic",
+    "route_aware_critic",
+    "claim_boundary_critic",
+    "final_gate_advisor"
+  ],
+  "entry_conditions": [
+    "ModelWorkPacket output is present",
+    "candidate_artifact_ref is set",
+    "minicheck prerequisites met"
+  ],
+  "exit_conditions": [
+    "all stages completed without escalation",
+    "final_gate_advisor produced advisory recommendation",
+    "no unresolved escalation conditions"
+  ],
+  "escalation_conditions": [
+    "missing_claim_boundary",
+    "forbidden_action_detected",
+    "route_class_mismatch",
+    "output_contract_violation",
+    "final_gate_authority_claim_detected",
+    "receipt_truth_claim_detected"
+  ],
+  "fallback_conditions": [
+    "cannot_safely_complete when route class is cannot_safely_complete",
+    "human_review_required when escalation cannot be resolved deterministically"
+  ],
+  "claim_boundary": "critic_cascade_example_is_static_stage_contract_not_live_model_not_app_apply",
+  "candidate_only": true,
+  "non_claims": [
+    "not_live_model_execution",
+    "not_provider_execution",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_correctness_proof",
+    "not_model_quality_proof"
+  ]
+}

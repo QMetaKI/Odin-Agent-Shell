@@ -1,0 +1,38 @@
+{
+  "registry_id": "odin.v7_1_1_candidate_artifact_registry",
+  "version": "7.1.1",
+  "status": "candidate_artifact_registry_not_runtime_proof",
+  "claim_boundary": "candidate_artifact_is_evaluation_output_not_applied_not_accepted_until_app_decides",
+  "candidate_only": true,
+  "non_claims": [
+    "not_app_acceptance",
+    "not_correctness_proof",
+    "not_live_model_execution",
+    "not_external_send",
+    "not_app_state_mutation",
+    "not_production_proof",
+    "not_model_quality_proof"
+  ],
+  "allowed_statuses": [
+    "created",
+    "minicheck_passed",
+    "minicheck_warned",
+    "critic_pending",
+    "critic_passed",
+    "critic_warned",
+    "critic_failed",
+    "tournament_pending",
+    "tournament_selected",
+    "tournament_rejected",
+    "final_gate_pending",
+    "final_gate_advisory_passed",
+    "final_gate_advisory_warned",
+    "final_gate_advisory_blocked",
+    "human_review_required",
+    "cannot_safely_complete"
+  ],
+  "schema_ref": "schemas/v7_1_1_candidate_artifact.schema.json",
+  "example_ref": "examples/v7_1_1/candidate_artifact.example.json",
+  "b3_modelworkpacket_ref": "registries/v7_1_1_modelworkpacket_contract.json",
+  "b3_scale_ladder_ref": "registries/v7_1_1_model_scale_ladder_registry.json"
+}

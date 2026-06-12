@@ -206,6 +206,96 @@
       "suggested_future_bundle": "B7+",
       "odin_side_improvement": "Create a dedicated thor-bridge intake command that reads thor pack output without committing .thor/ artifacts",
       "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B4-AUDIT-001",
+      "bundle_id": "B4",
+      "source_pr": "PR-30",
+      "source_refs": [
+        "registries/v7_1_1_critic_work_packet_registry.json",
+        "registries/v7_1_1_model_scale_ladder_registry.json"
+      ],
+      "finding_type": "formal_contract_added",
+      "severity": "informational",
+      "summary": "CriticWorkPacket added and formally bound to ModelWorkPacket via route_to_critic_mapping. All 10 B3 scale ladder route classes are covered. Critic tiers are static contract roles in B4 — no live model execution. B3 audit finding B3-AUDIT-003 addressed.",
+      "recommendation": "B5 critic integration should reference CriticWorkPacket.scale_ladder_route_class to select appropriate critic tier at runtime. Minicheck must validate provider_policy_present before critic cascade entry.",
+      "suggested_future_bundle": "B5",
+      "odin_side_improvement": "B5 should add runtime CriticWorkPacket instantiation consuming ModelWorkPacket.model_route_ref",
+      "thor_side_improvement": "Thor could generate critic work packet templates from route class specifications",
+      "claude_code_workflow_improvement": "Claude Code should verify route-to-critic mapping is complete before B5 provider integration",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B4-AUDIT-002",
+      "bundle_id": "B4",
+      "source_pr": "PR-30",
+      "source_refs": [
+        "registries/v7_1_1_final_gate_advisory_registry.json",
+        "schemas/v7_1_1_final_gate_advisory.schema.json"
+      ],
+      "finding_type": "boundary_enforcement",
+      "severity": "critical",
+      "summary": "Final Gate Advisory added with is_apply_gate=false enforced as JSON Schema const. Named 'Advisory' not 'Authority' or 'Gate'. App-owned Apply Gate remains entirely separate. This is the critical B4 boundary invariant — it must be preserved in all future bundles.",
+      "recommendation": "B5 and all future bundles must NOT elevate Final Gate Advisory to Apply Gate. App-owned apply logic must remain entirely separate from Odin Final Gate Advisory.",
+      "suggested_future_bundle": "B5+",
+      "odin_side_improvement": "Add validate-final-gate-boundary subcommand that verifies is_apply_gate=false across all artifacts in validate-all",
+      "thor_side_improvement": "Thor could add a 'final gate boundary' check to its protocol review checklist",
+      "claude_code_workflow_improvement": "Claude Code must check is_apply_gate constraint at start of each B5+ PR before implementing any gate logic",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B4-AUDIT-003",
+      "bundle_id": "B4",
+      "source_pr": "PR-30",
+      "source_refs": [
+        "registries/v7_1_1_response_packet_registry.json",
+        "schemas/v7_1_1_response_packet.schema.json"
+      ],
+      "finding_type": "architecture_contribution",
+      "severity": "informational",
+      "summary": "Response Packet introduces claims_made / claims_not_made and commands_run / commands_not_run and tests_run / tests_not_run distinctions. This enables honest return material that distinguishes what was done from what was not done. B5 must reference response_packet_id from storage receipts.",
+      "recommendation": "B5 storage/trace artifacts must include response_packet_id reference field for end-to-end traceability. The claims_made/claims_not_made discipline should be enforced by validate-all.",
+      "suggested_future_bundle": "B5",
+      "odin_side_improvement": "B5 storage schema must include response_packet_id field and validate it references a known ResponsePacket",
+      "thor_side_improvement": "Thor receipt artifacts could map to Odin Response Packet claims_made for automated receipt generation",
+      "claude_code_workflow_improvement": "Claude Code should populate claims_made and claims_not_made in every return report going forward",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B4-AUDIT-004",
+      "bundle_id": "B4",
+      "source_pr": "PR-30",
+      "source_refs": [
+        "registries/v7_1_1_receipt_boundary_registry.json",
+        "schemas/v7_1_1_receipt_boundary.schema.json"
+      ],
+      "finding_type": "boundary_enforcement",
+      "severity": "informational",
+      "summary": "Receipt Boundary introduced with scoped claim state (accepted/denied/pending). is_absolute_truth=false and is_runtime_proof=false enforced as JSON Schema const. B7+ should evaluate Thor Protocol receipt integration with Odin Receipt Boundary.",
+      "recommendation": "B7+ evaluation: map Thor THOR_RECEIPT.accepted_claim_refs to Odin Receipt Boundary accepted_claim_refs. Determine if automated receipt generation from Thor protocol artifacts is feasible.",
+      "suggested_future_bundle": "B7+",
+      "odin_side_improvement": "B7+ should add a validate-receipt-boundary command that checks accepted/denied/pending claim refs for consistency",
+      "thor_side_improvement": "Thor could output structured receipt JSON that maps directly to Odin Receipt Boundary schema",
+      "claude_code_workflow_improvement": "Claude Code should populate receipt boundary records with explicit pending_claim_refs for deferred items",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
+    },
+    {
+      "finding_id": "B4-AUDIT-005",
+      "bundle_id": "B4",
+      "source_pr": "PR-30",
+      "source_refs": [
+        "registries/v7_1_1_candidate_dna_registry.json",
+        "schemas/v7_1_1_candidate_dna.schema.json"
+      ],
+      "finding_type": "architecture_contribution",
+      "severity": "informational",
+      "summary": "Candidate DNA added with privacy_class (public/internal/sensitive/redacted) and content_hash discipline. Does not expose raw sensitive content. B5 must reference candidate_dna_id in storage/trace receipts for lineage traceability.",
+      "recommendation": "B5 storage schema must include candidate_dna_id field. Privacy class must be validated before content is logged or stored.",
+      "suggested_future_bundle": "B5",
+      "odin_side_improvement": "B5 storage must include privacy_class filtering before logging candidate content",
+      "thor_side_improvement": "Thor could include a privacy classification step in the handoff prep phase",
+      "claude_code_workflow_improvement": "Claude Code should set privacy_class conservatively (internal or sensitive) for all non-trivial candidates",
+      "claim_boundary": "finding_is_process_observation_not_runtime_capability_claim"
     }
   ]
 }

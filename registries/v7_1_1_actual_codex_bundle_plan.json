@@ -153,7 +153,8 @@
       ],
       "actual_pr": "PR-30",
       "bundle_id": "B4",
-      "claim_boundary": "bundle_plan_only",
+      "claim_boundary": "b4_maps_canonical_slices_to_actual_pr_not_completion_proof",
+      "description": "B4: Minicheck / Critics / Tournament / Candidate DNA / Response Packet / Final Gate Advisory",
       "slice_ids": [
         "V711-R100-106",
         "V711-R100-107",
@@ -189,8 +190,15 @@
         "V711-R100-137"
       ],
       "slice_range": "V711-R100-106..137",
-      "status": "future_actual_bundle_mapping_not_runtime_proof",
-      "title": "Minicheck / Critics / Tournament / Candidate Final Gate"
+      "status": "static_contract_evaluation_spine_added_not_runtime_complete",
+      "title": "Minicheck / Critics / Tournament / Candidate Final Gate",
+      "non_claims": [
+        "not runtime completion",
+        "not live model inference proof",
+        "not provider execution proof",
+        "not app apply authority proof",
+        "not final gate as apply gate"
+      ]
     },
     {
       "absorbed_future_pr_families": [

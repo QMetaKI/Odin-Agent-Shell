@@ -1,0 +1,44 @@
+{
+  "registry_id": "odin.v7_1_1_minicheck_registry",
+  "version": "7.1.1",
+  "status": "minicheck_registry_not_runtime_proof",
+  "claim_boundary": "minicheck_is_deterministic_static_check_not_live_model_call_not_app_apply",
+  "candidate_only": true,
+  "non_claims": [
+    "not_live_model_execution",
+    "not_provider_execution",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_final_acceptance",
+    "not_production_proof",
+    "not_model_quality_proof"
+  ],
+  "invariants": [
+    "minicheck is deterministic and static",
+    "no live model call",
+    "no provider execution",
+    "no app apply",
+    "no final acceptance",
+    "no production proof"
+  ],
+  "check_kinds": [
+    "schema_shape_check",
+    "claim_boundary_check",
+    "forbidden_action_check",
+    "output_contract_check",
+    "context_ref_check",
+    "gaptext_shape_check",
+    "route_class_check",
+    "provider_policy_check",
+    "no_runtime_claim_check",
+    "no_model_quality_claim_check",
+    "no_external_send_check",
+    "no_app_apply_check",
+    "final_gate_boundary_check",
+    "receipt_boundary_check"
+  ],
+  "schema_ref": "schemas/v7_1_1_minicheck.schema.json",
+  "example_ref": "examples/v7_1_1/minicheck.example.json",
+  "b3_modelworkpacket_consumption": "minicheck evaluates ModelWorkPacket output shape and claim boundaries",
+  "b3_scale_ladder_consumption": "route_class_ref binds minicheck to B3 scale ladder route classes"
+}

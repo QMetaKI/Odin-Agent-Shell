@@ -1,0 +1,38 @@
+{
+  "minicheck_id": "odin_minicheck_example_b4_001",
+  "input_ref": "odin_candidate_artifact_example_b4_001",
+  "modelworkpacket_ref": "odin_modelworkpacket_example_b3_001",
+  "route_class_ref": "small_model_candidate",
+  "check_kind": "claim_boundary_check",
+  "check_rules": [
+    "claim_boundary field must be present",
+    "candidate_only must be true",
+    "non_claims must be non-empty",
+    "no forbidden action markers in output"
+  ],
+  "pass_conditions": [
+    "claim_boundary is present and non-empty",
+    "candidate_only is true",
+    "non_claims contains at least one entry",
+    "no forbidden action markers detected"
+  ],
+  "fail_conditions": [
+    "claim_boundary missing or empty",
+    "candidate_only is false or missing",
+    "forbidden action detected in output"
+  ],
+  "warning_conditions": [
+    "non_claims is empty but claim_boundary is present",
+    "route_class_ref does not match modelworkpacket route"
+  ],
+  "claim_boundary": "minicheck_example_is_static_check_not_live_model_call_not_app_apply",
+  "candidate_only": true,
+  "non_claims": [
+    "not_live_model_execution",
+    "not_provider_execution",
+    "not_app_state_mutation",
+    "not_external_send",
+    "not_final_acceptance",
+    "not_production_proof"
+  ]
+}
