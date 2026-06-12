@@ -1,0 +1,87 @@
+{
+  "artifact_kind": "odin_prep_prompt_quality_matrix",
+  "claim_boundary": "prep_final_pr_06_08_prepares_future_prs_not_runtime_execution",
+  "candidate_only": true,
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "scoring_axes": [
+    "repo_real_intake_completeness",
+    "scope_clarity",
+    "non_scope_clarity",
+    "file_target_precision",
+    "validator_target_precision",
+    "test_target_precision",
+    "proof_target_precision",
+    "claim_boundary_quality",
+    "token_efficiency",
+    "senior_review_readiness"
+  ],
+  "scores": {
+    "FINAL_PR_06_OPERATIONAL_SEED_SPINE": {
+      "prompt_file": "docs/codex/prompts/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "repo_real_intake_completeness": 9,
+      "scope_clarity": 10,
+      "non_scope_clarity": 10,
+      "file_target_precision": 10,
+      "validator_target_precision": 9,
+      "test_target_precision": 9,
+      "proof_target_precision": 10,
+      "claim_boundary_quality": 10,
+      "token_efficiency": 8,
+      "senior_review_readiness": 10,
+      "overall": 9.5,
+      "notes": "All required sections present. 12+ mandatory tests specified. IntentSeed and RoleProfile dataclasses fully specified. Minor: token efficiency slightly lower due to comprehensiveness."
+    },
+    "FINAL_PR_07_FIELD_SELECTION_SPINE": {
+      "prompt_file": "docs/codex/prompts/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "repo_real_intake_completeness": 9,
+      "scope_clarity": 10,
+      "non_scope_clarity": 10,
+      "file_target_precision": 10,
+      "validator_target_precision": 9,
+      "test_target_precision": 9,
+      "proof_target_precision": 10,
+      "claim_boundary_quality": 10,
+      "token_efficiency": 8,
+      "senior_review_readiness": 10,
+      "overall": 9.5,
+      "notes": "10 review axes specified with required axis_id values. FieldSelection candidate_only requirement explicit. DFAS title note prevents naming confusion."
+    },
+    "FINAL_PR_08_PROJECTION_CANDIDATE_SPINE": {
+      "prompt_file": "docs/codex/prompts/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "repo_real_intake_completeness": 9,
+      "scope_clarity": 10,
+      "non_scope_clarity": 10,
+      "file_target_precision": 10,
+      "validator_target_precision": 9,
+      "test_target_precision": 9,
+      "proof_target_precision": 10,
+      "claim_boundary_quality": 10,
+      "token_efficiency": 8,
+      "senior_review_readiness": 10,
+      "overall": 9.5,
+      "notes": "All 10 materialization levels M0-M9 specified. ExpressionPacket near_code text-only constraint explicit. CandidateGraph edge structure specified."
+    },
+    "FINAL_PR_09_RELEASE_CLOSURE": {
+      "prompt_file": "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE.md",
+      "repo_real_intake_completeness": 10,
+      "scope_clarity": 10,
+      "non_scope_clarity": 10,
+      "file_target_precision": 9,
+      "validator_target_precision": 9,
+      "test_target_precision": 9,
+      "proof_target_precision": 10,
+      "claim_boundary_quality": 10,
+      "token_efficiency": 9,
+      "senior_review_readiness": 10,
+      "overall": 9.6,
+      "notes": "Strong mandatory intake step requiring all PR06-08 validators to pass. Release readiness matrix table included. Not-proven lock explicitly specified. Slightly lower file target precision as PR09 is intentionally sparse on new modules."
+    }
+  },
+  "aggregate": {
+    "all_prompts_above_threshold": true,
+    "threshold": 8.0,
+    "minimum_score": 9.5,
+    "maximum_score": 9.6,
+    "average_score": 9.525
+  }
+}
