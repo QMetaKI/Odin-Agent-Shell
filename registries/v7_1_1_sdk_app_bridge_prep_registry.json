@@ -1,0 +1,62 @@
+{
+  "claim_boundary": "registry_is_static_contract_not_runtime_or_apply_proof",
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_provider_execution_proof"
+  ],
+  "registry_id": "odin.v7_1_1_sdk_app_bridge_prep_registry",
+  "sdk_app_bridge_preps": [
+    {
+      "allowed_exports": [
+        "candidate_artifact_ref",
+        "response_packet_ref",
+        "receipt_ledger_ref",
+        "storage_record_ref",
+        "trace_record_ref"
+      ],
+      "app_manifest_ref": "app_manifest.future",
+      "app_owned_authorities": [
+        "apply",
+        "state",
+        "domain_truth",
+        "user_permissions",
+        "external_send"
+      ],
+      "binding_ref": "ODIN_BINDING.future",
+      "bridge_prep_id": "sdk_app_bridge_prep.b5.example",
+      "candidate_only": true,
+      "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+      "does_not_apply_changes": true,
+      "does_not_own_app_state": true,
+      "does_not_send_externally": true,
+      "forbidden_exports": [
+        "app_state_mutation",
+        "apply_decision",
+        "external_send",
+        "domain_truth_claim",
+        "user_permission_override"
+      ],
+      "is_app_runtime": false,
+      "non_claims": [
+        "not_runtime_proof",
+        "not_app_apply",
+        "not_external_send",
+        "not_security_certification"
+      ],
+      "odin_owned_authorities": [
+        "candidate_generation",
+        "evidence_reporting",
+        "static_validation",
+        "trace_reporting"
+      ],
+      "receipt_ledger_ref": "ledger.b5.example",
+      "response_packet_ref": "response.b4.example",
+      "storage_record_ref": "storage.b5.example",
+      "trace_record_ref": "trace.b5.example"
+    }
+  ],
+  "status": "static_contract_registry_not_runtime_proof",
+  "version": "7.1.1"
+}

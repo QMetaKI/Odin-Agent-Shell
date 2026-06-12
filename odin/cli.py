@@ -2344,6 +2344,33 @@ def validate_b4_minicheck_critics_final_gate() -> list[str]:
     return []
 
 
+
+def validate_b5_storage_trace_receipt_provider_bridge() -> list[str]:
+    import subprocess
+    tool_path = ROOT / "tools" / "v7_1_1" / "check_b5_storage_trace_receipt_provider_bridge.py"
+    if not tool_path.exists():
+        return ["missing B5 Storage / Trace / Receipt / Provider Bridge validator"]
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+        result = subprocess.run(
+            [
+                sys.executable, str(tool_path),
+                "--repo-root", str(ROOT),
+                "--out", str(out),
+                "--generated-at-utc", "2026-01-01T00:00:00Z",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"B5 Storage / Trace / Receipt / Provider Bridge: {err}" for err in report.get("hard_violations", [])]
+            except Exception as exc:
+                return [f"B5 Storage / Trace / Receipt / Provider Bridge validator failed: {exc}"]
+    return []
+
 def validate_b3_modelworkpacket_scale_hybrid() -> list[str]:
     import subprocess
     tool_path = ROOT / "tools" / "v7_1_1" / "check_b3_modelworkpacket_scale_hybrid.py"
@@ -2448,6 +2475,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b2_context_lenses_worklets())
     errors.extend(validate_b3_modelworkpacket_scale_hybrid())
     errors.extend(validate_b4_minicheck_critics_final_gate())
+    errors.extend(validate_b5_storage_trace_receipt_provider_bridge())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -2486,6 +2514,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-b2-context-lenses-worklets")
     sub.add_parser("validate-b3-modelworkpacket-scale-hybrid")
     sub.add_parser("validate-b4-minicheck-critics-final-gate")
+    sub.add_parser("validate-b5-storage-trace-receipt-provider-bridge")
     sub.add_parser("validate-agent-operator-mode")
     sub.add_parser("validate-local-runtime-starter")
     sub.add_parser("validate-runtime-doctor-bootstrap")
@@ -3060,6 +3089,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_b3_modelworkpacket_scale_hybrid()
     elif args.cmd == "validate-b4-minicheck-critics-final-gate":
         errors = validate_b4_minicheck_critics_final_gate()
+    elif args.cmd == "validate-b5-storage-trace-receipt-provider-bridge":
+        errors = validate_b5_storage_trace_receipt_provider_bridge()
     elif args.cmd == "validate-docs":
         errors = validate_docs()
     elif args.cmd == "validate-codex-tasks":

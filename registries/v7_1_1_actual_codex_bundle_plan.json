@@ -102,6 +102,14 @@
       "actual_pr": "PR-29",
       "bundle_id": "B3",
       "claim_boundary": "b3_maps_canonical_slices_to_actual_pr_not_completion_proof",
+      "description": "B3: ModelWorkPacket / Model Scale Ladder / Provider Seams / Small-Model Power / Hybrid Director",
+      "non_claims": [
+        "not runtime completion",
+        "not provider execution proof",
+        "not live model inference proof",
+        "not model quality proof",
+        "not app apply authority proof"
+      ],
       "slice_ids": [
         "V711-R100-076",
         "V711-R100-077",
@@ -136,15 +144,7 @@
       ],
       "slice_range": "V711-R100-076..105",
       "status": "static_contract_evidence_added_not_runtime_complete",
-      "title": "ModelWorkPacket / Scale Ladder / Hybrid Director",
-      "description": "B3: ModelWorkPacket / Model Scale Ladder / Provider Seams / Small-Model Power / Hybrid Director",
-      "non_claims": [
-        "not runtime completion",
-        "not provider execution proof",
-        "not live model inference proof",
-        "not model quality proof",
-        "not app apply authority proof"
-      ]
+      "title": "ModelWorkPacket / Scale Ladder / Hybrid Director"
     },
     {
       "absorbed_future_pr_families": [
@@ -155,6 +155,13 @@
       "bundle_id": "B4",
       "claim_boundary": "b4_maps_canonical_slices_to_actual_pr_not_completion_proof",
       "description": "B4: Minicheck / Critics / Tournament / Candidate DNA / Response Packet / Final Gate Advisory",
+      "non_claims": [
+        "not runtime completion",
+        "not live model inference proof",
+        "not provider execution proof",
+        "not app apply authority proof",
+        "not final gate as apply gate"
+      ],
       "slice_ids": [
         "V711-R100-106",
         "V711-R100-107",
@@ -191,14 +198,7 @@
       ],
       "slice_range": "V711-R100-106..137",
       "status": "static_contract_evaluation_spine_added_not_runtime_complete",
-      "title": "Minicheck / Critics / Tournament / Candidate Final Gate",
-      "non_claims": [
-        "not runtime completion",
-        "not live model inference proof",
-        "not provider execution proof",
-        "not app apply authority proof",
-        "not final gate as apply gate"
-      ]
+      "title": "Minicheck / Critics / Tournament / Candidate Final Gate"
     },
     {
       "absorbed_future_pr_families": [
@@ -208,7 +208,17 @@
       ],
       "actual_pr": "PR-31",
       "bundle_id": "B5",
-      "claim_boundary": "bundle_plan_only",
+      "claim_boundary": "b5_maps_static_storage_trace_receipt_provider_bridge_prep_not_runtime_or_apply_proof",
+      "description": "B5: Storage / Trace / Receipt / Provider Policy / Local Provider Seam Prep / Thor-Odin Bridge Prep / SDK-App Bridge Prep",
+      "exact_slice_count": 32,
+      "non_claims": [
+        "not runtime completion",
+        "not provider execution proof",
+        "not live model inference proof",
+        "not model quality proof",
+        "not app apply authority proof",
+        "not external send proof"
+      ],
       "slice_ids": [
         "V711-R100-138",
         "V711-R100-139",
@@ -244,8 +254,8 @@
         "V711-R100-169"
       ],
       "slice_range": "V711-R100-138..169",
-      "status": "future_actual_bundle_mapping_not_runtime_proof",
-      "title": "Storage / Trace / Receipt / Thor / SDK Bridge"
+      "status": "static_storage_trace_receipt_provider_bridge_prep_added_not_runtime_complete",
+      "title": "Storage / Trace / Receipt / Provider Policy / Local Provider Seam Prep / Thor-Odin Bridge Prep / SDK-App Bridge Prep"
     },
     {
       "absorbed_future_pr_families": [

@@ -1,0 +1,111 @@
+{
+  "$id": "odin.v7_1_1_provider_policy.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Static provider policy with network and provider execution disabled by default.",
+  "properties": {
+    "allowed_execution_modes": {
+      "description": "Modes.",
+      "items": {
+        "enum": [
+          "mock_only",
+          "dry_run",
+          "local_explicit_only",
+          "remote_explicit_only",
+          "cannot_safely_complete"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowed_provider_classes": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowed_route_classes": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "hidden_remote_fallback_allowed": {
+      "const": false,
+      "type": "boolean"
+    },
+    "local_first": {
+      "const": true,
+      "description": "Local first.",
+      "type": "boolean"
+    },
+    "network_default": {
+      "const": "disabled",
+      "type": "string"
+    },
+    "no_api_keys_declared": {
+      "const": true,
+      "description": "No API keys in schema/example/registry.",
+      "type": "boolean"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "provider_execution_default": {
+      "const": "disabled",
+      "type": "string"
+    },
+    "provider_policy_id": {
+      "description": "",
+      "type": "string"
+    },
+    "receipt_required_before_execution": {
+      "const": true,
+      "description": "Receipt required before execution.",
+      "type": "boolean"
+    },
+    "remote_requires_explicit_policy": {
+      "const": true,
+      "description": "Remote requires explicit policy.",
+      "type": "boolean"
+    },
+    "remote_requires_receipt": {
+      "const": true,
+      "description": "Remote requires receipt.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "provider_policy_id",
+    "allowed_provider_classes",
+    "allowed_route_classes",
+    "local_first",
+    "remote_requires_explicit_policy",
+    "remote_requires_receipt",
+    "network_default",
+    "hidden_remote_fallback_allowed",
+    "provider_execution_default",
+    "allowed_execution_modes",
+    "receipt_required_before_execution",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "ProviderPolicy",
+  "type": "object"
+}

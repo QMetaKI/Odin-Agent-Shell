@@ -1,0 +1,168 @@
+{
+  "$id": "odin.v7_1_1_trace_record.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Audit material with candidate lineage; not runtime proof, apply, or certification.",
+  "properties": {
+    "candidate_artifact_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_dna_id": {
+      "description": "",
+      "type": "string"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "causality_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "final_gate_advisory_id": {
+      "description": "",
+      "type": "string"
+    },
+    "modelworkpacket_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "not_app_apply": {
+      "const": true,
+      "description": "Not app apply.",
+      "type": "boolean"
+    },
+    "not_runtime_proof": {
+      "const": true,
+      "description": "Not runtime proof.",
+      "type": "boolean"
+    },
+    "not_security_certification": {
+      "const": true,
+      "description": "Not security certification.",
+      "type": "boolean"
+    },
+    "privacy_class": {
+      "description": "",
+      "type": "string"
+    },
+    "receipt_boundary_id": {
+      "description": "",
+      "type": "string"
+    },
+    "required_event_kinds": {
+      "items": {
+        "enum": [
+          "modelworkpacket_created",
+          "minicheck_completed",
+          "critic_packet_created",
+          "critic_cascade_completed",
+          "tournament_completed",
+          "candidate_dna_created",
+          "candidate_artifact_created",
+          "response_packet_created",
+          "final_gate_advisory_created",
+          "receipt_boundary_created",
+          "storage_record_created",
+          "provider_policy_checked",
+          "provider_runtime_deferred"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "response_packet_id": {
+      "description": "",
+      "type": "string"
+    },
+    "trace_events": {
+      "description": "Required event sequence.",
+      "items": {
+        "properties": {
+          "created_at_utc": {
+            "description": "",
+            "type": "string"
+          },
+          "event_kind": {
+            "enum": [
+              "modelworkpacket_created",
+              "minicheck_completed",
+              "critic_packet_created",
+              "critic_cascade_completed",
+              "tournament_completed",
+              "candidate_dna_created",
+              "candidate_artifact_created",
+              "response_packet_created",
+              "final_gate_advisory_created",
+              "receipt_boundary_created",
+              "storage_record_created",
+              "provider_policy_checked",
+              "provider_runtime_deferred"
+            ],
+            "type": "string"
+          },
+          "event_ref": {
+            "description": "",
+            "type": "string"
+          },
+          "privacy_class": {
+            "description": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_kind",
+          "event_ref",
+          "created_at_utc"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "trace_record_id": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trace_record_id",
+    "modelworkpacket_ref",
+    "candidate_artifact_id",
+    "candidate_dna_id",
+    "response_packet_id",
+    "final_gate_advisory_id",
+    "receipt_boundary_id",
+    "trace_events",
+    "causality_refs",
+    "evidence_refs",
+    "privacy_class",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "TraceRecord",
+  "type": "object"
+}

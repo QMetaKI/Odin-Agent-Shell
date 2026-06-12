@@ -1,0 +1,32 @@
+{
+  "api_key_required": false,
+  "candidate_only": true,
+  "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+  "contract_classes": [
+    "mock_provider",
+    "local_ollama_candidate",
+    "local_llama_cpp_candidate",
+    "external_agent_worker",
+    "cannot_safely_complete"
+  ],
+  "dry_run_supported": true,
+  "execution_mode": "mock_only",
+  "mock_supported": true,
+  "modelworkpacket_ref": "modelworkpacket.b3.example",
+  "network_required": false,
+  "no_provider_execution_in_ci": true,
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_security_certification"
+  ],
+  "provider_class": "mock_provider",
+  "provider_policy_ref": "provider_policy.b5.local_first_disabled_defaults",
+  "receipt_required": true,
+  "route_class_refs": [
+    "mock_only",
+    "dry_run"
+  ],
+  "seam_prep_id": "local_provider_seam_prep.b5.example"
+}

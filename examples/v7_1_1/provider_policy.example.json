@@ -1,0 +1,40 @@
+{
+  "allowed_execution_modes": [
+    "mock_only",
+    "dry_run",
+    "local_explicit_only",
+    "remote_explicit_only",
+    "cannot_safely_complete"
+  ],
+  "allowed_provider_classes": [
+    "mock_provider",
+    "local_ollama_candidate",
+    "local_llama_cpp_candidate",
+    "external_agent_worker",
+    "cannot_safely_complete"
+  ],
+  "allowed_route_classes": [
+    "mock_only",
+    "dry_run",
+    "local_explicit_only",
+    "remote_explicit_only",
+    "cannot_safely_complete"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+  "hidden_remote_fallback_allowed": false,
+  "local_first": true,
+  "network_default": "disabled",
+  "no_api_keys_declared": true,
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_security_certification"
+  ],
+  "provider_execution_default": "disabled",
+  "provider_policy_id": "provider_policy.b5.local_first_disabled_defaults",
+  "receipt_required_before_execution": true,
+  "remote_requires_explicit_policy": true,
+  "remote_requires_receipt": true
+}

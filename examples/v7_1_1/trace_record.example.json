@@ -1,0 +1,124 @@
+{
+  "candidate_artifact_id": "candidate_artifact.b4.example",
+  "candidate_dna_id": "candidate_dna.b4.example",
+  "candidate_only": true,
+  "causality_refs": [
+    "modelworkpacket_ref",
+    "critic_work_packet_ref"
+  ],
+  "claim_boundary": "b5_static_contract_candidate_only_not_runtime_or_apply_proof",
+  "evidence_refs": [
+    "response_packet_id",
+    "receipt_boundary_id"
+  ],
+  "final_gate_advisory_id": "final_gate.b4.example",
+  "modelworkpacket_ref": "modelworkpacket.b3.example",
+  "non_claims": [
+    "not_runtime_proof",
+    "not_app_apply",
+    "not_external_send",
+    "not_security_certification"
+  ],
+  "not_app_apply": true,
+  "not_runtime_proof": true,
+  "not_security_certification": true,
+  "privacy_class": "internal",
+  "receipt_boundary_id": "receipt_boundary.b4.example",
+  "required_event_kinds": [
+    "modelworkpacket_created",
+    "minicheck_completed",
+    "critic_packet_created",
+    "critic_cascade_completed",
+    "tournament_completed",
+    "candidate_dna_created",
+    "candidate_artifact_created",
+    "response_packet_created",
+    "final_gate_advisory_created",
+    "receipt_boundary_created",
+    "storage_record_created",
+    "provider_policy_checked",
+    "provider_runtime_deferred"
+  ],
+  "response_packet_id": "response.b4.example",
+  "trace_events": [
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "modelworkpacket_created",
+      "event_ref": "modelworkpacket_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "minicheck_completed",
+      "event_ref": "minicheck_completed.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "critic_packet_created",
+      "event_ref": "critic_packet_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "critic_cascade_completed",
+      "event_ref": "critic_cascade_completed.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "tournament_completed",
+      "event_ref": "tournament_completed.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "candidate_dna_created",
+      "event_ref": "candidate_dna_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "candidate_artifact_created",
+      "event_ref": "candidate_artifact_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "response_packet_created",
+      "event_ref": "response_packet_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "final_gate_advisory_created",
+      "event_ref": "final_gate_advisory_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "receipt_boundary_created",
+      "event_ref": "receipt_boundary_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "storage_record_created",
+      "event_ref": "storage_record_created.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "provider_policy_checked",
+      "event_ref": "provider_policy_checked.ref",
+      "privacy_class": "internal"
+    },
+    {
+      "created_at_utc": "2026-01-01T00:00:00Z",
+      "event_kind": "provider_runtime_deferred",
+      "event_ref": "provider_runtime_deferred.ref",
+      "privacy_class": "internal"
+    }
+  ],
+  "trace_record_id": "trace.b5.example"
+}

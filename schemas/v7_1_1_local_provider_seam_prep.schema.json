@@ -1,0 +1,119 @@
+{
+  "$id": "odin.v7_1_1_local_provider_seam_prep.schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "description": "Static mock/dry-run local provider seam prep only; no real provider calls.",
+  "properties": {
+    "api_key_required": {
+      "type": "boolean"
+    },
+    "candidate_only": {
+      "const": true,
+      "description": "Candidate only.",
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "description": "Boundary text.",
+      "type": "string"
+    },
+    "contract_classes": {
+      "description": "Contract-only classes.",
+      "items": {
+        "enum": [
+          "mock_provider",
+          "local_ollama_candidate",
+          "local_llama_cpp_candidate",
+          "external_agent_worker",
+          "cannot_safely_complete"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dry_run_supported": {
+      "const": true,
+      "description": "Dry run supported.",
+      "type": "boolean"
+    },
+    "execution_mode": {
+      "enum": [
+        "mock_only",
+        "dry_run",
+        "cannot_safely_complete"
+      ],
+      "type": "string"
+    },
+    "mock_supported": {
+      "const": true,
+      "description": "Mock supported.",
+      "type": "boolean"
+    },
+    "modelworkpacket_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "network_required": {
+      "type": "boolean"
+    },
+    "no_provider_execution_in_ci": {
+      "const": true,
+      "description": "No real provider calls in CI.",
+      "type": "boolean"
+    },
+    "non_claims": {
+      "description": "Explicit non-claims.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "provider_class": {
+      "enum": [
+        "mock_provider",
+        "local_ollama_candidate",
+        "local_llama_cpp_candidate",
+        "external_agent_worker",
+        "cannot_safely_complete"
+      ],
+      "type": "string"
+    },
+    "provider_policy_ref": {
+      "description": "",
+      "type": "string"
+    },
+    "receipt_required": {
+      "const": true,
+      "description": "Receipt before non-mock execution.",
+      "type": "boolean"
+    },
+    "route_class_refs": {
+      "description": "",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "seam_prep_id": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "seam_prep_id",
+    "provider_class",
+    "provider_policy_ref",
+    "execution_mode",
+    "route_class_refs",
+    "modelworkpacket_ref",
+    "receipt_required",
+    "network_required",
+    "api_key_required",
+    "dry_run_supported",
+    "mock_supported",
+    "claim_boundary",
+    "candidate_only",
+    "non_claims"
+  ],
+  "title": "LocalProviderSeamPrep",
+  "type": "object"
+}

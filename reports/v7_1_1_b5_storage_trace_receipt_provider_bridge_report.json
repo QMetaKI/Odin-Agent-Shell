@@ -1,0 +1,430 @@
+{
+  "absorbed_future_pr_families": [
+    "PR-35-STORAGE-TRACE-RECEIPT",
+    "PR-36-THOR-AGENT-HANDOFF",
+    "PR-37-SDK-APP-BRIDGE"
+  ],
+  "bundle": {
+    "absorbed_future_pr_families": [
+      "PR-35-STORAGE-TRACE-RECEIPT",
+      "PR-36-THOR-AGENT-HANDOFF",
+      "PR-37-SDK-APP-BRIDGE"
+    ],
+    "actual_pr": "PR-31",
+    "bundle_id": "B5",
+    "checks": [
+      {
+        "msg": "B5 mapping exists",
+        "status": "pass"
+      },
+      {
+        "msg": "B5 actual_pr is PR-31",
+        "status": "pass"
+      },
+      {
+        "msg": "B5 maps V711-R100-138..169",
+        "status": "pass"
+      },
+      {
+        "msg": "B5 has exactly 32 slice IDs (got 32)",
+        "status": "pass"
+      },
+      {
+        "msg": "B5 has no out-of-range slice IDs",
+        "status": "pass"
+      },
+      {
+        "msg": "B5 absorbs exactly PR-35, PR-36, PR-37",
+        "status": "pass"
+      },
+      {
+        "msg": "B1 mapping preserved",
+        "status": "pass"
+      },
+      {
+        "msg": "B2 mapping preserved",
+        "status": "pass"
+      },
+      {
+        "msg": "B3 mapping preserved",
+        "status": "pass"
+      },
+      {
+        "msg": "B4 mapping preserved",
+        "status": "pass"
+      },
+      {
+        "msg": "canonical ladder contains V711-R100-138..169",
+        "status": "pass"
+      },
+      {
+        "msg": "canonical ladder preserved",
+        "status": "pass"
+      }
+    ],
+    "claim_boundary": "b5_maps_static_storage_trace_receipt_provider_bridge_prep_not_runtime_or_apply_proof",
+    "description": "B5: Storage / Trace / Receipt / Provider Policy / Local Provider Seam Prep / Thor-Odin Bridge Prep / SDK-App Bridge Prep",
+    "exact_slice_count": 32,
+    "non_claims": [
+      "not runtime completion",
+      "not provider execution proof",
+      "not live model inference proof",
+      "not model quality proof",
+      "not app apply authority proof",
+      "not external send proof"
+    ],
+    "slice_ids": [
+      "V711-R100-138",
+      "V711-R100-139",
+      "V711-R100-140",
+      "V711-R100-141",
+      "V711-R100-142",
+      "V711-R100-143",
+      "V711-R100-144",
+      "V711-R100-145",
+      "V711-R100-146",
+      "V711-R100-147",
+      "V711-R100-148",
+      "V711-R100-149",
+      "V711-R100-150",
+      "V711-R100-151",
+      "V711-R100-152",
+      "V711-R100-153",
+      "V711-R100-154",
+      "V711-R100-155",
+      "V711-R100-156",
+      "V711-R100-157",
+      "V711-R100-158",
+      "V711-R100-159",
+      "V711-R100-160",
+      "V711-R100-161",
+      "V711-R100-162",
+      "V711-R100-163",
+      "V711-R100-164",
+      "V711-R100-165",
+      "V711-R100-166",
+      "V711-R100-167",
+      "V711-R100-168",
+      "V711-R100-169"
+    ],
+    "slice_range": "V711-R100-138..169",
+    "status": "static_storage_trace_receipt_provider_bridge_prep_added_not_runtime_complete",
+    "title": "Storage / Trace / Receipt / Provider Policy / Local Provider Seam Prep / Thor-Odin Bridge Prep / SDK-App Bridge Prep"
+  },
+  "claim_boundary": "b5_report_is_static_storage_trace_receipt_provider_bridge_validation_not_runtime_or_apply_proof",
+  "final_gate_boundary_checks": [
+    {
+      "msg": "Final Gate Advisory is not Apply Gate",
+      "status": "pass"
+    },
+    {
+      "msg": "Final Gate Advisory is not app authority",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Boundary is not absolute truth",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Boundary is not runtime proof",
+      "status": "pass"
+    }
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "hard_violations": [],
+  "local_provider_seam_prep_checks": [
+    {
+      "msg": "schemas/v7_1_1_local_provider_seam_prep.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_local_provider_seam_prep_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/local_provider_seam_prep.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "local_provider_seam_prep has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Local Provider Seam Prep has required contract classes",
+      "status": "pass"
+    },
+    {
+      "msg": "Local Provider Seam Prep has no execution-by-default",
+      "status": "pass"
+    },
+    {
+      "msg": "Local candidates do not require provider secrets",
+      "status": "pass"
+    }
+  ],
+  "non_claims": [
+    "not_runtime_proof",
+    "not_provider_execution_proof",
+    "not_model_quality_proof",
+    "not_app_apply_authority",
+    "not_external_send"
+  ],
+  "provider_policy_checks": [
+    {
+      "msg": "schemas/v7_1_1_provider_policy.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_provider_policy_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/provider_policy.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "provider_policy has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy local_first true",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy network disabled by default",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy hidden remote fallback disabled",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy execution disabled by default",
+      "status": "pass"
+    },
+    {
+      "msg": "Provider Policy explicit policy and receipt required",
+      "status": "pass"
+    }
+  ],
+  "receipt_ledger_checks": [
+    {
+      "msg": "schemas/v7_1_1_receipt_ledger.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_receipt_ledger_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/receipt_ledger.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "receipt_ledger has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Ledger has accepted_claim_refs",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Ledger has denied_claim_refs",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Ledger has pending_claim_refs",
+      "status": "pass"
+    },
+    {
+      "msg": "Receipt Ledger is not truth or runtime proof",
+      "status": "pass"
+    }
+  ],
+  "registry_refs": [
+    "registries/v7_1_1_storage_record_registry.json",
+    "registries/v7_1_1_trace_record_registry.json",
+    "registries/v7_1_1_receipt_ledger_registry.json",
+    "registries/v7_1_1_provider_policy_registry.json",
+    "registries/v7_1_1_local_provider_seam_prep_registry.json",
+    "registries/v7_1_1_thor_odin_bridge_prep_registry.json",
+    "registries/v7_1_1_sdk_app_bridge_prep_registry.json"
+  ],
+  "report_id": "odin.v7_1_1_b5_storage_trace_receipt_provider_bridge_report",
+  "schema_refs": [
+    "schemas/v7_1_1_storage_record.schema.json",
+    "schemas/v7_1_1_trace_record.schema.json",
+    "schemas/v7_1_1_receipt_ledger.schema.json",
+    "schemas/v7_1_1_provider_policy.schema.json",
+    "schemas/v7_1_1_local_provider_seam_prep.schema.json",
+    "schemas/v7_1_1_thor_odin_bridge_prep.schema.json",
+    "schemas/v7_1_1_sdk_app_bridge_prep.schema.json",
+    "schemas/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.schema.json"
+  ],
+  "sdk_app_bridge_prep_checks": [
+    {
+      "msg": "schemas/v7_1_1_sdk_app_bridge_prep.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_sdk_app_bridge_prep_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/sdk_app_bridge_prep.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "sdk_app_bridge_prep has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "SDK/App Bridge preserves app-owned authorities",
+      "status": "pass"
+    },
+    {
+      "msg": "SDK/App Bridge does not claim app apply authority",
+      "status": "pass"
+    }
+  ],
+  "senior_code_reviewer_notes": [
+    "Provider execution defaults remain disabled; validator checks no SDK/network imports in B5 implementation."
+  ],
+  "senior_reviewer_notes": [
+    "B5 is static prep with prior bundle boundaries preserved."
+  ],
+  "slice_coverage": [
+    "V711-R100-138",
+    "V711-R100-139",
+    "V711-R100-140",
+    "V711-R100-141",
+    "V711-R100-142",
+    "V711-R100-143",
+    "V711-R100-144",
+    "V711-R100-145",
+    "V711-R100-146",
+    "V711-R100-147",
+    "V711-R100-148",
+    "V711-R100-149",
+    "V711-R100-150",
+    "V711-R100-151",
+    "V711-R100-152",
+    "V711-R100-153",
+    "V711-R100-154",
+    "V711-R100-155",
+    "V711-R100-156",
+    "V711-R100-157",
+    "V711-R100-158",
+    "V711-R100-159",
+    "V711-R100-160",
+    "V711-R100-161",
+    "V711-R100-162",
+    "V711-R100-163",
+    "V711-R100-164",
+    "V711-R100-165",
+    "V711-R100-166",
+    "V711-R100-167",
+    "V711-R100-168",
+    "V711-R100-169"
+  ],
+  "source_refs": [
+    "registries/v7_1_1_actual_codex_bundle_plan.json",
+    "registries/v7_1_1_road_to_100_ladder.json"
+  ],
+  "status": "local_storage_trace_receipt_provider_bridge_prep_report_not_runtime_proof",
+  "storage_record_checks": [
+    {
+      "msg": "schemas/v7_1_1_storage_record.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_storage_record_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/storage_record.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "storage_record has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record consumes response_packet_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record consumes candidate_artifact_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record consumes candidate_dna_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record consumes receipt_boundary_id",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record stores refs/hashes by default",
+      "status": "pass"
+    },
+    {
+      "msg": "Storage Record blocks sensitive raw content without explicit policy",
+      "status": "pass"
+    }
+  ],
+  "thor_odin_bridge_prep_checks": [
+    {
+      "msg": "schemas/v7_1_1_thor_odin_bridge_prep.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_thor_odin_bridge_prep_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/thor_odin_bridge_prep.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "thor_odin_bridge_prep has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Thor-Odin Bridge maps THOR_RECEIPT partitions",
+      "status": "pass"
+    },
+    {
+      "msg": "Thor-Odin Bridge Prep is static-only",
+      "status": "pass"
+    }
+  ],
+  "trace_record_checks": [
+    {
+      "msg": "schemas/v7_1_1_trace_record.schema.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "registries/v7_1_1_trace_record_registry.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "examples/v7_1_1/trace_record.example.json exists",
+      "status": "pass"
+    },
+    {
+      "msg": "trace_record has claim boundary and non-claims",
+      "status": "pass"
+    },
+    {
+      "msg": "Trace Record contains required event kinds",
+      "status": "pass"
+    },
+    {
+      "msg": "Trace Record preserves privacy_class",
+      "status": "pass"
+    }
+  ],
+  "version": "7.1.1"
+}
