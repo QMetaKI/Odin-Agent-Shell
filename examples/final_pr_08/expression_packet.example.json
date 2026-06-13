@@ -1,0 +1,20 @@
+{
+  "packet_id": "expression_packet_demo000001",
+  "candidate_node": {
+    "node_id": "candidate_node_demo000001",
+    "label": "near_code_candidate",
+    "materialization_level": "M6_candidate_artifact",
+    "content_summary": "Near-code text description of candidate patch",
+    "proof_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+    "receipt_link_id": null,
+    "candidate_only": true,
+    "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+  },
+  "near_code": "# This is a text description of a candidate change, not executed code.\n# It describes what a patch might look like.\ndef example_function(): pass",
+  "near_artifact": "A candidate module file that would add example_function to the module.",
+  "proof_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+  "trace_receipt_id": null,
+  "candidate_only": true,
+  "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+  "near_code_execution": false
+}

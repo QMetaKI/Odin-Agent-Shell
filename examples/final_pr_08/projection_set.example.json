@@ -1,0 +1,26 @@
+{
+  "projection_id": "projection_set_demo0000000001",
+  "source_context": {
+    "field_selection_available": true,
+    "field_id": "repo_reality_alignment",
+    "field_confidence": 0.9,
+    "candidate_only": true,
+    "app_owned_apply": true,
+    "claim_boundary": "field_selection_scores_routes_not_truth"
+  },
+  "candidate_nodes": [
+    {
+      "node_id": "candidate_node_demo000001",
+      "label": "field_selection:repo_reality_alignment",
+      "materialization_level": "M6_candidate_artifact",
+      "content_summary": "Candidate derived from field selection route: repo_reality_alignment",
+      "proof_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+      "receipt_link_id": null,
+      "candidate_only": true,
+      "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+    }
+  ],
+  "materialization_level": "M5_projection_set",
+  "candidate_only": true,
+  "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+}
