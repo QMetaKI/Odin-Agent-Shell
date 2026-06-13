@@ -1032,7 +1032,7 @@
       "explain-seed-route --demo",
       "prove-operational-seed-spine"
     ],
-    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "description": "FINAL-PR-06 Operational Seed Spine \u2014 intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
       "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
@@ -1124,7 +1124,7 @@
       "FINAL-PR-07",
       "FINAL-PR-06"
     ],
-    "description": "FINAL-PR-08 Projection Candidate Spine — materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
+    "description": "FINAL-PR-08 Projection Candidate Spine \u2014 materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
       "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
@@ -1212,7 +1212,7 @@
       "final_pr_08_projection_candidate_spine",
       "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
     ],
-    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
+    "description": "FINAL-PR-09++ Operational Spine \u2014 Small-Model Operational Spine + Odin Work Kernel",
     "hub_endpoints": [
       "/operational-spine/status.json",
       "/operational-spine/demo.json"
@@ -1603,7 +1603,7 @@
     "cli_commands": [
       "validate-prep-final-pr-06-08"
     ],
-    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts \u2014 prepares future operational seed, field selection, and projection spine PRs",
     "future_prs": [
       "final_pr_06_operational_seed_spine",
       "final_pr_07_field_selection_spine",
@@ -2271,14 +2271,14 @@
   "version": "0.8.8",
   "y_pattern_spine": {
     "candidate_only": true,
-    "description": "Y Pattern Spine — neutral operational pattern layer",
+    "description": "Y Pattern Spine \u2014 neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
   },
   "final_pr_10_boundary_release": {
     "candidate_only": true,
     "app_owned_apply": true,
     "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
-    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
+    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization \u2014 maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
     "module": "odin/release_boundaries/",
     "registry": "registries/final_pr_10_boundary_release_registry.json",
     "schema": "schemas/final_pr_10_release_preflight_report.schema.json",
@@ -2331,7 +2331,9 @@
       "/release/preflight.json",
       "/release/artifact-currency.json"
     ],
-    "depends_on": ["final_pr_09_operational_spine"],
+    "depends_on": [
+      "final_pr_09_operational_spine"
+    ],
     "not_proven": [
       "production_readiness",
       "live_model_inference",
@@ -2464,7 +2466,9 @@
       "/release/sequence-transition.json",
       "/release/preflight-after-pr11.json"
     ],
-    "depends_on": ["final_pr_10_boundary_release"],
+    "depends_on": [
+      "final_pr_10_boundary_release"
+    ],
     "not_proven": [
       "production_readiness",
       "live_model_inference",
@@ -2474,6 +2478,26 @@
       "release_certification",
       "real_model_benchmark",
       "model_quality_superiority"
+    ]
+  },
+  "final_pr_11_5_semantic_kernel_coverage": {
+    "pr_id": "FINAL-PR-11.5",
+    "description": "Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern Operationalization",
+    "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_compiler_not_release_closure",
+    "candidate_only": true,
+    "final_pr_13_remains_deferred": true,
+    "modules": [
+      "odin/v711_coverage_compiler/",
+      "odin/semantic_kernel_closure/",
+      "odin/y_pattern_operationalization_index/",
+      "odin/claims_compiler/",
+      "odin/agent_operator_modes/"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
     ]
   }
 }

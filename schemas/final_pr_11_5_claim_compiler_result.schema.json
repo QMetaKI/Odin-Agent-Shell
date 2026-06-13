@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "final_pr_11_5_claim_compiler_result.schema.json",
+  "title": "Claims Compiler Result (FINAL-PR-11.5)",
+  "description": "Schema for a Claims Compiler v0 result",
+  "type": "object",
+  "required": ["claim_text", "classification", "safe_wording", "allowed", "claim_boundary", "candidate_only"],
+  "properties": {
+    "claim_text": {"type": "string"},
+    "classification": {"type": "string"},
+    "safe_wording": {"type": "string"},
+    "required_evidence": {"type": "array", "items": {"type": "string"}},
+    "evidence_class": {"type": "string"},
+    "allowed": {"type": "boolean"},
+    "forbidden_reason": {"type": ["string", "null"]},
+    "claim_boundary": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  }
+}

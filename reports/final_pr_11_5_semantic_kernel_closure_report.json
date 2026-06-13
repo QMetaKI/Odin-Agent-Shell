@@ -1,0 +1,1090 @@
+{
+  "artifact_kind": "odin_semantic_kernel_closure_report",
+  "candidate_only": true,
+  "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "summary": {
+    "ir_objects": 16,
+    "pipeline_stages": 14,
+    "contracts": 13,
+    "receipt_types": 4
+  },
+  "ir": {
+    "artifact_kind": "odin_semantic_kernel_ir",
+    "candidate_only": true,
+    "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "ir_object_count": 16,
+    "ir_objects": [
+      {
+        "ir_id": "UniversalWorkIR",
+        "ir_name": "Universal Work IR",
+        "description": "Top-level work request that enters the Odin pipeline.",
+        "input_fields": [
+          "input_text",
+          "seed_pack",
+          "pattern_mine",
+          "caller_manifest"
+        ],
+        "output_fields": [
+          "work_capsule",
+          "route_hint",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/universal_work/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "model_inference"
+        ],
+        "claim_boundary": "universal_work_ir_candidate_only_no_app_apply",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ContextIR",
+        "ir_name": "Context IR",
+        "description": "Distilled context capsule from input and seed.",
+        "input_fields": [
+          "work_capsule",
+          "seed_pack"
+        ],
+        "output_fields": [
+          "context_capsule",
+          "field_selection",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/worklets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "context_ir_partial_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ArtifactLensIR",
+        "ir_name": "Artifact Lens IR",
+        "description": "Lens that projects context onto artifact views.",
+        "input_fields": [
+          "context_capsule",
+          "artifact_type"
+        ],
+        "output_fields": [
+          "artifact_view",
+          "lens_score",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/worklets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "artifact_lens_ir_partial_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "SlotIR",
+        "ir_name": "Slot IR",
+        "description": "Slot contract for structured output binding.",
+        "input_fields": [
+          "slot_class",
+          "slot_constraints"
+        ],
+        "output_fields": [
+          "slot_contract",
+          "slot_evidence",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/slots/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "slot_ir_candidate_only_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "GaptextIR",
+        "ir_name": "Gaptext IR",
+        "description": "Gap text compiler for structured prompt filling.",
+        "input_fields": [
+          "seed_pack",
+          "pattern_mine",
+          "gap_fields"
+        ],
+        "output_fields": [
+          "gaptext_output",
+          "gap_evidence",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/seeds/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "gaptext_ir_partial_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ModelWorkIR",
+        "ir_name": "ModelWork IR",
+        "description": "ModelWorkPacket \u2014 structured work ready for model or deterministic route.",
+        "input_fields": [
+          "work_capsule",
+          "context_capsule",
+          "slot_contract"
+        ],
+        "output_fields": [
+          "model_work_packet",
+          "route_hint",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/operational_spine/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "model_inference_without_receipt"
+        ],
+        "claim_boundary": "model_work_ir_candidate_only_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "RouteIR",
+        "ir_name": "Route IR",
+        "description": "Route selector \u2014 small-model or deterministic route plan.",
+        "input_fields": [
+          "model_work_packet",
+          "route_hint"
+        ],
+        "output_fields": [
+          "route_plan",
+          "route_evidence",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/operational_spine/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "route_ir_candidate_only_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ProviderReceiptIR",
+        "ir_name": "Provider Receipt IR",
+        "description": "Receipt from local provider execution (host-scoped, disabled by default).",
+        "input_fields": [
+          "provider_id",
+          "prompt",
+          "allow_local_provider_execution"
+        ],
+        "output_fields": [
+          "provider_receipt",
+          "execution_performed",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/local_provider_receipts/",
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "live_inference_without_flag"
+        ],
+        "claim_boundary": "local_provider_receipt_harness_scoped_local_receipts_not_quality_benchmark",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "CriticIR",
+        "ir_name": "Critic IR",
+        "description": "Critic cascade \u2014 deterministic + optional model critic. Advisory only.",
+        "input_fields": [
+          "candidate",
+          "critic_config"
+        ],
+        "output_fields": [
+          "critic_packet",
+          "critic_score",
+          "not_authority",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/critic_runtime/",
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "final_authority"
+        ],
+        "claim_boundary": "critic_ir_candidate_only_advisory_not_authority",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "CandidateIR",
+        "ir_name": "Candidate IR",
+        "description": "Candidate artifact \u2014 output of model/deterministic route, pre-final-gate.",
+        "input_fields": [
+          "response",
+          "provider_receipt",
+          "critic_packet"
+        ],
+        "output_fields": [
+          "candidate_artifact",
+          "candidate_only",
+          "app_apply"
+        ],
+        "repo_artifact": "odin/packets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "candidate_ir_candidate_only_no_app_apply",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ResponseIR",
+        "ir_name": "Response IR",
+        "description": "Response packet \u2014 structured output ready for app-owned apply decision.",
+        "input_fields": [
+          "candidate_artifact",
+          "final_gate_result"
+        ],
+        "output_fields": [
+          "response_packet",
+          "candidate_only",
+          "app_apply"
+        ],
+        "repo_artifact": "odin/packets/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "response_ir_candidate_only_no_app_apply",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "FinalGateIR",
+        "ir_name": "Final Gate IR",
+        "description": "Final gate \u2014 checks candidate before returning to app.",
+        "input_fields": [
+          "candidate_artifact",
+          "gate_config"
+        ],
+        "output_fields": [
+          "gate_result",
+          "gate_evidence",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/execution_gate/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "final_gate_ir_candidate_only_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ReceiptIR",
+        "ir_name": "Receipt IR",
+        "description": "Trace/receipt \u2014 links pipeline stages to evidence.",
+        "input_fields": [
+          "stage_outputs",
+          "claim_boundary"
+        ],
+        "output_fields": [
+          "receipt",
+          "trace",
+          "not_proven"
+        ],
+        "repo_artifact": "odin/proof_chain/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "receipt_ir_candidate_only_structural_evidence",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "ClaimIR",
+        "ir_name": "Claim IR",
+        "description": "Claim classifier \u2014 safe wording for release claims.",
+        "input_fields": [
+          "claim_text",
+          "evidence_refs",
+          "evidence_class"
+        ],
+        "output_fields": [
+          "classification",
+          "safe_wording",
+          "allowed",
+          "not_proven"
+        ],
+        "repo_artifact": "odin/claims_compiler/",
+        "status": "not_repo_real_yet",
+        "evidence_class": "target_only",
+        "forbidden_authority": [
+          "release_certification",
+          "security_certification",
+          "production_readiness_claim"
+        ],
+        "claim_boundary": "claim_ir_compiler_v0_not_certification",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "SemanticBusEventIR",
+        "ir_name": "Semantic Bus Event IR",
+        "description": "Semantic bus event \u2014 local coordination signal.",
+        "input_fields": [
+          "channel",
+          "kind",
+          "source",
+          "payload"
+        ],
+        "output_fields": [
+          "bus_event",
+          "local_only",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/semantic_bus/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "public_network"
+        ],
+        "claim_boundary": "semantic_bus_event_ir_local_only_no_public_network",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "ir_id": "AgentHandoffIR",
+        "ir_name": "Agent Handoff IR",
+        "description": "Thor handoff compiler \u2014 work packet for agent operator.",
+        "input_fields": [
+          "objective",
+          "repo_evidence",
+          "allowed_edits",
+          "forbidden_edits",
+          "acceptance_gates"
+        ],
+        "output_fields": [
+          "handoff_bundle",
+          "thor_runtime_execution",
+          "agent_autonomy",
+          "candidate_only"
+        ],
+        "repo_artifact": "odin/thor_handoff_compiler/",
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "agent_autonomy",
+          "app_apply",
+          "thor_runtime_execution"
+        ],
+        "claim_boundary": "agent_handoff_ir_compiles_packets_not_agent_autonomy",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "pipeline": {
+    "artifact_kind": "odin_semantic_kernel_pipeline",
+    "candidate_only": true,
+    "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "stage_count": 14,
+    "stages": [
+      {
+        "stage_id": "universal_work",
+        "stage_name": "Universal Work",
+        "input_contract": "UniversalWorkInput",
+        "output_contract": "UniversalWorkIR",
+        "repo_artifact": "odin/universal_work/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "universal_work_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "context_capsule",
+        "stage_name": "Context Capsule / ContextIR",
+        "input_contract": "UniversalWorkIR",
+        "output_contract": "ContextIR",
+        "repo_artifact": "odin/worklets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "context_capsule_stage_partial",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "artifact_lens",
+        "stage_name": "Artifact Lens",
+        "input_contract": "ContextIR",
+        "output_contract": "ArtifactLensIR",
+        "repo_artifact": "odin/worklets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "artifact_lens_stage_partial",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "slot_contract",
+        "stage_name": "Slot Contract",
+        "input_contract": "ArtifactLensIR",
+        "output_contract": "SlotIR",
+        "repo_artifact": "odin/slots/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "slot_contract_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "gaptext",
+        "stage_name": "Gaptext",
+        "input_contract": "SlotIR",
+        "output_contract": "GaptextIR",
+        "repo_artifact": "odin/seeds/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "gaptext_stage_partial",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "modelworkpacket",
+        "stage_name": "ModelWorkPacket",
+        "input_contract": "GaptextIR + ContextIR",
+        "output_contract": "ModelWorkIR",
+        "repo_artifact": "odin/operational_spine/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "model_inference_without_receipt"
+        ],
+        "claim_boundary": "modelworkpacket_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "small_model_route",
+        "stage_name": "Small Model Route",
+        "input_contract": "ModelWorkIR",
+        "output_contract": "RouteIR",
+        "repo_artifact": "odin/operational_spine/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "small_model_route_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "provider_receipt",
+        "stage_name": "Provider Receipt / Deterministic Route",
+        "input_contract": "RouteIR",
+        "output_contract": "ProviderReceiptIR",
+        "repo_artifact": "odin/local_provider_receipts/",
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "live_inference_without_flag"
+        ],
+        "claim_boundary": "provider_receipt_stage_host_scoped_disabled_by_default",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "critic_runtime",
+        "stage_name": "Critic Runtime",
+        "input_contract": "ProviderReceiptIR + CandidateIR",
+        "output_contract": "CriticIR",
+        "repo_artifact": "odin/critic_runtime/",
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send",
+          "final_authority"
+        ],
+        "claim_boundary": "critic_runtime_stage_advisory_not_authority",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "candidate_artifact",
+        "stage_name": "Candidate Artifact",
+        "input_contract": "CriticIR + ProviderReceiptIR",
+        "output_contract": "CandidateIR",
+        "repo_artifact": "odin/packets/",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "candidate_artifact_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "response_packet",
+        "stage_name": "Response Packet",
+        "input_contract": "CandidateIR",
+        "output_contract": "ResponseIR",
+        "repo_artifact": "odin/packets/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "response_packet_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "final_gate",
+        "stage_name": "Final Gate",
+        "input_contract": "ResponseIR",
+        "output_contract": "FinalGateIR",
+        "repo_artifact": "odin/execution_gate/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "final_gate_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "trace_receipt_claim",
+        "stage_name": "Trace / Receipt / Claim",
+        "input_contract": "FinalGateIR",
+        "output_contract": "ReceiptIR + ClaimIR",
+        "repo_artifact": "odin/proof_chain/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "app_apply",
+          "external_send"
+        ],
+        "claim_boundary": "trace_receipt_claim_stage_candidate_only",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "stage_id": "app_owned_apply_boundary",
+        "stage_name": "App-owned Apply Boundary",
+        "input_contract": "ReceiptIR + ResponseIR",
+        "output_contract": "AppDecision (app-owned, outside Odin)",
+        "repo_artifact": "odin/release_boundaries/",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "forbidden_authority": [
+          "odin_apply",
+          "odin_external_send"
+        ],
+        "claim_boundary": "app_owned_apply_boundary_odin_cannot_apply",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "contracts": {
+    "artifact_kind": "odin_kernel_contract_map",
+    "candidate_only": true,
+    "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "contract_count": 13,
+    "contracts": [
+      {
+        "contract_id": "work_to_context",
+        "from_stage": "universal_work",
+        "to_stage": "context_capsule",
+        "input_type": "UniversalWorkInput",
+        "output_type": "ContextIR",
+        "required_fields": [
+          "input_text",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "context_to_lens",
+        "from_stage": "context_capsule",
+        "to_stage": "artifact_lens",
+        "input_type": "ContextIR",
+        "output_type": "ArtifactLensIR",
+        "required_fields": [
+          "context_capsule",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "lens_to_slot",
+        "from_stage": "artifact_lens",
+        "to_stage": "slot_contract",
+        "input_type": "ArtifactLensIR",
+        "output_type": "SlotIR",
+        "required_fields": [
+          "artifact_view",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "slot_to_gaptext",
+        "from_stage": "slot_contract",
+        "to_stage": "gaptext",
+        "input_type": "SlotIR",
+        "output_type": "GaptextIR",
+        "required_fields": [
+          "slot_contract",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "gaptext_to_mwp",
+        "from_stage": "gaptext",
+        "to_stage": "modelworkpacket",
+        "input_type": "GaptextIR",
+        "output_type": "ModelWorkIR",
+        "required_fields": [
+          "gaptext_output",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "mwp_to_route",
+        "from_stage": "modelworkpacket",
+        "to_stage": "small_model_route",
+        "input_type": "ModelWorkIR",
+        "output_type": "RouteIR",
+        "required_fields": [
+          "model_work_packet",
+          "route_hint",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "route_to_provider",
+        "from_stage": "small_model_route",
+        "to_stage": "provider_receipt",
+        "input_type": "RouteIR",
+        "output_type": "ProviderReceiptIR",
+        "required_fields": [
+          "route_plan",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send",
+          "live_inference_without_flag"
+        ]
+      },
+      {
+        "contract_id": "provider_to_critic",
+        "from_stage": "provider_receipt",
+        "to_stage": "critic_runtime",
+        "input_type": "ProviderReceiptIR",
+        "output_type": "CriticIR",
+        "required_fields": [
+          "provider_receipt",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send",
+          "final_authority"
+        ]
+      },
+      {
+        "contract_id": "critic_to_candidate",
+        "from_stage": "critic_runtime",
+        "to_stage": "candidate_artifact",
+        "input_type": "CriticIR",
+        "output_type": "CandidateIR",
+        "required_fields": [
+          "critic_packet",
+          "not_authority",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "candidate_to_response",
+        "from_stage": "candidate_artifact",
+        "to_stage": "response_packet",
+        "input_type": "CandidateIR",
+        "output_type": "ResponseIR",
+        "required_fields": [
+          "candidate_artifact",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "response_to_gate",
+        "from_stage": "response_packet",
+        "to_stage": "final_gate",
+        "input_type": "ResponseIR",
+        "output_type": "FinalGateIR",
+        "required_fields": [
+          "response_packet",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "gate_to_receipt",
+        "from_stage": "final_gate",
+        "to_stage": "trace_receipt_claim",
+        "input_type": "FinalGateIR",
+        "output_type": "ReceiptIR",
+        "required_fields": [
+          "gate_result",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "app_apply",
+          "external_send"
+        ]
+      },
+      {
+        "contract_id": "receipt_to_app_boundary",
+        "from_stage": "trace_receipt_claim",
+        "to_stage": "app_owned_apply_boundary",
+        "input_type": "ReceiptIR",
+        "output_type": "AppDecision",
+        "required_fields": [
+          "receipt",
+          "not_proven",
+          "candidate_only"
+        ],
+        "forbidden_fields": [
+          "odin_apply",
+          "odin_external_send"
+        ]
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "receipts": {
+    "artifact_kind": "odin_kernel_receipt_map",
+    "candidate_only": true,
+    "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "receipt_type_count": 4,
+    "receipt_types": [
+      {
+        "receipt_type_id": "structural_evidence",
+        "receipt_type_name": "Structural Evidence",
+        "description": "Repo-local deterministic proof that code, schema, packet, validator, or boundary exists.",
+        "generalizable": true,
+        "host_scoped": false,
+        "external_required": false,
+        "stages_using": [
+          "universal_work",
+          "context_capsule",
+          "artifact_lens",
+          "slot_contract",
+          "gaptext",
+          "modelworkpacket",
+          "small_model_route",
+          "critic_runtime",
+          "response_packet",
+          "final_gate",
+          "trace_receipt_claim",
+          "app_owned_apply_boundary"
+        ]
+      },
+      {
+        "receipt_type_id": "host_scoped_local_receipt",
+        "receipt_type_name": "Host-Scoped Local Receipt",
+        "description": "Evidence generated on one local host under explicit local-provider execution permission. Does not generalize.",
+        "generalizable": false,
+        "host_scoped": true,
+        "external_required": false,
+        "stages_using": [
+          "provider_receipt"
+        ]
+      },
+      {
+        "receipt_type_id": "candidate_only_receipt",
+        "receipt_type_name": "Candidate-Only Receipt",
+        "description": "Receipt that is structural evidence but the underlying capability is advisory or gated.",
+        "generalizable": true,
+        "host_scoped": false,
+        "external_required": false,
+        "stages_using": [
+          "critic_runtime",
+          "candidate_artifact"
+        ]
+      },
+      {
+        "receipt_type_id": "external_receipt_required",
+        "receipt_type_name": "External Receipt Required",
+        "description": "Claim that cannot be satisfied by repo-local proof alone. Requires external audit, benchmark, or certification.",
+        "generalizable": false,
+        "host_scoped": false,
+        "external_required": true,
+        "stages_using": [],
+        "examples": [
+          "production_readiness",
+          "security_certification",
+          "model_benchmark"
+        ]
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

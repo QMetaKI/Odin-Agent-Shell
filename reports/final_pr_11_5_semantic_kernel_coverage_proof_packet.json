@@ -1,0 +1,33 @@
+{
+  "artifact_kind": "odin_final_pr_11_5_semantic_kernel_coverage_proof_packet",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "proven": [
+    "v711_coverage_compiler_exists",
+    "v711_coverage_matrix_exists",
+    "v711_gap_index_exists",
+    "semantic_kernel_ir_exists",
+    "semantic_kernel_pipeline_map_exists",
+    "y_pattern_operationalization_index_exists",
+    "claims_compiler_v0_exists",
+    "agent_operator_modes_exist",
+    "final_pr_13_readiness_matrix_exists",
+    "release_closure_moved_to_final_pr_13",
+    "final_pr_13_remains_deferred"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "provider_execution_by_default",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 2013,
+  "file_count_excluding_manifest": 2059,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -10067,6 +10067,236 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
+    },
+    {
+      "path": "odin/v711_coverage_compiler/__init__.py",
+      "sha256": "37b273ccb51faf3e466ac5b9ff7f60bd5135525694ef51ecd0eaf2eaa2e1d5fb",
+      "size": 750
+    },
+    {
+      "path": "odin/v711_coverage_compiler/target_loader.py",
+      "sha256": "f5d2082057eafa8a41afd909e64c6445c9e1db5fe30b1e0431c82e31809ac3b2",
+      "size": 5098
+    },
+    {
+      "path": "odin/v711_coverage_compiler/evidence_mapper.py",
+      "sha256": "d0e15bcc876bad1f608384d008d70c576cb2e97772581025682d1f0228d88b0c",
+      "size": 3834
+    },
+    {
+      "path": "odin/v711_coverage_compiler/coverage_matrix.py",
+      "sha256": "f4db3416f4fa9e166166aa917381792214eaf3a90713bb755521dd659fa04508",
+      "size": 18481
+    },
+    {
+      "path": "odin/v711_coverage_compiler/gap_index.py",
+      "sha256": "e918916ccef25560ced3530d9b4e2b53dada6f197aef067f1a46e14584d54315",
+      "size": 1728
+    },
+    {
+      "path": "odin/v711_coverage_compiler/next_pr_recommender.py",
+      "sha256": "9b78d6a3d06a7905e27bd9cee131db51d21219f5c06729bdf18ab9d541d94daf",
+      "size": 1729
+    },
+    {
+      "path": "odin/v711_coverage_compiler/reports.py",
+      "sha256": "bb6901bc71c772187316f4292ff4af5e05322bdc53f46aee536dbb6aa95b96e1",
+      "size": 1790
+    },
+    {
+      "path": "odin/semantic_kernel_closure/__init__.py",
+      "sha256": "aa531843d938af4b2039950bf38c486c01f8c3a63f37146722daffd27f2ad394",
+      "size": 643
+    },
+    {
+      "path": "odin/semantic_kernel_closure/ir.py",
+      "sha256": "4e1cd4cced34f65d3ecdf6165c890e0e07c39f41a621e024338ff2d17d31536c",
+      "size": 11200
+    },
+    {
+      "path": "odin/semantic_kernel_closure/pipeline.py",
+      "sha256": "6956e9d2a8ae9ab3efcb17888af745e0fed1f7655fcdb7d05fce7ec3c9a5f3b1",
+      "size": 7848
+    },
+    {
+      "path": "odin/semantic_kernel_closure/contracts.py",
+      "sha256": "96c089e4ffad5bb35d93546fd89cb00b02aff931f7a3afd4fa52e19655c26a48",
+      "size": 5352
+    },
+    {
+      "path": "odin/semantic_kernel_closure/kernel_map.py",
+      "sha256": "cc2119053ee2673ef2c6357292a542d970dabd0fa7f42a21ea8624ccdf4f09be",
+      "size": 1622
+    },
+    {
+      "path": "odin/semantic_kernel_closure/receipts.py",
+      "sha256": "65001e4535683de7432686ebfbf233465601fab16be32e8e11c89411629e630e",
+      "size": 3039
+    },
+    {
+      "path": "odin/semantic_kernel_closure/reports.py",
+      "sha256": "109c370888304249d4530b4f74916524a7b73008c2fb98fce9b627ca2c366cd9",
+      "size": 1698
+    },
+    {
+      "path": "odin/y_pattern_operationalization_index/__init__.py",
+      "sha256": "c03597b775eb31c535ca38beffefc13712cfc5e2e24fdf7ff2ceca3660ec85fe",
+      "size": 371
+    },
+    {
+      "path": "odin/y_pattern_operationalization_index/neutral_terms.py",
+      "sha256": "2f2538d23de9ad4faeb33afb7ba35fb6c58877269a67a95a349c97b476b0723f",
+      "size": 1135
+    },
+    {
+      "path": "odin/y_pattern_operationalization_index/status_classifier.py",
+      "sha256": "99e340e2a798b9d98b5ca0a4f91b6010112da8cda8dee869fe545d9008611274",
+      "size": 1035
+    },
+    {
+      "path": "odin/y_pattern_operationalization_index/index_builder.py",
+      "sha256": "eea966280970137930797424085c12a064141747e7795114d3b3f4428bf7533b",
+      "size": 10204
+    },
+    {
+      "path": "odin/y_pattern_operationalization_index/reports.py",
+      "sha256": "b54364a46ce73d4554190705771277561a938869c7c30f13c76c452cab2714fa",
+      "size": 1344
+    },
+    {
+      "path": "odin/claims_compiler/__init__.py",
+      "sha256": "8175fe814afc85730300ead6866041ba4cce45afb64a9aefa2cee5b546899a56",
+      "size": 592
+    },
+    {
+      "path": "odin/claims_compiler/claim_types.py",
+      "sha256": "fd2462db4e666f9ee00fe8d50fb10acaaa4c601eb12d7cdb012c1119296143a3",
+      "size": 1801
+    },
+    {
+      "path": "odin/claims_compiler/safe_wording.py",
+      "sha256": "a008025bebde3f662e9bfa9285ed6b9312fb6092b733f71c78cb86da4a4d49f8",
+      "size": 2045
+    },
+    {
+      "path": "odin/claims_compiler/compiler.py",
+      "sha256": "4253192cb4f48b0c25cae05792eca546abb86a01935cdeccd43d0c3d2b8eaadd",
+      "size": 4498
+    },
+    {
+      "path": "odin/claims_compiler/reports.py",
+      "sha256": "fcc824d2ddc0bc35bb3681260e0f9e737a13b16bb92f39d1621e3ab8c6dbb39f",
+      "size": 1626
+    },
+    {
+      "path": "odin/agent_operator_modes/__init__.py",
+      "sha256": "5cbb0ded2d3f97aac47057ec5dc5072ad4618aeba5c0db0a288648d4d6854e88",
+      "size": 570
+    },
+    {
+      "path": "odin/agent_operator_modes/presets.py",
+      "sha256": "7dc9774996e29d3350ae4e9c21696cd15c28ee6fd485fb321e1dc557647a67c9",
+      "size": 9991
+    },
+    {
+      "path": "odin/agent_operator_modes/modes.py",
+      "sha256": "0f8cc7208f7876e0562f4bd408b036d90139c5064633cdfa4f901a82fc3ef401",
+      "size": 965
+    },
+    {
+      "path": "odin/agent_operator_modes/reports.py",
+      "sha256": "de7a190bf8fab9dd8209da0350a2d7e77828f1621ce788c89aeec0cadb739160",
+      "size": 1021
+    },
+    {
+      "path": "tests/test_final_pr_11_5_semantic_kernel_coverage.py",
+      "sha256": "c5e126e7f640a95fbc947df1c3e1ee900d956f945cf1d3e120b1df5c64aea1cb",
+      "size": 28810
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_11_5_semantic_kernel_coverage.py",
+      "sha256": "9e0cbe13f56a44fec4ace1d1d3f5e68d6f7b977717e7226041c5d9b44c44a287",
+      "size": 20251
+    },
+    {
+      "path": "examples/final_pr_11_5/v711_coverage_matrix.example.json",
+      "sha256": "e1c82ea6de57e4662c71cf9dd304dc28a321c60b773a97d687706edcc86ecaf5",
+      "size": 1069
+    },
+    {
+      "path": "examples/final_pr_11_5/v711_gap_index.example.json",
+      "sha256": "9b00fd1694c6aaaac7e918d9bf1b74533a45047313398a132923b6d201bdd2cf",
+      "size": 1039
+    },
+    {
+      "path": "examples/final_pr_11_5/semantic_kernel_ir.example.json",
+      "sha256": "03db8cd1a922ea2a0ab8ad022fa292f1e8469abc6e566a2efa47aebe7229818f",
+      "size": 1115
+    },
+    {
+      "path": "examples/final_pr_11_5/semantic_kernel_pipeline.example.json",
+      "sha256": "093202ff3ecc8f9ed7859987496dd159e7adb5d11d8bd9d4c5e67af6435a3ee8",
+      "size": 939
+    },
+    {
+      "path": "examples/final_pr_11_5/y_pattern_index.example.json",
+      "sha256": "8ad75c00959939e5948e7b60bceeeb1e57b6ddec59edb861d471e4ccc856f38a",
+      "size": 1136
+    },
+    {
+      "path": "examples/final_pr_11_5/claims_policy.example.json",
+      "sha256": "c467ef88585787bf20e5ed978234f09348c16e3e677a9e2003e1329aef139531",
+      "size": 775
+    },
+    {
+      "path": "examples/final_pr_11_5/agent_operator_mode_matrix.example.json",
+      "sha256": "8c080a751575f9726b8c64de6f42da5d23a0cf774a10f36ca7ebfb549900f6d7",
+      "size": 735
+    },
+    {
+      "path": "reports/final_pr_11_5_v711_coverage_report.json",
+      "sha256": "e61179255ff23ac613b4e81445eaa8bf4e0ddfc209ed9d1c5926ce3c5feff0ab",
+      "size": 33559
+    },
+    {
+      "path": "reports/final_pr_11_5_semantic_kernel_closure_report.json",
+      "sha256": "f224503c5b404daf9fe86229132079ffc1cdb1210eb312a2ecd49ecdf96f966c",
+      "size": 33400
+    },
+    {
+      "path": "reports/final_pr_11_5_y_pattern_index_report.json",
+      "sha256": "46c3ff0674268fc87dc7c0a7b0441a401cf54e42004b8caa900cac90b62418d5",
+      "size": 12208
+    },
+    {
+      "path": "reports/final_pr_11_5_claims_policy_report.json",
+      "sha256": "ca8bb9c428057a97b4630a8f50e22023ffd094525d174f10398288baf8163898",
+      "size": 2637
+    },
+    {
+      "path": "reports/final_pr_11_5_agent_operator_mode_matrix_report.json",
+      "sha256": "7aa85c7be85de41c8d9616b7634ae7bace1be641ee04a745084134694acf23c8",
+      "size": 9633
+    },
+    {
+      "path": "registries/final_pr_11_5_semantic_kernel_coverage_registry.json",
+      "sha256": "49a20c8c2595e267f96ea96107b61f9b21397b2b5ab0225049e64032f42c4c8c",
+      "size": 1620
+    },
+    {
+      "path": "schemas/final_pr_11_5_v711_coverage_matrix.schema.json",
+      "sha256": "5b3cbba1cc09aa09ab9d00861e116b6156f6a24595909e9c7e60462c12a5a029",
+      "size": 1059
+    },
+    {
+      "path": "schemas/final_pr_11_5_semantic_kernel_closure.schema.json",
+      "sha256": "c0ec67efc3e65ae756f20775ff0c351530e1741610f1a611afdf113f5b192ab8",
+      "size": 546
+    },
+    {
+      "path": "docs/rebaseline/FINAL_PR_11_5_SEMANTIC_KERNEL_COVERAGE.md",
+      "sha256": "bca9a41fd8d595da7933bd81174368c600353437bbbb7c748ddaa5d91b4905ed",
+      "size": 1152
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "artifact_kind": "odin_final_pr_11_5_release_sequence_transition",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "previous_planned_release_closure": "FINAL-PR-12",
+  "new_release_closure": "FINAL-PR-13",
+  "inserted_pr": "FINAL-PR-11.5",
+  "inserted_pr_title": "Odin Semantic Kernel Closure + v7.1.1 Coverage Compiler",
+  "final_pr_12_role": "Optional Release Readiness Hardening / reserved transitional slot",
+  "final_pr_13_role": "Release Closure — Candidate-Only Local Odin Release Closure",
+  "final_pr_13_remains_deferred": true,
+  "historical_reports_preserved": true,
+  "do_not_rewrite_history": true,
+  "sequence": [
+    {"pr": "FINAL-PR-11", "title": "Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0", "status": "MERGED"},
+    {"pr": "FINAL-PR-11.5", "title": "Odin Semantic Kernel Closure + v7.1.1 Coverage Compiler", "status": "THIS_PR"},
+    {"pr": "FINAL-PR-12", "title": "Optional Release Readiness Hardening", "status": "DEFERRED"},
+    {"pr": "FINAL-PR-13", "title": "Release Closure", "status": "DEFERRED"}
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority"
+  ]
+}

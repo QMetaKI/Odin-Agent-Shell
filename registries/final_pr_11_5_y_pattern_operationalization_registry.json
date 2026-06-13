@@ -1,0 +1,30 @@
+{
+  "registry_id": "final_pr_11_5_y_pattern_operationalization_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_operationalization_index_maps_internal_patterns_to_neutral_odin_not_authority",
+  "description": "Registry for Y Pattern Operationalization Index artifacts in FINAL-PR-11.5",
+  "mapping_count": 14,
+  "mappings": [
+    {"internal": "Internal Semantic Bus", "neutral": "local semantic coordination"},
+    {"internal": "AI without AI", "neutral": "deterministic precompute / no-model routes"},
+    {"internal": "evidence gates", "neutral": "claim/evidence/reality gates"},
+    {"internal": "mirror critics", "neutral": "Critic Runtime / Critic Cascade"},
+    {"internal": "seeds / pattern mines", "neutral": "seed continuity / flow packs / pattern foundry"},
+    {"internal": "narrative compiler", "neutral": "runtime pack compiler / shadow runtime / anti-pattern layer"},
+    {"internal": "fit / resonance", "neutral": "fit/coherence scoring"},
+    {"internal": "Thor", "neutral": "advisory handoff compiler"},
+    {"internal": "orchestration profile", "neutral": "route director / system profile compiler"},
+    {"internal": "app sovereignty", "neutral": "app-owned apply/state/external-send"},
+    {"internal": "candidate reality", "neutral": "candidate artifact / response packet"},
+    {"internal": "golden traces", "neutral": "local receipts"},
+    {"internal": "authority drift scanner", "neutral": "authority drift detection"},
+    {"internal": "boundary coherence scanner", "neutral": "boundary coherence detection"}
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

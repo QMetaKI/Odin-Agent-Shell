@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_v711_gap_index",
+  "candidate_only": true,
+  "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "gap_count": 3,
+  "gaps": [
+    {
+      "target_id": "context_distillery",
+      "target_name": "Context Distillery",
+      "status": "partial",
+      "evidence_class": "structural_evidence",
+      "current_gap": "Context capsule / ContextIR not fully wired",
+      "next_action": "Wire ContextIR to semantic kernel pipeline",
+      "priority_for_pr13": "high"
+    },
+    {
+      "target_id": "claims_compiler",
+      "target_name": "Claims Compiler",
+      "status": "not_repo_real_yet",
+      "evidence_class": "target_only",
+      "current_gap": "Claims compiler created in this PR (FINAL-PR-11.5)",
+      "next_action": "Validate claims compiler in PR13",
+      "priority_for_pr13": "medium"
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

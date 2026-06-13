@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "final_pr_11_5_agent_operator_mode.schema.json",
+  "title": "Agent Operator Mode Preset (FINAL-PR-11.5)",
+  "description": "Schema for an Agent Operator Mode preset",
+  "type": "object",
+  "required": ["mode_id", "tool_target", "best_for", "not_for", "candidate_only", "agent_autonomy", "app_apply", "external_send", "claim_boundary"],
+  "properties": {
+    "mode_id": {"type": "string"},
+    "tool_target": {"type": "string"},
+    "best_for": {"type": "string"},
+    "not_for": {"type": "string"},
+    "allowed_edits": {"type": "array", "items": {"type": "string"}},
+    "forbidden_edits": {"type": "array", "items": {"type": "string"}},
+    "expected_outputs": {"type": "array", "items": {"type": "string"}},
+    "validator_expectations": {"type": "array", "items": {"type": "string"}},
+    "return_report_contract": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "agent_autonomy": {"type": "boolean", "const": false},
+    "app_apply": {"type": "boolean", "const": false},
+    "external_send": {"type": "boolean", "const": false}
+  }
+}

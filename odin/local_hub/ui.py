@@ -81,6 +81,13 @@ REQUIRED_IDS = [
     "critic-runtime-binding-section",
     "thor-handoff-compiler-section",
     "release-sequence-transition-section",
+    # FINAL-PR-11.5 Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern
+    "v711-coverage-compiler-section",
+    "semantic-kernel-closure-section",
+    "y-pattern-operationalization-section",
+    "claims-compiler-section",
+    "agent-operator-modes-section",
+    "final-pr-13-readiness-section",
 ]
 
 REQUIRED_COPY = [
@@ -139,6 +146,12 @@ REQUIRED_COPY = [
     "Deterministic critic checks candidate structure. Critic is advisory, not authority.",
     "Thor Handoff Compiler generates deterministic work packets. Does not run Thor or grant agent autonomy.",
     "FINAL-PR-11 inserts between PR10 boundary gates and PR12 release closure. PR12 remains deferred.",
+    # FINAL-PR-11.5 Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern
+    "v7.1.1 Coverage Compiler maps target canon to repo-real evidence. FINAL-PR-13 remains deferred.",
+    "Semantic Kernel Closure compiles Odin kernel IR and pipeline map. Candidate only.",
+    "Y Pattern Operationalization Index maps internal patterns to neutral Odin terms.",
+    "Claims Compiler v0 classifies release claims and produces safe wording.",
+    "Agent Operator Mode Presets define bounded worker roles. No agent autonomy.",
 ]
 
 
@@ -513,6 +526,48 @@ def generate_hub_html() -> str:
   <span class="chip ok">Available</span>
   <p>FINAL-PR-11 inserts between PR10 boundary gates and PR12 release closure. PR12 remains deferred.</p>
   <p class="note">Dev Mode: GET /release/sequence-transition.json, /release/preflight-after-pr11.json. final_pr_12_remains_deferred: true. candidate_only: true.</p>
+</div>
+
+<div id="v711-coverage-compiler-section" class="section">
+  <div class="label">v7.1.1 Coverage Compiler (FINAL-PR-11.5)</div>
+  <span class="chip ok">Available</span>
+  <p>Maps v7.1.1 target canon to repo-real evidence. Not runtime completion.</p>
+  <p class="note">Dev Mode: GET /v711-coverage/matrix.json, /v711-coverage/gaps.json. candidate_only: true. No release certification. FINAL-PR-13 remains deferred.</p>
+</div>
+
+<div id="semantic-kernel-closure-section" class="section">
+  <div class="label">Semantic Kernel Closure (FINAL-PR-11.5)</div>
+  <span class="chip ok">Available</span>
+  <p>Compiles Odin Semantic Kernel IR. Universal Work through App-owned Apply Boundary. Not a second runtime.</p>
+  <p class="note">Dev Mode: GET /semantic-kernel/closure.json. candidate_only: true. semantic_kernel_not_runtime_completion: true.</p>
+</div>
+
+<div id="y-pattern-operationalization-section" class="section">
+  <div class="label">Y Pattern Operationalization Index (FINAL-PR-11.5)</div>
+  <span class="chip ok">Available</span>
+  <p>Maps internal pattern lineage to neutral Odin terms. No pattern grants app authority.</p>
+  <p class="note">Dev Mode: GET /y-pattern/index.json. candidate_only: true. neutral_naming: true. no_app_authority: true.</p>
+</div>
+
+<div id="claims-compiler-section" class="section">
+  <div class="label">Claims Compiler v0 (FINAL-PR-11.5)</div>
+  <span class="chip ok">Available</span>
+  <p>Classifies release claims and produces safe wording. Prevents unsafe release, production, security, model superiority claims.</p>
+  <p class="note">Dev Mode: GET /claims/policy.json. candidate_only: true. claims_compiler_not_certification: true.</p>
+</div>
+
+<div id="agent-operator-modes-section" class="section">
+  <div class="label">Agent Operator Mode Presets (FINAL-PR-11.5)</div>
+  <span class="chip ok">Available</span>
+  <p>9 bounded worker presets for Claude Code and Codex workflows. No autonomy, no merge authority, no app apply.</p>
+  <p class="note">Dev Mode: GET /agent-operator-modes/index.json. agent_autonomy: false. app_apply: false. candidate_only: true.</p>
+</div>
+
+<div id="final-pr-13-readiness-section" class="section">
+  <div class="label">FINAL-PR-13 Readiness Matrix (FINAL-PR-11.5)</div>
+  <span class="chip pending">Deferred</span>
+  <p>Structural readiness map for FINAL-PR-13 Release Closure. FINAL-PR-13 remains deferred.</p>
+  <p class="note">Dev Mode: GET /release/final-pr-13-readiness.json. final_pr_13_remains_deferred: true. no_release_certification: true. candidate_only: true.</p>
 </div>
 
 </body>

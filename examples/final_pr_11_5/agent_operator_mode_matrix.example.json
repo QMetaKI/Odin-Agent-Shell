@@ -1,0 +1,22 @@
+{
+  "artifact_kind": "odin_agent_operator_mode_matrix",
+  "candidate_only": true,
+  "claim_boundary": "agent_operator_modes_define_bounded_worker_presets_not_agent_autonomy",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "mode_count": 9,
+  "modes": [
+    {
+      "mode_id": "claude_code_implementation_worker",
+      "tool_target": "Claude Code CLI",
+      "best_for": "Implementing bounded PRs from work packets",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    }
+  ],
+  "agent_autonomy": false,
+  "app_apply": false,
+  "external_send": false,
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

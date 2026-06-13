@@ -1,0 +1,70 @@
+{
+  "artifact_kind": "odin_release_claims_policy",
+  "candidate_only": true,
+  "claim_boundary": "claims_compiler_v0_compiles_safe_claims_from_evidence_not_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "forbidden_claims": [
+    {
+      "pattern": "production_readiness",
+      "reason": "Odin does not certify production readiness; this requires external audit."
+    },
+    {
+      "pattern": "security_certification",
+      "reason": "Odin does not perform security certification; this requires external security review."
+    },
+    {
+      "pattern": "release_certification",
+      "reason": "Odin does not certify releases; this requires release authority outside repo."
+    },
+    {
+      "pattern": "general_live_model_inference",
+      "reason": "Odin does not claim live model inference without a host-scoped receipt."
+    },
+    {
+      "pattern": "real_model_benchmark",
+      "reason": "Odin does not perform real model benchmarks; route evaluation is structural only."
+    },
+    {
+      "pattern": "model_superiority",
+      "reason": "Odin does not claim model superiority; no benchmark evidence."
+    },
+    {
+      "pattern": "provider_execution_by_default",
+      "reason": "Provider execution is disabled by default; requires explicit flag."
+    },
+    {
+      "pattern": "app_apply",
+      "reason": "Odin does not apply app state; app owns all apply decisions."
+    },
+    {
+      "pattern": "app_state_mutation",
+      "reason": "Odin does not mutate app state; app owns all state."
+    },
+    {
+      "pattern": "external_send",
+      "reason": "Odin does not send external messages; app owns external send."
+    },
+    {
+      "pattern": "public_network",
+      "reason": "Odin does not use public network by default."
+    },
+    {
+      "pattern": "hidden_agent_authority",
+      "reason": "Odin does not grant hidden agent authority; all agent work is advisory."
+    }
+  ],
+  "allowed_claim_classes": [
+    "allowed_structural_claim",
+    "allowed_host_scoped_claim",
+    "allowed_candidate_only_claim",
+    "downgrade_required",
+    "external_receipt_required"
+  ],
+  "policy_summary": "Odin claims compiler v0 classifies release claims. Allowed claims: structural evidence, host-scoped local receipts, candidate-only outputs. Forbidden claims: production readiness, security certification, release certification, live model inference without receipt, model superiority, app apply, app state mutation, external send, public network, hidden agent authority.",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

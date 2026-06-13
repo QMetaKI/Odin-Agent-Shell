@@ -1,0 +1,23 @@
+{
+  "registry_id": "final_pr_11_5_v711_coverage_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+  "description": "Registry for v7.1.1 Coverage Compiler artifacts in FINAL-PR-11.5",
+  "target_count": 26,
+  "targets": [
+    "small_model_power", "universal_work", "app_boundary", "context_distillery",
+    "artifact_lenses", "worklet_graph", "slot_forge", "gaptext_compiler",
+    "modelworkpacket", "hybrid_director", "provider_runtime", "critic_cascade",
+    "candidate_tournament", "candidate_dna", "response_packet", "final_gate",
+    "semantic_bus", "trace_receipt_proof", "artifact_currency", "release_boundary_gates",
+    "local_provider_receipts", "route_evaluation_receipts", "thor_handoff_compiler",
+    "claims_compiler", "sdk_api_app_bridge", "y_pattern_operationalization"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

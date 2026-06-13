@@ -1,0 +1,21 @@
+{
+  "artifact_kind": "odin_release_claims_policy",
+  "candidate_only": true,
+  "claim_boundary": "claims_compiler_v0_compiles_safe_claims_from_evidence_not_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "forbidden_claims": [
+    {
+      "pattern": "production_readiness",
+      "reason": "Odin does not certify production readiness; this requires external audit."
+    }
+  ],
+  "allowed_claim_classes": [
+    "allowed_structural_claim",
+    "allowed_host_scoped_claim",
+    "allowed_candidate_only_claim",
+    "downgrade_required",
+    "external_receipt_required"
+  ],
+  "policy_summary": "Odin claims compiler v0 classifies release claims.",
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

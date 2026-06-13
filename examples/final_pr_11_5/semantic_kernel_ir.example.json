@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "odin_semantic_kernel_ir",
+  "candidate_only": true,
+  "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "ir_object_count": 16,
+  "ir_objects": [
+    {
+      "ir_id": "UniversalWorkIR",
+      "ir_name": "Universal Work IR",
+      "description": "Top-level work request that enters the Odin pipeline.",
+      "input_fields": ["input_text", "seed_pack", "pattern_mine", "caller_manifest"],
+      "output_fields": ["work_capsule", "route_hint", "candidate_only"],
+      "repo_artifact": "odin/universal_work/",
+      "status": "implemented_structural_evidence",
+      "evidence_class": "structural_evidence",
+      "forbidden_authority": ["app_apply", "external_send", "model_inference"],
+      "claim_boundary": "universal_work_ir_candidate_only_no_app_apply",
+      "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

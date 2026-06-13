@@ -1,0 +1,868 @@
+{
+  "artifact_kind": "odin_v711_coverage_report",
+  "candidate_only": true,
+  "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "summary": {
+    "total_targets": 26,
+    "implemented": 0,
+    "gaps": 26,
+    "coverage_pct": 0.0
+  },
+  "coverage_matrix": {
+    "artifact_kind": "odin_v711_coverage_matrix",
+    "candidate_only": true,
+    "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "coverage": [
+      {
+        "target_id": "small_model_power",
+        "target_name": "Small Model Power",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/small_model_power/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "small_model_power_candidate_only_no_live_inference",
+        "validator_or_test_evidence": "validate-operational-spine",
+        "current_gap": "No live model routing in repo",
+        "next_action": "Wire small-model route selector to provider receipt",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "universal_work",
+        "target_name": "Universal Work",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/universal_work/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "universal_work_candidate_only_no_app_apply",
+        "validator_or_test_evidence": "validate-b1-app-boundary-universal-work-qirc-spine",
+        "current_gap": "Live routing not wired",
+        "next_action": "Extend universal work to accept provider receipts",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "app_boundary",
+        "target_name": "App Boundary",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/release_boundaries/",
+          "odin/execution_gate/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "app_boundary_candidate_only_no_app_apply_no_external_send",
+        "validator_or_test_evidence": "validate-final-pr-10-boundary-release",
+        "current_gap": "App SDK bridge incomplete",
+        "next_action": "Complete SDK/API app bridge",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "context_distillery",
+        "target_name": "Context Distillery",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/worklets/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "context_distillery_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-b2-context-lenses-worklets",
+        "current_gap": "Context capsule / ContextIR not fully wired",
+        "next_action": "Wire ContextIR to semantic kernel pipeline",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "artifact_lenses",
+        "target_name": "Artifact Lenses",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/worklets/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "artifact_lenses_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-b2-context-lenses-worklets",
+        "current_gap": "ArtifactLensIR not defined as standalone module",
+        "next_action": "Add artifact_lenses module with IR definitions",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "worklet_graph",
+        "target_name": "Worklet Graph",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/worklets/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "worklet_graph_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-b2-context-lenses-worklets",
+        "current_gap": "Worklet graph topology not fully indexed",
+        "next_action": "Build worklet graph index from worklets/",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "slot_forge",
+        "target_name": "Slot Forge",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/slots/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "slot_forge_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-b1-app-boundary-universal-work-qirc-spine",
+        "current_gap": "SlotIR not exported from semantic kernel pipeline",
+        "next_action": "Export SlotIR from semantic_kernel_closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "gaptext_compiler",
+        "target_name": "Gaptext Compiler",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/seeds/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "gaptext_compiler_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-app-seed-pack-compiler",
+        "current_gap": "GaptextIR not standalone, embedded in seeds",
+        "next_action": "Define GaptextIR as explicit kernel IR object",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "modelworkpacket",
+        "target_name": "ModelWorkPacket",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/operational_spine/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "modelworkpacket_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-modelworkpacket-enforcement",
+        "current_gap": "Live model routing not wired",
+        "next_action": "Wire ModelWorkIR to provider receipt",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "hybrid_director",
+        "target_name": "Hybrid Director",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/operational_spine/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "hybrid_director_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-operational-spine",
+        "current_gap": "Hybrid director logic not separated from operational spine",
+        "next_action": "Isolate hybrid_director as separate module",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "provider_runtime",
+        "target_name": "Provider Runtime",
+        "target_priority": "high",
+        "target_source": "v711_operational_target",
+        "repo_evidence": [
+          "odin/local_provider_receipts/"
+        ],
+        "status": "implemented_disabled_by_default",
+        "evidence_class": "host_scoped_local_receipt",
+        "claim_boundary": "provider_runtime_disabled_by_default_no_live_inference_without_flag",
+        "validator_or_test_evidence": "validate-local-provider-receipt-harness",
+        "current_gap": "Provider execution disabled by default; requires explicit flag",
+        "next_action": "Document provider activation contract for PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "critic_cascade",
+        "target_name": "Critic Cascade",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/critic_runtime/"
+        ],
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "critic_cascade_candidate_only_advisory_not_authority",
+        "validator_or_test_evidence": "validate-critic-runtime-binding",
+        "current_gap": "Model critic gated; only deterministic critic active",
+        "next_action": "Wire model critic to provider receipt in PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "candidate_tournament",
+        "target_name": "Candidate Tournament",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/critic_runtime/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "candidate_tournament_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-critic-runtime-binding",
+        "current_gap": "Multi-candidate tournament logic not implemented",
+        "next_action": "Add candidate tournament module",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "candidate_dna",
+        "target_name": "Candidate DNA",
+        "target_priority": "medium",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/packets/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "candidate_dna_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-b4-minicheck-critics-final-gate",
+        "current_gap": "Candidate DNA fields not fully defined",
+        "next_action": "Define CandidateIR with DNA fields in semantic kernel",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "response_packet",
+        "target_name": "Response Packet",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/packets/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "response_packet_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-b4-minicheck-critics-final-gate",
+        "current_gap": "ResponseIR not in semantic kernel pipeline",
+        "next_action": "Wire ResponseIR to semantic kernel closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "final_gate",
+        "target_name": "Final Gate",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/execution_gate/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "final_gate_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-final-pr-05-execution-gate",
+        "current_gap": "Final gate not wired to kernel pipeline output",
+        "next_action": "Wire FinalGateIR to semantic kernel closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "semantic_bus",
+        "target_name": "Semantic Bus",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/semantic_bus/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "semantic_bus_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-runtime-bus-worklets",
+        "current_gap": "SemanticBusEventIR not in kernel pipeline",
+        "next_action": "Add SemanticBusEventIR to semantic kernel closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "trace_receipt_proof",
+        "target_name": "Trace / Receipt / Proof",
+        "target_priority": "high",
+        "target_source": "v711_master_arch",
+        "repo_evidence": [
+          "odin/proof_chain/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "trace_receipt_proof_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-b5-storage-trace-receipt-provider-bridge",
+        "current_gap": "ReceiptIR not in kernel pipeline",
+        "next_action": "Wire ReceiptIR to semantic kernel closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "artifact_currency",
+        "target_name": "Artifact Currency",
+        "target_priority": "medium",
+        "target_source": "v711_road_to_100",
+        "repo_evidence": [
+          "odin/release_boundaries/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "artifact_currency_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-artifact-currency",
+        "current_gap": "Artifact currency index not wired to PR13 release",
+        "next_action": "Wire artifact currency to PR13 release closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "release_boundary_gates",
+        "target_name": "Release Boundary Gates",
+        "target_priority": "high",
+        "target_source": "v711_road_to_100",
+        "repo_evidence": [
+          "odin/release_boundaries/"
+        ],
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "release_boundary_gates_candidate_only_structural_evidence",
+        "validator_or_test_evidence": "validate-final-pr-10-boundary-release",
+        "current_gap": "PR13 gates not yet defined",
+        "next_action": "Define PR13 release boundary gates",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "local_provider_receipts",
+        "target_name": "Local Provider Receipts",
+        "target_priority": "high",
+        "target_source": "v711_operational_target",
+        "repo_evidence": [
+          "odin/local_provider_receipts/"
+        ],
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "claim_boundary": "local_provider_receipt_harness_scoped_local_receipts_not_quality_benchmark",
+        "validator_or_test_evidence": "validate-local-provider-receipt-harness",
+        "current_gap": "Host-scoped only; not generalizable without explicit flag",
+        "next_action": "Document host-scoped receipt contract for PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "route_evaluation_receipts",
+        "target_name": "Route Evaluation Receipts",
+        "target_priority": "high",
+        "target_source": "v711_operational_target",
+        "repo_evidence": [
+          "odin/route_evaluation/"
+        ],
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "claim_boundary": "route_evaluation_receipts_measure_structure_not_model_quality_benchmark",
+        "validator_or_test_evidence": "validate-route-evaluation-receipts",
+        "current_gap": "Route evaluation is structural only; host-scoped",
+        "next_action": "Wire route evaluation to provider receipts in PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "thor_handoff_compiler",
+        "target_name": "Thor Handoff Compiler",
+        "target_priority": "high",
+        "target_source": "v711_operational_target",
+        "repo_evidence": [
+          "odin/thor_handoff_compiler/"
+        ],
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "thor_handoff_compiler_v0_compiles_worker_packets_not_thor_runtime",
+        "validator_or_test_evidence": "validate-thor-handoff-compiler",
+        "current_gap": "Thor runtime not implemented; compiler only",
+        "next_action": "Wire thor handoff to PR13 release closure",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "claims_compiler",
+        "target_name": "Claims Compiler",
+        "target_priority": "medium",
+        "target_source": "v711_road_to_100",
+        "repo_evidence": [
+          "odin/claims_compiler/"
+        ],
+        "status": "not_repo_real_yet",
+        "evidence_class": "target_only",
+        "claim_boundary": "claims_compiler_v0_compiles_safe_claims_from_evidence_not_certification",
+        "validator_or_test_evidence": "validate-claims-compiler",
+        "current_gap": "Claims compiler created in this PR (FINAL-PR-11.5)",
+        "next_action": "Validate claims compiler in PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "sdk_api_app_bridge",
+        "target_name": "SDK / API / App Bridge",
+        "target_priority": "high",
+        "target_source": "v711_operational_target",
+        "repo_evidence": [
+          "odin_app_sdk/"
+        ],
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "claim_boundary": "sdk_api_app_bridge_partial_structural_evidence",
+        "validator_or_test_evidence": "validate-localhost-api-sdk-bridge",
+        "current_gap": "SDK bridge partial; app-owned apply not fully verified",
+        "next_action": "Complete SDK bridge in PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      },
+      {
+        "target_id": "y_pattern_operationalization",
+        "target_name": "Y Pattern Operationalization",
+        "target_priority": "medium",
+        "target_source": "v711_road_to_100",
+        "repo_evidence": [
+          "odin/y_pattern_operationalization_index/"
+        ],
+        "status": "not_repo_real_yet",
+        "evidence_class": "target_only",
+        "claim_boundary": "y_pattern_operationalization_index_maps_internal_patterns_to_neutral_odin_not_authority",
+        "validator_or_test_evidence": "validate-y-pattern-operationalization-index",
+        "current_gap": "Y pattern operationalization index created in this PR (FINAL-PR-11.5)",
+        "next_action": "Validate Y pattern index in PR13",
+        "not_proven": [
+          "production_readiness",
+          "live_model_inference",
+          "app_state_mutation",
+          "external_send_authority"
+        ]
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "gap_index": {
+    "artifact_kind": "odin_v711_gap_index",
+    "candidate_only": true,
+    "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "gap_count": 26,
+    "gaps": [
+      {
+        "target_id": "small_model_power",
+        "target_name": "Small Model Power",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "No live model routing in repo",
+        "next_action": "Wire small-model route selector to provider receipt",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "universal_work",
+        "target_name": "Universal Work",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Live routing not wired",
+        "next_action": "Extend universal work to accept provider receipts",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "app_boundary",
+        "target_name": "App Boundary",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "App SDK bridge incomplete",
+        "next_action": "Complete SDK/API app bridge",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "context_distillery",
+        "target_name": "Context Distillery",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Context capsule / ContextIR not fully wired",
+        "next_action": "Wire ContextIR to semantic kernel pipeline",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "artifact_lenses",
+        "target_name": "Artifact Lenses",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "ArtifactLensIR not defined as standalone module",
+        "next_action": "Add artifact_lenses module with IR definitions",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "worklet_graph",
+        "target_name": "Worklet Graph",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Worklet graph topology not fully indexed",
+        "next_action": "Build worklet graph index from worklets/",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "slot_forge",
+        "target_name": "Slot Forge",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "SlotIR not exported from semantic kernel pipeline",
+        "next_action": "Export SlotIR from semantic_kernel_closure",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "gaptext_compiler",
+        "target_name": "Gaptext Compiler",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "GaptextIR not standalone, embedded in seeds",
+        "next_action": "Define GaptextIR as explicit kernel IR object",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "modelworkpacket",
+        "target_name": "ModelWorkPacket",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Live model routing not wired",
+        "next_action": "Wire ModelWorkIR to provider receipt",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "hybrid_director",
+        "target_name": "Hybrid Director",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Hybrid director logic not separated from operational spine",
+        "next_action": "Isolate hybrid_director as separate module",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "provider_runtime",
+        "target_name": "Provider Runtime",
+        "status": "implemented_disabled_by_default",
+        "evidence_class": "host_scoped_local_receipt",
+        "current_gap": "Provider execution disabled by default; requires explicit flag",
+        "next_action": "Document provider activation contract for PR13",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "critic_cascade",
+        "target_name": "Critic Cascade",
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Model critic gated; only deterministic critic active",
+        "next_action": "Wire model critic to provider receipt in PR13",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "candidate_tournament",
+        "target_name": "Candidate Tournament",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Multi-candidate tournament logic not implemented",
+        "next_action": "Add candidate tournament module",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "candidate_dna",
+        "target_name": "Candidate DNA",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Candidate DNA fields not fully defined",
+        "next_action": "Define CandidateIR with DNA fields in semantic kernel",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "response_packet",
+        "target_name": "Response Packet",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "ResponseIR not in semantic kernel pipeline",
+        "next_action": "Wire ResponseIR to semantic kernel closure",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "final_gate",
+        "target_name": "Final Gate",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Final gate not wired to kernel pipeline output",
+        "next_action": "Wire FinalGateIR to semantic kernel closure",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "semantic_bus",
+        "target_name": "Semantic Bus",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "SemanticBusEventIR not in kernel pipeline",
+        "next_action": "Add SemanticBusEventIR to semantic kernel closure",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "trace_receipt_proof",
+        "target_name": "Trace / Receipt / Proof",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "ReceiptIR not in kernel pipeline",
+        "next_action": "Wire ReceiptIR to semantic kernel closure",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "artifact_currency",
+        "target_name": "Artifact Currency",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Artifact currency index not wired to PR13 release",
+        "next_action": "Wire artifact currency to PR13 release closure",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "release_boundary_gates",
+        "target_name": "Release Boundary Gates",
+        "status": "implemented_structural_evidence",
+        "evidence_class": "structural_evidence",
+        "current_gap": "PR13 gates not yet defined",
+        "next_action": "Define PR13 release boundary gates",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "local_provider_receipts",
+        "target_name": "Local Provider Receipts",
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "current_gap": "Host-scoped only; not generalizable without explicit flag",
+        "next_action": "Document host-scoped receipt contract for PR13",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "route_evaluation_receipts",
+        "target_name": "Route Evaluation Receipts",
+        "status": "host_scoped_local_receipt_path",
+        "evidence_class": "host_scoped_local_receipt",
+        "current_gap": "Route evaluation is structural only; host-scoped",
+        "next_action": "Wire route evaluation to provider receipts in PR13",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "thor_handoff_compiler",
+        "target_name": "Thor Handoff Compiler",
+        "status": "implemented_candidate_only",
+        "evidence_class": "structural_evidence",
+        "current_gap": "Thor runtime not implemented; compiler only",
+        "next_action": "Wire thor handoff to PR13 release closure",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "claims_compiler",
+        "target_name": "Claims Compiler",
+        "status": "not_repo_real_yet",
+        "evidence_class": "target_only",
+        "current_gap": "Claims compiler created in this PR (FINAL-PR-11.5)",
+        "next_action": "Validate claims compiler in PR13",
+        "priority_for_pr13": "medium"
+      },
+      {
+        "target_id": "sdk_api_app_bridge",
+        "target_name": "SDK / API / App Bridge",
+        "status": "partial",
+        "evidence_class": "structural_evidence",
+        "current_gap": "SDK bridge partial; app-owned apply not fully verified",
+        "next_action": "Complete SDK bridge in PR13",
+        "priority_for_pr13": "high"
+      },
+      {
+        "target_id": "y_pattern_operationalization",
+        "target_name": "Y Pattern Operationalization",
+        "status": "not_repo_real_yet",
+        "evidence_class": "target_only",
+        "current_gap": "Y pattern operationalization index created in this PR (FINAL-PR-11.5)",
+        "next_action": "Validate Y pattern index in PR13",
+        "priority_for_pr13": "medium"
+      }
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "next_pr_recommendations": {
+    "artifact_kind": "odin_v711_next_pr_recommendations",
+    "candidate_only": true,
+    "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+    "generated_at_utc": "2026-01-01T00:00:00Z",
+    "gap_count_input": 26,
+    "recommendations": [
+      {
+        "pr_id": "FINAL-PR-12",
+        "pr_name": "Semantic Kernel Closure + Claims Compiler + Coverage Compiler",
+        "addresses_gaps": [
+          "claims_compiler",
+          "y_pattern_operationalization",
+          "semantic_bus",
+          "trace_receipt_proof"
+        ],
+        "priority": "high"
+      },
+      {
+        "pr_id": "FINAL-PR-13",
+        "pr_name": "Release Closure v1 \u2014 PR13 is deferred",
+        "addresses_gaps": [
+          "provider_runtime",
+          "candidate_tournament",
+          "sdk_api_app_bridge",
+          "release_boundary_gates"
+        ],
+        "priority": "high"
+      }
+    ],
+    "final_pr_13_is_release_closure": true,
+    "final_pr_13_remains_deferred": true,
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "final_pr_13_remains_deferred": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}
