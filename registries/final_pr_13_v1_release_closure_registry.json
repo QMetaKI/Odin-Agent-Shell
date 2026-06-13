@@ -1,0 +1,30 @@
+{
+  "registry_id": "final_pr_13_v1_release_closure_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_13_v1_candidate_release_closure_not_external_release",
+  "description": "Registry of v1 release closure artifacts for FINAL-PR-13.",
+  "modules": [
+    "odin/v1_release_closure/closure_matrix.py",
+    "odin/v1_release_closure/release_truth.py",
+    "odin/v1_release_closure/proof_packet.py",
+    "odin/v1_release_closure/reports.py"
+  ],
+  "examples": [
+    "examples/final_pr_13/v1_release_closure_matrix.example.json",
+    "examples/final_pr_13/v1_release_truth.example.json"
+  ],
+  "reports": [
+    "reports/final_pr_13_v1_release_closure_matrix.json",
+    "reports/final_pr_13_v1_release_truth.json",
+    "reports/final_pr_13_v1_release_closure_proof_packet.json"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "external_release_certification",
+    "tag_creation",
+    "github_release_creation",
+    "pypi_publication"
+  ]
+}

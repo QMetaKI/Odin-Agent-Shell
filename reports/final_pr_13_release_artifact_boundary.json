@@ -1,0 +1,30 @@
+{
+  "artifact_kind": "odin_final_pr_13_release_artifact_boundary",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "release_artifact_boundary_lists_manual_release_actions_not_external_release",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "local_candidate_release_closure_claimed": true,
+  "external_release_claimed": false,
+  "tag_creation_claimed": false,
+  "github_release_creation_claimed": false,
+  "pypi_publication_claimed": false,
+  "release_asset_upload_claimed": false,
+  "signed_distribution_claimed": false,
+  "manual_actions": [
+    {"action": "create git tag", "manual_only": true, "claimed_by_pr13": false},
+    {"action": "create GitHub Release", "manual_only": true, "claimed_by_pr13": false},
+    {"action": "publish to PyPI", "manual_only": true, "claimed_by_pr13": false},
+    {"action": "upload release assets", "manual_only": true, "claimed_by_pr13": false},
+    {"action": "verify external release state", "manual_only": true, "claimed_by_pr13": false},
+    {"action": "publish release notes externally", "manual_only": true, "claimed_by_pr13": false}
+  ],
+  "not_proven": [
+    "production_readiness",
+    "tag_creation",
+    "github_release_creation",
+    "pypi_publication",
+    "release_asset_upload",
+    "signed_distribution"
+  ]
+}

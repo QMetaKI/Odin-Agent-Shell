@@ -1,0 +1,29 @@
+{
+  "registry_id": "final_pr_13_donation_surface_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "donation_surface_documents_optional_donations_without_entitlement",
+  "description": "Registry of donation surface artifacts for FINAL-PR-13.",
+  "modules": [
+    "odin/donation_surface/donations_plan.py",
+    "odin/donation_surface/reports.py"
+  ],
+  "root_files": [
+    "DONATIONS.md"
+  ],
+  "examples": [
+    "examples/final_pr_13/donations_plan.example.json"
+  ],
+  "reports": [
+    "reports/final_pr_13_donation_surface_report.json"
+  ],
+  "paypal_source": "Thor-Agent-Kit DONATIONS.md",
+  "donations_optional": true,
+  "no_entitlement": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

@@ -1168,6 +1168,7 @@
     "validator": "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py"
   },
   "final_pr_09_operational_spine": {
+    "app_owned_apply": true,
     "audits": [
       "docs/codex/audits/FINAL_PR_09_OPERATIONAL_SPINE_AUDIT.md",
       "docs/codex/audits/FINAL_PR_09_SENIOR_REVIEW.md",
@@ -1185,11 +1186,21 @@
       "validate-qshabang-operational-map",
       "validate-deferred-system-lift"
     ],
+    "depends_on": [
+      "final_pr_08_projection_candidate_spine",
+      "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
+    ],
+    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
     "handoffs": [
       "docs/codex/handoffs/FINAL_PR_09_REPO_COGNITION_SUMMARY.md",
       "docs/codex/handoffs/FINAL_PR_09_THOR_STYLE_OPERATIONAL_SPINE_HANDOFF.md",
       "docs/codex/handoffs/FINAL_PR_09_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
     ],
+    "hub_endpoints": [
+      "/operational-spine/status.json",
+      "/operational-spine/demo.json"
+    ],
+    "local_only": true,
     "modules": [
       "odin/operational_spine/__init__.py",
       "odin/operational_spine/orchestrator.py",
@@ -1203,28 +1214,425 @@
       "odin/operational_spine/receipts.py",
       "odin/operational_spine/reports.py"
     ],
-    "pr": "FINAL-PR-09++",
-    "registry": "registries/final_pr_09_operational_spine_registry.json",
-    "report": "reports/final_pr_09_operational_spine_report.json",
-    "validator": "tools/rebaseline/check_final_pr_09_operational_spine.py",
-    "app_owned_apply": true,
-    "depends_on": [
-      "final_pr_08_projection_candidate_spine",
-      "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
-    ],
-    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
-    "hub_endpoints": [
-      "/operational-spine/status.json",
-      "/operational-spine/demo.json"
-    ],
-    "local_only": true,
     "not_proven": [
       "live_model_inference",
       "provider_execution",
       "production_readiness"
     ],
     "path": "odin/operational_spine/",
-    "tests": "tests/test_final_pr_09_operational_spine.py"
+    "pr": "FINAL-PR-09++",
+    "registry": "registries/final_pr_09_operational_spine_registry.json",
+    "report": "reports/final_pr_09_operational_spine_report.json",
+    "tests": "tests/test_final_pr_09_operational_spine.py",
+    "validator": "tools/rebaseline/check_final_pr_09_operational_spine.py"
+  },
+  "final_pr_10_boundary_release": {
+    "app_owned_apply": true,
+    "candidate_only": true,
+    "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+    "cli_commands": [
+      "validate-boundary-matrix",
+      "validate-ring-authority-map",
+      "validate-bug6-q7-operational-map",
+      "validate-qshabang-release-gate-map",
+      "validate-model-role-authority",
+      "validate-release-evidence-closure",
+      "validate-artifact-currency",
+      "validate-final-release-preflight",
+      "release-preflight",
+      "explain-boundaries",
+      "explain-release-claims",
+      "explain-model-role-authority",
+      "explain-qshabang-release-gates",
+      "validate-final-pr-10-boundary-release"
+    ],
+    "depends_on": [
+      "final_pr_09_operational_spine"
+    ],
+    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
+    "examples": [
+      "examples/final_pr_10/boundary_matrix.example.json",
+      "examples/final_pr_10/ring_authority_map.example.json",
+      "examples/final_pr_10/bug6_q7_operational_map.example.json",
+      "examples/final_pr_10/qshabang_release_gate_map.example.json",
+      "examples/final_pr_10/model_role_authority.example.json",
+      "examples/final_pr_10/artifact_currency.example.json",
+      "examples/final_pr_10/release_evidence_closure.example.json",
+      "examples/final_pr_10/release_preflight.example.json"
+    ],
+    "final_pr_11_remains_deferred": true,
+    "hub_endpoints": [
+      "/release/boundary-matrix.json",
+      "/release/ring-authority-map.json",
+      "/release/bug6-q7-map.json",
+      "/release/model-role-authority.json",
+      "/release/qshabang-gates.json",
+      "/release/evidence-closure.json",
+      "/release/preflight.json",
+      "/release/artifact-currency.json"
+    ],
+    "module": "odin/release_boundaries/",
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority",
+      "security_certification",
+      "release_certification"
+    ],
+    "registry": "registries/final_pr_10_boundary_release_registry.json",
+    "reports": [
+      "reports/final_pr_10_boundary_matrix_report.json",
+      "reports/final_pr_10_ring_authority_map.json",
+      "reports/final_pr_10_bug6_q7_operational_map.json",
+      "reports/final_pr_10_qshabang_release_gate_report.json",
+      "reports/final_pr_10_model_role_authority_report.json",
+      "reports/final_pr_10_release_evidence_closure_index.json",
+      "reports/final_pr_10_artifact_currency_report.json",
+      "reports/final_pr_10_release_preflight_report.json",
+      "reports/final_pr_10_boundary_release_proof_packet.json"
+    ],
+    "schema": "schemas/final_pr_10_release_preflight_report.schema.json",
+    "tests": "tests/test_final_pr_10_boundary_release.py",
+    "validator": "tools/rebaseline/check_final_pr_10_boundary_release.py"
+  },
+  "final_pr_11_5_semantic_kernel_coverage": {
+    "candidate_only": true,
+    "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_compiler_not_release_closure",
+    "description": "Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern Operationalization",
+    "final_pr_13_remains_deferred": true,
+    "modules": [
+      "odin/v711_coverage_compiler/",
+      "odin/semantic_kernel_closure/",
+      "odin/y_pattern_operationalization_index/",
+      "odin/claims_compiler/",
+      "odin/agent_operator_modes/"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ],
+    "pr_id": "FINAL-PR-11.5"
+  },
+  "final_pr_11_provider_critic_thor": {
+    "app_owned_apply": true,
+    "candidate_only": true,
+    "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+    "cli_commands": [
+      "validate-local-provider-receipt-harness",
+      "local-provider-doctor",
+      "run-local-provider-receipt",
+      "explain-provider-receipt-claims",
+      "validate-critic-runtime-binding",
+      "run-critic-cascade",
+      "explain-critic-cascade",
+      "validate-route-evaluation-receipts",
+      "run-route-evaluation",
+      "explain-route-evaluation-claims",
+      "validate-thor-handoff-compiler",
+      "compile-thor-handoff",
+      "explain-thor-handoff-compiler",
+      "validate-final-pr-11-provider-critic-thor"
+    ],
+    "depends_on": [
+      "final_pr_10_boundary_release"
+    ],
+    "docs": [
+      "docs/rebaseline/FINAL_PR_11_PROVIDER_CRITIC_THOR.md",
+      "docs/release/FINAL_PR_11_RELEASE_SEQUENCE_TRANSITION.md",
+      "docs/release/FINAL_PR_11_LOCAL_PROVIDER_RECEIPT_HARNESS.md",
+      "docs/release/FINAL_PR_11_CRITIC_RUNTIME_BINDING.md",
+      "docs/release/FINAL_PR_11_ROUTE_EVALUATION_RECEIPTS.md",
+      "docs/release/FINAL_PR_11_THOR_HANDOFF_COMPILER_V0.md",
+      "docs/release/FINAL_PR_11_PREFLIGHT_AFTER_PR11.md",
+      "docs/codex/handoffs/FINAL_PR_11_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_11_THOR_STYLE_PROVIDER_CRITIC_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_11_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "docs/codex/audits/FINAL_PR_11_PROVIDER_CRITIC_THOR_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_11_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_11_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_11_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/reports/FINAL_PR_11_PROVIDER_CRITIC_THOR_RETURN_REPORT.md"
+    ],
+    "examples": [
+      "examples/final_pr_11/provider_readiness_receipt.example.json",
+      "examples/final_pr_11/provider_request_packet.example.json",
+      "examples/final_pr_11/provider_execution_not_enabled.example.json",
+      "examples/final_pr_11/provider_unavailable_receipt.example.json",
+      "examples/final_pr_11/provider_execution_scoped_receipt.example.json",
+      "examples/final_pr_11/critic_packet.example.json",
+      "examples/final_pr_11/critic_deterministic_result.example.json",
+      "examples/final_pr_11/route_evaluation_receipt.example.json",
+      "examples/final_pr_11/thor_handoff_bundle.example.json",
+      "examples/final_pr_11/thor_input_contract.example.json"
+    ],
+    "final_pr_12_remains_deferred": true,
+    "hub_endpoints": [
+      "/provider-receipts/status.json",
+      "/provider-receipts/demo.json",
+      "/provider-receipts/claims.json",
+      "/critic-runtime/status.json",
+      "/critic-runtime/demo.json",
+      "/route-evaluation/status.json",
+      "/route-evaluation/demo.json",
+      "/thor-handoff-compiler/status.json",
+      "/thor-handoff-compiler/demo.json",
+      "/release/sequence-transition.json",
+      "/release/preflight-after-pr11.json"
+    ],
+    "local_only_default": true,
+    "modules": [
+      "odin/local_provider_receipts/__init__.py",
+      "odin/local_provider_receipts/provider_ids.py",
+      "odin/local_provider_receipts/readiness.py",
+      "odin/local_provider_receipts/request_packet.py",
+      "odin/local_provider_receipts/receipt.py",
+      "odin/local_provider_receipts/executor.py",
+      "odin/local_provider_receipts/reports.py",
+      "odin/critic_runtime/__init__.py",
+      "odin/critic_runtime/critic_packet.py",
+      "odin/critic_runtime/deterministic_critic.py",
+      "odin/critic_runtime/cascade.py",
+      "odin/critic_runtime/reports.py",
+      "odin/route_evaluation/__init__.py",
+      "odin/route_evaluation/fixtures.py",
+      "odin/route_evaluation/evaluator.py",
+      "odin/route_evaluation/receipt.py",
+      "odin/route_evaluation/reports.py",
+      "odin/thor_handoff_compiler/__init__.py",
+      "odin/thor_handoff_compiler/input_contract.py",
+      "odin/thor_handoff_compiler/compiler.py",
+      "odin/thor_handoff_compiler/acceptance_matrix.py",
+      "odin/thor_handoff_compiler/validator_plan.py",
+      "odin/thor_handoff_compiler/pr_body.py",
+      "odin/thor_handoff_compiler/reports.py"
+    ],
+    "no_production_readiness": true,
+    "no_release_certification": true,
+    "no_security_certification": true,
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority",
+      "security_certification",
+      "release_certification",
+      "real_model_benchmark",
+      "model_quality_superiority"
+    ],
+    "registries": [
+      "registries/final_pr_11_provider_critic_thor_registry.json",
+      "registries/final_pr_11_provider_receipt_registry.json",
+      "registries/final_pr_11_critic_runtime_registry.json",
+      "registries/final_pr_11_route_evaluation_registry.json",
+      "registries/final_pr_11_thor_handoff_compiler_registry.json",
+      "registries/final_pr_11_release_sequence_registry.json"
+    ],
+    "reports": [
+      "reports/final_pr_11_provider_receipt_harness_report.json",
+      "reports/final_pr_11_critic_runtime_binding_report.json",
+      "reports/final_pr_11_route_evaluation_receipt_report.json",
+      "reports/final_pr_11_thor_handoff_compiler_report.json",
+      "reports/final_pr_11_release_sequence_transition_report.json",
+      "reports/final_pr_11_preflight_after_pr11_report.json",
+      "reports/final_pr_11_provider_critic_thor_proof_packet.json"
+    ],
+    "schemas": [
+      "schemas/final_pr_11_provider_receipt.schema.json",
+      "schemas/final_pr_11_critic_packet.schema.json",
+      "schemas/final_pr_11_route_evaluation_receipt.schema.json",
+      "schemas/final_pr_11_thor_handoff_bundle.schema.json"
+    ],
+    "tests": [
+      "tests/test_final_pr_11_provider_critic_thor.py"
+    ],
+    "tools": [
+      "tools/rebaseline/check_final_pr_11_provider_critic_thor.py"
+    ]
+  },
+  "final_pr_12_release_readiness_hardening": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_12_RELEASE_READINESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_12_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_12_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_12_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/reports/FINAL_PR_12_RELEASE_READINESS_RETURN_REPORT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+    "cli_commands": [
+      "validate-release-readiness-hardening",
+      "build-release-readiness-matrix",
+      "build-release-risk-register",
+      "explain-release-readiness-hardening",
+      "validate-evidence-closure-dry-run",
+      "run-evidence-closure-dry-run",
+      "explain-evidence-closure-dry-run",
+      "validate-packaging-boundary-prep",
+      "build-packaging-boundary",
+      "explain-packaging-boundary",
+      "validate-command-surface-closure",
+      "build-command-surface-index",
+      "explain-command-surface",
+      "validate-docs-readiness",
+      "build-docs-readiness-index",
+      "explain-docs-readiness",
+      "validate-final-pr-13-input-bundle",
+      "build-final-pr-13-input-bundle",
+      "explain-final-pr-13-input-bundle",
+      "validate-final-pr-12-release-readiness-hardening"
+    ],
+    "depends_on": [
+      "FINAL-PR-11.5",
+      "FINAL-PR-11",
+      "FINAL-PR-10",
+      "FINAL-PR-09"
+    ],
+    "description": "Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep",
+    "docs": [
+      "docs/rebaseline/FINAL_PR_12_RELEASE_READINESS_HARDENING.md",
+      "docs/release/FINAL_PR_12_RELEASE_READINESS_MATRIX.md",
+      "docs/release/FINAL_PR_12_EVIDENCE_CLOSURE_DRY_RUN.md",
+      "docs/release/FINAL_PR_12_PACKAGING_BOUNDARY_PREP.md",
+      "docs/release/FINAL_PR_12_COMMAND_SURFACE_CLOSURE.md",
+      "docs/release/FINAL_PR_12_DOCS_READINESS.md",
+      "docs/release/FINAL_PR_12_FINAL_PR_13_INPUT_BUNDLE.md",
+      "docs/release/FINAL_PR_12_RELEASE_SEQUENCE_AFTER_PR12.md"
+    ],
+    "examples": [
+      "examples/final_pr_12/"
+    ],
+    "final_pr_13_remains_deferred": true,
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_12_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_12_THOR_STYLE_RELEASE_READINESS_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_12_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "local_hub_endpoints": [
+      "/release-readiness/status.json",
+      "/release-readiness/matrix.json",
+      "/release-readiness/risk-register.json",
+      "/evidence-closure/dry-run.json",
+      "/packaging-boundary/inventory.json",
+      "/command-surface/index.json",
+      "/docs-readiness/index.json",
+      "/final-pr-13/input-bundle.json",
+      "/release/sequence-after-pr12.json"
+    ],
+    "modules": [
+      "odin/release_readiness_hardening/",
+      "odin/evidence_closure_dry_run/",
+      "odin/packaging_boundary_prep/",
+      "odin/command_surface_closure/",
+      "odin/docs_readiness/",
+      "odin/final_pr_13_input_bundle/"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "security_certification",
+      "release_certification",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ],
+    "pr_id": "FINAL-PR-12",
+    "registries": [
+      "registries/final_pr_12_release_readiness_registry.json",
+      "registries/final_pr_12_evidence_closure_dry_run_registry.json",
+      "registries/final_pr_12_packaging_boundary_registry.json",
+      "registries/final_pr_12_command_surface_registry.json",
+      "registries/final_pr_12_docs_readiness_registry.json",
+      "registries/final_pr_12_final_pr_13_input_bundle_registry.json"
+    ],
+    "reports": [
+      "reports/final_pr_12_release_readiness_matrix.json",
+      "reports/final_pr_12_release_risk_register.json",
+      "reports/final_pr_12_evidence_closure_dry_run.json",
+      "reports/final_pr_12_packaging_boundary_inventory.json",
+      "reports/final_pr_12_command_surface_index.json",
+      "reports/final_pr_12_docs_readiness_index.json",
+      "reports/final_pr_12_final_pr_13_input_bundle.json",
+      "reports/final_pr_12_release_sequence_after_pr12.json",
+      "reports/final_pr_12_release_readiness_proof_packet.json"
+    ],
+    "schemas": [
+      "schemas/final_pr_12_release_readiness_matrix.schema.json",
+      "schemas/final_pr_12_evidence_closure_dry_run.schema.json",
+      "schemas/final_pr_12_packaging_boundary.schema.json",
+      "schemas/final_pr_12_final_pr_13_input_bundle.schema.json"
+    ],
+    "tests": [
+      "tests/test_final_pr_12_release_readiness_hardening.py"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_12_release_readiness_hardening.py"
+  },
+  "final_pr_13_v1_release_closure": {
+    "candidate_only": true,
+    "claim_boundary": "final_pr_13_v1_candidate_release_closure_not_external_release",
+    "cli_commands": [
+      "validate-v1-release-closure",
+      "build-v1-release-closure-matrix",
+      "build-v1-release-truth",
+      "validate-root-public-surface",
+      "validate-readme-v1",
+      "validate-donation-surface",
+      "validate-release-artifact-boundary",
+      "validate-final-pr-13-v1-release-closure"
+    ],
+    "depends_on": [
+      "final_pr_12_release_readiness_hardening",
+      "final_pr_11_5_semantic_kernel_coverage",
+      "final_pr_11_provider_critic_thor",
+      "final_pr_10_boundary_release",
+      "final_pr_09_operational_spine"
+    ],
+    "external_release_claimed": false,
+    "local_candidate_release_closed": true,
+    "local_hub_endpoints": [
+      "/v1-release-closure/status.json",
+      "/v1-release-closure/matrix.json",
+      "/root-public-surface/inventory.json",
+      "/readme-v1/plan.json",
+      "/donation-surface/plan.json",
+      "/release-artifact-boundary/index.json"
+    ],
+    "modules": [
+      "odin/v1_release_closure/",
+      "odin/root_public_surface/",
+      "odin/readme_v1/",
+      "odin/donation_surface/",
+      "odin/release_artifact_boundary/"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "security_certification",
+      "external_release_certification",
+      "tag_creation",
+      "github_release_creation",
+      "pypi_publication"
+    ],
+    "registries": [
+      "registries/final_pr_13_v1_release_closure_registry.json",
+      "registries/final_pr_13_root_public_surface_registry.json",
+      "registries/final_pr_13_readme_v1_registry.json",
+      "registries/final_pr_13_donation_surface_registry.json",
+      "registries/final_pr_13_release_artifact_boundary_registry.json"
+    ],
+    "root_files": [
+      "README.md",
+      "DONATIONS.md"
+    ],
+    "schemas": [
+      "schemas/final_pr_13_v1_release_closure.schema.json",
+      "schemas/final_pr_13_root_public_surface.schema.json",
+      "schemas/final_pr_13_readme_v1.schema.json",
+      "schemas/final_pr_13_release_artifact_boundary.schema.json"
+    ],
+    "status": "implemented",
+    "tests": "tests/test_final_pr_13_v1_release_closure.py",
+    "validator": "tools/rebaseline/check_final_pr_13_v1_release_closure.py"
   },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
@@ -2273,347 +2681,5 @@
     "candidate_only": true,
     "description": "Y Pattern Spine — neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
-  },
-  "final_pr_10_boundary_release": {
-    "candidate_only": true,
-    "app_owned_apply": true,
-    "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
-    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
-    "module": "odin/release_boundaries/",
-    "registry": "registries/final_pr_10_boundary_release_registry.json",
-    "schema": "schemas/final_pr_10_release_preflight_report.schema.json",
-    "examples": [
-      "examples/final_pr_10/boundary_matrix.example.json",
-      "examples/final_pr_10/ring_authority_map.example.json",
-      "examples/final_pr_10/bug6_q7_operational_map.example.json",
-      "examples/final_pr_10/qshabang_release_gate_map.example.json",
-      "examples/final_pr_10/model_role_authority.example.json",
-      "examples/final_pr_10/artifact_currency.example.json",
-      "examples/final_pr_10/release_evidence_closure.example.json",
-      "examples/final_pr_10/release_preflight.example.json"
-    ],
-    "validator": "tools/rebaseline/check_final_pr_10_boundary_release.py",
-    "tests": "tests/test_final_pr_10_boundary_release.py",
-    "reports": [
-      "reports/final_pr_10_boundary_matrix_report.json",
-      "reports/final_pr_10_ring_authority_map.json",
-      "reports/final_pr_10_bug6_q7_operational_map.json",
-      "reports/final_pr_10_qshabang_release_gate_report.json",
-      "reports/final_pr_10_model_role_authority_report.json",
-      "reports/final_pr_10_release_evidence_closure_index.json",
-      "reports/final_pr_10_artifact_currency_report.json",
-      "reports/final_pr_10_release_preflight_report.json",
-      "reports/final_pr_10_boundary_release_proof_packet.json"
-    ],
-    "cli_commands": [
-      "validate-boundary-matrix",
-      "validate-ring-authority-map",
-      "validate-bug6-q7-operational-map",
-      "validate-qshabang-release-gate-map",
-      "validate-model-role-authority",
-      "validate-release-evidence-closure",
-      "validate-artifact-currency",
-      "validate-final-release-preflight",
-      "release-preflight",
-      "explain-boundaries",
-      "explain-release-claims",
-      "explain-model-role-authority",
-      "explain-qshabang-release-gates",
-      "validate-final-pr-10-boundary-release"
-    ],
-    "hub_endpoints": [
-      "/release/boundary-matrix.json",
-      "/release/ring-authority-map.json",
-      "/release/bug6-q7-map.json",
-      "/release/model-role-authority.json",
-      "/release/qshabang-gates.json",
-      "/release/evidence-closure.json",
-      "/release/preflight.json",
-      "/release/artifact-currency.json"
-    ],
-    "depends_on": [
-      "final_pr_09_operational_spine"
-    ],
-    "not_proven": [
-      "production_readiness",
-      "live_model_inference",
-      "app_state_mutation",
-      "external_send_authority",
-      "security_certification",
-      "release_certification"
-    ],
-    "final_pr_11_remains_deferred": true
-  },
-  "final_pr_11_provider_critic_thor": {
-    "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
-    "candidate_only": true,
-    "app_owned_apply": true,
-    "local_only_default": true,
-    "no_release_certification": true,
-    "no_production_readiness": true,
-    "no_security_certification": true,
-    "final_pr_12_remains_deferred": true,
-    "modules": [
-      "odin/local_provider_receipts/__init__.py",
-      "odin/local_provider_receipts/provider_ids.py",
-      "odin/local_provider_receipts/readiness.py",
-      "odin/local_provider_receipts/request_packet.py",
-      "odin/local_provider_receipts/receipt.py",
-      "odin/local_provider_receipts/executor.py",
-      "odin/local_provider_receipts/reports.py",
-      "odin/critic_runtime/__init__.py",
-      "odin/critic_runtime/critic_packet.py",
-      "odin/critic_runtime/deterministic_critic.py",
-      "odin/critic_runtime/cascade.py",
-      "odin/critic_runtime/reports.py",
-      "odin/route_evaluation/__init__.py",
-      "odin/route_evaluation/fixtures.py",
-      "odin/route_evaluation/evaluator.py",
-      "odin/route_evaluation/receipt.py",
-      "odin/route_evaluation/reports.py",
-      "odin/thor_handoff_compiler/__init__.py",
-      "odin/thor_handoff_compiler/input_contract.py",
-      "odin/thor_handoff_compiler/compiler.py",
-      "odin/thor_handoff_compiler/acceptance_matrix.py",
-      "odin/thor_handoff_compiler/validator_plan.py",
-      "odin/thor_handoff_compiler/pr_body.py",
-      "odin/thor_handoff_compiler/reports.py"
-    ],
-    "registries": [
-      "registries/final_pr_11_provider_critic_thor_registry.json",
-      "registries/final_pr_11_provider_receipt_registry.json",
-      "registries/final_pr_11_critic_runtime_registry.json",
-      "registries/final_pr_11_route_evaluation_registry.json",
-      "registries/final_pr_11_thor_handoff_compiler_registry.json",
-      "registries/final_pr_11_release_sequence_registry.json"
-    ],
-    "schemas": [
-      "schemas/final_pr_11_provider_receipt.schema.json",
-      "schemas/final_pr_11_critic_packet.schema.json",
-      "schemas/final_pr_11_route_evaluation_receipt.schema.json",
-      "schemas/final_pr_11_thor_handoff_bundle.schema.json"
-    ],
-    "examples": [
-      "examples/final_pr_11/provider_readiness_receipt.example.json",
-      "examples/final_pr_11/provider_request_packet.example.json",
-      "examples/final_pr_11/provider_execution_not_enabled.example.json",
-      "examples/final_pr_11/provider_unavailable_receipt.example.json",
-      "examples/final_pr_11/provider_execution_scoped_receipt.example.json",
-      "examples/final_pr_11/critic_packet.example.json",
-      "examples/final_pr_11/critic_deterministic_result.example.json",
-      "examples/final_pr_11/route_evaluation_receipt.example.json",
-      "examples/final_pr_11/thor_handoff_bundle.example.json",
-      "examples/final_pr_11/thor_input_contract.example.json"
-    ],
-    "reports": [
-      "reports/final_pr_11_provider_receipt_harness_report.json",
-      "reports/final_pr_11_critic_runtime_binding_report.json",
-      "reports/final_pr_11_route_evaluation_receipt_report.json",
-      "reports/final_pr_11_thor_handoff_compiler_report.json",
-      "reports/final_pr_11_release_sequence_transition_report.json",
-      "reports/final_pr_11_preflight_after_pr11_report.json",
-      "reports/final_pr_11_provider_critic_thor_proof_packet.json"
-    ],
-    "docs": [
-      "docs/rebaseline/FINAL_PR_11_PROVIDER_CRITIC_THOR.md",
-      "docs/release/FINAL_PR_11_RELEASE_SEQUENCE_TRANSITION.md",
-      "docs/release/FINAL_PR_11_LOCAL_PROVIDER_RECEIPT_HARNESS.md",
-      "docs/release/FINAL_PR_11_CRITIC_RUNTIME_BINDING.md",
-      "docs/release/FINAL_PR_11_ROUTE_EVALUATION_RECEIPTS.md",
-      "docs/release/FINAL_PR_11_THOR_HANDOFF_COMPILER_V0.md",
-      "docs/release/FINAL_PR_11_PREFLIGHT_AFTER_PR11.md",
-      "docs/codex/handoffs/FINAL_PR_11_REPO_COGNITION_SUMMARY.md",
-      "docs/codex/handoffs/FINAL_PR_11_THOR_STYLE_PROVIDER_CRITIC_HANDOFF.md",
-      "docs/codex/handoffs/FINAL_PR_11_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
-      "docs/codex/audits/FINAL_PR_11_PROVIDER_CRITIC_THOR_AUDIT.md",
-      "docs/codex/audits/FINAL_PR_11_SENIOR_REVIEW.md",
-      "docs/codex/audits/FINAL_PR_11_CODE_REVIEW.md",
-      "docs/codex/audits/FINAL_PR_11_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
-      "docs/codex/reports/FINAL_PR_11_PROVIDER_CRITIC_THOR_RETURN_REPORT.md"
-    ],
-    "tests": [
-      "tests/test_final_pr_11_provider_critic_thor.py"
-    ],
-    "tools": [
-      "tools/rebaseline/check_final_pr_11_provider_critic_thor.py"
-    ],
-    "cli_commands": [
-      "validate-local-provider-receipt-harness",
-      "local-provider-doctor",
-      "run-local-provider-receipt",
-      "explain-provider-receipt-claims",
-      "validate-critic-runtime-binding",
-      "run-critic-cascade",
-      "explain-critic-cascade",
-      "validate-route-evaluation-receipts",
-      "run-route-evaluation",
-      "explain-route-evaluation-claims",
-      "validate-thor-handoff-compiler",
-      "compile-thor-handoff",
-      "explain-thor-handoff-compiler",
-      "validate-final-pr-11-provider-critic-thor"
-    ],
-    "hub_endpoints": [
-      "/provider-receipts/status.json",
-      "/provider-receipts/demo.json",
-      "/provider-receipts/claims.json",
-      "/critic-runtime/status.json",
-      "/critic-runtime/demo.json",
-      "/route-evaluation/status.json",
-      "/route-evaluation/demo.json",
-      "/thor-handoff-compiler/status.json",
-      "/thor-handoff-compiler/demo.json",
-      "/release/sequence-transition.json",
-      "/release/preflight-after-pr11.json"
-    ],
-    "depends_on": [
-      "final_pr_10_boundary_release"
-    ],
-    "not_proven": [
-      "production_readiness",
-      "live_model_inference",
-      "app_state_mutation",
-      "external_send_authority",
-      "security_certification",
-      "release_certification",
-      "real_model_benchmark",
-      "model_quality_superiority"
-    ]
-  },
-  "final_pr_11_5_semantic_kernel_coverage": {
-    "pr_id": "FINAL-PR-11.5",
-    "description": "Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern Operationalization",
-    "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_compiler_not_release_closure",
-    "candidate_only": true,
-    "final_pr_13_remains_deferred": true,
-    "modules": [
-      "odin/v711_coverage_compiler/",
-      "odin/semantic_kernel_closure/",
-      "odin/y_pattern_operationalization_index/",
-      "odin/claims_compiler/",
-      "odin/agent_operator_modes/"
-    ],
-    "not_proven": [
-      "production_readiness",
-      "live_model_inference",
-      "app_state_mutation",
-      "external_send_authority"
-    ]
-  },
-  "final_pr_12_release_readiness_hardening": {
-    "pr_id": "FINAL-PR-12",
-    "candidate_only": true,
-    "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
-    "final_pr_13_remains_deferred": true,
-    "description": "Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep",
-    "modules": [
-      "odin/release_readiness_hardening/",
-      "odin/evidence_closure_dry_run/",
-      "odin/packaging_boundary_prep/",
-      "odin/command_surface_closure/",
-      "odin/docs_readiness/",
-      "odin/final_pr_13_input_bundle/"
-    ],
-    "registries": [
-      "registries/final_pr_12_release_readiness_registry.json",
-      "registries/final_pr_12_evidence_closure_dry_run_registry.json",
-      "registries/final_pr_12_packaging_boundary_registry.json",
-      "registries/final_pr_12_command_surface_registry.json",
-      "registries/final_pr_12_docs_readiness_registry.json",
-      "registries/final_pr_12_final_pr_13_input_bundle_registry.json"
-    ],
-    "schemas": [
-      "schemas/final_pr_12_release_readiness_matrix.schema.json",
-      "schemas/final_pr_12_evidence_closure_dry_run.schema.json",
-      "schemas/final_pr_12_packaging_boundary.schema.json",
-      "schemas/final_pr_12_final_pr_13_input_bundle.schema.json"
-    ],
-    "examples": [
-      "examples/final_pr_12/"
-    ],
-    "reports": [
-      "reports/final_pr_12_release_readiness_matrix.json",
-      "reports/final_pr_12_release_risk_register.json",
-      "reports/final_pr_12_evidence_closure_dry_run.json",
-      "reports/final_pr_12_packaging_boundary_inventory.json",
-      "reports/final_pr_12_command_surface_index.json",
-      "reports/final_pr_12_docs_readiness_index.json",
-      "reports/final_pr_12_final_pr_13_input_bundle.json",
-      "reports/final_pr_12_release_sequence_after_pr12.json",
-      "reports/final_pr_12_release_readiness_proof_packet.json"
-    ],
-    "tests": [
-      "tests/test_final_pr_12_release_readiness_hardening.py"
-    ],
-    "validator": "tools/rebaseline/check_final_pr_12_release_readiness_hardening.py",
-    "docs": [
-      "docs/rebaseline/FINAL_PR_12_RELEASE_READINESS_HARDENING.md",
-      "docs/release/FINAL_PR_12_RELEASE_READINESS_MATRIX.md",
-      "docs/release/FINAL_PR_12_EVIDENCE_CLOSURE_DRY_RUN.md",
-      "docs/release/FINAL_PR_12_PACKAGING_BOUNDARY_PREP.md",
-      "docs/release/FINAL_PR_12_COMMAND_SURFACE_CLOSURE.md",
-      "docs/release/FINAL_PR_12_DOCS_READINESS.md",
-      "docs/release/FINAL_PR_12_FINAL_PR_13_INPUT_BUNDLE.md",
-      "docs/release/FINAL_PR_12_RELEASE_SEQUENCE_AFTER_PR12.md"
-    ],
-    "handoffs": [
-      "docs/codex/handoffs/FINAL_PR_12_REPO_COGNITION_SUMMARY.md",
-      "docs/codex/handoffs/FINAL_PR_12_THOR_STYLE_RELEASE_READINESS_HANDOFF.md",
-      "docs/codex/handoffs/FINAL_PR_12_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
-    ],
-    "audits": [
-      "docs/codex/audits/FINAL_PR_12_RELEASE_READINESS_AUDIT.md",
-      "docs/codex/audits/FINAL_PR_12_SENIOR_REVIEW.md",
-      "docs/codex/audits/FINAL_PR_12_CODE_REVIEW.md",
-      "docs/codex/audits/FINAL_PR_12_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
-      "docs/codex/reports/FINAL_PR_12_RELEASE_READINESS_RETURN_REPORT.md"
-    ],
-    "cli_commands": [
-      "validate-release-readiness-hardening",
-      "build-release-readiness-matrix",
-      "build-release-risk-register",
-      "explain-release-readiness-hardening",
-      "validate-evidence-closure-dry-run",
-      "run-evidence-closure-dry-run",
-      "explain-evidence-closure-dry-run",
-      "validate-packaging-boundary-prep",
-      "build-packaging-boundary",
-      "explain-packaging-boundary",
-      "validate-command-surface-closure",
-      "build-command-surface-index",
-      "explain-command-surface",
-      "validate-docs-readiness",
-      "build-docs-readiness-index",
-      "explain-docs-readiness",
-      "validate-final-pr-13-input-bundle",
-      "build-final-pr-13-input-bundle",
-      "explain-final-pr-13-input-bundle",
-      "validate-final-pr-12-release-readiness-hardening"
-    ],
-    "local_hub_endpoints": [
-      "/release-readiness/status.json",
-      "/release-readiness/matrix.json",
-      "/release-readiness/risk-register.json",
-      "/evidence-closure/dry-run.json",
-      "/packaging-boundary/inventory.json",
-      "/command-surface/index.json",
-      "/docs-readiness/index.json",
-      "/final-pr-13/input-bundle.json",
-      "/release/sequence-after-pr12.json"
-    ],
-    "depends_on": [
-      "FINAL-PR-11.5",
-      "FINAL-PR-11",
-      "FINAL-PR-10",
-      "FINAL-PR-09"
-    ],
-    "not_proven": [
-      "production_readiness",
-      "security_certification",
-      "release_certification",
-      "live_model_inference",
-      "app_state_mutation",
-      "external_send_authority"
-    ]
   }
 }

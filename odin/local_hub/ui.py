@@ -95,6 +95,13 @@ REQUIRED_IDS = [
     "command-surface-closure-section",
     "docs-readiness-section",
     "final-pr-13-input-bundle-section",
+    # FINAL-PR-13: v1.0 Candidate Release Closure + Root Public Surface Cleanup
+    "v1-release-closure-section",
+    "root-public-surface-section",
+    "readme-v1-section",
+    "donation-surface-section",
+    "release-artifact-boundary-section",
+    "final-pr-13-closure-section",
 ]
 
 REQUIRED_COPY = [
@@ -621,9 +628,51 @@ def generate_hub_html() -> str:
 
 <div id="final-pr-13-input-bundle-section" class="section">
   <div class="label">FINAL-PR-13 Input Bundle (FINAL-PR-12)</div>
-  <span class="chip pending">Deferred — PR13 input ready</span>
-  <p>Structured input bundle for FINAL-PR-13 Release Closure. FINAL-PR-13 remains deferred. This is PR13 input only.</p>
-  <p class="note">Dev Mode: GET /final-pr-13/input-bundle.json. candidate_only: true. final_pr_13_remains_deferred: true. does_not_implement_pr13: true.</p>
+  <span class="chip pending">Input ready</span>
+  <p>Structured input bundle for FINAL-PR-13 Release Closure.</p>
+  <p class="note">Dev Mode: GET /final-pr-13/input-bundle.json. candidate_only: true.</p>
+</div>
+
+<div id="v1-release-closure-section" class="section">
+  <div class="label">v1.0 Candidate Release Closure (FINAL-PR-13)</div>
+  <span class="chip ok">Closed — local candidate only</span>
+  <p>Local v1.0 candidate release closure. Not externally released. No tag, GitHub Release, PyPI publication, or release assets claimed.</p>
+  <p class="note">Dev Mode: GET /v1-release-closure/status.json. candidate_only: true. external_release_claimed: false.</p>
+</div>
+
+<div id="root-public-surface-section" class="section">
+  <div class="label">Root Public Surface (FINAL-PR-13)</div>
+  <span class="chip ok">Inventoried</span>
+  <p>Root public surface curated and documented. History preserved. README v1.0 and DONATIONS.md present.</p>
+  <p class="note">Dev Mode: GET /root-public-surface/inventory.json. candidate_only: true.</p>
+</div>
+
+<div id="readme-v1-section" class="section">
+  <div class="label">README v1.0 Public Surface (FINAL-PR-13)</div>
+  <span class="chip ok">Written</span>
+  <p>Root README rewritten as v1.0 public surface. Includes exact Thor-Agent-Kit Danke / Thank You block. Links DONATIONS.md.</p>
+  <p class="note">Dev Mode: GET /readme-v1/plan.json. candidate_only: true.</p>
+</div>
+
+<div id="donation-surface-section" class="section">
+  <div class="label">Donation Surface (FINAL-PR-13)</div>
+  <span class="chip ok">Created</span>
+  <p>Root DONATIONS.md created, adapted from Thor-Agent-Kit source. Donations are optional. No entitlement.</p>
+  <p class="note">Dev Mode: GET /donation-surface/plan.json. candidate_only: true.</p>
+</div>
+
+<div id="release-artifact-boundary-section" class="section">
+  <div class="label">Release Artifact Boundary (FINAL-PR-13)</div>
+  <span class="chip ok">Defined</span>
+  <p>All external release actions (tag, GitHub Release, PyPI, assets) are manual maintainer actions. None claimed by FINAL-PR-13.</p>
+  <p class="note">Dev Mode: GET /release-artifact-boundary/index.json. candidate_only: true. external_release_claimed: false.</p>
+</div>
+
+<div id="final-pr-13-closure-section" class="section">
+  <div class="label">FINAL-PR-13 Closure (v1.0 Candidate Release)</div>
+  <span class="chip ok">Closed</span>
+  <p>FINAL-PR-13 closes local v1.0 candidate release preparation. Not an external release. No production readiness, security certification, or model benchmark claimed.</p>
+  <p class="note">claim_boundary: final_pr_13_v1_candidate_release_closure_not_external_release. candidate_only: true. external_release_claimed: false.</p>
 </div>
 
 </body>

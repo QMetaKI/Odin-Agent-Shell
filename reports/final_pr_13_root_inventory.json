@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_final_pr_13_root_inventory",
+  "candidate_only": true,
+  "claim_boundary": "root_public_surface_cleanup_curates_root_without_deleting_history",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "expected_root_items": [
+    "README.md", "START_HERE.md", "CANON_ENTRY.md", "AGENTS.md",
+    "LICENSE", "DONATIONS.md", "pyproject.toml", "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json", "docs", "odin", "tests", "tools",
+    "examples", "reports", "registries", "schemas", ".github"
+  ],
+  "present": [
+    "README.md", "START_HERE.md", "CANON_ENTRY.md", "AGENTS.md",
+    "LICENSE", "DONATIONS.md", "pyproject.toml", "SYSTEM_MAP.json",
+    "FILE_MANIFEST.json", "docs", "odin", "tests", "tools",
+    "examples", "reports", "registries", "schemas", ".github"
+  ],
+  "missing": [],
+  "readme_present": true,
+  "donations_present": true,
+  "history_preserved": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

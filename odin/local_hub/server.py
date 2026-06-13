@@ -482,6 +482,58 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                 "not_proven": ["production_readiness", "release_certification"],
             }, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
+        # FINAL-PR-13: v1.0 Candidate Release Closure + Root Public Surface Cleanup
+        elif self.path == "/v1-release-closure/status.json":
+            from odin.v1_release_closure.reports import build_v1_release_closure_report
+            body = json.dumps(build_v1_release_closure_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/v1-release-closure/matrix.json":
+            from odin.v1_release_closure.closure_matrix import build_v1_release_closure_matrix
+            body = json.dumps(build_v1_release_closure_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/v1-release-closure/truth.json":
+            from odin.v1_release_closure.release_truth import build_v1_release_truth
+            body = json.dumps(build_v1_release_truth(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/root-public-surface/inventory.json":
+            from odin.root_public_surface.root_inventory import build_root_inventory
+            body = json.dumps(build_root_inventory(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/root-public-surface/hygiene.json":
+            from odin.root_public_surface.root_hygiene import build_root_hygiene_report
+            body = json.dumps(build_root_hygiene_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/readme-v1/plan.json":
+            from odin.readme_v1.readme_plan import build_readme_v1_plan
+            body = json.dumps(build_readme_v1_plan(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/donation-surface/plan.json":
+            from odin.donation_surface.donations_plan import build_donations_plan
+            body = json.dumps(build_donations_plan(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release-artifact-boundary/index.json":
+            from odin.release_artifact_boundary.artifact_boundary import build_release_artifact_boundary
+            body = json.dumps(build_release_artifact_boundary(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/sequence-after-pr13.json":
+            body = json.dumps({
+                "artifact_kind": "odin_final_pr_13_release_sequence_after_pr13",
+                "candidate_only": True,
+                "claim_boundary": "final_pr_13_v1_candidate_release_closure_not_external_release",
+                "current_pr": "FINAL-PR-13",
+                "local_candidate_release_closed": True,
+                "external_release_claimed": False,
+                "evidence_class": "candidate_only",
+                "external_release_sequence_if_wanted_later": [
+                    "maintainer creates git tag manually",
+                    "maintainer creates GitHub Release manually",
+                    "maintainer publishes to PyPI manually",
+                    "maintainer uploads release assets manually",
+                    "maintainer verifies external release state manually",
+                ],
+                "not_proven": ["production_readiness", "tag_creation", "github_release_creation", "pypi_publication"],
+            }, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)

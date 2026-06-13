@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_final_pr_13_release_sequence_after_pr13",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_13_v1_candidate_release_closure_not_external_release",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "current_pr": "FINAL-PR-13",
+  "local_candidate_release_closed": true,
+  "external_release_claimed": false,
+  "external_release_claimed_by_pr13": false,
+  "external_release_sequence_if_wanted_later": [
+    "maintainer creates git tag manually",
+    "maintainer creates GitHub Release manually",
+    "maintainer publishes to PyPI manually",
+    "maintainer uploads release assets manually",
+    "maintainer verifies external release state manually"
+  ],
+  "evidence_class": "candidate_only",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "external_release_certification",
+    "tag_creation",
+    "github_release_creation",
+    "pypi_publication",
+    "release_asset_upload",
+    "signed_distribution"
+  ]
+}

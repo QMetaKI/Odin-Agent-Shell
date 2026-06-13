@@ -1,0 +1,17 @@
+{
+  "artifact_kind": "odin_final_pr_13_donation_surface_report",
+  "candidate_only": true,
+  "claim_boundary": "donation_surface_documents_optional_donations_without_entitlement",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "status": "ok",
+  "donations_exists": true,
+  "paypal_present": true,
+  "odin_reference_present": true,
+  "optional_framing_present": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

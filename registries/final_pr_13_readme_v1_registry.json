@@ -1,0 +1,29 @@
+{
+  "registry_id": "final_pr_13_readme_v1_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "readme_v1_public_surface_documents_candidate_release_without_overclaiming",
+  "description": "Registry of README v1 artifacts for FINAL-PR-13.",
+  "modules": [
+    "odin/readme_v1/readme_plan.py",
+    "odin/readme_v1/thanks_block_source.py",
+    "odin/readme_v1/reports.py"
+  ],
+  "root_files": [
+    "README.md"
+  ],
+  "examples": [
+    "examples/final_pr_13/readme_v1_plan.example.json"
+  ],
+  "reports": [
+    "reports/final_pr_13_readme_v1_report.json"
+  ],
+  "thor_thanks_block_imported": true,
+  "thor_source": "QMetaKI/Thor-Agent-Kit README.md",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

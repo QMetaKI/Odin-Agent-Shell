@@ -1,0 +1,37 @@
+{
+  "artifact_kind": "odin_final_pr_13_v1_release_closure_matrix",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "v1_release_closure_closes_local_candidate_release_not_external_release",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "local_candidate_release_closed": true,
+  "external_release_claimed": false,
+  "tag_creation_claimed": false,
+  "github_release_claimed": false,
+  "pypi_publication_claimed": false,
+  "release_asset_upload_claimed": false,
+  "signed_distribution_claimed": false,
+  "production_readiness_claimed": false,
+  "security_certification_claimed": false,
+  "model_superiority_claimed": false,
+  "matrix": [
+    {"item": "README v1 public surface", "status": "closed_structural"},
+    {"item": "DONATIONS root file", "status": "closed_structural"},
+    {"item": "manual release action boundary", "status": "manual_external_action_required"},
+    {"item": "external release state boundary", "status": "external_receipt_required"},
+    {"item": "production readiness boundary", "status": "not_claimed"}
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "external_release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "tag_creation",
+    "github_release_creation",
+    "pypi_publication",
+    "release_asset_upload",
+    "signed_distribution"
+  ]
+}
