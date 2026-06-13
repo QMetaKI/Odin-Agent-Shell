@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1858,
+  "file_count_excluding_manifest": 1867,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "f71afac0b3c23ec038c18fc29b2ed73b8c62bf717f8320f9eb878e8bbcb25954",
-      "size": 106209
+      "sha256": "1ade2cb789134eef7d0863aba7e9dbfc669a46d6c9ffb2b4e8001f4e01d086ee",
+      "size": 108125
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1999,6 +1999,11 @@
       "size": 9005
     },
     {
+      "path": "docs/codex/handoffs/PREP_FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_WORK_PACKET.md",
+      "sha256": "3937647932af68329f463f747f43968ce136d502b63f111d3287aa4cd71c302a",
+      "size": 7815
+    },
+    {
       "path": "docs/codex/handoffs/PR_28_B2_ODIN_CLAUDE_WORK_PACKET.md",
       "sha256": "c6c62c72f853e2388f7ee6b7a79d4fbc422448e6662d4d1b21d81a9f66f3da22",
       "size": 2015
@@ -2129,9 +2134,19 @@
       "size": 12327
     },
     {
+      "path": "docs/codex/prompts/FINAL_PR_09_PLUSPLUS_SMALL_MODEL_OPERATIONAL_SPINE_CLAUDE_CODE_PROMPT.md",
+      "sha256": "665bc244307fe92ec007c01b17f5d67b9f6f5aaf33c7b113d80bcdfec056058b",
+      "size": 9773
+    },
+    {
       "path": "docs/codex/prompts/FINAL_PR_09_RELEASE_CLOSURE.md",
       "sha256": "498238b8a95aea46804caf24172783a4e5c20ade7ccdae6c7fc863a5d52c69a8",
       "size": 8970
+    },
+    {
+      "path": "docs/codex/prompts/FINAL_PR_10_PLUSPLUS_QSHABANG_BOUNDARY_RELEASE_CLAUDE_CODE_PROMPT.md",
+      "sha256": "28bc2cce650f6a9b46d763358244585f27e7b31e12cb67a85845819ba64297d4",
+      "size": 6763
     },
     {
       "path": "docs/codex/prompts/REAL-GH-PR-01_CODEX_PROMPT.md",
@@ -3212,6 +3227,11 @@
       "path": "docs/rebaseline/prompts/LRH-PR-06_BROWSER_ODIN_HUB_SHELL.md",
       "sha256": "48cab8de88ac2ecd90874d6cf20b7d4d721853858308a9e63d82bd4166d6f546",
       "size": 2462
+    },
+    {
+      "path": "docs/release/FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_ACCEPTANCE_MATRIX.md",
+      "sha256": "6205018ed2a3e7fbbe9bffcb213cc38e0896ace6451082aa99c946dcb9c5c109",
+      "size": 29783
     },
     {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
@@ -4520,8 +4540,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "7cf7443677d9608b69d6145b6be7f071cbcce7a9f6c111fb6cf6532a40633987",
-      "size": 204006
+      "sha256": "715aeb0e0d290847ac97f7bc98fa03a5e24d65b204e0f3eb7be74705826f963b",
+      "size": 205664
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -6234,6 +6254,11 @@
       "size": 1857
     },
     {
+      "path": "registries/final_pr_09_10_plusplus_qshabang_smallmodel_prep_registry.json",
+      "sha256": "95af25881b6d42a094de93d8bda5f9050266bdb7640b763353d61293a37bc6f9",
+      "size": 4733
+    },
+    {
       "path": "registries/final_q_shabang_capability_matrix_v1.json",
       "sha256": "b4b5f820f0f6d04ac4005296e462c39bf567aabecaeecbccb370f1b8db726970",
       "size": 33170
@@ -7192,6 +7217,16 @@
       "path": "reports/final_pr_08_projection_candidate_spine_report.json",
       "sha256": "1a5014e7131ec3063f99de8a6f53971ec6b7624bf94410c9c07e43a356494fc2",
       "size": 1998
+    },
+    {
+      "path": "reports/final_pr_09_10_plusplus_qshabang_smallmodel_acceptance_matrix.json",
+      "sha256": "448a30f67fe96b3e60da04043e9816ea74edcfd2d0976e6df380dc4f6e8bbcb5",
+      "size": 42533
+    },
+    {
+      "path": "reports/final_pr_09_10_plusplus_qshabang_smallmodel_prep_report.json",
+      "sha256": "6fab9dafd793f1787bc8b75f883c21f536642ffa95fba691c450fb9469a7e874",
+      "size": 5579
     },
     {
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
@@ -8784,6 +8819,11 @@
       "size": 22478
     },
     {
+      "path": "tests/test_final_pr_09_10_qshabang_smallmodel_prep.py",
+      "sha256": "a0ce6f0e16668b327b5d8e269b5f230d6e5ef2541802a16f20b2b16b0431a691",
+      "size": 4566
+    },
+    {
       "path": "tests/test_final_road_to_100_rebaseline_audit.py",
       "sha256": "727fd33f3702757e25dbe6b164be37374b04892697157b2b3b2778bc46188f3e",
       "size": 26679
@@ -9105,8 +9145,8 @@
     },
     {
       "path": "tools/audit/run_pre_release_super_audit.py",
-      "sha256": "e5b8b98c88bc9a4a257c3be3a46a18ae168ebf161aa92baffc05615bcf01fd6b",
-      "size": 88803
+      "sha256": "3baa66e8cbf1625a2d21ae49c110949b27f2a6fd08ea99f85c89f6963899e67d",
+      "size": 88867
     },
     {
       "path": "tools/dev/thor_cli_probe.py",
@@ -9147,6 +9187,11 @@
       "path": "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py",
       "sha256": "0ac1c72522e3f56eba3929947a421cdf4e30d63901821ec674d4e97ca02c1366",
       "size": 13068
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_09_10_qshabang_smallmodel_prep.py",
+      "sha256": "8d1333cb67d5dcbd7e35cf1d7de2ee9517f5f898afba1760823a376b9a324602",
+      "size": 7462
     },
     {
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",

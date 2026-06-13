@@ -1,0 +1,144 @@
+{
+  "acceptance_matrix_files": [
+    "docs/release/FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_ACCEPTANCE_MATRIX.md",
+    "reports/final_pr_09_10_plusplus_qshabang_smallmodel_acceptance_matrix.json"
+  ],
+  "candidate_only": true,
+  "claim_boundary": "prep_registry_guides_future_prs_not_runtime_proof",
+  "deferred_systems": {
+    "Anti-Generic Engine": "future_pr_required",
+    "Artifact Lenses": "minimal_runtime_hook_in_pr09",
+    "Candidate Tournament": "future_pr_required",
+    "Context Distillery": "minimal_runtime_hook_in_pr09",
+    "Critic Cascade": "minimal_runtime_hook_in_pr09",
+    "Gaptext Compiler": "minimal_runtime_hook_in_pr09",
+    "Minicheck": "future_pr_required",
+    "Model Dojo": "external_receipt_required",
+    "SDK/App Bridge receipts": "schema_and_packet_only_in_pr09",
+    "Scoreboard": "external_receipt_required",
+    "Semantic Cache": "schema_and_packet_only_in_pr09",
+    "Slot Forge": "minimal_runtime_hook_in_pr09",
+    "Style Stabilizer": "future_pr_required",
+    "Taste Dials": "future_pr_required",
+    "Work Memory": "schema_and_packet_only_in_pr09"
+  },
+  "expected_future_files": [
+    "odin/operational_spine/orchestrator.py",
+    "odin/operational_spine/status.py",
+    "odin/operational_spine/model_roles.py",
+    "odin/operational_spine/modelworkpacket_builder.py",
+    "odin/operational_spine/small_model_route_plan.py",
+    "odin/operational_spine/qshabang_runtime_map.py",
+    "odin/operational_spine/receipts.py",
+    "odin/operational_spine/reports.py",
+    "docs/release/FINAL_PR_10_BOUNDARY_MATRIX.md",
+    "registries/final_pr_10_boundary_matrix_registry.json",
+    "reports/final_pr_10_release_preflight_report.json"
+  ],
+  "non_scope": [
+    "full model execution",
+    "remote provider implementation",
+    "app-owned apply execution",
+    "app state mutation",
+    "external send",
+    "public QIRC by default",
+    "production-release claim",
+    "security certification claim",
+    "real model benchmark claim",
+    "live local model inference claim without future host receipts"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "live_model_inference",
+    "host_validation",
+    "release_certification"
+  ],
+  "prep_id": "prep-final-pr-09-10-qshabang-smallmodel-claude-ready",
+  "prompt_files": [
+    "docs/codex/prompts/FINAL_PR_09_PLUSPLUS_SMALL_MODEL_OPERATIONAL_SPINE_CLAUDE_CODE_PROMPT.md",
+    "docs/codex/prompts/FINAL_PR_10_PLUSPLUS_QSHABANG_BOUNDARY_RELEASE_CLAUDE_CODE_PROMPT.md"
+  ],
+  "qshabang_components": [
+    "deterministic precompute",
+    "claim/evidence/reality gates",
+    "critic cascade",
+    "coherence/fit scoring",
+    "seed continuity",
+    "flow packs",
+    "QIRC coordination",
+    "app-owned apply",
+    "candidate artifact",
+    "response packet",
+    "route director",
+    "authority drift scanners"
+  ],
+  "registry_id": "final_pr_09_10_plusplus_qshabang_smallmodel_prep_registry",
+  "release_sequence": [
+    "FINAL-PR-09++ operational spine",
+    "FINAL-PR-10++ boundary/release gates",
+    "FINAL-PR-11 release closure"
+  ],
+  "required_anchors": [
+    "candidate-only",
+    "app-owned apply",
+    "no external send",
+    "no hidden authority",
+    "no live model inference claim",
+    "local provider seam disabled by default",
+    "operational spine",
+    "small-model route plan",
+    "3B",
+    "7B",
+    "hybrid",
+    "ModelWorkPacket",
+    "Q-Shabang operational map",
+    "deferred system lift",
+    "boundary matrix",
+    "model role authority",
+    "release preflight",
+    "FINAL-PR-11"
+  ],
+  "small_model_roles": {
+    "3B": [
+      "scout",
+      "extractor",
+      "classifier",
+      "router",
+      "slot_filler",
+      "quick_critic",
+      "style_check",
+      "refusal_boundary_check"
+    ],
+    "7B/8B": [
+      "writer",
+      "synthesizer",
+      "planner",
+      "repo_reasoner",
+      "candidate_composer",
+      "refiner",
+      "complex_critic"
+    ],
+    "hybrid": [
+      "3B scout -> 7B synthesize -> 3B check",
+      "3B extract -> 7B compose -> 3B boundary critic",
+      "7B draft -> 3B slot compliance check -> 7B final refinement",
+      "no-model precompute -> 3B route -> 7B candidate -> final gate"
+    ]
+  },
+  "target_prs": [
+    "FINAL-PR-09++",
+    "FINAL-PR-10++",
+    "FINAL-PR-11 release closure after both"
+  ],
+  "validation_commands": [
+    "python -m odin.cli validate-final-pr-09-10-qshabang-smallmodel-prep",
+    "python -m odin.cli validate-all",
+    "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_final_pr_09_10_qshabang_smallmodel_prep.py -p no:cacheprovider"
+  ],
+  "version": "1.0.0",
+  "work_packet_files": [
+    "docs/codex/handoffs/PREP_FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_WORK_PACKET.md"
+  ]
+}

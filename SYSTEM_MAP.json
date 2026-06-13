@@ -1581,6 +1581,64 @@
     "tests": "tests/test_prep_final_pr_06_08.py",
     "validator": "tools/rebaseline/check_prep_final_pr_06_08.py"
   },
+  "prep_final_pr_09_10_qshabang_smallmodel": {
+    "anchors": [
+      "candidate-only",
+      "app-owned apply",
+      "no external send",
+      "no hidden authority",
+      "no live model inference claim",
+      "local provider seam disabled by default",
+      "operational spine",
+      "small-model route plan",
+      "3B",
+      "7B",
+      "hybrid",
+      "ModelWorkPacket",
+      "Q-Shabang operational map",
+      "deferred system lift",
+      "boundary matrix",
+      "model role authority",
+      "release preflight",
+      "FINAL-PR-11"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "prep_package_guides_final_pr_09_10_not_runtime_proof",
+    "handoffs": [
+      "docs/codex/handoffs/PREP_FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_WORK_PACKET.md"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "security_certification",
+      "real_model_benchmark",
+      "live_model_inference",
+      "release_certification"
+    ],
+    "prompts": [
+      "docs/codex/prompts/FINAL_PR_09_PLUSPLUS_SMALL_MODEL_OPERATIONAL_SPINE_CLAUDE_CODE_PROMPT.md",
+      "docs/codex/prompts/FINAL_PR_10_PLUSPLUS_QSHABANG_BOUNDARY_RELEASE_CLAUDE_CODE_PROMPT.md"
+    ],
+    "registries": [
+      "registries/final_pr_09_10_plusplus_qshabang_smallmodel_prep_registry.json"
+    ],
+    "release_docs": [
+      "docs/release/FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_ACCEPTANCE_MATRIX.md"
+    ],
+    "reports": [
+      "reports/final_pr_09_10_plusplus_qshabang_smallmodel_acceptance_matrix.json",
+      "reports/final_pr_09_10_plusplus_qshabang_smallmodel_prep_report.json"
+    ],
+    "status": "prep_package_added_not_runtime_implementation",
+    "target_prs": [
+      "FINAL-PR-09++",
+      "FINAL-PR-10++",
+      "FINAL-PR-11"
+    ],
+    "tests": [
+      "tests/test_final_pr_09_10_qshabang_smallmodel_prep.py"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_09_10_qshabang_smallmodel_prep.py"
+  },
   "provider_runtime_evaluation_policy_example": "examples/v7_1_1/provider_runtime_evaluation_policy.example.json",
   "provider_runtime_receipt_guard_example": "examples/v7_1_1/provider_runtime_receipt_guard.example.json",
   "python_package": "odin",

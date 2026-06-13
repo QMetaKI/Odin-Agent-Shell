@@ -22,6 +22,8 @@ from http.server import HTTPServer
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 CLAIM_BOUNDARY = "pre_release_super_audit_reports_repo_reality_not_release_certification"
 AUDIT_ID = "pre_release_super_audit"
 GEN_TS = "2026-06-13T00:00:00Z"
