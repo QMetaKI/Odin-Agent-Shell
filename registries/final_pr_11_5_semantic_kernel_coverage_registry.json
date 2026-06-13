@@ -1,0 +1,41 @@
+{
+  "registry_id": "final_pr_11_5_semantic_kernel_coverage_registry",
+  "artifact_kind": "odin_registry",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_compiler_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "pr_id": "FINAL-PR-11.5",
+  "modules": [
+    {
+      "module_id": "v711_coverage_compiler",
+      "path": "odin/v711_coverage_compiler/",
+      "description": "v7.1.1 Coverage Compiler — maps v7.1.1 target canon to repo-real evidence.",
+      "status": "active"
+    },
+    {
+      "module_id": "semantic_kernel_closure",
+      "path": "odin/semantic_kernel_closure/",
+      "description": "Odin Semantic Kernel Closure — compiles Odin kernel IR and pipeline map.",
+      "status": "active"
+    },
+    {
+      "module_id": "y_pattern_operationalization_index",
+      "path": "odin/y_pattern_operationalization_index/",
+      "description": "Y Pattern Operationalization Index — maps internal patterns to neutral Odin terms.",
+      "status": "active"
+    },
+    {
+      "module_id": "claims_compiler",
+      "path": "odin/claims_compiler/",
+      "description": "Claims Compiler v0 — classifies and produces safe wording for release claims.",
+      "status": "active"
+    },
+    {
+      "module_id": "agent_operator_modes",
+      "path": "odin/agent_operator_modes/",
+      "description": "Agent Operator Mode Presets — defines bounded worker presets for Claude Code / Codex workflows.",
+      "status": "active"
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

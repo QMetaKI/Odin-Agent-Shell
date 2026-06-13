@@ -2892,6 +2892,31 @@ def validate_final_pr_11_provider_critic_thor() -> list[str]:
                 return [f"final-pr-11-provider-critic-thor validator failed: {exc}"]
     return []
 
+def validate_final_pr_11_5_semantic_kernel_coverage() -> list[str]:
+    """Validate FINAL-PR-11.5 Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_11_5_semantic_kernel_coverage.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-11.5 validator: tools/rebaseline/check_final_pr_11_5_semantic_kernel_coverage.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_11_5_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-11.5 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_11_5_semantic_kernel_coverage_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-11-5-semantic-kernel-coverage: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-11-5-semantic-kernel-coverage validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2960,6 +2985,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_operational_spine())
     errors.extend(validate_final_pr_10_boundary_release())
     errors.extend(validate_final_pr_11_provider_critic_thor())
+    errors.extend(validate_final_pr_11_5_semantic_kernel_coverage())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3208,6 +3234,33 @@ def main(argv: list[str] | None = None) -> int:
     compile_thor_p.add_argument("--demo", action="store_true", default=False)
     sub.add_parser("explain-thor-handoff-compiler")
     sub.add_parser("validate-final-pr-11-provider-critic-thor")
+    # FINAL-PR-11.5: Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern
+    sub.add_parser("validate-v711-coverage-compiler")
+    sub.add_parser("validate-semantic-kernel-closure")
+    sub.add_parser("validate-y-pattern-operationalization-index")
+    sub.add_parser("validate-claims-compiler")
+    sub.add_parser("validate-agent-operator-modes")
+    sub.add_parser("validate-final-pr-11-5-semantic-kernel-coverage")
+    sub.add_parser("explain-v711-coverage")
+    sub.add_parser("explain-semantic-kernel-closure")
+    sub.add_parser("explain-claims-compiler")
+    sub.add_parser("explain-agent-operator-modes")
+    build_v711_matrix_p = sub.add_parser("build-v711-coverage-matrix")
+    build_v711_matrix_p.add_argument("--demo", action="store_true", default=False)
+    build_v711_gap_p = sub.add_parser("build-v711-gap-index")
+    build_v711_gap_p.add_argument("--demo", action="store_true", default=False)
+    build_sk_p = sub.add_parser("build-semantic-kernel")
+    build_sk_p.add_argument("--demo", action="store_true", default=False)
+    build_ypoi_p = sub.add_parser("build-y-pattern-operationalization-index")
+    build_ypoi_p.add_argument("--demo", action="store_true", default=False)
+    compile_claim_p = sub.add_parser("compile-safe-claim")
+    compile_claim_p.add_argument("--demo", action="store_true", default=False)
+    compile_claim_p.add_argument("--claim", default=None)
+    sub.add_parser("explain-y-pattern-operationalization")
+    sub.add_parser("explain-claims-policy")
+    sub.add_parser("list-agent-operator-modes")
+    explain_mode_p = sub.add_parser("explain-agent-operator-mode")
+    explain_mode_p.add_argument("--mode", default="claude_code_implementation_worker")
     args = parser.parse_args(argv)
 
 
@@ -4475,6 +4528,156 @@ def main(argv: list[str] | None = None) -> int:
         print("validate-final-pr-11-provider-critic-thor: OK")
         return 0
 
+    # FINAL-PR-11.5: Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern
+    if args.cmd == "validate-v711-coverage-compiler":
+        from odin.v711_coverage_compiler.reports import build_v711_coverage_report
+        result = build_v711_coverage_report()
+        if not result.get("candidate_only"):
+            print("ERROR: v711 coverage compiler: candidate_only must be true")
+            return 1
+        print("validate-v711-coverage-compiler: OK")
+        return 0
+
+    if args.cmd == "validate-semantic-kernel-closure":
+        from odin.semantic_kernel_closure.reports import build_semantic_kernel_closure_report
+        result = build_semantic_kernel_closure_report()
+        if not result.get("candidate_only"):
+            print("ERROR: semantic kernel closure: candidate_only must be true")
+            return 1
+        print("validate-semantic-kernel-closure: OK")
+        return 0
+
+    if args.cmd == "validate-y-pattern-operationalization-index":
+        from odin.y_pattern_operationalization_index.index_builder import build_y_pattern_operationalization_index
+        result = build_y_pattern_operationalization_index()
+        if not result.get("candidate_only"):
+            print("ERROR: y pattern index: candidate_only must be true")
+            return 1
+        if result.get("mapping_count", 0) < 14:
+            print("ERROR: y pattern index: mapping_count must be >= 14")
+            return 1
+        print("validate-y-pattern-operationalization-index: OK")
+        return 0
+
+    if args.cmd == "validate-claims-compiler":
+        from odin.claims_compiler.reports import build_release_claims_policy
+        result = build_release_claims_policy()
+        if not result.get("candidate_only"):
+            print("ERROR: claims compiler: candidate_only must be true")
+            return 1
+        print("validate-claims-compiler: OK")
+        return 0
+
+    if args.cmd == "validate-agent-operator-modes":
+        from odin.agent_operator_modes.reports import build_agent_operator_mode_matrix
+        result = build_agent_operator_mode_matrix()
+        if not result.get("candidate_only"):
+            print("ERROR: agent operator modes: candidate_only must be true")
+            return 1
+        if result.get("agent_autonomy") is not False:
+            print("ERROR: agent operator modes: agent_autonomy must be false")
+            return 1
+        print("validate-agent-operator-modes: OK")
+        return 0
+
+    if args.cmd == "build-v711-coverage-matrix":
+        from odin.v711_coverage_compiler.coverage_matrix import build_v711_coverage_matrix
+        result = build_v711_coverage_matrix()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-v711-gap-index":
+        from odin.v711_coverage_compiler.gap_index import build_v711_gap_index
+        result = build_v711_gap_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-semantic-kernel":
+        from odin.semantic_kernel_closure.reports import build_semantic_kernel_closure_report
+        result = build_semantic_kernel_closure_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-y-pattern-operationalization-index":
+        from odin.y_pattern_operationalization_index.index_builder import build_y_pattern_operationalization_index
+        result = build_y_pattern_operationalization_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "compile-safe-claim":
+        from odin.claims_compiler.compiler import classify_claim
+        claim_text = getattr(args, "claim", None) or "Odin v7.1.1 has structural evidence for semantic kernel coordination (candidate-only, not release certification)"
+        result = classify_claim(claim_text)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-y-pattern-operationalization":
+        from odin.y_pattern_operationalization_index.index_builder import build_y_pattern_operationalization_index
+        result = build_y_pattern_operationalization_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-claims-policy":
+        from odin.claims_compiler.reports import build_release_claims_policy
+        result = build_release_claims_policy()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "list-agent-operator-modes":
+        from odin.agent_operator_modes.modes import list_agent_operator_modes
+        result = {
+            "artifact_kind": "odin_agent_operator_modes_list",
+            "candidate_only": True,
+            "claim_boundary": "agent_operator_modes_define_bounded_worker_presets_not_agent_autonomy",
+            "modes": list_agent_operator_modes(),
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-agent-operator-mode":
+        from odin.agent_operator_modes.modes import get_agent_operator_mode
+        mode_id = getattr(args, "mode", "claude_code_implementation_worker")
+        try:
+            result = get_agent_operator_mode(mode_id)
+        except KeyError:
+            print(json.dumps({"error": f"unknown mode: {mode_id}"}, indent=2))
+            return 1
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-final-pr-11-5-semantic-kernel-coverage":
+        errors = validate_final_pr_11_5_semantic_kernel_coverage()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-11-5-semantic-kernel-coverage: OK")
+        return 0
+
+    if args.cmd == "explain-v711-coverage":
+        from odin.v711_coverage_compiler.reports import build_v711_coverage_report
+        result = build_v711_coverage_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-semantic-kernel-closure":
+        from odin.semantic_kernel_closure.reports import build_semantic_kernel_closure_report
+        result = build_semantic_kernel_closure_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-claims-compiler":
+        from odin.claims_compiler.reports import build_release_claims_policy
+        result = build_release_claims_policy()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-agent-operator-modes":
+        from odin.agent_operator_modes.reports import build_agent_operator_mode_matrix
+        result = build_agent_operator_mode_matrix()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -4581,6 +4784,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_10_boundary_release()
     elif args.cmd == "validate-final-pr-11-provider-critic-thor":
         errors = validate_final_pr_11_provider_critic_thor()
+    elif args.cmd == "validate-final-pr-11-5-semantic-kernel-coverage":
+        errors = validate_final_pr_11_5_semantic_kernel_coverage()
     else:
         errors = validate_all()
 

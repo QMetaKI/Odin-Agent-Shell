@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin_v711_coverage_matrix",
+  "title": "v7.1.1 Coverage Matrix Schema",
+  "type": "object",
+  "required": ["artifact_kind", "candidate_only", "claim_boundary", "generated_at_utc", "coverage", "not_proven"],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_v711_coverage_matrix"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target_id", "target_name", "status", "evidence_class", "not_proven"],
+        "properties": {
+          "target_id": {"type": "string"},
+          "target_name": {"type": "string"},
+          "status": {"type": "string"},
+          "evidence_class": {"type": "string"},
+          "not_proven": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  }
+}

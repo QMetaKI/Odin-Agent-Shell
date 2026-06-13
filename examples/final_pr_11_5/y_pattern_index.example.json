@@ -1,0 +1,22 @@
+{
+  "artifact_kind": "odin_y_pattern_operationalization_index",
+  "candidate_only": true,
+  "claim_boundary": "y_pattern_operationalization_index_maps_internal_patterns_to_neutral_odin_not_authority",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "mapping_count": 14,
+  "mappings": [
+    {
+      "internal_pattern": "Thor",
+      "neutral_odin_term": "advisory handoff compiler",
+      "operational_role": "Compiles agent operator work packets and handoff bundles — does not run Thor runtime",
+      "repo_artifact": "odin/thor_handoff_compiler/",
+      "status": "implemented",
+      "evidence_class": "structural_evidence",
+      "claim_boundary": "thor_advisory_handoff_compiler_not_thor_runtime",
+      "allowed_claim": "Odin's advisory handoff compiler generates deterministic work packets for agent operators.",
+      "forbidden_claim": "Odin runs Thor or grants agent autonomy.",
+      "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

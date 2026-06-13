@@ -59,6 +59,14 @@ Endpoints:
   GET /thor-handoff-compiler/demo.json — Thor handoff compiler demo (FINAL-PR-11)
   GET /release/sequence-transition.json — Release sequence transition (FINAL-PR-11)
   GET /release/preflight-after-pr11.json — Preflight after PR11 (FINAL-PR-11)
+  GET /v711-coverage/matrix.json        — v7.1.1 Coverage Matrix (FINAL-PR-11.5)
+  GET /v711-coverage/gap-index.json     — v7.1.1 Gap Index (FINAL-PR-11.5)
+  GET /semantic-kernel/closure.json     — Semantic Kernel Closure report (FINAL-PR-11.5)
+  GET /semantic-kernel/ir.json          — Semantic Kernel IR objects (FINAL-PR-11.5)
+  GET /semantic-kernel/pipeline.json    — Semantic Kernel Pipeline stages (FINAL-PR-11.5)
+  GET /y-pattern/index.json             — Y Pattern Operationalization Index (FINAL-PR-11.5)
+  GET /claims/policy.json               — Release Claims Policy (FINAL-PR-11.5)
+  GET /agent-operator-modes/matrix.json — Agent Operator Mode Matrix (FINAL-PR-11.5)
 """
 from __future__ import annotations
 
@@ -384,6 +392,39 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                     "recommended_next_pr": "FINAL-PR-12",
                     "final_pr_12_remains_deferred": True,
                 }).encode("utf-8")
+            self._respond(200, "application/json", body)
+        # FINAL-PR-11.5: Semantic Kernel Coverage Compiler + Claims Compiler + Y Pattern
+        elif self.path == "/v711-coverage/matrix.json":
+            from odin.v711_coverage_compiler.coverage_matrix import build_v711_coverage_matrix
+            body = json.dumps(build_v711_coverage_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/v711-coverage/gap-index.json":
+            from odin.v711_coverage_compiler.gap_index import build_v711_gap_index
+            body = json.dumps(build_v711_gap_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/semantic-kernel/closure.json":
+            from odin.semantic_kernel_closure.reports import build_semantic_kernel_closure_report
+            body = json.dumps(build_semantic_kernel_closure_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/semantic-kernel/ir.json":
+            from odin.semantic_kernel_closure.ir import build_odin_work_ir
+            body = json.dumps(build_odin_work_ir(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/semantic-kernel/pipeline.json":
+            from odin.semantic_kernel_closure.pipeline import build_semantic_kernel_pipeline
+            body = json.dumps(build_semantic_kernel_pipeline(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/y-pattern/index.json":
+            from odin.y_pattern_operationalization_index.index_builder import build_y_pattern_operationalization_index
+            body = json.dumps(build_y_pattern_operationalization_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/claims/policy.json":
+            from odin.claims_compiler.reports import build_release_claims_policy
+            body = json.dumps(build_release_claims_policy(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/agent-operator-modes/matrix.json":
+            from odin.agent_operator_modes.reports import build_agent_operator_mode_matrix
+            body = json.dumps(build_agent_operator_mode_matrix(), indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

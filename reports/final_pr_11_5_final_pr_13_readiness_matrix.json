@@ -1,0 +1,58 @@
+{
+  "artifact_kind": "odin_final_pr_11_5_final_pr_13_readiness_matrix",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "final_pr_13_remains_deferred": true,
+  "structural_claims_ready_for_pr13": [
+    {"claim": "v7.1.1 Coverage Compiler exists", "evidence": "odin/v711_coverage_compiler/", "evidence_class": "repo_module"},
+    {"claim": "Semantic Kernel IR with 16 IR objects", "evidence": "odin/semantic_kernel_closure/ir.py", "evidence_class": "repo_module"},
+    {"claim": "Y Pattern Operationalization Index with 14 mappings", "evidence": "odin/y_pattern_operationalization_index/", "evidence_class": "repo_module"},
+    {"claim": "Claims Compiler v0 forbids unsafe release claims", "evidence": "odin/claims_compiler/", "evidence_class": "repo_module"},
+    {"claim": "Agent Operator Mode Presets", "evidence": "odin/agent_operator_modes/", "evidence_class": "repo_module"},
+    {"claim": "PR11 Local Provider Receipt Harness", "evidence": "odin/local_provider_receipts/", "evidence_class": "host_scoped_receipt"},
+    {"claim": "PR10 Release Boundary Gates", "evidence": "odin/release_boundaries/", "evidence_class": "structural_evidence"},
+    {"claim": "PR09 Operational Spine", "evidence": "odin/operational_spine/", "evidence_class": "structural_evidence"}
+  ],
+  "host_scoped_receipts_available_for_pr13": [
+    "odin/local_provider_receipts/",
+    "odin/route_evaluation/"
+  ],
+  "external_receipts_required_for_pr13": [
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "production_deployment"
+  ],
+  "forbidden_claims_for_pr13": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "provider_execution_by_default",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "hidden_agent_authority"
+  ],
+  "remaining_gaps": [
+    "context_distillery: partial",
+    "artifact_lenses: partial",
+    "worklet_graph: partial",
+    "gaptext_compiler: partial",
+    "hybrid_director: partial",
+    "candidate_tournament: partial",
+    "candidate_dna: partial",
+    "sdk_api_app_bridge: partial"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority"
+  ]
+}

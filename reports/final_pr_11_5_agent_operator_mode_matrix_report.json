@@ -1,0 +1,276 @@
+{
+  "artifact_kind": "odin_agent_operator_mode_matrix",
+  "candidate_only": true,
+  "claim_boundary": "agent_operator_modes_define_bounded_worker_presets_not_agent_autonomy",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "mode_count": 9,
+  "modes": [
+    {
+      "mode_id": "claude_code_implementation_worker",
+      "tool_target": "Claude Code CLI",
+      "best_for": "Implementing bounded PRs from work packets \u2014 file creation, module additions, test writing",
+      "not_for": "App state apply, external sends, live model inference claims",
+      "allowed_edits": [
+        "odin/",
+        "tests/",
+        "tools/",
+        "examples/",
+        "reports/",
+        "registries/",
+        "schemas/",
+        "docs/"
+      ],
+      "forbidden_edits": [
+        "odin/operational_spine/",
+        "odin/execution_gate/",
+        "FILE_MANIFEST.json (auto-updated only)",
+        "SYSTEM_MAP.json (auto-updated only)"
+      ],
+      "expected_outputs": [
+        "New Python module files",
+        "Test files",
+        "Example JSON files",
+        "Registry and schema files",
+        "Validator tool scripts",
+        "Return report"
+      ],
+      "validator_expectations": [
+        "validate-all passes",
+        "pytest passes",
+        "validate-final-pr-11-5-semantic-kernel-coverage passes"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "claude_code_implementation_worker_candidate_only_no_app_apply",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "claude_code_runtime_integrator",
+      "tool_target": "Claude Code CLI",
+      "best_for": "Wiring new modules to CLI, local hub server/UI, validate_all()",
+      "not_for": "App state apply, external sends, creating new module logic",
+      "allowed_edits": [
+        "odin/cli.py",
+        "odin/local_hub/server.py",
+        "odin/local_hub/ui.py"
+      ],
+      "forbidden_edits": [
+        "odin/operational_spine/",
+        "odin/execution_gate/",
+        "tests/ (except adding new tests)"
+      ],
+      "expected_outputs": [
+        "CLI subparser additions",
+        "CLI dispatch handler additions",
+        "validate_all() extension",
+        "Local hub endpoint additions",
+        "UI section additions"
+      ],
+      "validator_expectations": [
+        "validate-all passes",
+        "CLI commands return 0"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "claude_code_runtime_integrator_candidate_only_no_app_apply",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "codex_repo_planner",
+      "tool_target": "OpenAI Codex (repo planning mode)",
+      "best_for": "Planning PR structure, identifying missing files, generating work packets",
+      "not_for": "Direct code edits, app state, external sends",
+      "allowed_edits": [
+        "docs/",
+        "reports/ (plan files only)"
+      ],
+      "forbidden_edits": [
+        "odin/",
+        "tests/",
+        "FILE_MANIFEST.json",
+        "SYSTEM_MAP.json"
+      ],
+      "expected_outputs": [
+        "Work packet JSON",
+        "PR plan document",
+        "Gap analysis report"
+      ],
+      "validator_expectations": [
+        "Plan reviewed by senior reviewer"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "codex_repo_planner_candidate_only_plan_only",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "codex_patch_reviewer",
+      "tool_target": "OpenAI Codex (patch review mode)",
+      "best_for": "Reviewing patches for claim boundary compliance, forbidden patterns, evidence class correctness",
+      "not_for": "Applying patches, app state, external sends",
+      "allowed_edits": [],
+      "forbidden_edits": [
+        "all files (read-only review mode)"
+      ],
+      "expected_outputs": [
+        "Review report with findings",
+        "Claim boundary compliance assessment",
+        "Forbidden pattern scan results"
+      ],
+      "validator_expectations": [
+        "Review report submitted before merge"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "codex_patch_reviewer_read_only_no_apply",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "release_boundary_reviewer",
+      "tool_target": "Claude Code CLI or Codex",
+      "best_for": "Reviewing release boundary compliance \u2014 candidate_only, app_owned_apply, not_proven lists",
+      "not_for": "Applying releases, certifying production readiness",
+      "allowed_edits": [],
+      "forbidden_edits": [
+        "all files (read-only review mode)"
+      ],
+      "expected_outputs": [
+        "Boundary compliance report",
+        "not_proven completeness assessment",
+        "Forbidden claim scan"
+      ],
+      "validator_expectations": [
+        "validate-final-pr-10-boundary-release passes"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "release_boundary_reviewer_candidate_only_no_certification",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "senior_code_reviewer",
+      "tool_target": "Claude Code CLI or Codex",
+      "best_for": "Senior code review for correctness, safety, and evidence class compliance",
+      "not_for": "Applying changes, certifying releases",
+      "allowed_edits": [],
+      "forbidden_edits": [
+        "all files (review-only)"
+      ],
+      "expected_outputs": [
+        "Code review report",
+        "Safety findings",
+        "Evidence class findings"
+      ],
+      "validator_expectations": [
+        "Review report submitted"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "senior_code_reviewer_candidate_only_review_only",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "senior_architecture_reviewer",
+      "tool_target": "Claude Code CLI or Codex",
+      "best_for": "Architecture review \u2014 boundary coherence, IR alignment, pipeline stage order",
+      "not_for": "Applying changes, certifying production systems",
+      "allowed_edits": [],
+      "forbidden_edits": [
+        "all files (review-only)"
+      ],
+      "expected_outputs": [
+        "Architecture review report",
+        "Kernel IR alignment findings",
+        "Pipeline stage order verification"
+      ],
+      "validator_expectations": [
+        "Architecture review report submitted"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "senior_architecture_reviewer_candidate_only_review_only",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "thor_handoff_compiler_mode",
+      "tool_target": "Odin Thor Handoff Compiler CLI",
+      "best_for": "Compiling agent operator work packets, acceptance matrices, PR body skeletons",
+      "not_for": "Running Thor runtime, granting agent autonomy, applying app state",
+      "allowed_edits": [],
+      "forbidden_edits": [
+        "all files (compiler output only)"
+      ],
+      "expected_outputs": [
+        "Agent operator work packet",
+        "Acceptance matrix",
+        "Validator plan",
+        "PR body skeleton",
+        "Thor handoff bundle"
+      ],
+      "validator_expectations": [
+        "validate-thor-handoff-compiler passes"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "thor_handoff_compiler_mode_not_thor_runtime_not_agent_autonomy",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    },
+    {
+      "mode_id": "pr_release_closure_worker",
+      "tool_target": "Claude Code CLI",
+      "best_for": "PR release closure \u2014 writing return reports, updating manifests, running final validate-all",
+      "not_for": "Certifying production readiness, applying releases, external sends",
+      "allowed_edits": [
+        "docs/codex/reports/",
+        "FILE_MANIFEST.json",
+        "SYSTEM_MAP.json",
+        "CHANGELOG.md"
+      ],
+      "forbidden_edits": [
+        "odin/ (no new module logic in closure)",
+        "tests/ (no new tests in closure)"
+      ],
+      "expected_outputs": [
+        "Return report",
+        "Updated FILE_MANIFEST.json entries",
+        "Updated SYSTEM_MAP.json entries",
+        "CHANGELOG entry"
+      ],
+      "validator_expectations": [
+        "validate-all passes",
+        "pytest passes"
+      ],
+      "return_report_contract": "docs/codex/reports/LRH-PR-NN_RETURN_REPORT.md",
+      "claim_boundary": "pr_release_closure_worker_candidate_only_no_certification",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false
+    }
+  ],
+  "agent_autonomy": false,
+  "app_apply": false,
+  "external_send": false,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_agent_operator_mode_matrix",
+  "candidate_only": true,
+  "claim_boundary": "agent_operator_modes_define_bounded_worker_presets_not_agent_autonomy",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "agent_autonomy": false,
+  "app_apply": false,
+  "external_send": false,
+  "modes": [
+    {
+      "mode_id": "claude_code_implementation_worker",
+      "tool_target": "Claude Code CLI",
+      "best_for": "Implementing bounded PRs within allowed file scope",
+      "not_for": "Release closure, provider execution, app apply",
+      "candidate_only": true,
+      "agent_autonomy": false,
+      "app_apply": false,
+      "external_send": false,
+      "claim_boundary": "claude_code_implementation_worker_bounded_edits_not_agent_autonomy"
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

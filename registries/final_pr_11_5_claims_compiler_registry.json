@@ -1,0 +1,28 @@
+{
+  "registry_id": "final_pr_11_5_claims_compiler_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "claims_compiler_v0_compiles_safe_claims_from_evidence_not_certification",
+  "description": "Registry for Claims Compiler v0 artifacts in FINAL-PR-11.5",
+  "forbidden_claim_count": 12,
+  "forbidden_claims": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "provider_execution_by_default",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "hidden_agent_authority"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

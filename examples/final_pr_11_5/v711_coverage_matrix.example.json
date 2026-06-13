@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "odin_v711_coverage_matrix",
+  "candidate_only": true,
+  "claim_boundary": "v711_coverage_compiler_maps_target_to_repo_evidence_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "coverage": [
+    {
+      "target_id": "small_model_power",
+      "target_name": "Small Model Power",
+      "target_priority": "high",
+      "target_source": "v711_master_arch",
+      "repo_evidence": ["odin/small_model_power/"],
+      "status": "implemented_structural_evidence",
+      "evidence_class": "structural_evidence",
+      "claim_boundary": "small_model_power_candidate_only_no_live_inference",
+      "validator_or_test_evidence": "validate-operational-spine",
+      "current_gap": "No live model routing in repo",
+      "next_action": "Wire small-model route selector to provider receipt",
+      "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

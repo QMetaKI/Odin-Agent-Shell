@@ -1,0 +1,18 @@
+{
+  "claim_text": "Odin v7.1.1 has structural evidence for semantic kernel coordination (candidate-only, not release certification)",
+  "classification": "allowed_candidate_only_claim",
+  "safe_wording": "Odin v7.1.1 has structural (candidate-only) evidence for semantic kernel coordination. This is not a release certification or production readiness claim.",
+  "required_evidence": ["odin/semantic_kernel_closure/", "odin/v711_coverage_compiler/"],
+  "evidence_class": "candidate_only",
+  "allowed": true,
+  "forbidden_reason": null,
+  "claim_boundary": "claims_compiler_v0_compiles_safe_claims_from_evidence_not_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "candidate_only": true,
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

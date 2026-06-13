@@ -1,0 +1,22 @@
+{
+  "artifact_kind": "odin_semantic_kernel_pipeline",
+  "candidate_only": true,
+  "claim_boundary": "semantic_kernel_closure_compiles_odin_kernel_ir_not_runtime_completion",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "stage_count": 14,
+  "stages": [
+    {
+      "stage_id": "universal_work",
+      "stage_name": "Universal Work",
+      "input_contract": "UniversalWorkInput",
+      "output_contract": "UniversalWorkIR",
+      "repo_artifact": "odin/universal_work/",
+      "status": "implemented_structural_evidence",
+      "evidence_class": "structural_evidence",
+      "forbidden_authority": ["app_apply", "external_send"],
+      "claim_boundary": "universal_work_stage_candidate_only",
+      "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+    }
+  ],
+  "not_proven": ["production_readiness", "live_model_inference", "app_state_mutation", "external_send_authority"]
+}

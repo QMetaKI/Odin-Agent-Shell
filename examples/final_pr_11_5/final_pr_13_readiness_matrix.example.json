@@ -1,0 +1,31 @@
+{
+  "artifact_kind": "odin_final_pr_13_readiness_matrix",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_11_5_semantic_kernel_coverage_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "final_pr_13_remains_deferred": true,
+  "structural_claims_ready": [
+    "v7.1.1 Coverage Compiler exists",
+    "Semantic Kernel IR with 16 IR objects",
+    "Y Pattern Operationalization Index with 14 mappings",
+    "Claims Compiler v0 forbids unsafe release claims",
+    "Agent Operator Mode Presets exist",
+    "PR11 Local Provider Receipt Harness",
+    "PR10 Release Boundary Gates",
+    "PR09 Operational Spine"
+  ],
+  "forbidden_claims_for_pr13": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "model_superiority"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority"
+  ]
+}

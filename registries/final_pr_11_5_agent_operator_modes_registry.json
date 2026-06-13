@@ -1,0 +1,30 @@
+{
+  "registry_id": "final_pr_11_5_agent_operator_modes_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "agent_operator_modes_define_bounded_worker_presets_not_agent_autonomy",
+  "description": "Registry for Agent Operator Mode Presets in FINAL-PR-11.5",
+  "mode_count": 9,
+  "modes": [
+    "claude_code_implementation_worker",
+    "claude_code_runtime_integrator",
+    "codex_repo_planner",
+    "codex_patch_reviewer",
+    "release_boundary_reviewer",
+    "senior_code_reviewer",
+    "senior_architecture_reviewer",
+    "thor_handoff_compiler_mode",
+    "pr_release_closure_worker"
+  ],
+  "global_constraints": {
+    "agent_autonomy": false,
+    "app_apply": false,
+    "external_send": false
+  },
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

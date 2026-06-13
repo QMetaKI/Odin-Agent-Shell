@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "odin_semantic_kernel_closure",
+  "title": "Odin Semantic Kernel Closure Schema",
+  "type": "object",
+  "required": ["artifact_kind", "candidate_only", "claim_boundary", "generated_at_utc", "not_proven"],
+  "properties": {
+    "artifact_kind": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  }
+}
