@@ -1,0 +1,36 @@
+{
+  "registry_id": "final_pr_10_qshabang_release_gate_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Registry of Q-Shabang release gate components for FINAL-PR-10++",
+  "component_ids": [
+    "deterministic_precompute",
+    "claim_evidence_reality_gates",
+    "critic_cascade",
+    "coherence_fit_scoring",
+    "seed_continuity",
+    "flow_packs",
+    "qirc_coordination",
+    "app_owned_apply",
+    "candidate_artifact",
+    "response_packet",
+    "route_director",
+    "authority_drift_scanners"
+  ],
+  "axioms": [
+    "Q-Shabang is operationalized into neutral Odin mechanics.",
+    "No component grants authority.",
+    "No component bypasses final gate.",
+    "No component certifies model quality."
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "real_model_benchmark",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}

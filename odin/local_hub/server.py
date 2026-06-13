@@ -39,6 +39,14 @@ Endpoints:
   GET /operational-spine/small-model-route.json  — Small-model route plan (FINAL-PR-09++)
   GET /operational-spine/qshabang-map.json       — Q-Shabang operational map (FINAL-PR-09++)
   GET /operational-spine/modelworkpacket.example.json — ModelWorkPacket example (FINAL-PR-09++)
+  GET /release/boundary-matrix.json    — Release boundary matrix (FINAL-PR-10++)
+  GET /release/ring-authority-map.json — Ring authority map (FINAL-PR-10++)
+  GET /release/bug6-q7-map.json        — Bug6/Q7 operational map (FINAL-PR-10++)
+  GET /release/model-role-authority.json — Model role authority matrix (FINAL-PR-10++)
+  GET /release/qshabang-gates.json     — Q-Shabang release gate map (FINAL-PR-10++)
+  GET /release/evidence-closure.json   — Release evidence closure index (FINAL-PR-10++)
+  GET /release/preflight.json          — Final release preflight (FINAL-PR-10++)
+  GET /release/artifact-currency.json  — Artifact currency index (FINAL-PR-10++)
 """
 from __future__ import annotations
 
@@ -241,6 +249,39 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                 body = p.read_bytes()
             else:
                 body = _json.dumps({"status": "not_found", "candidate_only": True}).encode("utf-8")
+            self._respond(200, "application/json", body)
+        # FINAL-PR-10++: Release Boundary Gates endpoints
+        elif self.path == "/release/boundary-matrix.json":
+            from odin.release_boundaries.boundary_matrix import build_boundary_matrix
+            body = json.dumps(build_boundary_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/ring-authority-map.json":
+            from odin.release_boundaries.ring_authority_map import build_ring_authority_map
+            body = json.dumps(build_ring_authority_map(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/bug6-q7-map.json":
+            from odin.release_boundaries.bug6_q7_operational_map import build_bug6_q7_operational_map
+            body = json.dumps(build_bug6_q7_operational_map(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/model-role-authority.json":
+            from odin.release_boundaries.model_role_authority import build_model_role_authority_matrix
+            body = json.dumps(build_model_role_authority_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/qshabang-gates.json":
+            from odin.release_boundaries.qshabang_release_gate_map import build_qshabang_release_gate_map
+            body = json.dumps(build_qshabang_release_gate_map(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/evidence-closure.json":
+            from odin.release_boundaries.evidence_closure import build_release_evidence_closure_index
+            body = json.dumps(build_release_evidence_closure_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/preflight.json":
+            from odin.release_boundaries.final_preflight import run_final_release_preflight
+            body = json.dumps(run_final_release_preflight(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/artifact-currency.json":
+            from odin.release_boundaries.artifact_currency import build_artifact_currency_index
+            body = json.dumps(build_artifact_currency_index(), indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

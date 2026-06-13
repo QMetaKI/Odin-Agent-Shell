@@ -1,0 +1,39 @@
+{
+  "registry_id": "final_pr_10_model_role_authority_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Registry of model role authority limits for FINAL-PR-10++",
+  "role_ids": [
+    "3b_scout", "3b_extractor", "3b_classifier", "3b_router",
+    "3b_slot_filler", "3b_quick_critic", "3b_style_check", "3b_refusal_boundary_check",
+    "7b_writer", "7b_synthesizer", "7b_planner", "7b_repo_reasoner",
+    "7b_candidate_composer", "7b_refiner", "7b_complex_critic",
+    "hybrid_3b_scout_7b_synthesize_3b_check",
+    "hybrid_3b_extract_7b_compose_3b_boundary_critic",
+    "hybrid_7b_draft_3b_slot_check_7b_refine",
+    "hybrid_no_model_precompute_3b_route_7b_candidate_final_gate",
+    "deterministic_no_model_worker",
+    "mock_provider",
+    "local_provider_candidate"
+  ],
+  "forbidden_for_all": [
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "truth_authority",
+    "release_certification",
+    "security_certification",
+    "production_readiness_claim"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "real_model_benchmark",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}

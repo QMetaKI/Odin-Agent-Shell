@@ -1,0 +1,60 @@
+{
+  "registry_id": "final_pr_10_boundary_release_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization registry",
+  "modules": [
+    "odin/release_boundaries/__init__.py",
+    "odin/release_boundaries/boundary_matrix.py",
+    "odin/release_boundaries/ring_authority_map.py",
+    "odin/release_boundaries/bug6_q7_operational_map.py",
+    "odin/release_boundaries/qshabang_release_gate_map.py",
+    "odin/release_boundaries/model_role_authority.py",
+    "odin/release_boundaries/artifact_currency.py",
+    "odin/release_boundaries/evidence_closure.py",
+    "odin/release_boundaries/final_preflight.py",
+    "odin/release_boundaries/reports.py"
+  ],
+  "cli_commands": [
+    "validate-boundary-matrix",
+    "validate-ring-authority-map",
+    "validate-bug6-q7-operational-map",
+    "validate-qshabang-release-gate-map",
+    "validate-model-role-authority",
+    "validate-release-evidence-closure",
+    "validate-artifact-currency",
+    "validate-final-release-preflight",
+    "release-preflight",
+    "explain-boundaries",
+    "explain-release-claims",
+    "explain-model-role-authority",
+    "explain-qshabang-release-gates",
+    "validate-final-pr-10-boundary-release"
+  ],
+  "hub_endpoints": [
+    "/release/boundary-matrix.json",
+    "/release/ring-authority-map.json",
+    "/release/bug6-q7-map.json",
+    "/release/model-role-authority.json",
+    "/release/qshabang-gates.json",
+    "/release/evidence-closure.json",
+    "/release/preflight.json",
+    "/release/artifact-currency.json"
+  ],
+  "depends_on": [
+    "final_pr_09_operational_spine_registry",
+    "final_pr_09_10_plusplus_qshabang_smallmodel_prep_registry"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}
