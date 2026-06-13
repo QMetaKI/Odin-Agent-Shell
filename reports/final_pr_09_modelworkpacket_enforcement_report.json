@@ -1,0 +1,30 @@
+{
+  "artifact_kind": "odin_final_pr_09_modelworkpacket_enforcement_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "enforcement_checks": [
+    "candidate_only_required",
+    "local_only_required",
+    "claim_boundary_required",
+    "output_contract_required",
+    "final_gate_requirements_required",
+    "app_apply_rejected",
+    "external_send_rejected",
+    "app_state_mutation_rejected",
+    "hidden_tool_authority_rejected",
+    "missing_not_proven_rejected"
+  ],
+  "forbidden_actions_enforced": [
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "hidden_tool_call",
+    "remote_provider_without_explicit_permission",
+    "claim_truth_from_projection"
+  ],
+  "not_proven": ["live_model_inference", "production_readiness"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

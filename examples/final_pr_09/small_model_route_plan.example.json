@@ -1,0 +1,59 @@
+{
+  "artifact_kind": "odin_final_pr_09_small_model_route_plan_example",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "route_id": "small_model_route_5c6d7e8f9a0b1c2d",
+  "work_id": "universal_work_5c6d7e8f9a0b1c2d",
+  "resource_profile": "small",
+  "latency_mode": "low",
+  "quality_target": "candidate_grade",
+  "requires_model": false,
+  "selected_route": "deterministic_no_model",
+  "selected_roles": [
+    {
+      "role_id": "schema_validation",
+      "role_family": "no_model",
+      "model_tier": "deterministic_no_model",
+      "candidate_only": true
+    }
+  ],
+  "critic_plan": [],
+  "fallbacks": ["deterministic_no_model"],
+  "available_routes": {
+    "deterministic_no_model": {
+      "3b_roles": [
+        "3b_scout", "3b_extractor", "3b_classifier", "3b_router",
+        "3b_slot_filler", "3b_quick_critic", "3b_style_check", "3b_refusal_boundary_check"
+      ],
+      "description": "No model required. Deterministic rule-based candidate preparation."
+    },
+    "3b_primary": {
+      "7b_8b_roles": [
+        "7b_writer", "7b_synthesizer", "7b_planner", "7b_repo_reasoner",
+        "7b_candidate_composer", "7b_refiner", "7b_complex_critic"
+      ],
+      "description": "Primary 3B model roles for fast candidate preparation. Plan only, not execution."
+    },
+    "7b_primary": {
+      "hybrid_roles": [
+        "hybrid_3b_scout_7b_synthesize_3b_check",
+        "hybrid_3b_extract_7b_compose_3b_boundary_critic",
+        "hybrid_7b_draft_3b_slot_check_7b_refine",
+        "hybrid_no_model_precompute_3b_route_7b_candidate_final_gate"
+      ],
+      "description": "Primary 7B/8B model roles for complex candidate preparation. Plan only, not execution."
+    },
+    "3b_7b_hybrid": {
+      "description": "3B scout + 7B synthesize + 3B check hybrid route. Plan only, not execution."
+    }
+  },
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

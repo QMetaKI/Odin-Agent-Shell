@@ -1,0 +1,182 @@
+{
+  "artifact_kind": "odin_final_pr_09_operational_spine_demo",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "input_ref": "operational_spine_a1b2c3d4e5f6a7b8",
+  "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+  "handoff_context": {
+    "input_ref": "operational_spine_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "spine_id": "operational_spine_a1b2c3d4e5f6a7b8",
+    "source": "run_operational_spine",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "universal_work": {
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "input_text": "demo operational spine input",
+    "work_type": "operational_spine",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "validation_result": {
+    "valid": true,
+    "errors": [],
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "context_capsule": {
+    "capsule_id": "context_capsule_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "fields": {},
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "artifact_lens": {
+    "lens_id": "artifact_lens_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "lens_type": "candidate_prep",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "slot_contract": {
+    "contract_id": "slot_contract_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "slots": [],
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "gaptext": {
+    "gaptext_id": "gaptext_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "gaps": [],
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "precompute_result": {
+    "route": "deterministic",
+    "score": 1.0,
+    "candidate_only": true
+  },
+  "modelworkpacket": {
+    "packet_id": "modelworkpacket_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "caller_id": "operational_spine_orchestrator",
+    "candidate_only": true,
+    "local_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+    "forbidden_actions": [
+      "app_apply",
+      "app_state_mutation",
+      "external_send",
+      "public_network",
+      "hidden_tool_call",
+      "remote_provider_without_explicit_permission",
+      "claim_truth_from_projection"
+    ],
+    "not_proven": [
+      "live_model_inference",
+      "real_model_benchmark",
+      "provider_execution",
+      "app_apply",
+      "app_state_mutation",
+      "external_send"
+    ]
+  },
+  "small_model_route_plan": {
+    "route_id": "small_model_route_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "resource_profile": "small",
+    "latency_mode": "low",
+    "quality_target": "candidate_grade",
+    "requires_model": false,
+    "selected_route": "deterministic_no_model",
+    "selected_roles": [],
+    "critic_plan": [],
+    "fallbacks": ["deterministic_no_model"],
+    "not_proven": ["live_model_inference", "real_model_benchmark", "provider_execution"],
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "model_role_assignment": {
+    "assignment_id": "model_role_a1b2c3d4e5f6a7b8",
+    "selected_role": "schema_validation",
+    "role_tier": "deterministic_no_model",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "seed_route": {
+    "selected_seed_id": "prompt_to_work",
+    "candidate_only": true,
+    "claim_boundary": "operational_seed_spine_routes_work_not_authority"
+  },
+  "field_selection": {
+    "candidate_only": true,
+    "claim_boundary": "field_selection_scores_routes_not_truth"
+  },
+  "projection_candidate": {
+    "candidate_only": true,
+    "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+  },
+  "provider_seam_packet": {
+    "provider_seam_id": "provider_seam_a1b2c3d4e5f6a7b8",
+    "provider_id": null,
+    "mode": "deterministic",
+    "execution_allowed": false,
+    "execution_performed": false,
+    "requires_explicit_permission": true,
+    "candidate_only": true,
+    "local_only": true,
+    "model_inference": false,
+    "provider_execution": false,
+    "app_apply": false,
+    "external_send": false,
+    "status": "disabled_by_default",
+    "reason": "Local provider execution is disabled by default in FINAL-PR-09.",
+    "not_proven": ["live_model_inference", "provider_execution"],
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "candidate_artifact": {
+    "artifact_id": "operational_candidate_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+    "payload": {
+      "mode": "deterministic",
+      "result": "candidate_ready"
+    }
+  },
+  "final_gate": {
+    "gate_id": "final_gate_a1b2c3d4e5f6a7b8",
+    "passed": true,
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+  },
+  "response_packet": {
+    "packet_id": "response_a1b2c3d4e5f6a7b8",
+    "work_id": "universal_work_a1b2c3d4e5f6a7b8",
+    "candidate_only": true,
+    "local_only": true,
+    "app_owned_apply": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+    "status": "candidate_ready"
+  },
+  "trace_ref": "operational_trace_a1b2c3d4e5f6a7b8",
+  "receipt_ref": "operational_receipt_a1b2c3d4e5f6a7b8",
+  "qirc_hint_refs": ["qirc_hint_a1b2c3d4e5f6a7b8"],
+  "proof_refs": ["operational_proof_a1b2c3d4e5f6a7b8"],
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "production_readiness",
+    "security_certification",
+    "release_certification"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

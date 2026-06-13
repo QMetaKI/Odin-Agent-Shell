@@ -1,0 +1,97 @@
+{
+  "artifact_kind": "odin_final_pr_09_modelworkpacket_example",
+  "packet_id": "modelworkpacket_7a8b9c0d1e2f3a4b",
+  "work_id": "universal_work_7a8b9c0d1e2f3a4b",
+  "caller_id": "operational_spine_orchestrator",
+  "candidate_only": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "input_refs": ["input_ref_7a8b9c0d1e2f3a4b"],
+  "context_capsule": {
+    "capsule_id": "context_capsule_7a8b9c0d1e2f3a4b",
+    "work_id": "universal_work_7a8b9c0d1e2f3a4b",
+    "fields": {"work_type": "operational_spine"},
+    "candidate_only": true
+  },
+  "artifact_lens": {
+    "lens_id": "artifact_lens_7a8b9c0d1e2f3a4b",
+    "lens_type": "candidate_prep",
+    "candidate_only": true
+  },
+  "transformation_verb": "prepare_candidate",
+  "slot_contract": {
+    "contract_id": "slot_contract_7a8b9c0d1e2f3a4b",
+    "slots": [],
+    "candidate_only": true
+  },
+  "gaptext": {
+    "gaptext_id": "gaptext_7a8b9c0d1e2f3a4b",
+    "gaps": [],
+    "candidate_only": true
+  },
+  "model_role": {
+    "role_id": "schema_validation",
+    "role_family": "no_model",
+    "model_tier": "deterministic_no_model",
+    "candidate_only": true
+  },
+  "route_policy": {
+    "selected_route": "deterministic_no_model",
+    "requires_model": false,
+    "candidate_only": true
+  },
+  "provider_policy": {
+    "provider_id": null,
+    "execution_allowed": false,
+    "model_inference": false,
+    "candidate_only": true
+  },
+  "output_contract": {
+    "required_keys": ["candidate_only", "claim_boundary", "status"],
+    "forbidden_keys": ["app_apply", "external_send"],
+    "candidate_only": true
+  },
+  "forbidden_actions": [
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "hidden_tool_call",
+    "remote_provider_without_explicit_permission",
+    "claim_truth_from_projection"
+  ],
+  "privacy_boundary": {
+    "no_pii_log": true,
+    "no_external_send": true
+  },
+  "cost_budget": {
+    "max_tokens": 0,
+    "model_calls": 0
+  },
+  "latency_budget": {
+    "target_ms": 100,
+    "mode": "deterministic"
+  },
+  "critic_plan": [],
+  "final_gate_requirements": [
+    "candidate_only_true",
+    "local_only_true",
+    "no_app_apply",
+    "no_external_send",
+    "no_model_inference_claim"
+  ],
+  "receipt_plan": {
+    "emit_trace": true,
+    "emit_receipt": true,
+    "emit_proof": true
+  },
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

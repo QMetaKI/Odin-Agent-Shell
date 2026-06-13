@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_final_pr_09_deferred_system_lift_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "systems_classified": 15,
+  "by_status": {
+    "already_repo_real": ["SDK/App Bridge receipts"],
+    "minimal_runtime_hook_in_pr09": ["Critic Cascade"],
+    "schema_and_packet_only_in_pr09": ["Artifact Lenses", "Slot Forge", "Gaptext Compiler"],
+    "future_pr_required": [
+      "Context Distillery",
+      "Semantic Cache",
+      "Work Memory",
+      "Minicheck",
+      "Candidate Tournament",
+      "Style Stabilizer",
+      "Anti-Generic Engine",
+      "Taste Dials",
+      "Model Dojo",
+      "Scoreboard"
+    ],
+    "external_receipt_required": []
+  },
+  "not_proven": ["live_model_inference", "production_readiness"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

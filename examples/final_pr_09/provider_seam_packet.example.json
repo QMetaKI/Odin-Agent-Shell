@@ -1,0 +1,55 @@
+{
+  "artifact_kind": "odin_final_pr_09_provider_seam_packet_example",
+  "candidate_only": true,
+  "provider_seam_id": "provider_seam_3f4e5d6c7b8a9f0e",
+  "provider_id": null,
+  "mode": "deterministic",
+  "execution_allowed": false,
+  "execution_performed": false,
+  "requires_explicit_permission": true,
+  "local_only": true,
+  "model_inference": false,
+  "provider_execution": false,
+  "app_apply": false,
+  "external_send": false,
+  "status": "disabled_by_default",
+  "reason": "Local provider execution is disabled by default in FINAL-PR-09. Provider seam is a planning surface only.",
+  "recognized_providers": [
+    {
+      "provider_id": null,
+      "label": "deterministic",
+      "execution_allowed": false,
+      "model_inference": false,
+      "note": "Default no-model deterministic mode"
+    },
+    {
+      "provider_id": "mock",
+      "label": "mock_provider",
+      "execution_allowed": false,
+      "model_inference": false,
+      "note": "Deterministic mock candidates, no real model"
+    },
+    {
+      "provider_id": "ollama_candidate",
+      "label": "local_ollama_candidate",
+      "execution_allowed": false,
+      "model_inference": false,
+      "note": "Disabled by default. Future FINAL-PR-10++ may enable with explicit permission."
+    },
+    {
+      "provider_id": "llama_cpp_candidate",
+      "label": "local_llama_cpp_candidate",
+      "execution_allowed": false,
+      "model_inference": false,
+      "note": "Disabled by default. Future FINAL-PR-10++ may enable with explicit permission."
+    }
+  ],
+  "not_proven": [
+    "live_model_inference",
+    "provider_execution",
+    "app_apply",
+    "external_send"
+  ],
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

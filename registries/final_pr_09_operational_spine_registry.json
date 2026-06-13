@@ -1,0 +1,155 @@
+{
+  "registry_id": "final_pr_09_operational_spine_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "modules": [
+    "odin/operational_spine/__init__.py",
+    "odin/operational_spine/orchestrator.py",
+    "odin/operational_spine/status.py",
+    "odin/operational_spine/model_roles.py",
+    "odin/operational_spine/modelworkpacket_builder.py",
+    "odin/operational_spine/small_model_route_plan.py",
+    "odin/operational_spine/qshabang_runtime_map.py",
+    "odin/operational_spine/deferred_system_lift.py",
+    "odin/operational_spine/provider_seam.py",
+    "odin/operational_spine/receipts.py",
+    "odin/operational_spine/reports.py"
+  ],
+  "cli_commands": [
+    "odin-status",
+    "odin-doctor",
+    "run-operational-spine",
+    "explain-operational-spine",
+    "explain-small-model-route",
+    "explain-qshabang-map",
+    "validate-operational-spine",
+    "validate-small-model-route-plan",
+    "validate-modelworkpacket-enforcement",
+    "validate-qshabang-operational-map",
+    "validate-deferred-system-lift"
+  ],
+  "hub_endpoints": [
+    "GET /operational-spine/status.json",
+    "GET /operational-spine/demo.json",
+    "POST /operational-spine/run",
+    "GET /operational-spine/evidence-index.json",
+    "GET /operational-spine/provider-readiness.json",
+    "GET /operational-spine/small-model-route.json",
+    "GET /operational-spine/qshabang-map.json",
+    "GET /operational-spine/modelworkpacket.example.json"
+  ],
+  "model_roles": {
+    "3b": [
+      "3b_scout",
+      "3b_extractor",
+      "3b_classifier",
+      "3b_router",
+      "3b_slot_filler",
+      "3b_quick_critic",
+      "3b_style_check",
+      "3b_refusal_boundary_check"
+    ],
+    "7b_8b": [
+      "7b_writer",
+      "7b_synthesizer",
+      "7b_planner",
+      "7b_repo_reasoner",
+      "7b_candidate_composer",
+      "7b_refiner",
+      "7b_complex_critic"
+    ],
+    "hybrid": [
+      "hybrid_3b_scout_7b_synthesize_3b_check",
+      "hybrid_3b_extract_7b_compose_3b_boundary_critic",
+      "hybrid_7b_draft_3b_slot_check_7b_refine",
+      "hybrid_no_model_precompute_3b_route_7b_candidate_final_gate"
+    ],
+    "no_model": [
+      "schema_validation",
+      "manifest_binding_validation",
+      "cache_fingerprint_lookup",
+      "slot_preparation",
+      "rule_based_refusal",
+      "deterministic_candidate_shape",
+      "trace_receipt_construction"
+    ]
+  },
+  "route_plan_modes": [
+    "deterministic",
+    "3b_primary",
+    "7b_primary",
+    "3b_7b_hybrid",
+    "mock_provider"
+  ],
+  "qshabang_components": [
+    "ki_ohne_ki",
+    "q_gates",
+    "mirror_critics",
+    "resonance_fit",
+    "seeds_pattern_mines",
+    "narrative_compiler",
+    "qirc",
+    "app_sovereignty",
+    "candidate_reality",
+    "qooo_style_orchestration",
+    "bug6_q7"
+  ],
+  "deferred_systems": [
+    "Context Distillery",
+    "Artifact Lenses",
+    "Slot Forge",
+    "Gaptext Compiler",
+    "Semantic Cache",
+    "Work Memory",
+    "Minicheck",
+    "Critic Cascade",
+    "Candidate Tournament",
+    "Style Stabilizer",
+    "Anti-Generic Engine",
+    "Taste Dials",
+    "Model Dojo",
+    "Scoreboard",
+    "SDK/App Bridge receipts"
+  ],
+  "provider_seam_rules": {
+    "default_execution_allowed": false,
+    "default_model_inference": false,
+    "default_provider_execution": false,
+    "ollama_candidate_enabled": false,
+    "llama_cpp_candidate_enabled": false,
+    "requires_explicit_permission": true
+  },
+  "validator_command": "python tools/rebaseline/check_final_pr_09_operational_spine.py --repo-root . --out reports/final_pr_09_operational_spine_report.json",
+  "proof_packet_path": "reports/final_pr_09_operational_spine_proof_packet.json",
+  "report_paths": [
+    "reports/final_pr_09_operational_spine_report.json",
+    "reports/final_pr_09_cli_surface_report.json",
+    "reports/final_pr_09_hub_surface_report.json",
+    "reports/final_pr_09_provider_readiness_report.json",
+    "reports/final_pr_09_modelworkpacket_enforcement_report.json",
+    "reports/final_pr_09_small_model_route_plan_report.json",
+    "reports/final_pr_09_qshabang_operational_map_report.json",
+    "reports/final_pr_09_deferred_system_lift_report.json",
+    "reports/final_pr_09_operational_spine_proof_packet.json"
+  ],
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "production_readiness",
+    "security_certification",
+    "release_certification"
+  ],
+  "depends_on": [
+    "final_pr_08_projection_candidate_spine",
+    "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

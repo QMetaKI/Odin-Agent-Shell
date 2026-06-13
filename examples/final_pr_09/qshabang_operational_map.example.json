@@ -1,0 +1,119 @@
+{
+  "artifact_kind": "odin_final_pr_09_qshabang_operational_map_example",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "components": {
+    "ki_ohne_ki": {
+      "name": "KI ohne KI",
+      "odin_term": "deterministic_precompute",
+      "description": "Deterministic precompute and no-model routes that complete work without model inference",
+      "repo_evidence": "odin/precompute/route_score.py",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "q_gates": {
+      "name": "Q Gates",
+      "odin_term": "claim_evidence_reality_gates",
+      "description": "Claim, evidence, and reality gates that enforce candidate-only boundaries",
+      "repo_evidence": "odin/core/final_gate.py, odin/execution_gate/gateway.py",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "mirror_critics": {
+      "name": "Mirror Critics",
+      "odin_term": "critic_cascade",
+      "description": "Critic cascade for candidate validation and boundary enforcement",
+      "repo_evidence": "odin/operational_spine/deferred_system_lift.py (minimal hook)",
+      "deferred": true,
+      "candidate_only": true
+    },
+    "resonance_fit": {
+      "name": "Resonance / Fit",
+      "odin_term": "coherence_and_fit_scoring",
+      "description": "Coherence and fit scoring for candidate routing field selection",
+      "repo_evidence": "odin/field_selection_spine/coherence.py",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "seeds_pattern_mines": {
+      "name": "Seeds / Pattern Mines",
+      "odin_term": "seed_continuity_and_flow_packs",
+      "description": "Seed continuity and flow packs for work routing",
+      "repo_evidence": "odin/operational_seed_spine/, odin/seeds/, odin/flow_packs/",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "narrative_compiler": {
+      "name": "Narrative Compiler",
+      "odin_term": "workflow_pack_shadow_runtime_prep",
+      "description": "Work-flow pack and shadow runtime preparation (deferred)",
+      "repo_evidence": "odin/shadow_runtime/ (partial)",
+      "deferred": true,
+      "candidate_only": true
+    },
+    "qirc": {
+      "name": "QIRC",
+      "odin_term": "local_semantic_coordination",
+      "description": "Local semantic coordination and receipt bus",
+      "repo_evidence": "odin/qirc_core/, odin/qirc/",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "app_sovereignty": {
+      "name": "App Sovereignty",
+      "odin_term": "app_owned_apply_state_send",
+      "description": "App-owned apply, state, and external-send authority",
+      "repo_evidence": "odin/execution_gate/policy.py",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "candidate_reality": {
+      "name": "Candidate Reality",
+      "odin_term": "candidate_artifact_response_packet",
+      "description": "Candidate Artifact and Response Packet as the Odin output surface",
+      "repo_evidence": "odin/candidates/, odin/packets/",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "qooo_style_orchestration": {
+      "name": "QoOO-Style Orchestration",
+      "odin_term": "route_director_system_profile_compiler",
+      "description": "Route director and system profile compiler for candidate work orchestration",
+      "repo_evidence": "odin/operational_spine/orchestrator.py",
+      "deferred": false,
+      "candidate_only": true
+    },
+    "bug6_q7": {
+      "name": "Bug6 / Q7",
+      "odin_term": "authority_drift_boundary_scanners",
+      "description": "Authority drift and boundary scanners enforcing claim boundaries",
+      "repo_evidence": "odin/runtime_security/",
+      "deferred": false,
+      "candidate_only": true
+    }
+  },
+  "runtime_evidence": [
+    "odin/precompute/route_score.py",
+    "odin/operational_seed_spine/selector.py",
+    "odin/field_selection_spine/selector.py",
+    "odin/projection_candidate_spine/projection_set.py",
+    "odin/execution_gate/gateway.py",
+    "odin/qirc_core/bus.py",
+    "odin/operational_spine/orchestrator.py"
+  ],
+  "deferred_items": [
+    "Critic Cascade (full implementation)",
+    "Narrative Compiler (shadow runtime)",
+    "Context Distillery",
+    "Model Dojo"
+  ],
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "production_readiness",
+    "security_certification"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

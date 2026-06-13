@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "odin_final_pr_09_cli_surface_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "cli_commands_registered": [
+    "odin-status",
+    "odin-doctor",
+    "run-operational-spine",
+    "explain-operational-spine",
+    "explain-small-model-route",
+    "explain-qshabang-map",
+    "validate-operational-spine",
+    "validate-small-model-route-plan",
+    "validate-modelworkpacket-enforcement",
+    "validate-qshabang-operational-map",
+    "validate-deferred-system-lift"
+  ],
+  "validate_all_includes_pr09": true,
+  "not_proven": ["live_model_inference", "production_readiness"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

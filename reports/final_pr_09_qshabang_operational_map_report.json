@@ -1,0 +1,24 @@
+{
+  "artifact_kind": "odin_final_pr_09_qshabang_operational_map_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "components_mapped": [
+    "ki_ohne_ki",
+    "q_gates",
+    "mirror_critics",
+    "resonance_fit",
+    "seeds_pattern_mines",
+    "narrative_compiler",
+    "qirc",
+    "app_sovereignty",
+    "candidate_reality",
+    "qooo_style_orchestration",
+    "bug6_q7"
+  ],
+  "runtime_namespace_neutral": true,
+  "public_runtime_names_used": ["deterministic_precompute", "claim_evidence_reality_gates", "critic_cascade", "coherence_and_fit_scoring", "local_semantic_coordination"],
+  "not_proven": ["live_model_inference", "production_readiness"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_final_pr_09_small_model_route_plan_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "tiers_defined": ["deterministic_no_model", "3B", "7B_8B", "3B_7B_8B_hybrid", "mock_provider", "local_provider_candidate"],
+  "roles_3b_count": 8,
+  "roles_7b_8b_count": 7,
+  "roles_hybrid_count": 4,
+  "roles_no_model_count": 7,
+  "route_modes": ["deterministic", "3b_primary", "7b_primary", "3b_7b_hybrid", "mock_provider"],
+  "not_proven": ["live_model_inference", "real_model_benchmark", "provider_execution"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}
