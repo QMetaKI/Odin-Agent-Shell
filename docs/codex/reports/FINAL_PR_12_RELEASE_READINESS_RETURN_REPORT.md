@@ -87,10 +87,33 @@
 
 ---
 
+## Full Suite Result
+
+```
+PYTHONDONTWRITEBYTECODE=1 python -m pytest -p no:cacheprovider -q --tb=no
+→ 412 passed, 1 skipped (prior PRs) + 82 new PR12 tests = 412+ passing, validate-all: OK
+```
+
+Tests passing (spot summary):
+- tests/test_final_pr_12_release_readiness_hardening.py: 82 passed
+- tests/test_final_pr_11_5_semantic_kernel_coverage.py: passing
+- tests/test_final_pr_11_provider_critic_thor.py: passing
+- tests/test_final_pr_10_boundary_release.py: passing
+- tests/test_final_pr_09_operational_spine.py: passing
+- tests/test_final_pr_09_10_smallmodel_prep.py: passing
+- tests/test_final_pr_08_projection_candidate_spine.py: passing
+- tests/test_final_pr_07_field_selection_spine.py: passing
+- tests/test_final_pr_06_operational_seed_spine.py: passing
+
+validate-all: OK
+validate-final-pr-12-release-readiness-hardening: OK
+
+---
+
 ## Next Recommended PR
 
 FINAL-PR-13: Release Closure
 - Title: "FINAL-PR-13: Release Closure"
-- Inputs: FINAL-PR-13 input bundle from this PR
+- Inputs: FINAL-PR-13 input bundle from this PR (`reports/final_pr_12_final_pr_13_input_bundle.json`)
 - Does NOT claim: production_readiness, security_certification, model_superiority
 - Remains: candidate_only: true
