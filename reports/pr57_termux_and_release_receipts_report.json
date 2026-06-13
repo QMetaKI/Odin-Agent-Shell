@@ -1,0 +1,25 @@
+{
+  "artifact_kind": "odin_pr57_termux_and_release_receipts_report",
+  "claim_boundary": "pr57_records_termux_tmp_path_fix_and_v1_0_0_receipts_without_external_overclaims",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "provider_execution_disabled_by_default": true,
+  "local_first": true,
+  "fixed_issue": "Removed hardcoded /tmp/lrh_pr_09_packet.json usage from LRH-PR-09 legacy tests for Termux/Android compatibility.",
+  "release_receipts": {
+    "tag": "v1.0.0",
+    "github_release": "v1.0.0",
+    "release_url_recorded": false,
+    "tag_url_recorded": false,
+    "pypi_claimed": false,
+    "assets_claimed": false
+  },
+  "non_claims": [
+    "no_production_readiness_claim",
+    "no_security_certification_claim",
+    "no_model_benchmark_claim",
+    "no_model_superiority_claim",
+    "no_pypi_claim_without_receipt",
+    "no_asset_claim_without_receipt"
+  ]
+}
