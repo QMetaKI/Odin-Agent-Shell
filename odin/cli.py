@@ -2791,6 +2791,32 @@ def validate_projection_candidate_spine() -> list[str]:
     return []
 
 
+
+def validate_final_pr_09_10_qshabang_smallmodel_prep() -> list[str]:
+    """Validate PREP FINAL-PR-09++/10++ Q-Shabang small-model artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_09_10_qshabang_smallmodel_prep.py"
+    if not tool_path.exists():
+        return ["missing prep FINAL-PR-09++/10++ validator: tools/rebaseline/check_final_pr_09_10_qshabang_smallmodel_prep.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_09_10_qshabang_smallmodel_prep_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load prep FINAL-PR-09++/10++ validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_09_10_qshabang_smallmodel_prep_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-09-10-qshabang-smallmodel-prep: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-09-10-qshabang-smallmodel-prep validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2855,6 +2881,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_operational_seed_spine())
     errors.extend(validate_field_selection_spine())
     errors.extend(validate_projection_candidate_spine())
+    errors.extend(validate_final_pr_09_10_qshabang_smallmodel_prep())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3037,6 +3064,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prove-y-pattern-spine")
     # Prep FINAL-PR-06..08
     sub.add_parser("validate-prep-final-pr-06-08")
+    sub.add_parser("validate-final-pr-09-10-qshabang-smallmodel-prep")
     # FINAL-PR-06: Operational Seed Spine
     sub.add_parser("validate-operational-seed-spine")
     sub.add_parser("validate-field-selection-spine")
@@ -3943,6 +3971,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_y_pattern_spine()
     elif args.cmd == "validate-prep-final-pr-06-08":
         errors = validate_prep_final_pr_06_08()
+    elif args.cmd == "validate-final-pr-09-10-qshabang-smallmodel-prep":
+        errors = validate_final_pr_09_10_qshabang_smallmodel_prep()
     elif args.cmd == "validate-operational-seed-spine":
         errors = validate_operational_seed_spine()
     elif args.cmd == "validate-projection-candidate-spine":
