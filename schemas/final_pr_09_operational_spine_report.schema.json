@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-09 Operational Spine Report Schema",
+  "description": "Schema for the FINAL-PR-09 Operational Spine validation report",
+  "type": "object",
+  "required": [
+    "status",
+    "error_count",
+    "warning_count",
+    "candidate_only",
+    "app_owned_apply",
+    "local_only",
+    "claim_boundary",
+    "checked_files",
+    "errors",
+    "warnings"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["ok", "error"]
+    },
+    "error_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "warning_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "app_owned_apply": {
+      "type": "boolean",
+      "const": true
+    },
+    "local_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string",
+      "const": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply"
+    },
+    "checked_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "errors": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "generated_at_utc": {
+      "type": "string"
+    }
+  }
+}

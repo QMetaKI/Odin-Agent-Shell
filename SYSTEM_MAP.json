@@ -1032,7 +1032,7 @@
       "explain-seed-route --demo",
       "prove-operational-seed-spine"
     ],
-    "description": "FINAL-PR-06 Operational Seed Spine \u2014 intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
       "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
@@ -1124,7 +1124,7 @@
       "FINAL-PR-07",
       "FINAL-PR-06"
     ],
-    "description": "FINAL-PR-08 Projection Candidate Spine \u2014 materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
+    "description": "FINAL-PR-08 Projection Candidate Spine — materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
       "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
@@ -1166,6 +1166,65 @@
     "schema": "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
     "tests": "tests/test_final_pr_08_projection_candidate_spine.py",
     "validator": "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py"
+  },
+  "final_pr_09_operational_spine": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_09_OPERATIONAL_SPINE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_09_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_09_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_09_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+    "cli_commands": [
+      "validate-operational-spine",
+      "run-operational-spine",
+      "explain-operational-spine",
+      "validate-small-model-route-plan",
+      "validate-modelworkpacket-enforcement",
+      "validate-qshabang-operational-map",
+      "validate-deferred-system-lift"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_09_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_09_THOR_STYLE_OPERATIONAL_SPINE_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_09_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "modules": [
+      "odin/operational_spine/__init__.py",
+      "odin/operational_spine/orchestrator.py",
+      "odin/operational_spine/status.py",
+      "odin/operational_spine/model_roles.py",
+      "odin/operational_spine/modelworkpacket_builder.py",
+      "odin/operational_spine/small_model_route_plan.py",
+      "odin/operational_spine/qshabang_runtime_map.py",
+      "odin/operational_spine/deferred_system_lift.py",
+      "odin/operational_spine/provider_seam.py",
+      "odin/operational_spine/receipts.py",
+      "odin/operational_spine/reports.py"
+    ],
+    "pr": "FINAL-PR-09++",
+    "registry": "registries/final_pr_09_operational_spine_registry.json",
+    "report": "reports/final_pr_09_operational_spine_report.json",
+    "validator": "tools/rebaseline/check_final_pr_09_operational_spine.py",
+    "app_owned_apply": true,
+    "depends_on": [
+      "final_pr_08_projection_candidate_spine",
+      "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
+    ],
+    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
+    "hub_endpoints": [
+      "/operational-spine/status.json",
+      "/operational-spine/demo.json"
+    ],
+    "local_only": true,
+    "not_proven": [
+      "live_model_inference",
+      "provider_execution",
+      "production_readiness"
+    ],
+    "path": "odin/operational_spine/",
+    "tests": "tests/test_final_pr_09_operational_spine.py"
   },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
@@ -1544,7 +1603,7 @@
     "cli_commands": [
       "validate-prep-final-pr-06-08"
     ],
-    "description": "Prep FINAL-PR-06..08 scaffold artifacts \u2014 prepares future operational seed, field selection, and projection spine PRs",
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
     "future_prs": [
       "final_pr_06_operational_seed_spine",
       "final_pr_07_field_selection_spine",
@@ -2212,7 +2271,7 @@
   "version": "0.8.7",
   "y_pattern_spine": {
     "candidate_only": true,
-    "description": "Y Pattern Spine \u2014 neutral operational pattern layer",
+    "description": "Y Pattern Spine — neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
   }
 }

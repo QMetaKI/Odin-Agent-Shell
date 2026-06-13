@@ -72,6 +72,8 @@ REQUIRED_IDS = [
     "field-selection-spine-section",
     # FINAL-PR-08 Projection Candidate Spine
     "projection-candidate-spine-section",
+    # FINAL-PR-09++ Operational Spine
+    "operational-spine-section",
 ]
 
 REQUIRED_COPY = [
@@ -119,6 +121,9 @@ REQUIRED_COPY = [
     # FINAL-PR-08 Projection Candidate Spine
     "Projection Candidate Spine organizes candidate artifacts on the materialization ladder and links them to trace receipts.",
     "Odin organizes candidate work into structured sets.",
+    # FINAL-PR-09++ Operational Spine
+    "Operational Spine connects Universal Work, small-model route plans, ModelWorkPackets, candidate artifacts, Final Gate, and trace receipts without app apply or live model inference claims.",
+    "Odin organizes local candidate work into a safe structured response.",
 ]
 
 
@@ -451,6 +456,13 @@ def generate_hub_html() -> str:
   <span class="chip ok">Available</span>
   <p>Odin organizes candidate work into structured sets.</p>
   <p class="note">Dev Mode: Projection Candidate Spine organizes candidate artifacts on the materialization ladder and links them to trace receipts. GET /demo/projection-candidate.json. candidate_only: true. No model inference. No app apply.</p>
+</div>
+
+<div id="operational-spine-section" class="section">
+  <div class="label">Operational Spine (FINAL-PR-09++)</div>
+  <span class="chip ok">Available</span>
+  <p>Odin organizes local candidate work into a safe structured response.</p>
+  <p class="note">Dev Mode: Operational Spine connects Universal Work, small-model route plans, ModelWorkPackets, candidate artifacts, Final Gate, and trace receipts without app apply or live model inference claims. GET /operational-spine/demo.json. candidate_only: true. No model inference. No app apply. Provider seam disabled by default.</p>
 </div>
 
 </body>

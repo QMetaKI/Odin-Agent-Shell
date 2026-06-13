@@ -1,0 +1,179 @@
+{
+  "artifact_kind": "odin_final_pr_09_deferred_system_lift_example",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "systems": [
+    {
+      "name": "Context Distillery",
+      "status": "future_pr_required",
+      "purpose": "Compress and distill context into bounded capsules",
+      "small_model_relevance": "Essential for 3B context window management",
+      "qshabang_relevance": "ki_ohne_ki context compression",
+      "current_repo_evidence": "odin/operational_spine/deferred_system_lift.py (classified)",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["implementation_exists", "model_quality_improvement"]
+    },
+    {
+      "name": "Artifact Lenses",
+      "status": "schema_and_packet_only_in_pr09",
+      "purpose": "Focus artifact selection on relevant fields",
+      "small_model_relevance": "Reduces token cost for small models",
+      "qshabang_relevance": "candidate_reality lens selection",
+      "current_repo_evidence": "odin/projection_candidate_spine/ (partial), odin/operational_spine/orchestrator.py",
+      "pr09_action": "artifact_lens dict included in operational spine output",
+      "future_action": "Full lens engine in FINAL-PR-10++",
+      "not_proven": ["full_lens_selection", "model_quality_improvement"]
+    },
+    {
+      "name": "Slot Forge",
+      "status": "schema_and_packet_only_in_pr09",
+      "purpose": "Build slot contracts for work preparation",
+      "small_model_relevance": "Slot filling is a core 3B capability",
+      "qshabang_relevance": "q_gates slot enforcement",
+      "current_repo_evidence": "odin/slots/ (partial), odin/operational_spine/orchestrator.py",
+      "pr09_action": "slot_contract dict included in operational spine output",
+      "future_action": "Full slot forge in FINAL-PR-10++",
+      "not_proven": ["full_slot_forge", "slot_quality"]
+    },
+    {
+      "name": "Gaptext Compiler",
+      "status": "schema_and_packet_only_in_pr09",
+      "purpose": "Identify and fill gaps in candidate work",
+      "small_model_relevance": "Gap identification is a core 3B task",
+      "qshabang_relevance": "mirror_critics gap detection",
+      "current_repo_evidence": "odin/operational_spine/orchestrator.py",
+      "pr09_action": "gaptext dict included in operational spine output",
+      "future_action": "Full gaptext compiler in FINAL-PR-10++",
+      "not_proven": ["full_gaptext_compilation", "gap_detection_quality"]
+    },
+    {
+      "name": "Semantic Cache",
+      "status": "future_pr_required",
+      "purpose": "Cache semantic fingerprints for deterministic route lookup",
+      "small_model_relevance": "Avoids model calls on cached routes",
+      "qshabang_relevance": "ki_ohne_ki cache lookup",
+      "current_repo_evidence": "odin/precompute/ (partial scoring)",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["cache_implementation", "semantic_fingerprint_quality"]
+    },
+    {
+      "name": "Work Memory",
+      "status": "future_pr_required",
+      "purpose": "Maintain bounded work context across turns",
+      "small_model_relevance": "Critical for multi-turn 3B workflows",
+      "qshabang_relevance": "narrative_compiler memory",
+      "current_repo_evidence": "odin/storage/ (partial)",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["work_memory_implementation", "context_continuity"]
+    },
+    {
+      "name": "Minicheck",
+      "status": "future_pr_required",
+      "purpose": "Fast boundary verification for candidate claims",
+      "small_model_relevance": "3B-sized claim verification",
+      "qshabang_relevance": "q_gates minicheck",
+      "current_repo_evidence": "odin/quality/ (partial)",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["minicheck_implementation", "verification_quality"]
+    },
+    {
+      "name": "Critic Cascade",
+      "status": "minimal_runtime_hook_in_pr09",
+      "purpose": "Multi-stage candidate validation and boundary enforcement",
+      "small_model_relevance": "3B quick critic + 7B complex critic cascade",
+      "qshabang_relevance": "mirror_critics cascade",
+      "current_repo_evidence": "odin/operational_spine/model_roles.py (3b_quick_critic, 7b_complex_critic defined)",
+      "pr09_action": "critic roles defined in model_roles, critic_plan field in ModelWorkPacket",
+      "future_action": "Full cascade execution in FINAL-PR-10++",
+      "not_proven": ["cascade_execution", "critic_quality_improvement"]
+    },
+    {
+      "name": "Candidate Tournament",
+      "status": "future_pr_required",
+      "purpose": "Multi-candidate tournament selection for best response",
+      "small_model_relevance": "Enables cheap 3B candidates to compete",
+      "qshabang_relevance": "candidate_reality tournament",
+      "current_repo_evidence": "odin/projection_candidate_spine/compare.py (partial)",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["tournament_implementation", "selection_quality"]
+    },
+    {
+      "name": "Style Stabilizer",
+      "status": "future_pr_required",
+      "purpose": "Enforce consistent output style across candidates",
+      "small_model_relevance": "3B style_check role handles basic style",
+      "qshabang_relevance": "resonance_fit style coherence",
+      "current_repo_evidence": "odin/operational_spine/model_roles.py (3b_style_check defined)",
+      "pr09_action": "classified_as_deferred (role defined, engine deferred)",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["style_stabilizer_implementation", "style_consistency"]
+    },
+    {
+      "name": "Anti-Generic Engine",
+      "status": "future_pr_required",
+      "purpose": "Detect and filter generic non-specific candidate outputs",
+      "small_model_relevance": "3B outputs tend toward generic; engine required",
+      "qshabang_relevance": "mirror_critics anti-generic",
+      "current_repo_evidence": "None in current repo",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["anti_generic_implementation"]
+    },
+    {
+      "name": "Taste Dials",
+      "status": "future_pr_required",
+      "purpose": "User-configurable preference dials for candidate selection",
+      "small_model_relevance": "Guides small model output style",
+      "qshabang_relevance": "resonance_fit user preference",
+      "current_repo_evidence": "None in current repo",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["taste_dials_implementation"]
+    },
+    {
+      "name": "Model Dojo",
+      "status": "future_pr_required",
+      "purpose": "Structured training/evaluation environment for small model roles",
+      "small_model_relevance": "Core to 3B/7B quality improvement",
+      "qshabang_relevance": "ki_ohne_ki model quality loop",
+      "current_repo_evidence": "None in current repo",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["model_dojo_implementation", "model_quality_improvement"]
+    },
+    {
+      "name": "Scoreboard",
+      "status": "future_pr_required",
+      "purpose": "Track candidate quality scores across work sessions",
+      "small_model_relevance": "Enables small model quality tracking",
+      "qshabang_relevance": "candidate_reality score tracking",
+      "current_repo_evidence": "None in current repo",
+      "pr09_action": "classified_as_deferred",
+      "future_action": "FINAL-PR-10++ or later",
+      "not_proven": ["scoreboard_implementation"]
+    },
+    {
+      "name": "SDK/App Bridge receipts",
+      "status": "already_repo_real",
+      "purpose": "Receipt emission for SDK and app bridge interactions",
+      "small_model_relevance": "Receipt surfaces for model call tracing",
+      "qshabang_relevance": "qirc receipt bus",
+      "current_repo_evidence": "odin/proof_chain/, odin/qirc_core/",
+      "pr09_action": "already implemented, used in operational spine trace/receipt",
+      "future_action": "Extended in FINAL-PR-10++ for live model receipts",
+      "not_proven": ["live_model_receipt", "production_readiness"]
+    }
+  ],
+  "not_proven": [
+    "live_model_inference",
+    "real_model_benchmark",
+    "production_readiness",
+    "security_certification"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

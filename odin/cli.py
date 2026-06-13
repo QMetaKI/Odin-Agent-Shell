@@ -2817,6 +2817,31 @@ def validate_final_pr_09_10_qshabang_smallmodel_prep() -> list[str]:
                 return [f"final-pr-09-10-qshabang-smallmodel-prep validator failed: {exc}"]
     return []
 
+def validate_operational_spine() -> list[str]:
+    """Validate FINAL-PR-09++ Operational Spine artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_09_operational_spine.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-09++ validator: tools/rebaseline/check_final_pr_09_operational_spine.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_09_operational_spine_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-09++ validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_09_operational_spine_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-09-operational-spine: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-09-operational-spine validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2882,6 +2907,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_field_selection_spine())
     errors.extend(validate_projection_candidate_spine())
     errors.extend(validate_final_pr_09_10_qshabang_smallmodel_prep())
+    errors.extend(validate_operational_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3079,6 +3105,20 @@ def main(argv: list[str] | None = None) -> int:
     explain_projection_p = sub.add_parser("explain-projection-candidate")
     explain_projection_p.add_argument("--demo", action="store_true", default=False)
     sub.add_parser("prove-projection-candidate-spine")
+    # FINAL-PR-09++: Operational Spine
+    sub.add_parser("odin-status")
+    sub.add_parser("odin-doctor")
+    run_operational_spine_p = sub.add_parser("run-operational-spine")
+    run_operational_spine_p.add_argument("--demo", action="store_true", default=False)
+    run_operational_spine_p.add_argument("--input", dest="input_text", default=None)
+    sub.add_parser("explain-operational-spine")
+    sub.add_parser("explain-small-model-route")
+    sub.add_parser("explain-qshabang-map")
+    sub.add_parser("validate-operational-spine")
+    sub.add_parser("validate-small-model-route-plan")
+    sub.add_parser("validate-modelworkpacket-enforcement")
+    sub.add_parser("validate-qshabang-operational-map")
+    sub.add_parser("validate-deferred-system-lift")
     args = parser.parse_args(argv)
 
 
@@ -3877,6 +3917,122 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # FINAL-PR-09++: Operational Spine commands
+    if args.cmd == "odin-status":
+        from odin.operational_spine.status import get_operational_spine_status
+        result = get_operational_spine_status()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "odin-doctor":
+        from odin.operational_spine.status import get_operational_spine_doctor
+        result = get_operational_spine_doctor()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "run-operational-spine":
+        from odin.operational_spine.orchestrator import run_operational_spine as _run_spine
+        if getattr(args, "input_text", None):
+            result = _run_spine(args.input_text)
+        else:
+            result = _run_spine("demo operational spine input")
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-operational-spine":
+        from odin.operational_spine.orchestrator import run_operational_spine as _run_spine
+        result = _run_spine("explain operational spine demo")
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-small-model-route":
+        from odin.operational_spine.small_model_route_plan import build_small_model_route_plan
+        result = build_small_model_route_plan(work_id="universal_work_explain_demo")
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-qshabang-map":
+        from odin.operational_spine.qshabang_runtime_map import build_qshabang_operational_map
+        result = build_qshabang_operational_map()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-operational-spine":
+        errors = validate_operational_spine()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-operational-spine: OK")
+        return 0
+
+    if args.cmd == "validate-small-model-route-plan":
+        from odin.operational_spine.small_model_route_plan import build_small_model_route_plan
+        from odin.operational_spine.model_roles import list_model_roles
+        errors_found = []
+        plan = build_small_model_route_plan(work_id="validate_demo_work")
+        if not plan.get("candidate_only"):
+            errors_found.append("small_model_route_plan candidate_only must be true")
+        all_roles = list_model_roles()
+        role_ids = [r["role_id"] for r in all_roles]
+        for rid in ["3b_scout", "7b_writer", "hybrid_3b_scout_7b_synthesize_3b_check", "schema_validation"]:
+            if rid not in role_ids:
+                errors_found.append(f"missing required role: {rid}")
+        if errors_found:
+            for err in errors_found:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-small-model-route-plan: OK")
+        return 0
+
+    if args.cmd == "validate-modelworkpacket-enforcement":
+        from odin.operational_spine.modelworkpacket_builder import validate_modelworkpacket
+        errors_found = validate_modelworkpacket({"candidate_only": True, "local_only": True, "claim_boundary": "test", "output_contract": {}, "final_gate_requirements": [], "not_proven": []})
+        bad_errors = validate_modelworkpacket({"candidate_only": True, "local_only": True, "app_apply": True, "claim_boundary": "test", "output_contract": {}, "final_gate_requirements": [], "not_proven": []})
+        if not bad_errors:
+            print("ERROR: validator should reject app_apply: true")
+            return 1
+        print("validate-modelworkpacket-enforcement: OK")
+        return 0
+
+    if args.cmd == "validate-qshabang-operational-map":
+        from odin.operational_spine.qshabang_runtime_map import build_qshabang_operational_map
+        result = build_qshabang_operational_map()
+        if not result.get("candidate_only"):
+            print("ERROR: qshabang_operational_map candidate_only must be true")
+            return 1
+        required_components = ["ki_ohne_ki", "q_gates", "mirror_critics", "qirc", "app_sovereignty"]
+        components = result.get("components", {})
+        if isinstance(components, list):
+            comp_names = {c.get("name", c.get("id", "")) for c in components}
+        else:
+            comp_names = set(components.keys())
+        for comp in required_components:
+            if comp not in comp_names:
+                print(f"ERROR: qshabang_operational_map missing component: {comp}")
+                return 1
+        print("validate-qshabang-operational-map: OK")
+        return 0
+
+    if args.cmd == "validate-deferred-system-lift":
+        from odin.operational_spine.deferred_system_lift import build_deferred_system_lift_plan
+        result = build_deferred_system_lift_plan()
+        if not result.get("candidate_only"):
+            print("ERROR: deferred_system_lift candidate_only must be true")
+            return 1
+        systems = result.get("systems", {})
+        if isinstance(systems, list):
+            sys_names = {s.get("name", s.get("system_name", "")) for s in systems}
+        else:
+            sys_names = set(systems.keys())
+        required = ["Context Distillery", "Critic Cascade", "Model Dojo", "SDK/App Bridge receipts"]
+        for name in required:
+            if name not in sys_names:
+                print(f"ERROR: deferred_system_lift missing system: {name}")
+                return 1
+        print("validate-deferred-system-lift: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3977,6 +4133,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_operational_seed_spine()
     elif args.cmd == "validate-projection-candidate-spine":
         errors = validate_projection_candidate_spine()
+    elif args.cmd == "validate-operational-spine":
+        errors = validate_operational_spine()
     else:
         errors = validate_all()
 

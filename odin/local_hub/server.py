@@ -31,6 +31,14 @@ Endpoints:
   GET /demo/seed-route.json            — Operational Seed Spine demo (FINAL-PR-06)
   GET /demo/field-selection.json       — Field Selection Spine demo (FINAL-PR-07)
   GET /demo/projection-candidate.json  — Projection Candidate Spine demo (FINAL-PR-08)
+  GET /operational-spine/status.json        — Operational spine status (FINAL-PR-09++)
+  GET /operational-spine/demo.json          — Full operational spine demo (FINAL-PR-09++)
+  POST /operational-spine/run               — Run operational spine on input (FINAL-PR-09++)
+  GET /operational-spine/evidence-index.json  — Evidence index (FINAL-PR-09++)
+  GET /operational-spine/provider-readiness.json — Provider seam readiness (FINAL-PR-09++)
+  GET /operational-spine/small-model-route.json  — Small-model route plan (FINAL-PR-09++)
+  GET /operational-spine/qshabang-map.json       — Q-Shabang operational map (FINAL-PR-09++)
+  GET /operational-spine/modelworkpacket.example.json — ModelWorkPacket example (FINAL-PR-09++)
 """
 from __future__ import annotations
 
@@ -194,6 +202,46 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             payload = build_projection_candidate_payload()
             body = json.dumps(payload, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/status.json":
+            from odin.operational_spine.status import get_operational_spine_status
+            body = json.dumps(get_operational_spine_status(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/demo.json":
+            from odin.operational_spine.orchestrator import run_operational_spine
+            body = json.dumps(run_operational_spine("demo operational spine input"), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/evidence-index.json":
+            payload = {
+                "artifact_kind": "odin_final_pr_09_operational_spine_evidence_index",
+                "candidate_only": True, "local_only": True, "app_owned_apply": True,
+                "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+                "registry": "registries/final_pr_09_operational_spine_registry.json",
+                "proof_packet": "reports/final_pr_09_operational_spine_proof_packet.json",
+                "not_proven": ["live_model_inference", "production_readiness", "security_certification"],
+            }
+            body = json.dumps(payload, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/provider-readiness.json":
+            from odin.operational_spine.provider_seam import build_provider_seam_packet
+            body = json.dumps(build_provider_seam_packet(None), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/small-model-route.json":
+            from odin.operational_spine.small_model_route_plan import build_small_model_route_plan
+            body = json.dumps(build_small_model_route_plan(work_id="hub_demo_work"), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/qshabang-map.json":
+            from odin.operational_spine.qshabang_runtime_map import build_qshabang_operational_map
+            body = json.dumps(build_qshabang_operational_map(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/modelworkpacket.example.json":
+            import json as _json
+            from pathlib import Path as _Path
+            p = _Path(__file__).resolve().parents[2] / "examples/final_pr_09/modelworkpacket.example.json"
+            if p.exists():
+                body = p.read_bytes()
+            else:
+                body = _json.dumps({"status": "not_found", "candidate_only": True}).encode("utf-8")
+            self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'
             self._respond(404, "application/json", body)
@@ -245,6 +293,18 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
             input_text = str(payload.get("input", "demo mock input"))
             from odin.execution_gate.gateway import execute_candidate
             result = execute_candidate(input_text=input_text, provider_id="mock")
+            body = json.dumps(result, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/operational-spine/run":
+            content_length = int(self.headers.get("Content-Length", 0))
+            raw_body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+            try:
+                payload = json.loads(raw_body.decode("utf-8"))
+            except Exception:
+                payload = {}
+            input_text = str(payload.get("input", "demo operational spine input"))
+            from odin.operational_spine.orchestrator import run_operational_spine
+            result = run_operational_spine(input_text)
             body = json.dumps(result, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:

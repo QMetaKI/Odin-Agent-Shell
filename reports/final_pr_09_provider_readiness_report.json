@@ -1,0 +1,40 @@
+{
+  "artifact_kind": "odin_final_pr_09_provider_readiness_report",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "local_only": true,
+  "claim_boundary": "final_pr_09_operational_spine_candidate_kernel_not_live_model_proof_not_app_apply",
+  "provider_seam_status": "disabled_by_default",
+  "providers": [
+    {
+      "provider_id": null,
+      "label": "deterministic",
+      "execution_allowed": false,
+      "model_inference": false,
+      "status": "default_no_model"
+    },
+    {
+      "provider_id": "mock",
+      "label": "mock_provider",
+      "execution_allowed": false,
+      "model_inference": false,
+      "status": "deterministic_mock_only"
+    },
+    {
+      "provider_id": "ollama_candidate",
+      "label": "local_ollama_candidate",
+      "execution_allowed": false,
+      "model_inference": false,
+      "status": "disabled_by_default"
+    },
+    {
+      "provider_id": "llama_cpp_candidate",
+      "label": "local_llama_cpp_candidate",
+      "execution_allowed": false,
+      "model_inference": false,
+      "status": "disabled_by_default"
+    }
+  ],
+  "not_proven": ["live_model_inference", "provider_execution", "production_readiness"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}
