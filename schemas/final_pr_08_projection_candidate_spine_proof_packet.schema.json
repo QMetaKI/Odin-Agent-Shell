@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-08 Projection Candidate Spine Proof Packet",
+  "type": "object",
+  "required": ["artifact_kind", "proven", "not_proven", "claim_boundary", "candidate_only"],
+  "properties": {
+    "artifact_kind": {"type": "string", "enum": ["odin_projection_candidate_spine_proof_packet"]},
+    "proven": {"type": "array", "items": {"type": "string"}},
+    "not_proven": {
+      "type": "array",
+      "items": {"type": "string"},
+      "contains": {"const": "hidden_runtime"}
+    },
+    "claim_boundary": {"type": "string", "const": "projection_candidate_spine_prepares_candidates_not_runtime_execution"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_owned_apply": {"type": "boolean"}
+  }
+}

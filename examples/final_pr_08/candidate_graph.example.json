@@ -1,0 +1,35 @@
+{
+  "graph_id": "candidate_graph_demo0000000001",
+  "nodes": [
+    {
+      "node_id": "candidate_node_demo000001",
+      "label": "input_context",
+      "materialization_level": "M4_field_selection",
+      "content_summary": "Input context node from field selection",
+      "proof_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+      "receipt_link_id": null,
+      "candidate_only": true,
+      "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+    },
+    {
+      "node_id": "candidate_node_demo000002",
+      "label": "projection_candidate",
+      "materialization_level": "M6_candidate_artifact",
+      "content_summary": "Candidate artifact derived from input context",
+      "proof_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+      "receipt_link_id": null,
+      "candidate_only": true,
+      "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+    }
+  ],
+  "edges": [
+    {
+      "from_node_id": "candidate_node_demo000001",
+      "to_node_id": "candidate_node_demo000002",
+      "relation": "derived_from"
+    }
+  ],
+  "entry_node_id": "candidate_node_demo000001",
+  "candidate_only": true,
+  "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution"
+}

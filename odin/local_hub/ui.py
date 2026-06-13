@@ -68,6 +68,10 @@ REQUIRED_IDS = [
     "y-pattern-spine-status",
     # FINAL-PR-06 Operational Seed Spine
     "operational-seed-spine-status",
+    # FINAL-PR-07 Field Selection Spine (already present in HTML)
+    "field-selection-spine-section",
+    # FINAL-PR-08 Projection Candidate Spine
+    "projection-candidate-spine-section",
 ]
 
 REQUIRED_COPY = [
@@ -112,6 +116,9 @@ REQUIRED_COPY = [
     "Operational Seed Spine explains why a seed route and work capsule were selected.",
     "Field Selection Spine scores work context against review axes and recommends a dominant routing field.",
     "Odin ranks candidate routes by coherence.",
+    # FINAL-PR-08 Projection Candidate Spine
+    "Projection Candidate Spine organizes candidate artifacts on the materialization ladder and links them to trace receipts.",
+    "Odin organizes candidate work into structured sets.",
 ]
 
 
@@ -437,6 +444,13 @@ def generate_hub_html() -> str:
   <span class="chip ok">Available</span>
   <p>Odin ranks candidate routes by coherence.</p>
   <p class="note">Dev Mode: Field Selection Spine scores work context against review axes and recommends a dominant routing field.</p>
+</div>
+
+<div id="projection-candidate-spine-section" class="section">
+  <div class="label">Projection Candidate Spine</div>
+  <span class="chip ok">Available</span>
+  <p>Odin organizes candidate work into structured sets.</p>
+  <p class="note">Dev Mode: Projection Candidate Spine organizes candidate artifacts on the materialization ladder and links them to trace receipts. GET /demo/projection-candidate.json. candidate_only: true. No model inference. No app apply.</p>
 </div>
 
 </body>

@@ -2764,6 +2764,33 @@ def validate_field_selection_spine() -> list[str]:
     return []
 
 
+def validate_projection_candidate_spine() -> list[str]:
+    """Validate FINAL-PR-08 Projection Candidate Spine artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_08_projection_candidate_spine.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-08 validator: tools/rebaseline/check_final_pr_08_projection_candidate_spine.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_08_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-08 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    import tempfile as _tempfile
+    with _tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_08_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-08: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-08 validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2827,6 +2854,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_prep_final_pr_06_08())
     errors.extend(validate_operational_seed_spine())
     errors.extend(validate_field_selection_spine())
+    errors.extend(validate_projection_candidate_spine())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3016,6 +3044,11 @@ def main(argv: list[str] | None = None) -> int:
     explain_seed_route_p = sub.add_parser("explain-seed-route")
     explain_seed_route_p.add_argument("--demo", action="store_true", default=False)
     sub.add_parser("prove-operational-seed-spine")
+    # FINAL-PR-08: Projection Candidate Spine
+    sub.add_parser("validate-projection-candidate-spine")
+    explain_projection_p = sub.add_parser("explain-projection-candidate")
+    explain_projection_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("prove-projection-candidate-spine")
     args = parser.parse_args(argv)
 
     if args.cmd == "doctor":
@@ -3760,6 +3793,51 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # FINAL-PR-08: Projection Candidate Spine commands
+    if args.cmd == "validate-projection-candidate-spine":
+        errors = validate_projection_candidate_spine()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-projection-candidate-spine: OK")
+        return 0
+
+    if args.cmd == "explain-projection-candidate":
+        from odin.operational_seed_spine.selector import select_seed_route
+        from odin.field_selection_spine.selector import select_field_route_from_seed_route
+        from odin.projection_candidate_spine.projection_set import build_projection_set_from_field_selection
+        from odin.projection_candidate_spine.candidate_graph import build_candidate_graph
+        from odin.projection_candidate_spine.expression_packet import build_expression_packet
+        seed = select_seed_route({"trigger_shape": "repo", "work_type": "repo"})
+        fs = select_field_route_from_seed_route(seed)
+        ps = build_projection_set_from_field_selection(fs)
+        graph = build_candidate_graph(ps.candidate_nodes)
+        ep = build_expression_packet(ps.candidate_nodes[0])
+        result = {
+            "status": "ok",
+            "candidate_only": True,
+            "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+            "seed_route": seed.to_dict(),
+            "field_selection": fs.to_dict(),
+            "projection_set": ps.to_dict(),
+            "candidate_graph": graph.to_dict(),
+            "expression_packet": ep.to_dict(),
+            "not_proven": [
+                "hidden_runtime", "model_inference", "provider_execution", "app_apply",
+                "app_state_mutation", "external_send", "generated_code_correctness",
+                "production_readiness", "security_certification",
+            ],
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "prove-projection-candidate-spine":
+        from odin.projection_candidate_spine.proof import persist_proof_packet
+        result = persist_proof_packet(ROOT)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -3856,6 +3934,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_prep_final_pr_06_08()
     elif args.cmd == "validate-operational-seed-spine":
         errors = validate_operational_seed_spine()
+    elif args.cmd == "validate-projection-candidate-spine":
+        errors = validate_projection_candidate_spine()
     else:
         errors = validate_all()
 

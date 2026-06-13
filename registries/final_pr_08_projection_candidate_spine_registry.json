@@ -1,0 +1,38 @@
+{
+  "registry_id": "final_pr_08_projection_candidate_spine",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+  "materialization_levels": [
+    "M0_raw_input", "M1_handoff_context", "M2_universal_work", "M3_seed_route",
+    "M4_field_selection", "M5_projection_set", "M6_candidate_artifact",
+    "M7_response_packet", "M8_trace_receipt", "M9_release_evidence"
+  ],
+  "node_id_prefixes": ["projection_set_", "candidate_node_", "candidate_graph_", "expression_packet_", "candidate_comparison_", "receipt_link_", "projection_proof_"],
+  "graph_edge_shape": {"from_node_id": "str", "to_node_id": "str", "relation": "str"},
+  "local_hub_endpoint": "GET /demo/projection-candidate.json",
+  "cli_commands": [
+    "validate-projection-candidate-spine",
+    "explain-projection-candidate --demo",
+    "prove-projection-candidate-spine"
+  ],
+  "validator_command": "python -m odin.cli validate-projection-candidate-spine",
+  "proof_packet_path": "reports/final_pr_08_projection_candidate_spine_proof_packet.json",
+  "not_proven": [
+    "hidden_runtime", "model_inference", "provider_execution", "app_apply",
+    "app_state_mutation", "external_send", "generated_code_correctness",
+    "production_readiness", "security_certification"
+  ],
+  "depends_on": ["FINAL-PR-07", "FINAL-PR-06"],
+  "module_files": [
+    "odin/projection_candidate_spine/__init__.py",
+    "odin/projection_candidate_spine/materialization.py",
+    "odin/projection_candidate_spine/candidate_graph.py",
+    "odin/projection_candidate_spine/projection_set.py",
+    "odin/projection_candidate_spine/expression_packet.py",
+    "odin/projection_candidate_spine/compare.py",
+    "odin/projection_candidate_spine/receipt_link.py",
+    "odin/projection_candidate_spine/proof.py"
+  ]
+}

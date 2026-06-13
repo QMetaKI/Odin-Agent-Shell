@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1742,
+  "file_count_excluding_manifest": 1769,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "e9f61ef196525a3bb8edf8a8e5e91c9f158a8f58afd16166579e7594acdf4f0c",
-      "size": 100129
+      "sha256": "fdea88e7794461f60c0eae733f3a197d1b38f9ede60877c99ebbd135c2be327e",
+      "size": 102834
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -3950,8 +3950,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "a8a987bccc90d14fb9fab7670135ea45b8383c39a30841c38d5fb3fefb1c6b1e",
-      "size": 199490
+      "sha256": "6d001b3cd23a77eae667e5c9d51d4b001bbb1407b8215acc6773bcbdbbe5d867",
+      "size": 203483
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4210,8 +4210,8 @@
     },
     {
       "path": "odin/local_hub/server.py",
-      "sha256": "9c725c4b1b695642aa24c9a3831e678dc80685fb325cf7fe95910cf48071b7e9",
-      "size": 17449
+      "sha256": "5220c82d0bbc49a315fb9cde70f96a76347c291c3e6fecfc8e15b833440b9eca",
+      "size": 19224
     },
     {
       "path": "odin/local_hub/surface_registry.py",
@@ -4220,8 +4220,8 @@
     },
     {
       "path": "odin/local_hub/ui.py",
-      "sha256": "d30d5f9ad853fcaab84e87efe86b6b4b6622dfec4f637e9e10497525b7db00ea",
-      "size": 22775
+      "sha256": "4c6cd5b45f4f018af9171a0f8a425480fc2e3ea1ec8656ab4713c09c7650a244",
+      "size": 23669
     },
     {
       "path": "odin/local_runtime/__init__.py",
@@ -8323,13 +8323,13 @@
     },
     {
       "path": "tools/rebaseline/check_prep_final_pr_06_08.py",
-      "sha256": "cd5c5c6b23071c01a1416d29954bd8a8c3cce966ecd6c9764edc3f18a55f147a",
-      "size": 16982
+      "sha256": "5ac54e78de3760abc53857853734e0fd4dac3a76be5c032cade7143608f6aed1",
+      "size": 17198
     },
     {
       "path": "tests/test_prep_final_pr_06_08.py",
-      "sha256": "1ba243a8cd1b1e963d7e3c0051939c38a398b4bc4dca59f635d19e6fe0ad8531",
-      "size": 15020
+      "sha256": "73d8eb96a4a22e269de274ffc8ec8e35da41bf9b6d4b95bc660800150193ccae",
+      "size": 15294
     },
     {
       "path": "docs/codex/audits/PREP_FINAL_PR_06_08_SENIOR_REVIEW.md",
@@ -8630,6 +8630,141 @@
       "path": "tools/rebaseline/check_final_pr_07_field_selection_spine.py",
       "sha256": "49c04d142e59a2b033b0cefd1ef7d1fc5585fd27e0187f8c524dbe12c9655e7b",
       "size": 8120
+    },
+    {
+      "path": "odin/projection_candidate_spine/__init__.py",
+      "sha256": "b6f9140f0a27f6ad7ec8e4e45ebd0e05ad663daebb55a20b3ec859bff5abea7f",
+      "size": 1484
+    },
+    {
+      "path": "odin/projection_candidate_spine/materialization.py",
+      "sha256": "72b2ea774e1698ef23c6ceadabb357ef45e5a7b38b8a03464a7f1a19d791a393",
+      "size": 778
+    },
+    {
+      "path": "odin/projection_candidate_spine/candidate_graph.py",
+      "sha256": "e2c62e796f81c530696b4fd5cb02b919fbacb6ee0457d857d1b369b7a9fbac89",
+      "size": 3140
+    },
+    {
+      "path": "odin/projection_candidate_spine/projection_set.py",
+      "sha256": "a92233c29d5ce648572c75199c451503ea02bb82f110f0aa93e233d599e20379",
+      "size": 4090
+    },
+    {
+      "path": "odin/projection_candidate_spine/expression_packet.py",
+      "sha256": "3598b267dd0d53a58ddb458dd062518dd59fa65c22cc99a20a0c30a497830ce4",
+      "size": 2343
+    },
+    {
+      "path": "odin/projection_candidate_spine/compare.py",
+      "sha256": "7fcd8d30fc659283352e31cc61c090622f3982db20c3c63362083e851999c8a3",
+      "size": 2948
+    },
+    {
+      "path": "odin/projection_candidate_spine/receipt_link.py",
+      "sha256": "a3ed038808dd9d8462d124ed8051807cee6a9e1103de47501a36e9bcb2825e19",
+      "size": 1892
+    },
+    {
+      "path": "odin/projection_candidate_spine/proof.py",
+      "sha256": "22e2919205d9fed0cef617fbcf33d9d61043f6008c2d972c50985d69a22860a8",
+      "size": 1886
+    },
+    {
+      "path": "registries/final_pr_08_projection_candidate_spine_registry.json",
+      "sha256": "668e01709f270e3be346f55e1a83c1635cbbb15cbafb264f29ff78e85103f3d0",
+      "size": 1857
+    },
+    {
+      "path": "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
+      "sha256": "da8c579c76d68d672456a7e49c13051dc3a33aba45f7c2d52dce2ddf4e173bba",
+      "size": 777
+    },
+    {
+      "path": "examples/final_pr_08/projection_set.example.json",
+      "sha256": "163355dbd0baee39838d354d533d5131b6c45cab3c7cd51322dfb8d89f0175d9",
+      "size": 1027
+    },
+    {
+      "path": "examples/final_pr_08/candidate_graph.example.json",
+      "sha256": "de416b0dbc1ae1023958445bc2e4d23b1e3304adb8c6b1953d1c0007d50e3b4d",
+      "size": 1341
+    },
+    {
+      "path": "examples/final_pr_08/expression_packet.example.json",
+      "sha256": "ccc4c4ece5720c35dcd54510bd49adda5efad429640d9f1dafdd7b7d1e955d7f",
+      "size": 1055
+    },
+    {
+      "path": "examples/final_pr_08/projection_proof_packet.example.json",
+      "sha256": "5fd48af428ccbf8d706df222e0808ce8c0dd3c5424754694f1ab58e1ec3a8860",
+      "size": 669
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py",
+      "sha256": "0ac1c72522e3f56eba3929947a421cdf4e30d63901821ec674d4e97ca02c1366",
+      "size": 13068
+    },
+    {
+      "path": "tests/test_final_pr_08_projection_candidate_spine.py",
+      "sha256": "8086eb57d206e20e34166a92b56d12a8e260e1c33e15be4adb0e2e86413da46f",
+      "size": 20884
+    },
+    {
+      "path": "reports/final_pr_08_projection_candidate_spine_proof_packet.json",
+      "sha256": "f53c930f2a188c93e3a0f4e8dfaa617439d3723e71176e2bd63b66c027e59861",
+      "size": 669
+    },
+    {
+      "path": "reports/final_pr_08_projection_candidate_spine_report.json",
+      "sha256": "1a5014e7131ec3063f99de8a6f53971ec6b7624bf94410c9c07e43a356494fc2",
+      "size": 1998
+    },
+    {
+      "path": "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "sha256": "85ef5961f53a8b766647f2d9aca704c39e74f9f2e2185a10fe914b3e284f303f",
+      "size": 2361
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_08_REPO_COGNITION_SUMMARY.md",
+      "sha256": "472c011e76d95074467a8544dfd220dc61103dc3b74bdc4ff036deba56afffe8",
+      "size": 2039
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_08_THOR_STYLE_FIELD_TO_PROJECTION_HANDOFF.md",
+      "sha256": "be340cf6732636181985166b2d0aa5616738267d6da981bbd92b03d2e4f99435",
+      "size": 2864
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_08_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "31c4f656db7f3e60405e10b8aa473ad5b5c0ed6331780ce6f54c0653b0e7280a",
+      "size": 2737
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_AUDIT.md",
+      "sha256": "b8e3c697e3b3f43354bc9aeb2862146daee2df132f2ee047f68ad0c70cf2b1ed",
+      "size": 3036
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_08_SENIOR_REVIEW.md",
+      "sha256": "b2ba7ae7e2c96732aa1d37a21f8d0e933cf0c9e8fb81492b7eea7e93c9866d74",
+      "size": 2530
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_08_CODE_REVIEW.md",
+      "sha256": "fa631e0c22fb7285ced4a5e44f17b31a906a11856d512e240471116fa294accf",
+      "size": 2220
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_08_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "b850f6751f0a0af5924aec4dfde0b14c0d759d6f34b02de3604f56bfd62af4d7",
+      "size": 6709
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md",
+      "sha256": "827207e7410afa0e4ae84d070b40bffa4a05a1fbb417234929cc976e7bbac10c",
+      "size": 9762
     }
   ]
 }

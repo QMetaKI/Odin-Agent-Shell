@@ -30,6 +30,7 @@ Endpoints:
   GET /demo/y-route.json               — Y Pattern Spine route hint demo (Y-PATTERN-SPINE)
   GET /demo/seed-route.json            — Operational Seed Spine demo (FINAL-PR-06)
   GET /demo/field-selection.json       — Field Selection Spine demo (FINAL-PR-07)
+  GET /demo/projection-candidate.json  — Projection Candidate Spine demo (FINAL-PR-08)
 """
 from __future__ import annotations
 
@@ -46,6 +47,33 @@ from odin.local_hub.demo_universal_work import build_demo_universal_work_respons
 
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8765
+
+
+def build_projection_candidate_payload() -> dict:
+    """Build a demo Projection Candidate Spine payload for GET /demo/projection-candidate.json."""
+    from odin.operational_seed_spine.selector import select_seed_route
+    from odin.field_selection_spine.selector import select_field_route_from_seed_route
+    from odin.projection_candidate_spine.projection_set import build_projection_set_from_field_selection
+    from odin.projection_candidate_spine.candidate_graph import build_candidate_graph
+    from odin.projection_candidate_spine.expression_packet import build_expression_packet
+    seed = select_seed_route({"trigger_shape": "repo", "work_type": "repo"})
+    fs = select_field_route_from_seed_route(seed)
+    ps = build_projection_set_from_field_selection(fs)
+    graph = build_candidate_graph(ps.candidate_nodes)
+    ep = build_expression_packet(ps.candidate_nodes[0])
+    return {
+        "status": "ok",
+        "candidate_only": True,
+        "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+        "projection_set": ps.to_dict(),
+        "candidate_graph": graph.to_dict(),
+        "expression_packet": ep.to_dict(),
+        "not_proven": [
+            "hidden_runtime", "model_inference", "provider_execution", "app_apply",
+            "app_state_mutation", "external_send", "generated_code_correctness",
+            "production_readiness", "security_certification",
+        ],
+    }
 
 
 class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
@@ -160,6 +188,10 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
                 "work_capsule": capsule.to_dict(),
                 "not_proven": capsule.not_proven,
             }
+            body = json.dumps(payload, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/demo/projection-candidate.json":
+            payload = build_projection_candidate_payload()
             body = json.dumps(payload, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:

@@ -1,0 +1,24 @@
+{
+  "artifact_kind": "odin_projection_candidate_spine_proof_packet",
+  "proven": [
+    "materialization_levels_defined",
+    "projection_set_candidate_only",
+    "candidate_graph_structured",
+    "expression_packet_near_code_not_executed",
+    "receipt_link_traceable"
+  ],
+  "not_proven": [
+    "hidden_runtime",
+    "model_inference",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "generated_code_correctness",
+    "production_readiness",
+    "security_certification"
+  ],
+  "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+  "candidate_only": true,
+  "app_owned_apply": true
+}

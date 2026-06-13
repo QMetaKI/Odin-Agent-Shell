@@ -1106,6 +1106,67 @@
     "tests": "tests/test_final_pr_07_field_selection_spine.py",
     "validator": "tools/rebaseline/check_final_pr_07_field_selection_spine.py"
   },
+  "final_pr_08_projection_candidate_spine": {
+    "audits": [
+      "docs/codex/audits/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_08_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_08_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_08_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md"
+    ],
+    "candidate_only": true,
+    "claim_boundary": "projection_candidate_spine_prepares_candidates_not_runtime_execution",
+    "cli_commands": [
+      "validate-projection-candidate-spine",
+      "explain-projection-candidate --demo",
+      "prove-projection-candidate-spine"
+    ],
+    "depends_on": [
+      "FINAL-PR-07",
+      "FINAL-PR-06"
+    ],
+    "description": "FINAL-PR-08 Projection Candidate Spine \u2014 materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
+    "docs": [
+      "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
+    ],
+    "examples_dir": "examples/final_pr_08",
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_08_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_08_THOR_STYLE_FIELD_TO_PROJECTION_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_08_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "local_hub_endpoint": "GET /demo/projection-candidate.json",
+    "module": "odin/projection_candidate_spine",
+    "module_files": [
+      "odin/projection_candidate_spine/__init__.py",
+      "odin/projection_candidate_spine/materialization.py",
+      "odin/projection_candidate_spine/candidate_graph.py",
+      "odin/projection_candidate_spine/projection_set.py",
+      "odin/projection_candidate_spine/expression_packet.py",
+      "odin/projection_candidate_spine/compare.py",
+      "odin/projection_candidate_spine/receipt_link.py",
+      "odin/projection_candidate_spine/proof.py"
+    ],
+    "not_proven": [
+      "hidden_runtime",
+      "model_inference",
+      "provider_execution",
+      "app_apply",
+      "app_state_mutation",
+      "external_send",
+      "generated_code_correctness",
+      "production_readiness",
+      "security_certification"
+    ],
+    "registry": "registries/final_pr_08_projection_candidate_spine_registry.json",
+    "reports": [
+      "reports/final_pr_08_projection_candidate_spine_report.json",
+      "reports/final_pr_08_projection_candidate_spine_proof_packet.json"
+    ],
+    "schema": "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
+    "tests": "tests/test_final_pr_08_projection_candidate_spine.py",
+    "validator": "tools/rebaseline/check_final_pr_08_projection_candidate_spine.py"
+  },
   "final_road_to_100_rebaseline_audit": {
     "actual_pr": "PR-35",
     "bundle_id": "B9",
