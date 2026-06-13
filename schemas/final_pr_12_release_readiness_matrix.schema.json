@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-12 Release Readiness Matrix",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "candidate_only",
+    "claim_boundary",
+    "rows",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array"
+    },
+    "not_proven": {
+      "type": "array"
+    }
+  }
+}

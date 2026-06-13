@@ -1032,7 +1032,7 @@
       "explain-seed-route --demo",
       "prove-operational-seed-spine"
     ],
-    "description": "FINAL-PR-06 Operational Seed Spine \u2014 intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
       "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
@@ -1124,7 +1124,7 @@
       "FINAL-PR-07",
       "FINAL-PR-06"
     ],
-    "description": "FINAL-PR-08 Projection Candidate Spine \u2014 materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
+    "description": "FINAL-PR-08 Projection Candidate Spine — materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
       "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
@@ -1212,7 +1212,7 @@
       "final_pr_08_projection_candidate_spine",
       "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
     ],
-    "description": "FINAL-PR-09++ Operational Spine \u2014 Small-Model Operational Spine + Odin Work Kernel",
+    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
     "hub_endpoints": [
       "/operational-spine/status.json",
       "/operational-spine/demo.json"
@@ -1603,7 +1603,7 @@
     "cli_commands": [
       "validate-prep-final-pr-06-08"
     ],
-    "description": "Prep FINAL-PR-06..08 scaffold artifacts \u2014 prepares future operational seed, field selection, and projection spine PRs",
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
     "future_prs": [
       "final_pr_06_operational_seed_spine",
       "final_pr_07_field_selection_spine",
@@ -2271,14 +2271,14 @@
   "version": "0.8.8",
   "y_pattern_spine": {
     "candidate_only": true,
-    "description": "Y Pattern Spine \u2014 neutral operational pattern layer",
+    "description": "Y Pattern Spine — neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
   },
   "final_pr_10_boundary_release": {
     "candidate_only": true,
     "app_owned_apply": true,
     "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
-    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization \u2014 maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
+    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
     "module": "odin/release_boundaries/",
     "registry": "registries/final_pr_10_boundary_release_registry.json",
     "schema": "schemas/final_pr_10_release_preflight_report.schema.json",
@@ -2495,6 +2495,122 @@
     ],
     "not_proven": [
       "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority"
+    ]
+  },
+  "final_pr_12_release_readiness_hardening": {
+    "pr_id": "FINAL-PR-12",
+    "candidate_only": true,
+    "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+    "final_pr_13_remains_deferred": true,
+    "description": "Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep",
+    "modules": [
+      "odin/release_readiness_hardening/",
+      "odin/evidence_closure_dry_run/",
+      "odin/packaging_boundary_prep/",
+      "odin/command_surface_closure/",
+      "odin/docs_readiness/",
+      "odin/final_pr_13_input_bundle/"
+    ],
+    "registries": [
+      "registries/final_pr_12_release_readiness_registry.json",
+      "registries/final_pr_12_evidence_closure_dry_run_registry.json",
+      "registries/final_pr_12_packaging_boundary_registry.json",
+      "registries/final_pr_12_command_surface_registry.json",
+      "registries/final_pr_12_docs_readiness_registry.json",
+      "registries/final_pr_12_final_pr_13_input_bundle_registry.json"
+    ],
+    "schemas": [
+      "schemas/final_pr_12_release_readiness_matrix.schema.json",
+      "schemas/final_pr_12_evidence_closure_dry_run.schema.json",
+      "schemas/final_pr_12_packaging_boundary.schema.json",
+      "schemas/final_pr_12_final_pr_13_input_bundle.schema.json"
+    ],
+    "examples": [
+      "examples/final_pr_12/"
+    ],
+    "reports": [
+      "reports/final_pr_12_release_readiness_matrix.json",
+      "reports/final_pr_12_release_risk_register.json",
+      "reports/final_pr_12_evidence_closure_dry_run.json",
+      "reports/final_pr_12_packaging_boundary_inventory.json",
+      "reports/final_pr_12_command_surface_index.json",
+      "reports/final_pr_12_docs_readiness_index.json",
+      "reports/final_pr_12_final_pr_13_input_bundle.json",
+      "reports/final_pr_12_release_sequence_after_pr12.json",
+      "reports/final_pr_12_release_readiness_proof_packet.json"
+    ],
+    "tests": [
+      "tests/test_final_pr_12_release_readiness_hardening.py"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_12_release_readiness_hardening.py",
+    "docs": [
+      "docs/rebaseline/FINAL_PR_12_RELEASE_READINESS_HARDENING.md",
+      "docs/release/FINAL_PR_12_RELEASE_READINESS_MATRIX.md",
+      "docs/release/FINAL_PR_12_EVIDENCE_CLOSURE_DRY_RUN.md",
+      "docs/release/FINAL_PR_12_PACKAGING_BOUNDARY_PREP.md",
+      "docs/release/FINAL_PR_12_COMMAND_SURFACE_CLOSURE.md",
+      "docs/release/FINAL_PR_12_DOCS_READINESS.md",
+      "docs/release/FINAL_PR_12_FINAL_PR_13_INPUT_BUNDLE.md",
+      "docs/release/FINAL_PR_12_RELEASE_SEQUENCE_AFTER_PR12.md"
+    ],
+    "handoffs": [
+      "docs/codex/handoffs/FINAL_PR_12_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_12_THOR_STYLE_RELEASE_READINESS_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_12_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+    ],
+    "audits": [
+      "docs/codex/audits/FINAL_PR_12_RELEASE_READINESS_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_12_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_12_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_12_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/reports/FINAL_PR_12_RELEASE_READINESS_RETURN_REPORT.md"
+    ],
+    "cli_commands": [
+      "validate-release-readiness-hardening",
+      "build-release-readiness-matrix",
+      "build-release-risk-register",
+      "explain-release-readiness-hardening",
+      "validate-evidence-closure-dry-run",
+      "run-evidence-closure-dry-run",
+      "explain-evidence-closure-dry-run",
+      "validate-packaging-boundary-prep",
+      "build-packaging-boundary",
+      "explain-packaging-boundary",
+      "validate-command-surface-closure",
+      "build-command-surface-index",
+      "explain-command-surface",
+      "validate-docs-readiness",
+      "build-docs-readiness-index",
+      "explain-docs-readiness",
+      "validate-final-pr-13-input-bundle",
+      "build-final-pr-13-input-bundle",
+      "explain-final-pr-13-input-bundle",
+      "validate-final-pr-12-release-readiness-hardening"
+    ],
+    "local_hub_endpoints": [
+      "/release-readiness/status.json",
+      "/release-readiness/matrix.json",
+      "/release-readiness/risk-register.json",
+      "/evidence-closure/dry-run.json",
+      "/packaging-boundary/inventory.json",
+      "/command-surface/index.json",
+      "/docs-readiness/index.json",
+      "/final-pr-13/input-bundle.json",
+      "/release/sequence-after-pr12.json"
+    ],
+    "depends_on": [
+      "FINAL-PR-11.5",
+      "FINAL-PR-11",
+      "FINAL-PR-10",
+      "FINAL-PR-09"
+    ],
+    "not_proven": [
+      "production_readiness",
+      "security_certification",
+      "release_certification",
       "live_model_inference",
       "app_state_mutation",
       "external_send_authority"

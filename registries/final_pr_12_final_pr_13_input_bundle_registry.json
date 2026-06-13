@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "odin_final_pr_12_final_pr_13_input_bundle_registry",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_13_input_bundle_prepares_release_closure_not_release_closure",
+  "modules": [
+    "odin/final_pr_13_input_bundle/"
+  ],
+  "reports": [
+    "reports/final_pr_12_final_pr_13_input_bundle.json"
+  ],
+  "final_pr_13_remains_deferred": true,
+  "not_proven": [
+    "production_readiness",
+    "release_certification"
+  ]
+}

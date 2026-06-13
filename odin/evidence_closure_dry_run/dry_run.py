@@ -1,0 +1,137 @@
+"""Evidence Closure Dry Run — Dry Run Execution.
+
+Claim boundary: evidence_closure_dry_run_classifies_receipts_not_release_closure
+candidate_only: true
+"""
+from __future__ import annotations
+
+CLAIM_BOUNDARY = "evidence_closure_dry_run_classifies_receipts_not_release_closure"
+
+_RESULTS = [
+    {
+        "claim": "Odin outputs are candidate-only",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/operational_spine/ — candidate_only: true", "odin/packets/ — candidate_only", "validate-operational-spine passes"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "Odin generates candidate outputs. Apps decide what to apply.",
+        "forbidden_wording": "Odin applies changes directly to app state.",
+        "not_proven": ["app_apply", "external_send"],
+    },
+    {
+        "claim": "App owns all apply decisions",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/release_boundaries/boundary_matrix.py", "odin/operational_spine/"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "App-owned apply boundary is enforced. No Odin module applies state.",
+        "forbidden_wording": "Odin autonomously applies changes.",
+        "not_proven": ["app_state_mutation"],
+    },
+    {
+        "claim": "Local provider receipt harness is host-scoped",
+        "required_evidence_class": "host_scoped_local_receipt",
+        "available_evidence_refs": ["odin/local_provider_receipts/ — host_scoped: true", "disabled_by_default: true"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_host_scoped",
+        "safe_wording": "When enabled by the host, local provider execution produces a host-scoped receipt. Disabled by default.",
+        "forbidden_wording": "Odin runs model inference by default.",
+        "not_proven": ["general_live_model_inference", "production_readiness"],
+    },
+    {
+        "claim": "Semantic kernel IR is structurally defined",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/semantic_kernel_closure/ir.py", "validate-semantic-kernel-closure passes"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "Semantic kernel IR objects are defined and validated in the repo.",
+        "forbidden_wording": "Semantic kernel proves live model inference.",
+        "not_proven": ["live_model_inference", "production_readiness"],
+    },
+    {
+        "claim": "V711 coverage items are mapped to repo evidence",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/v711_coverage_compiler/", "reports/final_pr_11_5_v711_coverage_matrix.json"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "All v7.1.1 spec items are mapped to repo evidence via coverage compiler.",
+        "forbidden_wording": "V711 coverage proves production readiness.",
+        "not_proven": ["production_readiness", "live_model_inference"],
+    },
+    {
+        "claim": "CLI command surface is indexed",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/command_surface_closure/command_index.py", "odin/cli.py"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "Command surface index maps all registered CLI commands to subsystem and class.",
+        "forbidden_wording": "Command surface index proves runtime completeness.",
+        "not_proven": ["runtime_completion"],
+    },
+    {
+        "claim": "Packaging boundary inventory exists",
+        "required_evidence_class": "structural_evidence",
+        "available_evidence_refs": ["odin/packaging_boundary_prep/inventory.py"],
+        "missing_evidence_refs": [],
+        "closure_status": "closure_ready_structural",
+        "safe_wording": "Packaging boundary inventory lists repo categories and their release candidate status.",
+        "forbidden_wording": "Packaging inventory proves release artifact is signed or distributed.",
+        "not_proven": ["signed_distribution", "installer_proof", "distribution_proof"],
+    },
+    {
+        "claim": "Release is certified for distribution",
+        "required_evidence_class": "external_receipt_required",
+        "available_evidence_refs": [],
+        "missing_evidence_refs": ["external_release_certification_receipt"],
+        "closure_status": "external_receipt_required",
+        "safe_wording": "Release certification requires an external receipt not available in FINAL-PR-12.",
+        "forbidden_wording": "Release is certified for production distribution.",
+        "not_proven": ["release_certification", "production_readiness", "security_certification"],
+    },
+    {
+        "claim": "System is production-ready",
+        "required_evidence_class": "external_receipt_required",
+        "available_evidence_refs": [],
+        "missing_evidence_refs": ["external_production_validation_receipt"],
+        "closure_status": "external_receipt_required",
+        "safe_wording": "Production readiness requires external validation receipt not available in FINAL-PR-12.",
+        "forbidden_wording": "Odin is production-ready.",
+        "not_proven": ["production_readiness", "security_certification", "release_certification"],
+    },
+    {
+        "claim": "System is security-certified",
+        "required_evidence_class": "external_receipt_required",
+        "available_evidence_refs": [],
+        "missing_evidence_refs": ["external_security_audit_receipt"],
+        "closure_status": "forbidden",
+        "safe_wording": "Security certification requires an external audit receipt. None available.",
+        "forbidden_wording": "Odin is security-certified.",
+        "not_proven": ["security_certification", "production_readiness"],
+    },
+    {
+        "claim": "Model performance meets benchmark",
+        "required_evidence_class": "external_receipt_required",
+        "available_evidence_refs": [],
+        "missing_evidence_refs": ["empirical_model_benchmark_receipt"],
+        "closure_status": "external_receipt_required",
+        "safe_wording": "Model performance benchmarks require empirical execution receipts not available in FINAL-PR-12.",
+        "forbidden_wording": "Odin's model delivers superior performance.",
+        "not_proven": ["real_model_benchmark", "model_superiority", "live_model_inference"],
+    },
+]
+
+
+def run_evidence_closure_dry_run(
+    *,
+    generated_at_utc: str = "2026-01-01T00:00:00Z",
+) -> dict:
+    return {
+        "artifact_kind": "odin_evidence_closure_dry_run_result",
+        "candidate_only": True,
+        "claim_boundary": CLAIM_BOUNDARY,
+        "generated_at_utc": generated_at_utc,
+        "dry_run_is_not_release_closure": True,
+        "final_pr_13_remains_deferred": True,
+        "results": _RESULTS,
+        "not_proven": ["release_closure", "production_readiness", "security_certification", "release_certification", "final_pr_13_release_closure"],
+    }

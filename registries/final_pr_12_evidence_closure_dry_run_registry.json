@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_final_pr_12_evidence_closure_dry_run_registry",
+  "candidate_only": true,
+  "claim_boundary": "evidence_closure_dry_run_classifies_receipts_not_release_closure",
+  "modules": [
+    "odin/evidence_closure_dry_run/"
+  ],
+  "reports": [
+    "reports/final_pr_12_evidence_closure_dry_run.json"
+  ],
+  "not_proven": [
+    "release_closure",
+    "production_readiness"
+  ]
+}

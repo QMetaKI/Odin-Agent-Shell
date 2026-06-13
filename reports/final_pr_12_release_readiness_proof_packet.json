@@ -1,0 +1,31 @@
+{
+  "artifact_kind": "odin_final_pr_12_release_readiness_proof_packet",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "proven": [
+    "release_readiness_matrix_exists",
+    "release_risk_register_exists",
+    "evidence_closure_dry_run_exists",
+    "packaging_boundary_inventory_exists",
+    "command_surface_index_exists",
+    "docs_readiness_index_exists",
+    "final_pr_13_input_bundle_exists",
+    "final_pr_13_remains_deferred"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "provider_execution_by_default",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "final_pr_13_release_closure"
+  ]
+}

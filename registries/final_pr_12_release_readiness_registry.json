@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "odin_final_pr_12_release_readiness_registry",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+  "modules": [
+    "odin/release_readiness_hardening/"
+  ],
+  "reports": [
+    "reports/final_pr_12_release_readiness_matrix.json",
+    "reports/final_pr_12_release_risk_register.json"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "release_certification"
+  ]
+}

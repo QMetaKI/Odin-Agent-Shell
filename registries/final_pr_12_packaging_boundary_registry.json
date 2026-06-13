@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "odin_final_pr_12_packaging_boundary_registry",
+  "candidate_only": true,
+  "claim_boundary": "packaging_boundary_prep_inventories_distribution_boundaries_not_packaged_release",
+  "modules": [
+    "odin/packaging_boundary_prep/"
+  ],
+  "reports": [
+    "reports/final_pr_12_packaging_boundary_inventory.json"
+  ],
+  "not_proven": [
+    "signed_distribution",
+    "installer_proof",
+    "distribution_proof"
+  ]
+}
