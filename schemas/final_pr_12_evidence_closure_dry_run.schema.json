@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-12 Evidence Closure Dry Run",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "candidate_only",
+    "claim_boundary",
+    "dry_run_is_not_release_closure",
+    "results"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "dry_run_is_not_release_closure": {
+      "type": "boolean",
+      "const": true
+    },
+    "final_pr_13_remains_deferred": {
+      "type": "boolean",
+      "const": true
+    },
+    "results": {
+      "type": "array"
+    },
+    "not_proven": {
+      "type": "array"
+    }
+  }
+}

@@ -88,6 +88,13 @@ REQUIRED_IDS = [
     "claims-compiler-section",
     "agent-operator-modes-section",
     "final-pr-13-readiness-section",
+    # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
+    "release-readiness-hardening-section",
+    "evidence-closure-dry-run-section",
+    "packaging-boundary-prep-section",
+    "command-surface-closure-section",
+    "docs-readiness-section",
+    "final-pr-13-input-bundle-section",
 ]
 
 REQUIRED_COPY = [
@@ -152,6 +159,13 @@ REQUIRED_COPY = [
     "Y Pattern Operationalization Index maps internal patterns to neutral Odin terms.",
     "Claims Compiler v0 classifies release claims and produces safe wording.",
     "Agent Operator Mode Presets define bounded worker roles. No agent autonomy.",
+    # FINAL-PR-12 additions
+    "Release readiness matrix classifies readiness categories. Not release certification.",
+    "Evidence closure dry run classifies receipts. Dry run does not close release.",
+    "Packaging boundary inventory lists distribution categories. No signed package or installer.",
+    "Command surface index maps CLI commands. Not runtime completion proof.",
+    "Docs readiness index tracks documentation state. Not user documentation completion.",
+    "FINAL-PR-13 input bundle is PR13 prep only. Release Closure remains FINAL-PR-13.",
 ]
 
 
@@ -568,6 +582,48 @@ def generate_hub_html() -> str:
   <span class="chip pending">Deferred</span>
   <p>Structural readiness map for FINAL-PR-13 Release Closure. FINAL-PR-13 remains deferred.</p>
   <p class="note">Dev Mode: GET /release/final-pr-13-readiness.json. final_pr_13_remains_deferred: true. no_release_certification: true. candidate_only: true.</p>
+</div>
+
+<div id="release-readiness-hardening-section" class="section">
+  <div class="label">Release Readiness Hardening (FINAL-PR-12)</div>
+  <span class="chip ok">Available</span>
+  <p>Release readiness matrix and risk register for FINAL-PR-13 preparation. Not release certification.</p>
+  <p class="note">Dev Mode: GET /release-readiness/matrix.json. candidate_only: true. not_release_closure: true. final_pr_13_remains_deferred: true.</p>
+</div>
+
+<div id="evidence-closure-dry-run-section" class="section">
+  <div class="label">Evidence Closure Dry Run (FINAL-PR-12)</div>
+  <span class="chip ok">Available</span>
+  <p>Classifies evidence receipts and identifies external receipt gaps. Dry run does not close release.</p>
+  <p class="note">Dev Mode: GET /evidence-closure/dry-run.json. candidate_only: true. dry_run_is_not_release_closure: true. final_pr_13_remains_deferred: true.</p>
+</div>
+
+<div id="packaging-boundary-prep-section" class="section">
+  <div class="label">Packaging Boundary Prep (FINAL-PR-12)</div>
+  <span class="chip ok">Available</span>
+  <p>Inventory of distribution boundaries. No release artifact built, no signed package, no distribution claim.</p>
+  <p class="note">Dev Mode: GET /packaging-boundary/inventory.json. candidate_only: true. no_signed_distribution: true. final_pr_13_remains_deferred: true.</p>
+</div>
+
+<div id="command-surface-closure-section" class="section">
+  <div class="label">Command Surface Closure (FINAL-PR-12)</div>
+  <span class="chip ok">Available</span>
+  <p>CLI command surface indexed by subsystem and class. Neutral naming applied. Not runtime completion proof.</p>
+  <p class="note">Dev Mode: GET /command-surface/index.json. candidate_only: true. neutral_naming: true. not_runtime_completion: true.</p>
+</div>
+
+<div id="docs-readiness-section" class="section">
+  <div class="label">Documentation Readiness (FINAL-PR-12)</div>
+  <span class="chip ok">Available</span>
+  <p>Docs readiness index and minimal update plans. Not user documentation completion or release certification.</p>
+  <p class="note">Dev Mode: GET /docs-readiness/index.json. candidate_only: true. not_release_certification: true. final_pr_13_remains_deferred: true.</p>
+</div>
+
+<div id="final-pr-13-input-bundle-section" class="section">
+  <div class="label">FINAL-PR-13 Input Bundle (FINAL-PR-12)</div>
+  <span class="chip pending">Deferred — PR13 input ready</span>
+  <p>Structured input bundle for FINAL-PR-13 Release Closure. FINAL-PR-13 remains deferred. This is PR13 input only.</p>
+  <p class="note">Dev Mode: GET /final-pr-13/input-bundle.json. candidate_only: true. final_pr_13_remains_deferred: true. does_not_implement_pr13: true.</p>
 </div>
 
 </body>

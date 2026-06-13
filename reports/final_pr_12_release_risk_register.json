@@ -1,0 +1,101 @@
+{
+  "artifact_kind": "odin_release_readiness_hardening_risk_register",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "release_readiness_hardening_prepares_release_closure_not_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "risks": [
+    {
+      "risk_id": "RISK-01",
+      "category": "production_readiness",
+      "forbidden_claim": "production_readiness",
+      "description": "Risk: Any artifact in FINAL-PR-12 claims production readiness without an external validation receipt. This would be an overclaim and violates the claim boundary.",
+      "mitigation": "All FINAL-PR-12 proof packets list production_readiness in not_proven. Boundary matrix row no_production_ready_claim_without_receipt enforces this. validate-all checks confirm.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-02",
+      "category": "security_certification",
+      "forbidden_claim": "security_certification",
+      "description": "Risk: Any artifact claims security certification without an external audit receipt. No external security audit exists for this release.",
+      "mitigation": "All FINAL-PR-12 proof packets list security_certification in not_proven. Boundary matrix row no_security_certification_without_receipt enforces this. SECURITY.md is explicit: no security certification claimed.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-03",
+      "category": "release_certification",
+      "forbidden_claim": "release_certification",
+      "description": "Risk: FINAL-PR-12 artifacts are mistakenly treated as release certification. FINAL-PR-12 prepares inputs only; FINAL-PR-13 performs release closure.",
+      "mitigation": "All FINAL-PR-12 artifacts carry final_pr_13_remains_deferred: true. release_certification is in not_proven for all FINAL-PR-12 outputs. Claim boundary wording is explicit: 'prepares_release_closure_not_certification'.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-04",
+      "category": "model_superiority",
+      "forbidden_claim": "model_superiority",
+      "description": "Risk: Odin's routing or model role design is claimed to produce superior model output versus alternative approaches. No empirical benchmark receipt exists.",
+      "mitigation": "model_superiority is in not_proven for all relevant proof packets. Route plans are described as structural plans, not quality benchmarks. validate-small-model-route-plan confirms not_proven: real_model_benchmark.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-05",
+      "category": "real_model_benchmark",
+      "forbidden_claim": "real_model_benchmark",
+      "description": "Risk: Model route plans or semantic kernel IR objects are cited as empirical model performance benchmarks. Route plans are structural only.",
+      "mitigation": "real_model_benchmark is in not_proven for all proof packets. Boundary matrix row small_model_route_not_quality_benchmark enforces this. All IR objects carry claim_boundary scoped to structural evidence.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-06",
+      "category": "provider_execution_by_default",
+      "forbidden_claim": "provider_execution_by_default",
+      "description": "Risk: Local provider execution is treated as enabled by default, leading to unintended model inference during validation or normal use.",
+      "mitigation": "odin/operational_spine/provider_seam.py — disabled_by_default: true. validate-deferred-system-lift confirms provider seam off by default. Local provider receipts require explicit host configuration.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-07",
+      "category": "app_apply",
+      "forbidden_claim": "app_apply",
+      "description": "Risk: Odin subsystem applies state to the host app without an explicit app-owned apply decision. This violates the candidate_only boundary.",
+      "mitigation": "candidate_only: true and app_owned_apply: true enforced in all spine outputs. Boundary matrix row app_owned_apply enforces this. validate-operational-spine confirms.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-08",
+      "category": "external_send",
+      "forbidden_claim": "external_send",
+      "description": "Risk: Odin subsystem sends data to external services, APIs, or networks without an explicit scoped host receipt.",
+      "mitigation": "Boundary matrix row no_external_send enforces no external sends. All subsystems operate locally by default. validate-operational-spine confirms no_external_send.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-09",
+      "category": "public_network",
+      "forbidden_claim": "public_network",
+      "description": "Risk: Odin accesses public network endpoints without explicit host receipt. This would violate local-first boundary.",
+      "mitigation": "Boundary matrix row local_only_default enforces local-first. QIRC is local-only by default (no_public_qirc_by_default). No public network calls in any FINAL-PR-12 modules.",
+      "status": "mitigated_by_boundary"
+    },
+    {
+      "risk_id": "RISK-10",
+      "category": "final_pr_13_premature_closure",
+      "forbidden_claim": "final_pr_13_release_closure",
+      "description": "Risk: FINAL-PR-12 work is mistaken for FINAL-PR-13 release closure. FINAL-PR-13 must remain deferred until FINAL-PR-12 is accepted.",
+      "mitigation": "All FINAL-PR-12 artifacts carry final_pr_13_remains_deferred: true. final_pr_13_release_closure is in not_proven for all FINAL-PR-12 outputs. Input bundle explicitly states: does_not_implement_pr13: true, does_not_close_release: true.",
+      "status": "mitigated_by_boundary"
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_superiority",
+    "app_apply",
+    "external_send",
+    "public_network",
+    "final_pr_13_release_closure"
+  ]
+}

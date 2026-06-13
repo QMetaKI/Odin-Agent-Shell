@@ -1,0 +1,18 @@
+{
+  "artifact_kind": "odin_release_sequence_after_pr12",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "current_pr": "FINAL-PR-12",
+  "next_pr": "FINAL-PR-13",
+  "final_pr_13_remains_deferred": true,
+  "sequence": [
+    "FINAL-PR-12 merged",
+    "FINAL-PR-13 Release Closure — deferred"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "release_certification",
+    "security_certification"
+  ]
+}

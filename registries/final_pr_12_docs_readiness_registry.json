@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "odin_final_pr_12_docs_readiness_registry",
+  "candidate_only": true,
+  "claim_boundary": "docs_readiness_prepares_user_docs_not_release_certification",
+  "modules": [
+    "odin/docs_readiness/"
+  ],
+  "reports": [
+    "reports/final_pr_12_docs_readiness_index.json"
+  ],
+  "not_proven": [
+    "user_documentation_complete",
+    "release_certification"
+  ]
+}

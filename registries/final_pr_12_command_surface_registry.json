@@ -1,0 +1,14 @@
+{
+  "artifact_kind": "odin_final_pr_12_command_surface_registry",
+  "candidate_only": true,
+  "claim_boundary": "command_surface_closure_indexes_cli_surface_not_runtime_completion",
+  "modules": [
+    "odin/command_surface_closure/"
+  ],
+  "reports": [
+    "reports/final_pr_12_command_surface_index.json"
+  ],
+  "not_proven": [
+    "runtime_completion"
+  ]
+}

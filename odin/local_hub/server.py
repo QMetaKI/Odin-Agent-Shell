@@ -67,6 +67,15 @@ Endpoints:
   GET /y-pattern/index.json             — Y Pattern Operationalization Index (FINAL-PR-11.5)
   GET /claims/policy.json               — Release Claims Policy (FINAL-PR-11.5)
   GET /agent-operator-modes/matrix.json — Agent Operator Mode Matrix (FINAL-PR-11.5)
+  GET /release-readiness/status.json   — Release readiness status (FINAL-PR-12)
+  GET /release-readiness/matrix.json   — Release readiness matrix (FINAL-PR-12)
+  GET /release-readiness/risk-register.json — Release risk register (FINAL-PR-12)
+  GET /evidence-closure/dry-run.json   — Evidence closure dry run (FINAL-PR-12)
+  GET /packaging-boundary/inventory.json — Packaging boundary inventory (FINAL-PR-12)
+  GET /command-surface/index.json      — Command surface index (FINAL-PR-12)
+  GET /docs-readiness/index.json       — Docs readiness index (FINAL-PR-12)
+  GET /final-pr-13/input-bundle.json   — FINAL-PR-13 input bundle (FINAL-PR-12)
+  GET /release/sequence-after-pr12.json — Release sequence after PR12 (FINAL-PR-12)
 """
 from __future__ import annotations
 
@@ -425,6 +434,53 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path == "/agent-operator-modes/matrix.json":
             from odin.agent_operator_modes.reports import build_agent_operator_mode_matrix
             body = json.dumps(build_agent_operator_mode_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
+        elif self.path == "/release-readiness/status.json":
+            from odin.release_readiness_hardening.readiness_matrix import build_release_readiness_matrix
+            result = build_release_readiness_matrix()
+            result["candidate_only"] = True
+            result["final_pr_13_remains_deferred"] = True
+            body = json.dumps(result, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release-readiness/matrix.json":
+            from odin.release_readiness_hardening.readiness_matrix import build_release_readiness_matrix
+            body = json.dumps(build_release_readiness_matrix(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release-readiness/risk-register.json":
+            from odin.release_readiness_hardening.risk_register import build_release_risk_register
+            body = json.dumps(build_release_risk_register(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/evidence-closure/dry-run.json":
+            from odin.evidence_closure_dry_run.dry_run import run_evidence_closure_dry_run
+            body = json.dumps(run_evidence_closure_dry_run(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/packaging-boundary/inventory.json":
+            from odin.packaging_boundary_prep.inventory import build_packaging_inventory
+            body = json.dumps(build_packaging_inventory(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/command-surface/index.json":
+            from odin.command_surface_closure.command_index import build_command_surface_index
+            body = json.dumps(build_command_surface_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/docs-readiness/index.json":
+            from odin.docs_readiness.doc_index import build_docs_readiness_index
+            body = json.dumps(build_docs_readiness_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/final-pr-13/input-bundle.json":
+            from odin.final_pr_13_input_bundle.bundle import build_final_pr_13_input_bundle
+            body = json.dumps(build_final_pr_13_input_bundle(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/sequence-after-pr12.json":
+            body = json.dumps({
+                "candidate_only": True,
+                "claim_boundary": "final_pr_12_release_readiness_hardening_not_release_closure",
+                "current_pr": "FINAL-PR-12",
+                "next_pr": "FINAL-PR-13",
+                "final_pr_13_remains_deferred": True,
+                "sequence": ["FINAL-PR-12 merged", "FINAL-PR-13 Release Closure — deferred"],
+                "not_proven": ["production_readiness", "release_certification"],
+            }, indent=2).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

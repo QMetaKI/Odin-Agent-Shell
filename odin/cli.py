@@ -2917,6 +2917,32 @@ def validate_final_pr_11_5_semantic_kernel_coverage() -> list[str]:
                 return [f"final-pr-11-5-semantic-kernel-coverage validator failed: {exc}"]
     return []
 
+def validate_final_pr_12_release_readiness_hardening() -> list[str]:
+    """Validate FINAL-PR-12 Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_12_release_readiness_hardening.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-12 validator: tools/rebaseline/check_final_pr_12_release_readiness_hardening.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_12_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-12 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_12_release_readiness_hardening_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-12-release-readiness-hardening: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-12-release-readiness-hardening validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2986,6 +3012,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_10_boundary_release())
     errors.extend(validate_final_pr_11_provider_critic_thor())
     errors.extend(validate_final_pr_11_5_semantic_kernel_coverage())
+    errors.extend(validate_final_pr_12_release_readiness_hardening())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3261,6 +3288,34 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("list-agent-operator-modes")
     explain_mode_p = sub.add_parser("explain-agent-operator-mode")
     explain_mode_p.add_argument("--mode", default="claude_code_implementation_worker")
+    # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
+    sub.add_parser("validate-release-readiness-hardening")
+    sub.add_parser("validate-evidence-closure-dry-run")
+    sub.add_parser("validate-packaging-boundary-prep")
+    sub.add_parser("validate-command-surface-closure")
+    sub.add_parser("validate-docs-readiness")
+    sub.add_parser("validate-final-pr-13-input-bundle")
+    sub.add_parser("validate-final-pr-12-release-readiness-hardening")
+    build_rrm_p = sub.add_parser("build-release-readiness-matrix")
+    build_rrm_p.add_argument("--demo", action="store_true", default=False)
+    build_rrr_p = sub.add_parser("build-release-risk-register")
+    build_rrr_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-release-readiness-hardening")
+    run_ecd_p = sub.add_parser("run-evidence-closure-dry-run")
+    run_ecd_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-evidence-closure-dry-run")
+    build_pb_p = sub.add_parser("build-packaging-boundary")
+    build_pb_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-packaging-boundary")
+    build_csi_p = sub.add_parser("build-command-surface-index")
+    build_csi_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-command-surface")
+    build_dri_p = sub.add_parser("build-docs-readiness-index")
+    build_dri_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-docs-readiness")
+    build_fp13_p = sub.add_parser("build-final-pr-13-input-bundle")
+    build_fp13_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-final-pr-13-input-bundle")
     args = parser.parse_args(argv)
 
 
@@ -4678,6 +4733,130 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
+    if args.cmd == "validate-release-readiness-hardening":
+        from odin.release_readiness_hardening import build_release_readiness_hardening_report
+        result = build_release_readiness_hardening_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-release-readiness-matrix":
+        from odin.release_readiness_hardening import build_release_readiness_matrix
+        result = build_release_readiness_matrix()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-release-risk-register":
+        from odin.release_readiness_hardening import build_release_risk_register
+        result = build_release_risk_register()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-release-readiness-hardening":
+        from odin.release_readiness_hardening import build_release_readiness_hardening_report
+        result = build_release_readiness_hardening_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-evidence-closure-dry-run":
+        from odin.evidence_closure_dry_run import build_evidence_closure_dry_run_report
+        result = build_evidence_closure_dry_run_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "run-evidence-closure-dry-run":
+        from odin.evidence_closure_dry_run import run_evidence_closure_dry_run
+        result = run_evidence_closure_dry_run()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-evidence-closure-dry-run":
+        from odin.evidence_closure_dry_run import build_evidence_closure_dry_run_report
+        result = build_evidence_closure_dry_run_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-packaging-boundary-prep":
+        from odin.packaging_boundary_prep import build_packaging_boundary_report
+        result = build_packaging_boundary_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-packaging-boundary":
+        from odin.packaging_boundary_prep import build_packaging_inventory
+        result = build_packaging_inventory()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-packaging-boundary":
+        from odin.packaging_boundary_prep import build_packaging_boundary_report
+        result = build_packaging_boundary_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-command-surface-closure":
+        from odin.command_surface_closure import build_command_surface_report
+        result = build_command_surface_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-command-surface-index":
+        from odin.command_surface_closure import build_command_surface_index
+        result = build_command_surface_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-command-surface":
+        from odin.command_surface_closure import build_command_surface_report
+        result = build_command_surface_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-docs-readiness":
+        from odin.docs_readiness import build_docs_readiness_report
+        result = build_docs_readiness_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-docs-readiness-index":
+        from odin.docs_readiness import build_docs_readiness_index
+        result = build_docs_readiness_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-docs-readiness":
+        from odin.docs_readiness import build_docs_readiness_report
+        result = build_docs_readiness_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-final-pr-13-input-bundle":
+        from odin.final_pr_13_input_bundle import build_final_pr_13_input_bundle_report
+        result = build_final_pr_13_input_bundle_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-final-pr-13-input-bundle":
+        from odin.final_pr_13_input_bundle import build_final_pr_13_input_bundle
+        result = build_final_pr_13_input_bundle()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-final-pr-13-input-bundle":
+        from odin.final_pr_13_input_bundle import build_final_pr_13_input_bundle_report
+        result = build_final_pr_13_input_bundle_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-final-pr-12-release-readiness-hardening":
+        errors = validate_final_pr_12_release_readiness_hardening()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-12-release-readiness-hardening: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -4786,6 +4965,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_final_pr_11_provider_critic_thor()
     elif args.cmd == "validate-final-pr-11-5-semantic-kernel-coverage":
         errors = validate_final_pr_11_5_semantic_kernel_coverage()
+    elif args.cmd == "validate-final-pr-12-release-readiness-hardening":
+        errors = validate_final_pr_12_release_readiness_hardening()
     else:
         errors = validate_all()
 
