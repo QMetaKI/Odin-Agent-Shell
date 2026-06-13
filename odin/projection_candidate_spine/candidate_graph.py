@@ -58,8 +58,20 @@ class CandidateGraph:
         }
 
 
-def _deterministic_graph_id(nodes: list[CandidateNode]) -> str:
-    payload = json.dumps([n.node_id for n in nodes], sort_keys=True, separators=(",", ":"))
+def _deterministic_graph_id(
+    nodes: list[CandidateNode],
+    edges: list[dict],
+    entry_node_id: str,
+) -> str:
+    payload = json.dumps(
+        {
+            "node_ids": [n.node_id for n in nodes],
+            "edges": edges,
+            "entry_node_id": entry_node_id,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    )
     digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
     return f"candidate_graph_{digest}"
 
@@ -82,7 +94,6 @@ def build_candidate_graph(
 ) -> CandidateGraph:
     if not nodes:
         raise ValueError("nodes must be non-empty")
-    graph_id = _deterministic_graph_id(nodes)
     resolved_entry = entry_node_id if entry_node_id is not None else nodes[0].node_id
     resolved_edges: list[dict]
     if edges is not None:
@@ -91,6 +102,7 @@ def build_candidate_graph(
         resolved_edges = _build_derived_from_chain(nodes)
     else:
         resolved_edges = []
+    graph_id = _deterministic_graph_id(nodes, resolved_edges, resolved_entry)
     return CandidateGraph(
         graph_id=graph_id,
         nodes=list(nodes),

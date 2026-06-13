@@ -120,6 +120,19 @@ def test_projection_set_claim_boundary_correct():
     assert ps.claim_boundary == CLAIM_BOUNDARY
 
 
+def test_projection_id_differs_for_different_candidate_nodes():
+    from odin.projection_candidate_spine.candidate_graph import CandidateNode
+    from odin.projection_candidate_spine.projection_set import build_projection_set
+    ctx = {"work_type": "repo", "field_selection_available": True}
+    node_a = CandidateNode("candidate_node_pida1", "a", "M6_candidate_artifact", "Node A", CLAIM_BOUNDARY)
+    node_b = CandidateNode("candidate_node_pidb1", "b", "M6_candidate_artifact", "Node B", CLAIM_BOUNDARY)
+    ps_a = build_projection_set(ctx, [node_a])
+    ps_b = build_projection_set(ctx, [node_b])
+    assert ps_a.projection_id != ps_b.projection_id, (
+        "Same source_context with different candidate_nodes must produce different projection_id"
+    )
+
+
 # ── 10-12. CandidateGraph ──────────────────────────────────────────────────────
 
 def test_candidate_graph_has_nodes_and_explicit_edges():
@@ -141,6 +154,17 @@ def test_candidate_graph_id_deterministic():
     g1 = build_candidate_graph([node_a, node_b])
     g2 = build_candidate_graph([node_a, node_b])
     assert g1.graph_id == g2.graph_id
+
+
+def test_candidate_graph_id_differs_for_different_explicit_edges():
+    from odin.projection_candidate_spine.candidate_graph import CandidateNode, build_candidate_graph
+    node_a = CandidateNode("candidate_node_ede1", "a", "M4_field_selection", "Node A", CLAIM_BOUNDARY)
+    node_b = CandidateNode("candidate_node_ede2", "b", "M6_candidate_artifact", "Node B", CLAIM_BOUNDARY)
+    edges_ab = [{"from_node_id": node_a.node_id, "to_node_id": node_b.node_id, "relation": "derived_from"}]
+    edges_ba = [{"from_node_id": node_b.node_id, "to_node_id": node_a.node_id, "relation": "derived_from"}]
+    g_ab = build_candidate_graph([node_a, node_b], edges=edges_ab)
+    g_ba = build_candidate_graph([node_a, node_b], edges=edges_ba)
+    assert g_ab.graph_id != g_ba.graph_id, "Different explicit edges must produce different graph_id"
 
 
 def test_candidate_graph_is_not_execution_graph():

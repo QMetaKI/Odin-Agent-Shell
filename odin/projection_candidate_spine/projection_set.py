@@ -32,8 +32,15 @@ class ProjectionSet:
         }
 
 
-def _deterministic_projection_id(source_context: dict) -> str:
-    payload = json.dumps(source_context, sort_keys=True, separators=(",", ":"))
+def _deterministic_projection_id(source_context: dict, candidate_nodes: list[CandidateNode]) -> str:
+    payload = json.dumps(
+        {
+            "source_context": source_context,
+            "candidate_node_ids": [n.node_id for n in candidate_nodes],
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    )
     digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
     return f"projection_set_{digest}"
 
@@ -42,7 +49,7 @@ def build_projection_set(
     source_context: dict,
     candidate_nodes: list[CandidateNode],
 ) -> ProjectionSet:
-    projection_id = _deterministic_projection_id(source_context)
+    projection_id = _deterministic_projection_id(source_context, candidate_nodes)
     return ProjectionSet(
         projection_id=projection_id,
         source_context=dict(source_context),
