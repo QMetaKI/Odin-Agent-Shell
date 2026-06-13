@@ -74,6 +74,8 @@ REQUIRED_IDS = [
     "projection-candidate-spine-section",
     # FINAL-PR-09++ Operational Spine
     "operational-spine-section",
+    # FINAL-PR-10++ Release Boundary Gates
+    "release-boundary-gates-section",
 ]
 
 REQUIRED_COPY = [
@@ -124,6 +126,9 @@ REQUIRED_COPY = [
     # FINAL-PR-09++ Operational Spine
     "Operational Spine connects Universal Work, small-model route plans, ModelWorkPackets, candidate artifacts, Final Gate, and trace receipts without app apply or live model inference claims.",
     "Odin organizes local candidate work into a safe structured response.",
+    # FINAL-PR-10++ Release Boundary Gates
+    "Release Boundary Gates map Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries before FINAL-PR-11.",
+    "Odin shows which claims are supported and which remain outside release proof.",
 ]
 
 
@@ -463,6 +468,13 @@ def generate_hub_html() -> str:
   <span class="chip ok">Available</span>
   <p>Odin organizes local candidate work into a safe structured response.</p>
   <p class="note">Dev Mode: Operational Spine connects Universal Work, small-model route plans, ModelWorkPackets, candidate artifacts, Final Gate, and trace receipts without app apply or live model inference claims. GET /operational-spine/demo.json. candidate_only: true. No model inference. No app apply. Provider seam disabled by default.</p>
+</div>
+
+<div id="release-boundary-gates-section" class="section">
+  <div class="label">Release Boundary Gates (FINAL-PR-10++)</div>
+  <span class="chip ok">Available</span>
+  <p>Odin shows which claims are supported and which remain outside release proof.</p>
+  <p class="note">Dev Mode: Release Boundary Gates map Odin&#39;s candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries before FINAL-PR-11. GET /release/preflight.json. candidate_only: true. No release certification. No production readiness. FINAL-PR-11 remains deferred.</p>
 </div>
 
 </body>

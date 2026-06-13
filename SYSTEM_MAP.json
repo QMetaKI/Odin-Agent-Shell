@@ -2268,10 +2268,78 @@
   "v7_1_1_worklet_graph_contract": "registries/v7_1_1_worklet_graph_contract.json",
   "v7_1_1_worklet_graph_example": "examples/v7_1_1/worklet_graph.example.json",
   "v7_1_1_worklet_graph_schema": "schemas/v7_1_1_worklet_graph.schema.json",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "y_pattern_spine": {
     "candidate_only": true,
     "description": "Y Pattern Spine — neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
+  },
+  "final_pr_10_boundary_release": {
+    "candidate_only": true,
+    "app_owned_apply": true,
+    "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
+    "module": "odin/release_boundaries/",
+    "registry": "registries/final_pr_10_boundary_release_registry.json",
+    "schema": "schemas/final_pr_10_release_preflight_report.schema.json",
+    "examples": [
+      "examples/final_pr_10/boundary_matrix.example.json",
+      "examples/final_pr_10/ring_authority_map.example.json",
+      "examples/final_pr_10/bug6_q7_operational_map.example.json",
+      "examples/final_pr_10/qshabang_release_gate_map.example.json",
+      "examples/final_pr_10/model_role_authority.example.json",
+      "examples/final_pr_10/artifact_currency.example.json",
+      "examples/final_pr_10/release_evidence_closure.example.json",
+      "examples/final_pr_10/release_preflight.example.json"
+    ],
+    "validator": "tools/rebaseline/check_final_pr_10_boundary_release.py",
+    "tests": "tests/test_final_pr_10_boundary_release.py",
+    "reports": [
+      "reports/final_pr_10_boundary_matrix_report.json",
+      "reports/final_pr_10_ring_authority_map.json",
+      "reports/final_pr_10_bug6_q7_operational_map.json",
+      "reports/final_pr_10_qshabang_release_gate_report.json",
+      "reports/final_pr_10_model_role_authority_report.json",
+      "reports/final_pr_10_release_evidence_closure_index.json",
+      "reports/final_pr_10_artifact_currency_report.json",
+      "reports/final_pr_10_release_preflight_report.json",
+      "reports/final_pr_10_boundary_release_proof_packet.json"
+    ],
+    "cli_commands": [
+      "validate-boundary-matrix",
+      "validate-ring-authority-map",
+      "validate-bug6-q7-operational-map",
+      "validate-qshabang-release-gate-map",
+      "validate-model-role-authority",
+      "validate-release-evidence-closure",
+      "validate-artifact-currency",
+      "validate-final-release-preflight",
+      "release-preflight",
+      "explain-boundaries",
+      "explain-release-claims",
+      "explain-model-role-authority",
+      "explain-qshabang-release-gates",
+      "validate-final-pr-10-boundary-release"
+    ],
+    "hub_endpoints": [
+      "/release/boundary-matrix.json",
+      "/release/ring-authority-map.json",
+      "/release/bug6-q7-map.json",
+      "/release/model-role-authority.json",
+      "/release/qshabang-gates.json",
+      "/release/evidence-closure.json",
+      "/release/preflight.json",
+      "/release/artifact-currency.json"
+    ],
+    "depends_on": ["final_pr_09_operational_spine"],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority",
+      "security_certification",
+      "release_certification"
+    ],
+    "final_pr_11_remains_deferred": true
   }
 }

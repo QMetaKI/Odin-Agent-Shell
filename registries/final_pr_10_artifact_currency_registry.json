@@ -1,0 +1,30 @@
+{
+  "registry_id": "final_pr_10_artifact_currency_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Registry of artifact currency classes for FINAL-PR-10++",
+  "currency_classes": [
+    "current_runtime",
+    "current_release_evidence",
+    "current_supporting",
+    "historical_supporting",
+    "superseded",
+    "target_only",
+    "external_receipt_required"
+  ],
+  "axioms": [
+    "Historical docs may support lineage but may not prove current runtime.",
+    "Target docs may not prove implementation.",
+    "External receipt required items cannot be claimed locally.",
+    "current_runtime class indicates active, committed, tested implementation."
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}

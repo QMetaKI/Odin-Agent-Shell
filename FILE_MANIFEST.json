@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1910,
+  "file_count_excluding_manifest": 1945,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -1464,6 +1464,26 @@
       "size": 6709
     },
     {
+      "path": "docs/codex/audits/FINAL_PR_09_CODE_REVIEW.md",
+      "sha256": "45a30919c4166b938a038d86a1ca18809ec0f5261c49788cb91b180dc54e5381",
+      "size": 2201
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_09_OPERATIONAL_SPINE_AUDIT.md",
+      "sha256": "d9fe433ec7ccd55c6265ce46529b2dca3a044e6ed69a040cb8f946df93f93acc",
+      "size": 2385
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_09_SENIOR_REVIEW.md",
+      "sha256": "87a100bdd6098dcc3b6d4577ccba872901b886026035a26fa27797a0b83f55b9",
+      "size": 2054
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_09_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "62e97dfc99da34c05c9b0c099e31390f2a6bb8e91b06c6fabb7fce3a1b9a975e",
+      "size": 8350
+    },
+    {
       "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_AUDIT.md",
       "sha256": "10ecd077673bb08b5271198d7fa52a735d1f0a41212c83e876f645395a682325",
       "size": 4478
@@ -1989,6 +2009,21 @@
       "size": 2864
     },
     {
+      "path": "docs/codex/handoffs/FINAL_PR_09_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "d86e40804aa5aaafdfe0b938be3775894443d07e0e88a9b056891b7097765f83",
+      "size": 5406
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_09_REPO_COGNITION_SUMMARY.md",
+      "sha256": "fe54e49da28e8474e8de1de72ab834230c0f0c9dc16d999aaa957d89fd5aa2e9",
+      "size": 4325
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_09_THOR_STYLE_OPERATIONAL_SPINE_HANDOFF.md",
+      "sha256": "81ccfe005d638397f0b11da8b582466a00ea9161d04f302afe9b21de97530a42",
+      "size": 5512
+    },
+    {
       "path": "docs/codex/handoffs/INSERT_Y_PATTERN_SPINE_REPO_REALITY_INTAKE.md",
       "sha256": "bda27765a4805f67c49dbc0ebd06b464f671641196436b49bf9b7f42585db37d",
       "size": 4868
@@ -2267,6 +2302,11 @@
       "path": "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md",
       "sha256": "827207e7410afa0e4ae84d070b40bffa4a05a1fbb417234929cc976e7bbac10c",
       "size": 9762
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_09_OPERATIONAL_SPINE_RETURN_REPORT.md",
+      "sha256": "e30aabcbc5cfddeec32c4de2f456dde69c593796b3a4658e0f63e4e33fae9f2e",
+      "size": 3118
     },
     {
       "path": "docs/codex/reports/INSERT_Y_PATTERN_SPINE_RETURN_REPORT.md",
@@ -3134,6 +3174,11 @@
       "size": 2361
     },
     {
+      "path": "docs/rebaseline/FINAL_PR_09_OPERATIONAL_SPINE.md",
+      "sha256": "e8cc13d251dbc9041806b0f6e59e45110cf0c443cad20102115da8e49c7857a2",
+      "size": 6202
+    },
+    {
       "path": "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
       "sha256": "4f0b2d83153d3ff16f2344ef184b0da4fc218900cc7e17252f1161be4e217368",
       "size": 5998
@@ -3232,6 +3277,26 @@
       "path": "docs/release/FINAL_PR_09_10_PLUSPLUS_QSHABANG_SMALLMODEL_ACCEPTANCE_MATRIX.md",
       "sha256": "6205018ed2a3e7fbbe9bffcb213cc38e0896ace6451082aa99c946dcb9c5c109",
       "size": 29783
+    },
+    {
+      "path": "docs/release/FINAL_PR_09_DEFERRED_SYSTEM_LIFT_PLAN.md",
+      "sha256": "137e3a79a1819896bad7f75c204b8b5bd7a21e3dfd0a2cd767ab61dc5048a0b4",
+      "size": 2536
+    },
+    {
+      "path": "docs/release/FINAL_PR_09_OPERATIONAL_SPINE_EVIDENCE_INDEX.md",
+      "sha256": "288b806849f93eccb3a174869c0c3299a0e2672d693b65664051bba388e799dd",
+      "size": 3041
+    },
+    {
+      "path": "docs/release/FINAL_PR_09_QSHABANG_OPERATIONAL_MAP.md",
+      "sha256": "002a0d92e5afecbedf501f1e8ede04683155b61d6e93805519b3d0fce4fb0d7c",
+      "size": 2196
+    },
+    {
+      "path": "docs/release/FINAL_PR_09_SMALL_MODEL_POWER_MAP.md",
+      "sha256": "9573bfd76c209866cc9ee334f04cf50dd2e315c38d0c3ca99241fcc4f2f3ac08",
+      "size": 3292
     },
     {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
@@ -3542,6 +3607,76 @@
       "path": "examples/final_pr_08/projection_set.example.json",
       "sha256": "163355dbd0baee39838d354d533d5131b6c45cab3c7cd51322dfb8d89f0175d9",
       "size": 1027
+    },
+    {
+      "path": "examples/final_pr_09/deferred_system_lift.example.json",
+      "sha256": "d2ecbdc1ef1a502c8558dbd77b32c02fffce7150580164a3fb18414de4ab2f78",
+      "size": 8635
+    },
+    {
+      "path": "examples/final_pr_09/modelworkpacket.example.json",
+      "sha256": "ca357d7d89468d1496f6cd450c6c7e95dc7dea87e034b4c5059f4e97d4860d76",
+      "size": 2593
+    },
+    {
+      "path": "examples/final_pr_09/operational_spine_demo.example.json",
+      "sha256": "4eaa75d37f2728e568c3823dcea58b7221882b5f35d4dc59cf4e47452ec93b1a",
+      "size": 6737
+    },
+    {
+      "path": "examples/final_pr_09/provider_seam_packet.example.json",
+      "sha256": "3265b0a913418ce4990cc53ac83525e5c8f123c48ae843b14f4e376ec1f1f895",
+      "size": 1796
+    },
+    {
+      "path": "examples/final_pr_09/qshabang_operational_map.example.json",
+      "sha256": "79b5f3a80f8ab7f02680814328619b656d24d74c98afe6403812d7861ef340ae",
+      "size": 4464
+    },
+    {
+      "path": "examples/final_pr_09/small_model_route_plan.example.json",
+      "sha256": "5dcbb2d7ef90b6542dd04438d28f2f534527de4f4c504a3f19464802011d9a34",
+      "size": 2109
+    },
+    {
+      "path": "examples/final_pr_10/artifact_currency.example.json",
+      "sha256": "83807ed6b0c9187ac74538f1866bcae646b67cfdd56f482eee785b02e7ed1bcd",
+      "size": 13150
+    },
+    {
+      "path": "examples/final_pr_10/boundary_matrix.example.json",
+      "sha256": "2b782d70f3b931cf66b7f12c4571ca62df98b25bb07e20c65bb2f5e5622d9b13",
+      "size": 23474
+    },
+    {
+      "path": "examples/final_pr_10/bug6_q7_operational_map.example.json",
+      "sha256": "58d5708f1782f1672648ebf2bb76de66d2b6a688e8f09d49d360ea39e7d1d12a",
+      "size": 9144
+    },
+    {
+      "path": "examples/final_pr_10/model_role_authority.example.json",
+      "sha256": "5b65e43682c64d6e1abc87618c518c2209fb51cee1e8bea0bae18f83b2c7de1e",
+      "size": 23888
+    },
+    {
+      "path": "examples/final_pr_10/qshabang_release_gate_map.example.json",
+      "sha256": "f90fe3862d879f2835282acaa1e61c2791cb4fe66a5c6681465bae1d61a2ea7b",
+      "size": 11009
+    },
+    {
+      "path": "examples/final_pr_10/release_evidence_closure.example.json",
+      "sha256": "95648cefa949104b644f87b15dcc7988bc91b2c8dd1a41143c309ec12ecd258b",
+      "size": 31180
+    },
+    {
+      "path": "examples/final_pr_10/release_preflight.example.json",
+      "sha256": "1663fe9f2329c5cdda8eaa404bd07fc408d6ef1d4b275f9409831f79fc1d7e9a",
+      "size": 2420
+    },
+    {
+      "path": "examples/final_pr_10/ring_authority_map.example.json",
+      "sha256": "3001defe8ddba751a698bfae9003c0fed940b4e11aa460bb1f3cb246cf7938a0",
+      "size": 9493
     },
     {
       "path": "examples/final_q_shabang_capability_matrix_v1.example.json",
@@ -5004,6 +5139,61 @@
       "size": 4048
     },
     {
+      "path": "odin/operational_spine/__init__.py",
+      "sha256": "4c72c0714f5879c3443b6ef543fa037ae15dea33ba8931e55e36cd1b73a57f1f",
+      "size": 915
+    },
+    {
+      "path": "odin/operational_spine/deferred_system_lift.py",
+      "sha256": "71522702ce4a7cf76ea3a5f57064a908cd0b3fe4d8736bb92509257cf9ec237a",
+      "size": 13203
+    },
+    {
+      "path": "odin/operational_spine/model_roles.py",
+      "sha256": "45fbdc41a312865a6210641686fbed529510f7bc6ca27412c189ed683b0a1a33",
+      "size": 14315
+    },
+    {
+      "path": "odin/operational_spine/modelworkpacket_builder.py",
+      "sha256": "10ea4f6ed91919fa620660f43b575fad10574eb36270854c0927c3b1f94b81f5",
+      "size": 5590
+    },
+    {
+      "path": "odin/operational_spine/orchestrator.py",
+      "sha256": "bf82eb8a89a939f32c86a21faaddb9c385508a1241e380c5edc9745904df8efa",
+      "size": 27702
+    },
+    {
+      "path": "odin/operational_spine/provider_seam.py",
+      "sha256": "67c22e9feae61e0da9977b100ec23017d097ddeed28d63c554b0b4421b0a0cf4",
+      "size": 5444
+    },
+    {
+      "path": "odin/operational_spine/qshabang_runtime_map.py",
+      "sha256": "47ed6286ac2b221bda48dda0eb37ff0659c4e723aa20e38d738fad9c05c6f088",
+      "size": 6101
+    },
+    {
+      "path": "odin/operational_spine/receipts.py",
+      "sha256": "c07ffec82a7e158a7ee1c90f1be96ae6a99f97cd5083388ecd02583601272c89",
+      "size": 2472
+    },
+    {
+      "path": "odin/operational_spine/reports.py",
+      "sha256": "387f6820d9f27fa5834ab3b358f00af6e2c8f742fcc60996583683a244c43f30",
+      "size": 3521
+    },
+    {
+      "path": "odin/operational_spine/small_model_route_plan.py",
+      "sha256": "efe9ec3ffa7398930bd55f9b3b41ea6f860e607bff1f3cc88ffc183881175475",
+      "size": 4013
+    },
+    {
+      "path": "odin/operational_spine/status.py",
+      "sha256": "e7b70a63e05ced4f6d1db41db00bfbcb9139a4949c08af26c994d7381dceb654",
+      "size": 1833
+    },
+    {
       "path": "odin/output/__init__.py",
       "sha256": "bb4f18830cf48a952f13370a0b8a0604bbeb02670dfd7f8f7377fde25b23d8de",
       "size": 89
@@ -5207,6 +5397,56 @@
       "path": "odin/recovery/safe_mode.py",
       "sha256": "fba07f945cd19943939d3da37fe20f4e61ac938fde19134277e6b5c4d56b31cd",
       "size": 428
+    },
+    {
+      "path": "odin/release_boundaries/__init__.py",
+      "sha256": "3fbf99f41fb30b0ee382b9fa030e8d79d8dd578e24ee4c807e4939c0807fe13c",
+      "size": 1603
+    },
+    {
+      "path": "odin/release_boundaries/artifact_currency.py",
+      "sha256": "73a515d9e5c5491a71958c80d531027cb0935afef56864177f9316c921ca4c76",
+      "size": 10030
+    },
+    {
+      "path": "odin/release_boundaries/boundary_matrix.py",
+      "sha256": "eabd180dbbfeaec34c7f1290b5a6e9167a82d83d5f4692c282d47931a6cd4909",
+      "size": 21176
+    },
+    {
+      "path": "odin/release_boundaries/bug6_q7_operational_map.py",
+      "sha256": "58877777bf0e8493cca692d292006c3773b3f2cf9800d410db94c2a13b6b5464",
+      "size": 9740
+    },
+    {
+      "path": "odin/release_boundaries/evidence_closure.py",
+      "sha256": "9c30627f9cf74e6918ea3f455ce8f9b7a5c7e50ccc725168b9f95fb3c9b2f4bc",
+      "size": 23000
+    },
+    {
+      "path": "odin/release_boundaries/final_preflight.py",
+      "sha256": "4748ffb26c7ef4f4f0a5b3eb33891107b5f8b29eda1d6ef71da26687f2899bf0",
+      "size": 4164
+    },
+    {
+      "path": "odin/release_boundaries/model_role_authority.py",
+      "sha256": "1dc8879ce0b00c7b5db147d50705f399e7e3b7055f35c074225af576e89a77b6",
+      "size": 14338
+    },
+    {
+      "path": "odin/release_boundaries/qshabang_release_gate_map.py",
+      "sha256": "27532b9e8bc349bc5a74e0810a92f3582b0aa697ab531695fc6711953a743696",
+      "size": 11506
+    },
+    {
+      "path": "odin/release_boundaries/reports.py",
+      "sha256": "6d071cd9e7d60e91457f2aaf4de10b37bd360e845df064eec9203fa4d69d0213",
+      "size": 4578
+    },
+    {
+      "path": "odin/release_boundaries/ring_authority_map.py",
+      "sha256": "1a8af22bcd3669b9790c16ba43efcd833250d6fb4e3b54e35a976e2979575bb2",
+      "size": 9787
     },
     {
       "path": "odin/runtime/__init__.py",
@@ -6259,6 +6499,36 @@
       "size": 4733
     },
     {
+      "path": "registries/final_pr_09_operational_spine_registry.json",
+      "sha256": "aa2668b2949730c11cfaa3ab43a286ab8eaad385a92fad69a07e1b368f8323f8",
+      "size": 4783
+    },
+    {
+      "path": "registries/final_pr_10_artifact_currency_registry.json",
+      "sha256": "9b6990abe37909ddec2babee0fd0d4322aac959566b5763fe5ef4d944c399a4e",
+      "size": 1012
+    },
+    {
+      "path": "registries/final_pr_10_boundary_matrix_registry.json",
+      "sha256": "685450e7944dfd89255536236bbac0bdecb3ec6a8d87a164a2b2606c049285c5",
+      "size": 1288
+    },
+    {
+      "path": "registries/final_pr_10_boundary_release_registry.json",
+      "sha256": "b97d36f8a898de708d160b9eea2ae97cff6098f5775daf22d14ad2a828b91bad",
+      "size": 2116
+    },
+    {
+      "path": "registries/final_pr_10_model_role_authority_registry.json",
+      "sha256": "160631d3a7a0a45642bf4e27920fbb34ca376a1f298862399f937cafd4e1f4c0",
+      "size": 1384
+    },
+    {
+      "path": "registries/final_pr_10_qshabang_release_gate_registry.json",
+      "sha256": "a1673a050bf09daeaeb50b02453a0e77d3e63ac133bbb378fca73968bc260757",
+      "size": 1095
+    },
+    {
       "path": "registries/final_q_shabang_capability_matrix_v1.json",
       "sha256": "b4b5f820f0f6d04ac4005296e462c39bf567aabecaeecbccb370f1b8db726970",
       "size": 33170
@@ -7229,6 +7499,96 @@
       "size": 5579
     },
     {
+      "path": "reports/final_pr_09_cli_surface_report.json",
+      "sha256": "ddef1258a8c773ceaf7cb16592810da8b9a3d86ab99be4aa278705399c54f9cb",
+      "size": 782
+    },
+    {
+      "path": "reports/final_pr_09_deferred_system_lift_report.json",
+      "sha256": "33fefff9794ec761d37f83234209352b059b6f06760792981953923f802a27c9",
+      "size": 923
+    },
+    {
+      "path": "reports/final_pr_09_hub_surface_report.json",
+      "sha256": "c53df93a3bfbd0bc543d2fc81bbabbd1f1546184d1f306337bdf43c6772cac9b",
+      "size": 824
+    },
+    {
+      "path": "reports/final_pr_09_modelworkpacket_enforcement_report.json",
+      "sha256": "6d4ce83b113c8461a86ffdf2512a0cb6ce4a81d1a4d08586fc5223137ea82771",
+      "size": 958
+    },
+    {
+      "path": "reports/final_pr_09_operational_spine_proof_packet.json",
+      "sha256": "3b4d4b3cbde6d5eca426a5f792ddba1df72d1c66a32c631ebb350c9c27052dd6",
+      "size": 989
+    },
+    {
+      "path": "reports/final_pr_09_operational_spine_report.json",
+      "sha256": "0e53a7c690d3a5ca23cb17f13be3dff2a88a747b8769be13a171f409a08019b5",
+      "size": 346
+    },
+    {
+      "path": "reports/final_pr_09_provider_readiness_report.json",
+      "sha256": "c31dc96855e2d9d2accef601449cb22145e9c52fcd781387f328f3d5e3c52028",
+      "size": 1211
+    },
+    {
+      "path": "reports/final_pr_09_qshabang_operational_map_report.json",
+      "sha256": "6c040aded7238599bc0a628c55cb82761276af2864efd29024e0ba76769e2eb0",
+      "size": 839
+    },
+    {
+      "path": "reports/final_pr_09_small_model_route_plan_report.json",
+      "sha256": "8caeb24d41f94997f27cdc0989cd70ddea16f63132ab789edb50a40bfb37ab3a",
+      "size": 714
+    },
+    {
+      "path": "reports/final_pr_10_artifact_currency_report.json",
+      "sha256": "83807ed6b0c9187ac74538f1866bcae646b67cfdd56f482eee785b02e7ed1bcd",
+      "size": 13150
+    },
+    {
+      "path": "reports/final_pr_10_boundary_matrix_report.json",
+      "sha256": "2b782d70f3b931cf66b7f12c4571ca62df98b25bb07e20c65bb2f5e5622d9b13",
+      "size": 23474
+    },
+    {
+      "path": "reports/final_pr_10_boundary_release_proof_packet.json",
+      "sha256": "edecfa16cd8a8e24678a704ca5cc9dcfbb302cee7cc03d68d5b6f5efaf8c1d7e",
+      "size": 908
+    },
+    {
+      "path": "reports/final_pr_10_bug6_q7_operational_map.json",
+      "sha256": "58d5708f1782f1672648ebf2bb76de66d2b6a688e8f09d49d360ea39e7d1d12a",
+      "size": 9144
+    },
+    {
+      "path": "reports/final_pr_10_model_role_authority_report.json",
+      "sha256": "5b65e43682c64d6e1abc87618c518c2209fb51cee1e8bea0bae18f83b2c7de1e",
+      "size": 23888
+    },
+    {
+      "path": "reports/final_pr_10_qshabang_release_gate_report.json",
+      "sha256": "f90fe3862d879f2835282acaa1e61c2791cb4fe66a5c6681465bae1d61a2ea7b",
+      "size": 11009
+    },
+    {
+      "path": "reports/final_pr_10_release_evidence_closure_index.json",
+      "sha256": "95648cefa949104b644f87b15dcc7988bc91b2c8dd1a41143c309ec12ecd258b",
+      "size": 31180
+    },
+    {
+      "path": "reports/final_pr_10_release_preflight_report.json",
+      "sha256": "1663fe9f2329c5cdda8eaa404bd07fc408d6ef1d4b275f9409831f79fc1d7e9a",
+      "size": 2420
+    },
+    {
+      "path": "reports/final_pr_10_ring_authority_map.json",
+      "sha256": "3001defe8ddba751a698bfae9003c0fed940b4e11aa460bb1f3cb246cf7938a0",
+      "size": 9493
+    },
+    {
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
       "sha256": "aa7b39acf26c356ecd05bab18752d02fcc3b3219516c6c5f045621a77782316a",
       "size": 105505
@@ -7447,6 +7807,16 @@
       "path": "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json",
       "sha256": "da8c579c76d68d672456a7e49c13051dc3a33aba45f7c2d52dce2ddf4e173bba",
       "size": 777
+    },
+    {
+      "path": "schemas/final_pr_09_operational_spine_report.schema.json",
+      "sha256": "425b5ca4887e2e7e9a3eaf108ffe81952d0b7634ea39f5b977e696d2d9a4e51a",
+      "size": 1359
+    },
+    {
+      "path": "schemas/final_pr_10_release_preflight_report.schema.json",
+      "sha256": "e01ceac3ae459ceb53a1780319974082f2412100cab050e0f9bb4ad4194f9840",
+      "size": 1773
     },
     {
       "path": "schemas/final_pr_ladder_worker_packet_scaffold.schema.json",
@@ -8824,6 +9194,16 @@
       "size": 4566
     },
     {
+      "path": "tests/test_final_pr_09_operational_spine.py",
+      "sha256": "aa99ad6da306fdecde0a13dbb907f3d185ee1c51840844ff372bb27d13040d11",
+      "size": 25288
+    },
+    {
+      "path": "tests/test_final_pr_10_boundary_release.py",
+      "sha256": "0dac8aac569d69260adeb0327aa88259e045afb5c761bda74adb2530bcaaddb9",
+      "size": 26865
+    },
+    {
       "path": "tests/test_final_road_to_100_rebaseline_audit.py",
       "sha256": "727fd33f3702757e25dbe6b164be37374b04892697157b2b3b2778bc46188f3e",
       "size": 26679
@@ -9194,6 +9574,16 @@
       "size": 7462
     },
     {
+      "path": "tools/rebaseline/check_final_pr_09_operational_spine.py",
+      "sha256": "088feaa23eb37bca44ab155739b057b03877e4f566eb443cbe7420b5146e11d3",
+      "size": 21934
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_10_boundary_release.py",
+      "sha256": "30fac73782469e893f9d3c58a6c3c1613d70a5fb55f24f55928b36c596784ff2",
+      "size": 21413
+    },
+    {
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
       "sha256": "b5ce2bc13e94575ae21e0f46b13bcf6f46aaef4d3a8657cbf9bf1e6851a4b1c0",
       "size": 26667
@@ -9337,221 +9727,6 @@
       "path": "windows/tray_stub/README_TRAY_STUB.md",
       "sha256": "135fcf711ec95c6c8456dd6d93af6856a22a6a873d827f7b4f65ebcacc6d9e7a",
       "size": 258
-    },
-    {
-      "path": "odin/operational_spine/__init__.py",
-      "sha256": "4c72c0714f5879c3443b6ef543fa037ae15dea33ba8931e55e36cd1b73a57f1f",
-      "size": 915
-    },
-    {
-      "path": "odin/operational_spine/orchestrator.py",
-      "sha256": "bf82eb8a89a939f32c86a21faaddb9c385508a1241e380c5edc9745904df8efa",
-      "size": 27702
-    },
-    {
-      "path": "odin/operational_spine/status.py",
-      "sha256": "e7b70a63e05ced4f6d1db41db00bfbcb9139a4949c08af26c994d7381dceb654",
-      "size": 1833
-    },
-    {
-      "path": "odin/operational_spine/model_roles.py",
-      "sha256": "45fbdc41a312865a6210641686fbed529510f7bc6ca27412c189ed683b0a1a33",
-      "size": 14315
-    },
-    {
-      "path": "odin/operational_spine/modelworkpacket_builder.py",
-      "sha256": "10ea4f6ed91919fa620660f43b575fad10574eb36270854c0927c3b1f94b81f5",
-      "size": 5590
-    },
-    {
-      "path": "odin/operational_spine/small_model_route_plan.py",
-      "sha256": "efe9ec3ffa7398930bd55f9b3b41ea6f860e607bff1f3cc88ffc183881175475",
-      "size": 4013
-    },
-    {
-      "path": "odin/operational_spine/qshabang_runtime_map.py",
-      "sha256": "47ed6286ac2b221bda48dda0eb37ff0659c4e723aa20e38d738fad9c05c6f088",
-      "size": 6101
-    },
-    {
-      "path": "odin/operational_spine/deferred_system_lift.py",
-      "sha256": "71522702ce4a7cf76ea3a5f57064a908cd0b3fe4d8736bb92509257cf9ec237a",
-      "size": 13203
-    },
-    {
-      "path": "odin/operational_spine/provider_seam.py",
-      "sha256": "67c22e9feae61e0da9977b100ec23017d097ddeed28d63c554b0b4421b0a0cf4",
-      "size": 5444
-    },
-    {
-      "path": "odin/operational_spine/receipts.py",
-      "sha256": "c07ffec82a7e158a7ee1c90f1be96ae6a99f97cd5083388ecd02583601272c89",
-      "size": 2472
-    },
-    {
-      "path": "odin/operational_spine/reports.py",
-      "sha256": "387f6820d9f27fa5834ab3b358f00af6e2c8f742fcc60996583683a244c43f30",
-      "size": 3521
-    },
-    {
-      "path": "registries/final_pr_09_operational_spine_registry.json",
-      "sha256": "aa2668b2949730c11cfaa3ab43a286ab8eaad385a92fad69a07e1b368f8323f8",
-      "size": 4783
-    },
-    {
-      "path": "schemas/final_pr_09_operational_spine_report.schema.json",
-      "sha256": "425b5ca4887e2e7e9a3eaf108ffe81952d0b7634ea39f5b977e696d2d9a4e51a",
-      "size": 1359
-    },
-    {
-      "path": "examples/final_pr_09/operational_spine_demo.example.json",
-      "sha256": "4eaa75d37f2728e568c3823dcea58b7221882b5f35d4dc59cf4e47452ec93b1a",
-      "size": 6737
-    },
-    {
-      "path": "examples/final_pr_09/modelworkpacket.example.json",
-      "sha256": "ca357d7d89468d1496f6cd450c6c7e95dc7dea87e034b4c5059f4e97d4860d76",
-      "size": 2593
-    },
-    {
-      "path": "examples/final_pr_09/small_model_route_plan.example.json",
-      "sha256": "5dcbb2d7ef90b6542dd04438d28f2f534527de4f4c504a3f19464802011d9a34",
-      "size": 2109
-    },
-    {
-      "path": "examples/final_pr_09/qshabang_operational_map.example.json",
-      "sha256": "79b5f3a80f8ab7f02680814328619b656d24d74c98afe6403812d7861ef340ae",
-      "size": 4464
-    },
-    {
-      "path": "examples/final_pr_09/deferred_system_lift.example.json",
-      "sha256": "d2ecbdc1ef1a502c8558dbd77b32c02fffce7150580164a3fb18414de4ab2f78",
-      "size": 8635
-    },
-    {
-      "path": "examples/final_pr_09/provider_seam_packet.example.json",
-      "sha256": "3265b0a913418ce4990cc53ac83525e5c8f123c48ae843b14f4e376ec1f1f895",
-      "size": 1796
-    },
-    {
-      "path": "tools/rebaseline/check_final_pr_09_operational_spine.py",
-      "sha256": "088feaa23eb37bca44ab155739b057b03877e4f566eb443cbe7420b5146e11d3",
-      "size": 21934
-    },
-    {
-      "path": "tests/test_final_pr_09_operational_spine.py",
-      "sha256": "aa99ad6da306fdecde0a13dbb907f3d185ee1c51840844ff372bb27d13040d11",
-      "size": 25288
-    },
-    {
-      "path": "reports/final_pr_09_operational_spine_report.json",
-      "sha256": "0e53a7c690d3a5ca23cb17f13be3dff2a88a747b8769be13a171f409a08019b5",
-      "size": 346
-    },
-    {
-      "path": "reports/final_pr_09_cli_surface_report.json",
-      "sha256": "ddef1258a8c773ceaf7cb16592810da8b9a3d86ab99be4aa278705399c54f9cb",
-      "size": 782
-    },
-    {
-      "path": "reports/final_pr_09_hub_surface_report.json",
-      "sha256": "c53df93a3bfbd0bc543d2fc81bbabbd1f1546184d1f306337bdf43c6772cac9b",
-      "size": 824
-    },
-    {
-      "path": "reports/final_pr_09_provider_readiness_report.json",
-      "sha256": "c31dc96855e2d9d2accef601449cb22145e9c52fcd781387f328f3d5e3c52028",
-      "size": 1211
-    },
-    {
-      "path": "reports/final_pr_09_modelworkpacket_enforcement_report.json",
-      "sha256": "6d4ce83b113c8461a86ffdf2512a0cb6ce4a81d1a4d08586fc5223137ea82771",
-      "size": 958
-    },
-    {
-      "path": "reports/final_pr_09_small_model_route_plan_report.json",
-      "sha256": "8caeb24d41f94997f27cdc0989cd70ddea16f63132ab789edb50a40bfb37ab3a",
-      "size": 714
-    },
-    {
-      "path": "reports/final_pr_09_qshabang_operational_map_report.json",
-      "sha256": "6c040aded7238599bc0a628c55cb82761276af2864efd29024e0ba76769e2eb0",
-      "size": 839
-    },
-    {
-      "path": "reports/final_pr_09_deferred_system_lift_report.json",
-      "sha256": "33fefff9794ec761d37f83234209352b059b6f06760792981953923f802a27c9",
-      "size": 923
-    },
-    {
-      "path": "reports/final_pr_09_operational_spine_proof_packet.json",
-      "sha256": "3b4d4b3cbde6d5eca426a5f792ddba1df72d1c66a32c631ebb350c9c27052dd6",
-      "size": 989
-    },
-    {
-      "path": "docs/rebaseline/FINAL_PR_09_OPERATIONAL_SPINE.md",
-      "sha256": "e8cc13d251dbc9041806b0f6e59e45110cf0c443cad20102115da8e49c7857a2",
-      "size": 6202
-    },
-    {
-      "path": "docs/release/FINAL_PR_09_OPERATIONAL_SPINE_EVIDENCE_INDEX.md",
-      "sha256": "288b806849f93eccb3a174869c0c3299a0e2672d693b65664051bba388e799dd",
-      "size": 3041
-    },
-    {
-      "path": "docs/release/FINAL_PR_09_SMALL_MODEL_POWER_MAP.md",
-      "sha256": "9573bfd76c209866cc9ee334f04cf50dd2e315c38d0c3ca99241fcc4f2f3ac08",
-      "size": 3292
-    },
-    {
-      "path": "docs/release/FINAL_PR_09_QSHABANG_OPERATIONAL_MAP.md",
-      "sha256": "002a0d92e5afecbedf501f1e8ede04683155b61d6e93805519b3d0fce4fb0d7c",
-      "size": 2196
-    },
-    {
-      "path": "docs/release/FINAL_PR_09_DEFERRED_SYSTEM_LIFT_PLAN.md",
-      "sha256": "137e3a79a1819896bad7f75c204b8b5bd7a21e3dfd0a2cd767ab61dc5048a0b4",
-      "size": 2536
-    },
-    {
-      "path": "docs/codex/handoffs/FINAL_PR_09_REPO_COGNITION_SUMMARY.md",
-      "sha256": "fe54e49da28e8474e8de1de72ab834230c0f0c9dc16d999aaa957d89fd5aa2e9",
-      "size": 4325
-    },
-    {
-      "path": "docs/codex/handoffs/FINAL_PR_09_THOR_STYLE_OPERATIONAL_SPINE_HANDOFF.md",
-      "sha256": "81ccfe005d638397f0b11da8b582466a00ea9161d04f302afe9b21de97530a42",
-      "size": 5512
-    },
-    {
-      "path": "docs/codex/handoffs/FINAL_PR_09_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
-      "sha256": "d86e40804aa5aaafdfe0b938be3775894443d07e0e88a9b056891b7097765f83",
-      "size": 5406
-    },
-    {
-      "path": "docs/codex/audits/FINAL_PR_09_OPERATIONAL_SPINE_AUDIT.md",
-      "sha256": "d9fe433ec7ccd55c6265ce46529b2dca3a044e6ed69a040cb8f946df93f93acc",
-      "size": 2385
-    },
-    {
-      "path": "docs/codex/audits/FINAL_PR_09_SENIOR_REVIEW.md",
-      "sha256": "87a100bdd6098dcc3b6d4577ccba872901b886026035a26fa27797a0b83f55b9",
-      "size": 2054
-    },
-    {
-      "path": "docs/codex/audits/FINAL_PR_09_CODE_REVIEW.md",
-      "sha256": "45a30919c4166b938a038d86a1ca18809ec0f5261c49788cb91b180dc54e5381",
-      "size": 2201
-    },
-    {
-      "path": "docs/codex/audits/FINAL_PR_09_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
-      "sha256": "62e97dfc99da34c05c9b0c099e31390f2a6bb8e91b06c6fabb7fce3a1b9a975e",
-      "size": 8350
-    },
-    {
-      "path": "docs/codex/reports/FINAL_PR_09_OPERATIONAL_SPINE_RETURN_REPORT.md",
-      "sha256": "e30aabcbc5cfddeec32c4de2f456dde69c593796b3a4658e0f63e4e33fae9f2e",
-      "size": 3118
     }
   ]
 }

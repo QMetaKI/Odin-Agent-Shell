@@ -1,0 +1,39 @@
+{
+  "registry_id": "final_pr_10_boundary_matrix_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "description": "Registry of all FINAL-PR-10++ boundary matrix rows",
+  "boundary_ids": [
+    "candidate_only",
+    "app_owned_apply",
+    "no_app_state_mutation",
+    "no_external_send",
+    "local_only_default",
+    "remote_explicit_only",
+    "no_hidden_authority",
+    "qirc_not_app_authority",
+    "model_projection_not_truth",
+    "provider_not_authority",
+    "receipt_before_claim",
+    "final_gate_required",
+    "no_public_qirc_by_default",
+    "no_model_benchmark_without_receipt",
+    "no_security_certification_without_receipt",
+    "no_production_ready_claim_without_receipt",
+    "local_provider_execution_disabled_by_default",
+    "historical_artifact_not_current_claim",
+    "qshabang_neutral_terms_only",
+    "small_model_route_not_quality_benchmark",
+    "model_role_not_authority",
+    "release_closure_deferred_to_final_pr_11"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}

@@ -2842,6 +2842,31 @@ def validate_operational_spine() -> list[str]:
                 return [f"final-pr-09-operational-spine validator failed: {exc}"]
     return []
 
+def validate_final_pr_10_boundary_release() -> list[str]:
+    """Validate FINAL-PR-10++ Boundary-Gated Release Operationalization artifacts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_10_boundary_release.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-10++ validator: tools/rebaseline/check_final_pr_10_boundary_release.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_10_boundary_release_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-10++ validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_10_boundary_release_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-10-boundary-release: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-10-boundary-release validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2908,6 +2933,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_projection_candidate_spine())
     errors.extend(validate_final_pr_09_10_qshabang_smallmodel_prep())
     errors.extend(validate_operational_spine())
+    errors.extend(validate_final_pr_10_boundary_release())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3119,6 +3145,21 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-modelworkpacket-enforcement")
     sub.add_parser("validate-qshabang-operational-map")
     sub.add_parser("validate-deferred-system-lift")
+    # FINAL-PR-10++: Boundary-Gated Release Operationalization
+    sub.add_parser("validate-boundary-matrix")
+    sub.add_parser("validate-ring-authority-map")
+    sub.add_parser("validate-bug6-q7-operational-map")
+    sub.add_parser("validate-qshabang-release-gate-map")
+    sub.add_parser("validate-model-role-authority")
+    sub.add_parser("validate-release-evidence-closure")
+    sub.add_parser("validate-artifact-currency")
+    sub.add_parser("validate-final-release-preflight")
+    sub.add_parser("validate-final-pr-10-boundary-release")
+    sub.add_parser("release-preflight")
+    sub.add_parser("explain-boundaries")
+    sub.add_parser("explain-release-claims")
+    sub.add_parser("explain-model-role-authority")
+    sub.add_parser("explain-qshabang-release-gates")
     args = parser.parse_args(argv)
 
 
@@ -4033,6 +4074,176 @@ def main(argv: list[str] | None = None) -> int:
         print("validate-deferred-system-lift: OK")
         return 0
 
+    # FINAL-PR-10++: Boundary-Gated Release Operationalization dispatch
+    if args.cmd == "validate-boundary-matrix":
+        from odin.release_boundaries.boundary_matrix import build_boundary_matrix
+        result = build_boundary_matrix()
+        if not result.get("candidate_only"):
+            print("ERROR: boundary_matrix candidate_only must be true")
+            return 1
+        if result.get("boundary_count", 0) < 20:
+            print(f"ERROR: boundary_matrix must have at least 20 boundaries, got {result.get('boundary_count')}")
+            return 1
+        print("validate-boundary-matrix: OK")
+        return 0
+
+    if args.cmd == "validate-ring-authority-map":
+        from odin.release_boundaries.ring_authority_map import build_ring_authority_map
+        result = build_ring_authority_map()
+        if not result.get("candidate_only"):
+            print("ERROR: ring_authority_map candidate_only must be true")
+            return 1
+        rings = result.get("rings", {})
+        if "ring_0" not in rings:
+            print("ERROR: ring_authority_map must contain ring_0")
+            return 1
+        if not result.get("final_pr_11_remains_deferred"):
+            print("ERROR: ring_authority_map must have final_pr_11_remains_deferred: true")
+            return 1
+        print("validate-ring-authority-map: OK")
+        return 0
+
+    if args.cmd == "validate-bug6-q7-operational-map":
+        from odin.release_boundaries.bug6_q7_operational_map import build_bug6_q7_operational_map
+        result = build_bug6_q7_operational_map()
+        if not result.get("candidate_only"):
+            print("ERROR: bug6_q7_operational_map candidate_only must be true")
+            return 1
+        drift_map = result.get("drift_map", {})
+        if "Bug6" not in drift_map and "authority_drift_scanner" not in str(drift_map):
+            print("ERROR: bug6_q7_operational_map must contain Bug6/authority_drift_scanner")
+            return 1
+        print("validate-bug6-q7-operational-map: OK")
+        return 0
+
+    if args.cmd == "validate-qshabang-release-gate-map":
+        from odin.release_boundaries.qshabang_release_gate_map import build_qshabang_release_gate_map
+        result = build_qshabang_release_gate_map()
+        if not result.get("candidate_only"):
+            print("ERROR: qshabang_release_gate_map candidate_only must be true")
+            return 1
+        components = result.get("components", {})
+        required_comps = ["deterministic_precompute", "claim_evidence_reality_gates", "critic_cascade"]
+        for comp in required_comps:
+            if comp not in components:
+                print(f"ERROR: qshabang_release_gate_map missing component: {comp}")
+                return 1
+        print("validate-qshabang-release-gate-map: OK")
+        return 0
+
+    if args.cmd == "validate-model-role-authority":
+        from odin.release_boundaries.model_role_authority import build_model_role_authority_matrix
+        result = build_model_role_authority_matrix()
+        if not result.get("candidate_only"):
+            print("ERROR: model_role_authority_matrix candidate_only must be true")
+            return 1
+        roles = result.get("roles", {})
+        required_roles = ["3b_scout", "7b_writer", "hybrid_3b_scout_7b_synthesize_3b_check", "local_provider_candidate"]
+        for rid in required_roles:
+            if rid not in roles:
+                print(f"ERROR: model_role_authority_matrix missing role: {rid}")
+                return 1
+        for rid, role in roles.items():
+            if "app_apply" not in role.get("forbidden_actions", []):
+                print(f"ERROR: role {rid} must forbid app_apply")
+                return 1
+        print("validate-model-role-authority: OK")
+        return 0
+
+    if args.cmd == "validate-release-evidence-closure":
+        from odin.release_boundaries.evidence_closure import build_release_evidence_closure_index
+        result = build_release_evidence_closure_index()
+        if not result.get("candidate_only"):
+            print("ERROR: release_evidence_closure candidate_only must be true")
+            return 1
+        if not result.get("final_pr_11_remains_deferred"):
+            print("ERROR: release_evidence_closure must have final_pr_11_remains_deferred: true")
+            return 1
+        subsystems = result.get("subsystems", {})
+        required_subs = ["Operational Spine", "Provider Seam", "ModelWorkPacket", "Final Preflight"]
+        for sub in required_subs:
+            if sub not in subsystems:
+                print(f"ERROR: release_evidence_closure missing subsystem: {sub}")
+                return 1
+        print("validate-release-evidence-closure: OK")
+        return 0
+
+    if args.cmd == "validate-artifact-currency":
+        from odin.release_boundaries.artifact_currency import build_artifact_currency_index
+        result = build_artifact_currency_index()
+        if not result.get("candidate_only"):
+            print("ERROR: artifact_currency_index candidate_only must be true")
+            return 1
+        currency_classes = result.get("currency_classes", [])
+        required_classes = ["current_runtime", "current_release_evidence", "historical_supporting", "target_only"]
+        for cls in required_classes:
+            if cls not in currency_classes:
+                print(f"ERROR: artifact_currency_index missing currency class: {cls}")
+                return 1
+        print("validate-artifact-currency: OK")
+        return 0
+
+    if args.cmd in ("validate-final-release-preflight", "release-preflight"):
+        from odin.release_boundaries.final_preflight import run_final_release_preflight
+        result = run_final_release_preflight()
+        if args.cmd == "validate-final-release-preflight":
+            status = result.get("release_preflight_status")
+            if status not in ("green", "yellow", "red"):
+                print(f"ERROR: release_preflight_status must be green/yellow/red, got {status!r}")
+                return 1
+            if not result.get("final_pr_11_remains_deferred"):
+                print("ERROR: release_preflight must have final_pr_11_remains_deferred: true")
+                return 1
+            forbidden = result.get("forbidden_release_claims", [])
+            for claim in ["production_readiness", "security_certification", "release_certification"]:
+                if claim not in forbidden:
+                    print(f"ERROR: release_preflight forbidden_release_claims must include {claim}")
+                    return 1
+            print("validate-final-release-preflight: OK")
+            return 0
+        else:
+            print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+    if args.cmd == "validate-final-pr-10-boundary-release":
+        errors = validate_final_pr_10_boundary_release()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-10-boundary-release: OK")
+        return 0
+
+    if args.cmd == "explain-boundaries":
+        from odin.release_boundaries.boundary_matrix import build_boundary_matrix
+        print(json.dumps(build_boundary_matrix(), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-release-claims":
+        from odin.release_boundaries.final_preflight import run_final_release_preflight
+        result = run_final_release_preflight()
+        claims = {
+            "artifact_kind": "odin_release_claims_explanation",
+            "candidate_only": True,
+            "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+            "allowed_release_claims": result["allowed_release_claims"],
+            "forbidden_release_claims": result["forbidden_release_claims"],
+            "not_proven": result["not_proven"],
+            "final_pr_11_remains_deferred": True,
+        }
+        print(json.dumps(claims, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-model-role-authority":
+        from odin.release_boundaries.model_role_authority import build_model_role_authority_matrix
+        print(json.dumps(build_model_role_authority_matrix(), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-qshabang-release-gates":
+        from odin.release_boundaries.qshabang_release_gate_map import build_qshabang_release_gate_map
+        print(json.dumps(build_qshabang_release_gate_map(), indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -4135,6 +4346,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_projection_candidate_spine()
     elif args.cmd == "validate-operational-spine":
         errors = validate_operational_spine()
+    elif args.cmd == "validate-final-pr-10-boundary-release":
+        errors = validate_final_pr_10_boundary_release()
     else:
         errors = validate_all()
 

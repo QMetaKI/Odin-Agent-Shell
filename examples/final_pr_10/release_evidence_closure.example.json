@@ -1,0 +1,636 @@
+{
+  "artifact_kind": "odin_final_pr_10_release_evidence_closure_index",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "subsystem_count": 38,
+  "subsystems": {
+    "Local Hub": {
+      "subsystem": "Local Hub",
+      "status": "implemented",
+      "current_evidence": "odin/local_hub/server.py \u2014 running at 127.0.0.1:8765. GET /healthz, /status.json, UI, /operational-spine/*, /release/* endpoints.",
+      "current_weakness": "No live model execution. No connected apps. No real provider execution.",
+      "release_claim_allowed": "local_hub_exists_localhost_only",
+      "release_claim_forbidden": "production_hub, live_model_hub, external_hub",
+      "not_proven": [
+        "production_readiness",
+        "live_model_inference",
+        "external_send"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Local Hub_2c03d6d639d147d4",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "CLI": {
+      "subsystem": "CLI",
+      "status": "implemented",
+      "current_evidence": "odin/cli.py \u2014 all validate-*, explain-*, run-*, release-preflight commands.",
+      "current_weakness": "No live model execution via CLI.",
+      "release_claim_allowed": "cli_exists_with_all_validators",
+      "release_claim_forbidden": "cli_certified_production_ready",
+      "not_proven": [
+        "production_readiness",
+        "live_model_inference"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_CLI_cbf5f0107846d192",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Universal Work": {
+      "subsystem": "Universal Work",
+      "status": "implemented",
+      "current_evidence": "odin/runtime/engine.py \u2014 run_universal_work_file(). ModelWorkPacket validation enforced.",
+      "current_weakness": "No live model inference. Mock provider only.",
+      "release_claim_allowed": "universal_work_candidate_only_operational",
+      "release_claim_forbidden": "universal_work_live_model_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Universal Work_23aa38b318d80ae6",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Handoff-First": {
+      "subsystem": "Handoff-First",
+      "status": "implemented",
+      "current_evidence": "odin/final_pr_ladder/compiler.py \u2014 compile_worker_packet_scaffold().",
+      "current_weakness": "Handoff scaffold only; not a full Thor replacement.",
+      "release_claim_allowed": "handoff_first_scaffold_exists",
+      "release_claim_forbidden": "thor_replacement, full_handoff_runtime",
+      "not_proven": [
+        "production_readiness",
+        "thor_parity"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Handoff-First_e65d2f8114d72a1e",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Runtime Engine": {
+      "subsystem": "Runtime Engine",
+      "status": "implemented",
+      "current_evidence": "odin/runtime/engine.py \u2014 candidate-only work execution engine.",
+      "current_weakness": "No live model inference. Local runtime only.",
+      "release_claim_allowed": "runtime_engine_candidate_only",
+      "release_claim_forbidden": "production_runtime_certified",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Runtime Engine_41cc17bd2a5aed22",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Operational Spine": {
+      "subsystem": "Operational Spine",
+      "status": "implemented",
+      "current_evidence": "odin/operational_spine/ \u2014 run_operational_spine(), ModelWorkPacket enforcement, small model route plan, Q-Shabang map, deferred system lift, provider seam.",
+      "current_weakness": "No live model inference. Provider seam disabled by default.",
+      "release_claim_allowed": "local_candidate_only_operational_spine_exists",
+      "release_claim_forbidden": "live_model_spine, production_spine",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness",
+        "provider_execution"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Operational Spine_ed5413f73a8e79a0",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Context Capsule": {
+      "subsystem": "Context Capsule",
+      "status": "implemented",
+      "current_evidence": "odin/operational_seed_spine/work_capsule.py \u2014 compile_work_capsule().",
+      "current_weakness": "Capsule is a candidate structure, not live execution.",
+      "release_claim_allowed": "context_capsule_candidate_only",
+      "release_claim_forbidden": "live_context_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Context Capsule_c9697a40f8a445fa",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Artifact Lens": {
+      "subsystem": "Artifact Lens",
+      "status": "partial",
+      "current_evidence": "odin/operational_seed_spine/ \u2014 partial lens structures.",
+      "current_weakness": "Full artifact lens not yet fully implemented.",
+      "release_claim_allowed": "artifact_lens_partial_exists",
+      "release_claim_forbidden": "full_artifact_lens_implemented",
+      "not_proven": [
+        "full_artifact_lens",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full artifact lens.",
+      "evidence_closure_id": "evidence_closure_Artifact Lens_8bfcfdca512f86a6",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Slot Forge": {
+      "subsystem": "Slot Forge",
+      "status": "partial",
+      "current_evidence": "odin/slots/ \u2014 partial slot structures.",
+      "current_weakness": "Full slot forge not yet fully implemented.",
+      "release_claim_allowed": "slot_forge_partial_exists",
+      "release_claim_forbidden": "full_slot_forge_implemented",
+      "not_proven": [
+        "full_slot_forge",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full slot forge.",
+      "evidence_closure_id": "evidence_closure_Slot Forge_fb2476bb7146dfe9",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Gaptext": {
+      "subsystem": "Gaptext",
+      "status": "partial",
+      "current_evidence": "odin/worklets/ \u2014 partial gaptext structures.",
+      "current_weakness": "Full gaptext not yet fully implemented.",
+      "release_claim_allowed": "gaptext_partial_exists",
+      "release_claim_forbidden": "full_gaptext_implemented",
+      "not_proven": [
+        "full_gaptext",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full gaptext.",
+      "evidence_closure_id": "evidence_closure_Gaptext_4cdc0c63e46dd249",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "ModelWorkPacket": {
+      "subsystem": "ModelWorkPacket",
+      "status": "implemented",
+      "current_evidence": "odin/operational_spine/modelworkpacket_builder.py \u2014 validate_modelworkpacket() enforced.",
+      "current_weakness": "Validates packet structure; no live model execution.",
+      "release_claim_allowed": "modelworkpacket_boundary_enforced",
+      "release_claim_forbidden": "live_modelworkpacket_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_ModelWorkPacket_7e46dca4b8fae148",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Small Model Route Plan": {
+      "subsystem": "Small Model Route Plan",
+      "status": "implemented",
+      "current_evidence": "odin/operational_spine/small_model_route_plan.py \u2014 route plan, not benchmark.",
+      "current_weakness": "Route plan only. No empirical benchmark. No live execution.",
+      "release_claim_allowed": "small_model_route_plan_exists",
+      "release_claim_forbidden": "real_model_benchmark, live_model_inference",
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for live execution evidence.",
+      "evidence_closure_id": "evidence_closure_Small Model Route Plan_a7fc2376238419b0",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3B Roles": {
+      "subsystem": "3B Roles",
+      "status": "implemented_plan_only",
+      "current_evidence": "odin/operational_spine/model_roles.py \u2014 3B role definitions.",
+      "current_weakness": "Role definitions only. No live 3B model execution.",
+      "release_claim_allowed": "3b_roles_defined",
+      "release_claim_forbidden": "live_3b_inference",
+      "not_proven": [
+        "live_3b_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "Provider activation for live 3B execution.",
+      "evidence_closure_id": "evidence_closure_3B Roles_6d40185517760210",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7B Roles": {
+      "subsystem": "7B Roles",
+      "status": "implemented_plan_only",
+      "current_evidence": "odin/operational_spine/model_roles.py \u2014 7B role definitions.",
+      "current_weakness": "Role definitions only. No live 7B model execution.",
+      "release_claim_allowed": "7b_roles_defined",
+      "release_claim_forbidden": "live_7b_inference",
+      "not_proven": [
+        "live_7b_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "Provider activation for live 7B execution.",
+      "evidence_closure_id": "evidence_closure_7B Roles_8df8688894f90645",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3B+7B Hybrid Roles": {
+      "subsystem": "3B+7B Hybrid Roles",
+      "status": "implemented_plan_only",
+      "current_evidence": "odin/operational_spine/small_model_route_plan.py \u2014 hybrid route plans.",
+      "current_weakness": "Hybrid plans only. No live hybrid execution. Not an empirical benchmark.",
+      "release_claim_allowed": "hybrid_route_plan_exists",
+      "release_claim_forbidden": "live_hybrid_inference, real_model_benchmark",
+      "not_proven": [
+        "live_hybrid_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "future_pr_required": "Provider activation for live hybrid execution.",
+      "evidence_closure_id": "evidence_closure_3B+7B Hybrid Roles_bd09b48ae0747306",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "No-Model Precompute": {
+      "subsystem": "No-Model Precompute",
+      "status": "implemented",
+      "current_evidence": "odin/precompute/__init__.py \u2014 score_pre_llm_route() deterministic.",
+      "current_weakness": "Deterministic only. No model involved.",
+      "release_claim_allowed": "no_model_precompute_operational",
+      "release_claim_forbidden": "model_inference_in_precompute",
+      "not_proven": [
+        "production_readiness"
+      ],
+      "future_pr_required": "None for this scope.",
+      "evidence_closure_id": "evidence_closure_No-Model Precompute_e215d06d8df0b2e7",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Semantic Cache": {
+      "subsystem": "Semantic Cache",
+      "status": "partial",
+      "current_evidence": "odin/precompute/ \u2014 partial semantic cache structures.",
+      "current_weakness": "Partial implementation only.",
+      "release_claim_allowed": "semantic_cache_partial_exists",
+      "release_claim_forbidden": "full_semantic_cache_implemented",
+      "not_proven": [
+        "full_semantic_cache",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full semantic cache.",
+      "evidence_closure_id": "evidence_closure_Semantic Cache_5c143e9bfacea89e",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Work Memory": {
+      "subsystem": "Work Memory",
+      "status": "partial",
+      "current_evidence": "odin/storage/ \u2014 partial work memory structures.",
+      "current_weakness": "Partial implementation only.",
+      "release_claim_allowed": "work_memory_partial_exists",
+      "release_claim_forbidden": "full_work_memory_implemented",
+      "not_proven": [
+        "full_work_memory",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full work memory.",
+      "evidence_closure_id": "evidence_closure_Work Memory_8f89936b239c9074",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "QIRC": {
+      "subsystem": "QIRC",
+      "status": "implemented",
+      "current_evidence": "odin/qirc_core/ \u2014 local-only QIRC bus, channels, events.",
+      "current_weakness": "Local only. Not app authority. Not public.",
+      "release_claim_allowed": "qirc_local_coordination_exists",
+      "release_claim_forbidden": "qirc_app_authority, public_qirc",
+      "not_proven": [
+        "production_readiness",
+        "external_qirc"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_QIRC_b9c231fad9c8dbd2",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Provider Probe": {
+      "subsystem": "Provider Probe",
+      "status": "implemented",
+      "current_evidence": "odin/providers/probe.py \u2014 provider probe checks readiness only.",
+      "current_weakness": "Probe only. No provider execution.",
+      "release_claim_allowed": "provider_probe_exists",
+      "release_claim_forbidden": "provider_execution, live_model_inference",
+      "not_proven": [
+        "provider_execution",
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Provider Probe_5658edc172b292a4",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Provider Seam": {
+      "subsystem": "Provider Seam",
+      "status": "implemented_disabled_by_default",
+      "current_evidence": "odin/operational_spine/provider_seam.py \u2014 disabled_by_default: true.",
+      "current_weakness": "Disabled by default. No actual provider execution.",
+      "release_claim_allowed": "local_provider_seam_disabled_by_default_confirmed",
+      "release_claim_forbidden": "provider_execution, live_model_inference",
+      "not_proven": [
+        "provider_execution",
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Provider Seam_22243230adb4fe5e",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Execution Gate": {
+      "subsystem": "Execution Gate",
+      "status": "implemented",
+      "current_evidence": "odin/execution_gate/ \u2014 policy enforcement gate.",
+      "current_weakness": "Policy only. No live model execution gate tested.",
+      "release_claim_allowed": "execution_gate_policy_exists",
+      "release_claim_forbidden": "execution_gate_live_model_certified",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Execution Gate_7b865ad52db1eb3c",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Operational Seed Spine": {
+      "subsystem": "Operational Seed Spine",
+      "status": "implemented",
+      "current_evidence": "odin/operational_seed_spine/ \u2014 select_seed_route(), compile_work_capsule().",
+      "current_weakness": "Seed route and capsule only. No live execution.",
+      "release_claim_allowed": "operational_seed_spine_candidate_only",
+      "release_claim_forbidden": "live_seed_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Operational Seed Spine_f3b8d6b134b28c76",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Field Selection Spine": {
+      "subsystem": "Field Selection Spine",
+      "status": "implemented",
+      "current_evidence": "odin/field_selection_spine/ \u2014 select_field_route(), select_field_route_from_seed_route().",
+      "current_weakness": "Field selection only. No live execution.",
+      "release_claim_allowed": "field_selection_spine_candidate_only",
+      "release_claim_forbidden": "live_field_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Field Selection Spine_2ee7ede485a28cd7",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Projection Candidate Spine": {
+      "subsystem": "Projection Candidate Spine",
+      "status": "implemented",
+      "current_evidence": "odin/projection_candidate_spine/ \u2014 build_projection_set_from_field_selection(), build_candidate_graph().",
+      "current_weakness": "Projection set and candidate graph only. No live execution.",
+      "release_claim_allowed": "projection_candidate_spine_candidate_only",
+      "release_claim_forbidden": "live_projection_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Projection Candidate Spine_6b32ca852013f4ff",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Minicheck": {
+      "subsystem": "Minicheck",
+      "status": "partial",
+      "current_evidence": "odin/quality/ \u2014 partial minicheck structures.",
+      "current_weakness": "Partial implementation only.",
+      "release_claim_allowed": "minicheck_partial_exists",
+      "release_claim_forbidden": "full_minicheck_implemented",
+      "not_proven": [
+        "full_minicheck",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full minicheck.",
+      "evidence_closure_id": "evidence_closure_Minicheck_fdab37d7369a32f0",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Critic Cascade": {
+      "subsystem": "Critic Cascade",
+      "status": "implemented_plan_only",
+      "current_evidence": "odin/operational_spine/orchestrator.py \u2014 critic_cascade_result in spine output.",
+      "current_weakness": "Plan and structure only. No live critic execution.",
+      "release_claim_allowed": "critic_cascade_plan_exists",
+      "release_claim_forbidden": "live_critic_execution, quality_benchmark",
+      "not_proven": [
+        "live_critic_execution",
+        "quality_benchmark",
+        "production_readiness"
+      ],
+      "future_pr_required": "Provider activation for live critic execution.",
+      "evidence_closure_id": "evidence_closure_Critic Cascade_ed99303dc16d95f6",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Candidate Tournament": {
+      "subsystem": "Candidate Tournament",
+      "status": "partial",
+      "current_evidence": "odin/candidates/ \u2014 partial tournament structures.",
+      "current_weakness": "Partial implementation only.",
+      "release_claim_allowed": "candidate_tournament_partial_exists",
+      "release_claim_forbidden": "full_candidate_tournament_implemented",
+      "not_proven": [
+        "full_candidate_tournament",
+        "production_readiness"
+      ],
+      "future_pr_required": "Future PR for full candidate tournament.",
+      "evidence_closure_id": "evidence_closure_Candidate Tournament_33fbfc977b56e358",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Candidate Artifact": {
+      "subsystem": "Candidate Artifact",
+      "status": "implemented",
+      "current_evidence": "odin/candidates/ and odin/packets/ \u2014 candidate artifact structures.",
+      "current_weakness": "Structure only. No live model generation.",
+      "release_claim_allowed": "candidate_artifact_structure_exists",
+      "release_claim_forbidden": "live_candidate_generation",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Candidate Artifact_62ebcfeda3a37d0b",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Response Packet": {
+      "subsystem": "Response Packet",
+      "status": "implemented",
+      "current_evidence": "odin/operational_spine/orchestrator.py \u2014 response packet in spine output.",
+      "current_weakness": "Structure only. No live model response.",
+      "release_claim_allowed": "response_packet_structure_exists",
+      "release_claim_forbidden": "live_response_generation",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Response Packet_1c47440c277e8d84",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Final Gate": {
+      "subsystem": "Final Gate",
+      "status": "implemented_plan_only",
+      "current_evidence": "odin/operational_spine/orchestrator.py \u2014 final_gate_result in spine output.",
+      "current_weakness": "Plan and structure only. No live gate execution with real candidates.",
+      "release_claim_allowed": "final_gate_structure_exists",
+      "release_claim_forbidden": "live_final_gate_certified",
+      "not_proven": [
+        "live_final_gate_execution",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Final Gate_875c6be116a7fd48",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Trace/Receipt/Proof": {
+      "subsystem": "Trace/Receipt/Proof",
+      "status": "implemented",
+      "current_evidence": "odin/proof_chain/ and odin/operational_spine/receipts.py \u2014 trace, receipt, proof chain.",
+      "current_weakness": "Local traces and receipts only. No external proof.",
+      "release_claim_allowed": "trace_receipt_proof_exists",
+      "release_claim_forbidden": "external_proof, production_readiness",
+      "not_proven": [
+        "external_proof",
+        "production_readiness",
+        "security_certification"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Trace/Receipt/Proof_faf310b0be617f06",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "App-Owned Apply Boundary": {
+      "subsystem": "App-Owned Apply Boundary",
+      "status": "implemented",
+      "current_evidence": "All operational spine and work packets carry app_owned_apply: true.",
+      "current_weakness": "Boundary asserted in code; not externally audited.",
+      "release_claim_allowed": "app_owned_apply_boundary_enforced",
+      "release_claim_forbidden": "app_apply, app_state_mutation",
+      "not_proven": [
+        "external_audit_of_apply_boundary",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_App-Owned Apply Boundary_514a176a55092f94",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Q-Shabang Runtime Map": {
+      "subsystem": "Q-Shabang Runtime Map",
+      "status": "implemented",
+      "current_evidence": "odin/operational_spine/qshabang_runtime_map.py and odin/release_boundaries/qshabang_release_gate_map.py.",
+      "current_weakness": "Map and gate definitions only. No live Q-Shabang model execution.",
+      "release_claim_allowed": "qshabang_neutral_operationalization_confirmed",
+      "release_claim_forbidden": "qshabang_runtime_authority, live_qshabang_execution",
+      "not_proven": [
+        "live_model_inference",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Q-Shabang Runtime Map_fd2a594071aa7fd9",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Bug6/Q7 Boundary Map": {
+      "subsystem": "Bug6/Q7 Boundary Map",
+      "status": "implemented",
+      "current_evidence": "odin/release_boundaries/bug6_q7_operational_map.py \u2014 drift scanner definitions.",
+      "current_weakness": "Scanner definitions only. No live autonomous scanning agent.",
+      "release_claim_allowed": "bug6_q7_boundary_scanners_exist",
+      "release_claim_forbidden": "scanner_as_agent_authority, live_autonomous_scanning",
+      "not_proven": [
+        "external_security_audit",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Bug6/Q7 Boundary Map_ec99d905e6483599",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Artifact Currency": {
+      "subsystem": "Artifact Currency",
+      "status": "implemented",
+      "current_evidence": "odin/release_boundaries/artifact_currency.py \u2014 currency classification.",
+      "current_weakness": "Classification only. Not externally audited.",
+      "release_claim_allowed": "artifact_currency_index_exists",
+      "release_claim_forbidden": "external_currency_audit, production_readiness",
+      "not_proven": [
+        "external_artifact_audit",
+        "production_readiness"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Artifact Currency_b7faa1806223b099",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Release Evidence": {
+      "subsystem": "Release Evidence",
+      "status": "implemented",
+      "current_evidence": "odin/release_boundaries/evidence_closure.py \u2014 evidence closure index.",
+      "current_weakness": "Evidence index only. Not external validation.",
+      "release_claim_allowed": "release_evidence_closure_index_exists",
+      "release_claim_forbidden": "external_release_validation, production_readiness",
+      "not_proven": [
+        "external_release_validation",
+        "production_readiness",
+        "security_certification"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Release Evidence_ea8505bb1c9b717d",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "Final Preflight": {
+      "subsystem": "Final Preflight",
+      "status": "implemented",
+      "current_evidence": "odin/release_boundaries/final_preflight.py \u2014 run_final_release_preflight().",
+      "current_weakness": "Preflight check only. Not release certification.",
+      "release_claim_allowed": "release_preflight_exists",
+      "release_claim_forbidden": "release_certification, production_readiness, security_certification",
+      "not_proven": [
+        "release_certification",
+        "production_readiness",
+        "security_certification"
+      ],
+      "future_pr_required": "FINAL-PR-11 for release closure.",
+      "evidence_closure_id": "evidence_closure_Final Preflight_a9a8b4eca1389282",
+      "candidate_only": true,
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    }
+  },
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}

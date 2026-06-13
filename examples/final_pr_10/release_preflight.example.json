@@ -1,0 +1,62 @@
+{
+  "artifact_kind": "odin_final_release_preflight",
+  "artifact_id": "release_preflight_v1_e365200a7658038f",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "release_preflight_status": "yellow",
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "blocking_findings": [],
+  "warnings": [
+    "Provider seam is disabled by default \u2014 live model inference requires FINAL-PR-11.",
+    "Release closure deferred to FINAL-PR-11.",
+    "External security audit not completed \u2014 security_certification not proven.",
+    "Production readiness not certified \u2014 requires FINAL-PR-11 and external receipt."
+  ],
+  "allowed_release_claims": [
+    "local_candidate_only_operational_spine_exists",
+    "modelworkpacket_boundary_enforced",
+    "small_model_route_plan_exists",
+    "provider_seam_disabled_by_default",
+    "release_boundary_matrix_exists",
+    "artifact_currency_index_exists",
+    "release_preflight_exists",
+    "app_owned_apply_boundary_enforced",
+    "qshabang_neutral_operationalization_confirmed",
+    "bug6_q7_boundary_scanners_exist",
+    "ring_authority_map_exists",
+    "model_role_authority_matrix_exists",
+    "release_evidence_closure_index_exists",
+    "no_live_model_inference_confirmed",
+    "no_external_send_confirmed",
+    "no_app_state_mutation_confirmed",
+    "final_pr_11_remains_deferred"
+  ],
+  "forbidden_release_claims": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "live_model_inference",
+    "real_model_benchmark",
+    "provider_execution",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network"
+  ],
+  "recommended_next_pr": "FINAL-PR-11",
+  "final_pr_11_remains_deferred": true,
+  "summary": "FINAL-PR-10++ establishes boundary-gated release operationalization. All Odin candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim/evidence boundaries are mapped and validated. No release certification. No production readiness. FINAL-PR-11 required for release closure."
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "final_pr_10_release_preflight_report.schema.json",
+  "title": "FINAL-PR-10++ Release Preflight Report Schema",
+  "description": "Schema for the FINAL-PR-10++ release preflight report. Not a release certification schema.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "candidate_only",
+    "release_preflight_status",
+    "claim_boundary",
+    "blocking_findings",
+    "warnings",
+    "allowed_release_claims",
+    "forbidden_release_claims",
+    "not_proven",
+    "recommended_next_pr",
+    "final_pr_11_remains_deferred"
+  ],
+  "properties": {
+    "artifact_kind": {
+      "type": "string",
+      "const": "odin_final_release_preflight"
+    },
+    "candidate_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "release_preflight_status": {
+      "type": "string",
+      "enum": ["green", "yellow", "red"]
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "blocking_findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowed_release_claims": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbidden_release_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": {
+        "enum": [
+          "production_readiness",
+          "security_certification",
+          "release_certification"
+        ]
+      }
+    },
+    "not_proven": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "recommended_next_pr": {
+      "type": "string"
+    },
+    "final_pr_11_remains_deferred": {
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "additionalProperties": true
+}

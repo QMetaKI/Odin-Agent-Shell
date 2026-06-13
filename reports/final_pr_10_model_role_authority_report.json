@@ -1,0 +1,746 @@
+{
+  "artifact_kind": "odin_final_pr_10_model_role_authority_matrix",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "axioms": [
+    "Model roles are work routing plans \u2014 not authority grants.",
+    "Hybrid plan is not an empirical benchmark.",
+    "Local provider candidate remains disabled by default.",
+    "Every role forbids app_apply, external_send, and truth_authority."
+  ],
+  "role_count": 22,
+  "roles": {
+    "3b_scout": {
+      "role_id": "3b_scout",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "work_context",
+        "trigger_shape",
+        "repo_summary"
+      ],
+      "allowed_outputs": [
+        "route_hint",
+        "scout_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "candidate_route_suggestion_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_scout_ae65b9c0a87331f6",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_extractor": {
+      "role_id": "3b_extractor",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "raw_text",
+        "work_context"
+      ],
+      "allowed_outputs": [
+        "extracted_fields",
+        "slot_values"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "field_extraction_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_extractor_c704a5810c7928c3",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_classifier": {
+      "role_id": "3b_classifier",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "input_text",
+        "classification_schema"
+      ],
+      "allowed_outputs": [
+        "class_candidate",
+        "confidence_score"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "classification_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_classifier_0148596c5be38c4e",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_router": {
+      "role_id": "3b_router",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "work_packet",
+        "route_schema"
+      ],
+      "allowed_outputs": [
+        "route_decision_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "route_decision_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_router_a616977343a8425a",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_slot_filler": {
+      "role_id": "3b_slot_filler",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "slot_schema",
+        "work_context"
+      ],
+      "allowed_outputs": [
+        "filled_slot_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "slot_fill_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_slot_filler_4b1d3d21d3868e9d",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_quick_critic": {
+      "role_id": "3b_quick_critic",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "candidate_artifact",
+        "critic_criteria"
+      ],
+      "allowed_outputs": [
+        "critic_verdict_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "quick_critic_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_quick_critic_1a99043e49903ae0",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_style_check": {
+      "role_id": "3b_style_check",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "candidate_text",
+        "style_criteria"
+      ],
+      "allowed_outputs": [
+        "style_check_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "style_check_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_style_check_46b944cec523e3ea",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "3b_refusal_boundary_check": {
+      "role_id": "3b_refusal_boundary_check",
+      "model_tier": "3b",
+      "allowed_inputs": [
+        "candidate_artifact",
+        "boundary_criteria"
+      ],
+      "allowed_outputs": [
+        "boundary_check_result_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "boundary_check_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_3b_refusal_boundary_check_faafa50706a36b44",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_writer": {
+      "role_id": "7b_writer",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "work_context",
+        "output_contract",
+        "seed_route"
+      ],
+      "allowed_outputs": [
+        "draft_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "draft_writing_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_writer_093254680999844f",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_synthesizer": {
+      "role_id": "7b_synthesizer",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "multi_source_context",
+        "synthesis_schema"
+      ],
+      "allowed_outputs": [
+        "synthesis_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "synthesis_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_synthesizer_9ffa18ac8279658d",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_planner": {
+      "role_id": "7b_planner",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "work_context",
+        "planning_schema"
+      ],
+      "allowed_outputs": [
+        "plan_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "planning_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_planner_1df50720246bd538",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_repo_reasoner": {
+      "role_id": "7b_repo_reasoner",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "repo_context",
+        "reasoning_schema"
+      ],
+      "allowed_outputs": [
+        "repo_reasoning_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "repo_reasoning_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_repo_reasoner_7ad1afacb29e6ef6",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_candidate_composer": {
+      "role_id": "7b_candidate_composer",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "projection_set",
+        "output_contract"
+      ],
+      "allowed_outputs": [
+        "composed_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "candidate_composition_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_candidate_composer_26edd533ecbf68c2",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_refiner": {
+      "role_id": "7b_refiner",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "draft_candidate",
+        "refinement_criteria"
+      ],
+      "allowed_outputs": [
+        "refined_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "candidate_refinement_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_refiner_5f15a8478dc0cfdf",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "7b_complex_critic": {
+      "role_id": "7b_complex_critic",
+      "model_tier": "7b",
+      "allowed_inputs": [
+        "candidate_artifact",
+        "complex_critic_criteria"
+      ],
+      "allowed_outputs": [
+        "complex_critic_verdict_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "complex_critic_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_7b_complex_critic_529425fd519fa424",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "hybrid_3b_scout_7b_synthesize_3b_check": {
+      "role_id": "hybrid_3b_scout_7b_synthesize_3b_check",
+      "model_tier": "3b_7b_hybrid",
+      "allowed_inputs": [
+        "work_context",
+        "output_contract"
+      ],
+      "allowed_outputs": [
+        "hybrid_candidate_artifact"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "hybrid_candidate_route_plan_not_benchmark",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_hybrid_3b_scout_7b_synthesize_3b_check_7362aeeb74841a83",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "hybrid_3b_extract_7b_compose_3b_boundary_critic": {
+      "role_id": "hybrid_3b_extract_7b_compose_3b_boundary_critic",
+      "model_tier": "3b_7b_hybrid",
+      "allowed_inputs": [
+        "raw_input",
+        "output_contract"
+      ],
+      "allowed_outputs": [
+        "hybrid_composed_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "hybrid_extract_compose_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_hybrid_3b_extract_7b_compose_3b_boundary_critic_4393e9c245d9fa86",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "hybrid_7b_draft_3b_slot_check_7b_refine": {
+      "role_id": "hybrid_7b_draft_3b_slot_check_7b_refine",
+      "model_tier": "3b_7b_hybrid",
+      "allowed_inputs": [
+        "work_context",
+        "slot_schema",
+        "refinement_criteria"
+      ],
+      "allowed_outputs": [
+        "hybrid_refined_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "hybrid_draft_check_refine_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_hybrid_7b_draft_3b_slot_check_7b_refine_32ac7ffd4f1cc6eb",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "hybrid_no_model_precompute_3b_route_7b_candidate_final_gate": {
+      "role_id": "hybrid_no_model_precompute_3b_route_7b_candidate_final_gate",
+      "model_tier": "3b_7b_hybrid",
+      "allowed_inputs": [
+        "work_context"
+      ],
+      "allowed_outputs": [
+        "hybrid_precompute_route_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "hybrid_precompute_route_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_hybrid_no_model_precompute_3b_route_7b_candidate_final_gate_c3c2e4c4c20d956d",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "deterministic_no_model_worker": {
+      "role_id": "deterministic_no_model_worker",
+      "model_tier": "no_model",
+      "allowed_inputs": [
+        "work_context",
+        "deterministic_rules"
+      ],
+      "allowed_outputs": [
+        "deterministic_candidate"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "deterministic_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_deterministic_no_model_worker_81787c1b017c14a4",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "mock_provider": {
+      "role_id": "mock_provider",
+      "model_tier": "mock",
+      "allowed_inputs": [
+        "modelworkpacket"
+      ],
+      "allowed_outputs": [
+        "mock_candidate_artifact"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim"
+      ],
+      "authority_limit": "mock_deterministic_candidate_only",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness"
+      ],
+      "model_role_authority_id": "model_role_authority_mock_provider_ec73379593ea5054",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    },
+    "local_provider_candidate": {
+      "role_id": "local_provider_candidate",
+      "model_tier": "local_candidate",
+      "allowed_inputs": [
+        "modelworkpacket"
+      ],
+      "allowed_outputs": [
+        "local_provider_candidate_artifact"
+      ],
+      "forbidden_actions": [
+        "app_apply",
+        "app_state_mutation",
+        "external_send",
+        "public_network",
+        "truth_authority",
+        "release_certification",
+        "security_certification",
+        "production_readiness_claim",
+        "provider_execution_without_receipt"
+      ],
+      "authority_limit": "local_provider_candidate_disabled_by_default",
+      "candidate_only_required": true,
+      "final_gate_required": true,
+      "receipt_required": true,
+      "disabled_by_default": true,
+      "not_proven": [
+        "live_model_inference",
+        "real_model_benchmark",
+        "production_readiness",
+        "provider_execution"
+      ],
+      "model_role_authority_id": "model_role_authority_local_provider_candidate_62a3da8077d7cc51",
+      "claim_boundary": "final_pr_10_boundary_gated_release_operationalization_not_release_certification"
+    }
+  },
+  "forbidden_for_all_roles": [
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "truth_authority",
+    "release_certification",
+    "security_certification",
+    "production_readiness_claim"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "real_model_benchmark",
+    "app_state_mutation",
+    "external_send_authority",
+    "security_certification",
+    "release_certification"
+  ],
+  "final_pr_11_remains_deferred": true
+}
