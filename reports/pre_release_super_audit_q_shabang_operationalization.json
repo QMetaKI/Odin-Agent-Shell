@@ -1,0 +1,298 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "dimensions": [
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "link route chain in remediation PR",
+      "neutral_operational_name": "route selection",
+      "q_dimension": "routing",
+      "repo_evidence": [
+        "odin/y_pattern_spine/",
+        "odin/operational_seed_spine/"
+      ],
+      "risk": "release index still split across spines",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-y-pattern-spine",
+        "validate-operational-seed-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "add current/historical tags",
+      "neutral_operational_name": "agent operator work packets",
+      "q_dimension": "handoff",
+      "repo_evidence": [
+        "odin/agent_operator/",
+        "docs/codex/handoffs/"
+      ],
+      "risk": "older handoffs may look current without labels",
+      "status": "adequate",
+      "validator_or_test": [
+        "validate-agent-operator-mode"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "create release evidence index",
+      "neutral_operational_name": "proof packet chain",
+      "q_dimension": "proof",
+      "repo_evidence": [
+        "odin/proof_chain/",
+        "reports/"
+      ],
+      "risk": "proofs exist but are spread",
+      "status": "adequate",
+      "validator_or_test": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "preserve boundary",
+      "neutral_operational_name": "candidate-only artifacts",
+      "q_dimension": "candidate lifecycle",
+      "repo_evidence": [
+        "odin/candidates/",
+        "odin/projection_candidate_spine/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-projection-candidate-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "summarize for release",
+      "neutral_operational_name": "claim boundary discipline",
+      "q_dimension": "claim boundaries",
+      "repo_evidence": [
+        "CLAIM_BOUNDARY.md",
+        "odin/cli.py"
+      ],
+      "risk": "boundary definitions are broad",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-claims"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "document repo-real endpoints",
+      "neutral_operational_name": "localhost/default local surfaces",
+      "q_dimension": "local-only discipline",
+      "repo_evidence": [
+        "odin/local_hub/server.py",
+        "odin/qirc_core/policy.py"
+      ],
+      "risk": "endpoint names differ from prompt examples",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "add explicit release checklist row",
+      "neutral_operational_name": "caller-owned apply boundary",
+      "q_dimension": "app-owned apply",
+      "repo_evidence": [
+        "docs/APP_INTEGRATION_STANDARD.md"
+      ],
+      "risk": "mostly documented and validated indirectly",
+      "status": "adequate",
+      "validator_or_test": [
+        "validate-all"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "keep no-public-QIRC wording",
+      "neutral_operational_name": "local semantic coordination",
+      "q_dimension": "QIRC coordination",
+      "repo_evidence": [
+        "odin/qirc_core/"
+      ],
+      "risk": "not a public QIRC runtime",
+      "status": "adequate",
+      "validator_or_test": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "preserve mock-only receipts",
+      "neutral_operational_name": "mock-only execution gate",
+      "q_dimension": "execution gates",
+      "repo_evidence": [
+        "odin/execution_gate/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "cross-link to proof chain",
+      "neutral_operational_name": "activity trace receipts",
+      "q_dimension": "trace / receipts",
+      "repo_evidence": [
+        "odin/qirc_core/trace.py",
+        "odin/qirc_core/receipts.py"
+      ],
+      "risk": "receipt bridge needs release map",
+      "status": "adequate",
+      "validator_or_test": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "document route narrative",
+      "neutral_operational_name": "Y to seed/field/projection ladder",
+      "q_dimension": "materialization ladder",
+      "repo_evidence": [
+        "odin/y_pattern_spine/",
+        "odin/projection_candidate_spine/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-y-pattern-spine",
+        "validate-projection-candidate-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "preserve",
+      "neutral_operational_name": "operational seed route",
+      "q_dimension": "seed route",
+      "repo_evidence": [
+        "odin/operational_seed_spine/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-operational-seed-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "preserve",
+      "neutral_operational_name": "field route selection",
+      "q_dimension": "field selection",
+      "repo_evidence": [
+        "odin/field_selection_spine/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-field-selection-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "preserve",
+      "neutral_operational_name": "candidate projection graph",
+      "q_dimension": "projection candidate",
+      "repo_evidence": [
+        "odin/projection_candidate_spine/"
+      ],
+      "risk": "none observed",
+      "status": "strong",
+      "validator_or_test": [
+        "validate-projection-candidate-spine"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "remediation PR should consolidate",
+      "neutral_operational_name": "release evidence package",
+      "q_dimension": "release evidence",
+      "repo_evidence": [
+        "reports/",
+        "docs/codex/audits/"
+      ],
+      "risk": "evidence exists but is fragmented",
+      "status": "partial",
+      "validator_or_test": [
+        "validate-all"
+      ]
+    },
+    {
+      "connected_to": [
+        "SYSTEM_MAP.json",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "improvement": "make explicit before release closure",
+      "neutral_operational_name": "boundary/ring-like safeguards",
+      "q_dimension": "Bug6 / Q7 / ring-like safeguards",
+      "repo_evidence": [
+        "docs/BUG6_Q7_SEED_CORE_V7_1.md",
+        "registries/bug6_q7_seed_core_registry.json"
+      ],
+      "risk": "partly implicit through other gates",
+      "status": "partial",
+      "validator_or_test": [
+        "validate-bug6-q7-seed-core"
+      ]
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "score": 0.79
+}

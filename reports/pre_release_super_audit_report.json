@@ -1,0 +1,67 @@
+{
+  "architecture_conformance_score": 0.62,
+  "audit_id": "pre_release_super_audit",
+  "base_commit": "8dcb7594e9302fc9c25a828ab9fbf7eccfa5d5c4",
+  "bug6_q7_ring_boundary_score": 0.72,
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "claim_boundary_integrity_score": 0.91,
+  "harmony_scorecard": {
+    "dangling_artifacts": [
+      "historical PR/B reports without explicit superseded/current tags"
+    ],
+    "harmony_score": 0.79,
+    "missing_bridges": [
+      "one-page release evidence index",
+      "explicit Bug6/Q7/ring boundary map"
+    ],
+    "obsolete_artifacts": [],
+    "pre_release_recommendations": [
+      "perform two remediation PRs before release closure"
+    ],
+    "release_blockers": [
+      "no functional blocker found in local deterministic audit; release evidence polish recommended before closure"
+    ],
+    "strong_points": [
+      "FINAL-PR-01..08 compose through Local Hub, QIRC, execution gate, seed, field, projection",
+      "validators are broad and deterministic",
+      "candidate-only language is consistent"
+    ],
+    "superseded_artifacts": [
+      "some early Road-to-100 planning language superseded by FINAL-PR-06..08 spines"
+    ],
+    "weak_points": [
+      "old B-series artifacts remain partly static",
+      "Local Hub surface index is not a single release narrative",
+      "Bug6/Q7/ring boundary concepts are partly implicit"
+    ]
+  },
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "overall_verdict": "yellow",
+  "q_shabang_operationalization_score": 0.79,
+  "recommended_next_prs": [
+    "FINAL-PR-09-REMEDIATION-A",
+    "FINAL-PR-10-REMEDIATION-B"
+  ],
+  "release_pr_should_move_to": "FINAL-PR-11",
+  "repo": "QMetaKI/Odin-Agent-Shell",
+  "runtime_path_health_score": 1.0,
+  "scorecard": {
+    "candidate_lifecycle_continuity": 0.86,
+    "claim_boundary_integrity": 0.91,
+    "cli_discoverability": 0.74,
+    "hub_surface_continuity": 0.74,
+    "overall_harmony_score": 0.79,
+    "proof_continuity": 0.77,
+    "registry_schema_continuity": 0.82,
+    "release_readiness": 0.69,
+    "routing_continuity": 0.84,
+    "validator_coverage": 0.88
+  },
+  "system_harmony_score": 0.79
+}

@@ -1,0 +1,69 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "decision": "2 PRs needed \u2014 FINAL-PR-09/10 remediation, release closure moves to FINAL-PR-11",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "recommended_next_prs": [
+    {
+      "acceptance_gates": [
+        "python -m odin.cli validate-all",
+        "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --tb=no"
+      ],
+      "evidence": [
+        "reports/pre_release_super_audit_runtime_paths.json",
+        "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SYSTEM_COHESION.md"
+      ],
+      "non_scope": [
+        "provider inference",
+        "app-owned apply",
+        "Windows installer release",
+        "new model benchmark"
+      ],
+      "recommended_pr_id": "FINAL-PR-09-REMEDIATION-A",
+      "release_impact": "major",
+      "risk_if_skipped": "FINAL-PR-09 would spend release closure effort explaining avoidable discoverability and lineage gaps.",
+      "scope": [
+        "normalize hub endpoint index",
+        "add CLI help/status summary",
+        "link proof/report packets across FINAL-PR-01..08",
+        "mark old static artifacts as historical where superseded"
+      ],
+      "title": "Pre-release hub/CLI/report convergence hardening",
+      "why_needed": "The repo is cohesive enough to be release-near, but Local Hub endpoint naming, CLI discoverability, and report/proof cross-links remain uneven across older and newer spines."
+    },
+    {
+      "acceptance_gates": [
+        "python -m odin.cli validate-bug6-q7-seed-core",
+        "python -m odin.cli validate-all"
+      ],
+      "evidence": [
+        "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_BUG6_Q7_RINGS_BOUNDARIES.md",
+        "reports/pre_release_super_audit_architecture_conformance.json"
+      ],
+      "non_scope": [
+        "new runtime authority",
+        "security certification",
+        "public network QIRC",
+        "external provider call"
+      ],
+      "recommended_pr_id": "FINAL-PR-10-REMEDIATION-B",
+      "release_impact": "major",
+      "risk_if_skipped": "Reviewers may confuse implicit guardrails with missing guardrails and ask for remediation during release closure.",
+      "scope": [
+        "write explicit Bug6/Q7 boundary map",
+        "connect boundary map to validators",
+        "add deprecation notes for historical artifacts",
+        "tighten release evidence index"
+      ],
+      "title": "Bug6/Q7/ring boundary explicitness and release evidence polish",
+      "why_needed": "Bug6/Q7/ring-like boundaries are partly implicit through gates, claim boundaries, receipts, and registries; release reviewers would benefit from an explicit boundary map before closure."
+    }
+  ],
+  "release_pr_should_move_to": "FINAL-PR-11"
+}

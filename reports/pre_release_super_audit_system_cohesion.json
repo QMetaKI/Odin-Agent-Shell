@@ -1,0 +1,1036 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "scorecard": {
+    "candidate_lifecycle_continuity": 0.86,
+    "claim_boundary_integrity": 0.91,
+    "cli_discoverability": 0.74,
+    "hub_surface_continuity": 0.74,
+    "overall_harmony_score": 0.79,
+    "proof_continuity": 0.77,
+    "registry_schema_continuity": 0.82,
+    "release_readiness": 0.69,
+    "routing_continuity": 0.84,
+    "validator_coverage": 0.88
+  },
+  "subsystems": [
+    {
+      "cli_commands": [
+        "start-local-hub",
+        "status-local-hub",
+        "validate-simple-local-hub"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "QIRC panels",
+        "execution gate panels"
+      ],
+      "local_hub_endpoints": [
+        "/healthz",
+        "/status.json",
+        "/"
+      ],
+      "proof_packets": [
+        "reports/final_pr_01_simple_local_hub_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_01_simple_local_hub_registry.json"
+      ],
+      "repo_roots": [
+        "odin/local_hub/"
+      ],
+      "reports": [
+        "reports/final_pr_01_simple_local_hub_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Local Hub",
+      "tests": [
+        "tests/test_simple_local_hub.py"
+      ],
+      "upstream_dependencies": [
+        "caller/browser"
+      ],
+      "validators": [
+        "validate-simple-local-hub"
+      ]
+    },
+    {
+      "cli_commands": [
+        "agent-handoff",
+        "agent-plan",
+        "agent-proof"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "bounded worker packet"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [
+        "reports/agent_operator_mode_proof_packet.json"
+      ],
+      "registries": [
+        "registries/agent_operator_mode_registry.json"
+      ],
+      "repo_roots": [
+        "odin/agent_operator/",
+        "docs/codex/handoffs/"
+      ],
+      "reports": [
+        "reports/agent_operator_mode_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Handoff-First",
+      "tests": [
+        "tests/test_agent_operator_mode.py"
+      ],
+      "upstream_dependencies": [
+        "Codex prompt"
+      ],
+      "validators": [
+        "validate-agent-operator-mode"
+      ]
+    },
+    {
+      "cli_commands": [
+        "run-work"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "candidate artifacts"
+      ],
+      "local_hub_endpoints": [
+        "/demo/universal-work.json"
+      ],
+      "proof_packets": [],
+      "registries": [
+        "registries/verb_registry.json"
+      ],
+      "repo_roots": [
+        "odin/runtime/",
+        "schemas/v7_1/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [
+        "schemas/v7_1/odin_universal_work.schema.json"
+      ],
+      "status": "adequate",
+      "subsystem": "Universal Work",
+      "tests": [
+        "tests/test_runtime_engine.py"
+      ],
+      "upstream_dependencies": [
+        "caller manifest"
+      ],
+      "validators": [
+        "validate-all"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-final-pr-02-model-apps-demo"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "Local Hub UI"
+      ],
+      "local_hub_endpoints": [
+        "/models.json"
+      ],
+      "proof_packets": [],
+      "registries": [
+        "registries/final_pr_02_model_apps_demo_registry.json"
+      ],
+      "repo_roots": [
+        "odin/local_hub/model_picker.py"
+      ],
+      "reports": [
+        "reports/final_pr_02_model_apps_demo_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Model Picker",
+      "tests": [
+        "tests/test_final_pr_02_model_apps_demo.py"
+      ],
+      "upstream_dependencies": [
+        "provider policy"
+      ],
+      "validators": [
+        "validate-final-pr-02-model-apps-demo"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-final-pr-02-model-apps-demo"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "demo universal work"
+      ],
+      "local_hub_endpoints": [
+        "/apps.json"
+      ],
+      "proof_packets": [],
+      "registries": [
+        "registries/final_pr_02_model_apps_demo_registry.json"
+      ],
+      "repo_roots": [
+        "odin/local_hub/connected_apps.py"
+      ],
+      "reports": [
+        "reports/final_pr_02_model_apps_demo_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Connected Apps",
+      "tests": [
+        "tests/test_final_pr_02_model_apps_demo.py"
+      ],
+      "upstream_dependencies": [
+        "app manifest discipline"
+      ],
+      "validators": [
+        "validate-final-pr-02-model-apps-demo"
+      ]
+    },
+    {
+      "cli_commands": [
+        "prove-final-pr-02-demo-universal-work"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "QIRC activity"
+      ],
+      "local_hub_endpoints": [
+        "/demo/universal-work.json"
+      ],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/local_hub/demo_universal_work.py"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Demo Universal Work",
+      "tests": [
+        "tests/test_final_pr_02_model_apps_demo.py"
+      ],
+      "upstream_dependencies": [
+        "Local Hub"
+      ],
+      "validators": [
+        "validate-final-pr-02-model-apps-demo"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-final-pr-03-qirc-devmode"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "activity",
+        "trace",
+        "receipt"
+      ],
+      "local_hub_endpoints": [
+        "/qirc/channels.json",
+        "/qirc/events.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_03_qirc_devmode_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_03_qirc_devmode_registry.json"
+      ],
+      "repo_roots": [
+        "odin/qirc_core/"
+      ],
+      "reports": [
+        "reports/final_pr_03_qirc_devmode_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "QIRC Core",
+      "tests": [
+        "tests/test_final_pr_03_qirc_devmode.py"
+      ],
+      "upstream_dependencies": [
+        "Local Hub",
+        "execution gate"
+      ],
+      "validators": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-final-pr-03-qirc-devmode"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "proof continuity"
+      ],
+      "local_hub_endpoints": [
+        "/activity.json",
+        "/traces.json",
+        "/receipts.json"
+      ],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/qirc_core/activity.py",
+        "odin/qirc_core/trace.py",
+        "odin/qirc_core/receipts.py"
+      ],
+      "reports": [
+        "reports/final_pr_03_qirc_devmode_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Activity / Trace / Receipt",
+      "tests": [
+        "tests/test_final_pr_03_qirc_devmode.py"
+      ],
+      "upstream_dependencies": [
+        "QIRC events"
+      ],
+      "validators": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
+    },
+    {
+      "cli_commands": [
+        "provider-status"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "local candidate probe"
+      ],
+      "local_hub_endpoints": [
+        "/providers.json"
+      ],
+      "proof_packets": [],
+      "registries": [
+        "registries/final_pr_04_provider_probe_security_registry.json"
+      ],
+      "repo_roots": [
+        "odin/providers/policy.py"
+      ],
+      "reports": [
+        "reports/final_pr_04_provider_probe_security_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Provider Policy",
+      "tests": [
+        "tests/test_final_pr_04_provider_probe_security.py"
+      ],
+      "upstream_dependencies": [
+        "model scale ladder"
+      ],
+      "validators": [
+        "validate-final-pr-04-provider-probe-security"
+      ]
+    },
+    {
+      "cli_commands": [
+        "provider-probe"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "execution gate status"
+      ],
+      "local_hub_endpoints": [
+        "/providers/probe.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_04_provider_probe_security_proof_packet.json"
+      ],
+      "registries": [],
+      "repo_roots": [
+        "odin/providers/probe.py"
+      ],
+      "reports": [
+        "reports/final_pr_04_provider_probe_security_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Local Candidate Probe",
+      "tests": [
+        "tests/test_final_pr_04_provider_probe_security.py"
+      ],
+      "upstream_dependencies": [
+        "provider policy"
+      ],
+      "validators": [
+        "validate-final-pr-04-provider-probe-security"
+      ]
+    },
+    {
+      "cli_commands": [
+        "runtime-security-smoke"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release evidence"
+      ],
+      "local_hub_endpoints": [
+        "/security/runtime-smoke.json"
+      ],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/runtime_security/smoke.py"
+      ],
+      "reports": [
+        "reports/final_pr_04_provider_probe_security_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Runtime Security Smoke",
+      "tests": [
+        "tests/test_final_pr_04_provider_probe_security.py"
+      ],
+      "upstream_dependencies": [
+        "provider policy"
+      ],
+      "validators": [
+        "validate-final-pr-04-provider-probe-security"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-final-pr-05-execution-gate"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "proof chain",
+        "QIRC events"
+      ],
+      "local_hub_endpoints": [
+        "/execution-gate/status.json",
+        "/execution-gate/mock"
+      ],
+      "proof_packets": [
+        "reports/final_pr_05_execution_gate_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_05_execution_gate_registry.json"
+      ],
+      "repo_roots": [
+        "odin/execution_gate/"
+      ],
+      "reports": [
+        "reports/final_pr_05_execution_gate_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Execution Gate",
+      "tests": [
+        "tests/test_final_pr_05_execution_gate.py"
+      ],
+      "upstream_dependencies": [
+        "provider policy"
+      ],
+      "validators": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "cli_commands": [
+        "prove-final-pr-05-execution-gate"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "candidate response"
+      ],
+      "local_hub_endpoints": [
+        "/execution-gate/mock"
+      ],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/execution_gate/mock_provider.py"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Mock Provider",
+      "tests": [
+        "tests/test_final_pr_05_execution_gate.py"
+      ],
+      "upstream_dependencies": [
+        "execution gate"
+      ],
+      "validators": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "cli_commands": [
+        "prove-final-pr-proof-chain"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release evidence"
+      ],
+      "local_hub_endpoints": [
+        "/execution-gate/proof-chain.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_05_execution_gate_proof_packet.json"
+      ],
+      "registries": [],
+      "repo_roots": [
+        "odin/proof_chain/"
+      ],
+      "reports": [
+        "reports/final_pr_05_execution_gate_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Proof Chain",
+      "tests": [
+        "tests/test_final_pr_05_execution_gate.py"
+      ],
+      "upstream_dependencies": [
+        "FINAL-PR-01..05"
+      ],
+      "validators": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "cli_commands": [
+        "final-pr-ladder-scaffold"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release closure prep"
+      ],
+      "local_hub_endpoints": [
+        "/final-pr-ladder/scaffold.json"
+      ],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/final_pr_ladder/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Final PR Ladder",
+      "tests": [
+        "tests/test_final_pr_05_execution_gate.py"
+      ],
+      "upstream_dependencies": [
+        "proof chain"
+      ],
+      "validators": [
+        "validate-final-pr-05-execution-gate"
+      ]
+    },
+    {
+      "cli_commands": [
+        "explain-y-route",
+        "prove-y-pattern-spine"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "seed spine"
+      ],
+      "local_hub_endpoints": [
+        "/demo/y-route.json"
+      ],
+      "proof_packets": [
+        "reports/y_pattern_spine_proof_packet.json"
+      ],
+      "registries": [
+        "registries/y_pattern_spine_registry.json"
+      ],
+      "repo_roots": [
+        "odin/y_pattern_spine/"
+      ],
+      "reports": [
+        "reports/y_pattern_spine_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Y Pattern Spine",
+      "tests": [
+        "tests/test_y_pattern_spine.py"
+      ],
+      "upstream_dependencies": [
+        "FINAL-PR-05"
+      ],
+      "validators": [
+        "validate-y-pattern-spine"
+      ]
+    },
+    {
+      "cli_commands": [
+        "explain-seed-route",
+        "prove-operational-seed-spine"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "field selection"
+      ],
+      "local_hub_endpoints": [
+        "/demo/seed-route.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_06_operational_seed_spine_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_06_operational_seed_spine_registry.json"
+      ],
+      "repo_roots": [
+        "odin/operational_seed_spine/"
+      ],
+      "reports": [
+        "reports/final_pr_06_operational_seed_spine_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Operational Seed Spine",
+      "tests": [
+        "tests/test_final_pr_06_operational_seed_spine.py"
+      ],
+      "upstream_dependencies": [
+        "Y route"
+      ],
+      "validators": [
+        "validate-operational-seed-spine"
+      ]
+    },
+    {
+      "cli_commands": [
+        "explain-field-selection",
+        "prove-field-selection-spine"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "projection candidate"
+      ],
+      "local_hub_endpoints": [
+        "/demo/field-selection.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_07_field_selection_spine_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_07_field_selection_spine_registry.json"
+      ],
+      "repo_roots": [
+        "odin/field_selection_spine/"
+      ],
+      "reports": [
+        "reports/final_pr_07_field_selection_spine_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Field Selection Spine",
+      "tests": [
+        "tests/test_final_pr_07_field_selection_spine.py"
+      ],
+      "upstream_dependencies": [
+        "seed spine"
+      ],
+      "validators": [
+        "validate-field-selection-spine"
+      ]
+    },
+    {
+      "cli_commands": [
+        "explain-projection-candidate",
+        "prove-projection-candidate-spine"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release evidence"
+      ],
+      "local_hub_endpoints": [
+        "/demo/projection-candidate.json"
+      ],
+      "proof_packets": [
+        "reports/final_pr_08_projection_candidate_spine_proof_packet.json"
+      ],
+      "registries": [
+        "registries/final_pr_08_projection_candidate_spine_registry.json"
+      ],
+      "repo_roots": [
+        "odin/projection_candidate_spine/"
+      ],
+      "reports": [
+        "reports/final_pr_08_projection_candidate_spine_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [
+        "schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json"
+      ],
+      "status": "strong",
+      "subsystem": "Projection Candidate Spine",
+      "tests": [
+        "tests/test_final_pr_08_projection_candidate_spine.py"
+      ],
+      "upstream_dependencies": [
+        "field selection"
+      ],
+      "validators": [
+        "validate-projection-candidate-spine"
+      ]
+    },
+    {
+      "cli_commands": [],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "recommended remediation PRs"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "docs/codex/reports/",
+        "reports/"
+      ],
+      "reports": [
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "risk_notes": [
+        "Needs clearer release-facing bridge or explicit current/superseded labeling."
+      ],
+      "schemas": [],
+      "status": "partial",
+      "subsystem": "Release Closure Prep",
+      "tests": [],
+      "upstream_dependencies": [
+        "all PR spines"
+      ],
+      "validators": [
+        "validate-all"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-b8-security-review-track"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release risk notes"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "reports": [
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "risk_notes": [
+        "Needs clearer release-facing bridge or explicit current/superseded labeling."
+      ],
+      "schemas": [],
+      "status": "partial",
+      "subsystem": "Static Security Review Track",
+      "tests": [
+        "tests/test_v7_1_1_b8_security_review_track.py"
+      ],
+      "upstream_dependencies": [
+        "B8 track"
+      ],
+      "validators": [
+        "validate-b8-security-review-track"
+      ]
+    },
+    {
+      "cli_commands": [],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release planning"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "docs/codex/audits/",
+        "reports/"
+      ],
+      "reports": [
+        "reports/pre_release_super_audit_thor_odin_effectiveness.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Thor/Odin Effectiveness Audits",
+      "tests": [],
+      "upstream_dependencies": [
+        "handoff docs"
+      ],
+      "validators": [
+        "validate-all"
+      ]
+    },
+    {
+      "cli_commands": [
+        "doctor",
+        "emit-support-bundle"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "debug support"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "odin/diagnostics/",
+        "odin/doctor/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Support Bundles",
+      "tests": [
+        "tests/test_runtime_doctor_bootstrap.py"
+      ],
+      "upstream_dependencies": [
+        "local runtime"
+      ],
+      "validators": [
+        "validate-runtime-doctor-bootstrap"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-registries"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "validators"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [
+        "registries/pre_release_super_audit_registry.json"
+      ],
+      "repo_roots": [
+        "registries/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "Registries",
+      "tests": [],
+      "upstream_dependencies": [
+        "schemas"
+      ],
+      "validators": [
+        "validate-json"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-json"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "examples"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "schemas/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [
+        "schemas/v7_1/"
+      ],
+      "status": "strong",
+      "subsystem": "Schemas",
+      "tests": [],
+      "upstream_dependencies": [
+        "registries"
+      ],
+      "validators": [
+        "validate-json"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-json"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "tests"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "examples/"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Examples",
+      "tests": [],
+      "upstream_dependencies": [
+        "schemas"
+      ],
+      "validators": [
+        "validate-json"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-json"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "release evidence"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "reports/"
+      ],
+      "reports": [
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "adequate",
+      "subsystem": "Reports",
+      "tests": [],
+      "upstream_dependencies": [
+        "validators"
+      ],
+      "validators": [
+        "validate-json"
+      ]
+    },
+    {
+      "cli_commands": [
+        "validate-system-map"
+      ],
+      "cohesion_notes": [
+        "Connected in current audit topology through repo evidence and deterministic validators."
+      ],
+      "downstream_consumers": [
+        "discoverability"
+      ],
+      "local_hub_endpoints": [],
+      "proof_packets": [],
+      "registries": [],
+      "repo_roots": [
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "reports": [],
+      "risk_notes": [],
+      "schemas": [],
+      "status": "strong",
+      "subsystem": "SYSTEM_MAP / FILE_MANIFEST",
+      "tests": [
+        "tests/test_pre_release_super_audit.py"
+      ],
+      "upstream_dependencies": [
+        "repo files"
+      ],
+      "validators": [
+        "validate-system-map"
+      ]
+    }
+  ],
+  "verdict": "yellow"
+}
