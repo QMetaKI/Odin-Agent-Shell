@@ -1,0 +1,64 @@
+{
+  "architecture_conformance_score": 0.65,
+  "audit_id": "pre_release_super_audit",
+  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "claim_boundary_integrity_score": 0.9,
+  "harmony_scorecard": {
+    "dangling_artifacts": [
+      "historical PR/B reports without explicit superseded/current tags"
+    ],
+    "harmony_score": 0.78,
+    "missing_bridges": [
+      "one-page release evidence index",
+      "explicit Bug6/Q7/ring boundary map"
+    ],
+    "obsolete_artifacts": [],
+    "pre_release_recommendations": [
+      "perform two remediation PRs before release closure"
+    ],
+    "release_blockers": [
+      "no functional blocker found in local deterministic audit; release evidence polish recommended before closure"
+    ],
+    "strong_points": [
+      "FINAL-PR-01..08 compose through Local Hub, QIRC, execution gate, seed, field, projection",
+      "validators are broad and deterministic",
+      "candidate-only language is consistent"
+    ],
+    "superseded_artifacts": [
+      "some early Road-to-100 planning language superseded by FINAL-PR-06..08 spines"
+    ],
+    "weak_points": [
+      "old B-series artifacts remain partly static",
+      "Local Hub surface index is not a single release narrative",
+      "Bug6/Q7/ring boundary concepts are partly implicit"
+    ]
+  },
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "overall_verdict": "yellow",
+  "q_shabang_operationalization_score": 0.78,
+  "recommended_next_prs": [
+    "FINAL-PR-09-REMEDIATION-A",
+    "FINAL-PR-10-REMEDIATION-B"
+  ],
+  "release_pr_should_move_to": "FINAL-PR-11",
+  "repo": "QMetaKI/Odin-Agent-Shell",
+  "runtime_path_health_score": 1.0,
+  "scorecard": {
+    "claim_boundary_integrity": 0.9,
+    "hub_surface_continuity": 0.72,
+    "proof_continuity": 0.76,
+    "registry_continuity": 0.8,
+    "release_readiness": 0.68,
+    "routing_continuity": 0.82,
+    "system_cohesion_score": 0.78,
+    "validator_continuity": 0.86
+  },
+  "system_harmony_score": 0.78
+}

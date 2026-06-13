@@ -1,0 +1,619 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "git_log_oneline_60": [
+    "1e8704e Merge pull request #47 from QMetaKI/claude/projection-candidate-spine-pr08-52nvl2",
+    "f41bd27 hardening: graph_id and projection_id include resolved edges/nodes",
+    "d51d229 FINAL-PR-08: Projection Candidate Spine + Candidate Graph + Materialization Spine",
+    "5b10d10 Merge pull request #46 from QMetaKI/codex/implement-final-pr-07-field-selection-spine",
+    "865e06d FINAL-PR-07: Field Selection Spine",
+    "590e28c Merge pull request #45 from QMetaKI/claude/operational-seed-spine-pr06-9ix9tt",
+    "8aa22a3 fix: harden FILE_MANIFEST check in FINAL-PR-06 validator",
+    "40e4ea3 FINAL-PR-06: Operational Seed Spine + Role Profiles + Seed-to-Work Capsule Compiler",
+    "7cb6f2e Merge pull request #44 from QMetaKI/claude/prep-final-pr-06-07-08-6cl8hd",
+    "f6339c8 Prep FINAL-PR-06..08: Operational Seed / DFAS / Projection scaffold",
+    "8323f6b Merge pull request #42 from QMetaKI/codex/y-pattern-spine-operational-layer",
+    "1d318b6 fix: update FILE_MANIFEST file_count_excluding_manifest to 1672",
+    "f6ac356 Y Pattern Spine: Neutral Operational Pattern Layer",
+    "a58c6f6 Merge pull request #41 from QMetaKI/claude/final-pr-05-execution-gate-9okh6g",
+    "bb943d3 Update FINAL-PR-05 proof reports with current timestamps",
+    "267e1c6 FINAL-PR-05: Execution Gate + Mock Provider + Proof Chain + Ladder Scaffold",
+    "5b1bc85 Merge pull request #40 from QMetaKI/claude/final-pr-04-provider-probe-6axgae",
+    "47d2d0a FINAL-PR-04: Local Candidate Provider Probe + Provider Policy + Runtime Security Smoke",
+    "b85d677 Merge pull request #39 from QMetaKI/claude/final-pr-03-qirc-devmode-r6c09m",
+    "75e39dc FINAL-PR-03: QIRC Core First Slice + Activity/Trace/Receipt/Dev Mode + Hub Surface Convergence",
+    "29f58a9 Merge pull request #38 from QMetaKI/claude/final-pr-02-model-apps-demo-ykmn9v",
+    "ca2b1ee FINAL-PR-02: Model Picker + Connected Apps + Demo Universal Work",
+    "244d779 Merge pull request #37 from QMetaKI/claude/final-pr-01-local-hub-ui-sumtsa",
+    "52dbc2a FINAL-PR-01: Simple Local Hub Start + Normal User Browser UI",
+    "9962bbe Merge pull request #36 from QMetaKI/codex/update-pr-35-for-handoff-first-layer",
+    "4f9e100 Extend PR-35 audit with handoff-first layer",
+    "d491a19 Merge pull request #35 from QMetaKI/codex/audit-repository-for-final-road-to-100-plan",
+    "3843c00 Extend PR-35 audit with QIRC cluster",
+    "e59e9be Add final Road-to-100 rebaseline audit",
+    "e73cd3b Merge pull request #34 from QMetaKI/codex/implement-static-security-review-track-b8",
+    "a689093 PR-34 B8 static security review track",
+    "4ed462c Merge pull request #33 from QMetaKI/codex/implement-pr-33-b7-closure-evaluation",
+    "b124a5f Add B7 closure Thor provider eval gates",
+    "057405e Merge pull request #32 from QMetaKI/codex/implement-b6-acceptance-harness-and-reporting",
+    "c046cf5 PR-32 B6 acceptance dojo scoreboard closure prep",
+    "198aafe Merge pull request #31 from QMetaKI/codex/implement-pr-31-b5-storage-trace-receipt-bridge",
+    "c2f0d90 PR-31 B5 storage trace receipt provider bridge prep",
+    "7e6fb80 Merge pull request #30 from QMetaKI/claude/pr-30-b4-minicheck-critics-final-gate-dq8dys",
+    "039b64b PR-30 B4: Minicheck / Critics / Tournament / Candidate Final Gate",
+    "cbef841 Merge pull request #29 from QMetaKI/claude/pr-29-b3-modelworkpacket-scale-hybrid-jxvek1",
+    "e2a7a5b PR-29 B3: ModelWorkPacket / Scale Ladder / Hybrid Director",
+    "a0a4ee5 Merge pull request #28 from QMetaKI/claude/pr-28-b2-context-lenses-worklets-3osowv",
+    "b363599 PR-28 B2: Enhance SYSTEM_MAP with individual B2 artifact entries",
+    "17e911a PR-28 B2: Context / Lenses / Worklets / Slot Forge / Gaptext",
+    "3e1faa4 Merge pull request #27 from QMetaKI/codex/create-pr-27-b1-implementation-bundle",
+    "02f27ae Add B1 app boundary and semantic bus contracts",
+    "714c64b Merge pull request #26 from QMetaKI/codex/create-pr-26-canon-boundary-integrity",
+    "d648ceb Add v7.1.1 canon boundary integrity gates",
+    "68d6cd9 Merge pull request #25 from QMetaKI/codex/create-pr-25-operational-coverage-gap-compiler",
+    "360289c Close PR-25 manifest evidence hygiene",
+    "cc484c2 Harden PR-25 evidence hygiene",
+    "d8f8bd1 PR-25 operational coverage gap compiler",
+    "6002963 Merge pull request #24 from QMetaKI/codex/create-v7.1.1-master-architecture-canon",
+    "6b52fc8 Verify v7.1.1 Road-to-100 ladder final state",
+    "6e09372 Add v7.1.1 Road-to-100 ladder",
+    "179476e Finalize v7.1.1 canon quality gate",
+    "1d37848 Harden v7.1.1 architecture canon precision",
+    "7be58fb Add v7.1.1 master architecture canon",
+    "6f49aa2 Merge pull request #23 from QMetaKI/codex/fuhren-sie-eine-vollstandige-systemprufung-durch",
+    "faf86d5 Refine post LRH-PR-18 audit status delta"
+  ],
+  "lineage": [
+    {
+      "connected_to": [
+        "validate-simple-local-hub",
+        "validate-all",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/local_hub/server.py",
+        "odin/local_hub/ui.py"
+      ],
+      "introduced_concepts": [
+        "simple browser Local Hub",
+        "health/status surfaces"
+      ],
+      "introduced_files": [
+        "odin/local_hub/server.py",
+        "odin/local_hub/ui.py"
+      ],
+      "merged": true,
+      "pr_number": 1,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-01 Simple Local Hub"
+    },
+    {
+      "connected_to": [
+        "validate-final-pr-02-model-apps-demo",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/local_hub/model_picker.py",
+        "odin/local_hub/connected_apps.py",
+        "odin/local_hub/demo_universal_work.py"
+      ],
+      "introduced_concepts": [
+        "model picker",
+        "connected apps",
+        "demo universal work"
+      ],
+      "introduced_files": [
+        "odin/local_hub/model_picker.py",
+        "odin/local_hub/connected_apps.py",
+        "odin/local_hub/demo_universal_work.py"
+      ],
+      "merged": true,
+      "pr_number": 2,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work"
+    },
+    {
+      "connected_to": [
+        "validate-final-pr-03-qirc-devmode",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/qirc_core/bus.py"
+      ],
+      "introduced_concepts": [
+        "local QIRC events",
+        "activity trace",
+        "receipts"
+      ],
+      "introduced_files": [
+        "odin/qirc_core/bus.py",
+        "odin/qirc_core/receipts.py",
+        "odin/qirc_core/trace.py"
+      ],
+      "merged": true,
+      "pr_number": 3,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-03 QIRC Core + Activity/Trace/Receipt + Dev Mode"
+    },
+    {
+      "connected_to": [
+        "validate-final-pr-04-provider-probe-security",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/runtime_security/smoke.py"
+      ],
+      "introduced_concepts": [
+        "local candidate probe",
+        "provider policy",
+        "runtime safety smoke"
+      ],
+      "introduced_files": [
+        "odin/provider_probe/probe.py",
+        "odin/provider_probe/policy.py",
+        "odin/runtime_security/smoke.py"
+      ],
+      "merged": true,
+      "pr_number": 4,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-04 Local Candidate Provider Probe + Policy"
+    },
+    {
+      "connected_to": [
+        "validate-final-pr-05-execution-gate",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/execution_gate/gateway.py",
+        "odin/execution_gate/mock_provider.py",
+        "odin/proof_chain/registry.py"
+      ],
+      "introduced_concepts": [
+        "mock execution only",
+        "execution gate",
+        "proof chain"
+      ],
+      "introduced_files": [
+        "odin/execution_gate/gateway.py",
+        "odin/execution_gate/mock_provider.py",
+        "odin/proof_chain/registry.py"
+      ],
+      "merged": true,
+      "pr_number": 5,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-05 Execution Gate + Mock Provider + Proof Chain"
+    },
+    {
+      "connected_to": [
+        "validate-y-pattern-spine",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/y_pattern_spine/profiles.py"
+      ],
+      "introduced_concepts": [
+        "neutral Y route pattern",
+        "materialization ladder bridge"
+      ],
+      "introduced_files": [
+        "odin/y_pattern_spine/profiles.py",
+        "registries/y_pattern_spine_registry.json"
+      ],
+      "merged": true,
+      "pr_number": 42,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "Y Pattern Spine"
+    },
+    {
+      "connected_to": [
+        "validate-prep-final-pr-06-08",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "tools/rebaseline/check_prep_final_pr_06_08.py"
+      ],
+      "introduced_concepts": [
+        "seed/field/projection prep bridge"
+      ],
+      "introduced_files": [
+        "docs/rebaseline/PREP_FINAL_PR_06_08.md",
+        "tools/rebaseline/check_prep_final_pr_06_08.py"
+      ],
+      "merged": true,
+      "pr_number": 44,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "Prep FINAL-PR-06..08"
+    },
+    {
+      "connected_to": [
+        "validate-operational-seed-spine",
+        "prove-operational-seed-spine",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/operational_seed_spine/selector.py",
+        "odin/operational_seed_spine/work_capsule.py"
+      ],
+      "introduced_concepts": [
+        "role profiles",
+        "seed route",
+        "seed-to-work capsule"
+      ],
+      "introduced_files": [
+        "odin/operational_seed_spine/selector.py",
+        "odin/operational_seed_spine/work_capsule.py"
+      ],
+      "merged": true,
+      "pr_number": 45,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-06 Operational Seed Spine"
+    },
+    {
+      "connected_to": [
+        "validate-field-selection-spine",
+        "prove-field-selection-spine",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/field_selection_spine/selector.py",
+        "odin/field_selection_spine/coherence.py"
+      ],
+      "introduced_concepts": [
+        "field routing",
+        "why trace",
+        "hole density"
+      ],
+      "introduced_files": [
+        "odin/field_selection_spine/selector.py",
+        "odin/field_selection_spine/coherence.py"
+      ],
+      "merged": true,
+      "pr_number": 46,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-07 Field Selection Spine"
+    },
+    {
+      "connected_to": [
+        "validate-projection-candidate-spine",
+        "prove-projection-candidate-spine",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "odin/projection_candidate_spine/projection_set.py",
+        "odin/projection_candidate_spine/candidate_graph.py"
+      ],
+      "introduced_concepts": [
+        "projection set",
+        "candidate graph",
+        "expression packet"
+      ],
+      "introduced_files": [
+        "odin/projection_candidate_spine/projection_set.py",
+        "odin/projection_candidate_spine/candidate_graph.py"
+      ],
+      "merged": true,
+      "pr_number": 47,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "FINAL-PR-08 Projection Candidate Spine"
+    },
+    {
+      "connected_to": [
+        "validate-b8-security-review-track",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "tools/v7_1_1/check_b8_security_review_track.py",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "introduced_concepts": [
+        "static security review track",
+        "risk register discipline"
+      ],
+      "introduced_files": [
+        "tools/v7_1_1/check_b8_security_review_track.py",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "merged": true,
+      "pr_number": 34,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "PR #34 / B8 Static Security Review Track"
+    },
+    {
+      "connected_to": [
+        "validate-final-road-to-100-rebaseline-audit",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "unknown",
+      "evidence_files": [],
+      "introduced_concepts": [
+        "road-to-100 rebaseline",
+        "Local Runtime Hub target"
+      ],
+      "introduced_files": [
+        "docs/rebaseline/FINAL_ROAD_TO_100_REBASELINE_AUDIT.md",
+        "tools/v7_1_1/check_final_road_to_100_rebaseline_audit.py"
+      ],
+      "merged": true,
+      "pr_number": 35,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [
+        "expected evidence path not found during audit"
+      ],
+      "still_relevant": true,
+      "title": "PR #35 Final Road-to-100 Audit"
+    },
+    {
+      "connected_to": [
+        "validate-agent-operator-mode",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "unknown",
+      "evidence_files": [],
+      "introduced_concepts": [
+        "handoff-first layer",
+        "agent operator packet patterns"
+      ],
+      "introduced_files": [
+        "docs/rebaseline/HANDOFF_FIRST_LAYER.md",
+        "reports/final_road_to_100_rebaseline_audit.json"
+      ],
+      "merged": true,
+      "pr_number": 36,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [
+        "expected evidence path not found during audit"
+      ],
+      "still_relevant": true,
+      "title": "PR #36 Handoff-First Layer"
+    },
+    {
+      "connected_to": [
+        "validate-b1-app-boundary-universal-work-qirc-spine",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
+        "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"
+      ],
+      "introduced_concepts": [
+        "app boundary",
+        "universal work",
+        "QIRC spine"
+      ],
+      "introduced_files": [
+        "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
+        "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"
+      ],
+      "merged": true,
+      "pr_number": 27,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B1 App Boundary + Universal Work + QIRC Spine"
+    },
+    {
+      "connected_to": [
+        "validate-b2-context-lenses-worklets",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "registries/v7_1_1_artifact_lens_registry.json"
+      ],
+      "introduced_concepts": [
+        "context capsule",
+        "artifact lenses",
+        "worklets"
+      ],
+      "introduced_files": [
+        "tools/v7_1_1/check_b2_context_lenses_worklets.py",
+        "registries/v7_1_1_artifact_lens_registry.json"
+      ],
+      "merged": true,
+      "pr_number": 28,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B2 Context / Lenses / Worklets / Slot Forge / Gaptext"
+    },
+    {
+      "connected_to": [
+        "validate-b3-modelworkpacket-scale-hybrid",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active",
+      "evidence_files": [
+        "registries/v7_1_1_model_scale_ladder_registry.json",
+        "schemas/v7_1_1_modelworkpacket.schema.json"
+      ],
+      "introduced_concepts": [
+        "model work packet",
+        "3B + 7B/8B ladder",
+        "hybrid route"
+      ],
+      "introduced_files": [
+        "registries/v7_1_1_model_scale_ladder_registry.json",
+        "schemas/v7_1_1_modelworkpacket.schema.json"
+      ],
+      "merged": true,
+      "pr_number": 29,
+      "release_relevance": "required",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B3 ModelWorkPacket / Scale Ladder / Hybrid Director"
+    },
+    {
+      "connected_to": [
+        "validate-b4-minicheck-critics-final-gate",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "odin/candidates/tournament.py",
+        "odin/core/final_gate.py"
+      ],
+      "introduced_concepts": [
+        "candidate tournament",
+        "final gate"
+      ],
+      "introduced_files": [
+        "odin/candidates/tournament.py",
+        "odin/core/final_gate.py"
+      ],
+      "merged": true,
+      "pr_number": 30,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B4 Minicheck / Critics / Tournament / Candidate Final Gate"
+    },
+    {
+      "connected_to": [
+        "validate-b5-storage-trace-receipt-provider-bridge",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "odin/runtime/store.py",
+        "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+      ],
+      "introduced_concepts": [
+        "storage",
+        "trace",
+        "receipt bridge prep"
+      ],
+      "introduced_files": [
+        "odin/runtime/store.py",
+        "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+      ],
+      "merged": true,
+      "pr_number": 31,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B5 Storage Trace Receipt Provider Bridge Prep"
+    },
+    {
+      "connected_to": [
+        "validate-b6-acceptance-dojo-scoreboard-closure",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
+      ],
+      "introduced_concepts": [
+        "acceptance dojo",
+        "scoreboard"
+      ],
+      "introduced_files": [
+        "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
+      ],
+      "merged": true,
+      "pr_number": 32,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B6 Acceptance Dojo Scoreboard Closure Prep"
+    },
+    {
+      "connected_to": [
+        "validate-b7-closure-thor-provider-eval",
+        "SYSTEM_MAP.json",
+        "FILE_MANIFEST.json"
+      ],
+      "current_status": "active_but_partial",
+      "evidence_files": [
+        "reports/v7_1_1_b7_closure_thor_provider_eval_report.json"
+      ],
+      "introduced_concepts": [
+        "closure evaluation",
+        "Thor/provider eval prep"
+      ],
+      "introduced_files": [
+        "reports/v7_1_1_b7_closure_thor_provider_eval_report.json"
+      ],
+      "merged": true,
+      "pr_number": 33,
+      "release_relevance": "useful",
+      "replaced_by": [],
+      "risk_notes": [],
+      "still_relevant": true,
+      "title": "B7 Closure Thor Provider Eval Gates"
+    }
+  ]
+}

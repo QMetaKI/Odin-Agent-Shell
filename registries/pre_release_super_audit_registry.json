@@ -1,0 +1,46 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "cli_commands": [
+    "audit-pre-release-super"
+  ],
+  "docs": [
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_EXECUTIVE_BRIEF.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_FULL_REPORT.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_PR_LINEAGE.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SYSTEM_COHESION.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_ARCHITECTURE_CONFORMANCE.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RUNTIME_PATHS.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_MODEL_LEVERAGE_SIMULATION.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_Q_SHABANG_OPERATIONALIZATION.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_BUG6_Q7_RINGS_BOUNDARIES.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_THOR_ODIN_EFFECTIVENESS.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RELEASE_READINESS_DECISION.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SENIOR_REVIEW.md",
+    "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_CODE_REVIEW.md"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "registry_id": "pre_release_super_audit_registry",
+  "release_position": "before_FINAL_PR_09",
+  "reports": [
+    "reports/pre_release_super_audit_report.json",
+    "reports/pre_release_super_audit_pr_lineage.json",
+    "reports/pre_release_super_audit_runtime_paths.json",
+    "reports/pre_release_super_audit_architecture_conformance.json",
+    "reports/pre_release_super_audit_model_leverage_simulation.json",
+    "reports/pre_release_super_audit_recommended_prs.json"
+  ],
+  "tests": [
+    "tests/test_pre_release_super_audit.py"
+  ],
+  "tools": [
+    "tools/audit/run_pre_release_super_audit.py"
+  ],
+  "version": "1.0.0"
+}

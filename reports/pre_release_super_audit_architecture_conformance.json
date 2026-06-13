@@ -1,0 +1,398 @@
+{
+  "architecture_conformance_score": 0.65,
+  "audit_id": "pre_release_super_audit",
+  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "matrix": [
+    {
+      "architecture_item": "User-facing Local Hub",
+      "architecture_requirement": "User-facing Local Hub",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/local_hub/server.py",
+        "odin/local_hub/ui.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Handoff-First / intake",
+      "architecture_requirement": "Handoff-First / intake",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/agent_operator/packets.py",
+        "docs/codex/handoffs/FINAL_PR_08_ODIN_AGENT_OPERATOR_WORK_PACKET.md"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/rebaseline/HANDOFF_FIRST_LAYER.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Universal Work / work packets",
+      "architecture_requirement": "Universal Work / work packets",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [
+        "odin/runtime/engine.py",
+        "schemas/v7_1/odin_universal_work.schema.json"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/UNIVERSAL_WORK_KERNEL.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Candidate-only output lifecycle",
+      "architecture_requirement": "Candidate-only output lifecycle",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/candidates/artifact.py",
+        "odin/projection_candidate_spine/projection_set.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/MASTER_ARCHITECTURE_V7_1.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "QIRC coordination",
+      "architecture_requirement": "QIRC coordination",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/qirc_core/bus.py",
+        "odin/qirc_core/channels.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/INTERNAL_SEMANTIC_BUS.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Activity / trace / receipt",
+      "architecture_requirement": "Activity / trace / receipt",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/STORAGE_SPEC.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Provider policy / local probe",
+      "architecture_requirement": "Provider policy / local probe",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/MODEL_SCALE_LADDER.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Execution Gate / mock execution",
+      "architecture_requirement": "Execution Gate / mock execution",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/execution_gate/gateway.py",
+        "odin/execution_gate/mock_provider.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_05_EXECUTION_GATE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Proof Chain",
+      "architecture_requirement": "Proof Chain",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/proof_chain/registry.py",
+        "reports/final_pr_05_execution_gate_report.json"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_05_EXECUTION_GATE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Final PR Ladder",
+      "architecture_requirement": "Final PR Ladder",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/final_pr_ladder/compiler.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_LADDER.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Y Pattern Spine / materialization ladder",
+      "architecture_requirement": "Y Pattern Spine / materialization ladder",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/y_pattern_spine/profiles.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/Y_PATTERN_SPINE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Operational Seed Spine",
+      "architecture_requirement": "Operational Seed Spine",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/operational_seed_spine/selector.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Field Selection Spine",
+      "architecture_requirement": "Field Selection Spine",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/field_selection_spine/selector.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_07_FIELD_SELECTION_SPINE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Projection Candidate Spine",
+      "architecture_requirement": "Projection Candidate Spine",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/projection_candidate_spine/projection_set.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Release Closure readiness",
+      "architecture_requirement": "Release Closure readiness",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [
+        "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/codex/CODEX_FINAL_HANDOFF_V0_8_7.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Static security review",
+      "architecture_requirement": "Static security review",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "doc_only",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [
+        "tools/v7_1_1/check_b8_security_review_track.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/codex/reports/PR_34_B8_STATIC_SECURITY_REVIEW_RETURN_REPORT.md",
+      "status": "doc_only",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Bug6 / Q7 / ring-like boundary mechanisms",
+      "architecture_requirement": "Bug6 / Q7 / ring-like boundary mechanisms",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/Q_SEMANTIC_GOVERNANCE_V7_1.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Registry/schema/report discipline",
+      "architecture_requirement": "Registry/schema/report discipline",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "registries/",
+        "schemas/v7_1/",
+        "reports/"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/DATA_CONTRACTS_V7_1.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "CLI / developer usability",
+      "architecture_requirement": "CLI / developer usability",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "odin/cli.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "odin/cli.py",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Windows/app packaging readiness",
+      "architecture_requirement": "Windows/app packaging readiness",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [
+        "odin/hub/shell.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/WINDOWS_RUNTIME.md",
+      "status": "partial",
+      "validator_present": true
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ]
+}
