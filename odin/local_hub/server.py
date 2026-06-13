@@ -47,6 +47,18 @@ Endpoints:
   GET /release/evidence-closure.json   — Release evidence closure index (FINAL-PR-10++)
   GET /release/preflight.json          — Final release preflight (FINAL-PR-10++)
   GET /release/artifact-currency.json  — Artifact currency index (FINAL-PR-10++)
+  GET /provider-receipts/status.json   — Provider receipt harness status (FINAL-PR-11)
+  GET /provider-receipts/demo.json     — Provider receipt demo (FINAL-PR-11)
+  POST /provider-receipts/run          — Run local provider receipt (FINAL-PR-11)
+  GET /provider-receipts/claims.json   — Provider receipt claims (FINAL-PR-11)
+  GET /critic-runtime/status.json      — Critic runtime binding status (FINAL-PR-11)
+  GET /critic-runtime/demo.json        — Critic runtime demo (FINAL-PR-11)
+  GET /route-evaluation/status.json    — Route evaluation receipt status (FINAL-PR-11)
+  GET /route-evaluation/demo.json      — Route evaluation demo (FINAL-PR-11)
+  GET /thor-handoff-compiler/status.json — Thor handoff compiler status (FINAL-PR-11)
+  GET /thor-handoff-compiler/demo.json — Thor handoff compiler demo (FINAL-PR-11)
+  GET /release/sequence-transition.json — Release sequence transition (FINAL-PR-11)
+  GET /release/preflight-after-pr11.json — Preflight after PR11 (FINAL-PR-11)
 """
 from __future__ import annotations
 
@@ -282,6 +294,96 @@ class _SimpleLocalHubHandler(BaseHTTPRequestHandler):
         elif self.path == "/release/artifact-currency.json":
             from odin.release_boundaries.artifact_currency import build_artifact_currency_index
             body = json.dumps(build_artifact_currency_index(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        # FINAL-PR-11: Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0
+        elif self.path == "/provider-receipts/status.json":
+            from odin.local_provider_receipts.reports import build_provider_receipt_harness_report
+            body = json.dumps(build_provider_receipt_harness_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/provider-receipts/demo.json":
+            from odin.local_provider_receipts.receipt import run_local_provider_receipt
+            result = run_local_provider_receipt("deterministic_no_provider", "demo prompt", allow_local_provider_execution=False)
+            body = json.dumps(result, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/provider-receipts/claims.json":
+            payload = {
+                "artifact_kind": "odin_provider_receipt_claims",
+                "candidate_only": True,
+                "final_pr_12_remains_deferred": True,
+                "evidence_class": "structural_evidence",
+                "claim_boundary": "local_provider_receipt_harness_scoped_local_receipts_not_quality_benchmark",
+                "not_proven": ["production_readiness", "security_certification", "release_certification", "real_model_benchmark", "model_quality_superiority"],
+            }
+            body = json.dumps(payload, indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/critic-runtime/status.json":
+            from odin.critic_runtime.reports import build_critic_runtime_report
+            body = json.dumps(build_critic_runtime_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/critic-runtime/demo.json":
+            from odin.critic_runtime.cascade import run_critic_cascade
+            demo_candidate = {
+                "artifact_kind": "odin_demo_candidate",
+                "candidate_only": True,
+                "claim_boundary": "demo_candidate_boundary",
+                "not_proven": ["production_readiness"],
+                "app_apply": False,
+                "external_send": False,
+            }
+            body = json.dumps(run_critic_cascade(demo_candidate), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/route-evaluation/status.json":
+            from odin.route_evaluation.reports import build_route_evaluation_report
+            body = json.dumps(build_route_evaluation_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/route-evaluation/demo.json":
+            from odin.route_evaluation.receipt import run_route_evaluation_receipt
+            body = json.dumps(run_route_evaluation_receipt(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/thor-handoff-compiler/status.json":
+            from odin.thor_handoff_compiler.reports import build_thor_compiler_report
+            body = json.dumps(build_thor_compiler_report(), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/thor-handoff-compiler/demo.json":
+            from odin.thor_handoff_compiler.input_contract import build_handoff_input_contract
+            from odin.thor_handoff_compiler.compiler import compile_thor_handoff_bundle
+            ic = build_handoff_input_contract(
+                objective="Demo handoff compile",
+                repo_evidence=["odin/operational_spine/"],
+                allowed_edits=["odin/local_provider_receipts/"],
+                forbidden_edits=["odin/operational_spine/"],
+                acceptance_gates=["validate-all OK"],
+                claim_boundary="demo_thor_handoff",
+            )
+            body = json.dumps(compile_thor_handoff_bundle(ic), indent=2).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/sequence-transition.json":
+            from pathlib import Path as _Path
+            import json as _json
+            p = _Path(__file__).resolve().parents[2] / "reports/final_pr_11_release_sequence_transition_report.json"
+            if p.exists():
+                body = p.read_bytes()
+            else:
+                body = _json.dumps({
+                    "status": "not_found",
+                    "candidate_only": True,
+                    "recommended_next_pr": "FINAL-PR-12",
+                    "final_pr_12_remains_deferred": True,
+                }).encode("utf-8")
+            self._respond(200, "application/json", body)
+        elif self.path == "/release/preflight-after-pr11.json":
+            from pathlib import Path as _Path
+            import json as _json
+            p = _Path(__file__).resolve().parents[2] / "reports/final_pr_11_preflight_after_pr11_report.json"
+            if p.exists():
+                body = p.read_bytes()
+            else:
+                body = _json.dumps({
+                    "status": "yellow",
+                    "candidate_only": True,
+                    "recommended_next_pr": "FINAL-PR-12",
+                    "final_pr_12_remains_deferred": True,
+                }).encode("utf-8")
             self._respond(200, "application/json", body)
         else:
             body = b'{"status":"not_found"}'

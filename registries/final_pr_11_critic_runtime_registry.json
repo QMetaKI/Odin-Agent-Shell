@@ -1,0 +1,26 @@
+{
+  "registry_id": "final_pr_11_critic_runtime_registry",
+  "version": "1.0.0",
+  "claim_boundary": "critic_runtime_binding_scores_candidates_not_truth_not_apply",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "critic_modes": [
+    "deterministic",
+    "model_critic_optional"
+  ],
+  "critic_is_advisory": true,
+  "critic_not_authority": true,
+  "final_gate_required": true,
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "final_authority",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

@@ -1,0 +1,26 @@
+{
+  "registry_id": "final_pr_11_provider_critic_thor_registry",
+  "version": "1.0.0",
+  "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "final_pr_12_remains_deferred": true,
+  "modules": [
+    "odin/local_provider_receipts/",
+    "odin/critic_runtime/",
+    "odin/route_evaluation/",
+    "odin/thor_handoff_compiler/"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "provider_execution_without_explicit_receipt",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

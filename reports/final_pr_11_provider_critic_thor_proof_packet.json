@@ -1,0 +1,37 @@
+{
+  "artifact_kind": "odin_final_pr_11_provider_critic_thor_proof_packet",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+  "proven": [
+    "local_provider_receipt_harness_exists",
+    "provider_execution_disabled_by_default",
+    "provider_unavailable_receipts_supported",
+    "scoped_local_provider_receipt_path_exists_if_explicitly_enabled",
+    "critic_runtime_binding_exists",
+    "deterministic_critic_exists",
+    "route_evaluation_receipt_harness_exists",
+    "thor_handoff_compiler_v0_exists",
+    "release_closure_moved_to_final_pr_12",
+    "final_pr_12_remains_deferred"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "general_live_model_inference",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "provider_execution_without_explicit_receipt",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network"
+  ],
+  "evidence_classes": [
+    "structural_evidence",
+    "host_scoped_local_receipt",
+    "external_receipt_required"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

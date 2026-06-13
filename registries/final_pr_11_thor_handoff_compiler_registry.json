@@ -1,0 +1,30 @@
+{
+  "registry_id": "final_pr_11_thor_handoff_compiler_registry",
+  "version": "1.0.0",
+  "claim_boundary": "thor_handoff_compiler_v0_compiles_worker_packets_not_thor_runtime",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "thor_runtime_execution": false,
+  "agent_autonomy": false,
+  "deterministic": true,
+  "no_model_required": true,
+  "compiler_outputs": [
+    "agent_operator_work_packet",
+    "acceptance_matrix",
+    "validator_plan",
+    "pr_body_skeleton",
+    "return_report_contract",
+    "thor_handoff_bundle"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "thor_runtime_execution",
+    "agent_autonomy",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

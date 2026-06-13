@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-11 Provider Execution Receipt",
+  "description": "Schema for local provider execution receipts. Not a model quality benchmark.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "status",
+    "provider_id",
+    "input_hash",
+    "execution_performed",
+    "model_inference",
+    "provider_execution",
+    "candidate_only",
+    "app_apply",
+    "external_send",
+    "evidence_class",
+    "claim_boundary",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_provider_execution_receipt"},
+    "status": {"type": "string", "enum": ["execution_not_enabled", "provider_unavailable", "provider_not_allowed", "scoped_local_provider_receipt"]},
+    "provider_id": {"type": "string"},
+    "input_hash": {"type": "string"},
+    "execution_performed": {"type": "boolean"},
+    "model_inference": {"type": "boolean"},
+    "provider_execution": {"type": "boolean"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_apply": {"type": "boolean", "const": false},
+    "external_send": {"type": "boolean", "const": false},
+    "evidence_class": {"type": "string", "enum": ["structural_evidence", "host_scoped_local_receipt"]},
+    "claim_boundary": {"type": "string"},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,36 @@
+{
+  "registry_id": "final_pr_11_route_evaluation_registry",
+  "version": "1.0.0",
+  "claim_boundary": "route_evaluation_receipts_measure_structure_not_model_quality_benchmark",
+  "candidate_only": true,
+  "app_owned_apply": true,
+  "not_a_model_quality_benchmark": true,
+  "no_superiority_claim": true,
+  "fixture_routes": [
+    "deterministic_no_model",
+    "3b_primary",
+    "7b_primary",
+    "3b_7b_hybrid"
+  ],
+  "evaluation_dimensions": [
+    "schema_valid",
+    "candidate_only_valid",
+    "forbidden_actions_clean",
+    "slot_completeness",
+    "not_proven_present",
+    "receipt_present",
+    "boundary_violations",
+    "output_length_chars"
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

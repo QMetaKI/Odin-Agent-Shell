@@ -76,6 +76,11 @@ REQUIRED_IDS = [
     "operational-spine-section",
     # FINAL-PR-10++ Release Boundary Gates
     "release-boundary-gates-section",
+    # FINAL-PR-11 Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0
+    "provider-receipt-harness-section",
+    "critic-runtime-binding-section",
+    "thor-handoff-compiler-section",
+    "release-sequence-transition-section",
 ]
 
 REQUIRED_COPY = [
@@ -129,6 +134,11 @@ REQUIRED_COPY = [
     # FINAL-PR-10++ Release Boundary Gates
     "Release Boundary Gates map Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries before FINAL-PR-11.",
     "Odin shows which claims are supported and which remain outside release proof.",
+    # FINAL-PR-11 Provider Receipt Harness + Critic Runtime + Thor Handoff Compiler
+    "Local provider receipts are disabled by default. Execution requires explicit flag and env var.",
+    "Deterministic critic checks candidate structure. Critic is advisory, not authority.",
+    "Thor Handoff Compiler generates deterministic work packets. Does not run Thor or grant agent autonomy.",
+    "FINAL-PR-11 inserts between PR10 boundary gates and PR12 release closure. PR12 remains deferred.",
 ]
 
 
@@ -475,6 +485,34 @@ def generate_hub_html() -> str:
   <span class="chip ok">Available</span>
   <p>Odin shows which claims are supported and which remain outside release proof.</p>
   <p class="note">Dev Mode: Release Boundary Gates map Odin&#39;s candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries before FINAL-PR-11. GET /release/preflight.json. candidate_only: true. No release certification. No production readiness. FINAL-PR-11 remains deferred.</p>
+</div>
+
+<div id="provider-receipt-harness-section" class="section">
+  <div class="label">Local Provider Receipt Harness (FINAL-PR-11)</div>
+  <span class="chip ok">Available</span>
+  <p>Local provider receipts are disabled by default. Execution requires explicit flag and env var.</p>
+  <p class="note">Dev Mode: GET /provider-receipts/status.json, /provider-receipts/demo.json, /provider-receipts/claims.json. candidate_only: true. No production readiness. No release certification. FINAL-PR-12 remains deferred.</p>
+</div>
+
+<div id="critic-runtime-binding-section" class="section">
+  <div class="label">Critic Runtime Binding (FINAL-PR-11)</div>
+  <span class="chip ok">Available</span>
+  <p>Deterministic critic checks candidate structure. Critic is advisory, not authority.</p>
+  <p class="note">Dev Mode: GET /critic-runtime/status.json, /critic-runtime/demo.json. not_authority: true. final_gate_required: true. candidate_only: true.</p>
+</div>
+
+<div id="thor-handoff-compiler-section" class="section">
+  <div class="label">Thor Handoff Compiler v0 (FINAL-PR-11)</div>
+  <span class="chip ok">Available</span>
+  <p>Thor Handoff Compiler generates deterministic work packets. Does not run Thor or grant agent autonomy.</p>
+  <p class="note">Dev Mode: GET /thor-handoff-compiler/status.json, /thor-handoff-compiler/demo.json. thor_runtime_execution: false. agent_autonomy: false. candidate_only: true.</p>
+</div>
+
+<div id="release-sequence-transition-section" class="section">
+  <div class="label">Release Sequence Transition (FINAL-PR-11)</div>
+  <span class="chip ok">Available</span>
+  <p>FINAL-PR-11 inserts between PR10 boundary gates and PR12 release closure. PR12 remains deferred.</p>
+  <p class="note">Dev Mode: GET /release/sequence-transition.json, /release/preflight-after-pr11.json. final_pr_12_remains_deferred: true. candidate_only: true.</p>
 </div>
 
 </body>

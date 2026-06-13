@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-11 Thor Handoff Bundle",
+  "description": "Schema for Thor Handoff Compiler v0 output bundles. Not Thor runtime.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "bundle_id",
+    "candidate_only",
+    "app_apply",
+    "external_send",
+    "thor_runtime_execution",
+    "agent_autonomy",
+    "evidence_class",
+    "compiler_claim_boundary",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_thor_handoff_bundle"},
+    "bundle_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_apply": {"type": "boolean", "const": false},
+    "external_send": {"type": "boolean", "const": false},
+    "thor_runtime_execution": {"type": "boolean", "const": false},
+    "agent_autonomy": {"type": "boolean", "const": false},
+    "evidence_class": {"type": "string"},
+    "compiler_claim_boundary": {"type": "string"},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

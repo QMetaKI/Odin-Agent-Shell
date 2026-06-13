@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_route_evaluation_receipt",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "not_a_model_quality_benchmark": true,
+  "no_superiority_claim": true,
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "route_evaluation_receipts_measure_structure_not_model_quality_benchmark",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "routes_evaluated": 4,
+  "all_pass": true,
+  "total_boundary_violations": 0,
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "evaluation_note": "Route evaluation measures structural validity and boundary cleanliness. It does not measure model quality, performance, or production readiness."
+}

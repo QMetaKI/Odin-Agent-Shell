@@ -2341,5 +2341,139 @@
       "release_certification"
     ],
     "final_pr_11_remains_deferred": true
+  },
+  "final_pr_11_provider_critic_thor": {
+    "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+    "candidate_only": true,
+    "app_owned_apply": true,
+    "local_only_default": true,
+    "no_release_certification": true,
+    "no_production_readiness": true,
+    "no_security_certification": true,
+    "final_pr_12_remains_deferred": true,
+    "modules": [
+      "odin/local_provider_receipts/__init__.py",
+      "odin/local_provider_receipts/provider_ids.py",
+      "odin/local_provider_receipts/readiness.py",
+      "odin/local_provider_receipts/request_packet.py",
+      "odin/local_provider_receipts/receipt.py",
+      "odin/local_provider_receipts/executor.py",
+      "odin/local_provider_receipts/reports.py",
+      "odin/critic_runtime/__init__.py",
+      "odin/critic_runtime/critic_packet.py",
+      "odin/critic_runtime/deterministic_critic.py",
+      "odin/critic_runtime/cascade.py",
+      "odin/critic_runtime/reports.py",
+      "odin/route_evaluation/__init__.py",
+      "odin/route_evaluation/fixtures.py",
+      "odin/route_evaluation/evaluator.py",
+      "odin/route_evaluation/receipt.py",
+      "odin/route_evaluation/reports.py",
+      "odin/thor_handoff_compiler/__init__.py",
+      "odin/thor_handoff_compiler/input_contract.py",
+      "odin/thor_handoff_compiler/compiler.py",
+      "odin/thor_handoff_compiler/acceptance_matrix.py",
+      "odin/thor_handoff_compiler/validator_plan.py",
+      "odin/thor_handoff_compiler/pr_body.py",
+      "odin/thor_handoff_compiler/reports.py"
+    ],
+    "registries": [
+      "registries/final_pr_11_provider_critic_thor_registry.json",
+      "registries/final_pr_11_provider_receipt_registry.json",
+      "registries/final_pr_11_critic_runtime_registry.json",
+      "registries/final_pr_11_route_evaluation_registry.json",
+      "registries/final_pr_11_thor_handoff_compiler_registry.json",
+      "registries/final_pr_11_release_sequence_registry.json"
+    ],
+    "schemas": [
+      "schemas/final_pr_11_provider_receipt.schema.json",
+      "schemas/final_pr_11_critic_packet.schema.json",
+      "schemas/final_pr_11_route_evaluation_receipt.schema.json",
+      "schemas/final_pr_11_thor_handoff_bundle.schema.json"
+    ],
+    "examples": [
+      "examples/final_pr_11/provider_readiness_receipt.example.json",
+      "examples/final_pr_11/provider_request_packet.example.json",
+      "examples/final_pr_11/provider_execution_not_enabled.example.json",
+      "examples/final_pr_11/provider_unavailable_receipt.example.json",
+      "examples/final_pr_11/provider_execution_scoped_receipt.example.json",
+      "examples/final_pr_11/critic_packet.example.json",
+      "examples/final_pr_11/critic_deterministic_result.example.json",
+      "examples/final_pr_11/route_evaluation_receipt.example.json",
+      "examples/final_pr_11/thor_handoff_bundle.example.json",
+      "examples/final_pr_11/thor_input_contract.example.json"
+    ],
+    "reports": [
+      "reports/final_pr_11_provider_receipt_harness_report.json",
+      "reports/final_pr_11_critic_runtime_binding_report.json",
+      "reports/final_pr_11_route_evaluation_receipt_report.json",
+      "reports/final_pr_11_thor_handoff_compiler_report.json",
+      "reports/final_pr_11_release_sequence_transition_report.json",
+      "reports/final_pr_11_preflight_after_pr11_report.json",
+      "reports/final_pr_11_provider_critic_thor_proof_packet.json"
+    ],
+    "docs": [
+      "docs/rebaseline/FINAL_PR_11_PROVIDER_CRITIC_THOR.md",
+      "docs/release/FINAL_PR_11_RELEASE_SEQUENCE_TRANSITION.md",
+      "docs/release/FINAL_PR_11_LOCAL_PROVIDER_RECEIPT_HARNESS.md",
+      "docs/release/FINAL_PR_11_CRITIC_RUNTIME_BINDING.md",
+      "docs/release/FINAL_PR_11_ROUTE_EVALUATION_RECEIPTS.md",
+      "docs/release/FINAL_PR_11_THOR_HANDOFF_COMPILER_V0.md",
+      "docs/release/FINAL_PR_11_PREFLIGHT_AFTER_PR11.md",
+      "docs/codex/handoffs/FINAL_PR_11_REPO_COGNITION_SUMMARY.md",
+      "docs/codex/handoffs/FINAL_PR_11_THOR_STYLE_PROVIDER_CRITIC_HANDOFF.md",
+      "docs/codex/handoffs/FINAL_PR_11_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "docs/codex/audits/FINAL_PR_11_PROVIDER_CRITIC_THOR_AUDIT.md",
+      "docs/codex/audits/FINAL_PR_11_SENIOR_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_11_CODE_REVIEW.md",
+      "docs/codex/audits/FINAL_PR_11_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "docs/codex/reports/FINAL_PR_11_PROVIDER_CRITIC_THOR_RETURN_REPORT.md"
+    ],
+    "tests": [
+      "tests/test_final_pr_11_provider_critic_thor.py"
+    ],
+    "tools": [
+      "tools/rebaseline/check_final_pr_11_provider_critic_thor.py"
+    ],
+    "cli_commands": [
+      "validate-local-provider-receipt-harness",
+      "local-provider-doctor",
+      "run-local-provider-receipt",
+      "explain-provider-receipt-claims",
+      "validate-critic-runtime-binding",
+      "run-critic-cascade",
+      "explain-critic-cascade",
+      "validate-route-evaluation-receipts",
+      "run-route-evaluation",
+      "explain-route-evaluation-claims",
+      "validate-thor-handoff-compiler",
+      "compile-thor-handoff",
+      "explain-thor-handoff-compiler",
+      "validate-final-pr-11-provider-critic-thor"
+    ],
+    "hub_endpoints": [
+      "/provider-receipts/status.json",
+      "/provider-receipts/demo.json",
+      "/provider-receipts/claims.json",
+      "/critic-runtime/status.json",
+      "/critic-runtime/demo.json",
+      "/route-evaluation/status.json",
+      "/route-evaluation/demo.json",
+      "/thor-handoff-compiler/status.json",
+      "/thor-handoff-compiler/demo.json",
+      "/release/sequence-transition.json",
+      "/release/preflight-after-pr11.json"
+    ],
+    "depends_on": ["final_pr_10_boundary_release"],
+    "not_proven": [
+      "production_readiness",
+      "live_model_inference",
+      "app_state_mutation",
+      "external_send_authority",
+      "security_certification",
+      "release_certification",
+      "real_model_benchmark",
+      "model_quality_superiority"
+    ]
   }
 }

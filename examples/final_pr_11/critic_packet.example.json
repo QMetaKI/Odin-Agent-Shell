@@ -1,0 +1,33 @@
+{
+  "artifact_kind": "odin_critic_packet",
+  "critic_packet_id": "critic_packet_a1b2c3d4e5f6a7b8",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "critic_mode": "deterministic",
+  "not_authority": true,
+  "final_gate_required": true,
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "critic_runtime_binding_scores_candidates_not_truth_not_apply",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "final_authority"
+  ],
+  "candidate_snapshot": {
+    "artifact_kind": "odin_candidate_artifact",
+    "candidate_only": true,
+    "claim_boundary": "example_candidate_boundary"
+  },
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

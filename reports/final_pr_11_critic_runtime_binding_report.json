@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "odin_critic_runtime_report",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "critic_runtime_binding_scores_candidates_not_truth_not_apply",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network",
+    "final_authority"
+  ],
+  "critic_modes": ["deterministic", "model_critic_optional"],
+  "critic_is_advisory": true,
+  "critic_not_authority": true,
+  "final_gate_required": true,
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}
