@@ -1032,7 +1032,7 @@
       "explain-seed-route --demo",
       "prove-operational-seed-spine"
     ],
-    "description": "FINAL-PR-06 Operational Seed Spine — intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
+    "description": "FINAL-PR-06 Operational Seed Spine \u2014 intent seeds, role profiles, seed packs, deterministic selector, work capsule compiler, QIRC hints, token budget, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_06_OPERATIONAL_SEED_SPINE.md",
       "docs/codex/reports/FINAL_PR_06_OPERATIONAL_SEED_SPINE_RETURN_REPORT.md"
@@ -1124,7 +1124,7 @@
       "FINAL-PR-07",
       "FINAL-PR-06"
     ],
-    "description": "FINAL-PR-08 Projection Candidate Spine — materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
+    "description": "FINAL-PR-08 Projection Candidate Spine \u2014 materialization levels M0-M9, CandidateNode, CandidateGraph, ProjectionSet, ExpressionPacket, CandidateComparison, ReceiptLink, proof",
     "docs": [
       "docs/rebaseline/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE.md",
       "docs/codex/reports/FINAL_PR_08_PROJECTION_CANDIDATE_SPINE_RETURN_REPORT.md"
@@ -1190,7 +1190,7 @@
       "final_pr_08_projection_candidate_spine",
       "final_pr_09_10_plusplus_qshabang_smallmodel_prep"
     ],
-    "description": "FINAL-PR-09++ Operational Spine — Small-Model Operational Spine + Odin Work Kernel",
+    "description": "FINAL-PR-09++ Operational Spine \u2014 Small-Model Operational Spine + Odin Work Kernel",
     "handoffs": [
       "docs/codex/handoffs/FINAL_PR_09_REPO_COGNITION_SUMMARY.md",
       "docs/codex/handoffs/FINAL_PR_09_THOR_STYLE_OPERATIONAL_SPINE_HANDOFF.md",
@@ -1249,7 +1249,7 @@
     "depends_on": [
       "final_pr_09_operational_spine"
     ],
-    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization — maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
+    "description": "FINAL-PR-10++ Boundary-Gated Release Operationalization \u2014 maps, verifies, and exposes Odin's candidate-only, app-owned-apply, provider, model-role, QIRC, Q-Shabang, artifact currency, and claim evidence boundaries as validator-backed release gates.",
     "examples": [
       "examples/final_pr_10/boundary_matrix.example.json",
       "examples/final_pr_10/ring_authority_map.example.json",
@@ -1912,6 +1912,37 @@
     "status": "audit_artifact_local_repo_analysis_not_runtime_or_release_proof",
     "tests": "tests/test_lrh_pr_18_full_system_audit_artifact.py"
   },
+  "pr56_v1_0_0_version_sync": {
+    "claim_boundary": "pr56_v1_0_0_version_sync_external_release_prep_not_external_release",
+    "cli_commands": [
+      "validate-pr56-v1-version-sync",
+      "build-pr56-v1-version-sync-report --demo"
+    ],
+    "depends_on": "FINAL-PR-13",
+    "docs": [
+      "docs/release/V1_0_0_EXTERNAL_RELEASE_PREP.md",
+      "docs/release/V1_0_0_MANUAL_RELEASE_CHECKLIST.md",
+      "docs/release/V1_0_0_RELEASE_NOTES_DRAFT.md"
+    ],
+    "external_release_claimed": false,
+    "metadata": [
+      "pyproject.toml version-sync change",
+      "README.md release truth change"
+    ],
+    "package_version": "1.0.0",
+    "release_posture": "v1.0.0 prepared_not_released",
+    "reports": [
+      "reports/pr56_v1_0_0_version_sync_report.json",
+      "docs/codex/reports/PR56_V1_0_0_VERSION_SYNC_RETURN_REPORT.md"
+    ],
+    "tests": [
+      "tests/test_pr56_v1_0_0_version_sync.py"
+    ],
+    "title": "PR56: v1.0.0 Version Sync + External Release Prep",
+    "tools": [
+      "tools/rebaseline/check_pr56_v1_0_0_version_sync.py"
+    ]
+  },
   "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
   "pr_26_v7_1_1_canon_boundary_integrity_return_report": "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
   "pr_27_b1_app_boundary_universal_work_qirc_spine_return_report": "docs/codex/reports/PR_27_B1_APP_BOUNDARY_UNIVERSAL_WORK_QIRC_SPINE_RETURN_REPORT.md",
@@ -2011,7 +2042,7 @@
     "cli_commands": [
       "validate-prep-final-pr-06-08"
     ],
-    "description": "Prep FINAL-PR-06..08 scaffold artifacts — prepares future operational seed, field selection, and projection spine PRs",
+    "description": "Prep FINAL-PR-06..08 scaffold artifacts \u2014 prepares future operational seed, field selection, and projection spine PRs",
     "future_prs": [
       "final_pr_06_operational_seed_spine",
       "final_pr_07_field_selection_spine",
@@ -2679,7 +2710,7 @@
   "version": "0.8.8",
   "y_pattern_spine": {
     "candidate_only": true,
-    "description": "Y Pattern Spine — neutral operational pattern layer",
+    "description": "Y Pattern Spine \u2014 neutral operational pattern layer",
     "path": "odin/y_pattern_spine/"
   }
 }
