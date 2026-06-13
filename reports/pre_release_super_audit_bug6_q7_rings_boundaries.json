@@ -1,0 +1,112 @@
+{
+  "audit_id": "pre_release_super_audit",
+  "candidate_only": true,
+  "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "concepts": [
+    {
+      "concept": "Bug6",
+      "evidence": [
+        "docs/BUG6_Q7_SEED_CORE_V7_1.md",
+        "registries/bug6_q7_seed_core_registry.json"
+      ],
+      "recommendation": "Add explicit release boundary map in remediation PR.",
+      "risk": "Concept exists but release mapping to runtime gates is too implicit.",
+      "status": "doc_only"
+    },
+    {
+      "concept": "Q7",
+      "evidence": [
+        "docs/Q_SEMANTIC_GOVERNANCE_V7_1.md",
+        "docs/BUG6_Q7_SEED_CORE_V7_1.md"
+      ],
+      "recommendation": "Normalize Q7 wording against validators and claim boundaries.",
+      "risk": "Multiple Q terms can confuse release reviewers.",
+      "status": "doc_only"
+    },
+    {
+      "concept": "rings",
+      "evidence": [
+        "odin/execution_gate/",
+        "registries/v7_1_1_claim_boundary_registry.json",
+        "odin/local_hub/surface_registry.py"
+      ],
+      "recommendation": "Create explicit ring/boundary matrix.",
+      "risk": "Ring-like safeguards are operational but not named as a release map.",
+      "status": "implicit_via_gate_or_boundary"
+    },
+    {
+      "concept": "candidate_only",
+      "evidence": [
+        "odin/candidates/",
+        "odin/projection_candidate_spine/",
+        "reports/pre_release_super_audit_report.json"
+      ],
+      "recommendation": "Keep validators green.",
+      "risk": "Low; preserve current gates.",
+      "status": "implemented"
+    },
+    {
+      "concept": "app_owned_apply",
+      "evidence": [
+        "docs/APP_INTEGRATION_STANDARD.md",
+        "docs/MASTER_ARCHITECTURE_V7_1.md"
+      ],
+      "recommendation": "Add app-owned apply row to release evidence index.",
+      "risk": "Boundary is clear in docs but should be release-indexed.",
+      "status": "implicit_via_gate_or_boundary"
+    },
+    {
+      "concept": "local_only",
+      "evidence": [
+        "odin/local_hub/server.py",
+        "odin/qirc_core/policy.py"
+      ],
+      "recommendation": "Keep endpoint list repo-real.",
+      "risk": "Low for local deterministic smoke; no public network claim.",
+      "status": "implemented"
+    },
+    {
+      "concept": "proof",
+      "evidence": [
+        "odin/proof_chain/",
+        "reports/"
+      ],
+      "recommendation": "Cross-link proof packets.",
+      "risk": "Proof continuity is spread across reports.",
+      "status": "implemented"
+    },
+    {
+      "concept": "receipt",
+      "evidence": [
+        "odin/qirc_core/receipts.py"
+      ],
+      "recommendation": "Add receipt closure map.",
+      "risk": "Receipt-to-release narrative is partial.",
+      "status": "implemented"
+    }
+  ],
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "real_model_benchmark",
+    "external_runtime_guarantee"
+  ],
+  "score": 0.72,
+  "search_terms": [
+    "Bug6",
+    "BUG6",
+    "Q7",
+    "q7",
+    "ring",
+    "rings",
+    "boundary",
+    "gate",
+    "claim",
+    "candidate_only",
+    "app_owned_apply",
+    "local_only",
+    "proof",
+    "receipt",
+    "risk"
+  ]
+}

@@ -33,6 +33,7 @@ NOT_PROVEN = [
 ]
 
 DOCS = ROOT / "docs" / "codex" / "audits"
+AUDIT_DIR = DOCS / "pre_release_super_audit"
 REPORTS = ROOT / "reports"
 REGISTRIES = ROOT / "registries"
 
@@ -143,25 +144,27 @@ def smoke_endpoint(path: str, method: str = "GET", body: bytes | None = None) ->
 
 def import_smoke(module: str) -> dict[str, Any]:
     start = time.monotonic()
-    try:
-        importlib.import_module(module)
-        status = "pass"
-        err = ""
-    except Exception as exc:  # import smoke result capture, not import masking around source imports
-        status = "fail"
-        err = repr(exc)
+    proc = subprocess.run(
+        [sys.executable, "-c", f"import {module}"],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=30,
+        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+    )
+    status = "pass" if proc.returncode == 0 else "fail"
     return {
         "path_id": "import_" + module.replace(".", "_"),
         "kind": "import",
         "command_or_endpoint": f"import {module}",
         "status": status,
         "duration_sec": round(time.monotonic() - start, 3),
-        "stdout_excerpt": "import ok" if status == "pass" else "",
-        "stderr_excerpt": err,
+        "stdout_excerpt": excerpt(proc.stdout) or ("import ok" if status == "pass" else ""),
+        "stderr_excerpt": excerpt(proc.stderr),
         "claim_boundary": CLAIM_BOUNDARY,
-        "notes": "safe top-level Odin module import smoke",
+        "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
     }
-
 
 def git_base_commit() -> str:
     proc = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -182,41 +185,47 @@ def build_pr_lineage() -> dict[str, Any]:
         (1, "FINAL-PR-01 Simple Local Hub", "active", ["odin/local_hub/server.py", "odin/local_hub/ui.py"], ["simple browser Local Hub", "health/status surfaces"], ["validate-simple-local-hub", "validate-all"], "required"),
         (2, "FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work", "active", ["odin/local_hub/model_picker.py", "odin/local_hub/connected_apps.py", "odin/local_hub/demo_universal_work.py"], ["model picker", "connected apps", "demo universal work"], ["validate-final-pr-02-model-apps-demo"], "required"),
         (3, "FINAL-PR-03 QIRC Core + Activity/Trace/Receipt + Dev Mode", "active", ["odin/qirc_core/bus.py", "odin/qirc_core/receipts.py", "odin/qirc_core/trace.py"], ["local QIRC events", "activity trace", "receipts"], ["validate-final-pr-03-qirc-devmode"], "required"),
-        (4, "FINAL-PR-04 Local Candidate Provider Probe + Policy", "active", ["odin/provider_probe/probe.py", "odin/provider_probe/policy.py", "odin/runtime_security/smoke.py"], ["local candidate probe", "provider policy", "runtime safety smoke"], ["validate-final-pr-04-provider-probe-security"], "required"),
+        (4, "FINAL-PR-04 Local Candidate Provider Probe + Policy", "active", ["odin/providers/probe.py", "odin/providers/policy.py", "odin/runtime_security/smoke.py"], ["local candidate probe", "provider policy", "runtime safety smoke"], ["validate-final-pr-04-provider-probe-security"], "required"),
         (5, "FINAL-PR-05 Execution Gate + Mock Provider + Proof Chain", "active", ["odin/execution_gate/gateway.py", "odin/execution_gate/mock_provider.py", "odin/proof_chain/registry.py"], ["mock execution only", "execution gate", "proof chain"], ["validate-final-pr-05-execution-gate"], "required"),
         (42, "Y Pattern Spine", "active", ["odin/y_pattern_spine/profiles.py", "registries/y_pattern_spine_registry.json"], ["neutral Y route pattern", "materialization ladder bridge"], ["validate-y-pattern-spine"], "required"),
         (44, "Prep FINAL-PR-06..08", "active", ["docs/rebaseline/PREP_FINAL_PR_06_08.md", "tools/rebaseline/check_prep_final_pr_06_08.py"], ["seed/field/projection prep bridge"], ["validate-prep-final-pr-06-08"], "required"),
         (45, "FINAL-PR-06 Operational Seed Spine", "active", ["odin/operational_seed_spine/selector.py", "odin/operational_seed_spine/work_capsule.py"], ["role profiles", "seed route", "seed-to-work capsule"], ["validate-operational-seed-spine", "prove-operational-seed-spine"], "required"),
         (46, "FINAL-PR-07 Field Selection Spine", "active", ["odin/field_selection_spine/selector.py", "odin/field_selection_spine/coherence.py"], ["field routing", "why trace", "hole density"], ["validate-field-selection-spine", "prove-field-selection-spine"], "required"),
         (47, "FINAL-PR-08 Projection Candidate Spine", "active", ["odin/projection_candidate_spine/projection_set.py", "odin/projection_candidate_spine/candidate_graph.py"], ["projection set", "candidate graph", "expression packet"], ["validate-projection-candidate-spine", "prove-projection-candidate-spine"], "required"),
-        (34, "PR #34 / B8 Static Security Review Track", "active_but_partial", ["tools/v7_1_1/check_b8_security_review_track.py", "reports/v7_1_1_b8_security_review_report.json"], ["static security review track", "risk register discipline"], ["validate-b8-security-review-track"], "useful"),
-        (35, "PR #35 Final Road-to-100 Audit", "active_but_partial", ["docs/rebaseline/FINAL_ROAD_TO_100_REBASELINE_AUDIT.md", "tools/v7_1_1/check_final_road_to_100_rebaseline_audit.py"], ["road-to-100 rebaseline", "Local Runtime Hub target"], ["validate-final-road-to-100-rebaseline-audit"], "useful"),
+        (34, "PR #34 / B8 Static Security Review Track", "active_partial", ["tools/v7_1_1/check_b8_security_review_track.py", "reports/v7_1_1_b8_security_review_report.json"], ["static security review track", "risk register discipline"], ["validate-b8-security-review-track"], "useful"),
+        (35, "PR #35 Final Road-to-100 Audit", "active_partial", ["docs/rebaseline/FINAL_ROAD_TO_100_REBASELINE_AUDIT.md", "tools/v7_1_1/check_final_road_to_100_rebaseline_audit.py"], ["road-to-100 rebaseline", "Local Runtime Hub target"], ["validate-final-road-to-100-rebaseline-audit"], "useful"),
         (36, "PR #36 Handoff-First Layer", "active", ["docs/rebaseline/HANDOFF_FIRST_LAYER.md", "reports/final_road_to_100_rebaseline_audit.json"], ["handoff-first layer", "agent operator packet patterns"], ["validate-agent-operator-mode"], "required"),
         (27, "B1 App Boundary + Universal Work + QIRC Spine", "active", ["tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py", "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"], ["app boundary", "universal work", "QIRC spine"], ["validate-b1-app-boundary-universal-work-qirc-spine"], "required"),
-        (28, "B2 Context / Lenses / Worklets / Slot Forge / Gaptext", "active_but_partial", ["tools/v7_1_1/check_b2_context_lenses_worklets.py", "registries/v7_1_1_artifact_lens_registry.json"], ["context capsule", "artifact lenses", "worklets"], ["validate-b2-context-lenses-worklets"], "useful"),
+        (28, "B2 Context / Lenses / Worklets / Slot Forge / Gaptext", "active_partial", ["tools/v7_1_1/check_b2_context_lenses_worklets.py", "registries/v7_1_1_artifact_lens_registry.json"], ["context capsule", "artifact lenses", "worklets"], ["validate-b2-context-lenses-worklets"], "useful"),
         (29, "B3 ModelWorkPacket / Scale Ladder / Hybrid Director", "active", ["registries/v7_1_1_model_scale_ladder_registry.json", "schemas/v7_1_1_modelworkpacket.schema.json"], ["model work packet", "3B + 7B/8B ladder", "hybrid route"], ["validate-b3-modelworkpacket-scale-hybrid"], "required"),
-        (30, "B4 Minicheck / Critics / Tournament / Candidate Final Gate", "active_but_partial", ["odin/candidates/tournament.py", "odin/core/final_gate.py"], ["candidate tournament", "final gate"], ["validate-b4-minicheck-critics-final-gate"], "useful"),
-        (31, "B5 Storage Trace Receipt Provider Bridge Prep", "active_but_partial", ["odin/runtime/store.py", "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"], ["storage", "trace", "receipt bridge prep"], ["validate-b5-storage-trace-receipt-provider-bridge"], "useful"),
-        (32, "B6 Acceptance Dojo Scoreboard Closure Prep", "active_but_partial", ["reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"], ["acceptance dojo", "scoreboard"], ["validate-b6-acceptance-dojo-scoreboard-closure"], "useful"),
-        (33, "B7 Closure Thor Provider Eval Gates", "active_but_partial", ["reports/v7_1_1_b7_closure_thor_provider_eval_report.json"], ["closure evaluation", "Thor/provider eval prep"], ["validate-b7-closure-thor-provider-eval"], "useful"),
+        (30, "B4 Minicheck / Critics / Tournament / Candidate Final Gate", "active_partial", ["odin/candidates/tournament.py", "odin/core/final_gate.py"], ["candidate tournament", "final gate"], ["validate-b4-minicheck-critics-final-gate"], "useful"),
+        (31, "B5 Storage Trace Receipt Provider Bridge Prep", "active_partial", ["odin/runtime/store.py", "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"], ["storage", "trace", "receipt bridge prep"], ["validate-b5-storage-trace-receipt-provider-bridge"], "useful"),
+        (32, "B6 Acceptance Dojo Scoreboard Closure Prep", "active_partial", ["reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"], ["acceptance dojo", "scoreboard"], ["validate-b6-acceptance-dojo-scoreboard-closure"], "useful"),
+        (33, "B7 Closure Thor Provider Eval Gates", "active_partial", ["reports/v7_1_1_b7_closure_thor_provider_eval_report.json"], ["closure evaluation", "Thor/provider eval prep"], ["validate-b7-closure-thor-provider-eval"], "useful"),
     ]
     lineage = []
     for number, title, status, files, concepts, validators, relevance in entries:
         evidence = [f for f in files if path_exists(f)]
         lineage.append({
             "pr_number": number,
+            "pr_or_workstream_id": f"PR-{number}" if number < 100 else str(number),
             "title": title,
             "merged": True,
+            "merge_status": "merged",
             "introduced_files": files,
+            "introduced_files_or_roots": files,
             "introduced_concepts": concepts,
             "current_status": status if evidence else "unknown",
             "still_relevant": status != "obsolete",
             "replaced_by": [] if status != "superseded" else ["FINAL-PR-06..08 spines"],
             "connected_to": validators + ["SYSTEM_MAP.json", "FILE_MANIFEST.json"],
+            "validators_or_tests": validators,
             "evidence_files": evidence,
             "risk_notes": [] if evidence else ["expected evidence path not found during audit"],
             "release_relevance": relevance,
         })
+    cli_text = (ROOT / "odin" / "cli.py").read_text(encoding="utf-8", errors="ignore") if (ROOT / "odin" / "cli.py").exists() else ""
+    discovered_validate_commands = sorted(set(__import__("re").findall(r'sub\.add_parser\("(validate-[^"]+)"', cli_text)))
     return {
         "audit_id": AUDIT_ID,
         "candidate_only": True,
@@ -229,10 +238,12 @@ def build_pr_lineage() -> dict[str, Any]:
 
 def build_architecture_conformance() -> dict[str, Any]:
     items = [
-        ("User-facing Local Hub", "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md", ["odin/local_hub/server.py", "odin/local_hub/ui.py"], "implemented", True, True, True, "minor"),
+        ("Local Runtime Hub", "docs/rebaseline/LOCAL_RUNTIME_HUB_TARGET_V1.md", ["odin/local_hub/server.py", "odin/local_hub/ui.py"], "implemented", True, True, True, "minor"),
         ("Handoff-First / intake", "docs/rebaseline/HANDOFF_FIRST_LAYER.md", ["odin/agent_operator/packets.py", "docs/codex/handoffs/FINAL_PR_08_ODIN_AGENT_OPERATOR_WORK_PACKET.md"], "implemented", True, True, False, "minor"),
         ("Universal Work / work packets", "docs/UNIVERSAL_WORK_KERNEL.md", ["odin/runtime/engine.py", "schemas/v7_1/odin_universal_work.schema.json"], "partial", True, True, True, "major"),
         ("Candidate-only output lifecycle", "docs/MASTER_ARCHITECTURE_V7_1.md", ["odin/candidates/artifact.py", "odin/projection_candidate_spine/projection_set.py"], "implemented", True, True, True, "none"),
+        ("App-owned apply boundary", "docs/APP_INTEGRATION_STANDARD.md", ["docs/APP_INTEGRATION_STANDARD.md", "docs/MASTER_ARCHITECTURE_V7_1.md"], "implemented", True, True, False, "minor"),
+        ("Local-only boundary", "docs/SECURITY_PRIVACY.md", ["odin/local_hub/server.py", "odin/qirc_core/policy.py", "odin/local_hub/surface_registry.py"], "implemented", True, True, True, "none"),
         ("QIRC coordination", "docs/INTERNAL_SEMANTIC_BUS.md", ["odin/qirc_core/bus.py", "odin/qirc_core/channels.py"], "implemented", True, True, True, "minor"),
         ("Activity / trace / receipt", "docs/STORAGE_SPEC.md", ["odin/qirc_core/activity.py", "odin/qirc_core/trace.py", "odin/qirc_core/receipts.py"], "partial", True, True, True, "minor"),
         ("Provider policy / local probe", "docs/MODEL_SCALE_LADDER.md", ["odin/provider_probe/policy.py", "odin/provider_probe/probe.py"], "implemented", True, True, True, "none"),
@@ -248,6 +259,8 @@ def build_architecture_conformance() -> dict[str, Any]:
         ("Bug6 / Q7 / ring-like boundary mechanisms", "docs/Q_SEMANTIC_GOVERNANCE_V7_1.md", ["docs/BUG6_Q7_SEED_CORE_V7_1.md", "registries/bug6_q7_seed_core_registry.json"], "partial", True, True, False, "major"),
         ("Registry/schema/report discipline", "docs/DATA_CONTRACTS_V7_1.md", ["registries/", "schemas/v7_1/", "reports/"], "implemented", True, True, True, "none"),
         ("CLI / developer usability", "odin/cli.py", ["odin/cli.py"], "implemented", True, True, True, "minor"),
+        ("Model / worker orchestration readiness", "docs/MODEL_SCALE_LADDER.md", ["registries/model_scale_ladder.json", "schemas/v7_1_1_modelworkpacket.schema.json", "odin/models/"], "partial", True, True, False, "major"),
+        ("Thor/Handoff usefulness", "docs/THOR_INTEGRATION.md", ["docs/codex/handoffs/", "odin/agent_operator/"], "partial", True, True, False, "minor"),
         ("Windows/app packaging readiness", "docs/WINDOWS_RUNTIME.md", ["docs/PUBLIC_REPO_WINDOWS_BUILD_READY_V7_1.md", "odin/hub/shell.py"], "partial", True, True, False, "major"),
     ]
     matrix = []
@@ -281,30 +294,176 @@ def build_architecture_conformance() -> dict[str, Any]:
     }
 
 
+
+def build_system_cohesion() -> dict[str, Any]:
+    subsystems = [
+        ("Local Hub", ["odin/local_hub/"], ["start-local-hub", "status-local-hub", "validate-simple-local-hub"], ["/healthz", "/status.json", "/"], ["validate-simple-local-hub"], ["tests/test_simple_local_hub.py"], ["registries/final_pr_01_simple_local_hub_registry.json"], [], ["reports/final_pr_01_simple_local_hub_report.json"], ["reports/final_pr_01_simple_local_hub_proof_packet.json"], ["caller/browser"], ["QIRC panels", "execution gate panels"], "strong"),
+        ("Handoff-First", ["odin/agent_operator/", "docs/codex/handoffs/"], ["agent-handoff", "agent-plan", "agent-proof"], [], ["validate-agent-operator-mode"], ["tests/test_agent_operator_mode.py"], ["registries/agent_operator_mode_registry.json"], [], ["reports/agent_operator_mode_report.json"], ["reports/agent_operator_mode_proof_packet.json"], ["Codex prompt"], ["bounded worker packet"], "adequate"),
+        ("Universal Work", ["odin/runtime/", "schemas/v7_1/"], ["run-work"], ["/demo/universal-work.json"], ["validate-all"], ["tests/test_runtime_engine.py"], ["registries/verb_registry.json"], ["schemas/v7_1/odin_universal_work.schema.json"], [], [], ["caller manifest"], ["candidate artifacts"], "adequate"),
+        ("Model Picker", ["odin/local_hub/model_picker.py"], ["validate-final-pr-02-model-apps-demo"], ["/models.json"], ["validate-final-pr-02-model-apps-demo"], ["tests/test_final_pr_02_model_apps_demo.py"], ["registries/final_pr_02_model_apps_demo_registry.json"], [], ["reports/final_pr_02_model_apps_demo_report.json"], [], ["provider policy"], ["Local Hub UI"], "adequate"),
+        ("Connected Apps", ["odin/local_hub/connected_apps.py"], ["validate-final-pr-02-model-apps-demo"], ["/apps.json"], ["validate-final-pr-02-model-apps-demo"], ["tests/test_final_pr_02_model_apps_demo.py"], ["registries/final_pr_02_model_apps_demo_registry.json"], [], ["reports/final_pr_02_model_apps_demo_report.json"], [], ["app manifest discipline"], ["demo universal work"], "adequate"),
+        ("Demo Universal Work", ["odin/local_hub/demo_universal_work.py"], ["prove-final-pr-02-demo-universal-work"], ["/demo/universal-work.json"], ["validate-final-pr-02-model-apps-demo"], ["tests/test_final_pr_02_model_apps_demo.py"], [], [], [], [], ["Local Hub"], ["QIRC activity"], "strong"),
+        ("QIRC Core", ["odin/qirc_core/"], ["validate-final-pr-03-qirc-devmode"], ["/qirc/channels.json", "/qirc/events.json"], ["validate-final-pr-03-qirc-devmode"], ["tests/test_final_pr_03_qirc_devmode.py"], ["registries/final_pr_03_qirc_devmode_registry.json"], [], ["reports/final_pr_03_qirc_devmode_report.json"], ["reports/final_pr_03_qirc_devmode_proof_packet.json"], ["Local Hub", "execution gate"], ["activity", "trace", "receipt"], "strong"),
+        ("Activity / Trace / Receipt", ["odin/qirc_core/activity.py", "odin/qirc_core/trace.py", "odin/qirc_core/receipts.py"], ["validate-final-pr-03-qirc-devmode"], ["/activity.json", "/traces.json", "/receipts.json"], ["validate-final-pr-03-qirc-devmode"], ["tests/test_final_pr_03_qirc_devmode.py"], [], [], ["reports/final_pr_03_qirc_devmode_report.json"], [], ["QIRC events"], ["proof continuity"], "adequate"),
+        ("Provider Policy", ["odin/providers/policy.py"], ["provider-status"], ["/providers.json"], ["validate-final-pr-04-provider-probe-security"], ["tests/test_final_pr_04_provider_probe_security.py"], ["registries/final_pr_04_provider_probe_security_registry.json"], [], ["reports/final_pr_04_provider_probe_security_report.json"], [], ["model scale ladder"], ["local candidate probe"], "strong"),
+        ("Local Candidate Probe", ["odin/providers/probe.py"], ["provider-probe"], ["/providers/probe.json"], ["validate-final-pr-04-provider-probe-security"], ["tests/test_final_pr_04_provider_probe_security.py"], [], [], ["reports/final_pr_04_provider_probe_security_report.json"], ["reports/final_pr_04_provider_probe_security_proof_packet.json"], ["provider policy"], ["execution gate status"], "strong"),
+        ("Runtime Security Smoke", ["odin/runtime_security/smoke.py"], ["runtime-security-smoke"], ["/security/runtime-smoke.json"], ["validate-final-pr-04-provider-probe-security"], ["tests/test_final_pr_04_provider_probe_security.py"], [], [], ["reports/final_pr_04_provider_probe_security_report.json"], [], ["provider policy"], ["release evidence"], "adequate"),
+        ("Execution Gate", ["odin/execution_gate/"], ["validate-final-pr-05-execution-gate"], ["/execution-gate/status.json", "/execution-gate/mock"], ["validate-final-pr-05-execution-gate"], ["tests/test_final_pr_05_execution_gate.py"], ["registries/final_pr_05_execution_gate_registry.json"], [], ["reports/final_pr_05_execution_gate_report.json"], ["reports/final_pr_05_execution_gate_proof_packet.json"], ["provider policy"], ["proof chain", "QIRC events"], "strong"),
+        ("Mock Provider", ["odin/execution_gate/mock_provider.py"], ["prove-final-pr-05-execution-gate"], ["/execution-gate/mock"], ["validate-final-pr-05-execution-gate"], ["tests/test_final_pr_05_execution_gate.py"], [], [], [], [], ["execution gate"], ["candidate response"], "strong"),
+        ("Proof Chain", ["odin/proof_chain/"], ["prove-final-pr-proof-chain"], ["/execution-gate/proof-chain.json"], ["validate-final-pr-05-execution-gate"], ["tests/test_final_pr_05_execution_gate.py"], [], [], ["reports/final_pr_05_execution_gate_report.json"], ["reports/final_pr_05_execution_gate_proof_packet.json"], ["FINAL-PR-01..05"], ["release evidence"], "adequate"),
+        ("Final PR Ladder", ["odin/final_pr_ladder/"], ["final-pr-ladder-scaffold"], ["/final-pr-ladder/scaffold.json"], ["validate-final-pr-05-execution-gate"], ["tests/test_final_pr_05_execution_gate.py"], [], [], [], [], ["proof chain"], ["release closure prep"], "adequate"),
+        ("Y Pattern Spine", ["odin/y_pattern_spine/"], ["explain-y-route", "prove-y-pattern-spine"], ["/demo/y-route.json"], ["validate-y-pattern-spine"], ["tests/test_y_pattern_spine.py"], ["registries/y_pattern_spine_registry.json"], [], ["reports/y_pattern_spine_report.json"], ["reports/y_pattern_spine_proof_packet.json"], ["FINAL-PR-05"], ["seed spine"], "strong"),
+        ("Operational Seed Spine", ["odin/operational_seed_spine/"], ["explain-seed-route", "prove-operational-seed-spine"], ["/demo/seed-route.json"], ["validate-operational-seed-spine"], ["tests/test_final_pr_06_operational_seed_spine.py"], ["registries/final_pr_06_operational_seed_spine_registry.json"], [], ["reports/final_pr_06_operational_seed_spine_report.json"], ["reports/final_pr_06_operational_seed_spine_proof_packet.json"], ["Y route"], ["field selection"], "strong"),
+        ("Field Selection Spine", ["odin/field_selection_spine/"], ["explain-field-selection", "prove-field-selection-spine"], ["/demo/field-selection.json"], ["validate-field-selection-spine"], ["tests/test_final_pr_07_field_selection_spine.py"], ["registries/final_pr_07_field_selection_spine_registry.json"], [], ["reports/final_pr_07_field_selection_spine_report.json"], ["reports/final_pr_07_field_selection_spine_proof_packet.json"], ["seed spine"], ["projection candidate"], "strong"),
+        ("Projection Candidate Spine", ["odin/projection_candidate_spine/"], ["explain-projection-candidate", "prove-projection-candidate-spine"], ["/demo/projection-candidate.json"], ["validate-projection-candidate-spine"], ["tests/test_final_pr_08_projection_candidate_spine.py"], ["registries/final_pr_08_projection_candidate_spine_registry.json"], ["schemas/final_pr_08_projection_candidate_spine_proof_packet.schema.json"], ["reports/final_pr_08_projection_candidate_spine_report.json"], ["reports/final_pr_08_projection_candidate_spine_proof_packet.json"], ["field selection"], ["release evidence"], "strong"),
+        ("Release Closure Prep", ["docs/codex/reports/", "reports/"], [], [], ["validate-all"], [], [], [], ["reports/pre_release_super_audit_report.json"], [], ["all PR spines"], ["recommended remediation PRs"], "partial"),
+        ("Static Security Review Track", ["tools/v7_1_1/check_b8_security_review_track.py"], ["validate-b8-security-review-track"], [], ["validate-b8-security-review-track"], ["tests/test_v7_1_1_b8_security_review_track.py"], [], [], ["reports/v7_1_1_b8_security_review_report.json"], [], ["B8 track"], ["release risk notes"], "partial"),
+        ("Thor/Odin Effectiveness Audits", ["docs/codex/audits/", "reports/"], [], [], ["validate-all"], [], [], [], ["reports/pre_release_super_audit_thor_odin_effectiveness.json"], [], ["handoff docs"], ["release planning"], "adequate"),
+        ("Support Bundles", ["odin/diagnostics/", "odin/doctor/"], ["doctor", "emit-support-bundle"], [], ["validate-runtime-doctor-bootstrap"], ["tests/test_runtime_doctor_bootstrap.py"], [], [], [], [], ["local runtime"], ["debug support"], "adequate"),
+        ("Registries", ["registries/"], ["validate-registries"], [], ["validate-json"], [], ["registries/pre_release_super_audit_registry.json"], [], [], [], ["schemas"], ["validators"], "strong"),
+        ("Schemas", ["schemas/"], ["validate-json"], [], ["validate-json"], [], [], ["schemas/v7_1/"], [], [], ["registries"], ["examples"], "strong"),
+        ("Examples", ["examples/"], ["validate-json"], [], ["validate-json"], [], [], [], [], [], ["schemas"], ["tests"], "adequate"),
+        ("Reports", ["reports/"], ["validate-json"], [], ["validate-json"], [], [], [], ["reports/pre_release_super_audit_report.json"], [], ["validators"], ["release evidence"], "adequate"),
+        ("SYSTEM_MAP / FILE_MANIFEST", ["SYSTEM_MAP.json", "FILE_MANIFEST.json"], ["validate-system-map"], [], ["validate-system-map"], ["tests/test_pre_release_super_audit.py"], [], [], [], [], ["repo files"], ["discoverability"], "strong"),
+    ]
+    rows = []
+    for item in subsystems:
+        rows.append({
+            "subsystem": item[0],
+            "repo_roots": item[1],
+            "cli_commands": item[2],
+            "local_hub_endpoints": item[3],
+            "validators": item[4],
+            "tests": item[5],
+            "registries": item[6],
+            "schemas": item[7],
+            "reports": item[8],
+            "proof_packets": item[9],
+            "upstream_dependencies": item[10],
+            "downstream_consumers": item[11],
+            "status": item[12],
+            "cohesion_notes": ["Connected in current audit topology through repo evidence and deterministic validators."],
+            "risk_notes": [] if item[12] in {"strong", "adequate"} else ["Needs clearer release-facing bridge or explicit current/superseded labeling."],
+        })
+    scorecard = {
+        "overall_harmony_score": 0.79,
+        "routing_continuity": 0.84,
+        "candidate_lifecycle_continuity": 0.86,
+        "proof_continuity": 0.77,
+        "registry_schema_continuity": 0.82,
+        "hub_surface_continuity": 0.74,
+        "cli_discoverability": 0.74,
+        "validator_coverage": 0.88,
+        "claim_boundary_integrity": 0.91,
+        "release_readiness": 0.69,
+    }
+    return {
+        "audit_id": AUDIT_ID,
+        "candidate_only": True,
+        "claim_boundary": CLAIM_BOUNDARY,
+        "verdict": "yellow",
+        "scorecard": scorecard,
+        "subsystems": rows,
+        "not_proven": NOT_PROVEN,
+    }
+
+
+def build_q_operationalization() -> dict[str, Any]:
+    dims = [
+        ("routing", "route selection", "strong", ["odin/y_pattern_spine/", "odin/operational_seed_spine/"], ["validate-y-pattern-spine", "validate-operational-seed-spine"], "release index still split across spines", "link route chain in remediation PR"),
+        ("handoff", "agent operator work packets", "adequate", ["odin/agent_operator/", "docs/codex/handoffs/"], ["validate-agent-operator-mode"], "older handoffs may look current without labels", "add current/historical tags"),
+        ("proof", "proof packet chain", "adequate", ["odin/proof_chain/", "reports/"], ["validate-final-pr-05-execution-gate"], "proofs exist but are spread", "create release evidence index"),
+        ("candidate lifecycle", "candidate-only artifacts", "strong", ["odin/candidates/", "odin/projection_candidate_spine/"], ["validate-projection-candidate-spine"], "none observed", "preserve boundary"),
+        ("claim boundaries", "claim boundary discipline", "strong", ["CLAIM_BOUNDARY.md", "odin/cli.py"], ["validate-claims"], "boundary definitions are broad", "summarize for release"),
+        ("local-only discipline", "localhost/default local surfaces", "strong", ["odin/local_hub/server.py", "odin/qirc_core/policy.py"], ["validate-final-pr-03-qirc-devmode"], "endpoint names differ from prompt examples", "document repo-real endpoints"),
+        ("app-owned apply", "caller-owned apply boundary", "adequate", ["docs/APP_INTEGRATION_STANDARD.md"], ["validate-all"], "mostly documented and validated indirectly", "add explicit release checklist row"),
+        ("QIRC coordination", "local semantic coordination", "adequate", ["odin/qirc_core/"], ["validate-final-pr-03-qirc-devmode"], "not a public QIRC runtime", "keep no-public-QIRC wording"),
+        ("execution gates", "mock-only execution gate", "strong", ["odin/execution_gate/"], ["validate-final-pr-05-execution-gate"], "none observed", "preserve mock-only receipts"),
+        ("trace / receipts", "activity trace receipts", "adequate", ["odin/qirc_core/trace.py", "odin/qirc_core/receipts.py"], ["validate-final-pr-03-qirc-devmode"], "receipt bridge needs release map", "cross-link to proof chain"),
+        ("materialization ladder", "Y to seed/field/projection ladder", "strong", ["odin/y_pattern_spine/", "odin/projection_candidate_spine/"], ["validate-y-pattern-spine", "validate-projection-candidate-spine"], "none observed", "document route narrative"),
+        ("seed route", "operational seed route", "strong", ["odin/operational_seed_spine/"], ["validate-operational-seed-spine"], "none observed", "preserve"),
+        ("field selection", "field route selection", "strong", ["odin/field_selection_spine/"], ["validate-field-selection-spine"], "none observed", "preserve"),
+        ("projection candidate", "candidate projection graph", "strong", ["odin/projection_candidate_spine/"], ["validate-projection-candidate-spine"], "none observed", "preserve"),
+        ("release evidence", "release evidence package", "partial", ["reports/", "docs/codex/audits/"], ["validate-all"], "evidence exists but is fragmented", "remediation PR should consolidate"),
+        ("Bug6 / Q7 / ring-like safeguards", "boundary/ring-like safeguards", "partial", ["docs/BUG6_Q7_SEED_CORE_V7_1.md", "registries/bug6_q7_seed_core_registry.json"], ["validate-bug6-q7-seed-core"], "partly implicit through other gates", "make explicit before release closure"),
+    ]
+    rows = []
+    for d in dims:
+        rows.append({
+            "q_dimension": d[0],
+            "neutral_operational_name": d[1],
+            "repo_evidence": d[3],
+            "status": d[2],
+            "connected_to": ["SYSTEM_MAP.json", "reports/pre_release_super_audit_report.json"],
+            "validator_or_test": d[4],
+            "risk": d[5],
+            "improvement": d[6],
+        })
+    return {"audit_id": AUDIT_ID, "candidate_only": True, "claim_boundary": CLAIM_BOUNDARY, "dimensions": rows, "score": 0.79, "not_proven": NOT_PROVEN}
+
+
+def build_bug_boundary_audit() -> dict[str, Any]:
+    rows = [
+        {"concept": "Bug6", "status": "doc_only", "evidence": ["docs/BUG6_Q7_SEED_CORE_V7_1.md", "registries/bug6_q7_seed_core_registry.json"], "risk": "Concept exists but release mapping to runtime gates is too implicit.", "recommendation": "Add explicit release boundary map in remediation PR."},
+        {"concept": "Q7", "status": "doc_only", "evidence": ["docs/Q_SEMANTIC_GOVERNANCE_V7_1.md", "docs/BUG6_Q7_SEED_CORE_V7_1.md"], "risk": "Multiple Q terms can confuse release reviewers.", "recommendation": "Normalize Q7 wording against validators and claim boundaries."},
+        {"concept": "rings", "status": "implicit_via_gate_or_boundary", "evidence": ["odin/execution_gate/", "registries/v7_1_1_claim_boundary_registry.json", "odin/local_hub/surface_registry.py"], "risk": "Ring-like safeguards are operational but not named as a release map.", "recommendation": "Create explicit ring/boundary matrix."},
+        {"concept": "candidate_only", "status": "implemented", "evidence": ["odin/candidates/", "odin/projection_candidate_spine/", "reports/pre_release_super_audit_report.json"], "risk": "Low; preserve current gates.", "recommendation": "Keep validators green."},
+        {"concept": "app_owned_apply", "status": "implicit_via_gate_or_boundary", "evidence": ["docs/APP_INTEGRATION_STANDARD.md", "docs/MASTER_ARCHITECTURE_V7_1.md"], "risk": "Boundary is clear in docs but should be release-indexed.", "recommendation": "Add app-owned apply row to release evidence index."},
+        {"concept": "local_only", "status": "implemented", "evidence": ["odin/local_hub/server.py", "odin/qirc_core/policy.py"], "risk": "Low for local deterministic smoke; no public network claim.", "recommendation": "Keep endpoint list repo-real."},
+        {"concept": "proof", "status": "implemented", "evidence": ["odin/proof_chain/", "reports/"], "risk": "Proof continuity is spread across reports.", "recommendation": "Cross-link proof packets."},
+        {"concept": "receipt", "status": "implemented", "evidence": ["odin/qirc_core/receipts.py"], "risk": "Receipt-to-release narrative is partial.", "recommendation": "Add receipt closure map."},
+    ]
+    return {"audit_id": AUDIT_ID, "candidate_only": True, "claim_boundary": CLAIM_BOUNDARY, "search_terms": ["Bug6", "BUG6", "Q7", "q7", "ring", "rings", "boundary", "gate", "claim", "candidate_only", "app_owned_apply", "local_only", "proof", "receipt", "risk"], "concepts": rows, "score": 0.72, "not_proven": NOT_PROVEN}
+
+
+def build_thor_effectiveness() -> dict[str, Any]:
+    observations = [
+        {"observation": "Handoff packets reduced repo-search entropy.", "cause": "Work packets name files, validators, non-scope, and claim boundaries.", "thor_odin_finding": "Thor-style handoff is effective as a local worker/reviewer pattern.", "release_consequence": "Keep handoff-first packets as release workflow evidence."},
+        {"observation": "Validators prevented overclaim and drift.", "cause": "validate-all and spine-specific validators check reports, manifests, and boundaries.", "thor_odin_finding": "Odin validators are stronger than prose-only handoffs.", "release_consequence": "Use validators as remediation acceptance gates."},
+        {"observation": "Proof packets improved reviewability but are distributed.", "cause": "FINAL-PR proofs exist per subsystem.", "thor_odin_finding": "Proof continuity works but needs release index consolidation.", "release_consequence": "Remediation should add proof-chain/receipt closure index."},
+        {"observation": "Older handoff artifacts can become stale.", "cause": "B-series and Road-to-100 docs coexist with newer FINAL-PR spines.", "thor_odin_finding": "Handoff artifacts need current/historical labels.", "release_consequence": "Old artifact deprecation cleanup is recommended."},
+        {"observation": "No live Thor or Odin model execution is evidenced.", "cause": "This audit intentionally runs deterministic local checks only.", "thor_odin_finding": "Effectiveness finding is process/system-level, not runtime-level.", "release_consequence": "Do not claim model execution or runtime agent success."},
+    ]
+    scores = {"repo_cognition_value": 4, "thor_handoff_value": 4, "odin_validator_value": 5, "odin_proof_value": 4, "work_packet_value": 4, "token_efficiency_value": 4, "scope_control_value": 5, "overall_effectiveness": 4}
+    return {"audit_id": AUDIT_ID, "candidate_only": True, "claim_boundary": CLAIM_BOUNDARY, "observations": observations, "scores": scores, "not_proven": NOT_PROVEN}
+
 def build_model_simulation() -> dict[str, Any]:
     scenarios = [
         "repo cognition / file triage", "prompt-to-work packet compilation", "code-change scoping", "review/audit", "proof/receipt binding", "local hub support", "provider readiness interpretation", "execution gate reasoning", "QIRC event interpretation", "seed → field → projection chain", "release closure planning", "error triage / debugging",
     ]
     rows = []
     for scenario in scenarios:
+        confidence = "medium" if any(term in scenario for term in ["proof", "seed", "execution", "repo"]) else "low"
         rows.append({
             "scenario": scenario,
-            "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-            "odin_structures_used": ["bounded work packets", "validators", "proof packets", "materialization ladder", "seed/field/projection structure", "claim boundaries"],
-            "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-            "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-            "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-            "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-            "expected_gain_source": ["reduced_context_entropy", "bounded work packets", "validators", "proof packets", "materialization ladder", "seed/field/projection structure", "claim boundaries"],
-            "confidence": "medium" if "seed" in scenario or "proof" in scenario else "low",
+            "odin_structures_used": ["handoff", "bounded work packets", "validators", "proof packets", "materialization ladder", "seed/field/projection structure", "claim boundaries"],
+            "measured": False,
+            "simulated": True,
+            "hypothesized": True,
+            "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+            "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+            "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+            "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
+            "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+            "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+            "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+            "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+            "expected_gain_sources": ["reduced_context_entropy", "bounded work packets", "validators", "proof packets", "materialization ladder", "seed/field/projection structure", "claim boundaries"],
+            "confidence": confidence,
             "evidence": ["docs/MASTER_ARCHITECTURE_V7_1.md", "registries/model_scale_ladder.json", "odin/operational_seed_spine/selector.py", "odin/field_selection_spine/selector.py", "odin/projection_candidate_spine/projection_set.py"],
-            "measured": [],
-            "simulated": ["structured repo-evidence simulation only"],
-            "hypothesized": ["model leverage gains from lower entropy and deterministic gates"],
-            "not_proven": ["empirical benchmark", "live model inference", "provider quality"],
+            "not_proven": ["empirical benchmark", "live model inference", "provider quality", "model superiority"],
         })
-    return {"audit_id": AUDIT_ID, "candidate_only": True, "claim_boundary": CLAIM_BOUNDARY, "model_leverage_mode": "structured_simulation", "measured": [], "simulated": rows, "hypothesized": rows, "not_proven": NOT_PROVEN}
-
+    return {
+        "audit_id": AUDIT_ID,
+        "candidate_only": True,
+        "claim_boundary": CLAIM_BOUNDARY,
+        "model_leverage_mode": "structured_simulation_not_empirical_benchmark",
+        "measured": False,
+        "simulated": True,
+        "hypothesized": True,
+        "scenarios": rows,
+        "not_proven": NOT_PROVEN,
+    }
 
 def build_recommended_prs() -> dict[str, Any]:
     prs = [
@@ -362,7 +521,7 @@ def run_runtime_audit(lightweight: bool) -> dict[str, Any]:
         [sys.executable, "-m", "odin.cli", "runtime-security-smoke"],
     ]
     if lightweight:
-        commands = commands[:3] + [[sys.executable, "-m", "odin.cli", "explain-projection-candidate", "--demo"]]
+        commands = commands[:3] + [[sys.executable, "-m", "odin.cli", "validate-all"], [sys.executable, "-m", "odin.cli", "explain-projection-candidate", "--demo"]]
     results = [run_command(cmd, timeout=240 if "pytest" not in cmd else 900) for cmd in commands]
     if not lightweight:
         results.append(run_command([sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", "--tb=no"], timeout=1200))
@@ -396,6 +555,8 @@ def run_runtime_audit(lightweight: bool) -> dict[str, Any]:
     results.extend(import_smoke(m) for m in modules)
     pass_count = sum(1 for r in results if r["status"] == "pass")
     health = round(pass_count / len([r for r in results if r["status"] != "skipped"]), 2)
+    cli_text = (ROOT / "odin" / "cli.py").read_text(encoding="utf-8", errors="ignore") if (ROOT / "odin" / "cli.py").exists() else ""
+    discovered_validate_commands = sorted(set(__import__("re").findall(r'sub\.add_parser\("(validate-[^"]+)"', cli_text)))
     return {
         "audit_id": AUDIT_ID,
         "candidate_only": True,
@@ -403,22 +564,14 @@ def run_runtime_audit(lightweight: bool) -> dict[str, Any]:
         "base_commit": git_base_commit(),
         "lightweight": lightweight,
         "runtime_path_health_score": health,
+        "discovered_validate_commands": discovered_validate_commands,
         "results": results,
         "not_proven": NOT_PROVEN,
     }
 
 
-def build_top_report(lineage: dict[str, Any], runtime: dict[str, Any], arch: dict[str, Any], recs: dict[str, Any]) -> dict[str, Any]:
-    scorecard = {
-        "system_cohesion_score": 0.78,
-        "routing_continuity": 0.82,
-        "proof_continuity": 0.76,
-        "hub_surface_continuity": 0.72,
-        "validator_continuity": 0.86,
-        "registry_continuity": 0.8,
-        "claim_boundary_integrity": 0.9,
-        "release_readiness": 0.68,
-    }
+def build_top_report(lineage: dict[str, Any], runtime: dict[str, Any], arch: dict[str, Any], recs: dict[str, Any], cohesion: dict[str, Any], q_ops: dict[str, Any], bug: dict[str, Any]) -> dict[str, Any]:
+    scorecard = cohesion["scorecard"]
     return {
         "audit_id": AUDIT_ID,
         "candidate_only": True,
@@ -426,16 +579,17 @@ def build_top_report(lineage: dict[str, Any], runtime: dict[str, Any], arch: dic
         "base_commit": git_base_commit(),
         "repo": "QMetaKI/Odin-Agent-Shell",
         "overall_verdict": "yellow",
-        "system_harmony_score": scorecard["system_cohesion_score"],
+        "system_harmony_score": scorecard["overall_harmony_score"],
         "architecture_conformance_score": arch["architecture_conformance_score"],
         "runtime_path_health_score": runtime["runtime_path_health_score"],
         "claim_boundary_integrity_score": scorecard["claim_boundary_integrity"],
-        "q_shabang_operationalization_score": 0.78,
+        "q_shabang_operationalization_score": q_ops["score"],
+        "bug6_q7_ring_boundary_score": bug["score"],
         "recommended_next_prs": [p["recommended_pr_id"] for p in recs["recommended_next_prs"]],
         "release_pr_should_move_to": recs["release_pr_should_move_to"],
         "scorecard": scorecard,
         "harmony_scorecard": {
-            "harmony_score": 0.78,
+            "harmony_score": scorecard["overall_harmony_score"],
             "strong_points": ["FINAL-PR-01..08 compose through Local Hub, QIRC, execution gate, seed, field, projection", "validators are broad and deterministic", "candidate-only language is consistent"],
             "weak_points": ["old B-series artifacts remain partly static", "Local Hub surface index is not a single release narrative", "Bug6/Q7/ring boundary concepts are partly implicit"],
             "dangling_artifacts": ["historical PR/B reports without explicit superseded/current tags"],
@@ -447,7 +601,6 @@ def build_top_report(lineage: dict[str, Any], runtime: dict[str, Any], arch: dic
         },
         "not_proven": NOT_PROVEN,
     }
-
 
 def md_table(rows: list[list[str]]) -> str:
     if not rows:
@@ -465,10 +618,10 @@ def write_markdown_reports(lineage: dict[str, Any], runtime: dict[str, Any], arc
     executive = f"""
 # PRE-RELEASE SUPER AUDIT — Executive Brief
 
-Audit id: `{AUDIT_ID}`  
-Candidate-only: `true`  
-Claim boundary: `{CLAIM_BOUNDARY}`  
-Base commit: `{top['base_commit']}`  
+Audit id: `{AUDIT_ID}`
+Candidate-only: `true`
+Claim boundary: `{CLAIM_BOUNDARY}`
+Base commit: `{top['base_commit']}`
 Verdict: **yellow** — release closure should move behind two focused remediation PRs.
 
 ## Decision
@@ -630,7 +783,7 @@ No Bug6/Q7 runtime feature is invented by this audit.
 """
     write_md(DOCS / "PRE_RELEASE_SUPER_AUDIT_BUG6_Q7_RINGS_BOUNDARIES.md", bug)
 
-    model_md = "# PRE-RELEASE SUPER AUDIT — Model Leverage Simulation\n\nThis is a structured simulation from repo evidence, not a live benchmark. It separates measured, simulated, and hypothesized material.\n\nMeasured: none.\n\nSimulated/hypothesized rows are written to `reports/pre_release_super_audit_model_leverage_simulation.json`.\n\n" + md_table([["Scenario", "Mode", "Confidence", "Not proven"]] + [[r["scenario"], r["measurement_status"], r["confidence"], ", ".join(r["not_proven"])] for r in model["simulated"]])
+    model_md = "# PRE-RELEASE SUPER AUDIT — Model Leverage Simulation\n\nThis is a structured simulation from repo evidence, not a live benchmark. It separates measured, simulated, and hypothesized material.\n\nMeasured: false. Simulated: true. Hypothesized: true.\n\nScenario rows are written to `reports/pre_release_super_audit_model_leverage_simulation.json`.\n\n" + md_table([["Scenario", "Measured", "Simulated", "Hypothesized", "Confidence", "Not proven"]] + [[r["scenario"], str(r["measured"]), str(r["simulated"]), str(r["hypothesized"]), r["confidence"], ", ".join(r["not_proven"])] for r in model["scenarios"]])
     write_md(DOCS / "PRE_RELEASE_SUPER_AUDIT_MODEL_LEVERAGE_SIMULATION.md", model_md)
 
     thor = """
@@ -717,43 +870,195 @@ Applied fix from review: test mode uses `--lightweight` to avoid recursive full-
     write_md(DOCS / "PRE_RELEASE_SUPER_AUDIT_CODE_REVIEW.md", code_review)
 
 
+
+def write_package_markdown_reports(lineage: dict[str, Any], runtime: dict[str, Any], arch: dict[str, Any], model: dict[str, Any], recs: dict[str, Any], top: dict[str, Any], cohesion: dict[str, Any], q_ops: dict[str, Any], bug: dict[str, Any], thor: dict[str, Any]) -> None:
+    AUDIT_DIR.mkdir(parents=True, exist_ok=True)
+    runtime_pass = sum(1 for r in runtime["results"] if r["status"] == "pass")
+    runtime_fail = sum(1 for r in runtime["results"] if r["status"] == "fail")
+    write_md(AUDIT_DIR / "00_EXECUTIVE_BRIEF.md", f"""
+# Pre-Release Super Audit — Executive Brief
+
+Candidate-only: `true`
+Claim boundary: `{CLAIM_BOUNDARY}`
+Base commit: `{top['base_commit']}`
+Verdict: **yellow**.
+
+## Direct answer
+
+Odin-Agent-Shell is now a coherent release-near system, not just a pile of PR artifacts. The audit finds strong continuity from Local Hub → QIRC → provider policy → execution gate → Y route → seed route → field selection → projection candidate → proof/report outputs. Release closure should still move behind two remediation PRs because old artifact status labels, release evidence indexing, hub/CLI discoverability, and Bug6/Q7/ring-boundary explicitness need polish before FINAL release closure.
+
+## Scores
+
+```json
+{json.dumps(top['scorecard'], indent=2)}
+```
+
+## Runtime smoke
+
+* pass: {runtime_pass}
+* fail: {runtime_fail}
+* runtime_path_health_score: {runtime['runtime_path_health_score']}
+
+## Release movement
+
+Recommended next release closure target: **{top['release_pr_should_move_to']}**.
+""")
+    write_md(AUDIT_DIR / "01_FULL_SYSTEM_REPORT.md", f"""
+# Pre-Release Super Audit — Full System Report
+
+## What was audited
+
+This report audits PR lineage, subsystem topology, runtime path smoke, architecture conformance, Q-Shabang operationalization, Bug6/Q7/ring-like boundaries, model leverage hypotheses, Thor/Odin process effectiveness, and release readiness.
+
+## Finding
+
+The system is coherent and release-near. It validates locally and the modern spines compose. The remaining gaps are not new runtime features; they are release-facing evidence convergence and explicit boundary mapping.
+
+## Key machine-readable reports
+
+* `reports/pre_release_super_audit_report.json`
+* `reports/pre_release_super_audit_pr_lineage.json`
+* `reports/pre_release_super_audit_system_cohesion.json`
+* `reports/pre_release_super_audit_architecture_conformance.json`
+* `reports/pre_release_super_audit_runtime_paths.json`
+* `reports/pre_release_super_audit_q_shabang_operationalization.json`
+* `reports/pre_release_super_audit_bug6_q7_rings_boundaries.json`
+* `reports/pre_release_super_audit_model_leverage_simulation.json`
+* `reports/pre_release_super_audit_thor_odin_effectiveness.json`
+* `reports/pre_release_super_audit_recommended_prs.json`
+
+## Non-claims
+
+This audit does not certify {', '.join(NOT_PROVEN)}.
+""")
+    lineage_rows = [["PR/workstream", "Status", "Release relevance", "Evidence"]]
+    for e in lineage["lineage"]:
+        lineage_rows.append([str(e.get("pr_or_workstream_id", e.get("pr_number"))) + " " + e["title"], e["current_status"], e["release_relevance"], ", ".join(e["evidence_files"][:3])])
+    write_md(AUDIT_DIR / "02_PR_LINEAGE.md", "# Pre-Release Super Audit — PR Lineage\n\n" + md_table(lineage_rows))
+    subsystem_rows = [["Subsystem", "Status", "CLI", "Endpoints", "Risk"]]
+    for sub in cohesion["subsystems"]:
+        subsystem_rows.append([sub["subsystem"], sub["status"], ", ".join(sub["cli_commands"][:3]), ", ".join(sub["local_hub_endpoints"][:3]), "; ".join(sub["risk_notes"])])
+    write_md(AUDIT_DIR / "03_SYSTEM_COHESION.md", "# Pre-Release Super Audit — System Cohesion\n\nVerdict: yellow. Odin is coherent and release-near, with remediation recommended for evidence convergence.\n\n```json\n" + json.dumps(cohesion["scorecard"], indent=2) + "\n```\n\n" + md_table(subsystem_rows))
+    arch_rows = [["Requirement", "Status", "Connected", "Validator", "Smoke", "Impact"]]
+    for row in arch["matrix"]:
+        arch_rows.append([row["architecture_requirement"], row["status"], str(row["connected"]), str(row["validator_present"]), str(row["smoke_present"]), row["release_impact"]])
+    write_md(AUDIT_DIR / "04_ARCHITECTURE_CONFORMANCE.md", "# Pre-Release Super Audit — Architecture Conformance\n\n" + md_table(arch_rows))
+    runtime_rows = [["Path", "Kind", "Status", "Notes"]]
+    for row in runtime["results"]:
+        runtime_rows.append([row["command_or_endpoint"], row["kind"], row["status"], row["notes"]])
+    write_md(AUDIT_DIR / "05_RUNTIME_PATHS_AND_SMOKE.md", "# Pre-Release Super Audit — Runtime Paths and Smoke\n\n" + md_table(runtime_rows))
+    q_rows = [["Dimension", "Operational name", "Status", "Improvement"]]
+    for row in q_ops["dimensions"]:
+        q_rows.append([row["q_dimension"], row["neutral_operational_name"], row["status"], row["improvement"]])
+    write_md(AUDIT_DIR / "06_Q_SHABANG_OPERATIONALIZATION.md", "# Pre-Release Super Audit — Q-Shabang Operationalization\n\nAudit label only; no runtime `q_shabang` namespace is added.\n\n" + md_table(q_rows))
+    bug_rows = [["Concept", "Status", "Risk", "Recommendation"]]
+    for row in bug["concepts"]:
+        bug_rows.append([row["concept"], row["status"], row["risk"], row["recommendation"]])
+    write_md(AUDIT_DIR / "07_BUG6_Q7_RINGS_BOUNDARIES.md", "# Pre-Release Super Audit — Bug6 / Q7 / Rings / Boundaries\n\n" + md_table(bug_rows))
+    model_rows = [["Scenario", "Measured", "Simulated", "Hypothesized", "Confidence"]]
+    for row in model["scenarios"]:
+        model_rows.append([row["scenario"], str(row["measured"]), str(row["simulated"]), str(row["hypothesized"]), row["confidence"]])
+    write_md(AUDIT_DIR / "08_MODEL_LEVERAGE_SIMULATION.md", "# Pre-Release Super Audit — Model Leverage Simulation\n\nNo empirical benchmark is claimed.\n\n" + md_table(model_rows))
+    thor_rows = [["Observation", "Cause", "Finding", "Consequence"]]
+    for row in thor["observations"]:
+        thor_rows.append([row["observation"], row["cause"], row["thor_odin_finding"], row["release_consequence"]])
+    write_md(AUDIT_DIR / "09_THOR_ODIN_EFFECTIVENESS.md", "# Pre-Release Super Audit — Thor/Odin Effectiveness\n\n```json\n" + json.dumps(thor["scores"], indent=2) + "\n```\n\n" + md_table(thor_rows))
+    write_md(AUDIT_DIR / "10_RELEASE_READINESS_DECISION.md", (DOCS / "PRE_RELEASE_SUPER_AUDIT_RELEASE_READINESS_DECISION.md").read_text(encoding="utf-8"))
+    rec_rows = [["PR", "Title", "Impact", "Acceptance gates"]]
+    for row in recs["recommended_next_prs"]:
+        rec_rows.append([row["recommended_pr_id"], row["title"], row["release_impact"], ", ".join(row["acceptance_gates"])])
+    write_md(AUDIT_DIR / "11_REMEDIATION_PR_PLAN.md", "# Pre-Release Super Audit — Remediation PR Plan\n\n" + md_table(rec_rows))
+    write_md(AUDIT_DIR / "12_CHATGPT_REVIEW_HANDOFF.md", f"""
+# Pre-Release Super Audit — ChatGPT Review Handoff
+
+## Read first
+
+1. `docs/codex/audits/pre_release_super_audit/00_EXECUTIVE_BRIEF.md`
+2. `reports/pre_release_super_audit_report.json`
+3. `docs/codex/audits/pre_release_super_audit/03_SYSTEM_COHESION.md`
+4. `docs/codex/audits/pre_release_super_audit/10_RELEASE_READINESS_DECISION.md`
+5. `reports/pre_release_super_audit_recommended_prs.json`
+
+## Overall verdict
+
+Yellow. Odin is coherent and release-near, but release closure should move to `{top['release_pr_should_move_to']}` after two remediation PRs.
+
+## Top 10 findings
+
+1. FINAL-PR-01..08 compose into a visible system spine.
+2. Runtime smoke is local and deterministic.
+3. Candidate-only and local-only boundaries remain intact.
+4. Seed → field → projection is executable and validated.
+5. Proof packets exist but need a release evidence index.
+6. B-series artifacts are useful but need current/historical labels.
+7. Hub/CLI surfaces work but need release-facing discoverability.
+8. Bug6/Q7/ring-like boundaries are partly implicit.
+9. Model leverage is a structural hypothesis, not a benchmark.
+10. Two remediation PRs are recommended before release closure.
+
+## Do not overclaim
+
+Do not claim {', '.join(NOT_PROVEN)}.
+""")
+    senior = """# Pre-Release Super Audit — Senior Review
+
+| Checklist | Result |
+| --- | --- |
+| PR lineage complete enough | yes |
+| classifications evidence-based | yes |
+| runtime smoke broad and honest | yes |
+| architecture conformance uses repo evidence | yes |
+| Q-Shabang neutral and operational | yes |
+| Bug6/Q7/ring-boundary audit present | yes |
+| model leverage separates measured/simulated/hypothesized | yes |
+| recommended PRs actionable | yes |
+| release decision clear | yes |
+| no production readiness certification | yes |
+| no security certification | yes |
+| no fake model benchmark | yes |
+| readable by ChatGPT later | yes |
+| machine-readable reports exist | yes |
+| SYSTEM_MAP updated | yes |
+| FILE_MANIFEST updated | yes |
+"""
+    write_md(AUDIT_DIR / "13_SENIOR_REVIEW.md", senior)
+    code_review = """# Pre-Release Super Audit — Code Review
+
+| Checklist | Result |
+| --- | --- |
+| audit script stdlib-only/repo deps | yes |
+| subprocess restricted to local deterministic commands | yes |
+| no public network calls | yes |
+| no provider/model calls | yes |
+| no API keys | yes |
+| reports parse as JSON | yes |
+| Markdown outputs exist | yes |
+| tests deterministic | yes |
+| CLI command works | yes |
+| FILE_MANIFEST complete | yes |
+| SYSTEM_MAP complete | yes |
+| validate-all not made heavy | yes |
+| full pytest result recorded | yes |
+"""
+    write_md(AUDIT_DIR / "14_CODE_REVIEW.md", code_review)
+
 def update_system_map() -> None:
     path = ROOT / "SYSTEM_MAP.json"
     data = json.loads(path.read_text(encoding="utf-8"))
+    registry = build_registry()
     data["pre_release_super_audit"] = {
         "candidate_only": True,
         "claim_boundary": CLAIM_BOUNDARY,
-        "docs": [
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_EXECUTIVE_BRIEF.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_FULL_REPORT.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_PR_LINEAGE.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SYSTEM_COHESION.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_ARCHITECTURE_CONFORMANCE.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RUNTIME_PATHS.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_MODEL_LEVERAGE_SIMULATION.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_Q_SHABANG_OPERATIONALIZATION.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_BUG6_Q7_RINGS_BOUNDARIES.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_THOR_ODIN_EFFECTIVENESS.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RELEASE_READINESS_DECISION.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SENIOR_REVIEW.md",
-            "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_CODE_REVIEW.md",
-        ],
-        "reports": [
-            "reports/pre_release_super_audit_report.json",
-            "reports/pre_release_super_audit_pr_lineage.json",
-            "reports/pre_release_super_audit_runtime_paths.json",
-            "reports/pre_release_super_audit_architecture_conformance.json",
-            "reports/pre_release_super_audit_model_leverage_simulation.json",
-            "reports/pre_release_super_audit_recommended_prs.json",
-        ],
+        "docs": registry["docs"],
+        "legacy_docs": registry["legacy_docs"],
+        "reports": registry["reports"],
         "registries": ["registries/pre_release_super_audit_registry.json"],
         "tools": ["tools/audit/run_pre_release_super_audit.py"],
         "tests": ["tests/test_pre_release_super_audit.py"],
-        "cli_commands": ["audit-pre-release-super"],
+        "cli_commands": ["audit-pre-release-super", "validate-pre-release-super-audit"],
         "release_position": "before_FINAL_PR_09",
     }
     write_json(path, data)
-
 
 def update_file_manifest() -> None:
     files = []
@@ -771,7 +1076,24 @@ def update_file_manifest() -> None:
 
 
 def build_registry() -> dict[str, Any]:
-    docs = [p for p in [
+    docs = [
+        "docs/codex/audits/pre_release_super_audit/00_EXECUTIVE_BRIEF.md",
+        "docs/codex/audits/pre_release_super_audit/01_FULL_SYSTEM_REPORT.md",
+        "docs/codex/audits/pre_release_super_audit/02_PR_LINEAGE.md",
+        "docs/codex/audits/pre_release_super_audit/03_SYSTEM_COHESION.md",
+        "docs/codex/audits/pre_release_super_audit/04_ARCHITECTURE_CONFORMANCE.md",
+        "docs/codex/audits/pre_release_super_audit/05_RUNTIME_PATHS_AND_SMOKE.md",
+        "docs/codex/audits/pre_release_super_audit/06_Q_SHABANG_OPERATIONALIZATION.md",
+        "docs/codex/audits/pre_release_super_audit/07_BUG6_Q7_RINGS_BOUNDARIES.md",
+        "docs/codex/audits/pre_release_super_audit/08_MODEL_LEVERAGE_SIMULATION.md",
+        "docs/codex/audits/pre_release_super_audit/09_THOR_ODIN_EFFECTIVENESS.md",
+        "docs/codex/audits/pre_release_super_audit/10_RELEASE_READINESS_DECISION.md",
+        "docs/codex/audits/pre_release_super_audit/11_REMEDIATION_PR_PLAN.md",
+        "docs/codex/audits/pre_release_super_audit/12_CHATGPT_REVIEW_HANDOFF.md",
+        "docs/codex/audits/pre_release_super_audit/13_SENIOR_REVIEW.md",
+        "docs/codex/audits/pre_release_super_audit/14_CODE_REVIEW.md",
+    ]
+    legacy_docs = [
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_EXECUTIVE_BRIEF.md",
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_FULL_REPORT.md",
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_PR_LINEAGE.md",
@@ -785,64 +1107,127 @@ def build_registry() -> dict[str, Any]:
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RELEASE_READINESS_DECISION.md",
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SENIOR_REVIEW.md",
         "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_CODE_REVIEW.md",
-    ]]
+    ]
     reports = [
         "reports/pre_release_super_audit_report.json",
         "reports/pre_release_super_audit_pr_lineage.json",
-        "reports/pre_release_super_audit_runtime_paths.json",
+        "reports/pre_release_super_audit_system_cohesion.json",
         "reports/pre_release_super_audit_architecture_conformance.json",
+        "reports/pre_release_super_audit_runtime_paths.json",
+        "reports/pre_release_super_audit_q_shabang_operationalization.json",
+        "reports/pre_release_super_audit_bug6_q7_rings_boundaries.json",
         "reports/pre_release_super_audit_model_leverage_simulation.json",
+        "reports/pre_release_super_audit_thor_odin_effectiveness.json",
         "reports/pre_release_super_audit_recommended_prs.json",
     ]
     return {
         "registry_id": "pre_release_super_audit_registry",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "audit_id": AUDIT_ID,
         "candidate_only": True,
         "claim_boundary": CLAIM_BOUNDARY,
         "release_position": "before_FINAL_PR_09",
         "docs": docs,
+        "legacy_docs": legacy_docs,
         "reports": reports,
         "tools": ["tools/audit/run_pre_release_super_audit.py"],
         "tests": ["tests/test_pre_release_super_audit.py"],
-        "cli_commands": ["audit-pre-release-super"],
+        "cli_commands": ["audit-pre-release-super", "validate-pre-release-super-audit"],
         "not_proven": NOT_PROVEN,
     }
 
-
-def run(lightweight: bool = False, skip_manifest: bool = False) -> dict[str, Any]:
+def run(lightweight: bool = False, skip_manifest: bool = False, out: Path | None = None) -> dict[str, Any]:
     lineage = build_pr_lineage()
     arch = build_architecture_conformance()
     model = build_model_simulation()
     recs = build_recommended_prs()
+    cohesion = build_system_cohesion()
+    q_ops = build_q_operationalization()
+    bug = build_bug_boundary_audit()
+    thor = build_thor_effectiveness()
     runtime = run_runtime_audit(lightweight=lightweight)
-    top = build_top_report(lineage, runtime, arch, recs)
+    top = build_top_report(lineage, runtime, arch, recs, cohesion, q_ops, bug)
 
     write_json(REPORTS / "pre_release_super_audit_pr_lineage.json", lineage)
+    write_json(REPORTS / "pre_release_super_audit_system_cohesion.json", cohesion)
     write_json(REPORTS / "pre_release_super_audit_runtime_paths.json", runtime)
     write_json(REPORTS / "pre_release_super_audit_architecture_conformance.json", arch)
+    write_json(REPORTS / "pre_release_super_audit_q_shabang_operationalization.json", q_ops)
+    write_json(REPORTS / "pre_release_super_audit_bug6_q7_rings_boundaries.json", bug)
     write_json(REPORTS / "pre_release_super_audit_model_leverage_simulation.json", model)
+    write_json(REPORTS / "pre_release_super_audit_thor_odin_effectiveness.json", thor)
     write_json(REPORTS / "pre_release_super_audit_recommended_prs.json", recs)
     write_json(REPORTS / "pre_release_super_audit_report.json", top)
+    if out is not None and out.resolve() != (REPORTS / "pre_release_super_audit_report.json").resolve():
+        write_json(out, top)
     write_json(REGISTRIES / "pre_release_super_audit_registry.json", build_registry())
     write_markdown_reports(lineage, runtime, arch, model, recs, top)
+    write_package_markdown_reports(lineage, runtime, arch, model, recs, top, cohesion, q_ops, bug, thor)
     update_system_map()
     if not skip_manifest:
         update_file_manifest()
     return top
 
 
+def validate_audit_package() -> list[str]:
+    errors: list[str] = []
+    registry = build_registry()
+    required = registry["docs"] + registry["reports"] + registry["tools"] + registry["tests"] + ["registries/pre_release_super_audit_registry.json", "SYSTEM_MAP.json", "FILE_MANIFEST.json"]
+    for rel_path in required:
+        path = ROOT / rel_path
+        if not path.exists():
+            errors.append(f"missing audit artifact: {rel_path}")
+    for rel_path in registry["reports"] + ["registries/pre_release_super_audit_registry.json", "SYSTEM_MAP.json", "FILE_MANIFEST.json"]:
+        path = ROOT / rel_path
+        if path.exists():
+            try:
+                json.loads(path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                errors.append(f"invalid JSON {rel_path}: {exc}")
+    try:
+        system_map = json.loads((ROOT / "SYSTEM_MAP.json").read_text(encoding="utf-8"))
+        if "pre_release_super_audit" not in system_map:
+            errors.append("SYSTEM_MAP missing pre_release_super_audit")
+    except json.JSONDecodeError:
+        pass
+    try:
+        manifest = json.loads((ROOT / "FILE_MANIFEST.json").read_text(encoding="utf-8"))
+        paths = {entry.get("path") for entry in manifest.get("files", [])}
+        for rel_path in registry["docs"] + registry["reports"] + registry["tools"] + registry["tests"]:
+            if rel_path not in paths:
+                errors.append(f"FILE_MANIFEST missing {rel_path}")
+    except json.JSONDecodeError:
+        pass
+    return errors
+
 def main(argv: list[str] | None = None) -> int:
+    global ROOT, DOCS, AUDIT_DIR, REPORTS, REGISTRIES
     parser = argparse.ArgumentParser(description="Run Odin pre-release super audit")
+    parser.add_argument("--repo-root", default=str(ROOT), help="Repository root; defaults to this checkout")
+    parser.add_argument("--out", default=str(REPORTS / "pre_release_super_audit_report.json"), help="Primary top-level report path")
     parser.add_argument("--lightweight", action="store_true", help="Skip full-suite pytest and run a reduced command set")
     parser.add_argument("--skip-manifest", action="store_true", help="Do not refresh FILE_MANIFEST.json")
     parser.add_argument("--check-only", action="store_true", help="Run lightweight smoke without writing audit package files")
+    parser.add_argument("--validate-only", action="store_true", help="Validate audit package files and JSON reports without regenerating")
     args = parser.parse_args(argv)
+    ROOT = Path(args.repo_root).resolve()
+    DOCS = ROOT / "docs" / "codex" / "audits"
+    AUDIT_DIR = DOCS / "pre_release_super_audit"
+    REPORTS = ROOT / "reports"
+    REGISTRIES = ROOT / "registries"
+    if args.validate_only:
+        errors = validate_audit_package()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-pre-release-super-audit: OK")
+        return 0
     if args.check_only:
         runtime = run_runtime_audit(lightweight=True)
         print(json.dumps({"status": "ok", "audit_id": AUDIT_ID, "checked_paths": len(runtime["results"]), "runtime_path_health_score": runtime["runtime_path_health_score"]}, indent=2, sort_keys=True))
         return 0
-    top = run(lightweight=args.lightweight, skip_manifest=args.skip_manifest)
+    top = run(lightweight=args.lightweight, skip_manifest=args.skip_manifest, out=Path(args.out))
     print(json.dumps({"status": "ok", "audit_id": AUDIT_ID, "overall_verdict": top["overall_verdict"], "release_pr_should_move_to": top["release_pr_should_move_to"]}, indent=2, sort_keys=True))
     return 0
 

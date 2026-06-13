@@ -1475,9 +1475,27 @@
     "candidate_only": true,
     "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
     "cli_commands": [
-      "audit-pre-release-super"
+      "audit-pre-release-super",
+      "validate-pre-release-super-audit"
     ],
     "docs": [
+      "docs/codex/audits/pre_release_super_audit/00_EXECUTIVE_BRIEF.md",
+      "docs/codex/audits/pre_release_super_audit/01_FULL_SYSTEM_REPORT.md",
+      "docs/codex/audits/pre_release_super_audit/02_PR_LINEAGE.md",
+      "docs/codex/audits/pre_release_super_audit/03_SYSTEM_COHESION.md",
+      "docs/codex/audits/pre_release_super_audit/04_ARCHITECTURE_CONFORMANCE.md",
+      "docs/codex/audits/pre_release_super_audit/05_RUNTIME_PATHS_AND_SMOKE.md",
+      "docs/codex/audits/pre_release_super_audit/06_Q_SHABANG_OPERATIONALIZATION.md",
+      "docs/codex/audits/pre_release_super_audit/07_BUG6_Q7_RINGS_BOUNDARIES.md",
+      "docs/codex/audits/pre_release_super_audit/08_MODEL_LEVERAGE_SIMULATION.md",
+      "docs/codex/audits/pre_release_super_audit/09_THOR_ODIN_EFFECTIVENESS.md",
+      "docs/codex/audits/pre_release_super_audit/10_RELEASE_READINESS_DECISION.md",
+      "docs/codex/audits/pre_release_super_audit/11_REMEDIATION_PR_PLAN.md",
+      "docs/codex/audits/pre_release_super_audit/12_CHATGPT_REVIEW_HANDOFF.md",
+      "docs/codex/audits/pre_release_super_audit/13_SENIOR_REVIEW.md",
+      "docs/codex/audits/pre_release_super_audit/14_CODE_REVIEW.md"
+    ],
+    "legacy_docs": [
       "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_EXECUTIVE_BRIEF.md",
       "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_FULL_REPORT.md",
       "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_PR_LINEAGE.md",
@@ -1499,9 +1517,13 @@
     "reports": [
       "reports/pre_release_super_audit_report.json",
       "reports/pre_release_super_audit_pr_lineage.json",
-      "reports/pre_release_super_audit_runtime_paths.json",
+      "reports/pre_release_super_audit_system_cohesion.json",
       "reports/pre_release_super_audit_architecture_conformance.json",
+      "reports/pre_release_super_audit_runtime_paths.json",
+      "reports/pre_release_super_audit_q_shabang_operationalization.json",
+      "reports/pre_release_super_audit_bug6_q7_rings_boundaries.json",
       "reports/pre_release_super_audit_model_leverage_simulation.json",
+      "reports/pre_release_super_audit_thor_odin_effectiveness.json",
       "reports/pre_release_super_audit_recommended_prs.json"
     ],
     "tests": [

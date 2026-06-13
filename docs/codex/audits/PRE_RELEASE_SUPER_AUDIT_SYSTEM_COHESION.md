@@ -9,14 +9,16 @@
 
 ```json
 {
-  "system_cohesion_score": 0.78,
-  "routing_continuity": 0.82,
-  "proof_continuity": 0.76,
-  "hub_surface_continuity": 0.72,
-  "validator_continuity": 0.86,
-  "registry_continuity": 0.8,
-  "claim_boundary_integrity": 0.9,
-  "release_readiness": 0.68
+  "overall_harmony_score": 0.79,
+  "routing_continuity": 0.84,
+  "candidate_lifecycle_continuity": 0.86,
+  "proof_continuity": 0.77,
+  "registry_schema_continuity": 0.82,
+  "hub_surface_continuity": 0.74,
+  "cli_discoverability": 0.74,
+  "validator_coverage": 0.88,
+  "claim_boundary_integrity": 0.91,
+  "release_readiness": 0.69
 }
 ```
 

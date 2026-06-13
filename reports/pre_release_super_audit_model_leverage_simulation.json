@@ -2,562 +2,24 @@
   "audit_id": "pre_release_super_audit",
   "candidate_only": true,
   "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-  "hypothesized": [
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "repo cognition / file triage",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "prompt-to-work packet compilation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "code-change scoping",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "review/audit",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "medium",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "proof/receipt binding",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "local hub support",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "provider readiness interpretation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "execution gate reasoning",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "QIRC event interpretation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "medium",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "seed \u2192 field \u2192 projection chain",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "release closure planning",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "error triage / debugging",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    }
-  ],
-  "measured": [],
-  "model_leverage_mode": "structured_simulation",
+  "hypothesized": true,
+  "measured": false,
+  "model_leverage_mode": "structured_simulation_not_empirical_benchmark",
   "not_proven": [
     "production_readiness",
     "security_certification",
     "real_model_benchmark",
     "external_runtime_guarantee"
   ],
-  "simulated": [
+  "scenarios": [
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
+      "confidence": "medium",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
         "registries/model_scale_ladder.json",
@@ -565,7 +27,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -574,18 +36,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -594,14 +56,15 @@
         "claim boundaries"
       ],
       "scenario": "repo cognition / file triage",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -610,7 +73,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -619,18 +82,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -639,14 +102,15 @@
         "claim boundaries"
       ],
       "scenario": "prompt-to-work packet compilation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -655,7 +119,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -664,18 +128,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -684,14 +148,15 @@
         "claim boundaries"
       ],
       "scenario": "code-change scoping",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -700,7 +165,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -709,18 +174,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -729,14 +194,15 @@
         "claim boundaries"
       ],
       "scenario": "review/audit",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "medium",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -745,7 +211,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -754,18 +220,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -774,14 +240,15 @@
         "claim boundaries"
       ],
       "scenario": "proof/receipt binding",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -790,7 +257,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -799,18 +266,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -819,14 +286,15 @@
         "claim boundaries"
       ],
       "scenario": "local hub support",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -835,7 +303,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -844,18 +312,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -864,104 +332,15 @@
         "claim boundaries"
       ],
       "scenario": "provider readiness interpretation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "execution gate reasoning",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
-      "confidence": "low",
-      "evidence": [
-        "docs/MASTER_ARCHITECTURE_V7_1.md",
-        "registries/model_scale_ladder.json",
-        "odin/operational_seed_spine/selector.py",
-        "odin/field_selection_spine/selector.py",
-        "odin/projection_candidate_spine/projection_set.py"
-      ],
-      "expected_gain_source": [
-        "reduced_context_entropy",
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
-      "not_proven": [
-        "empirical benchmark",
-        "live model inference",
-        "provider quality"
-      ],
-      "odin_structures_used": [
-        "bounded work packets",
-        "validators",
-        "proof packets",
-        "materialization ladder",
-        "seed/field/projection structure",
-        "claim boundaries"
-      ],
-      "scenario": "QIRC event interpretation",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
-    },
-    {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "medium",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -970,7 +349,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -979,18 +358,110 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
+        "bounded work packets",
+        "validators",
+        "proof packets",
+        "materialization ladder",
+        "seed/field/projection structure",
+        "claim boundaries"
+      ],
+      "scenario": "execution gate reasoning",
+      "simulated": true
+    },
+    {
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
+      "confidence": "low",
+      "evidence": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "registries/model_scale_ladder.json",
+        "odin/operational_seed_spine/selector.py",
+        "odin/field_selection_spine/selector.py",
+        "odin/projection_candidate_spine/projection_set.py"
+      ],
+      "expected_gain_sources": [
+        "reduced_context_entropy",
+        "bounded work packets",
+        "validators",
+        "proof packets",
+        "materialization ladder",
+        "seed/field/projection structure",
+        "claim boundaries"
+      ],
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
+      "not_proven": [
+        "empirical benchmark",
+        "live model inference",
+        "provider quality",
+        "model superiority"
+      ],
+      "odin_structures_used": [
+        "handoff",
+        "bounded work packets",
+        "validators",
+        "proof packets",
+        "materialization ladder",
+        "seed/field/projection structure",
+        "claim boundaries"
+      ],
+      "scenario": "QIRC event interpretation",
+      "simulated": true
+    },
+    {
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
+      "confidence": "medium",
+      "evidence": [
+        "docs/MASTER_ARCHITECTURE_V7_1.md",
+        "registries/model_scale_ladder.json",
+        "odin/operational_seed_spine/selector.py",
+        "odin/field_selection_spine/selector.py",
+        "odin/projection_candidate_spine/projection_set.py"
+      ],
+      "expected_gain_sources": [
+        "reduced_context_entropy",
+        "bounded work packets",
+        "validators",
+        "proof packets",
+        "materialization ladder",
+        "seed/field/projection structure",
+        "claim boundaries"
+      ],
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
+      "not_proven": [
+        "empirical benchmark",
+        "live model inference",
+        "provider quality",
+        "model superiority"
+      ],
+      "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -999,14 +470,15 @@
         "claim boundaries"
       ],
       "scenario": "seed \u2192 field \u2192 projection chain",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -1015,7 +487,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -1024,18 +496,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -1044,14 +516,15 @@
         "claim boundaries"
       ],
       "scenario": "release closure planning",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     },
     {
-      "3b_with_odin_estimated_equivalent": "hypothesis: could handle narrow checklist/routing work that would otherwise need a larger unstructured prompt",
-      "7b_plus_3b_with_odin_estimated_equivalent": "hypothesis: strongest local route for split triage + review when validators and proof packets define acceptance",
-      "7b_with_odin_estimated_equivalent": "hypothesis: could behave like a materially larger model on this structured task because repo context entropy is reduced",
+      "13b_without_odin_baseline": "More capacity but weaker deterministic contract enforcement if prompts lack Odin structure.",
+      "3b_alone_baseline": "Likely limited to narrow extraction or checklist tasks without strong repo structure.",
+      "3b_with_odin_estimated_equivalent": "Hypothesis: materially stronger on bounded checklist/routing tasks because Odin supplies task decomposition and validators.",
+      "7b_alone_baseline": "Likely useful for local reasoning but more prone to context drift without proof/claim boundaries.",
+      "7b_plus_3b_with_odin_estimated_equivalent": "Hypothesis: strongest local small-model pattern for split triage plus verification when proof packets define acceptance.",
+      "7b_with_odin_estimated_equivalent": "Hypothesis: could behave like a larger unstructured model on this repo task because context entropy is reduced.",
       "confidence": "low",
       "evidence": [
         "docs/MASTER_ARCHITECTURE_V7_1.md",
@@ -1060,7 +533,7 @@
         "odin/field_selection_spine/selector.py",
         "odin/projection_candidate_spine/projection_set.py"
       ],
-      "expected_gain_source": [
+      "expected_gain_sources": [
         "reduced_context_entropy",
         "bounded work packets",
         "validators",
@@ -1069,18 +542,18 @@
         "seed/field/projection structure",
         "claim boundaries"
       ],
-      "hypothesized": [
-        "model leverage gains from lower entropy and deterministic gates"
-      ],
-      "larger_model_without_odin_baseline": "baseline risk: more context capacity but weaker contract enforcement if prompts lack Odin structure",
-      "measured": [],
-      "measurement_status": "hypothesized_structural_simulation_not_empirical_benchmark",
+      "hypothesized": true,
+      "larger_model_with_odin_like_structure": "Expected to benefit from the same bounded packets, evidence links, and validators; this audit does not rank models empirically.",
+      "larger_model_without_odin_baseline": "More context and reasoning capacity, but still can overclaim or miss repo-specific boundaries without validators.",
+      "measured": false,
       "not_proven": [
         "empirical benchmark",
         "live model inference",
-        "provider quality"
+        "provider quality",
+        "model superiority"
       ],
       "odin_structures_used": [
+        "handoff",
         "bounded work packets",
         "validators",
         "proof packets",
@@ -1089,9 +562,8 @@
         "claim boundaries"
       ],
       "scenario": "error triage / debugging",
-      "simulated": [
-        "structured repo-evidence simulation only"
-      ]
+      "simulated": true
     }
-  ]
+  ],
+  "simulated": true
 }

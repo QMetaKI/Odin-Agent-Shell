@@ -1,8 +1,76 @@
 {
   "audit_id": "pre_release_super_audit",
-  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "base_commit": "8dcb7594e9302fc9c25a828ab9fbf7eccfa5d5c4",
   "candidate_only": true,
   "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
+  "discovered_validate_commands": [
+    "validate-agent-operator-mode",
+    "validate-ai-git-safety",
+    "validate-all",
+    "validate-app-seed-pack-compiler",
+    "validate-b1-app-boundary-universal-work-qirc-spine",
+    "validate-b2-context-lenses-worklets",
+    "validate-b3-modelworkpacket-scale-hybrid",
+    "validate-b4-minicheck-critics-final-gate",
+    "validate-b5-storage-trace-receipt-provider-bridge",
+    "validate-b6-acceptance-dojo-scoreboard-closure",
+    "validate-b7-closure-thor-provider-eval",
+    "validate-b8-security-review-track",
+    "validate-browser-hub-shell",
+    "validate-bug6-q7-seed-core",
+    "validate-candidate-store-viewer",
+    "validate-canon-boundary-integrity",
+    "validate-claims",
+    "validate-codex-bundles",
+    "validate-codex-tasks",
+    "validate-consolidated-proof-governance",
+    "validate-current-public-canon",
+    "validate-direct-runtime-release-candidate",
+    "validate-docs",
+    "validate-field-selection-spine",
+    "validate-final-pr-02-model-apps-demo",
+    "validate-final-pr-03-qirc-devmode",
+    "validate-final-pr-04-provider-probe-security",
+    "validate-final-pr-05-execution-gate",
+    "validate-final-road-to-100-rebaseline-audit",
+    "validate-full-acceptance",
+    "validate-generic-app-bridge-golden-harness",
+    "validate-hub-runtime-dashboard",
+    "validate-json",
+    "validate-local-config-safe-settings",
+    "validate-local-runtime-starter",
+    "validate-localhost-api-sdk-bridge",
+    "validate-narrative-compiler",
+    "validate-neutral-external-app-bridge",
+    "validate-odin-core-qli",
+    "validate-operational-seed-spine",
+    "validate-portable-package",
+    "validate-pre-llm-intelligence",
+    "validate-pre-release-super-audit",
+    "validate-prep-final-pr-06-08",
+    "validate-product-pattern-atom-hub",
+    "validate-projection-candidate-spine",
+    "validate-provider-worker-boundary",
+    "validate-provider-worker-inspector",
+    "validate-public-repo-windows-build-ready",
+    "validate-qirc-gold-spine",
+    "validate-real-pr-execution",
+    "validate-registries",
+    "validate-runtime-bus-worklets",
+    "validate-runtime-doctor-bootstrap",
+    "validate-runtime-source-candidate",
+    "validate-senior-review",
+    "validate-shadow-narrative-loki",
+    "validate-shadow-runtime",
+    "validate-simple-local-hub",
+    "validate-system-map",
+    "validate-trace-viewer",
+    "validate-universal-llm-work-construct",
+    "validate-universal-model-agent-parity",
+    "validate-universal-work-playground",
+    "validate-windows-convenience-layer",
+    "validate-y-pattern-spine"
+  ],
   "final_command_receipts": [
     {
       "command": "python -m odin.cli audit-pre-release-super",
@@ -10,33 +78,8 @@
       "status": "pass"
     },
     {
-      "command": "python -m odin.cli validate-projection-candidate-spine",
-      "result": "validate-projection-candidate-spine: OK",
-      "status": "pass"
-    },
-    {
-      "command": "python -m odin.cli validate-field-selection-spine",
-      "result": "validate-field-selection-spine: OK",
-      "status": "pass"
-    },
-    {
-      "command": "python -m odin.cli validate-operational-seed-spine",
-      "result": "validate-operational-seed-spine: OK",
-      "status": "pass"
-    },
-    {
-      "command": "python -m odin.cli validate-y-pattern-spine",
-      "result": "validate-y-pattern-spine: OK",
-      "status": "pass"
-    },
-    {
-      "command": "python -m odin.cli validate-prep-final-pr-06-08",
-      "result": "validate-prep-final-pr-06-08: OK",
-      "status": "pass"
-    },
-    {
-      "command": "python -m odin.cli validate-final-pr-05-execution-gate",
-      "result": "validate-final-pr-05-execution-gate: OK",
+      "command": "python -m odin.cli validate-pre-release-super-audit",
+      "result": "validate-pre-release-super-audit: OK",
       "status": "pass"
     },
     {
@@ -46,38 +89,16 @@
     },
     {
       "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q tests/test_pre_release_super_audit.py -p no:cacheprovider",
-      "result": "20 passed in 8.22s and 20 passed in 6.95s after report receipt update",
+      "result": "25 passed in 10.96s; 25 passed in 10.73s; 25 passed in 10.98s after cleanup",
       "status": "pass"
     },
     {
       "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --tb=no",
-      "result": "2375 passed, 2 skipped in 435.33s (0:07:15)",
+      "result": "2380 passed, 2 skipped in 315.22s (0:05:15)",
       "status": "pass"
     }
   ],
-  "lightweight": false,
-  "manual_preflight_receipts": [
-    {
-      "command": "git status --short",
-      "result": "empty output before audit edits",
-      "status": "pass"
-    },
-    {
-      "command": "git log --oneline -60",
-      "result": "recorded in reports/pre_release_super_audit_pr_lineage.json git_log_oneline_60",
-      "status": "pass"
-    },
-    {
-      "command": "python -m pip install -e .",
-      "result": "Successfully installed odin-agent-shell-0.5.1",
-      "status": "pass"
-    },
-    {
-      "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --tb=no",
-      "result": "2355 passed, 2 skipped in 429.76s before audit edits",
-      "status": "pass"
-    }
-  ],
+  "lightweight": true,
   "not_proven": [
     "production_readiness",
     "security_certification",
@@ -88,7 +109,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-projection-candidate-spine",
-      "duration_sec": 0.278,
+      "duration_sec": 0.189,
       "kind": "cli",
       "notes": "local deterministic subprocess; no provider/model execution requested",
       "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_projection_candida",
@@ -100,7 +121,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-field-selection-spine",
-      "duration_sec": 0.271,
+      "duration_sec": 0.196,
       "kind": "cli",
       "notes": "local deterministic subprocess; no provider/model execution requested",
       "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_field_selection_sp",
@@ -112,7 +133,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-operational-seed-spine",
-      "duration_sec": 0.274,
+      "duration_sec": 0.192,
       "kind": "cli",
       "notes": "local deterministic subprocess; no provider/model execution requested",
       "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_operational_seed_s",
@@ -123,44 +144,8 @@
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-prep-final-pr-06-08",
-      "duration_sec": 0.265,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_prep_final_pr_06_0",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "check_prep_final_pr_06_08: OK\nvalidate-prep-final-pr-06-08: OK"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-y-pattern-spine",
-      "duration_sec": 0.252,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_y_pattern_spine",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"candidate_only\": true,\n  \"claim_boundary\": \"y_pattern_spine_validator_candidate_only_no_provider_no_app_apply\",\n  \"error_count\": 0,\n  \"errors\": [],\n  \"generated_at_utc\": \"2026-01-01T00:00:00Z\",\n  \"repo_root\": \"/workspace/Odin-Agent-Shell\",\n  \"report_id\": \"odin.y_pattern_spine_check\",\n  \"status\": \"ok\"\n}\nvalidate-y-pattern-spine: OK"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-final-pr-05-execution-gate",
-      "duration_sec": 0.257,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_final_pr_05_execut",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "validate-final-pr-05-execution-gate: OK"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli validate-all",
-      "duration_sec": 3.033,
+      "duration_sec": 2.27,
       "kind": "cli",
       "notes": "local deterministic subprocess; no provider/model execution requested",
       "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_validate_all",
@@ -172,7 +157,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli explain-projection-candidate --demo",
-      "duration_sec": 0.307,
+      "duration_sec": 0.213,
       "kind": "cli",
       "notes": "local deterministic subprocess; no provider/model execution requested",
       "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_explain_projection_candidat",
@@ -183,116 +168,19 @@
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli prove-projection-candidate-spine",
-      "duration_sec": 0.246,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_prove_projection_candidate_",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"app_owned_apply\": true,\n  \"artifact_kind\": \"odin_projection_candidate_spine_proof_packet\",\n  \"candidate_only\": true,\n  \"claim_boundary\": \"projection_candidate_spine_prepares_candidates_not_runtime_execution\",\n  \"not_proven\": [\n    \"hidden_runtime\",\n    \"model_inference\",\n    \"provider_execution\",\n    \"app_apply\",\n    \"app_state_mutation\",\n    \"external_send\",\n    \"generated_code_correctness\",\n    \"production_readiness\",\n    \"security_certification\"\n  ],\n  \"proven\": [\n    \"materialization_levels_defined\",\n    \"projection_set_candidate_only\",\n    \"candidate_graph_structured\",\n    \"expression_packet_near_code_not_executed\",\n    \"receipt_link_traceable\"\n  ]\n}"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli explain-field-selection --demo",
-      "duration_sec": 0.249,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_explain_field_selection___d",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"app_owned_apply\": true,\n  \"candidate_only\": true,\n  \"claim_boundary\": \"field_selection_scores_routes_not_truth\",\n  \"coherence_score\": {\n    \"axis_scores\": {\n      \"app_authority\": 0.9,\n      \"candidate_integrity\": 0.9,\n      \"claim_boundary\": 0.9,\n      \"evidence\": 1.0,\n      \"locality\": 0.9,\n      \"release_readiness\": 0.85,\n      \"repo_reality\": 0.9,\n      \"runtime_truth\": 0.5,\n      \"scope\": 0.5,\n      \"token_efficiency\": 0.5\n    },\n    \"evidence_requirement_met\": true,\n    \"hole_density\": 0.0,\n    \"overall_score\": 0.785,\n    \"route_confidence\": 0.785\n  },\n  \"dominant_field\": {\n    \"confidence\": 0.785,\n    \"field_id\": \"repo_reality_alignment\",\n    \"review_axes_applied\": [\n      \"scope\",\n      \"claim_boundary\",\n      \"repo_reality\",\n      \"runtime_truth\",\n      \"locality\",\n      \"candidate_integrity\",\n      \"evidence\",\n      \"token_efficiency\",\n      \"app_authority\",\n      \"release_readiness\"\n    ],\n    \"why_trace_id\": \"field_trace_042265074a6034d5abc090c4\"\n  },\n  \"review_axes_applied\": [\n    \"scope\",\n    \"claim_boundary\",\n    \"repo_reality\",\n    \"runtime_truth\",\n    \"locality\",\n    \"candidate_integrity\",\n    \"evidence\",\n    \"token_efficiency\",\n    \"app_authority\",\n    \"release_readiness\"\n  ],\n  \"route_recommendation\": \"route_hint:repo_reality_alignment\",\n  \"suppressed_fields\": [\n    {\n      \"field_id\": \"scope_control\",\n      \"suppression_reason\": \"lower_priority_candidat"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli prove-field-selection-spine",
-      "duration_sec": 0.265,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_prove_field_selection_spine",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"app_owned_apply\": true,\n  \"artifact_kind\": \"odin_field_selection_spine_proof_packet\",\n  \"candidate_only\": true,\n  \"claim_boundary\": \"field_selection_scores_routes_not_truth\",\n  \"not_proven\": [\n    \"autonomous_decision_authority\",\n    \"final_truth_claim\",\n    \"model_inference\",\n    \"provider_execution\",\n    \"app_apply\",\n    \"app_state_mutation\",\n    \"external_send\",\n    \"production_readiness\",\n    \"security_certification\"\n  ],\n  \"proven\": [\n    \"review_axes_defined\",\n    \"coherence_scorer_deterministic\",\n    \"field_selection_candidate_only\",\n    \"why_trace_recorded\"\n  ]\n}"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli explain-seed-route --demo",
-      "duration_sec": 0.255,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_explain_seed_route___demo",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"candidate_only\": true,\n  \"claim_boundary\": \"operational_seed_spine_routes_work_not_authority\",\n  \"fallback_used\": false,\n  \"matched_trigger_shapes\": [\n    \"repo\"\n  ],\n  \"seed_route\": {\n    \"candidate_only\": true,\n    \"claim_boundary\": \"operational_seed_spine_routes_work_not_authority\",\n    \"fallback_used\": false,\n    \"matched_trigger_shapes\": [\n      \"repo\"\n    ],\n    \"missing_input_requirements\": [\n      \"repo_context\"\n    ],\n    \"selected_role_profile_id\": \"router\",\n    \"selected_seed_id\": \"repo_cognition\",\n    \"selection_priority\": \"exact_trigger_shape\"\n  },\n  \"selected_role_profile_id\": \"router\",\n  \"selected_seed_id\": \"repo_cognition\",\n  \"selection_priority\": \"exact_trigger_shape\",\n  \"work_capsule\": {\n    \"app_owned_apply\": true,\n    \"candidate_only\": true,\n    \"capsule_id\": \"seed_capsule_8325fa08c888e118\",\n    \"claim_boundary\": \"operational_seed_spine_routes_work_not_authority\",\n    \"input_requirements\": [\n      \"repo_context\"\n    ],\n    \"not_proven\": [\n      \"autonomous_reasoning\",\n      \"model_inference\",\n      \"provider_execution\",\n      \"app_apply\",\n      \"app_state_mutation\",\n      \"external_send\",\n      \"production_readiness\",\n      \"security_certification\"\n    ],\n    \"output_shape\": \"repo_cognition_summary\",\n    \"preferred_surfaces\": [\n      \"handoff\",\n      \"dev_mode\"\n    ],\n    \"proof_boundary\": \"operational_seed_spine_routes_work_not_authority\",\n    \"qirc_hi"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli prove-operational-seed-spine",
-      "duration_sec": 0.246,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_prove_operational_seed_spin",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"app_owned_apply\": true,\n  \"artifact_kind\": \"odin_operational_seed_spine_proof_packet\",\n  \"candidate_only\": true,\n  \"claim_boundary\": \"operational_seed_spine_routes_work_not_authority\",\n  \"not_proven\": [\n    \"autonomous_reasoning\",\n    \"model_inference\",\n    \"provider_execution\",\n    \"app_apply\",\n    \"app_state_mutation\",\n    \"external_send\",\n    \"production_readiness\",\n    \"security_certification\",\n    \"live_model_inference\",\n    \"external_send_authority\"\n  ],\n  \"proven\": [\n    \"seed_packs_defined\",\n    \"role_profiles_defined\",\n    \"selector_deterministic\",\n    \"work_capsule_compiled\",\n    \"qirc_hints_are_hint_only\",\n    \"token_budget_per_seed\",\n    \"capsule_ids_deterministic\",\n    \"candidate_only_preserved\",\n    \"app_owned_apply_preserved\"\n  ]\n}"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli doctor",
-      "duration_sec": 0.269,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_doctor",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_doctor_report\",\n  \"candidate_only\": true,\n  \"checks\": [\n    {\n      \"check\": \"python_version\",\n      \"detail\": \"3.12.13\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"package_imports\",\n      \"detail\": \"checked 6 packages\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"runtime_dir\",\n      \"detail\": \"/workspace/Odin-Agent-Shell/.odin_runtime\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"lockfile\",\n      \"detail\": \"no lockfile \u2014 runtime not running\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"config_file\",\n      \"detail\": \"host=127.0.0.1\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"host_safety\",\n      \"detail\": \"127.0.0.1\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"port_availability\",\n      \"detail\": \"127.0.0.1:8877 available\",\n      \"status\": \"ok\"\n    },\n    {\n      \"check\": \"local_api_health\",\n      \"detail\": \"127.0.0.1:8877\",\n      \"failure_reason\": \"local API not reachable \u2014 runtime may not be running\",\n      \"status\": \"skip\"\n    }\n  ],\n  \"claim_boundary\": \"doctor_report_read_only_candidate_not_production_readiness_proof\",\n  \"failure_count\": 0,\n  \"failure_reasons\": [],\n  \"host\": \"127.0.0.1\",\n  \"known_non_proofs\": [\n    \"not_production_readiness_certification\",\n    \"not_windows_service_tray_installer_proof\",\n    \"not_provider_live_model_proof\",\n    \"not_public_network_api_proof\",\n    \"not_app_state_mutation_proof\","
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli provider-status",
-      "duration_sec": 0.236,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_provider_status",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"api_key_reads\": false,\n  \"artifact_kind\": \"odin_provider_status_packet\",\n  \"candidate_only\": true,\n  \"claim_boundary\": \"provider_probe_candidate_only_no_model_execution_no_api_key_no_external_network\",\n  \"external_network\": false,\n  \"local_only\": true,\n  \"model_inference\": false,\n  \"provider_execution\": false,\n  \"providers\": [\n    {\n      \"binary_found\": null,\n      \"candidate_only\": true,\n      \"claim_boundary\": \"provider_probe_candidate_only_no_model_execution_no_api_key_no_external_network\",\n      \"execution_allowed\": false,\n      \"local_only\": true,\n      \"model_inference\": false,\n      \"probe_allowed\": true,\n      \"provider_execution\": false,\n      \"provider_id\": \"none\",\n      \"remote\": false,\n      \"requires_api_key\": false,\n      \"status\": \"available\",\n      \"version_checked\": false\n    },\n    {\n      \"binary_found\": null,\n      \"candidate_only\": true,\n      \"claim_boundary\": \"provider_probe_candidate_only_no_model_execution_no_api_key_no_external_network\",\n      \"execution_allowed\": false,\n      \"local_only\": true,\n      \"model_inference\": false,\n      \"probe_allowed\": true,\n      \"provider_execution\": false,\n      \"provider_id\": \"mock\",\n      \"remote\": false,\n      \"requires_api_key\": false,\n      \"status\": \"available\",\n      \"version_checked\": false\n    },\n    {\n      \"binary_found\": false,\n      \"candidate_only\": true,\n      \"claim_boundary\": \"provider_probe_can"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m odin.cli runtime-security-smoke",
-      "duration_sec": 0.258,
-      "kind": "cli",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_odin_cli_runtime_security_smoke",
-      "returncode": 0,
-      "status": "pass",
-      "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"api_key_reads\": false,\n  \"artifact_kind\": \"odin_runtime_security_smoke_result\",\n  \"candidate_only\": true,\n  \"claim_boundary\": \"runtime_security_smoke_not_security_certification\",\n  \"external_network\": false,\n  \"forbidden_findings\": [],\n  \"local_only\": true,\n  \"model_inference_default\": false,\n  \"provider_execution_default\": false,\n  \"public_bind\": false,\n  \"status\": \"ok\"\n}"
-    },
-    {
-      "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
-      "command_or_endpoint": "/root/.pyenv/versions/3.12.13/bin/python -m pytest -q -p no:cacheprovider --tb=no",
-      "duration_sec": 435.074,
+      "command_or_endpoint": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --tb=no",
+      "duration_sec": 0.0,
       "kind": "pytest",
-      "notes": "local deterministic subprocess; no provider/model execution requested",
-      "path_id": "cmd_/root/_pyenv/versions/3_12_13/bin/python__m_pytest__q__p_no:cacheprovider___tb=n",
-      "returncode": 0,
-      "status": "pass",
+      "notes": "lightweight mode skips full test suite by design",
+      "path_id": "pytest_full_skipped_lightweight",
+      "status": "skipped",
       "stderr_excerpt": "",
-      "stdout_excerpt": "........................................................................ [  3%]\n........................................................................ [  6%]\n........................................................................ [  9%]\n........................................................................ [ 12%]\n........................................................................ [ 15%]\n........................................................................ [ 18%]\n........................................................................ [ 21%]\n........................................................................ [ 24%]\n........................................................................ [ 27%]\n........................................................................ [ 30%]\n........................................................................ [ 33%]\n........................................................................ [ 36%]\n........................................................................ [ 39%]\n........................................................................ [ 42%]\n........................................................................ [ 45%]\n........................................................................ [ 48%]\n..................................ss.................................... [ 51%]\n........................................"
+      "stdout_excerpt": "Skipped in lightweight audit mode; run without --lightweight for full smoke."
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /healthz",
-      "duration_sec": 0.006,
+      "duration_sec": 0.005,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_healthz",
@@ -303,7 +191,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /status.json",
-      "duration_sec": 0.002,
+      "duration_sec": 0.001,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_status_json",
@@ -314,7 +202,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /",
-      "duration_sec": 0.002,
+      "duration_sec": 0.001,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_",
@@ -325,24 +213,24 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /demo/universal-work.json",
-      "duration_sec": 0.006,
+      "duration_sec": 0.004,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_demo_universal-work_json",
       "status": "pass",
       "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_demo_universal_work_info\",\n  \"candidate_only\": true,\n  \"description\": \"POST to /demo/universal-work with {\\\"input\\\": \\\"your text\\\"} to receive a deterministic candidate response packet. No model is called. No provider is executed. No app apply.\",\n  \"flow\": [\n    \"raw input\",\n    \"handoff context\",\n    \"universal work packet\",\n    \"candidate artifact\",\n    \"response packet\"\n  ],\n  \"demo_response_preview\": {\n    \"artifact_kind\": \"odin_demo_universal_work_response_packet\",\n    \"candidate_only\": true,\n    \"local_only\": true,\n    \"model_execution\": false,\n    \"model_inference\": false,\n    \"provider_execution\": false,\n    \"app_apply\": false,\n    \"external_send\": false,\n    \"input\": \"example demo input\",\n    \"handoff_context\": {\n      \"profile\": \"generic\",\n      \"intent\": \"demo_universal_work\",\n      \"forbidden_actions\": [\n        \"provider_execution\",\n        \"model_inference\",\n        \"app_apply\",\n        \"external_send\"\n      ]\n    },\n    \"universal_work\": {\n      \"work_id\": \"demo-uw-5a993750\",\n      \"kind\": \"demo\",\n      \"status\": \"compiled\"\n    },\n    \"candidate_artifact\": {\n      \"artifact_kind\": \"demo_candidate\",\n      \"summary\": \"This is a deterministic demo candidate. No model was invoked. Odin compiled the work packet and returned this candidate for the app to review and optionally apply.\"\n    },\n    \"response_packet\": {\n      \"status\": \"ok_with_kn"
+      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_demo_universal_work_info\",\n  \"candidate_only\": true,\n  \"description\": \"POST to /demo/universal-work with {\\\"input\\\": \\\"your text\\\"} to receive a deterministic candidate response packet. No model is called. No provider is executed. No app apply.\",\n  \"flow\": [\n    \"raw input\",\n    \"handoff context\",\n    \"universal work packet\",\n    \"candidate artifact\",\n    \"response packet\"\n  ],\n  \"demo_response_preview\": {\n    \"artifact_kind\": \"odin_demo_universal_work_response_packet\",\n    \"candidate_only\": true,\n    \"local_only\": true,\n    \"model_execution\": false,\n    \"model_inference\": false,\n    \"provider_execution\": false,\n    \"app_apply\": false,\n    \"external_send\": false,\n    \"input\": \"example demo input\",\n    \"handoff_context\": {\n      \"profile\": \"generic\",\n      \"intent\": \"demo_universal_work\",\n      \"forbidden_actions\": [\n        \"provider_execution\",\n        \"model_inference\",\n        \"app_apply\",\n        \"external_send\"\n      ]\n    },\n    \"universal_work\": {\n      \"work_id\": \"demo-uw-bd17724f\",\n      \"kind\": \"demo\",\n      \"status\": \"compiled\"\n    },\n    \"candidate_artifact\": {\n      \"artifact_kind\": \"demo_candidate\",\n      \"summary\": \"This is a deterministic demo candidate. No model was invoked. Odin compiled the work packet and returned this candidate for the app to review and optionally apply.\"\n    },\n    \"response_packet\": {\n      \"status\": \"ok_with_kn"
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /activity.json",
-      "duration_sec": 0.002,
+      "duration_sec": 0.001,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_activity_json",
       "status": "pass",
       "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_activity_list\",\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"events\": [\n    {\n      \"event_id\": \"QEVT-cc66265924a30784\",\n      \"channel\": \"#odin.activity\",\n      \"kind\": \"demo_universal_work\",\n      \"source\": \"local_hub\",\n      \"candidate_only\": true,\n      \"local_only\": true,\n      \"payload\": {\n        \"input_preview\": \"example demo input\",\n        \"candidate_only\": true\n      },\n      \"trace_ref\": \"demo-uw-5a993750\",\n      \"receipt_ref\": \"demo-uw-5a993750\",\n      \"created_at\": \"2026-06-13T08:07:33Z\",\n      \"claim_boundary\": \"qirc_core_first_slice_local_only_not_public_network_not_app_apply\"\n    }\n  ],\n  \"claim_boundary\": \"final_pr_03_qirc_first_slice_local_only\"\n}"
+      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_activity_list\",\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"events\": [\n    {\n      \"event_id\": \"QEVT-cc66265924a30784\",\n      \"channel\": \"#odin.activity\",\n      \"kind\": \"demo_universal_work\",\n      \"source\": \"local_hub\",\n      \"candidate_only\": true,\n      \"local_only\": true,\n      \"payload\": {\n        \"input_preview\": \"example demo input\",\n        \"candidate_only\": true\n      },\n      \"trace_ref\": \"demo-uw-bd17724f\",\n      \"receipt_ref\": \"demo-uw-bd17724f\",\n      \"created_at\": \"2026-06-13T08:46:56Z\",\n      \"claim_boundary\": \"qirc_core_first_slice_local_only_not_public_network_not_app_apply\"\n    }\n  ],\n  \"claim_boundary\": \"final_pr_03_qirc_first_slice_local_only\"\n}"
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
@@ -358,7 +246,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /providers/probe.json",
-      "duration_sec": 0.005,
+      "duration_sec": 0.004,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_providers_probe_json",
@@ -369,7 +257,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /execution-gate/status.json",
-      "duration_sec": 0.006,
+      "duration_sec": 0.005,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_execution-gate_status_json",
@@ -380,29 +268,29 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "POST /execution-gate/mock",
-      "duration_sec": 0.002,
+      "duration_sec": 0.001,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_execution-gate_mock",
       "status": "pass",
       "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_mock_execution_response_packet\",\n  \"provider_id\": \"mock\",\n  \"execution_kind\": \"mock_deterministic\",\n  \"mock_execution\": true,\n  \"real_provider_execution\": false,\n  \"model_inference\": false,\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"app_apply\": false,\n  \"external_send\": false,\n  \"input_ref\": \"INREF-9f3c7d32bd98\",\n  \"candidate_text\": \"Mock candidate response for: pre-release audit mock\",\n  \"trace_ref\": \"TRACE-3b807e6522c60cf3\",\n  \"receipt_ref\": \"RCPT-9740db6d4c32e240\",\n  \"generated_at\": \"2026-06-13T08:07:35Z\",\n  \"claim_boundary\": \"final_pr_05_execution_gate_mock_only_not_model_quality_not_production\"\n}"
+      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_mock_execution_response_packet\",\n  \"provider_id\": \"mock\",\n  \"execution_kind\": \"mock_deterministic\",\n  \"mock_execution\": true,\n  \"real_provider_execution\": false,\n  \"model_inference\": false,\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"app_apply\": false,\n  \"external_send\": false,\n  \"input_ref\": \"INREF-9f3c7d32bd98\",\n  \"candidate_text\": \"Mock candidate response for: pre-release audit mock\",\n  \"trace_ref\": \"TRACE-0b6b0797d0d9a663\",\n  \"receipt_ref\": \"RCPT-ca6bcfbe0850dd47\",\n  \"generated_at\": \"2026-06-13T08:46:58Z\",\n  \"claim_boundary\": \"final_pr_05_execution_gate_mock_only_not_model_quality_not_production\"\n}"
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /final-pr-ladder/scaffold.json",
-      "duration_sec": 0.003,
+      "duration_sec": 0.002,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_final-pr-ladder_scaffold_json",
       "status": "pass",
       "stderr_excerpt": "",
-      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_final_pr_worker_packet_scaffold\",\n  \"target_pr_id\": \"FINAL-PR-06\",\n  \"source_return_report\": \"reports/final_pr_05_execution_gate_report.json\",\n  \"prior_report_exists\": true,\n  \"profile\": \"claude-code\",\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"sections\": [\n    \"repo_cognition\",\n    \"handoff_request\",\n    \"compiled_handoff\",\n    \"work_packet\",\n    \"acceptance_gates\",\n    \"proof_commands\",\n    \"return_report_contract\"\n  ],\n  \"not_proven\": [\n    \"complete_prompt_generation\",\n    \"thor_runtime_replacement\",\n    \"production_readiness\"\n  ],\n  \"generated_at\": \"2026-06-13T08:07:35Z\",\n  \"claim_boundary\": \"final_pr_ladder_scaffold_not_full_prompt_compiler\",\n  \"warnings\": [\n    \"This scaffold is not a Thor replacement.\",\n    \"This scaffold does not generate full prompts.\",\n    \"Sections are templates only \\u2014 fill in with actual PR scope.\"\n  ]\n}"
+      "stdout_excerpt": "{\n  \"artifact_kind\": \"odin_final_pr_worker_packet_scaffold\",\n  \"target_pr_id\": \"FINAL-PR-06\",\n  \"source_return_report\": \"reports/final_pr_05_execution_gate_report.json\",\n  \"prior_report_exists\": true,\n  \"profile\": \"claude-code\",\n  \"candidate_only\": true,\n  \"local_only\": true,\n  \"sections\": [\n    \"repo_cognition\",\n    \"handoff_request\",\n    \"compiled_handoff\",\n    \"work_packet\",\n    \"acceptance_gates\",\n    \"proof_commands\",\n    \"return_report_contract\"\n  ],\n  \"not_proven\": [\n    \"complete_prompt_generation\",\n    \"thor_runtime_replacement\",\n    \"production_readiness\"\n  ],\n  \"generated_at\": \"2026-06-13T08:46:59Z\",\n  \"claim_boundary\": \"final_pr_ladder_scaffold_not_full_prompt_compiler\",\n  \"warnings\": [\n    \"This scaffold is not a Thor replacement.\",\n    \"This scaffold does not generate full prompts.\",\n    \"Sections are templates only \\u2014 fill in with actual PR scope.\"\n  ]\n}"
     },
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /demo/y-route.json",
-      "duration_sec": 0.018,
+      "duration_sec": 0.011,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_demo_y-route_json",
@@ -413,7 +301,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /demo/seed-route.json",
-      "duration_sec": 0.013,
+      "duration_sec": 0.007,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_demo_seed-route_json",
@@ -424,7 +312,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /demo/field-selection.json",
-      "duration_sec": 0.016,
+      "duration_sec": 0.01,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_demo_field-selection_json",
@@ -435,7 +323,7 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "GET /demo/projection-candidate.json",
-      "duration_sec": 0.015,
+      "duration_sec": 0.007,
       "kind": "endpoint",
       "notes": "localhost-only ephemeral Local Hub handler smoke",
       "path_id": "endpoint_demo_projection-candidate_json",
@@ -446,9 +334,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin",
-      "duration_sec": 0.0,
+      "duration_sec": 0.046,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin",
       "status": "pass",
       "stderr_excerpt": "",
@@ -457,9 +345,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.cli",
-      "duration_sec": 0.006,
+      "duration_sec": 0.154,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_cli",
       "status": "pass",
       "stderr_excerpt": "",
@@ -468,9 +356,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.local_hub.server",
-      "duration_sec": 0.0,
+      "duration_sec": 0.113,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_local_hub_server",
       "status": "pass",
       "stderr_excerpt": "",
@@ -479,9 +367,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.qirc_core.bus",
-      "duration_sec": 0.0,
+      "duration_sec": 0.079,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_qirc_core_bus",
       "status": "pass",
       "stderr_excerpt": "",
@@ -490,9 +378,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.execution_gate.gateway",
-      "duration_sec": 0.0,
+      "duration_sec": 0.08,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_execution_gate_gateway",
       "status": "pass",
       "stderr_excerpt": "",
@@ -501,9 +389,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.providers.probe",
-      "duration_sec": 0.0,
+      "duration_sec": 0.084,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_providers_probe",
       "status": "pass",
       "stderr_excerpt": "",
@@ -512,9 +400,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.operational_seed_spine.selector",
-      "duration_sec": 0.0,
+      "duration_sec": 0.087,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_operational_seed_spine_selector",
       "status": "pass",
       "stderr_excerpt": "",
@@ -523,9 +411,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.field_selection_spine.selector",
-      "duration_sec": 0.0,
+      "duration_sec": 0.084,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_field_selection_spine_selector",
       "status": "pass",
       "stderr_excerpt": "",
@@ -534,9 +422,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.projection_candidate_spine.projection_set",
-      "duration_sec": 0.0,
+      "duration_sec": 0.08,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_projection_candidate_spine_projection_set",
       "status": "pass",
       "stderr_excerpt": "",
@@ -545,9 +433,9 @@
     {
       "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
       "command_or_endpoint": "import odin.proof_chain.registry",
-      "duration_sec": 0.001,
+      "duration_sec": 0.053,
       "kind": "import",
-      "notes": "safe top-level Odin module import smoke",
+      "notes": "safe top-level Odin module import smoke via isolated Python subprocess",
       "path_id": "import_odin_proof_chain_registry",
       "status": "pass",
       "stderr_excerpt": "",

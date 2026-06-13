@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1839,
+  "file_count_excluding_manifest": 1858,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "7eec1f950be94656f64ddd4b536bb9b6f0c30723832cb2b7cdfd962a41f2a85a",
-      "size": 104696
+      "sha256": "f71afac0b3c23ec038c18fc29b2ed73b8c62bf717f8320f9eb878e8bbcb25954",
+      "size": 106209
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1505,8 +1505,8 @@
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_ARCHITECTURE_CONFORMANCE.md",
-      "sha256": "073d999d25c170d5ad63c0a83a339c4a1fa69656f027f02ccd2cec5f833e51b8",
-      "size": 1852
+      "sha256": "2ece42f6b7d23f5993b5741e15d14097ddc20dc5defe14072711d06e577d835c",
+      "size": 2138
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_BUG6_Q7_RINGS_BOUNDARIES.md",
@@ -1520,8 +1520,8 @@
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_EXECUTIVE_BRIEF.md",
-      "sha256": "5d6c4c80bd8503b3dd3fed617e1fe68d737d6075bb8d50d43f13704beaa31d1b",
-      "size": 4537
+      "sha256": "67e9019360170830665f0183c37782afdc22f4db9630d99c9807364a72558349",
+      "size": 2402
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_FULL_REPORT.md",
@@ -1530,13 +1530,13 @@
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_MODEL_LEVERAGE_SIMULATION.md",
-      "sha256": "35a4591a457c15f043b8c8b19e62efe903149151ab9bb404c9d977b6ee0b1e91",
-      "size": 2301
+      "sha256": "255771fe3b80404e0009c2fc84524955e361de5e576a59234034074c2c04806d",
+      "size": 2134
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_PR_LINEAGE.md",
-      "sha256": "4997c3bf683a51c7ce9ac7b4e826f87b321a0cc9e15cd89b73872f8ca2b93ebd",
-      "size": 3029
+      "sha256": "84342dffc7f234a6e91c779b640569ee486df7c498afe280d41060f0fca2c9cd",
+      "size": 3056
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_Q_SHABANG_OPERATIONALIZATION.md",
@@ -1550,8 +1550,8 @@
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_RUNTIME_PATHS.md",
-      "sha256": "4e1dd7f18b94ca59e231147ada504b57475f01d35189812e5dc5a5493a460ad0",
-      "size": 8256
+      "sha256": "904f107eece2e398a0746d7a43b8f569b205a9152e5228a352cd0f74a78665d0",
+      "size": 4642
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SENIOR_REVIEW.md",
@@ -1560,8 +1560,8 @@
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_SYSTEM_COHESION.md",
-      "sha256": "27398104c3bedc1a8618d141d9d7c37f19c0c91c0b1d0bff8d0451c0ff9220b9",
-      "size": 2592
+      "sha256": "721a8cd661210ca3c616f154faabd7838278ba6aa946b209ca78e9681b9076b2",
+      "size": 2672
     },
     {
       "path": "docs/codex/audits/PRE_RELEASE_SUPER_AUDIT_THOR_ODIN_EFFECTIVENESS.md",
@@ -1607,6 +1607,81 @@
       "path": "docs/codex/audits/PR_35_B9_FINAL_ROAD_TO_100_AUDIT.md",
       "sha256": "828b856d1ea05430f483d195ccd68664eb6dd070c811cad7376549ad95b6f315",
       "size": 6162
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/00_EXECUTIVE_BRIEF.md",
+      "sha256": "fae9ca96afd36687fc908820b01a89d393bd2cb3a2d8450230c3f99a54d63df1",
+      "size": 1990
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/01_FULL_SYSTEM_REPORT.md",
+      "sha256": "a70545af52485bda3a9c76306293d8bb4b94a5a8b6281a8afccaa97c201cb627",
+      "size": 1320
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/02_PR_LINEAGE.md",
+      "sha256": "43bc3c6f0babe57ba2ee2de36bf6efd53130084b49b7a31a589b73af5d3cf7cb",
+      "size": 2976
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/03_SYSTEM_COHESION.md",
+      "sha256": "278e4a6ff99bf09671232f15b194c74570759c1af1eb87813bdd4b99c3e6a29a",
+      "size": 3122
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/04_ARCHITECTURE_CONFORMANCE.md",
+      "sha256": "c4c1a2d45885e45bd4a5017e5f867ff81a9a12673e6bde647bee46d4bb77d1e5",
+      "size": 1894
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/05_RUNTIME_PATHS_AND_SMOKE.md",
+      "sha256": "314c81560737d1fe598063d5a9c2b8b3eb452d841adc311892714ca0da05962b",
+      "size": 4440
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/06_Q_SHABANG_OPERATIONALIZATION.md",
+      "sha256": "cec836970985c56ee9a3b108cdc8c6a3f37465ba90d18452ec9c939eb258d3e4",
+      "size": 1572
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/07_BUG6_Q7_RINGS_BOUNDARIES.md",
+      "sha256": "f2a376f320a2fd7c7e797a6df5afdb4ad654c9de5dacaaae6986583e4aa06632",
+      "size": 1133
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/08_MODEL_LEVERAGE_SIMULATION.md",
+      "sha256": "52ee055066e9b28d5c2c34ced9431969d8c61b55c4111377b58cedbc250600b5",
+      "size": 892
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/09_THOR_ODIN_EFFECTIVENESS.md",
+      "sha256": "044d93fbbd7ab996781bb1e23f06326dbaaa4f45de237a891caee5ece5331872",
+      "size": 1547
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/10_RELEASE_READINESS_DECISION.md",
+      "sha256": "49a641bdce911ca846e48499b0c136c3cabe2534e05dd2506a7eac03dd6cee2d",
+      "size": 1110
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/11_REMEDIATION_PR_PLAN.md",
+      "sha256": "33af194dc09e98faa32e7b6f320272f4d5b13430f6b11e7aa4a6b8cedc3b5192",
+      "size": 502
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/12_CHATGPT_REVIEW_HANDOFF.md",
+      "sha256": "52e8446d533cb78d6101eb7b2ada189f0af7020564b92d2c0f2fef2e7d27023a",
+      "size": 1282
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/13_SENIOR_REVIEW.md",
+      "sha256": "467493cf8d49309e3622bbd3cd4f92c7320c50c29f83aa4a6911d2aa4b7e420a",
+      "size": 738
+    },
+    {
+      "path": "docs/codex/audits/pre_release_super_audit/14_CODE_REVIEW.md",
+      "sha256": "2c7dbd194fb9f7522f0694d81a57b331dac5c685c4c86cf2fe2038b8de55ba5a",
+      "size": 541
     },
     {
       "path": "docs/codex/bundles/REAL-PR-01_FOUNDATION_CANON_GATES_SCHEMAS_PROTOCOL_BOUNDARY.md",
@@ -4445,8 +4520,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "1b49a6b6502ef3fa80a50afaf66f6d5d03c71a767d4f7080203643fea40d2020",
-      "size": 203720
+      "sha256": "7cf7443677d9608b69d6145b6be7f071cbcce7a9f6c111fb6cf6532a40633987",
+      "size": 204006
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -6330,8 +6405,8 @@
     },
     {
       "path": "registries/pre_release_super_audit_registry.json",
-      "sha256": "eccd686f2193da013bbb0d59f1eee41098b6d02a411592d50428a2b084b2b38f",
-      "size": 1934
+      "sha256": "be0a2d460006c0bda1cd2780549143807391e636d87d9aa29c8216e75ebc4122",
+      "size": 3403
     },
     {
       "path": "registries/prep_final_pr_06_08_plan.v1.json",
@@ -7135,18 +7210,28 @@
     },
     {
       "path": "reports/pre_release_super_audit_architecture_conformance.json",
-      "sha256": "db5c4b478f61755b558c2c7eec4dcc03eb8114ef37f86443ddad353932248c68",
-      "size": 15346
+      "sha256": "56363d3097105d638a2cf55623d8c38aab92b61c0e9afadda5096145a6a84318",
+      "size": 18447
+    },
+    {
+      "path": "reports/pre_release_super_audit_bug6_q7_rings_boundaries.json",
+      "sha256": "87843bc2b664f650ebadc67320882189708f64a2b83971f13486f23f9e60d90e",
+      "size": 3178
     },
     {
       "path": "reports/pre_release_super_audit_model_leverage_simulation.json",
-      "sha256": "726846fcbca79051f4b663a903df949ee2546fb7a6059e18a7d3d248b1e9bfe1",
-      "size": 46153
+      "sha256": "9d5b9ed9e853677314e35b30ad7560efec598e5effff5b524e2ddda6c7f4bdd8",
+      "size": 28236
     },
     {
       "path": "reports/pre_release_super_audit_pr_lineage.json",
-      "sha256": "d04d257d7a57848c5a91c5eb2929df300f445846acb0ea04442e5cfa66d7b888",
-      "size": 20903
+      "sha256": "ce6e9e8c3abb6d46b4e2c7d183cd4a600adf32197d317aaee27551172d7d7bb6",
+      "size": 27314
+    },
+    {
+      "path": "reports/pre_release_super_audit_q_shabang_operationalization.json",
+      "sha256": "191e8e3f185c4c0c4a4c0385726df3ffc11f08ab79c1674b2876b7a1c80d79b5",
+      "size": 8697
     },
     {
       "path": "reports/pre_release_super_audit_recommended_prs.json",
@@ -7155,13 +7240,23 @@
     },
     {
       "path": "reports/pre_release_super_audit_report.json",
-      "sha256": "97869f98beadd4add5894de9410cbc32581260163845b0b6b9fc891f91550470",
-      "size": 2180
+      "sha256": "871ddf2d92be5eff9365ce59907c38a7b5bde2f11c25dd865b10d6067d85e68f",
+      "size": 2304
     },
     {
       "path": "reports/pre_release_super_audit_runtime_paths.json",
-      "sha256": "c5df962356674e24075adc9dd08add54c19225fbdc55ee560de3391740a52f51",
-      "size": 53630
+      "sha256": "99d1abdd191aeafc414c8f84219178c4a34c1f0c0f2405525f21e1c3bb2b4053",
+      "size": 38048
+    },
+    {
+      "path": "reports/pre_release_super_audit_system_cohesion.json",
+      "sha256": "19a768afaa69a1c035d9facfb0ea671d43901fad4328b0dd66b96e9898577e40",
+      "size": 26648
+    },
+    {
+      "path": "reports/pre_release_super_audit_thor_odin_effectiveness.json",
+      "sha256": "3ad1845b4fd18c3abeaa0693ddc20ba58e72a0dfb87aab3993e90ff306052af3",
+      "size": 2296
     },
     {
       "path": "reports/prep_final_pr_06_08_prompt_quality_matrix.json",
@@ -8830,8 +8925,8 @@
     },
     {
       "path": "tests/test_pre_release_super_audit.py",
-      "sha256": "f4a07a7621c1abf93eda6dbaadfb63ac3f90e29c9f44ccfd9d492bc956e62c29",
-      "size": 4823
+      "sha256": "af6797513073dfd651fc749b71bb8959dd434167689d274fd62399147ae799fd",
+      "size": 7088
     },
     {
       "path": "tests/test_prep_final_pr_06_08.py",
@@ -9010,8 +9105,8 @@
     },
     {
       "path": "tools/audit/run_pre_release_super_audit.py",
-      "sha256": "fc76452f3aa6db87f9ab8f8f17b1f73875435fc6048e9fdc6be680169724ff34",
-      "size": 53543
+      "sha256": "e5b8b98c88bc9a4a257c3be3a46a18ae168ebf161aa92baffc05615bcf01fd6b",
+      "size": 88803
     },
     {
       "path": "tools/dev/thor_cli_probe.py",

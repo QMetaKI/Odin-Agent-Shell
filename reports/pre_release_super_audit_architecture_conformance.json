@@ -1,13 +1,13 @@
 {
-  "architecture_conformance_score": 0.65,
+  "architecture_conformance_score": 0.62,
   "audit_id": "pre_release_super_audit",
-  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "base_commit": "8dcb7594e9302fc9c25a828ab9fbf7eccfa5d5c4",
   "candidate_only": true,
   "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
   "matrix": [
     {
-      "architecture_item": "User-facing Local Hub",
-      "architecture_requirement": "User-facing Local Hub",
+      "architecture_item": "Local Runtime Hub",
+      "architecture_requirement": "Local Runtime Hub",
       "claim_boundary_ok": true,
       "connected": true,
       "expected_in_master_architecture": true,
@@ -82,6 +82,47 @@
       "runtime_or_smoke_evidence": true,
       "smoke_present": true,
       "source_document": "docs/MASTER_ARCHITECTURE_V7_1.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "App-owned apply boundary",
+      "architecture_requirement": "App-owned apply boundary",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "docs/APP_INTEGRATION_STANDARD.md",
+        "docs/MASTER_ARCHITECTURE_V7_1.md"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/APP_INTEGRATION_STANDARD.md",
+      "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Local-only boundary",
+      "architecture_requirement": "Local-only boundary",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "implemented",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "none",
+      "repo_evidence": [
+        "odin/local_hub/server.py",
+        "odin/qirc_core/policy.py",
+        "odin/local_hub/surface_registry.py"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": true,
+      "smoke_present": true,
+      "source_document": "docs/SECURITY_PRIVACY.md",
       "status": "implemented",
       "validator_present": true
     },
@@ -367,6 +408,47 @@
       "smoke_present": true,
       "source_document": "odin/cli.py",
       "status": "implemented",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Model / worker orchestration readiness",
+      "architecture_requirement": "Model / worker orchestration readiness",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "major",
+      "repo_evidence": [
+        "registries/model_scale_ladder.json",
+        "schemas/v7_1_1_modelworkpacket.schema.json",
+        "odin/models/"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/MODEL_SCALE_LADDER.md",
+      "status": "partial",
+      "validator_present": true
+    },
+    {
+      "architecture_item": "Thor/Handoff usefulness",
+      "architecture_requirement": "Thor/Handoff usefulness",
+      "claim_boundary_ok": true,
+      "connected": true,
+      "expected_in_master_architecture": true,
+      "implementation_status": "partial",
+      "notes": "Audit classification from repo files, validators, and local smoke; not external architecture truth.",
+      "release_impact": "minor",
+      "repo_evidence": [
+        "docs/codex/handoffs/",
+        "odin/agent_operator/"
+      ],
+      "required": true,
+      "runtime_or_smoke_evidence": false,
+      "smoke_present": false,
+      "source_document": "docs/THOR_INTEGRATION.md",
+      "status": "partial",
       "validator_present": true
     },
     {

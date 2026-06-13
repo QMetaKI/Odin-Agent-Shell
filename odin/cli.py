@@ -2890,6 +2890,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-provider-worker-boundary")
     sub.add_parser("validate-all")
     sub.add_parser("audit-pre-release-super")
+    sub.add_parser("validate-pre-release-super-audit")
     sub.add_parser("validate-b1-app-boundary-universal-work-qirc-spine")
     sub.add_parser("validate-b2-context-lenses-worklets")
     sub.add_parser("validate-b3-modelworkpacket-scale-hybrid")
@@ -3055,7 +3056,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "audit-pre-release-super":
         from tools.audit.run_pre_release_super_audit import main as run_pre_release_super_audit
-        return run_pre_release_super_audit([])
+        return run_pre_release_super_audit(["--lightweight"])
+
+    if args.cmd == "validate-pre-release-super-audit":
+        from tools.audit.run_pre_release_super_audit import main as run_pre_release_super_audit
+        return run_pre_release_super_audit(["--validate-only"])
 
     if args.cmd == "doctor":
         from odin.doctor.diagnostics import run_doctor

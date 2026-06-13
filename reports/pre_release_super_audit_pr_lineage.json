@@ -1,9 +1,10 @@
 {
   "audit_id": "pre_release_super_audit",
-  "base_commit": "1e8704e7500712e173cdf48dc1696f7a75b15b6c",
+  "base_commit": "8dcb7594e9302fc9c25a828ab9fbf7eccfa5d5c4",
   "candidate_only": true,
   "claim_boundary": "pre_release_super_audit_reports_repo_reality_not_release_certification",
   "git_log_oneline_60": [
+    "8dcb759 PRE-RELEASE SUPER AUDIT: Odin Whole-System Audit before FINAL-PR-09",
     "1e8704e Merge pull request #47 from QMetaKI/claude/projection-candidate-spine-pr08-52nvl2",
     "f41bd27 hardening: graph_id and projection_id include resolved edges/nodes",
     "d51d229 FINAL-PR-08: Projection Candidate Spine + Candidate Graph + Materialization Spine",
@@ -62,8 +63,7 @@
     "179476e Finalize v7.1.1 canon quality gate",
     "1d37848 Harden v7.1.1 architecture canon precision",
     "7be58fb Add v7.1.1 master architecture canon",
-    "6f49aa2 Merge pull request #23 from QMetaKI/codex/fuhren-sie-eine-vollstandige-systemprufung-durch",
-    "faf86d5 Refine post LRH-PR-18 audit status delta"
+    "6f49aa2 Merge pull request #23 from QMetaKI/codex/fuhren-sie-eine-vollstandige-systemprufung-durch"
   ],
   "lineage": [
     {
@@ -86,13 +86,23 @@
         "odin/local_hub/server.py",
         "odin/local_hub/ui.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/local_hub/server.py",
+        "odin/local_hub/ui.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 1,
+      "pr_or_workstream_id": "PR-1",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-01 Simple Local Hub"
+      "title": "FINAL-PR-01 Simple Local Hub",
+      "validators_or_tests": [
+        "validate-simple-local-hub",
+        "validate-all"
+      ]
     },
     {
       "connected_to": [
@@ -116,13 +126,23 @@
         "odin/local_hub/connected_apps.py",
         "odin/local_hub/demo_universal_work.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/local_hub/model_picker.py",
+        "odin/local_hub/connected_apps.py",
+        "odin/local_hub/demo_universal_work.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 2,
+      "pr_or_workstream_id": "PR-2",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work"
+      "title": "FINAL-PR-02 Model Picker + Connected Apps + Demo Universal Work",
+      "validators_or_tests": [
+        "validate-final-pr-02-model-apps-demo"
+      ]
     },
     {
       "connected_to": [
@@ -144,13 +164,23 @@
         "odin/qirc_core/receipts.py",
         "odin/qirc_core/trace.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/qirc_core/bus.py",
+        "odin/qirc_core/receipts.py",
+        "odin/qirc_core/trace.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 3,
+      "pr_or_workstream_id": "PR-3",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-03 QIRC Core + Activity/Trace/Receipt + Dev Mode"
+      "title": "FINAL-PR-03 QIRC Core + Activity/Trace/Receipt + Dev Mode",
+      "validators_or_tests": [
+        "validate-final-pr-03-qirc-devmode"
+      ]
     },
     {
       "connected_to": [
@@ -160,6 +190,8 @@
       ],
       "current_status": "active",
       "evidence_files": [
+        "odin/providers/probe.py",
+        "odin/providers/policy.py",
         "odin/runtime_security/smoke.py"
       ],
       "introduced_concepts": [
@@ -168,17 +200,27 @@
         "runtime safety smoke"
       ],
       "introduced_files": [
-        "odin/provider_probe/probe.py",
-        "odin/provider_probe/policy.py",
+        "odin/providers/probe.py",
+        "odin/providers/policy.py",
         "odin/runtime_security/smoke.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/providers/probe.py",
+        "odin/providers/policy.py",
+        "odin/runtime_security/smoke.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 4,
+      "pr_or_workstream_id": "PR-4",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-04 Local Candidate Provider Probe + Policy"
+      "title": "FINAL-PR-04 Local Candidate Provider Probe + Policy",
+      "validators_or_tests": [
+        "validate-final-pr-04-provider-probe-security"
+      ]
     },
     {
       "connected_to": [
@@ -202,13 +244,23 @@
         "odin/execution_gate/mock_provider.py",
         "odin/proof_chain/registry.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/execution_gate/gateway.py",
+        "odin/execution_gate/mock_provider.py",
+        "odin/proof_chain/registry.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 5,
+      "pr_or_workstream_id": "PR-5",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-05 Execution Gate + Mock Provider + Proof Chain"
+      "title": "FINAL-PR-05 Execution Gate + Mock Provider + Proof Chain",
+      "validators_or_tests": [
+        "validate-final-pr-05-execution-gate"
+      ]
     },
     {
       "connected_to": [
@@ -228,13 +280,22 @@
         "odin/y_pattern_spine/profiles.py",
         "registries/y_pattern_spine_registry.json"
       ],
+      "introduced_files_or_roots": [
+        "odin/y_pattern_spine/profiles.py",
+        "registries/y_pattern_spine_registry.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 42,
+      "pr_or_workstream_id": "PR-42",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "Y Pattern Spine"
+      "title": "Y Pattern Spine",
+      "validators_or_tests": [
+        "validate-y-pattern-spine"
+      ]
     },
     {
       "connected_to": [
@@ -253,13 +314,22 @@
         "docs/rebaseline/PREP_FINAL_PR_06_08.md",
         "tools/rebaseline/check_prep_final_pr_06_08.py"
       ],
+      "introduced_files_or_roots": [
+        "docs/rebaseline/PREP_FINAL_PR_06_08.md",
+        "tools/rebaseline/check_prep_final_pr_06_08.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 44,
+      "pr_or_workstream_id": "PR-44",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "Prep FINAL-PR-06..08"
+      "title": "Prep FINAL-PR-06..08",
+      "validators_or_tests": [
+        "validate-prep-final-pr-06-08"
+      ]
     },
     {
       "connected_to": [
@@ -282,13 +352,23 @@
         "odin/operational_seed_spine/selector.py",
         "odin/operational_seed_spine/work_capsule.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/operational_seed_spine/selector.py",
+        "odin/operational_seed_spine/work_capsule.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 45,
+      "pr_or_workstream_id": "PR-45",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-06 Operational Seed Spine"
+      "title": "FINAL-PR-06 Operational Seed Spine",
+      "validators_or_tests": [
+        "validate-operational-seed-spine",
+        "prove-operational-seed-spine"
+      ]
     },
     {
       "connected_to": [
@@ -311,13 +391,23 @@
         "odin/field_selection_spine/selector.py",
         "odin/field_selection_spine/coherence.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/field_selection_spine/selector.py",
+        "odin/field_selection_spine/coherence.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 46,
+      "pr_or_workstream_id": "PR-46",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-07 Field Selection Spine"
+      "title": "FINAL-PR-07 Field Selection Spine",
+      "validators_or_tests": [
+        "validate-field-selection-spine",
+        "prove-field-selection-spine"
+      ]
     },
     {
       "connected_to": [
@@ -340,13 +430,23 @@
         "odin/projection_candidate_spine/projection_set.py",
         "odin/projection_candidate_spine/candidate_graph.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/projection_candidate_spine/projection_set.py",
+        "odin/projection_candidate_spine/candidate_graph.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 47,
+      "pr_or_workstream_id": "PR-47",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "FINAL-PR-08 Projection Candidate Spine"
+      "title": "FINAL-PR-08 Projection Candidate Spine",
+      "validators_or_tests": [
+        "validate-projection-candidate-spine",
+        "prove-projection-candidate-spine"
+      ]
     },
     {
       "connected_to": [
@@ -354,7 +454,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "tools/v7_1_1/check_b8_security_review_track.py",
         "reports/v7_1_1_b8_security_review_report.json"
@@ -367,13 +467,22 @@
         "tools/v7_1_1/check_b8_security_review_track.py",
         "reports/v7_1_1_b8_security_review_report.json"
       ],
+      "introduced_files_or_roots": [
+        "tools/v7_1_1/check_b8_security_review_track.py",
+        "reports/v7_1_1_b8_security_review_report.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 34,
+      "pr_or_workstream_id": "PR-34",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "PR #34 / B8 Static Security Review Track"
+      "title": "PR #34 / B8 Static Security Review Track",
+      "validators_or_tests": [
+        "validate-b8-security-review-track"
+      ]
     },
     {
       "connected_to": [
@@ -391,15 +500,24 @@
         "docs/rebaseline/FINAL_ROAD_TO_100_REBASELINE_AUDIT.md",
         "tools/v7_1_1/check_final_road_to_100_rebaseline_audit.py"
       ],
+      "introduced_files_or_roots": [
+        "docs/rebaseline/FINAL_ROAD_TO_100_REBASELINE_AUDIT.md",
+        "tools/v7_1_1/check_final_road_to_100_rebaseline_audit.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 35,
+      "pr_or_workstream_id": "PR-35",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [
         "expected evidence path not found during audit"
       ],
       "still_relevant": true,
-      "title": "PR #35 Final Road-to-100 Audit"
+      "title": "PR #35 Final Road-to-100 Audit",
+      "validators_or_tests": [
+        "validate-final-road-to-100-rebaseline-audit"
+      ]
     },
     {
       "connected_to": [
@@ -417,15 +535,24 @@
         "docs/rebaseline/HANDOFF_FIRST_LAYER.md",
         "reports/final_road_to_100_rebaseline_audit.json"
       ],
+      "introduced_files_or_roots": [
+        "docs/rebaseline/HANDOFF_FIRST_LAYER.md",
+        "reports/final_road_to_100_rebaseline_audit.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 36,
+      "pr_or_workstream_id": "PR-36",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [
         "expected evidence path not found during audit"
       ],
       "still_relevant": true,
-      "title": "PR #36 Handoff-First Layer"
+      "title": "PR #36 Handoff-First Layer",
+      "validators_or_tests": [
+        "validate-agent-operator-mode"
+      ]
     },
     {
       "connected_to": [
@@ -447,13 +574,22 @@
         "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
         "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"
       ],
+      "introduced_files_or_roots": [
+        "tools/v7_1_1/check_b1_app_boundary_universal_work_qirc_spine.py",
+        "reports/v7_1_1_b1_app_boundary_universal_work_qirc_spine_report.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 27,
+      "pr_or_workstream_id": "PR-27",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B1 App Boundary + Universal Work + QIRC Spine"
+      "title": "B1 App Boundary + Universal Work + QIRC Spine",
+      "validators_or_tests": [
+        "validate-b1-app-boundary-universal-work-qirc-spine"
+      ]
     },
     {
       "connected_to": [
@@ -461,7 +597,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "registries/v7_1_1_artifact_lens_registry.json"
       ],
@@ -474,13 +610,22 @@
         "tools/v7_1_1/check_b2_context_lenses_worklets.py",
         "registries/v7_1_1_artifact_lens_registry.json"
       ],
+      "introduced_files_or_roots": [
+        "tools/v7_1_1/check_b2_context_lenses_worklets.py",
+        "registries/v7_1_1_artifact_lens_registry.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 28,
+      "pr_or_workstream_id": "PR-28",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B2 Context / Lenses / Worklets / Slot Forge / Gaptext"
+      "title": "B2 Context / Lenses / Worklets / Slot Forge / Gaptext",
+      "validators_or_tests": [
+        "validate-b2-context-lenses-worklets"
+      ]
     },
     {
       "connected_to": [
@@ -502,13 +647,22 @@
         "registries/v7_1_1_model_scale_ladder_registry.json",
         "schemas/v7_1_1_modelworkpacket.schema.json"
       ],
+      "introduced_files_or_roots": [
+        "registries/v7_1_1_model_scale_ladder_registry.json",
+        "schemas/v7_1_1_modelworkpacket.schema.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 29,
+      "pr_or_workstream_id": "PR-29",
       "release_relevance": "required",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B3 ModelWorkPacket / Scale Ladder / Hybrid Director"
+      "title": "B3 ModelWorkPacket / Scale Ladder / Hybrid Director",
+      "validators_or_tests": [
+        "validate-b3-modelworkpacket-scale-hybrid"
+      ]
     },
     {
       "connected_to": [
@@ -516,7 +670,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "odin/candidates/tournament.py",
         "odin/core/final_gate.py"
@@ -529,13 +683,22 @@
         "odin/candidates/tournament.py",
         "odin/core/final_gate.py"
       ],
+      "introduced_files_or_roots": [
+        "odin/candidates/tournament.py",
+        "odin/core/final_gate.py"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 30,
+      "pr_or_workstream_id": "PR-30",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B4 Minicheck / Critics / Tournament / Candidate Final Gate"
+      "title": "B4 Minicheck / Critics / Tournament / Candidate Final Gate",
+      "validators_or_tests": [
+        "validate-b4-minicheck-critics-final-gate"
+      ]
     },
     {
       "connected_to": [
@@ -543,7 +706,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "odin/runtime/store.py",
         "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
@@ -557,13 +720,22 @@
         "odin/runtime/store.py",
         "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
       ],
+      "introduced_files_or_roots": [
+        "odin/runtime/store.py",
+        "reports/v7_1_1_b5_storage_trace_receipt_provider_bridge_report.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 31,
+      "pr_or_workstream_id": "PR-31",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B5 Storage Trace Receipt Provider Bridge Prep"
+      "title": "B5 Storage Trace Receipt Provider Bridge Prep",
+      "validators_or_tests": [
+        "validate-b5-storage-trace-receipt-provider-bridge"
+      ]
     },
     {
       "connected_to": [
@@ -571,7 +743,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
       ],
@@ -582,13 +754,21 @@
       "introduced_files": [
         "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
       ],
+      "introduced_files_or_roots": [
+        "reports/v7_1_1_b6_acceptance_dojo_scoreboard_closure_report.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 32,
+      "pr_or_workstream_id": "PR-32",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B6 Acceptance Dojo Scoreboard Closure Prep"
+      "title": "B6 Acceptance Dojo Scoreboard Closure Prep",
+      "validators_or_tests": [
+        "validate-b6-acceptance-dojo-scoreboard-closure"
+      ]
     },
     {
       "connected_to": [
@@ -596,7 +776,7 @@
         "SYSTEM_MAP.json",
         "FILE_MANIFEST.json"
       ],
-      "current_status": "active_but_partial",
+      "current_status": "active_partial",
       "evidence_files": [
         "reports/v7_1_1_b7_closure_thor_provider_eval_report.json"
       ],
@@ -607,13 +787,21 @@
       "introduced_files": [
         "reports/v7_1_1_b7_closure_thor_provider_eval_report.json"
       ],
+      "introduced_files_or_roots": [
+        "reports/v7_1_1_b7_closure_thor_provider_eval_report.json"
+      ],
+      "merge_status": "merged",
       "merged": true,
       "pr_number": 33,
+      "pr_or_workstream_id": "PR-33",
       "release_relevance": "useful",
       "replaced_by": [],
       "risk_notes": [],
       "still_relevant": true,
-      "title": "B7 Closure Thor Provider Eval Gates"
+      "title": "B7 Closure Thor Provider Eval Gates",
+      "validators_or_tests": [
+        "validate-b7-closure-thor-provider-eval"
+      ]
     }
   ]
 }
