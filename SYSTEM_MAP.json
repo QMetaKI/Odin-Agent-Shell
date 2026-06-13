@@ -1943,6 +1943,28 @@
       "tools/rebaseline/check_pr56_v1_0_0_version_sync.py"
     ]
   },
+  "pr57_termux_release_receipts": {
+    "actual_pr": "PR57",
+    "claim_boundary": "termux_tmp_path_fix_and_external_release_receipts_recorded_without_runtime_security_pypi_or_asset_claims",
+    "cli": [
+      "validate-pr57-termux-release-receipts"
+    ],
+    "docs": [
+      "docs/release/V1_0_0_EXTERNAL_RELEASE_RECEIPTS.md"
+    ],
+    "reports": [
+      "reports/pr57_termux_and_release_receipts_report.json"
+    ],
+    "status": "candidate_only_receipt_and_termux_compatibility_hardening",
+    "tests": [
+      "tests/test_lrh_pr_09_trace_viewer.py",
+      "tests/test_pr57_termux_release_receipts.py"
+    ],
+    "title": "Termux Compatibility + v1.0.0 Release Receipts",
+    "tools": [
+      "tools/rebaseline/check_pr57_termux_release_receipts.py"
+    ]
+  },
   "pr_25_v7_1_1_operational_coverage_gap_compiler_return_report": "docs/codex/reports/PR_25_V7_1_1_OPERATIONAL_COVERAGE_GAP_COMPILER_RETURN_REPORT.md",
   "pr_26_v7_1_1_canon_boundary_integrity_return_report": "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
   "pr_27_b1_app_boundary_universal_work_qirc_spine_return_report": "docs/codex/reports/PR_27_B1_APP_BOUNDARY_UNIVERSAL_WORK_QIRC_SPINE_RETURN_REPORT.md",

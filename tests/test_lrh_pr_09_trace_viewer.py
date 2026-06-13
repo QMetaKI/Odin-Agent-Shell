@@ -377,8 +377,8 @@ def test_trace_proof_packet_claim_boundary():
 # agent-handoff --lrh-pr 09 packet
 # ---------------------------------------------------------------------------
 
-def test_agent_handoff_lrh_pr_09_packet_exists():
-    packet_path = Path("/tmp/lrh_pr_09_packet.json")
+def test_agent_handoff_lrh_pr_09_packet_exists(tmp_path):
+    packet_path = tmp_path / "lrh_pr_09_packet.json"
     if not packet_path.exists():
         # Re-generate it
         import subprocess
@@ -392,8 +392,8 @@ def test_agent_handoff_lrh_pr_09_packet_exists():
     assert packet_path.exists(), "LRH-PR-09 agent work packet must exist"
 
 
-def test_agent_handoff_lrh_pr_09_packet_valid():
-    packet_path = Path("/tmp/lrh_pr_09_packet.json")
+def test_agent_handoff_lrh_pr_09_packet_valid(tmp_path):
+    packet_path = tmp_path / "lrh_pr_09_packet.json"
     if not packet_path.exists():
         import subprocess
         subprocess.run(
@@ -416,9 +416,9 @@ def test_agent_handoff_lrh_pr_09_packet_valid():
 # agent-guard / agent-check / agent-proof pass or gaps are expected
 # ---------------------------------------------------------------------------
 
-def test_agent_guard_passes():
+def test_agent_guard_passes(tmp_path):
     import subprocess
-    packet_path = Path("/tmp/lrh_pr_09_packet.json")
+    packet_path = tmp_path / "lrh_pr_09_packet.json"
     if not packet_path.exists():
         subprocess.run(
             [sys.executable, "-m", "odin.cli", "agent-handoff",
@@ -434,9 +434,16 @@ def test_agent_guard_passes():
     assert output.get("status") == "ok", f"agent-guard failed: {result.stdout}"
 
 
-def test_agent_check_passes():
+def test_agent_check_passes(tmp_path):
     import subprocess
-    packet_path = Path("/tmp/lrh_pr_09_packet.json")
+    packet_path = tmp_path / "lrh_pr_09_packet.json"
+    if not packet_path.exists():
+        subprocess.run(
+            [sys.executable, "-m", "odin.cli", "agent-handoff",
+             "--agent", "claude-code", "--lrh-pr", "09",
+             "--out", str(packet_path)],
+            capture_output=True, text=True, cwd=str(ROOT)
+        )
     result = subprocess.run(
         [sys.executable, "-m", "odin.cli", "agent-check", "--packet", str(packet_path)],
         capture_output=True, text=True, cwd=str(ROOT)
@@ -445,13 +452,20 @@ def test_agent_check_passes():
     assert output.get("status") == "ok", f"agent-check failed: {result.stdout}"
 
 
-def test_agent_proof_gaps_are_expected_not_blocking():
+def test_agent_proof_gaps_are_expected_not_blocking(tmp_path):
     """agent-proof may return gaps_present for PR-level proof boundaries.
     This is expected/not-blocking as long as guard and check pass.
     The gaps are PR-level token gaps, not forbidden action violations.
     """
     import subprocess
-    packet_path = Path("/tmp/lrh_pr_09_packet.json")
+    packet_path = tmp_path / "lrh_pr_09_packet.json"
+    if not packet_path.exists():
+        subprocess.run(
+            [sys.executable, "-m", "odin.cli", "agent-handoff",
+             "--agent", "claude-code", "--lrh-pr", "09",
+             "--out", str(packet_path)],
+            capture_output=True, text=True, cwd=str(ROOT)
+        )
     result = subprocess.run(
         [sys.executable, "-m", "odin.cli", "agent-proof", "--packet", str(packet_path)],
         capture_output=True, text=True, cwd=str(ROOT)

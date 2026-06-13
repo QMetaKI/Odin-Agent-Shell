@@ -2972,6 +2972,32 @@ def validate_final_pr_13_v1_release_closure() -> list[str]:
     return []
 
 
+def validate_pr57_termux_release_receipts() -> list[str]:
+    """Validate PR57 Termux Compatibility + v1.0.0 Release Receipts."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_pr57_termux_release_receipts.py"
+    if not tool_path.exists():
+        return ["missing PR57 validator: tools/rebaseline/check_pr57_termux_release_receipts.py"]
+    spec = importlib.util.spec_from_file_location("odin_pr57_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load PR57 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "pr57_termux_release_receipts_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"pr57-termux-release-receipts: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"pr57-termux-release-receipts validator failed: {exc}"]
+    return []
+
+
 def validate_pr56_v1_version_sync() -> list[str]:
     """Validate PR56 v1.0.0 Version Sync + External Release Prep."""
     tool_path = ROOT / "tools" / "rebaseline" / "check_pr56_v1_0_0_version_sync.py"
@@ -3050,6 +3076,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_b5_storage_trace_receipt_provider_bridge())
     errors.extend(validate_b6_acceptance_dojo_scoreboard_closure())
     errors.extend(validate_pr56_v1_version_sync())
+    errors.extend(validate_pr57_termux_release_receipts())
     errors.extend(validate_b7_closure_thor_provider_eval())
     errors.extend(validate_b8_security_review_track())
     errors.extend(validate_final_road_to_100_rebaseline_audit())
@@ -3373,6 +3400,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("validate-final-pr-13-v1-release-closure")
     # PR56: v1.0.0 Version Sync + External Release Prep
     sub.add_parser("validate-pr56-v1-version-sync")
+    sub.add_parser("validate-pr57-termux-release-receipts")
     build_pr56_p = sub.add_parser("build-pr56-v1-version-sync-report")
     build_pr56_p.add_argument("--demo", action="store_true", default=False)
     # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
@@ -4944,6 +4972,15 @@ def main(argv: list[str] | None = None) -> int:
         print("validate-final-pr-12-release-readiness-hardening: OK")
         return 0
 
+
+    if args.cmd == "validate-pr57-termux-release-receipts":
+        errors = validate_pr57_termux_release_receipts()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-pr57-termux-release-receipts: OK")
+        return 0
 
     if args.cmd == "validate-pr56-v1-version-sync":
         errors = validate_pr56_v1_version_sync()
