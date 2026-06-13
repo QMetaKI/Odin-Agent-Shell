@@ -1,0 +1,27 @@
+{
+  "artifact_kind": "odin_thor_handoff_bundle",
+  "bundle_id": "thor_bundle_a1b2c3d4e5f6a7b8",
+  "objective": "Implement FINAL-PR-11",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "thor_runtime_execution": false,
+  "agent_autonomy": false,
+  "evidence_class": "structural_evidence",
+  "compiler_claim_boundary": "thor_handoff_compiler_v0_compiles_worker_packets_not_thor_runtime",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "thor_runtime_execution",
+    "agent_autonomy",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "compiler_note": "Thor Handoff Compiler v0 is a compile artifact generator. It does not run Thor. It does not grant agent autonomy."
+}

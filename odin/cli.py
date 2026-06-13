@@ -2867,6 +2867,31 @@ def validate_final_pr_10_boundary_release() -> list[str]:
                 return [f"final-pr-10-boundary-release validator failed: {exc}"]
     return []
 
+def validate_final_pr_11_provider_critic_thor() -> list[str]:
+    """Validate FINAL-PR-11 Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_11_provider_critic_thor.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-11 validator: tools/rebaseline/check_final_pr_11_provider_critic_thor.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_11_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-11 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_11_provider_critic_thor_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-11-provider-critic-thor: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-11-provider-critic-thor validator failed: {exc}"]
+    return []
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -2934,6 +2959,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_09_10_qshabang_smallmodel_prep())
     errors.extend(validate_operational_spine())
     errors.extend(validate_final_pr_10_boundary_release())
+    errors.extend(validate_final_pr_11_provider_critic_thor())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3160,6 +3186,28 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("explain-release-claims")
     sub.add_parser("explain-model-role-authority")
     sub.add_parser("explain-qshabang-release-gates")
+    # FINAL-PR-11: Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0
+    sub.add_parser("validate-local-provider-receipt-harness")
+    sub.add_parser("local-provider-doctor")
+    run_lpr_p = sub.add_parser("run-local-provider-receipt")
+    run_lpr_p.add_argument("--demo", action="store_true", default=False)
+    run_lpr_p.add_argument("--provider", default="ollama_candidate")
+    run_lpr_p.add_argument("--prompt", default="demo prompt")
+    run_lpr_p.add_argument("--allow-local-provider-execution", action="store_true", default=False)
+    sub.add_parser("explain-provider-receipt-claims")
+    sub.add_parser("validate-critic-runtime-binding")
+    run_critic_p = sub.add_parser("run-critic-cascade")
+    run_critic_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-critic-cascade")
+    sub.add_parser("validate-route-evaluation-receipts")
+    run_route_p = sub.add_parser("run-route-evaluation")
+    run_route_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-route-evaluation-claims")
+    sub.add_parser("validate-thor-handoff-compiler")
+    compile_thor_p = sub.add_parser("compile-thor-handoff")
+    compile_thor_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-thor-handoff-compiler")
+    sub.add_parser("validate-final-pr-11-provider-critic-thor")
     args = parser.parse_args(argv)
 
 
@@ -4244,6 +4292,189 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(build_qshabang_release_gate_map(), indent=2, ensure_ascii=False, sort_keys=True))
         return 0
 
+    # FINAL-PR-11: Local Provider Receipt Harness + Critic Runtime Binding + Thor Handoff Compiler v0
+    if args.cmd == "validate-local-provider-receipt-harness":
+        from odin.local_provider_receipts.reports import build_provider_receipt_harness_report
+        result = build_provider_receipt_harness_report()
+        if not result.get("candidate_only"):
+            print("ERROR: provider receipt harness: candidate_only must be true")
+            return 1
+        print("validate-local-provider-receipt-harness: OK")
+        return 0
+
+    if args.cmd == "local-provider-doctor":
+        from odin.local_provider_receipts.reports import build_local_provider_doctor_report
+        result = build_local_provider_doctor_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "run-local-provider-receipt":
+        from odin.local_provider_receipts.receipt import run_local_provider_receipt
+        demo = getattr(args, "demo", False)
+        if demo:
+            result = run_local_provider_receipt(
+                "deterministic_no_provider",
+                "demo prompt",
+                allow_local_provider_execution=False,
+            )
+        else:
+            provider = getattr(args, "provider", "ollama_candidate")
+            prompt = getattr(args, "prompt", "demo prompt")
+            allow = getattr(args, "allow_local_provider_execution", False)
+            result = run_local_provider_receipt(
+                provider,
+                prompt,
+                allow_local_provider_execution=allow,
+            )
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-provider-receipt-claims":
+        result = {
+            "artifact_kind": "odin_provider_receipt_claims_explanation",
+            "candidate_only": True,
+            "evidence_classes": {
+                "structural_evidence": "Repo-local deterministic proof that code, schema, packet, validator, or boundary exists.",
+                "host_scoped_local_receipt": "Evidence generated on one local host under explicit local-provider execution permission. Does not generalize.",
+                "external_receipt_required": "Claim that cannot be satisfied by repo-local proof alone."
+            },
+            "not_proven": [
+                "production_readiness",
+                "security_certification",
+                "release_certification",
+                "real_model_benchmark",
+                "model_quality_superiority"
+            ],
+            "claim_boundary": "local_provider_receipt_harness_scoped_local_receipts_not_quality_benchmark",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-critic-runtime-binding":
+        from odin.critic_runtime.reports import build_critic_runtime_report
+        result = build_critic_runtime_report()
+        if not result.get("critic_is_advisory"):
+            print("ERROR: critic runtime: critic_is_advisory must be true")
+            return 1
+        if not result.get("critic_not_authority"):
+            print("ERROR: critic runtime: critic_not_authority must be true")
+            return 1
+        print("validate-critic-runtime-binding: OK")
+        return 0
+
+    if args.cmd == "run-critic-cascade":
+        from odin.critic_runtime.cascade import run_critic_cascade
+        demo_candidate = {
+            "artifact_kind": "odin_demo_candidate",
+            "candidate_only": True,
+            "claim_boundary": "demo_candidate_boundary",
+            "not_proven": ["production_readiness", "security_certification"],
+            "app_apply": False,
+            "external_send": False,
+        }
+        result = run_critic_cascade(demo_candidate)
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-critic-cascade":
+        result = {
+            "artifact_kind": "odin_critic_cascade_explanation",
+            "candidate_only": True,
+            "critic_is_advisory": True,
+            "critic_not_authority": True,
+            "final_gate_required": True,
+            "stages": ["deterministic (always)", "model_critic (optional, gated)"],
+            "claim_boundary": "critic_runtime_binding_scores_candidates_not_truth_not_apply",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-route-evaluation-receipts":
+        from odin.route_evaluation.receipt import run_route_evaluation_receipt
+        result = run_route_evaluation_receipt()
+        if not result.get("not_a_model_quality_benchmark"):
+            print("ERROR: route evaluation: not_a_model_quality_benchmark must be true")
+            return 1
+        if not result.get("all_pass"):
+            print(f"ERROR: route evaluation: not all routes passed")
+            return 1
+        print("validate-route-evaluation-receipts: OK")
+        return 0
+
+    if args.cmd == "run-route-evaluation":
+        from odin.route_evaluation.receipt import run_route_evaluation_receipt
+        result = run_route_evaluation_receipt()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-route-evaluation-claims":
+        result = {
+            "artifact_kind": "odin_route_evaluation_claims_explanation",
+            "candidate_only": True,
+            "not_a_model_quality_benchmark": True,
+            "no_superiority_claim": True,
+            "measures": ["schema_valid", "candidate_only_valid", "forbidden_actions_clean", "slot_completeness", "not_proven_present", "receipt_present", "boundary_violations", "output_length_chars"],
+            "does_not_measure": ["model quality", "performance benchmark", "production readiness"],
+            "claim_boundary": "route_evaluation_receipts_measure_structure_not_model_quality_benchmark",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-thor-handoff-compiler":
+        from odin.thor_handoff_compiler.reports import build_thor_compiler_report
+        result = build_thor_compiler_report()
+        if result.get("thor_runtime_execution") is not False:
+            print("ERROR: thor compiler: thor_runtime_execution must be false")
+            return 1
+        if result.get("agent_autonomy") is not False:
+            print("ERROR: thor compiler: agent_autonomy must be false")
+            return 1
+        print("validate-thor-handoff-compiler: OK")
+        return 0
+
+    if args.cmd == "compile-thor-handoff":
+        from odin.thor_handoff_compiler.input_contract import build_handoff_input_contract
+        from odin.thor_handoff_compiler.compiler import compile_thor_handoff_bundle
+        ic = build_handoff_input_contract(
+            objective="Demo: Implement a bounded PR with evidence-class receipts",
+            repo_evidence=["odin/operational_spine/", "odin/release_boundaries/"],
+            allowed_edits=["odin/local_provider_receipts/", "odin/critic_runtime/"],
+            forbidden_edits=["odin/operational_spine/", "tests/test_final_pr_10_boundary_release.py"],
+            acceptance_gates=[
+                "validate-local-provider-receipt-harness returns 0",
+                "validate-critic-runtime-binding returns 0",
+                "pytest passes",
+            ],
+            claim_boundary="demo_thor_handoff_compile_artifact",
+        )
+        bundle = compile_thor_handoff_bundle(ic)
+        print(json.dumps(bundle, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-thor-handoff-compiler":
+        result = {
+            "artifact_kind": "odin_thor_handoff_compiler_explanation",
+            "candidate_only": True,
+            "thor_runtime_execution": False,
+            "agent_autonomy": False,
+            "purpose": "Compiles agent operator work packets, acceptance matrices, validator plans, and PR body skeletons from structured input contracts.",
+            "outputs": ["agent_operator_work_packet", "acceptance_matrix", "validator_plan", "pr_body_skeleton", "return_report_contract", "thor_handoff_bundle"],
+            "deterministic": True,
+            "no_model_required": True,
+            "claim_boundary": "thor_handoff_compiler_v0_compiles_worker_packets_not_thor_runtime",
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-final-pr-11-provider-critic-thor":
+        errors = validate_final_pr_11_provider_critic_thor()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-11-provider-critic-thor: OK")
+        return 0
+
     if args.cmd == "validate-json":
         errors = validate_json()
     elif args.cmd == "validate-registries":
@@ -4348,6 +4579,8 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_operational_spine()
     elif args.cmd == "validate-final-pr-10-boundary-release":
         errors = validate_final_pr_10_boundary_release()
+    elif args.cmd == "validate-final-pr-11-provider-critic-thor":
+        errors = validate_final_pr_11_provider_critic_thor()
     else:
         errors = validate_all()
 

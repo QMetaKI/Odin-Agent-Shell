@@ -1,0 +1,32 @@
+{
+  "artifact_kind": "odin_provider_execution_receipt",
+  "status": "provider_unavailable",
+  "unavailable_reason": "provider_binary_not_found",
+  "provider_id": "ollama_candidate",
+  "input_hash": "abc123def456abc1",
+  "execution_allowed": true,
+  "execution_performed": false,
+  "model_inference": false,
+  "provider_execution": false,
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "local_provider_receipt_harness_scoped_local_receipts_not_quality_benchmark",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "live_model_inference",
+    "app_apply",
+    "app_state_mutation",
+    "external_send",
+    "public_network"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

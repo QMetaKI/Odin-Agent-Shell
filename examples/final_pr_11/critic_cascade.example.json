@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "odin_critic_cascade_result",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "app_apply": false,
+  "external_send": false,
+  "public_network": false,
+  "not_authority": true,
+  "final_gate_required": true,
+  "cascade_stages": [
+    {
+      "stage": "deterministic",
+      "result": {
+        "recommendation": "pass",
+        "errors": [],
+        "warnings": [],
+        "score": 100,
+        "not_authority": true
+      }
+    }
+  ],
+  "overall_recommendation": "pass",
+  "overall_errors": [],
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "critic_runtime_binding_scores_candidates_not_truth_not_apply",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "final_authority"
+  ],
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "cascade_advisory_note": "This cascade result is advisory. Critic cannot certify quality, apply, or send. App owns apply authority."
+}

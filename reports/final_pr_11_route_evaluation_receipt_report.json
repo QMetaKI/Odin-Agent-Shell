@@ -1,0 +1,22 @@
+{
+  "artifact_kind": "odin_route_evaluation_report",
+  "candidate_only": true,
+  "local_only": true,
+  "app_owned_apply": true,
+  "evidence_class": "structural_evidence",
+  "claim_boundary": "route_evaluation_receipts_measure_structure_not_model_quality_benchmark",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority",
+    "app_apply",
+    "external_send",
+    "public_network"
+  ],
+  "not_a_model_quality_benchmark": true,
+  "no_superiority_claim": true,
+  "fixture_routes": ["deterministic_no_model", "3b_primary", "7b_primary", "3b_7b_hybrid"],
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

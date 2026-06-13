@@ -1,0 +1,13 @@
+{
+  "artifact_kind": "odin_release_sequence_transition_report",
+  "candidate_only": true,
+  "final_pr_11_inserted_before_release_closure": true,
+  "previous_planned_release_closure": "FINAL-PR-11",
+  "new_release_closure": "FINAL-PR-12",
+  "final_pr_11_purpose": "local_provider_receipt_harness_critic_runtime_binding_thor_handoff_compiler_v0",
+  "final_pr_12_remains_deferred": true,
+  "recommended_next_pr": "FINAL-PR-12",
+  "historical_pr10_reports_preserved": true,
+  "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

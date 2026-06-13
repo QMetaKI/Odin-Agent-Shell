@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-11 Route Evaluation Receipt",
+  "description": "Schema for route evaluation receipts. Not a model quality benchmark.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "candidate_only",
+    "not_a_model_quality_benchmark",
+    "no_superiority_claim",
+    "evidence_class",
+    "claim_boundary",
+    "not_proven",
+    "routes_evaluated"
+  ],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_route_evaluation_receipt"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "not_a_model_quality_benchmark": {"type": "boolean", "const": true},
+    "no_superiority_claim": {"type": "boolean", "const": true},
+    "evidence_class": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "not_proven": {"type": "array", "items": {"type": "string"}},
+    "routes_evaluated": {"type": "integer"}
+  },
+  "additionalProperties": true
+}

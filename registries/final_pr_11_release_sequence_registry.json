@@ -1,0 +1,18 @@
+{
+  "registry_id": "final_pr_11_release_sequence_registry",
+  "version": "1.0.0",
+  "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+  "candidate_only": true,
+  "previous_planned_release_closure": "FINAL-PR-11",
+  "new_release_closure": "FINAL-PR-12",
+  "final_pr_11_purpose": "local_provider_receipt_harness_critic_runtime_binding_thor_handoff_compiler_v0",
+  "final_pr_11_inserted_before_release_closure": true,
+  "final_pr_12_remains_deferred": true,
+  "historical_pr10_reports_preserved": true,
+  "superseding_transition_docs": [
+    "docs/release/FINAL_PR_11_RELEASE_SEQUENCE_TRANSITION.md",
+    "reports/final_pr_11_release_sequence_transition_report.json"
+  ],
+  "recommended_next_pr": "FINAL-PR-12",
+  "generated_at_utc": "2026-01-01T00:00:00Z"
+}

@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 1945,
+  "file_count_excluding_manifest": 2013,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "1ade2cb789134eef7d0863aba7e9dbfc669a46d6c9ffb2b4e8001f4e01d086ee",
-      "size": 108125
+      "sha256": "866282cf8c22d6811130fc71b43c12b76472f95522c613491f6001e56dfc77d3",
+      "size": 119580
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1484,6 +1484,26 @@
       "size": 8350
     },
     {
+      "path": "docs/codex/audits/FINAL_PR_11_CODE_REVIEW.md",
+      "sha256": "54cc8b20c4c4dac12bca6ebf6a90d73b8688de8f27040c197e6695e856e62392",
+      "size": 2129
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_11_PROVIDER_CRITIC_THOR_AUDIT.md",
+      "sha256": "58ba14fd2d2e58feff79e25acc5df9602050eff3e92bf52490e92c702249b5f3",
+      "size": 2315
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_11_SENIOR_REVIEW.md",
+      "sha256": "e29bf88e97e270ef37bcb6931d2179fd0b1ff4738f21d8b87438e0ff891aeb87",
+      "size": 2708
+    },
+    {
+      "path": "docs/codex/audits/FINAL_PR_11_THOR_ODIN_Y_EFFECTIVENESS_AUDIT.md",
+      "sha256": "6b44593f872c59953fc770e37bb559e57130663f9c74a591d8f0d052c2ebfd46",
+      "size": 5429
+    },
+    {
       "path": "docs/codex/audits/INSERT_Y_PATTERN_SPINE_AUDIT.md",
       "sha256": "10ecd077673bb08b5271198d7fa52a735d1f0a41212c83e876f645395a682325",
       "size": 4478
@@ -2024,6 +2044,21 @@
       "size": 5512
     },
     {
+      "path": "docs/codex/handoffs/FINAL_PR_11_ODIN_AGENT_OPERATOR_WORK_PACKET.md",
+      "sha256": "3e4075b36ca788f943309f7d5243dcd3f3d4e827c7347aab6ab712633c14f18c",
+      "size": 3670
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_11_REPO_COGNITION_SUMMARY.md",
+      "sha256": "b69c9a57bc6e1e5f9be9488de27dd3f9e11544178ba76fcf44fa80015a1c740a",
+      "size": 3505
+    },
+    {
+      "path": "docs/codex/handoffs/FINAL_PR_11_THOR_STYLE_PROVIDER_CRITIC_HANDOFF.md",
+      "sha256": "c1635cc24fa269285acab44d797425f8a849f631cf6926042e5cbcabd7c094c5",
+      "size": 3682
+    },
+    {
       "path": "docs/codex/handoffs/INSERT_Y_PATTERN_SPINE_REPO_REALITY_INTAKE.md",
       "sha256": "bda27765a4805f67c49dbc0ebd06b464f671641196436b49bf9b7f42585db37d",
       "size": 4868
@@ -2307,6 +2342,11 @@
       "path": "docs/codex/reports/FINAL_PR_09_OPERATIONAL_SPINE_RETURN_REPORT.md",
       "sha256": "e30aabcbc5cfddeec32c4de2f456dde69c593796b3a4658e0f63e4e33fae9f2e",
       "size": 3118
+    },
+    {
+      "path": "docs/codex/reports/FINAL_PR_11_PROVIDER_CRITIC_THOR_RETURN_REPORT.md",
+      "sha256": "1d2190c926056b75631cae7960f2662889dbf9db928f74809022297d5420746f",
+      "size": 15183
     },
     {
       "path": "docs/codex/reports/INSERT_Y_PATTERN_SPINE_RETURN_REPORT.md",
@@ -3179,6 +3219,11 @@
       "size": 6202
     },
     {
+      "path": "docs/rebaseline/FINAL_PR_11_PROVIDER_CRITIC_THOR.md",
+      "sha256": "66a19a33e161aa4906a3aab543a62cd28490d1f126ddc0d036b75d53fc3775eb",
+      "size": 3372
+    },
+    {
       "path": "docs/rebaseline/FINAL_Q_SHABANG_CAPABILITY_MATRIX_V1.md",
       "sha256": "4f0b2d83153d3ff16f2344ef184b0da4fc218900cc7e17252f1161be4e217368",
       "size": 5998
@@ -3297,6 +3342,36 @@
       "path": "docs/release/FINAL_PR_09_SMALL_MODEL_POWER_MAP.md",
       "sha256": "9573bfd76c209866cc9ee334f04cf50dd2e315c38d0c3ca99241fcc4f2f3ac08",
       "size": 3292
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_CRITIC_RUNTIME_BINDING.md",
+      "sha256": "fafa366b58e06a5b43c4676039fbc1c7c67ee7d60c3f7de557f4b7c29f6bc0a7",
+      "size": 1484
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_LOCAL_PROVIDER_RECEIPT_HARNESS.md",
+      "sha256": "09d83926305f7e712c1f3fca8bc9e6d32eda56f489a5a6dedd5087532de440ef",
+      "size": 2060
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_PREFLIGHT_AFTER_PR11.md",
+      "sha256": "43c993c7a65ef094832b8ff8283e40965c98ba23e5f98fbc312d6188a7540cd0",
+      "size": 1377
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_RELEASE_SEQUENCE_TRANSITION.md",
+      "sha256": "ba5aa6ae7f0be0801fb4018254ec6efbc446623444227c9dae509545f367e21c",
+      "size": 1672
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_ROUTE_EVALUATION_RECEIPTS.md",
+      "sha256": "3cfe373db7dd368d9066bcc5217c2db47df663484b34aefff52a1b43331cb530",
+      "size": 1285
+    },
+    {
+      "path": "docs/release/FINAL_PR_11_THOR_HANDOFF_COMPILER_V0.md",
+      "sha256": "404d42d6df4f5e67ecf58126addbd3fee4ed116d972f420fd024962d2fc47df1",
+      "size": 1580
     },
     {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
@@ -3677,6 +3752,56 @@
       "path": "examples/final_pr_10/ring_authority_map.example.json",
       "sha256": "3001defe8ddba751a698bfae9003c0fed940b4e11aa460bb1f3cb246cf7938a0",
       "size": 9493
+    },
+    {
+      "path": "examples/final_pr_11/critic_cascade.example.json",
+      "sha256": "6dd8415ef74588ae4ab36bde356e94bdb7f7cd9b6f735ce42a4b22c0dad730ef",
+      "size": 988
+    },
+    {
+      "path": "examples/final_pr_11/critic_packet.example.json",
+      "sha256": "cfc2d1550bb8bb69def6ed6a160bfbbd9f1562c0bcf2626fa579119bf97ff028",
+      "size": 950
+    },
+    {
+      "path": "examples/final_pr_11/preflight_after_pr11.example.json",
+      "sha256": "f4a8e7348c41fdd07d9d9e6803ee37fbc18d6429a2d3038ca2eae5a6e118f6fd",
+      "size": 807
+    },
+    {
+      "path": "examples/final_pr_11/provider_execution_scoped_receipt.example.json",
+      "sha256": "95b99e2f005540d413dbaab07fc9f5c89d28b3d78703f7577fee645f18b3ef11",
+      "size": 1259
+    },
+    {
+      "path": "examples/final_pr_11/provider_execution_unavailable_receipt.example.json",
+      "sha256": "0b4259c4c49f39d584aa44a94699d7d957d344b3c20c05c8f55837520ad4a14e",
+      "size": 960
+    },
+    {
+      "path": "examples/final_pr_11/provider_readiness_receipt.example.json",
+      "sha256": "d5d71869dc8a343f06046418733dc0675a886bf6153f5d3e52944907b2544729",
+      "size": 1016
+    },
+    {
+      "path": "examples/final_pr_11/release_sequence_transition.example.json",
+      "sha256": "06809fd5504e7e4334e7e8c571ca50ffc6004781b0800d9586fb8b78fbb25e65",
+      "size": 603
+    },
+    {
+      "path": "examples/final_pr_11/route_evaluation_receipt.example.json",
+      "sha256": "9a671aad397ebef0ad119e44d6a3aeeb8bc3db4d35c05edf3097ba96e5be0b1f",
+      "size": 940
+    },
+    {
+      "path": "examples/final_pr_11/thor_handoff_bundle.example.json",
+      "sha256": "0bf6cd012153076f345e2e5fce308b8578dbc70126e51208cf71481d7fbd6666",
+      "size": 893
+    },
+    {
+      "path": "examples/final_pr_11/thor_handoff_input_contract.example.json",
+      "sha256": "a15a50709a1561f773ca6fd4a821bd5059db1dc83a189a506bd8f11e84783bc5",
+      "size": 2091
     },
     {
       "path": "examples/final_q_shabang_capability_matrix_v1.example.json",
@@ -4675,8 +4800,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "715aeb0e0d290847ac97f7bc98fa03a5e24d65b204e0f3eb7be74705826f963b",
-      "size": 205664
+      "sha256": "e6e87272fdd8be6cbef35730c97164d258273ee7f8744d1cc10cd17ddea08d0b",
+      "size": 236137
     },
     {
       "path": "odin/compiler/__init__.py",
@@ -4742,6 +4867,31 @@
       "path": "odin/core/final_gate.py",
       "sha256": "f82569e607c9bd0dd8f7d751fc80f388348f99591fab349a8d3247fbc7ee5460",
       "size": 912
+    },
+    {
+      "path": "odin/critic_runtime/__init__.py",
+      "sha256": "464fb73a66714747590e898a7bea93cb59915a81d076ab6512f5ca6ad75e5462",
+      "size": 544
+    },
+    {
+      "path": "odin/critic_runtime/cascade.py",
+      "sha256": "4a0ea8e2501fa34b6f0425051d21fbab9adbac5a9c1fb0d17eb3ecbd91a9b2dc",
+      "size": 4038
+    },
+    {
+      "path": "odin/critic_runtime/critic_packet.py",
+      "sha256": "d9273d91b947e1c37cb61271e63b9d1618f31fcb7510713e9c37bd66378e7c79",
+      "size": 1945
+    },
+    {
+      "path": "odin/critic_runtime/deterministic_critic.py",
+      "sha256": "533e26da502a22bf36aecd5b3d26b350dc09bdf313b81c71c476452b6fa9d711",
+      "size": 4051
+    },
+    {
+      "path": "odin/critic_runtime/reports.py",
+      "sha256": "aa7aaeb9004c2b0d58f02a7d841022d7425902c50cd556f64f967faa4b4ab371",
+      "size": 1031
     },
     {
       "path": "odin/daemon/__init__.py",
@@ -4995,8 +5145,8 @@
     },
     {
       "path": "odin/local_hub/server.py",
-      "sha256": "5220c82d0bbc49a315fb9cde70f96a76347c291c3e6fecfc8e15b833440b9eca",
-      "size": 19224
+      "sha256": "ad89bb994f166adda9704adb36fecc9e020f22a8eadc164225329f84f85e4e5c",
+      "size": 33074
     },
     {
       "path": "odin/local_hub/surface_registry.py",
@@ -5005,8 +5155,43 @@
     },
     {
       "path": "odin/local_hub/ui.py",
-      "sha256": "4c6cd5b45f4f018af9171a0f8a425480fc2e3ea1ec8656ab4713c09c7650a244",
-      "size": 23669
+      "sha256": "e1c60534862c8e22bd6aa907e46590979b6867fa4f9564522223296b201b45fc",
+      "size": 28241
+    },
+    {
+      "path": "odin/local_provider_receipts/__init__.py",
+      "sha256": "4895705ce623d8c61fb60b4ce386650a3ba95d0b8e89e1e419c88d0dc7f69ebe",
+      "size": 579
+    },
+    {
+      "path": "odin/local_provider_receipts/executor.py",
+      "sha256": "c166f3e8c1d5d975fa216691d37d914e7bd74673225ccfe1ae6fd94952469082",
+      "size": 8197
+    },
+    {
+      "path": "odin/local_provider_receipts/provider_ids.py",
+      "sha256": "be70bea61e1a48d6af575e39656f80d2989beedb7e8752553eb45ff60cb4c450",
+      "size": 733
+    },
+    {
+      "path": "odin/local_provider_receipts/readiness.py",
+      "sha256": "e3918a36e2388268817f8560941bfeb23a26d7272a6fdb33482a4d25989f8aa6",
+      "size": 1819
+    },
+    {
+      "path": "odin/local_provider_receipts/receipt.py",
+      "sha256": "6d899e09030648dc6765599a475f0102a54efe54bd08a233e9e393540eb67b27",
+      "size": 3461
+    },
+    {
+      "path": "odin/local_provider_receipts/reports.py",
+      "sha256": "ace04f674ea0734d13cf10db30cf2445900d7fb1afec7b83b12667a0b6a466e0",
+      "size": 2369
+    },
+    {
+      "path": "odin/local_provider_receipts/request_packet.py",
+      "sha256": "5f938e59b906e4190455d9f69a4285c2ff1ef89e11a520cf94f8f9ccb6deaf95",
+      "size": 2212
     },
     {
       "path": "odin/local_runtime/__init__.py",
@@ -5447,6 +5632,31 @@
       "path": "odin/release_boundaries/ring_authority_map.py",
       "sha256": "1a8af22bcd3669b9790c16ba43efcd833250d6fb4e3b54e35a976e2979575bb2",
       "size": 9787
+    },
+    {
+      "path": "odin/route_evaluation/__init__.py",
+      "sha256": "74825f3741c8d3dbf7fcab203239b7d33c1b13778897c0a4266701e950259d36",
+      "size": 613
+    },
+    {
+      "path": "odin/route_evaluation/evaluator.py",
+      "sha256": "05be33e28a4eae0b1b4753ee29699075f64f0fb0dfcf6539e3cf1207f6abcb6e",
+      "size": 3742
+    },
+    {
+      "path": "odin/route_evaluation/fixtures.py",
+      "sha256": "ad6f08d736cd6bb95355d7dbdc8e44041ff6af44c4c2282be02ac0dd531e03a6",
+      "size": 2920
+    },
+    {
+      "path": "odin/route_evaluation/receipt.py",
+      "sha256": "87bc16d71c710bee71ef8d1b3cf3cdf23d680d753831c9d248de28f6f5637553",
+      "size": 1962
+    },
+    {
+      "path": "odin/route_evaluation/reports.py",
+      "sha256": "ce3a16316f7e7f3e44c7acbbdfc79eb55b3dcb5487272e31cfe1c69fdc119068",
+      "size": 1252
     },
     {
       "path": "odin/runtime/__init__.py",
@@ -6189,6 +6399,41 @@
       "size": 112
     },
     {
+      "path": "odin/thor_handoff_compiler/__init__.py",
+      "sha256": "bec5316ddc8436d865b2de71726f64e4d80e2984d54a5fea4db0f9aa9d751ec1",
+      "size": 840
+    },
+    {
+      "path": "odin/thor_handoff_compiler/acceptance_matrix.py",
+      "sha256": "b6a55350437bdc775026571b8ba0b1b05a08d3f545006a79be26f4519bd1cd2f",
+      "size": 315
+    },
+    {
+      "path": "odin/thor_handoff_compiler/compiler.py",
+      "sha256": "98593d05b7610207a8bec7f1a4ce639d0d8b48fd26d2a77303cd4301db29fa49",
+      "size": 7305
+    },
+    {
+      "path": "odin/thor_handoff_compiler/input_contract.py",
+      "sha256": "2c0d2fe64110b0a58545a8552a4eb213072db0f9b48e8e7f4099f85a01e02acc",
+      "size": 2201
+    },
+    {
+      "path": "odin/thor_handoff_compiler/pr_body.py",
+      "sha256": "df82fc04cb803427773113800c02284acff41a1cc32ddf24cdee597c8efd41e7",
+      "size": 312
+    },
+    {
+      "path": "odin/thor_handoff_compiler/reports.py",
+      "sha256": "15d4c08c5a798da1e787b046276f7475670c27bcc1e5c809e953ed40589ea8da",
+      "size": 1383
+    },
+    {
+      "path": "odin/thor_handoff_compiler/validator_plan.py",
+      "sha256": "738fa0f6ee006c50eae2d35335e7c7c4c68c7c8df33ad8dd8d9ecec2b1c98c9a",
+      "size": 306
+    },
+    {
       "path": "odin/universal_work/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
@@ -6527,6 +6772,36 @@
       "path": "registries/final_pr_10_qshabang_release_gate_registry.json",
       "sha256": "a1673a050bf09daeaeb50b02453a0e77d3e63ac133bbb378fca73968bc260757",
       "size": 1095
+    },
+    {
+      "path": "registries/final_pr_11_critic_runtime_registry.json",
+      "sha256": "8318682fbcb9d0bd34c3749351551481c6085f83197658c40f969b8eecb1f046",
+      "size": 684
+    },
+    {
+      "path": "registries/final_pr_11_provider_critic_thor_registry.json",
+      "sha256": "d6080c04f760314d939ad272595cabe776fe937c5ea263de3aa68901a08dfd4d",
+      "size": 749
+    },
+    {
+      "path": "registries/final_pr_11_provider_receipt_registry.json",
+      "sha256": "379e1a9eae8b8a91f79a4af8010f3a2c53396a693384e299d7eea9439378895a",
+      "size": 1059
+    },
+    {
+      "path": "registries/final_pr_11_release_sequence_registry.json",
+      "sha256": "d607980d72e2b140dad6a5e01848cf03c7cb6773be604cc842f8ff150abd9bc8",
+      "size": 797
+    },
+    {
+      "path": "registries/final_pr_11_route_evaluation_registry.json",
+      "sha256": "e6c7fbdd85a90b0e065a202cb2a3f47417f6e3673a4a9d1b405907c1335f69bd",
+      "size": 932
+    },
+    {
+      "path": "registries/final_pr_11_thor_handoff_compiler_registry.json",
+      "sha256": "0306666727b54b8deb438037bb41872269333a90b48172003214c32dfad118bd",
+      "size": 803
     },
     {
       "path": "registries/final_q_shabang_capability_matrix_v1.json",
@@ -7589,6 +7864,41 @@
       "size": 9493
     },
     {
+      "path": "reports/final_pr_11_critic_runtime_binding_report.json",
+      "sha256": "07812053a8c150a3a80f0e7e31d610cd6ef516dcb629ed8c2e2797e7903d7cd6",
+      "size": 809
+    },
+    {
+      "path": "reports/final_pr_11_preflight_after_pr11_report.json",
+      "sha256": "95672418dfdb877da883d25c5920e2ab2f92665632bb3e74c7b243c31036f5b8",
+      "size": 558
+    },
+    {
+      "path": "reports/final_pr_11_provider_critic_thor_proof_packet.json",
+      "sha256": "cfbb82bf9b94936d33f561d2277d2b6bd71088fc7f20b229948d2441a8118804",
+      "size": 1197
+    },
+    {
+      "path": "reports/final_pr_11_provider_receipt_harness_report.json",
+      "sha256": "0175f8ce6240e3cd5b403b04137ddbb2d41e16b0ddd5d948069ec797c34e66a8",
+      "size": 914
+    },
+    {
+      "path": "reports/final_pr_11_release_sequence_transition_report.json",
+      "sha256": "a335455a0232fb4f28fe65df87ab9e0e8ea5811ba79a8778cacc838bc63b0e0c",
+      "size": 610
+    },
+    {
+      "path": "reports/final_pr_11_route_evaluation_receipt_report.json",
+      "sha256": "66242fed7dc3df5701ab455434f847c49648137a9267bbc78fd084a50d6a3acd",
+      "size": 708
+    },
+    {
+      "path": "reports/final_pr_11_thor_handoff_compiler_report.json",
+      "sha256": "1b35d55b8f4d99379bdb7b653d561796f21f994a8d5a6faffa6d435d4af10d96",
+      "size": 975
+    },
+    {
       "path": "reports/final_road_to_100_rebaseline_audit_v1.json",
       "sha256": "aa7b39acf26c356ecd05bab18752d02fcc3b3219516c6c5f045621a77782316a",
       "size": 105505
@@ -7817,6 +8127,26 @@
       "path": "schemas/final_pr_10_release_preflight_report.schema.json",
       "sha256": "e01ceac3ae459ceb53a1780319974082f2412100cab050e0f9bb4ad4194f9840",
       "size": 1773
+    },
+    {
+      "path": "schemas/final_pr_11_critic_packet.schema.json",
+      "sha256": "0f0184db5ade1139bc88c2dfdd77ea2488d94cd206f3652f7386a36022bb3587",
+      "size": 1062
+    },
+    {
+      "path": "schemas/final_pr_11_provider_receipt.schema.json",
+      "sha256": "2cb4d04be2b6c9a76e1d1e4949928d36bf5f0ceb96edcd0506efea632f972f26",
+      "size": 1406
+    },
+    {
+      "path": "schemas/final_pr_11_route_evaluation_receipt.schema.json",
+      "sha256": "6c709bbcf67b5b57448b767444ddd6dfe64e7225f792d955afa0455863a716cb",
+      "size": 960
+    },
+    {
+      "path": "schemas/final_pr_11_thor_handoff_bundle.schema.json",
+      "sha256": "ff1a1e0a7b657d015db455d7663fd02fe560b5ee2fc6c2f8bf3b8f4e74713d34",
+      "size": 1080
     },
     {
       "path": "schemas/final_pr_ladder_worker_packet_scaffold.schema.json",
@@ -9204,6 +9534,11 @@
       "size": 26865
     },
     {
+      "path": "tests/test_final_pr_11_provider_critic_thor.py",
+      "sha256": "1c71f497c60803754c67667b5dad7f2ff7b75ba27fec6966caf81fd360952e1d",
+      "size": 30193
+    },
+    {
       "path": "tests/test_final_road_to_100_rebaseline_audit.py",
       "sha256": "727fd33f3702757e25dbe6b164be37374b04892697157b2b3b2778bc46188f3e",
       "size": 26679
@@ -9582,6 +9917,11 @@
       "path": "tools/rebaseline/check_final_pr_10_boundary_release.py",
       "sha256": "30fac73782469e893f9d3c58a6c3c1613d70a5fb55f24f55928b36c596784ff2",
       "size": 21413
+    },
+    {
+      "path": "tools/rebaseline/check_final_pr_11_provider_critic_thor.py",
+      "sha256": "c59bb007cda5b60d3b38a442461263cfabea2210cd1f56d98937f0f6f8b21e42",
+      "size": 23039
     },
     {
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",

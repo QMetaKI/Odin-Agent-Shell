@@ -1,0 +1,19 @@
+{
+  "artifact_kind": "odin_release_preflight_after_pr11",
+  "candidate_only": true,
+  "status": "yellow",
+  "recommended_next_pr": "FINAL-PR-12",
+  "final_pr_12_remains_deferred": true,
+  "final_pr_11_inserted_before_release_closure": true,
+  "final_pr_11_purpose": "local_provider_receipt_harness_critic_runtime_binding_thor_handoff_compiler_v0",
+  "not_proven": [
+    "production_readiness",
+    "security_certification",
+    "release_certification",
+    "real_model_benchmark",
+    "model_quality_superiority"
+  ],
+  "claim_boundary": "final_pr_11_provider_receipt_critic_thor_compiler_not_release_closure",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "preflight_note": "Status remains yellow. Production/security/release certification remain not proven. FINAL-PR-12 required for release closure."
+}

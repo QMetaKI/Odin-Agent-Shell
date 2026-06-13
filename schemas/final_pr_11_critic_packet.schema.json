@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-11 Critic Packet",
+  "description": "Schema for critic runtime binding packets. Critic is advisory, not authority.",
+  "type": "object",
+  "required": [
+    "artifact_kind",
+    "critic_packet_id",
+    "candidate_only",
+    "app_apply",
+    "external_send",
+    "not_authority",
+    "final_gate_required",
+    "evidence_class",
+    "claim_boundary",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_kind": {"type": "string", "const": "odin_critic_packet"},
+    "critic_packet_id": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "app_apply": {"type": "boolean", "const": false},
+    "external_send": {"type": "boolean", "const": false},
+    "not_authority": {"type": "boolean", "const": true},
+    "final_gate_required": {"type": "boolean", "const": true},
+    "evidence_class": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}
