@@ -270,9 +270,23 @@ PYTHONDONTWRITEBYTECODE=1 python -m pytest -p no:cacheprovider
 
 ## Full Suite Result
 
-2882 passed, 3 skipped (0 failed) — full suite green. Run time: 312.65s (5m12s).
+2883 passed, 3 skipped (0 failed) — full suite green. Run time: 315.29s (5m15s).
 
-Note: 1 test that required the phrase "model output is projection, not truth" in README.md was fixed by restoring the phrase to the Safety/Claim Boundaries section of README.md. The final run confirmed 2882 passed, 3 skipped, 0 failed.
+**CI Fix Applied (post-initial-commit):**
+
+Failing tests (GitHub Actions CI, commit 483bea3):
+- `tests/test_v7_1_1_operational_coverage_gap_compiler.py::test_file_manifest_count_matches_entries` — `AssertionError: assert 2199 == 2200`
+- `tests/test_v7_1_1_b1_app_boundary_universal_work_qirc_spine.py::test_36_pr25_operational_coverage_gap_tests_still_pass` — (cascade from above)
+- `tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py::test_46_pr25_operational_coverage_gap_tests_still_pass` — (cascade from above)
+- `tests/test_v7_1_1_b2_context_lenses_worklets_slot_gaptext.py::test_48_pr27_b1_tests_still_pass` — (cascade from above)
+
+Root cause: The FILE_MANIFEST.json self-hash update script (second pass) added `FILE_MANIFEST.json` itself as an entry in the `files` list, making `len(files) = 2200`, but left `file_count_excluding_manifest = 2199`. The field is named "excluding_manifest" — FILE_MANIFEST.json must not appear in the files list by convention (confirmed from base commit bdcc050).
+
+Fix: Removed the `FILE_MANIFEST.json` entry from the `files` list, restoring `len(files) = 2199` to match `file_count_excluding_manifest = 2199`.
+
+README still contains exact Thor-Agent-Kit "Danke / Thank You" block (unmodified).
+DONATIONS.md remains no-entitlement posture (unmodified).
+External release remains unclaimed (no tag, no GitHub Release, no PyPI, no assets).
 
 ## Known Gaps
 

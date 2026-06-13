@@ -69,11 +69,6 @@
       "size": 884
     },
     {
-      "path": "FILE_MANIFEST.json",
-      "sha256": "c2a5f941d8461189b1dc9823b69984b641841470361ce3167abfda725c750cf5",
-      "size": 399406
-    },
-    {
       "path": "LICENSE",
       "sha256": "248037b21866a8a62529eae88de7da077edc4d4dbc618fe4bf88e47d97a763c0",
       "size": 241
@@ -2435,8 +2430,8 @@
     },
     {
       "path": "docs/codex/reports/FINAL_PR_13_V1_RELEASE_CLOSURE_RETURN_REPORT.md",
-      "sha256": "e7883f0a7c1307bb7de23bdd0ae0f5141412359b461308e67c9e03ad906abe55",
-      "size": 11486
+      "sha256": "6645cd185cdbb8661d92a14ef0e36ec6e1ecf20ba7b2abdc59f9908402ca88bd",
+      "size": 12927
     },
     {
       "path": "docs/codex/reports/INSERT_Y_PATTERN_SPINE_RETURN_REPORT.md",
@@ -8745,7 +8740,7 @@
     },
     {
       "path": "reports/final_pr_13_v1_release_closure_report.json",
-      "sha256": "7ac2774a06cb664bcc0fae98bef148e99be77013dae59679b952000de02e21fd",
+      "sha256": "54f4ff28ce39cbfeb5dd5e7d1dad33bed2138b4c4ffd4fd1a60d718af06a0120",
       "size": 3997
     },
     {

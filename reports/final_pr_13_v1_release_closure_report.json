@@ -72,7 +72,7 @@
   "claim_boundary": "final_pr_13_v1_candidate_release_closure_not_external_release",
   "error_count": 0,
   "errors": [],
-  "generated_at_utc": "2026-06-13T00:00:00Z",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
   "not_proven": [
     "production_readiness",
     "security_certification",
