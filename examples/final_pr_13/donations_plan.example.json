@@ -1,0 +1,25 @@
+{
+  "artifact_kind": "odin_final_pr_13_donations_plan",
+  "candidate_only": true,
+  "claim_boundary": "donation_surface_documents_optional_donations_without_entitlement",
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "paypal": "QMetaKI@gmail.com",
+  "donations_optional": true,
+  "no_support_obligation": true,
+  "no_private_licensing_rights": true,
+  "no_priority_guarantee": true,
+  "no_governance_rights": true,
+  "no_licensing_exception": true,
+  "no_commercial_entitlement": true,
+  "no_paid_support_promise": true,
+  "no_feature_request_right": true,
+  "not_tax_advice": true,
+  "license": "GPL-2.0-only",
+  "source": "adapted from Thor-Agent-Kit DONATIONS.md",
+  "not_proven": [
+    "production_readiness",
+    "live_model_inference",
+    "app_state_mutation",
+    "external_send_authority"
+  ]
+}

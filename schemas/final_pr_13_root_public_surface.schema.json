@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-13 Root Public Surface",
+  "description": "Schema for Odin root public surface artifacts. candidate_only: true.",
+  "type": "object",
+  "required": ["artifact_kind", "candidate_only", "claim_boundary", "generated_at_utc"],
+  "properties": {
+    "artifact_kind": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "readme_present": {"type": "boolean"},
+    "donations_present": {"type": "boolean"},
+    "history_preserved": {"type": "boolean"},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  }
+}

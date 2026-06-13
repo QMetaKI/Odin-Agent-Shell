@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FINAL-PR-13 Release Artifact Boundary",
+  "description": "Schema for Odin release artifact boundary artifacts. candidate_only: true.",
+  "type": "object",
+  "required": ["artifact_kind", "candidate_only", "claim_boundary", "generated_at_utc"],
+  "properties": {
+    "artifact_kind": {"type": "string"},
+    "candidate_only": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string"},
+    "generated_at_utc": {"type": "string"},
+    "external_release_claimed": {"type": "boolean", "const": false},
+    "tag_creation_claimed": {"type": "boolean", "const": false},
+    "github_release_creation_claimed": {"type": "boolean", "const": false},
+    "pypi_publication_claimed": {"type": "boolean", "const": false},
+    "not_proven": {"type": "array", "items": {"type": "string"}}
+  }
+}

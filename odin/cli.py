@@ -169,6 +169,9 @@ def validate_claims() -> list[str]:
         "tools/v7_1_1/check_canon_boundary_integrity.py",
         "tests/test_v7_1_1_canon_boundary_integrity.py",
         "docs/codex/reports/PR_26_V7_1_1_CANON_BOUNDARY_INTEGRITY_RETURN_REPORT.md",
+        # FINAL-PR-13: validator and test contain boundary-checking patterns (not overclaims)
+        "tools/rebaseline/check_final_pr_13_v1_release_closure.py",
+        "tests/test_final_pr_13_v1_release_closure.py",
     }
     for path in sorted(ROOT.rglob("*")):
         rel = path.relative_to(ROOT).as_posix() if path.exists() else ""
@@ -2943,6 +2946,32 @@ def validate_final_pr_12_release_readiness_hardening() -> list[str]:
     return []
 
 
+def validate_final_pr_13_v1_release_closure() -> list[str]:
+    """Validate FINAL-PR-13 v1.0 Candidate Release Closure + Root Public Surface Cleanup."""
+    tool_path = ROOT / "tools" / "rebaseline" / "check_final_pr_13_v1_release_closure.py"
+    if not tool_path.exists():
+        return ["missing FINAL-PR-13 validator: tools/rebaseline/check_final_pr_13_v1_release_closure.py"]
+    spec = importlib.util.spec_from_file_location("odin_final_pr_13_validator", tool_path)
+    if spec is None or spec.loader is None:
+        return ["unable to load FINAL-PR-13 validator"]
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "final_pr_13_v1_release_closure_check.json"
+        code = module.main([
+            "--repo-root", str(ROOT),
+            "--out", str(out),
+            "--generated-at-utc", "2026-01-01T00:00:00Z",
+        ])
+        if code != 0:
+            try:
+                report = json.loads(out.read_text(encoding="utf-8"))
+                return [f"final-pr-13-v1-release-closure: {err}" for err in report.get("errors", [])]
+            except Exception as exc:
+                return [f"final-pr-13-v1-release-closure validator failed: {exc}"]
+    return []
+
+
 def validate_all() -> list[str]:
     errors = []
     errors.extend(validate_json())
@@ -3013,6 +3042,7 @@ def validate_all() -> list[str]:
     errors.extend(validate_final_pr_11_provider_critic_thor())
     errors.extend(validate_final_pr_11_5_semantic_kernel_coverage())
     errors.extend(validate_final_pr_12_release_readiness_hardening())
+    errors.extend(validate_final_pr_13_v1_release_closure())
     return errors
 
 def main(argv: list[str] | None = None) -> int:
@@ -3288,6 +3318,32 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("list-agent-operator-modes")
     explain_mode_p = sub.add_parser("explain-agent-operator-mode")
     explain_mode_p.add_argument("--mode", default="claude_code_implementation_worker")
+    # FINAL-PR-13: v1.0 Candidate Release Closure + Root Public Surface Cleanup
+    sub.add_parser("validate-v1-release-closure")
+    build_v1rcm_p = sub.add_parser("build-v1-release-closure-matrix")
+    build_v1rcm_p.add_argument("--demo", action="store_true", default=False)
+    build_v1rt_p = sub.add_parser("build-v1-release-truth")
+    build_v1rt_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-v1-release-closure")
+    sub.add_parser("validate-root-public-surface")
+    build_ri_p = sub.add_parser("build-root-inventory")
+    build_ri_p.add_argument("--demo", action="store_true", default=False)
+    build_rhr_p = sub.add_parser("build-root-hygiene-report")
+    build_rhr_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-root-public-surface")
+    sub.add_parser("validate-readme-v1")
+    build_readme_p = sub.add_parser("build-readme-v1-plan")
+    build_readme_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-readme-v1")
+    sub.add_parser("validate-donation-surface")
+    build_dp_p = sub.add_parser("build-donations-plan")
+    build_dp_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-donation-surface")
+    sub.add_parser("validate-release-artifact-boundary")
+    build_rab_p = sub.add_parser("build-release-artifact-boundary")
+    build_rab_p.add_argument("--demo", action="store_true", default=False)
+    sub.add_parser("explain-release-artifact-boundary")
+    sub.add_parser("validate-final-pr-13-v1-release-closure")
     # FINAL-PR-12: Release Readiness Hardening + Evidence Closure Dry Run + Packaging Boundary Prep
     sub.add_parser("validate-release-readiness-hardening")
     sub.add_parser("validate-evidence-closure-dry-run")
@@ -4855,6 +4911,145 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"ERROR: {err}")
             return 1
         print("validate-final-pr-12-release-readiness-hardening: OK")
+        return 0
+
+    # FINAL-PR-13: v1.0 Candidate Release Closure + Root Public Surface Cleanup
+    if args.cmd == "validate-v1-release-closure":
+        from odin.v1_release_closure.reports import build_v1_release_closure_report
+        result = build_v1_release_closure_report()
+        if not result.get("candidate_only"):
+            print("ERROR: v1 release closure: candidate_only must be true")
+            return 1
+        if result.get("external_release_claimed"):
+            print("ERROR: v1 release closure: external_release_claimed must be false")
+            return 1
+        print("validate-v1-release-closure: OK")
+        return 0
+
+    if args.cmd == "build-v1-release-closure-matrix":
+        from odin.v1_release_closure.closure_matrix import build_v1_release_closure_matrix
+        result = build_v1_release_closure_matrix()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-v1-release-truth":
+        from odin.v1_release_closure.release_truth import build_v1_release_truth
+        result = build_v1_release_truth()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-v1-release-closure":
+        from odin.v1_release_closure.proof_packet import build_v1_release_closure_proof_packet
+        result = build_v1_release_closure_proof_packet()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-root-public-surface":
+        from odin.root_public_surface.reports import build_root_public_surface_report
+        result = build_root_public_surface_report()
+        if not result.get("candidate_only"):
+            print("ERROR: root public surface: candidate_only must be true")
+            return 1
+        print("validate-root-public-surface: OK")
+        return 0
+
+    if args.cmd == "build-root-inventory":
+        from odin.root_public_surface.root_inventory import build_root_inventory
+        result = build_root_inventory()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "build-root-hygiene-report":
+        from odin.root_public_surface.root_hygiene import build_root_hygiene_report
+        result = build_root_hygiene_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-root-public-surface":
+        from odin.root_public_surface.root_index import build_root_index
+        result = build_root_index()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-readme-v1":
+        from odin.readme_v1.reports import build_readme_v1_report
+        result = build_readme_v1_report()
+        if not result.get("candidate_only"):
+            print("ERROR: readme v1: candidate_only must be true")
+            return 1
+        if result.get("sections_missing"):
+            print(f"ERROR: readme v1: missing sections: {result['sections_missing']}")
+            return 1
+        print("validate-readme-v1: OK")
+        return 0
+
+    if args.cmd == "build-readme-v1-plan":
+        from odin.readme_v1.readme_plan import build_readme_v1_plan
+        result = build_readme_v1_plan()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-readme-v1":
+        from odin.readme_v1.reports import build_readme_v1_report
+        result = build_readme_v1_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-donation-surface":
+        from odin.donation_surface.reports import build_donation_surface_report
+        result = build_donation_surface_report()
+        if not result.get("candidate_only"):
+            print("ERROR: donation surface: candidate_only must be true")
+            return 1
+        if not result.get("donations_exists"):
+            print("ERROR: donation surface: DONATIONS.md not found")
+            return 1
+        print("validate-donation-surface: OK")
+        return 0
+
+    if args.cmd == "build-donations-plan":
+        from odin.donation_surface.donations_plan import build_donations_plan
+        result = build_donations_plan()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-donation-surface":
+        from odin.donation_surface.reports import build_donation_surface_report
+        result = build_donation_surface_report()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-release-artifact-boundary":
+        from odin.release_artifact_boundary.reports import build_release_artifact_boundary_report
+        result = build_release_artifact_boundary_report()
+        if not result.get("candidate_only"):
+            print("ERROR: release artifact boundary: candidate_only must be true")
+            return 1
+        if result.get("external_release_claimed"):
+            print("ERROR: release artifact boundary: external_release_claimed must be false")
+            return 1
+        print("validate-release-artifact-boundary: OK")
+        return 0
+
+    if args.cmd == "build-release-artifact-boundary":
+        from odin.release_artifact_boundary.artifact_boundary import build_release_artifact_boundary
+        result = build_release_artifact_boundary()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "explain-release-artifact-boundary":
+        from odin.release_artifact_boundary.manual_release_actions import build_manual_release_actions
+        result = build_manual_release_actions()
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
+
+    if args.cmd == "validate-final-pr-13-v1-release-closure":
+        errors = validate_final_pr_13_v1_release_closure()
+        if errors:
+            for err in errors:
+                print(f"ERROR: {err}")
+            return 1
+        print("validate-final-pr-13-v1-release-closure: OK")
         return 0
 
     if args.cmd == "validate-json":

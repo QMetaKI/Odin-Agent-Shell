@@ -1,0 +1,32 @@
+{
+  "registry_id": "final_pr_13_release_artifact_boundary_registry",
+  "version": "1.0.0",
+  "candidate_only": true,
+  "claim_boundary": "release_artifact_boundary_lists_manual_release_actions_not_external_release",
+  "description": "Registry of release artifact boundary artifacts for FINAL-PR-13.",
+  "modules": [
+    "odin/release_artifact_boundary/artifact_boundary.py",
+    "odin/release_artifact_boundary/manual_release_actions.py",
+    "odin/release_artifact_boundary/reports.py"
+  ],
+  "examples": [
+    "examples/final_pr_13/release_artifact_boundary.example.json",
+    "examples/final_pr_13/release_sequence_after_pr13.example.json"
+  ],
+  "reports": [
+    "reports/final_pr_13_release_artifact_boundary.json",
+    "reports/final_pr_13_release_sequence_after_pr13.json"
+  ],
+  "external_release_claimed": false,
+  "tag_creation_claimed": false,
+  "github_release_creation_claimed": false,
+  "pypi_publication_claimed": false,
+  "not_proven": [
+    "production_readiness",
+    "tag_creation",
+    "github_release_creation",
+    "pypi_publication",
+    "release_asset_upload",
+    "signed_distribution"
+  ]
+}
