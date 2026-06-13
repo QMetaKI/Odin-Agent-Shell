@@ -1,0 +1,16 @@
+{
+  "claim_boundary": "pr56_v1_0_0_version_sync_external_release_prep_not_external_release",
+  "error_count": 0,
+  "errors": [],
+  "external_release_claimed": false,
+  "generated_at_utc": "2026-01-01T00:00:00Z",
+  "github_release_claimed": false,
+  "package_version": "1.0.0",
+  "pypi_publication_claimed": false,
+  "release_asset_upload_claimed": false,
+  "release_posture": "v1.0.0 prepared_not_released",
+  "status": "ok",
+  "tag_creation_claimed": false,
+  "warning_count": 0,
+  "warnings": []
+}

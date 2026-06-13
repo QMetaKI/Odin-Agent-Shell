@@ -1,14 +1,14 @@
 # Odin Agent Shell
 
-**Current public repo posture: v1.0 candidate release closure, local candidate-only, not externally released unless a maintainer separately creates and verifies a tag, GitHub Release, PyPI publication, and release assets.**
+**Current public repo posture: v1.0.0 prepared_not_released.** Odin Agent Shell is prepared for a manual external v1.0.0 release, but this repository state does not itself claim that a tag, GitHub Release, PyPI publication, or release asset upload exists.
 
 Odin Agent Shell is a local-first, candidate-only Universal Work kernel and small-model coordination OS. Apps send Universal Work Objects. Odin validates, precomputes, routes, and returns Candidate Artifacts in Response Packets. Apps render, decide, apply, persist, and send externally under their own authority.
 
 ## Current Status
 
-- **Package version:** 0.5.1 (local candidate)
-- **Release posture:** v1.0 candidate release closure — local candidate-only
-- **External release status:** not claimed — tag, GitHub Release, PyPI publication, and release assets remain manual maintainer actions
+- **Package version:** 1.0.0
+- **Release posture:** v1.0.0 prepared_not_released — local-first, candidate-only
+- **External release status:** not claimed — tag creation, GitHub Release creation, PyPI publication, and release asset upload remain manual maintainer actions
 - **Validators:** all FINAL-PR-09 through FINAL-PR-13 validators pass
 - **Tests:** full test suite passes
 - **Model/network:** no provider execution by default; no public network calls
@@ -204,9 +204,9 @@ Supporting docs:
 
 ## v1.0 Candidate Release Truth
 
-- **Local candidate release closure:** FINAL-PR-13 closes the local v1.0 candidate preparation line.
-- **Not externally released:** No tag, GitHub Release, PyPI publication, or release assets have been created or claimed by FINAL-PR-13.
-- **Manual external release actions remain:** tag creation, GitHub Release creation, PyPI publication, asset upload, and external release verification are all manual maintainer actions that have not been performed.
+- **Release posture:** v1.0.0 prepared_not_released; FINAL-PR-13 closed the local v1.0 candidate preparation line, and PR56 synchronizes public metadata for maintainer release preparation.
+- **Not externally released by this repo state:** No tag, GitHub Release, PyPI publication, or release assets are created or claimed by PR56.
+- **Manual external release action boundary:** tag creation, GitHub Release creation, PyPI publication, release asset upload, and external release verification are manual maintainer actions and remain unclaimed by PR56.
 - **No production readiness claim:** Odin does not claim production readiness.
 - **No security certification:** Odin does not claim security certification.
 - **No model benchmark:** Odin does not claim model performance benchmarks or comparative performance.
@@ -290,7 +290,7 @@ GPL-2.0-only. Odin Agent Shell is GPL-2.0-only. See [LICENSE](LICENSE), [LICENSE
 
 ## Historical Canon Lock Trail
 
-This section preserves historical lock trail markers for validation continuity. These are historical records, not current public truth. Current public truth is the v1.0 candidate release closure described above.
+This section preserves historical lock trail markers for validation continuity. These are historical records, not current public truth. Current public truth is v1.0.0 prepared_not_released as described above.
 
 ```text
 Current handoff: v0.8.7 CODEX_REAL_PR_HANDOFF_LADDER_LOCK
@@ -299,7 +299,7 @@ Actual Codex/GitHub PR ladder: REAL-GH-PR-01..08
 Internal traceability ladders: PR-00..PR-123 and REAL-PR-01..28 only
 ```
 
-This is the current public repo canon entry point, now superseded by the v1.0 candidate release closure above. Providers are bounded workers, not authority. QIRC / Internal Semantic Bus is trace, receipt, and coordination infrastructure, not app-state authority. App-owned apply: apps own state, external sends, and domain truth.
+This is the current public repo canon entry point, now superseded by the v1.0.0 prepared_not_released posture above. Providers are bounded workers, not authority. QIRC / Internal Semantic Bus is trace, receipt, and coordination infrastructure, not app-state authority. App-owned apply: apps own state, external sends, and domain truth.
 
 Historical lock milestones (preserved for traceability, not current release status):
 

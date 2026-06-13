@@ -1,7 +1,7 @@
 {
   "artifact_kind": "odin_file_manifest",
   "claim_boundary": "manifest_records_repository_files_not_runtime_proof",
-  "file_count_excluding_manifest": 2199,
+  "file_count_excluding_manifest": 2206,
   "files": [
     {
       "path": ".claude/agents/senior-code-reviewer.md",
@@ -85,8 +85,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "652a5c2dc9d1b3910994e2ba70d9b3f6d965b7b01f6299f1c7d321f1b2fc5e7e",
-      "size": 13179
+      "sha256": "b3c1a44dd3f3baa781fd5da16e8e7788db9474aeda31ea147314f43fcfc0042a",
+      "size": 13324
     },
     {
       "path": "SECURITY.md",
@@ -105,8 +105,8 @@
     },
     {
       "path": "SYSTEM_MAP.json",
-      "sha256": "1cd10e744c1c527a69ebb8afcfa3404219a9b794b01824aeae80c6e7a23d736c",
-      "size": 127381
+      "sha256": "eecd48399b3ba7ad8e764569dcb31c801085190c54952a58f02f3a7711792da2",
+      "size": 128459
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -2524,6 +2524,11 @@
       "size": 21713
     },
     {
+      "path": "docs/codex/reports/PR56_V1_0_0_VERSION_SYNC_RETURN_REPORT.md",
+      "sha256": "29e15878283f57f839e62ee5359eafd5d49df175d4ea4a6d9d0d22eb21342786",
+      "size": 1766
+    },
+    {
       "path": "docs/codex/reports/PREP_FINAL_PR_06_08_RETURN_REPORT.md",
       "sha256": "71b7cf3a04a6c354aa7aa224c6c145c2fea62ebae4d5b48103165198437f47f9",
       "size": 5236
@@ -3537,6 +3542,21 @@
       "path": "docs/release/FINAL_PR_13_V1_RELEASE_TRUTH.md",
       "sha256": "53b506f898d64ec0193de8b53f26e7679f5673e587062b2721627800bee3e0d5",
       "size": 1917
+    },
+    {
+      "path": "docs/release/V1_0_0_EXTERNAL_RELEASE_PREP.md",
+      "sha256": "9b5688090461d793257066102a0a10faa1bd959ae81ca0911011fd19e592e737",
+      "size": 1522
+    },
+    {
+      "path": "docs/release/V1_0_0_MANUAL_RELEASE_CHECKLIST.md",
+      "sha256": "7cf0c02981606359a77f5c9a2791776c5142cadd3a2b7dbf403a332e88d96b1e",
+      "size": 818
+    },
+    {
+      "path": "docs/release/V1_0_0_RELEASE_NOTES_DRAFT.md",
+      "sha256": "817d38b0f533b8e4d99dfdbacaa4ea6bab8d325561fa5c94a722336cdbcf9bf4",
+      "size": 1203
     },
     {
       "path": "docs/reviews/SENIOR_REVIEW_SIMULATION_V0_4_2.md",
@@ -5120,8 +5140,8 @@
     },
     {
       "path": "odin/cli.py",
-      "sha256": "bd07c14f91b1a9f5a6cd9357fb70547bb42395d9f5b2e47dc82e9b8f3a945b1f",
-      "size": 265040
+      "sha256": "e32dd0d8b7d37149c84998b422fb0c607b31819e6b41794b3b49cdc077d9995e",
+      "size": 267440
     },
     {
       "path": "odin/command_surface_closure/__init__.py",
@@ -7210,8 +7230,8 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "b44786b0f00c14203229f343581e1a9d285da22f1643b120ade78dea3f33fa14",
-      "size": 635
+      "sha256": "e67e97f49ab09585356dd9d8db2c6a266a70ca8846115d2985f020f9b8199348",
+      "size": 663
     },
     {
       "path": "registries/acceptance_gates.json",
@@ -8762,6 +8782,11 @@
       "path": "reports/insert_y_pattern_spine_source_pattern_mine_audit.json",
       "sha256": "8eda5f563ede0462093c66057b1c53f3148ebef3fcf820b004ae4a9bcddd9639",
       "size": 1732
+    },
+    {
+      "path": "reports/pr56_v1_0_0_version_sync_report.json",
+      "sha256": "84980195bc4376c2b706f6f22f36ab16ec1449cfe1dc1d7fb30b50132e097460",
+      "size": 500
     },
     {
       "path": "reports/pre_release_super_audit_architecture_conformance.json",
@@ -10589,6 +10614,11 @@
       "size": 2900
     },
     {
+      "path": "tests/test_pr56_v1_0_0_version_sync.py",
+      "sha256": "965fe6640bb44dd946a0ae7319086a17402684f657916b5a4b1fa59d9d3d65e0",
+      "size": 3924
+    },
+    {
       "path": "tests/test_pre_llm_intelligence_amplification.py",
       "sha256": "4896c3df2df97a4d5f20d823a63d34d1b35f78f3a35b0a5744771694847d79dd",
       "size": 1387
@@ -10857,6 +10887,11 @@
       "path": "tools/rebaseline/check_final_road_to_100_rebaseline_audit.py",
       "sha256": "b5ce2bc13e94575ae21e0f46b13bcf6f46aaef4d3a8657cbf9bf1e6851a4b1c0",
       "size": 26667
+    },
+    {
+      "path": "tools/rebaseline/check_pr56_v1_0_0_version_sync.py",
+      "sha256": "fbd3a01fd4627e5825e83d3215c50861a4fedf33df4ab6e8c7da15903c158be2",
+      "size": 6486
     },
     {
       "path": "tools/rebaseline/check_prep_final_pr_06_08.py",

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "odin-agent-shell"
-version = "0.5.1"
-description = "Odin Agent Shell v7.1 repo prep full shadow runtime coverage and validation scaffold"
+version = "1.0.0"
+description = "Local-first candidate-work kernel for bounded AI coordination, receipt discipline, and app-owned apply workflows"
 requires-python = ">=3.10"
 dependencies = []
 
